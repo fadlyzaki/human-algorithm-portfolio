@@ -1,0 +1,42 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Import Pages
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import SystemManifest from './pages/SystemManifest';
+import ResearchCaseStudy from './pages/ResearchCaseStudy';
+import VisualCaseStudy from './pages/VisualCaseStudy';
+import ProtectedCaseStudy from './pages/ProtectedCaseStudy';
+import SideProjectDetail from './pages/SideProjectDetail';
+import BlogPost from './pages/BlogPost';
+import NotFound from './pages/NotFound';
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Core Routes */}
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/cv" element={<SystemManifest />} />
+        
+        {/* Case Studies (Dynamic ID for future scaling, static for MVP) */}
+        <Route path="/case-study/research" element={<ResearchCaseStudy />} />
+        <Route path="/case-study/visual" element={<VisualCaseStudy />} />
+        <Route path="/case-study/protected" element={<ProtectedCaseStudy />} />
+        
+        {/* Detail Pages */}
+        <Route path="/side-project/:id" element={<SideProjectDetail />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
+        
+        {/* 404 Catch-All */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
