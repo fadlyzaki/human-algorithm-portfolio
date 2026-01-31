@@ -296,7 +296,7 @@ const Portfolio = () => {
       <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
       {/* Main Container */}
-      <main className="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-24 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-backdrop)] backdrop-blur-sm transition-colors duration-500">
+      <main className="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-24 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-backdrop)] backdrop-blur-sm transition-colors duration-500 overflow-x-hidden">
         <div className="fade-in pt-12">
 
           {/* Top System Status / Running Ticker */}
@@ -365,10 +365,25 @@ const Portfolio = () => {
             </ScrollReveal>
           </section>
 
-          {/* SECTION 1: SIDE PROJECTS */}
+          {/* SECTION 1: WORK */}
+          <section id="work" className="mb-40 scroll-mt-24">
+            <ScrollReveal>
+              <SectionTitle number="1" title="WORK" />
+            </ScrollReveal>
+
+            <div className="space-y-16">
+              {WORK_CLUSTERS.map((cluster, idx) => (
+                <ScrollReveal key={idx} delay={idx * 150}>
+                  <WorkClusterCard cluster={cluster} />
+                </ScrollReveal>
+              ))}
+            </div>
+          </section>
+
+          {/* SECTION 2: SIDE PROJECTS */}
           <section className="mb-40">
             <ScrollReveal>
-              <SectionTitle number="1" title="SIDE PROJECTS" link="/side-projects" linkText="VIEW EXPERIMENTS" />
+              <SectionTitle number="2" title="SIDE PROJECTS" link="/side-projects" linkText="VIEW EXPERIMENTS" />
             </ScrollReveal>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -424,21 +439,6 @@ const Portfolio = () => {
                   OPEN FULL ARCHIVE <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </ScrollReveal>
-            </div>
-          </section>
-
-          {/* SECTION 2: WORK */}
-          <section id="work" className="mb-40 scroll-mt-24">
-            <ScrollReveal>
-              <SectionTitle number="2" title="WORK" />
-            </ScrollReveal>
-
-            <div className="space-y-16">
-              {WORK_CLUSTERS.map((cluster, idx) => (
-                <ScrollReveal key={idx} delay={idx * 150}>
-                  <WorkClusterCard cluster={cluster} />
-                </ScrollReveal>
-              ))}
             </div>
           </section>
 
