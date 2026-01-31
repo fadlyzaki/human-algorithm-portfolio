@@ -6,7 +6,7 @@ import {
   MapPin, Coffee, Sun, Moon, X, Grid, Activity, Users,
   Heart, PenTool, Languages, Video, ScanEye, FileJson,
   CalendarClock, ExternalLink, Layers, Smartphone, Filter, Siren,
-  FileSearch, Utensils, LayoutGrid
+  FileSearch, Utensils, LayoutGrid, Archive
 } from 'lucide-react';
 import DraggablePhoto from '../components/DraggablePhoto';
 import { useTheme } from '../context/ThemeContext';
@@ -360,37 +360,56 @@ const Portfolio = () => {
           <section className="mb-40">
             <SectionTitle number="1" title="SIDE PROJECTS" link="/side-projects" linkText="VIEW EXPERIMENTS" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               {/* Editorial Column */}
-              <div className="space-y-12">
+              <div className="space-y-10">
                 {homeSideProjects.map((item, i) => (
-                  <div key={i} className="group cursor-pointer" onClick={() => navigate(`/side-project/${item.id}`)}>
-                    <div className="aspect-[4/3] bg-[var(--bg-card)] border border-[var(--border-color)] mb-6 overflow-hidden relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-void)] opacity-50 group-hover:scale-105 transition-transform duration-700"></div>
-                      {/* Minimal Icon Overlay */}
-                      <div className="absolute bottom-4 left-4 font-mono text-xs text-[var(--text-secondary)]">0{i + 1}</div>
-                      <div className="absolute top-4 right-4 text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
-                        <ArrowRight size={20} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                  <div
+                    key={i}
+                    className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-xl overflow-hidden"
+                    onClick={() => navigate(`/side-project/${item.id}`)}
+                  >
+                    {/* Dynamic Background Hover Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--accent-blue)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+                    <div className="flex justify-between items-start mb-6 relative z-10">
+                      <span className="font-mono text-xs text-[var(--accent-blue)] border border-[var(--accent-blue)]/30 px-2 py-1 rounded bg-[var(--accent-blue)]/5">
+                        EXP_0{i + 1}
+                      </span>
+                      <ArrowUpRight size={20} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                    </div>
+
+                    <div className="relative z-10">
+                      <h3 className="text-3xl font-serif italic text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent-blue)] transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-[var(--text-secondary)] font-light leading-relaxed mb-6">
+                        {item.desc}
+                      </p>
+
+                      <div className="flex gap-2 flex-wrap">
+                        {item.stack.map((tech, tIdx) => (
+                          <span key={tIdx} className="text-[10px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)]">
+                            {tech}
+                          </span>
+                        ))}
                       </div>
                     </div>
-                    <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-blue)] transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-[var(--text-secondary)] font-light max-w-sm">
-                      {item.desc}
-                    </p>
                   </div>
                 ))}
               </div>
 
               {/* Call to Action Block */}
               <div className="flex flex-col justify-center items-start border-l border-[var(--border-color)] pl-12">
-                <h3 className="text-3xl font-serif italic text-[var(--text-primary)] mb-6">Archive Access</h3>
-                <p className="text-[var(--text-secondary)] mb-8 max-w-xs">
-                  Explore the full database of experiments, prototypes, and failed ideas.
-                </p>
-                <Link to="/side-projects" className="px-8 py-4 border border-[var(--text-primary)] text-[var(--text-primary)] font-mono text-xs uppercase tracking-widest hover:bg-[var(--text-primary)] hover:text-[var(--text-inverse)] transition-all">
-                  OPEN ARCHIVE
+                <div className="mb-8 p-6 bg-[var(--bg-card)] border border-[var(--border-color)] shadow-sm rotate-1">
+                  <Archive size={32} className="text-[var(--text-primary)] mb-4" />
+                  <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2">The Archive</h3>
+                  <p className="text-[var(--text-secondary)] text-sm max-w-xs font-light">
+                    A collection of 20+ prototypes, failed experiments, and weekend hacks.
+                  </p>
+                </div>
+                <Link to="/side-projects" className="group flex items-center gap-3 px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-xs uppercase tracking-widest hover:bg-[var(--accent-blue)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                  OPEN FULL ARCHIVE <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>
@@ -461,27 +480,71 @@ const Portfolio = () => {
                   </p>
                 </div>
 
-                {/* Personal Interests... same as before */}
+                {/* Personal Interests / Runtime Modules */}
+                <div className="space-y-6">
+                  <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest flex items-center gap-2">
+                    <Activity size={14} /> Personal Interests
+                  </h4>
+
+                  <div className="space-y-4">
+                    {[
+                      { label: "Community Building", val: "Active", icon: Users },
+                      { label: "Design Systems", val: "Obsessed", icon: PenTool },
+                      { label: "Analog Photography", val: "Learning", icon: ScanEye },
+                      { label: "Sci-Fi Literature", val: "Reading", icon: BookOpen }
+                    ].map((interest, i) => (
+                      <div key={i} className="flex items-center justify-between p-3 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-colors group">
+                        <div className="flex items-center gap-3">
+                          <interest.icon size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] transition-colors" />
+                          <span className="text-sm text-[var(--text-primary)]">{interest.label}</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-void)] px-2 py-1 rounded">
+                          {interest.val}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
           </section>
 
           {/* SECTION 4: NOTES */}
           <section id="notes" className="mb-40 scroll-mt-24">
             <SectionTitle number="4" title="NOTES" />
-            {/* Notes content... (simplified for this overwrite, assuming static list for now) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Note 1 */}
-              <div onClick={() => navigate('/blog/log-001')} className="group bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)] p-8 transition-all flex flex-col justify-between h-64 hover:-translate-y-1 duration-300 shadow-lg cursor-pointer">
-                <div>
-                  <div className="flex justify-between items-start mb-6">
-                    <BookOpen size={20} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] transition-colors" />
-                    <span className="font-mono text-[10px] text-[var(--text-secondary)] border border-[var(--border-tag)] px-2 py-1 rounded">LOG_1</span>
+              <div onClick={() => navigate('/blog/log-001')} className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl cursor-pointer h-80 flex flex-col justify-between overflow-hidden">
+                {/* Gradient Hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--accent-blue)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-8">
+                    <span className="font-mono text-[10px] text-[var(--accent-blue)] border border-[var(--accent-blue)]/30 px-2 py-1 rounded bg-[var(--accent-blue)]/5">
+                      LOG_001
+                    </span>
+                    <ArrowUpRight size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </div>
-                  <h4 className="font-serif italic text-xl text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors leading-snug">Why Reducing Steps Is Better Than Adding Delight</h4>
+                  <h4 className="font-serif italic text-2xl text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors leading-tight mb-4">
+                    Why Reducing Steps Is Better Than Adding Delight
+                  </h4>
+                  <p className="text-sm text-[var(--text-secondary)] line-clamp-3 leading-relaxed">
+                    Delight is often a mask for poor usability. In this log, I explore why removing friction is the highest form of respect for the user.
+                  </p>
+                </div>
+
+                <div className="relative z-10 flex items-center gap-2 text-xs font-mono text-[var(--text-secondary)] opacity-60 group-hover:opacity-100 transition-opacity">
+                  <span>Jan 28, 2026</span>
+                  <span>•</span>
+                  <span>5 min read</span>
                 </div>
               </div>
-              {/* Add more notes here if needed */}
+
+              {/* Placeholder for future notes */}
+              <div className="bg-[var(--bg-surface)]/30 border border-[var(--border-color)] border-dashed p-8 flex flex-col justify-center items-center text-center h-80 opacity-60 hover:opacity-100 transition-opacity">
+                <PenTool size={32} className="text-[var(--text-secondary)] mb-4" />
+                <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">More logs incoming...</p>
+              </div>
             </div>
           </section>
 
