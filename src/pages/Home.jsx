@@ -774,7 +774,7 @@ const Portfolio = () => {
 
           {/* CONTENT/WRITING */}
           <section id="notes" className="mb-40 scroll-mt-24">
-            <SectionTitle number="6" title="NOTES" />
+            <SectionTitle number="4" title="NOTES" />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {writings.map((post, idx) => (
