@@ -533,51 +533,54 @@ const Portfolio = () => {
           <section className="mb-40">
             <SectionTitle number="1" title="ACTIVE DAEMONS" />
 
-            <p className="text-[var(--text-secondary)] text-lg mb-12 max-w-2xl">
-              Background processes running in parallel. Active experiments to keep the creative logic sharp.
-            </p>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 auto-rows-[120px]">
-              {/* 1. Worksheets (Active) - Large 2x2 */}
-              <div onClick={() => navigate('/side-project/d1')} className="col-span-2 row-span-2 bg-[var(--bg-card)] border border-[var(--border-color)] p-5 flex flex-col justify-between hover:border-[var(--text-primary)] transition-colors group bg-gradient-to-br from-transparent to-[var(--accent-green)]/10 cursor-pointer">
-                <div className="flex justify-between items-start"><FileJson size={24} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" /><span className="font-mono text-[10px] text-[var(--accent-green)] border border-[var(--accent-green)] px-1 rounded">v1.0 (Stable)</span></div>
-                <div><h4 className="font-mono text-lg text-[var(--text-primary)] mb-2 font-bold leading-tight">Interactive Workbook</h4><p className="text-sm text-[var(--text-secondary)] leading-relaxed">Bimbel Geera Platform. Solving the 'feedback loop' problem in non-formal education via real-time Firestore sync.</p></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Editorial Column 1 */}
+              <div className="space-y-12">
+                {[
+                  { id: 'd1', title: 'Interactive Workbook', desc: 'Solving the "feedback loop" in non-formal education.', link: '/side-project/d1' },
+                  { id: 'd3', title: 'Year in Review', desc: 'Privacy-first life analytics. Zero algorithms.', link: '/side-project/d3' }
+                ].map((item, i) => (
+                  <div key={i} className="group cursor-pointer" onClick={() => navigate(item.link)}>
+                    <div className="aspect-[4/3] bg-[var(--bg-card)] border border-[var(--border-color)] mb-6 overflow-hidden relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-void)] opacity-50 group-hover:scale-105 transition-transform duration-700"></div>
+                      {/* Minimal Icon Overlay */}
+                      <div className="absolute bottom-4 left-4 font-mono text-xs text-[var(--text-secondary)]">0{i + 1}</div>
+                      <div className="absolute top-4 right-4 text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
+                        <ArrowRight size={20} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                      </div>
+                    </div>
+                    <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-blue)] transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-[var(--text-secondary)] font-light max-w-sm">
+                      {item.desc}
+                    </p>
+                  </div>
+                ))}
               </div>
 
-              {/* 2. Year in Review (Active) - Wide 2x1 */}
-              <div onClick={() => navigate('/side-project/d3')} className="col-span-2 row-span-1 bg-[var(--bg-card)] border border-[var(--border-color)] p-5 flex flex-col justify-between hover:border-[var(--text-primary)] transition-colors group bg-gradient-to-br from-transparent to-[var(--accent-blue)]/10 cursor-pointer">
-                <div className="flex justify-between items-start"><CalendarClock size={24} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" /><span className="font-mono text-[10px] text-[var(--accent-blue)] border border-[var(--accent-blue)] px-1 rounded">Live Proto</span></div>
-                <div><h4 className="font-mono text-sm text-[var(--text-primary)] mb-1 font-bold">Year in Review Generator</h4><p className="text-xs text-[var(--text-secondary)]">Privacy-first visualization tool for 'untracked' life data.</p></div>
-              </div>
-
-              {/* 3. FilterMe (Archived) - 1x1 */}
-              <div onClick={() => navigate('/side-project/filter-me')} className="col-span-1 row-span-1 bg-[var(--bg-card)] border border-[var(--border-color)] p-5 flex flex-col justify-between hover:border-[var(--text-primary)] transition-colors group bg-gradient-to-br from-transparent to-[var(--accent-purple)]/10 cursor-pointer">
-                <div className="flex justify-between items-start"><Filter size={24} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" /><span className="font-mono text-[10px] text-[var(--text-secondary)] border border-[var(--text-secondary)] px-1 rounded">Archived</span></div>
-                <div><h4 className="font-mono text-sm text-[var(--text-primary)] mb-1 font-bold">FilterMe</h4><p className="text-xs text-[var(--text-secondary)]">AR Commerce.</p></div>
-              </div>
-
-              {/* 4. Grab Merantau (Planning) - 1x1 */}
-              <div onClick={() => navigate('/side-project/grab-merantau')} className="col-span-1 row-span-1 bg-[var(--bg-card)] border border-[var(--border-color)] p-5 flex flex-col justify-between hover:border-[var(--text-primary)] transition-colors group bg-gradient-to-br from-transparent to-[var(--accent-cyan)]/10 cursor-pointer">
-                <div className="flex justify-between items-start"><Utensils size={24} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" /><span className="font-mono text-[10px] text-[var(--text-secondary)] border border-[var(--text-secondary)] px-1 rounded">Planning</span></div>
-                <div><h4 className="font-mono text-sm text-[var(--text-primary)] mb-1 font-bold">Grab Merantau</h4><p className="text-xs text-[var(--text-secondary)]">Cross-City Food.</p></div>
-              </div>
-
-              {/* 5. Procurement (Planning) - Wide 2x1 */}
-              <div onClick={() => navigate('/side-project/procurement')} className="col-span-2 row-span-1 bg-[var(--bg-card)] border border-[var(--border-color)] p-5 flex items-center justify-between hover:border-[var(--text-primary)] transition-colors group bg-gradient-to-br from-transparent to-[var(--accent-red)]/10 cursor-pointer">
-                <div>
-                  <h4 className="font-mono text-sm text-[var(--text-primary)] mb-1 font-bold">Procurement Reform</h4>
-                  <p className="text-xs text-[var(--text-secondary)]">Civic Tech Action Plan.</p>
-                </div>
-                <FileSearch size={24} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" />
-              </div>
-
-              {/* 6. Flood Alert (Planning) - Wide 2x1 */}
-              <div onClick={() => navigate('/side-project/flood-alert')} className="col-span-2 row-span-1 bg-[var(--bg-card)] border border-[var(--border-color)] p-5 flex items-center justify-between hover:border-[var(--text-primary)] transition-colors group bg-gradient-to-br from-transparent to-[var(--accent-red)]/10 cursor-pointer">
-                <div>
-                  <h4 className="font-mono text-sm text-[var(--text-primary)] mb-1 font-bold">Flood Alert</h4>
-                  <p className="text-xs text-[var(--text-secondary)]">Geospatial Disaster Response.</p>
-                </div>
-                <Siren size={24} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]" />
+              {/* Editorial Column 2 (Offset) */}
+              <div className="space-y-12 md:mt-24">
+                {[
+                  { id: 'filter-me', title: 'FilterMe: AR Commerce', desc: 'Can AR filters replace physical touch?', link: '/side-project/filter-me' },
+                  { id: 'grab-merantau', title: 'Grab Merantau', desc: 'Cross-city emotional wiring for the diaspora.', link: '/side-project/grab-merantau' }
+                ].map((item, i) => (
+                  <div key={i} className="group cursor-pointer" onClick={() => navigate(item.link)}>
+                    <div className="aspect-[4/3] bg-[var(--bg-card)] border border-[var(--border-color)] mb-6 overflow-hidden relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-void)] opacity-50 group-hover:scale-105 transition-transform duration-700"></div>
+                      <div className="absolute bottom-4 left-4 font-mono text-xs text-[var(--text-secondary)]">0{i + 3}</div>
+                      <div className="absolute top-4 right-4 text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
+                        <ArrowRight size={20} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                      </div>
+                    </div>
+                    <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-blue)] transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-[var(--text-secondary)] font-light max-w-sm">
+                      {item.desc}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
