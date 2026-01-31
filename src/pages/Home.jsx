@@ -168,40 +168,7 @@ const Portfolio = () => {
   const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const navigate = useNavigate();
-
-  // Filter for Home Page (Top 2 featured side projects)
-  const homeSideProjects = SIDE_PROJECTS.filter(p => p.featured).slice(0, 2);
-  const humanContext = [
-    { icon: MapPin, label: 'Location', value: 'Jakarta, Indonesia' },
-    { icon: BookOpen, label: 'Reading', value: 'The Design of Everyday Things' },
-    { icon: Headphones, label: 'Listening', value: 'Lo-Fi Beats for Coding' },
-  ];
-
-  // Dynamic Theme Variables
-  const themeStyles = {
-    '--bg-void': isDark ? '#111111' : '#F0F0F3',
-    '--bg-backdrop': isDark ? '#11111180' : '#F0F0F3CC',
-    '--bg-surface': isDark ? '#1F1F1F' : '#FFFFFF',
-    '--bg-card': isDark ? '#181818' : '#FFFFFF',
-    '--bg-tag': isDark ? '#111111' : '#F4F4F5',
-    '--bg-shine': isDark ? '#ffffff05' : '#00000005',
-
-    '--text-primary': isDark ? '#F4F4F5' : '#18181B',
-    '--text-secondary': isDark ? '#A1A1AA' : '#52525B',
-    '--text-inverse': isDark ? '#111111' : '#FFFFFF',
-
-    '--border-color': isDark ? '#262626' : '#E4E4E7',
-    '--border-tag': isDark ? '#222' : '#E4E4E7',
-
-    '--accent-amber': isDark ? '#F59E0B' : '#D97706',
-    '--accent-blue': isDark ? '#3B82F6' : '#2563EB',
-    '--accent-green': isDark ? '#10B981' : '#059669',
-    '--accent-red': isDark ? '#EF4444' : '#DC2626',
-
-    '--shadow-color': isDark ? 'rgba(0,0,0,0.5)' : 'rgba(0,0,0,0.05)'
-  };
+  const lastScrollY = React.useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -212,17 +179,20 @@ const Portfolio = () => {
       setScrolled((winScroll / height) * 100);
 
       // Smart Navbar Logic
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setShowNav(false); // Hide on scroll down
-      } else {
-        setShowNav(true); // Show on scroll up
+      // Only trigger if difference is substantial to avoid flicker
+      if (Math.abs(currentScrollY - lastScrollY.current) > 10) {
+        if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+          setShowNav(false); // Scrolling DOWN -> HIDE
+        } else {
+          setShowNav(true);  // Scrolling UP -> SHOW
+        }
+        lastScrollY.current = currentScrollY;
       }
-      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
