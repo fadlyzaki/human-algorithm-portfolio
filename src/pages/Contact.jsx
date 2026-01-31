@@ -20,7 +20,7 @@ const ContactPage = () => {
 
   // --- DATA ---
   const contactInfo = {
-    email: "hello@fadly.design",
+    email: "fadly.uzzaki@gmail.com",
     location: "Padang, West Sumatra, Indonesia",
     timezone: "GMT+7 (WIB)",
     availability: "OPEN_FOR_OPPORTUNITIES"
@@ -31,30 +31,30 @@ const ContactPage = () => {
     {
       category: "CORE_UPLINK (Professional)",
       items: [
-        { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com/in/fadlyuzzaki", color: "hover:text-blue-500" },
-        { name: "Dribbble", icon: Dribbble, url: "https://dribbble.com", color: "hover:text-pink-500" },
-        { name: "Notion", icon: FileText, url: "https://notion.so", color: "hover:text-gray-500" }
+        { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/fadlyzaki/", color: "hover:text-blue-500" },
+        { name: "Dribbble", icon: Dribbble, url: "https://dribbble.com/fadlyzaki", color: "hover:text-pink-500" },
+        { name: "GitHub", icon: FileText, url: "https://github.com/fadlyzaki/", color: "hover:text-gray-500" }
       ]
     },
     {
       category: "BROADCAST_LAYER (Social)",
       items: [
-        { name: "Twitter / X", icon: Twitter, url: "https://x.com", color: "hover:text-sky-500" },
-        { name: "Instagram", icon: Instagram, url: "https://instagram.com", color: "hover:text-purple-500" },
-        { name: "Facebook", icon: Facebook, url: "https://facebook.com", color: "hover:text-blue-600" }
+        { name: "Twitter / X", icon: Twitter, url: "https://x.com/Fadlyzaki", color: "hover:text-sky-500" },
+        { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/fadlyzaki", color: "hover:text-purple-500" },
+        { name: "Facebook", icon: Facebook, url: "https://web.facebook.com/fadly.uzzaki", color: "hover:text-blue-600" }
       ]
     },
     {
       category: "DATA_LOGS (Writing)",
       items: [
-        { name: "Medium", icon: BookOpen, url: "https://medium.com", color: "hover:text-green-500" },
-        { name: "Substack", icon: PenTool, url: "https://substack.com", color: "hover:text-orange-500" }
+        { name: "Medium", icon: BookOpen, url: "https://medium.com/@fadlyzaki", color: "hover:text-green-500" },
+        { name: "Substack", icon: PenTool, url: "https://substack.com/@fadlyzaki?", color: "hover:text-orange-500" }
       ]
     },
     {
       category: "TELEMETRY (Physical)",
       items: [
-        { name: "Strava", icon: Activity, url: "https://strava.com", color: "hover:text-orange-600" }
+        { name: "Strava", icon: Activity, url: "https://www.strava.com/athletes/129304799", color: "hover:text-orange-600" }
       ]
     }
   ];

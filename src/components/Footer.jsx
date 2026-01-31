@@ -24,10 +24,10 @@ const Footer = () => {
                 </h2>
 
                 <a
-                    href="mailto:hello@fadlyzaki.com"
+                    href="mailto:fadly.uzzaki@gmail.com"
                     className="inline-flex items-center gap-2 text-lg md:text-xl font-mono uppercase tracking-wide border-b border-[var(--text-primary)] pb-1 hover:text-[var(--text-secondary)] hover:border-[var(--text-secondary)] transition-all group"
                 >
-                    hello@fadlyzaki.com
+                    fadly.uzzaki@gmail.com
                     <ArrowUpRight size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </a>
             </div>
@@ -48,10 +48,10 @@ const Footer = () => {
                 {/* COL 2: SOCIALS */}
                 <div className="flex flex-col gap-4">
                     <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">Connect</h4>
-                    <a href="https://linkedin.com/in/fadlyzaki" target="_blank" rel="noreferrer" className="hover:underline text-sm">LinkedIn</a>
-                    <a href="https://instagram.com/fadlyzaki" target="_blank" rel="noreferrer" className="hover:underline text-sm">Instagram</a>
+                    <a href="https://www.linkedin.com/in/fadlyzaki/" target="_blank" rel="noreferrer" className="hover:underline text-sm">LinkedIn</a>
+                    <a href="https://www.instagram.com/fadlyzaki" target="_blank" rel="noreferrer" className="hover:underline text-sm">Instagram</a>
                     <a href="https://dribbble.com/fadlyzaki" target="_blank" rel="noreferrer" className="hover:underline text-sm">Dribbble</a>
-                    <a href="https://github.com/fadlyzaki" target="_blank" rel="noreferrer" className="hover:underline text-sm">GitHub</a>
+                    <a href="https://github.com/fadlyzaki/" target="_blank" rel="noreferrer" className="hover:underline text-sm">GitHub</a>
                 </div>
 
                 {/* COL 3: CONTEXT */}

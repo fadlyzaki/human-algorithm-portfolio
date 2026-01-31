@@ -10,7 +10,7 @@ export const SIDE_PROJECTS = [
             approach: "A bilingual interface that syncs student inputs to a teacher dashboard in real-time. It’s not just a quiz app; it’s a digital workbook that respects the classroom workflow."
         },
         stack: ["React", "Firebase", "Tailwind CSS"],
-        links: { demo: "https://buku-kerja-interaktif.web.app/", repo: "github.com/fadly/interactive-workbook" },
+        links: { demo: "https://buku-kerja-interaktif.web.app/", repo: "github.com/fadlyzaki/interactive-workbook" },
         featured: true
     },
     {
@@ -24,7 +24,7 @@ export const SIDE_PROJECTS = [
             approach: "A purely client-side generator. Upload JSON/CSV, pick from 12 editorial themes, and export high-res images. No database, just design tools."
         },
         stack: ["React", "TypeScript", "Canvas API"],
-        links: { demo: "https://year-in-review-jak.vercel.app/", repo: "github.com/fadly/manual-wrapped" },
+        links: { demo: "https://year-in-review-jak.vercel.app/", repo: "github.com/fadlyzaki/manual-wrapped" },
         featured: true
     },
     {
@@ -66,7 +66,7 @@ export const SIDE_PROJECTS = [
             approach: "Integrates BMKG/PetaBencana data for zero-blindspot alerting and safety-aware evacuation routing using PostGIS queries."
         },
         stack: ["Node.js", "PostGIS", "Flutter"],
-        links: { demo: "flood.fadly.design", repo: "github.com/fadly/flood-alert" },
+        links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
         featured: false
     },
     {
@@ -80,7 +80,7 @@ export const SIDE_PROJECTS = [
             approach: "Combines 'Red Flag' data scraping with Offline-First PWA architectures to ensure accessibility in remote areas."
         },
         stack: ["Python", "Pandas", "PWA"],
-        links: { demo: "medium.com/procurement", repo: "github.com/fadly/procurement" },
+        links: { demo: "medium.com/procurement", repo: "github.com/fadlyzaki/procurement" },
         featured: false
     }
 ];
