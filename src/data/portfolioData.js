@@ -89,6 +89,7 @@ export const WORK_CLUSTERS = [
     {
         id: 'workforce',
         title: 'THE WORKFORCE ECOSYSTEM',
+        company: 'Lumina',
         subtitle: 'Humanizing Ops',
         brandColor: '#1AA8B4', // Lumina Teal
         heroImage: '/workforce_hero.png',
@@ -286,6 +287,7 @@ export const WORK_CLUSTERS = [
     {
         id: 'commerce',
         title: 'THE COMMERCE ENGINE',
+        company: 'GudangAda',
         subtitle: 'Managing Scale',
         brandColor: '#00D1C7', // GudangAda Cyan
         heroImage: '/commerce_hero.png',
@@ -465,6 +467,7 @@ export const WORK_CLUSTERS = [
     {
         id: 'efficiency',
         title: 'OPERATIONAL EFFICIENCY',
+        company: 'STOQO',
         subtitle: 'Digitizing Habits',
         brandColor: '#FA6130', // Stoqo Orange
         heroImage: '/efficiency_hero.png',

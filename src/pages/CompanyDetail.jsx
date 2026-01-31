@@ -50,7 +50,9 @@ const CompanyDetail = () => {
                     <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
                     Back to Index
                 </Link>
-                <div className="font-mono text-xs text-[var(--text-secondary)]">Case Study: {cluster.id.toUpperCase()}</div>
+                <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
+                    {cluster.company} Case Study
+                </div>
             </nav>
 
             <main className="relative z-10 w-full">
@@ -65,7 +67,7 @@ const CompanyDetail = () => {
                                 <div className="flex items-center gap-3 mb-6">
                                     <div className="h-px w-8 bg-[var(--brand)]"></div>
                                     <span className="text-[var(--brand)] font-mono text-xs uppercase tracking-[0.2em]">
-                                        {cluster.title}
+                                        {cluster.company} — {cluster.title}
                                     </span>
                                 </div>
                                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif italic mb-8 leading-[0.9] tracking-tight">
