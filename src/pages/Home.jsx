@@ -6,7 +6,8 @@ import {
   MapPin, Coffee, Sun, Moon, X, Grid, Activity, Users,
   Heart, PenTool, Languages, Video, ScanEye, FileJson,
   CalendarClock, ExternalLink, Layers, Smartphone, Filter, Siren,
-  FileSearch, Utensils, LayoutGrid, Archive, ArrowUpRight, Linkedin, Instagram, Dribbble
+  FileSearch, Utensils, LayoutGrid, Archive, ArrowUpRight, Linkedin, Instagram, Dribbble,
+  MessageSquare, MessageCircle, ShoppingBag, ShieldCheck, Tag, Box, Truck, Trophy, Scan, Layout, AlertTriangle, Monitor
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import DraggablePhoto from '../components/DraggablePhoto';
@@ -14,6 +15,18 @@ import ScrollReveal from '../components/ScrollReveal';
 import { useTheme } from '../context/ThemeContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import { SIDE_PROJECTS, WORK_CLUSTERS } from '../data/portfolioData';
+
+// --- HELPERS ---
+const IconMapper = ({ iconName, ...props }) => {
+  const icons = {
+    Terminal, Cpu, BookOpen, GitCommit, Users, Heart, PenTool, Activity,
+    MessageSquare, MessageCircle, ShoppingBag, ShieldCheck, Tag, Box,
+    Truck, Trophy, Scan, Layout, Calendar: CalendarClock, FileText, AlertTriangle,
+    Layers, Smartphone, Languages, Video, ScanEye, User, Mail, Monitor
+  };
+  const IconComponent = icons[iconName] || GitCommit;
+  return <IconComponent {...props} />;
+};
 
 // --- COMPONENTS ---
 
@@ -94,7 +107,7 @@ const WorkClusterCard = ({ cluster }) => {
             {topProjects.map((p, i) => (
               <div key={i} className="flex items-center justify-between text-sm group/item border-b border-[var(--border-color)] last:border-0 pb-3 last:pb-0 border-dashed">
                 <div className="flex items-center gap-3">
-                  <GitCommit size={14} className="text-[var(--text-secondary)] group-hover/item:text-[var(--brand)] transition-colors" />
+                  <IconMapper iconName={p.iconName} size={14} className="text-[var(--text-secondary)] group-hover/item:text-[var(--brand)] transition-colors" />
                   <span className="text-[var(--text-primary)] font-medium group-hover/item:text-[var(--text-primary)]">
                     {p.title}
                   </span>
@@ -393,9 +406,12 @@ const Portfolio = () => {
                       <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--accent-blue)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
                       <div className="flex justify-between items-start mb-6 relative z-10">
-                        <span className="font-mono text-xs text-[var(--accent-blue)] border border-[var(--accent-blue)]/30 px-2 py-1 rounded-lg bg-[var(--accent-blue)]/5">
-                          EXP_0{i + 1}
-                        </span>
+                        <div className="flex items-center gap-3">
+                          <IconMapper iconName={item.iconName} size={20} className="text-[var(--accent-blue)]" />
+                          <span className="font-mono text-xs text-[var(--accent-blue)] border border-[var(--accent-blue)]/30 px-2 py-1 rounded-lg bg-[var(--accent-blue)]/5">
+                            EXP_0{i + 1}
+                          </span>
+                        </div>
                         <ArrowUpRight size={20} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
                       </div>
 

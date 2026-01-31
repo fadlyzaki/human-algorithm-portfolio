@@ -11,6 +11,7 @@ export const SIDE_PROJECTS = [
         },
         stack: ["React", "Firebase", "Tailwind CSS"],
         links: { demo: "https://buku-kerja-interaktif.web.app/", repo: "github.com/fadlyzaki/interactive-workbook" },
+        iconName: 'BookOpen',
         featured: true
     },
     {
@@ -25,6 +26,7 @@ export const SIDE_PROJECTS = [
         },
         stack: ["React", "TypeScript", "Canvas API"],
         links: { demo: "https://year-in-review-jak.vercel.app/", repo: "github.com/fadlyzaki/manual-wrapped" },
+        iconName: 'Calendar',
         featured: true
     },
     {
@@ -39,6 +41,7 @@ export const SIDE_PROJECTS = [
         },
         stack: ["Sketch", "Principle", "AR Design"],
         links: { demo: "#", repo: "#" },
+        iconName: 'Camera',
         featured: false
     },
     {
@@ -53,6 +56,7 @@ export const SIDE_PROJECTS = [
         },
         stack: ["UX Research", "Figma", "AI Concept"],
         links: { demo: "#", repo: "#" },
+        iconName: 'Heart',
         featured: false
     },
     {
@@ -67,6 +71,7 @@ export const SIDE_PROJECTS = [
         },
         stack: ["Node.js", "PostGIS", "Flutter"],
         links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
+        iconName: 'AlertTriangle',
         featured: false
     },
     {
@@ -81,6 +86,7 @@ export const SIDE_PROJECTS = [
         },
         stack: ["Python", "Pandas", "PWA"],
         links: { demo: "medium.com/procurement", repo: "github.com/fadlyzaki/procurement" },
+        iconName: 'FileText',
         featured: false
     }
 ];
@@ -105,6 +111,7 @@ export const WORK_CLUSTERS = [
                 timeline: '3 Months',
                 route: '/case-study/p1',
                 previewImage: '/workforce_hero.png',
+                iconName: 'MessageSquare',
                 details: {
                     problem: 'Recruiters struggled to track 200+ candidate conversations per day.',
                     system: 'Built a low-friction, latency-friendly chat architecture.',
@@ -159,6 +166,7 @@ export const WORK_CLUSTERS = [
                 timeline: '4 Months',
                 route: '/case-study/p2',
                 previewImage: '/workforce_hero.png',
+                iconName: 'Users',
                 details: {
                     problem: 'Data fragmentation across spreadsheets.',
                     system: 'Unified dashboard with drag-and-drop pipelines.',
@@ -211,6 +219,7 @@ export const WORK_CLUSTERS = [
                 timeline: '2 Months',
                 route: '/case-study/p3',
                 previewImage: '/workforce_hero.png',
+                iconName: 'MessageCircle',
                 details: {
                     problem: 'Candidates intimidated by formal applications.',
                     system: 'WhatsApp-like interface for formal requests.',
@@ -263,6 +272,7 @@ export const WORK_CLUSTERS = [
                 timeline: 'Ongoing',
                 route: '/case-study/p4',
                 previewImage: '/workforce_hero.png',
+                iconName: 'Layout',
                 details: {
                     problem: 'Users getting lost in complex job filters.',
                     system: 'Simplified faceted search.',
@@ -327,6 +337,7 @@ export const WORK_CLUSTERS = [
                 timeline: '6 Months',
                 route: '/case-study/p5',
                 previewImage: '/commerce_hero.png',
+                iconName: 'ShoppingBag',
                 details: { problem: 'Inefficient ordering process.', system: 'Streamlined checkout flow.', outcome: 'Cart abandonment -12%.' },
                 caseStudy: {
                     locked: true,
@@ -375,6 +386,7 @@ export const WORK_CLUSTERS = [
                 timeline: '3 Months',
                 route: '/case-study/p6',
                 previewImage: '/commerce_hero.png',
+                iconName: 'ShieldCheck',
                 details: { problem: 'Brands lacked identity.', system: 'Store builder engine.', outcome: 'Onboarded 50+ brands.' },
                 caseStudy: {
                     locked: true,
@@ -423,6 +435,7 @@ export const WORK_CLUSTERS = [
                 timeline: '2 Months',
                 route: '/case-study/p7',
                 previewImage: '/commerce_hero.png',
+                iconName: 'Tag',
                 details: { problem: 'Complex discount logic.', system: 'Automated promo engine.', outcome: 'Utilization +25%.' },
                 caseStudy: {
                     locked: true,
@@ -471,6 +484,7 @@ export const WORK_CLUSTERS = [
                 timeline: '1 Year',
                 route: '/case-study/p8',
                 previewImage: '/commerce_hero.png',
+                iconName: 'Box',
                 details: { problem: 'Inconsistent UI.', system: 'Unified React library.', outcome: 'Dev velocity +30%.' },
                 caseStudy: {
                     locked: true,
@@ -531,6 +545,7 @@ export const WORK_CLUSTERS = [
                 timeline: '2 Months',
                 route: '/case-study/p9',
                 previewImage: '/efficiency_hero.png',
+                iconName: 'Truck',
                 details: { problem: 'Unclear shipping costs.', system: 'Real-time tracking.', outcome: 'Tickets dropped 60%.' },
                 caseStudy: {
                     locked: true,
@@ -579,6 +594,7 @@ export const WORK_CLUSTERS = [
                 timeline: '3 Months',
                 route: '/case-study/p10',
                 previewImage: '/efficiency_hero.png',
+                iconName: 'Trophy',
                 details: { problem: 'Low motivation.', system: 'Streak-based reward dashboard.', outcome: 'DAU up 40%.' },
                 caseStudy: {
                     locked: true,
@@ -627,6 +643,7 @@ export const WORK_CLUSTERS = [
                 timeline: '1 Month',
                 route: '/case-study/p11',
                 previewImage: '/efficiency_hero.png',
+                iconName: 'Scan',
                 details: { problem: 'Lost invoices.', system: 'OCR-assisted filing.', outcome: '90% paper reduction.' },
                 caseStudy: {
                     locked: true,

@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, Box, Maximize2, Cpu, Activity, Share2 } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Box, Maximize2, Cpu, Activity, Share2, MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Truck, Trophy, Scan, GitCommit, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import Footer from '../components/Footer';
@@ -12,6 +12,15 @@ import ProjectPreview from '../components/ProjectPreview';
 const WorkforceAI = React.lazy(() => import('../components/interactions/WorkforceAI'));
 const CommerceAI = React.lazy(() => import('../components/interactions/CommerceAI'));
 const EfficiencyAI = React.lazy(() => import('../components/interactions/EfficiencyAI'));
+
+// --- HELPERS ---
+const IconMapper = ({ iconName, ...props }) => {
+    const icons = {
+        MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Box, Truck, Trophy, Scan, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video, GitCommit
+    };
+    const IconComponent = icons[iconName] || GitCommit;
+    return <IconComponent {...props} />;
+};
 
 const CompanyDetail = () => {
     const { isDark } = useTheme();
@@ -170,9 +179,14 @@ const CompanyDetail = () => {
                                     {/* 2. TEXT CONTENT (Padded) */}
                                     <div className="p-8 flex flex-col gap-6">
                                         <div className="flex justify-between items-start">
-                                            <h3 className="text-3xl font-serif italic group-hover:text-[var(--brand)] transition-colors">
-                                                {project.title}
-                                            </h3>
+                                            <div className="flex items-center gap-4">
+                                                <div className="p-3 border border-[var(--border-color)] bg-[var(--bg-void)] group-hover:border-[var(--brand)] transition-all rounded-xl shadow-inner group-hover:shadow-[0_0_15px_var(--brand)]/20">
+                                                    <IconMapper iconName={project.iconName} size={24} className="text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors" />
+                                                </div>
+                                                <h3 className="text-3xl font-serif italic group-hover:text-[var(--brand)] transition-colors">
+                                                    {project.title}
+                                                </h3>
+                                            </div>
                                             <div className="hidden md:flex items-center gap-2 text-[var(--brand)] opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300">
                                                 <span className="text-xs font-mono uppercase tracking-widest">View Case</span>
                                                 <ArrowUpRight size={16} />
