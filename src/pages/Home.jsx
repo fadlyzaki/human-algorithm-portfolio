@@ -59,11 +59,7 @@ const WorkClusterCard = ({ cluster }) => {
       {/* Dynamic Background Hover Effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--brand)] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"></div>
 
-      <div className="absolute top-6 right-6 z-20">
-        <div className="p-3 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-sm group-hover:translate-x-0 translate-x-4">
-          <ArrowRight size={18} className="text-[var(--text-primary)]" />
-        </div>
-      </div>
+
 
       <div className="p-10 relative z-10">
         <div className="flex justify-between items-start gap-8 mb-10">
