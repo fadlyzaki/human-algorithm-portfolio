@@ -90,6 +90,7 @@ export const WORK_CLUSTERS = [
         id: 'workforce',
         title: 'THE WORKFORCE ECOSYSTEM',
         subtitle: 'Humanizing Ops',
+        brandColor: '#1AA8B4', // Lumina Teal
         heroImage: '/workforce_hero.png', // Generated Artifact
         hook: 'Connecting blue-collar workers to jobs without digital friction.',
         miniDesc: 'Reduced cognitive load for users who are not tech-native. Built with strict simplicity.',
@@ -156,6 +157,7 @@ export const WORK_CLUSTERS = [
         id: 'commerce',
         title: 'THE COMMERCE ENGINE',
         subtitle: 'Managing Scale',
+        brandColor: '#00D1C7', // GudangAda Cyan
         heroImage: '/commerce_hero.png', // Generated Artifact
         hook: 'Organizing the chaos of the B2B supply chain.',
         miniDesc: 'Scalable systems for massive SKU lists and complex transactions. Designed for reliability.',
@@ -170,6 +172,7 @@ export const WORK_CLUSTERS = [
         id: 'efficiency',
         title: 'OPERATIONAL EFFICIENCY',
         subtitle: 'Digitizing Habits',
+        brandColor: '#FA6130', // Stoqo Orange
         heroImage: '/efficiency_hero.png', // Generated Artifact
         hook: 'Helping SMEs transition from messy offline routines to stable digital workflows.',
         miniDesc: 'Behavior change through clarity, simplicity, and rhythm.',

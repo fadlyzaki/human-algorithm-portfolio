@@ -45,13 +45,19 @@ const WorkClusterCard = ({ cluster }) => {
   // Top 3 Projects Teaser
   const topProjects = cluster.projects.slice(0, 3);
 
+  // Dynamic Brand Style
+  const brandStyle = {
+    '--brand': cluster.brandColor || 'var(--accent-blue)'
+  };
+
   return (
     <div
-      className="group relative border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-blue)]/50 transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1 hover:shadow-2xl rounded-lg"
+      style={brandStyle}
+      className="group relative border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--brand)] transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1 hover:shadow-2xl rounded-lg"
       onClick={() => navigate(`/work/${cluster.id}`)}
     >
       {/* Dynamic Background Hover Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--accent-blue)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--brand)] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"></div>
 
       <div className="absolute top-6 right-6 z-20">
         <div className="p-3 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-sm group-hover:translate-x-0 translate-x-4">
@@ -62,11 +68,11 @@ const WorkClusterCard = ({ cluster }) => {
       <div className="p-10 relative z-10">
         <div className="flex justify-between items-start gap-8 mb-10">
           <div className="max-w-md">
-            <h3 className="text-3xl md:text-4xl font-serif italic text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent-blue)] transition-colors leading-tight">
+            <h3 className="text-3xl md:text-4xl font-serif italic text-[var(--text-primary)] mb-3 group-hover:text-[var(--brand)] transition-colors leading-tight">
               {cluster.title}
             </h3>
             <p className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[var(--accent-amber)]"></span>
+              <span className="w-2 h-2 rounded-full bg-[var(--brand)]"></span>
               {cluster.subtitle}
             </p>
           </div>
@@ -81,19 +87,19 @@ const WorkClusterCard = ({ cluster }) => {
           </div>
         </div>
 
-        <p className="text-[var(--text-primary)] text-lg font-light max-w-2xl mb-10 leading-relaxed border-l-2 border-[var(--border-color)] pl-6 group-hover:border-[var(--accent-blue)] transition-colors">
+        <p className="text-[var(--text-primary)] text-lg font-light max-w-2xl mb-10 leading-relaxed border-l-2 border-[var(--border-color)] pl-6 group-hover:border-[var(--brand)] transition-colors">
           {cluster.hook}
         </p>
 
         {/* Project List Teaser */}
-        <div className="bg-[var(--bg-surface)]/50 border border-[var(--border-color)] rounded-lg p-6 backdrop-blur-sm">
+        <div className="bg-[var(--bg-surface)]/50 border border-[var(--border-color)] rounded-lg p-6 backdrop-blur-sm group-hover:border-[var(--brand)]/30 transition-colors">
           <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4 opacity-70">Selected Works</div>
           <div className="space-y-4">
             {topProjects.map((p, i) => (
               <div key={i} className="flex items-center justify-between text-sm group/item border-b border-[var(--border-color)] last:border-0 pb-3 last:pb-0 border-dashed">
                 <div className="flex items-center gap-3">
-                  <GitCommit size={14} className="text-[var(--text-secondary)] group-hover/item:text-[var(--accent-blue)] transition-colors" />
-                  <span className="text-[var(--text-primary)] font-medium">
+                  <GitCommit size={14} className="text-[var(--text-secondary)] group-hover/item:text-[var(--brand)] transition-colors" />
+                  <span className="text-[var(--text-primary)] font-medium group-hover/item:text-[var(--text-primary)]">
                     {p.title}
                   </span>
                 </div>
@@ -105,7 +111,7 @@ const WorkClusterCard = ({ cluster }) => {
           </div>
 
           {cluster.projects.length > 3 && (
-            <div className="mt-4 pt-3 border-t border-[var(--border-color)] flex items-center gap-2 text-[10px] font-mono text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] transition-colors">
+            <div className="mt-4 pt-3 border-t border-[var(--border-color)] flex items-center gap-2 text-[10px] font-mono text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors">
               <LayoutGrid size={12} />
               + {cluster.projects.length - 3} more modules inside
             </div>
