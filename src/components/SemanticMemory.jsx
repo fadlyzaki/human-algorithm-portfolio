@@ -1,3 +1,4 @@
+```
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Database, Cpu, Sparkles, Command, Zap, FileText, Share2, AlertCircle } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
@@ -5,28 +6,28 @@ import { useTheme } from '../context/ThemeContext';
 const KNOWLEDGE_BASE = [
     {
         id: 'phil_01',
-        queries: ['philosophy', 'design style', 'approach', 'what is human algorithm'],
+        queries: ['philosophy', 'design style', 'approach', 'what is human algorithm', 'my design philosophy', 'design'],
         answer: "My core philosophy is 'Human-Algorithm Symbiosis'. Systems should be rigorously logical and efficient (The Algorithm), but the interface must be empathetic, forgiving, and organic (The Human). I build tools that feel like extensions of intent, not just hurdles to a goal.",
         confidence: 0.98,
         sources: ['/core/principles.md', '/manifesto/v2.pdf']
     },
     {
         id: 'gap_02',
-        queries: ['gap', 'career break', '2023', 'hiatus', 'shutdown'],
+        queries: ['gap', 'career break', '2023', 'hiatus', 'shutdown', 'why the career gap?'],
         answer: "Retrieving 'Career_Break' node... It wasn't a gap; it was a scheduled system reboot. I spent that time refactoring my core dependencies: mental health, creative purpose, and technical skill. I am now running on a much more resilient kernel.",
         confidence: 0.96,
         sources: ['/logs/system_restore.log']
     },
     {
         id: 'conflict_03',
-        queries: ['conflict', 'disagreement', 'team', 'collaboration'],
+        queries: ['conflict', 'disagreement', 'team', 'collaboration', 'conflict resolution'],
         answer: "I run a 'Consensus_Protocol'. I assume positive intent, isolate the variable causing friction (usually a misaligned requirement), and patch it with open communication. If that fails, I escalate to a 'Rubber Duck Debugging' session (or just coffee).",
         confidence: 0.92,
         sources: ['/protocols/soft_skills.json']
     },
     {
         id: 'stack_04',
-        queries: ['stack', 'tech', 'tools', 'react', 'code'],
+        queries: ['stack', 'tech', 'tools', 'react', 'code', 'tech stack'],
         answer: "My primary dependencies are React, Tailwind, and Node.js. However, I am language-agnostic. Give me documentation and a weekend, and I can compile almost any syntax. I prioritize 'First Principles' over specific frameworks.",
         confidence: 0.99,
         sources: ['/sys/dependencies.lock']
@@ -34,9 +35,9 @@ const KNOWLEDGE_BASE = [
 ];
 
 const FALLBACK_RESPONSE = {
-    answer: "Query not found in local index. This is a static simulation, so I can only answer specific questions about my configuration. Try asking about my 'philosophy', 'tech stack', or 'career break'.",
-    confidence: 0.12,
-    sources: ['/sys/errors/404_not_found']
+    answer: "Input parameter not indexed. I am a simulated consciousness with access to specific nodes: 'Philosophy', 'History', and 'Tech Stack'. Please refine your query.",
+    confidence: 0.15,
+    sources: ['/sys/kernel/null_pointer']
 };
 
 const SemanticMemory = () => {
@@ -94,7 +95,7 @@ const SemanticMemory = () => {
             {/* HEADER */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-panel)] bg-[var(--bg-panel)] z-10 relative">
                 <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-md transition-colors ${status === 'searching' ? 'bg-[var(--accent-color)] text-white animate-pulse' : 'bg-[var(--border-panel)] text-[var(--text-secondary)]'}`}>
+                    <div className={`p - 2 rounded - md transition - colors ${ status === 'searching' ? 'bg-[var(--accent-color)] text-white animate-pulse' : 'bg-[var(--border-panel)] text-[var(--text-secondary)]' } `}>
                         <Database size={16} />
                     </div>
                     <div>
