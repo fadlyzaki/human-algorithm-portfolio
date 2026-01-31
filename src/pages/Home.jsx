@@ -53,16 +53,7 @@ const WorkClusterCard = ({ cluster }) => {
       </div>
 
       <div className="p-8">
-        <div className="flex items-start gap-6 mb-8">
-          {/* Logo / Hero Image */}
-          <div className="w-16 h-16 shrink-0 rounded-md overflow-hidden border border-[var(--border-color)] group-hover:border-[var(--accent-blue)] transition-colors">
-            <img
-              src={cluster.heroImage}
-              alt={cluster.title}
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-            />
-          </div>
-
+        <div className="flex justify-between items-start gap-6 mb-8">
           <div>
             <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-1 group-hover:text-[var(--accent-blue)] transition-colors leading-tight">
               {cluster.title}
@@ -70,6 +61,15 @@ const WorkClusterCard = ({ cluster }) => {
             <p className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
               {cluster.subtitle}
             </p>
+          </div>
+
+          {/* Logo / Hero Image */}
+          <div className="w-16 h-16 shrink-0 rounded-md overflow-hidden border border-[var(--border-color)] group-hover:border-[var(--accent-blue)] transition-colors">
+            <img
+              src={cluster.heroImage}
+              alt={cluster.title}
+              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            />
           </div>
         </div>
 
