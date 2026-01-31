@@ -12,6 +12,7 @@ export const HandCursorProvider = ({ children }) => {
     return (
         <HandCursorContext.Provider value={{
             isGestureMode,
+            setIsGestureMode,
             toggleGestureMode,
             cursorPosition,
             setCursorPosition,
