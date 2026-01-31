@@ -450,8 +450,45 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-12 lg:gap-20">
               <div className="space-y-16">
                 <div>
+                  <div>
+                    <div className="prose prose-invert max-w-none">
+                      <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
+                        "I design tools that respect your attention span."
+                      </p>
+                      <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
+                        <p>
+                          My design career started in <span className="text-[var(--text-primary)] font-medium">Computer Science</span>—data structures, logic, constraints.
+                        </p>
+                        <p>
+                          But life forced me into a <strong className="text-[var(--text-primary)]">nearly three-year pause</strong> due to a major health issue. This "downtime" wasn't a loss; it was an upgrade. It taught me how fragile human systems are and how essential well-designed support structures become when we are at our limit.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="philosophy" className="scroll-mt-24">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="h-px flex-grow bg-[var(--border-color)]"></div>
+                      <span className="font-mono text-xs uppercase text-[var(--accent-amber)] tracking-widest">Core Philosophy</span>
+                      <div className="h-px flex-grow bg-[var(--border-color)]"></div>
+                    </div>
+
+                    <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mb-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
+                      I design against <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">fragile complexity</span>. Modern apps burn people out. My job is to build resilient systems that support human energy—not drain it.
+                    </blockquote>
+
+                    <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-1">
+                      READ FULL PHILOSOPHY <ArrowRight size={14} />
+                    </Link>
+
+                    {/* Principles... reduced for brevity in this response, but would exist */}
+                  </div>
+                </div>
+
+                {/* Right Col */}
+                <div className="space-y-10">
                   {/* Photo Placeholder */}
-                  <div className="w-full aspect-video bg-[var(--bg-surface)] border border-[var(--border-color)] mb-10 relative flex items-center justify-center overflow-hidden group">
+                  <div className="w-full aspect-video bg-[var(--bg-card)] border border-[var(--border-color)] relative flex items-center justify-center overflow-hidden group">
                     <User size={48} className="text-[var(--text-secondary)] opacity-20" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-[var(--text-secondary)]/5 to-transparent"></div>
                     <span className="absolute bottom-4 right-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border border-[var(--text-secondary)]/20 px-2 py-1">
@@ -459,83 +496,47 @@ const Portfolio = () => {
                     </span>
                   </div>
 
-                  <div className="prose prose-invert max-w-none">
-                    <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
-                      "I design tools that respect your attention span."
+                  {/* Current Focus Card... same as before */}
+                  <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-50 transition-opacity">
+                      <Cpu size={48} strokeWidth={1} />
+                    </div>
+                    <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                      <span className="w-2 h-2 bg-[var(--accent-amber)] rounded-full animate-pulse"></span>
+                      Current Focus
+                    </h4>
+                    <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
+                      Deepening craft with a <strong className="text-[var(--text-primary)]">Master’s in EdTech</strong>. Studying cognitive load and how humans learn.
                     </p>
-                    <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
-                      <p>
-                        My design career started in <span className="text-[var(--text-primary)] font-medium">Computer Science</span>—data structures, logic, constraints.
-                      </p>
-                      <p>
-                        But life forced me into a <strong className="text-[var(--text-primary)]">nearly three-year pause</strong> due to a major health issue. This "downtime" wasn't a loss; it was an upgrade. It taught me how fragile human systems are and how essential well-designed support structures become when we are at our limit.
-                      </p>
+                  </div>
+
+                  {/* Personal Interests / Runtime Modules */}
+                  <div className="space-y-6">
+                    <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest flex items-center gap-2">
+                      <Activity size={14} /> Personal Interests
+                    </h4>
+
+                    <div className="space-y-4">
+                      {[
+                        { label: "Community Building", val: "Active", icon: Users },
+                        { label: "Design Systems", val: "Obsessed", icon: PenTool },
+                        { label: "Analog Photography", val: "Learning", icon: ScanEye },
+                        { label: "Sci-Fi Literature", val: "Reading", icon: BookOpen }
+                      ].map((interest, i) => (
+                        <div key={i} className="flex items-center justify-between p-3 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-colors group">
+                          <div className="flex items-center gap-3">
+                            <interest.icon size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] transition-colors" />
+                            <span className="text-sm text-[var(--text-primary)]">{interest.label}</span>
+                          </div>
+                          <span className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-void)] px-2 py-1 rounded">
+                            {interest.val}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-
-                <div id="philosophy" className="scroll-mt-24">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="h-px flex-grow bg-[var(--border-color)]"></div>
-                    <span className="font-mono text-xs uppercase text-[var(--accent-amber)] tracking-widest">Core Philosophy</span>
-                    <div className="h-px flex-grow bg-[var(--border-color)]"></div>
-                  </div>
-
-                  <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mb-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
-                    I design against <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">fragile complexity</span>. Modern apps burn people out. My job is to build resilient systems that support human energy—not drain it.
-                  </blockquote>
-
-                  <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-1">
-                    READ FULL PHILOSOPHY <ArrowRight size={14} />
-                  </Link>
-
-                  {/* Principles... reduced for brevity in this response, but would exist */}
-                </div>
               </div>
-
-              {/* Right Col */}
-              <div className="space-y-10">
-                {/* Current Focus Card... same as before */}
-                <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-50 transition-opacity">
-                    <Cpu size={48} strokeWidth={1} />
-                  </div>
-                  <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[var(--accent-amber)] rounded-full animate-pulse"></span>
-                    Current Focus
-                  </h4>
-                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
-                    Deepening craft with a <strong className="text-[var(--text-primary)]">Master’s in EdTech</strong>. Studying cognitive load and how humans learn.
-                  </p>
-                </div>
-
-                {/* Personal Interests / Runtime Modules */}
-                <div className="space-y-6">
-                  <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest flex items-center gap-2">
-                    <Activity size={14} /> Personal Interests
-                  </h4>
-
-                  <div className="space-y-4">
-                    {[
-                      { label: "Community Building", val: "Active", icon: Users },
-                      { label: "Design Systems", val: "Obsessed", icon: PenTool },
-                      { label: "Analog Photography", val: "Learning", icon: ScanEye },
-                      { label: "Sci-Fi Literature", val: "Reading", icon: BookOpen }
-                    ].map((interest, i) => (
-                      <div key={i} className="flex items-center justify-between p-3 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-colors group">
-                        <div className="flex items-center gap-3">
-                          <interest.icon size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] transition-colors" />
-                          <span className="text-sm text-[var(--text-primary)]">{interest.label}</span>
-                        </div>
-                        <span className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-void)] px-2 py-1 rounded">
-                          {interest.val}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
           </section >
 
           {/* SECTION 4: NOTES */}
