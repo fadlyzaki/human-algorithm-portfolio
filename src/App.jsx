@@ -33,10 +33,8 @@ function App() {
           <Route path="/side-projects" element={<SideProjectsIndex />} />
           <Route path="/work/:id" element={<CompanyDetail />} />
 
-          {/* Case Studies (Dynamic ID for future scaling, static for MVP) */}
-          <Route path="/case-study/research" element={<ResearchCaseStudy />} />
-          <Route path="/case-study/visual" element={<VisualCaseStudy />} />
-          <Route path="/case-study/protected" element={<ProtectedCaseStudy />} />
+          {/* Case Studies (Dynamic ID for future scaling) */}
+          <Route path="/case-study/:id" element={<ProtectedCaseStudy />} />
 
           {/* Detail Pages */}
           <Route path="/side-project/:id" element={<SideProjectDetail />} />

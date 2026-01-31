@@ -11,6 +11,7 @@ const CompanyDetail = () => {
     const navigate = useNavigate();
 
     const cluster = WORK_CLUSTERS.find(c => c.id === id) || WORK_CLUSTERS[0];
+    const brandColor = cluster.brandColor || 'var(--accent-blue)';
 
     const themeStyles = {
         '--bg-void': isDark ? '#111111' : '#FFFFFF',
@@ -18,10 +19,11 @@ const CompanyDetail = () => {
         '--text-secondary': isDark ? '#9CA3AF' : '#6B7280',
         '--border-color': isDark ? '#374151' : '#E5E7EB',
         '--bg-card': isDark ? '#1C1C1C' : '#F9FAFB',
+        '--brand': brandColor,
     };
 
     return (
-        <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500">
+        <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--brand)] selection:text-white">
             <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
                 <Link to="/" className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity flex items-center gap-2">
                     <ArrowLeft size={16} /> WORK INDEX
@@ -29,16 +31,16 @@ const CompanyDetail = () => {
             </nav>
 
             <main className="max-w-6xl mx-auto px-6 pt-32 pb-24">
-                <header className="mb-20 border-b border-[var(--border-color)] pb-12 relative overflow-hidden rounded-sm">
+                <header className="mb-20 border-b border-[var(--border-color)] pb-12 relative overflow-hidden rounded-sm group">
                     {/* Background Hero */}
                     <div className="absolute inset-0 z-0">
-                        <img src={cluster.heroImage} alt="" className="w-full h-full object-cover opacity-20 grayscale brightness-50" />
+                        <img src={cluster.heroImage} alt="" className="w-full h-full object-cover opacity-20 grayscale brightness-50 group-hover:grayscale-0 transition-all duration-1000" />
                         <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-void)] via-[var(--bg-void)]/90 to-transparent"></div>
                     </div>
 
                     <div className="relative z-10 p-8 md:p-12">
                         <div className="flex items-center gap-4 mb-6">
-                            <span className="px-3 py-1 border border-[var(--text-primary)] rounded-full text-xs font-mono uppercase tracking-widest backdrop-blur-sm">
+                            <span className="px-3 py-1 border border-[var(--text-primary)] rounded-full text-xs font-mono uppercase tracking-widest backdrop-blur-sm shadow-[0_0_15px_var(--brand)]" style={{ borderColor: 'var(--brand)', color: 'var(--brand)' }}>
                                 {cluster.title}
                             </span>
                         </div>
@@ -56,34 +58,48 @@ const CompanyDetail = () => {
                     <aside className="lg:col-span-1 space-y-12">
                         <div>
                             <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-4">Context</h3>
-                            <p className="text-[var(--text-primary)] leading-relaxed">
+                            <p className="text-[var(--text-primary)] leading-relaxed border-l-2 border-[var(--brand)] pl-4">
                                 {cluster.miniDesc}
                             </p>
                         </div>
                     </aside>
 
                     {/* Project Grid */}
-                    <div className="lg:col-span-2 grid gap-8">
+                    <div className="lg:col-span-2 grid gap-12">
                         {cluster.projects.map((project, idx) => (
-                            <div key={idx} onClick={() => navigate(project.route)} className="group bg-[var(--bg-card)] border border-[var(--border-color)] p-8 cursor-pointer hover:border-[var(--text-primary)] transition-colors relative overflow-hidden">
-                                <div className="flex justify-between items-start mb-6">
-                                    <div>
-                                        <h3 className="text-xl font-bold mb-2 group-hover:underline decoration-1 underline-offset-4">{project.title}</h3>
-                                        <span className="text-xs font-mono text-[var(--text-secondary)] border border-[var(--border-color)] px-2 py-1 rounded bg-[var(--bg-void)]">
-                                            {project.tag}
-                                        </span>
-                                    </div>
-                                    <ArrowUpRight className="text-[var(--text-secondary)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                            <div
+                                key={idx}
+                                onClick={() => navigate(project.route)}
+                                className="group bg-[var(--bg-card)] border border-[var(--border-color)] cursor-pointer hover:border-[var(--brand)] transition-all duration-500 relative overflow-hidden shadow-sm hover:shadow-xl rounded-lg"
+                            >
+                                {/* IMAGE PREVIEW */}
+                                <div className="h-48 w-full overflow-hidden relative border-b border-[var(--border-color)]">
+                                    <div className="absolute inset-0 bg-[var(--brand)] mix-blend-overlay opacity-0 group-hover:opacity-20 transition-opacity z-10"></div>
+                                    <img src={project.previewImage} alt="Feature Preview" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-4 text-sm text-[var(--text-secondary)] border-t border-[var(--border-color)] pt-6">
-                                    <div>
-                                        <span className="block text-[10px] uppercase tracking-widest mb-1 opacity-70">Problem</span>
-                                        <p>{project.details.problem}</p>
+                                <div className="p-8">
+                                    <div className="flex justify-between items-start mb-6">
+                                        <div>
+                                            <h3 className="text-2xl font-bold mb-2 group-hover:text-[var(--brand)] transition-colors">{project.title}</h3>
+                                            <span className="text-xs font-mono text-[var(--text-secondary)] border border-[var(--border-color)] px-2 py-1 rounded bg-[var(--bg-void)]">
+                                                {project.tag}
+                                            </span>
+                                        </div>
+                                        <div className="p-2 border border-[var(--border-color)] rounded-full group-hover:bg-[var(--brand)] group-hover:border-[var(--brand)] transition-colors">
+                                            <ArrowUpRight className="text-[var(--text-secondary)] group-hover:text-white transition-colors" size={18} />
+                                        </div>
                                     </div>
-                                    <div>
-                                        <span className="block text-[10px] uppercase tracking-widest mb-1 opacity-70">Outcome</span>
-                                        <p className="text-[var(--text-primary)]">{project.details.outcome}</p>
+
+                                    <div className="grid grid-cols-2 gap-6 text-sm text-[var(--text-secondary)] border-t border-[var(--border-color)] pt-6">
+                                        <div>
+                                            <span className="block text-[10px] uppercase tracking-widest mb-1 opacity-70">Problem</span>
+                                            <p className="line-clamp-2">{project.details.problem}</p>
+                                        </div>
+                                        <div>
+                                            <span className="block text-[10px] uppercase tracking-widest mb-1 opacity-70">Outcome</span>
+                                            <p className="text-[var(--text-primary)] font-medium group-hover:text-[var(--brand)] transition-colors">{project.details.outcome}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

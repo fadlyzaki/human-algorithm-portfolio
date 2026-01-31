@@ -91,7 +91,7 @@ export const WORK_CLUSTERS = [
         title: 'THE WORKFORCE ECOSYSTEM',
         subtitle: 'Humanizing Ops',
         brandColor: '#1AA8B4', // Lumina Teal
-        heroImage: '/workforce_hero.png', // Generated Artifact
+        heroImage: '/workforce_hero.png',
         hook: 'Connecting blue-collar workers to jobs without digital friction.',
         miniDesc: 'Reduced cognitive load for users who are not tech-native. Built with strict simplicity.',
         projects: [
@@ -102,11 +102,21 @@ export const WORK_CLUSTERS = [
                 type: 'Mobile App',
                 role: 'Lead Product Designer',
                 timeline: '3 Months',
-                route: '/case-study/protected',
+                route: '/case-study/p1',
+                previewImage: '/workforce_hero.png', // Using existing assets as placeholder
                 details: {
                     problem: 'Recruiters struggled to track 200+ candidate conversations per day.',
                     system: 'Built a low-friction, latency-friendly chat architecture.',
                     outcome: 'Reduced drop-off by 37%.'
+                },
+                caseStudy: {
+                    locked: true,
+                    memo: "Candidates wereghosting because recruiters took 4 days to reply. We made it feel like WhatsApp.",
+                    metrics: [
+                        { label: "Response Rate", value: "+45%" },
+                        { label: "Time-to-Hire", value: "-3 Days" },
+                        { label: "NPS", value: "78" }
+                    ]
                 }
             },
             {
@@ -116,11 +126,21 @@ export const WORK_CLUSTERS = [
                 type: 'Web Dashboard',
                 role: 'UI/UX Designer',
                 timeline: '4 Months',
-                route: '/case-study/protected',
+                route: '/case-study/p2',
+                previewImage: '/workforce_hero.png',
                 details: {
                     problem: 'Data fragmentation across spreadsheets.',
                     system: 'Unified dashboard with drag-and-drop pipelines.',
                     outcome: 'Hiring speed improved by 20%.'
+                },
+                caseStudy: {
+                    locked: true,
+                    memo: "HR Admins were using 5 different tools. We consolidated it into one 'Command Center'.",
+                    metrics: [
+                        { label: "Efficiency", value: "+20%" },
+                        { label: "Data Accuracy", value: "99%" },
+                        { label: "Adoption", value: "100%" }
+                    ]
                 }
             },
             {
@@ -130,11 +150,21 @@ export const WORK_CLUSTERS = [
                 type: 'Mobile Feature',
                 role: 'Product Designer',
                 timeline: '2 Months',
-                route: '/case-study/protected',
+                route: '/case-study/p3',
+                previewImage: '/workforce_hero.png',
                 details: {
                     problem: 'Candidates intimidated by formal applications.',
                     system: 'WhatsApp-like interface for formal requests.',
                     outcome: 'Application starts increased by 45%.'
+                },
+                caseStudy: {
+                    locked: true,
+                    memo: "Formal forms scare blue-collar workers. Casual chat invites them in.",
+                    metrics: [
+                        { label: "App Starts", value: "+45%" },
+                        { label: "Completed", value: "+60%" },
+                        { label: "Trust", value: "High" }
+                    ]
                 }
             },
             {
@@ -144,11 +174,21 @@ export const WORK_CLUSTERS = [
                 type: 'App Architecture',
                 role: 'Interaction Designer',
                 timeline: 'Ongoing',
-                route: '/case-study/protected',
+                route: '/case-study/p4',
+                previewImage: '/workforce_hero.png',
                 details: {
                     problem: 'Users getting lost in complex job filters.',
                     system: 'Simplified faceted search.',
                     outcome: 'Retention D1 increased by 15%'
+                },
+                caseStudy: {
+                    locked: true,
+                    memo: "Search logic was too boolean. We made it fuzzy and forgiving.",
+                    metrics: [
+                        { label: "Retention D1", value: "+15%" },
+                        { label: "Search Success", value: "85%" },
+                        { label: "Bounce Rate", value: "-10%" }
+                    ]
                 }
             },
         ]
@@ -158,14 +198,90 @@ export const WORK_CLUSTERS = [
         title: 'THE COMMERCE ENGINE',
         subtitle: 'Managing Scale',
         brandColor: '#00D1C7', // GudangAda Cyan
-        heroImage: '/commerce_hero.png', // Generated Artifact
+        heroImage: '/commerce_hero.png',
         hook: 'Organizing the chaos of the B2B supply chain.',
         miniDesc: 'Scalable systems for massive SKU lists and complex transactions. Designed for reliability.',
         projects: [
-            { id: 'p5', title: 'Marketplace', tag: 'Transactions', type: 'Web Platform', role: 'Lead Designer', timeline: '6 Months', route: '/case-study/protected', details: { problem: 'Inefficient ordering process.', system: 'Streamlined checkout flow.', outcome: 'Cart abandonment -12%.' } },
-            { id: 'p6', title: 'Official Store', tag: 'Branding', type: 'System Feature', role: 'System Designer', timeline: '3 Months', route: '/case-study/protected', details: { problem: 'Brands lacked identity.', system: 'Store builder engine.', outcome: 'Onboarded 50+ brands.' } },
-            { id: 'p7', title: 'Promo Center', tag: 'Marketing', type: 'Dashboard', role: 'UX Researcher', timeline: '2 Months', route: '/case-study/protected', details: { problem: 'Complex discount logic.', system: 'Automated promo engine.', outcome: 'Utilization +25%.' } },
-            { id: 'p8', title: 'GudangAda Design System', tag: 'Architecture', type: 'Design System', role: 'Design Ops', timeline: '1 Year', route: '/case-study/protected', details: { problem: 'Inconsistent UI.', system: 'Unified React library.', outcome: 'Dev velocity +30%.' } },
+            {
+                id: 'p5',
+                title: 'Marketplace',
+                tag: 'Transactions',
+                type: 'Web Platform',
+                role: 'Lead Designer',
+                timeline: '6 Months',
+                route: '/case-study/p5',
+                previewImage: '/commerce_hero.png',
+                details: { problem: 'Inefficient ordering process.', system: 'Streamlined checkout flow.', outcome: 'Cart abandonment -12%.' },
+                caseStudy: {
+                    locked: true,
+                    memo: "The checkout flow had 7 steps. We cut it to 3. Friction implies lack of trust.",
+                    metrics: [
+                        { label: "Cart Abandon", value: "-12%" },
+                        { label: "Conversion", value: "+8%" },
+                        { label: "AOV", value: "+15%" }
+                    ]
+                }
+            },
+            {
+                id: 'p6',
+                title: 'Official Store',
+                tag: 'Branding',
+                type: 'System Feature',
+                role: 'System Designer',
+                timeline: '3 Months',
+                route: '/case-study/p6',
+                previewImage: '/commerce_hero.png',
+                details: { problem: 'Brands lacked identity.', system: 'Store builder engine.', outcome: 'Onboarded 50+ brands.' },
+                caseStudy: {
+                    locked: true,
+                    memo: "Brands wanted control. We gave them a CMS inside the marketplace.",
+                    metrics: [
+                        { label: "Onboarded", value: "50+" },
+                        { label: "GMV Uplift", value: "+22%" },
+                        { label: "Brand NPS", value: "65" }
+                    ]
+                }
+            },
+            {
+                id: 'p7',
+                title: 'Promo Center',
+                tag: 'Marketing',
+                type: 'Dashboard',
+                role: 'UX Researcher',
+                timeline: '2 Months',
+                route: '/case-study/p7',
+                previewImage: '/commerce_hero.png',
+                details: { problem: 'Complex discount logic.', system: 'Automated promo engine.', outcome: 'Utilization +25%.' },
+                caseStudy: {
+                    locked: true,
+                    memo: "Discounts were confusing. We built a 'Promo Calculator' to show exact savings.",
+                    metrics: [
+                        { label: "Utilization", value: "+25%" },
+                        { label: "Errors", value: "0%" },
+                        { label: "Sales Spikes", value: "High" }
+                    ]
+                }
+            },
+            {
+                id: 'p8',
+                title: 'GudangAda Design System',
+                tag: 'Architecture',
+                type: 'Design System',
+                role: 'Design Ops',
+                timeline: '1 Year',
+                route: '/case-study/p8',
+                previewImage: '/commerce_hero.png',
+                details: { problem: 'Inconsistent UI.', system: 'Unified React library.', outcome: 'Dev velocity +30%.' },
+                caseStudy: {
+                    locked: true,
+                    memo: "Every dev was reinventing the button. We standardized the atomic core.",
+                    metrics: [
+                        { label: "Dev Velocity", value: "+30%" },
+                        { label: "Code Size", value: "-15%" },
+                        { label: "Consistency", value: "100%" }
+                    ]
+                }
+            },
         ]
     },
     {
@@ -173,13 +289,70 @@ export const WORK_CLUSTERS = [
         title: 'OPERATIONAL EFFICIENCY',
         subtitle: 'Digitizing Habits',
         brandColor: '#FA6130', // Stoqo Orange
-        heroImage: '/efficiency_hero.png', // Generated Artifact
+        heroImage: '/efficiency_hero.png',
         hook: 'Helping SMEs transition from messy offline routines to stable digital workflows.',
         miniDesc: 'Behavior change through clarity, simplicity, and rhythm.',
         projects: [
-            { id: 'p9', title: 'Delivery Methods', tag: 'Logistics', type: 'Service Design', role: 'Product Designer', timeline: '2 Months', route: '/case-study/protected', details: { problem: 'Unclear shipping costs.', system: 'Real-time tracking.', outcome: 'Tickets dropped 60%.' } },
-            { id: 'p10', title: 'Incentive Sales Agent', tag: 'Gamification', type: 'Mobile App', role: 'UX Strategist', timeline: '3 Months', route: '/case-study/protected', details: { problem: 'Low motivation.', system: 'Streak-based reward dashboard.', outcome: 'DAU up 40%.' } },
-            { id: 'p11', title: 'Paper-to-Paperless (Concept)', tag: 'Sustainability', type: 'Concept', role: 'Concept Artist', timeline: '1 Month', route: '/case-study/protected', details: { problem: 'Lost invoices.', system: 'OCR-assisted filing.', outcome: '90% paper reduction.' } },
+            {
+                id: 'p9',
+                title: 'Delivery Methods',
+                tag: 'Logistics',
+                type: 'Service Design',
+                role: 'Product Designer',
+                timeline: '2 Months',
+                route: '/case-study/p9',
+                previewImage: '/efficiency_hero.png',
+                details: { problem: 'Unclear shipping costs.', system: 'Real-time tracking.', outcome: 'Tickets dropped 60%.' },
+                caseStudy: {
+                    locked: true,
+                    memo: "Users were calling support just to ask 'Where is my truck?'. We put it on a map.",
+                    metrics: [
+                        { label: "Support Tix", value: "-60%" },
+                        { label: "Trust", value: "+40%" },
+                        { label: "Repeat Order", value: "+10%" }
+                    ]
+                }
+            },
+            {
+                id: 'p10',
+                title: 'Incentive Sales Agent',
+                tag: 'Gamification',
+                type: 'Mobile App',
+                role: 'UX Strategist',
+                timeline: '3 Months',
+                route: '/case-study/p10',
+                previewImage: '/efficiency_hero.png',
+                details: { problem: 'Low motivation.', system: 'Streak-based reward dashboard.', outcome: 'DAU up 40%.' },
+                caseStudy: {
+                    locked: true,
+                    memo: "Sales agents are competitive. We added leaderboards and daily streaks.",
+                    metrics: [
+                        { label: "DAU", value: "+40%" },
+                        { label: "Sales Vol", value: "+18%" },
+                        { label: "Engagement", value: "High" }
+                    ]
+                }
+            },
+            {
+                id: 'p11',
+                title: 'Paper-to-Paperless (Concept)',
+                tag: 'Sustainability',
+                type: 'Concept',
+                role: 'Concept Artist',
+                timeline: '1 Month',
+                route: '/case-study/p11',
+                previewImage: '/efficiency_hero.png',
+                details: { problem: 'Lost invoices.', system: 'OCR-assisted filing.', outcome: '90% paper reduction.' },
+                caseStudy: {
+                    locked: true,
+                    memo: "Paper gets lost. Digital is forever (and searchable).",
+                    metrics: [
+                        { label: "Paper Redux", value: "90%" },
+                        { label: "Search Speed", value: "100x" },
+                        { label: "Cost Save", value: "High" }
+                    ]
+                }
+            },
         ]
     }
 ];

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
   Lock, Unlock, AlertTriangle, ArrowRight, ShieldAlert, Database, Truck,
   ShoppingCart, FileText, Thermometer, Activity, PenTool, Sun, Moon, X, ArrowLeft
 } from 'lucide-react';
+import { WORK_CLUSTERS } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
 
 /* --- THEME CONFIGURATION ---
@@ -12,6 +13,7 @@ import { useTheme } from '../context/ThemeContext';
 */
 
 const ProtectedCaseStudy = () => {
+  const { id } = useParams();
   const [isLocked, setIsLocked] = useState(true);
   const { isDark, setIsDark } = useTheme();
   const [password, setPassword] = useState('');
@@ -20,18 +22,29 @@ const ProtectedCaseStudy = () => {
   const [progress, setProgress] = useState(0);
   const inputRef = useRef(null);
 
-  // --- MOCK DATA: MARKETPLACE PROJECT ---
-  const project = {
-    title: "The Commerce Engine",
-    subtitle: "Organizing the chaos of supply chains.",
-    role: "Lead Product Designer",
-    timeline: "1 Year 2 Months",
-    tags: ["Supply Chain", "High Scale", "Legacy Integration"],
-    metrics: [
-      { label: "Cart Abandonment", value: "-12%", trend: "positive" },
-      { label: "Promo Usage", value: "+25%", trend: "positive" },
-      { label: "Trust Score", value: "9.2/10", trend: "positive" }
-    ]
+  // --- DATA RETRIEVAL ---
+  // Flatten all projects to find the matching ID
+  let projectData = null;
+  let parentCluster = null;
+
+  WORK_CLUSTERS.forEach(cluster => {
+    const found = cluster.projects.find(p => p.id === id);
+    if (found) {
+      projectData = found;
+      parentCluster = cluster;
+    }
+  });
+
+  // Fallback if not found (or handle redirect)
+  if (!projectData) {
+    return <div className="min-h-screen flex items-center justify-center">Project Not Found</div>;
+  }
+
+  // Use mock case study data if specific fields missing
+  const caseData = projectData.caseStudy || {
+    locked: true,
+    memo: "CONFIDENTIAL DATA NOT AVAILABLE",
+    metrics: []
   };
 
   // --- HANDLER: UNLOCK ---
@@ -74,6 +87,7 @@ const ProtectedCaseStudy = () => {
     '--accent-amber': isDark ? '#F59E0B' : '#D97706',
     '--accent-green': isDark ? '#10B981' : '#059669',
     '--border-color': isDark ? '#333' : '#E4E4E7',
+    '--brand': parentCluster.brandColor || 'var(--accent-amber)'
   };
 
   // --- COMPONENT: DECLASSIFIED MEMO ---
@@ -103,7 +117,7 @@ const ProtectedCaseStudy = () => {
 
         {/* Home Navigation (Abort) */}
         <div className="absolute top-6 left-6 z-20">
-          <Link to="/" className="text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors flex items-center gap-2 font-mono text-xs uppercase p-2">
+          <Link to={`/work/${parentCluster.id}`} className="text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors flex items-center gap-2 font-mono text-xs uppercase p-2">
             <ArrowLeft size={16} /> Abort
           </Link>
         </div>
@@ -130,9 +144,9 @@ const ProtectedCaseStudy = () => {
                 <div className="w-20 h-20 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(239,68,68,0.2)]">
                   <Lock size={32} className="text-[var(--text-secondary)]" />
                 </div>
-                <h1 className="text-2xl font-bold tracking-tight">RESTRICTED CASE FILE</h1>
+                <h1 className="text-2xl font-bold tracking-tight">RESTRICTED CASE FILE: {projectData.id.toUpperCase()}</h1>
                 <p className="text-[var(--text-secondary)] text-sm">
-                  Enter credentials to view the messy reality behind the "Commerce Engine".
+                  Enter credentials to view the messy reality behind "{projectData.title}".
                 </p>
               </div>
 
@@ -195,7 +209,7 @@ const ProtectedCaseStudy = () => {
 
   // --- UNLOCKED VIEW ---
   return (
-    <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-amber)] selection:text-black transition-colors duration-500">
+    <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--brand)] selection:text-white transition-colors duration-500">
 
       {/* Navbar Mock */}
       <div className="fixed top-0 w-full bg-[var(--bg-void)]/90 backdrop-blur z-50 border-b border-[var(--border-color)] py-4 px-6 flex justify-between items-center transition-colors duration-500">
@@ -217,7 +231,7 @@ const ProtectedCaseStudy = () => {
             <Lock size={14} />
             Lock System
           </button>
-          <Link to="/" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-2 font-mono text-xs uppercase">
+          <Link to={`/work/${parentCluster.id}`} className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-2 font-mono text-xs uppercase">
             <X size={14} /> Close File
           </Link>
         </div>
@@ -227,16 +241,16 @@ const ProtectedCaseStudy = () => {
 
         {/* HERO */}
         <section className="mb-24">
-          <div className="inline-block px-3 py-1 border border-[var(--accent-amber)] text-[var(--accent-amber)] font-mono text-xs mb-6 rounded-full bg-[var(--accent-amber)]/10">
-            PROJECT: COMMERCE ENGINE
+          <div className="inline-block px-3 py-1 border border-[var(--brand)] text-[var(--brand)] font-mono text-xs mb-6 rounded-full bg-[var(--brand)]/10" style={{ borderColor: 'var(--brand)', color: 'var(--brand)' }}>
+            PROJECT: {projectData.title.toUpperCase()}
           </div>
           <h1 className="text-4xl md:text-6xl font-bold uppercase mb-8 leading-tight">
-            The Commerce Engine: <br />
-            <span className="text-[var(--text-secondary)] font-serif italic font-normal lowercase">Organizing the chaos of 10,000 SKUs.</span>
+            {projectData.title}: <br />
+            <span className="text-[var(--text-secondary)] font-serif italic font-normal lowercase">{projectData.details.problem}</span>
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-b border-[var(--border-color)] py-8">
-            {project.metrics.map((m, i) => (
+            {caseData.metrics.map((m, i) => (
               <div key={i} className="px-4 border-l border-[var(--border-color)] first:border-l-0">
                 <div className="text-[var(--text-secondary)] text-xs uppercase mb-2 tracking-widest">{m.label}</div>
                 <div className="text-3xl font-mono text-[var(--accent-green)]">{m.value}</div>
