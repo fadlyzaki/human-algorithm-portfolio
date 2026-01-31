@@ -214,14 +214,24 @@ const AboutPage = () => {
 
           {/* Avatar Area */}
           <div className="relative group" style={getChaosStyle()}>
-            <div className="w-full aspect-square bg-[var(--bg-card)] border border-[var(--border-color)] grayscale group-hover:grayscale-0 transition-all duration-700 overflow-hidden relative rounded-lg">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)] to-transparent opacity-50 z-10"></div>
-              <div className="w-full h-full bg-[var(--bg-surface)] flex items-center justify-center text-[var(--text-secondary)]">
-                <User size={64} strokeWidth={1} />
-              </div>
+            <div className="w-full aspect-square bg-[var(--bg-card)] border border-[var(--border-color)] relative group-hover:border-[var(--accent-blue)] transition-all duration-700 overflow-hidden rounded-lg shadow-2xl">
+              {/* Profile Image */}
+              <img
+                src="/about-fadly.jpg"
+                alt="Fadly Uzzaki"
+                className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out"
+              />
+
+              {/* Tint Overlays */}
+              <div className="absolute inset-0 bg-[var(--accent-blue)]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)]/80 via-transparent to-transparent opacity-60 z-10"></div>
 
               {/* Scanline Effect */}
-              <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] opacity-20 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] opacity-10 pointer-events-none z-20"></div>
+
+              {/* Corner Glitch Marker */}
+              <div className="absolute top-2 right-2 w-8 h-8 border-t border-r border-white/20 z-30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute bottom-2 left-2 w-8 h-8 border-b border-l border-white/20 z-30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
 
             {/* Status Badge */}
