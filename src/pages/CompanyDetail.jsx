@@ -5,6 +5,7 @@ import { useTheme } from '../context/ThemeContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
+import ProjectPreview from '../components/ProjectPreview';
 
 // Dynamic Imports for AI Interactions
 const WorkforceAI = React.lazy(() => import('../components/interactions/WorkforceAI'));
