@@ -141,7 +141,13 @@ export const WORK_CLUSTERS = [
                         { label: "Time-to-Hire", value: "-3 Days" },
                         { label: "NPS", value: "78" }
                     ],
-                    learnings: "This project taught me that 'features' don't solve problems; 'workflows' do. By mimicking the tool they already used (WhatsApp) but adding structure, I won adoption without training."
+                    learnings: "This project taught me that 'features' don't solve problems; 'workflows' do. By mimicking the tool they already used (WhatsApp) but adding structure, I won adoption without training.",
+                    aiHypothesis: {
+                        tech: "LLM Agents & Sentiment Analysis",
+                        title: "Auto-Negotiation Bot",
+                        desc: "Instead of recruiters manually typing replies, an Agent would draft responses based on the candidate's sentiment and availability. It could schedule interviews automatically by syncing with calendar APIs.",
+                        impact: "Response Time < 5 mins"
+                    }
                 }
             },
             {
@@ -187,7 +193,13 @@ export const WORK_CLUSTERS = [
                         { label: "Data Accuracy", value: "99%" },
                         { label: "Adoption", value: "100%" }
                     ],
-                    learnings: "Replacing a spreadsheet is the hardest design challenge. You can't just be prettier; you have to be faster. I learned to respect the utility of a grid."
+                    learnings: "Replacing a spreadsheet is the hardest design challenge. You can't just be prettier; you have to be faster. I learned to respect the utility of a grid.",
+                    aiHypothesis: {
+                        tech: "RAG (Retrieval-Augmented Generation)",
+                        title: "The 'Chief of Staff' Sidebar",
+                        desc: "A natural language sidebar where HR can ask: 'Who are the top 3 drivers for East Jakarta?' The AI retrieves data from the pipeline and summarizes it, eliminating the need for complex filters.",
+                        impact: "Data Retrieval Speed 10x"
+                    }
                 }
             },
             {
@@ -233,7 +245,13 @@ export const WORK_CLUSTERS = [
                         { label: "Completed", value: "+60%" },
                         { label: "Trust", value: "High" }
                     ],
-                    learnings: "Lowering the barrier to entry increases volume, but you need checks for quality. Voice notes were the perfect middle ground—easy to send, but rich in signal."
+                    learnings: "Lowering the barrier to entry increases volume, but you need checks for quality. Voice notes were the perfect middle ground—easy to send, but rich in signal.",
+                    aiHypothesis: {
+                        tech: "Audio-to-Structured-Data (Whisper)",
+                        title: "Instant Resume Generator",
+                        desc: "Candidates simply talk about their experience for 1 minute. The AI transcribes the audio, extracts skills/dates, and builds a formatted tabular resume automatically.",
+                        impact: "Completion Rate +90%"
+                    }
                 }
             },
             {
@@ -279,7 +297,13 @@ export const WORK_CLUSTERS = [
                         { label: "Search Success", value: "85%" },
                         { label: "Bounce Rate", value: "-10%" }
                     ],
-                    learnings: "Navigation is not just about structure; it's about confidence. If a user feels lost for 1 second, they are gone. I learned to count clicks like currency."
+                    learnings: "Navigation is not just about structure; it's about confidence. If a user feels lost for 1 second, they are gone. I learned to count clicks like currency.",
+                    aiHypothesis: {
+                        tech: "Predictive UI",
+                        title: "Zero-Click Discovery",
+                        desc: "The app anticipates user intent based on time-of-day and location. If a user opens the app at 8 AM in a warehouse district, the 'Forklift Driver' jobs appear instantly on the home screen.",
+                        impact: "Time-to-Apply -40%"
+                    }
                 }
             },
         ]
@@ -333,7 +357,13 @@ export const WORK_CLUSTERS = [
                         { label: "Conversion", value: "+8%" },
                         { label: "AOV", value: "+15%" }
                     ],
-                    learnings: "Trust is built in milliseconds. You can't ask for money if you look messy. A clean UI is a trustworthy UI."
+                    learnings: "Trust is built in milliseconds. You can't ask for money if you look messy. A clean UI is a trustworthy UI.",
+                    aiHypothesis: {
+                        tech: "Predictive Fraud Detection",
+                        title: "The 'Green Light' Checkout",
+                        desc: "An AI analyzes the buyer's purchase history and creditworthiness in real-time. If they are trusted, they skip the 'Payment Proof' step entirely. Instant credit approval.",
+                        impact: "Friction Reduced 100%"
+                    }
                 }
             },
             {
@@ -375,7 +405,13 @@ export const WORK_CLUSTERS = [
                         { label: "GMV Uplift", value: "+22%" },
                         { label: "Brand NPS", value: "65" }
                     ],
-                    learnings: "B2B buyers are still human. They gravitate towards 'polished' content because it signals reliability."
+                    learnings: "B2B buyers are still human. They gravitate towards 'polished' content because it signals reliability.",
+                    aiHypothesis: {
+                        tech: "Generative Design (StyleGAN)",
+                        title: "Brand Asset Autopilot",
+                        desc: "Brands upload 1 logo and 1 product image. The AI automatically generates 50 variations of banners, social posts, and store themes that adhere to their brand guidelines.",
+                        impact: "Onboarding Time -90%"
+                    }
                 }
             },
             {
@@ -417,7 +453,13 @@ export const WORK_CLUSTERS = [
                         { label: "Errors", value: "0%" },
                         { label: "Sales Spikes", value: "High" }
                     ],
-                    learnings: "In complex systems, clarity is the best feature. If the user can't predict the outcome, the system is broken."
+                    learnings: "In complex systems, clarity is the best feature. If the user can't predict the outcome, the system is broken.",
+                    aiHypothesis: {
+                        tech: "Reinforcement Learning",
+                        title: "Dynamic Discount Optimization",
+                        desc: "Instead of fixed rules, the AI simulates 10,000 potential cart combinations to find the 'Sweet Spot' discount that maximizes volume without eroding margin. It accepts or rejects the promo for the user.",
+                        impact: "Margin Protected +15%"
+                    }
                 }
             },
             {
@@ -459,7 +501,13 @@ export const WORK_CLUSTERS = [
                         { label: "Code Size", value: "-15%" },
                         { label: "Consistency", value: "100%" }
                     ],
-                    learnings: "A design system is a product, not a project. It needs maintenance, versioning, and a roadmap."
+                    learnings: "A design system is a product, not a project. It needs maintenance, versioning, and a roadmap.",
+                    aiHypothesis: {
+                        tech: "Multimodal LLM (Vision-to-Code)",
+                        title: "Screenshot-to-Component",
+                        desc: "Designers upload a screenshot of a new UI pattern. The AI scans it against our existing component library and outputs the exact React code using our Design System tokens.",
+                        impact: "Design Handoff 0m"
+                    }
                 }
             },
         ]
@@ -513,7 +561,13 @@ export const WORK_CLUSTERS = [
                         { label: "Trust", value: "+40%" },
                         { label: "Repeat Order", value: "+10%" }
                     ],
-                    learnings: "Transparency is the cheapest form of customer support. Explain what's happening, and people will wait."
+                    learnings: "Transparency is the cheapest form of customer support. Explain what's happening, and people will wait.",
+                    aiHypothesis: {
+                        tech: "Computer Vision & IoT",
+                        title: "Smart Loading Docks",
+                        desc: "Cameras at the warehouse scan the volume of goods being loaded. The AI predicts the exact truck fill-rate and notifies the customer: 'Your order consumes 40% of the truck, arriving in 2 hours.'",
+                        impact: "Capacity Usage +20%"
+                    }
                 }
             },
             {
@@ -555,7 +609,13 @@ export const WORK_CLUSTERS = [
                         { label: "Sales Vol", value: "+18%" },
                         { label: "Engagement", value: "High" }
                     ],
-                    learnings: "Gamification isn't just badges. It's about tapping into intrinsic human drives: mastery, status, and fear of missing out."
+                    learnings: "Gamification isn't just badges. It's about tapping into intrinsic human drives: mastery, status, and fear of missing out.",
+                    aiHypothesis: {
+                        tech: "Personalized Coaching Agents",
+                        title: "The 'Jarvis' for Sales",
+                        desc: "An AI voice coach that listens to sales calls (privacy-safe) and gives real-time whispers: 'Talk slower', 'Mention the bundle discount now', 'They sound hesitant about price'.",
+                        impact: "Conversion Rate +25%"
+                    }
                 }
             },
             {
@@ -597,7 +657,13 @@ export const WORK_CLUSTERS = [
                         { label: "Search Speed", value: "100x" },
                         { label: "Cost Save", value: "High" }
                     ],
-                    learnings: "The future is inevitable, but it needs a bridge. The 'Confidence Score' was the bridge that let users trust the AI."
+                    learnings: "The future is inevitable, but it needs a bridge. The 'Confidence Score' was the bridge that let users trust the AI.",
+                    aiHypothesis: {
+                        tech: "Visual Document Understanding (VDU)",
+                        title: "Semantic Search for Paper",
+                        desc: "You can ask the system: 'Find me the invoice for the red chair we bought last May.' The AI visualizes the document and highlights the exact line item.",
+                        impact: "Audit Speed 100x"
+                    }
                 }
             },
         ]

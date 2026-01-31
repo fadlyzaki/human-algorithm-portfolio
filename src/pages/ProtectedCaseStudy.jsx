@@ -407,7 +407,7 @@ const ProtectedCaseStudy = () => {
         </section>
 
         {/* 6. IMPACT & OUTCOMES */}
-        <section className="bg-[var(--brand)] text-[var(--bg-void)] py-24">
+        <section className="bg-[var(--brand)] text-[var(--bg-void)] py-32">
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-black/10">
               {(caseData.metrics || []).map((m, i) => (
@@ -420,8 +420,50 @@ const ProtectedCaseStudy = () => {
           </div>
         </section>
 
-        {/* 7. TAKEAWAYS (ARCHITECT'S NOTE) */}
-        <section className="max-w-3xl mx-auto px-6 py-32 text-center">
+        {/* 7. AI RETRO-FIT (NEW SECTION) */}
+        {caseData.aiHypothesis && (
+          <section className="bg-black text-white py-32 relative overflow-hidden">
+            {/* Grid Background */}
+            <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+
+            <div className="max-w-4xl mx-auto px-6 relative z-10">
+              <div className="flex items-center gap-4 mb-12 text-emerald-400 font-mono text-xs uppercase tracking-widest">
+                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                System Update // 2025 Vision
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-serif italic mb-8">
+                "If I built this today..."
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div>
+                  <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                    Back then, we solved this with logic and loops. Today, I would solve it with <span className="text-white font-bold">{caseData.aiHypothesis.tech}</span>.
+                  </p>
+                  <div className="p-6 border border-white/10 bg-white/5 rounded-lg backdrop-blur-sm">
+                    <h3 className="font-mono text-xs text-emerald-400 uppercase tracking-widest mb-2">The New Concept</h3>
+                    <p className="text-xl font-bold">{caseData.aiHypothesis.title}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-2">Retro-Fit Logic</h4>
+                    <p className="text-gray-300 leading-relaxed border-l-2 border-emerald-500/50 pl-4">{caseData.aiHypothesis.desc}</p>
+                  </div>
+                  <div>
+                    <h4 className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-2">Potential Impact</h4>
+                    <div className="text-3xl font-mono font-bold text-emerald-400">{caseData.aiHypothesis.impact}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* 8. TAKEAWAYS (ARCHITECT'S NOTE) */}
+        <section className="max-w-3xl mx-auto px-6 py-40 text-center">
           <FileText className="mx-auto text-[var(--text-secondary)] mb-8" size={32} />
           <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">// Architect's Debrief</h4>
           <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
