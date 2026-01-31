@@ -615,7 +615,7 @@ const Portfolio = () => {
           {/* Copyright / Credits */}
           <div className="border-t border-[var(--border-color)] pt-8 mt-16 flex flex-col md:flex-row justify-between items-center text-xs font-mono text-[var(--text-secondary)]">
             <div className="flex items-center gap-2">
-              <span>&copy; {new Date().getFullYear()} Fadly Rizqi Zaki. All System Rights Reserved.</span>
+              <span>&copy; {new Date().getFullYear()} Fadly Uzzaki. All System Rights Reserved.</span>
             </div>
             <div className="flex items-center gap-2 mt-4 md:mt-0">
               <span>Designed & Developed with</span>
