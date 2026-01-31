@@ -103,20 +103,39 @@ export const WORK_CLUSTERS = [
                 role: 'Lead Product Designer',
                 timeline: '3 Months',
                 route: '/case-study/p1',
-                previewImage: '/workforce_hero.png', // Using existing assets as placeholder
-                details: {
-                    problem: 'Recruiters struggled to track 200+ candidate conversations per day.',
-                    system: 'Built a low-friction, latency-friendly chat architecture.',
-                    outcome: 'Reduced drop-off by 37%.'
-                },
+                previewImage: '/workforce_hero.png',
                 caseStudy: {
                     locked: true,
-                    memo: "Candidates wereghosting because recruiters took 4 days to reply. We made it feel like WhatsApp.",
+                    snapshot: {
+                        tagline: "Making recruitment feel as instant as WhatsApp.",
+                        heroImage: "/workforce_hero.png"
+                    },
+                    context: {
+                        client: "Internal Product",
+                        role: "Lead Product Designer",
+                        timeline: "3 Months",
+                        team: "1 PM, 2 FE, 1 BE"
+                    },
+                    challenge: "Recruiters were managing 200+ candidates in Excel and SMS, leading to a 4-day response time and high candidate ghosting rates.",
+                    process: [
+                        { title: "Shadowing", desc: "Followed 5 recruiters for a day. Found they were copy-pasting SMS templates manually." },
+                        { title: "Wireframing", desc: "Designed a 'bulk-action' interface to message 50 candidates at once." },
+                        { title: "Prototyping", desc: "Tested the chat interaction with actual blue-collar workers to ensure it felt familiar." }
+                    ],
+                    insights: [
+                        { title: "Fear of Formality", desc: "Candidates ignored email but responded to 'Chat'. The medium was the message." },
+                        { title: "Batching vs. Real-time", desc: "Recruiters work in batches; candidates work in real-time. The system had to bridge this sync gap." }
+                    ],
+                    solution: [
+                        { title: "Universal Chat Inbox", desc: "Consolidated SMS, WhatsApp, and In-App messages into one thread." },
+                        { title: "Smart Templates", desc: "One-tap replies for common status updates (Interivew Scheduled, Rejected, etc)." }
+                    ],
                     metrics: [
                         { label: "Response Rate", value: "+45%" },
                         { label: "Time-to-Hire", value: "-3 Days" },
                         { label: "NPS", value: "78" }
-                    ]
+                    ],
+                    learnings: "We learned that 'features' don't solve problems; 'workflows' do. By mimicking the tool they already used (WhatsApp) but adding structure, we won adoption."
                 }
             },
             {
@@ -128,19 +147,36 @@ export const WORK_CLUSTERS = [
                 timeline: '4 Months',
                 route: '/case-study/p2',
                 previewImage: '/workforce_hero.png',
-                details: {
-                    problem: 'Data fragmentation across spreadsheets.',
-                    system: 'Unified dashboard with drag-and-drop pipelines.',
-                    outcome: 'Hiring speed improved by 20%.'
-                },
                 caseStudy: {
                     locked: true,
-                    memo: "HR Admins were using 5 different tools. We consolidated it into one 'Command Center'.",
+                    snapshot: {
+                        tagline: "A command center for high-volume hiring.",
+                        heroImage: "/workforce_hero.png"
+                    },
+                    context: {
+                        client: "Internal Product",
+                        role: "UI/UX Designer",
+                        timeline: "4 Months",
+                        team: "2 Designers, 4 Devs"
+                    },
+                    challenge: "HR data was fragmented across 5 different tools and spreadsheets, making it impossible to get a 'single source of truth'.",
+                    process: [
+                        { title: "Audit", desc: "Mapped out the data flow between the 5 existing tools." },
+                        { title: "Consolidation", desc: "Defined a unified data schema for 'Candidate State'." }
+                    ],
+                    insights: [
+                        { title: "The Excel Addiction", desc: "Users loved Excel because it was flexible. Our tool had to offer table-like density, not just pretty cards." }
+                    ],
+                    solution: [
+                        { title: "Pipeline View", desc: "Drag-and-drop kanban board for visual management." },
+                        { title: "Bulk Operations", desc: "Select-all actions to move candidates through stages efficiently." }
+                    ],
                     metrics: [
                         { label: "Efficiency", value: "+20%" },
                         { label: "Data Accuracy", value: "99%" },
                         { label: "Adoption", value: "100%" }
-                    ]
+                    ],
+                    learnings: "Replacing a spreadsheet is the hardest design challenge. You have to beat the utility of a grid."
                 }
             },
             {
@@ -152,19 +188,36 @@ export const WORK_CLUSTERS = [
                 timeline: '2 Months',
                 route: '/case-study/p3',
                 previewImage: '/workforce_hero.png',
-                details: {
-                    problem: 'Candidates intimidated by formal applications.',
-                    system: 'WhatsApp-like interface for formal requests.',
-                    outcome: 'Application starts increased by 45%.'
-                },
                 caseStudy: {
                     locked: true,
-                    memo: "Formal forms scare blue-collar workers. Casual chat invites them in.",
+                    snapshot: {
+                        tagline: "Breaking the 'Resume Wall' for blue-collar workers.",
+                        heroImage: "/workforce_hero.png"
+                    },
+                    context: {
+                        client: "Consumer App",
+                        role: "Product Designer",
+                        timeline: "2 Months",
+                        team: "Growth Team"
+                    },
+                    challenge: "Lengthy application forms were causing a 90% drop-off rate for users who weren't comfortable typing on screens.",
+                    process: [
+                        { title: "Experiment", desc: "A/B tested a full form vs. a simple 'Hi, I'm interested' button." },
+                        { title: "Simplification", desc: "Removed 80% of required fields for the initial contact." }
+                    ],
+                    insights: [
+                        { title: "Trust Deficiency", desc: "Users didn't trust a faceless form. They trusted a person they could talk to." }
+                    ],
+                    solution: [
+                        { title: "One-Tap Apply", desc: "Users send a pre-filled message to start the conversation." },
+                        { title: "Audio Profiles", desc: "Allowed users to record a voice note instead of typing a cover letter." }
+                    ],
                     metrics: [
                         { label: "App Starts", value: "+45%" },
                         { label: "Completed", value: "+60%" },
                         { label: "Trust", value: "High" }
-                    ]
+                    ],
+                    learnings: "Lowering the barrier to entry increases volume, but you need checks to maintain quality. Voice notes were the perfect middle ground."
                 }
             },
             {
@@ -176,19 +229,36 @@ export const WORK_CLUSTERS = [
                 timeline: 'Ongoing',
                 route: '/case-study/p4',
                 previewImage: '/workforce_hero.png',
-                details: {
-                    problem: 'Users getting lost in complex job filters.',
-                    system: 'Simplified faceted search.',
-                    outcome: 'Retention D1 increased by 15%'
-                },
                 caseStudy: {
                     locked: true,
-                    memo: "Search logic was too boolean. We made it fuzzy and forgiving.",
+                    snapshot: {
+                        tagline: "Helping users find their way without a map.",
+                        heroImage: "/workforce_hero.png"
+                    },
+                    context: {
+                        client: "Core Product",
+                        role: "Interaction Designer",
+                        timeline: "Ongoing",
+                        team: "Core Experience"
+                    },
+                    challenge: "Reviewing metrics showed users were getting stuck in deep navigation trees and abandoning the app.",
+                    process: [
+                        { title: "Tree Testing", desc: "Verified that the existing category structure didn't match user mental models." },
+                        { title: "Card Sorting", desc: "Let users group jobs in ways that made sense to them." }
+                    ],
+                    insights: [
+                        { title: "Visual vs. Text", desc: "Our users were visual learners. Icons worked better than text labels." }
+                    ],
+                    solution: [
+                        { title: "Flat Navigation", desc: "Removed 2 levels of hierarchy to surface jobs faster." },
+                        { title: "Visual Tags", desc: "Used distinct iconography for every job category." }
+                    ],
                     metrics: [
                         { label: "Retention D1", value: "+15%" },
                         { label: "Search Success", value: "85%" },
                         { label: "Bounce Rate", value: "-10%" }
-                    ]
+                    ],
+                    learnings: "Navigation is not just about structure; it's about confidence. If a user feels lost for 1 second, they are gone."
                 }
             },
         ]

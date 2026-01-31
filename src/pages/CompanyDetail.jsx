@@ -143,27 +143,26 @@ const CompanyDetail = () => {
                             <ScrollReveal key={idx} delay={idx * 100}>
                                 <div
                                     onClick={() => navigate(project.route)}
-                                    className="group cursor-pointer"
+                                    className="group bg-[var(--bg-card)] border border-[var(--border-color)] cursor-pointer hover:border-[var(--brand)] transition-all duration-500 relative overflow-hidden shadow-sm hover:shadow-xl rounded-lg"
                                 >
                                     <h3 className="text-3xl md:text-4xl font-serif italic mb-6 group-hover:text-[var(--brand)] transition-colors inline-block">
                                         {project.title}
                                     </h3>
 
-                                    <div className="relative aspect-video w-full overflow-hidden rounded-lg mb-8 border border-[var(--border-color)]">
-                                        {/* Overlay */}
-                                        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                                    {/* UI PREVIEW (Reduced Height) */}
+                                    <div className="h-40 md:h-48 w-full overflow-hidden relative border-b border-[var(--border-color)] bg-[var(--bg-void)]/50">
+                                        <div className="absolute inset-0 bg-[var(--brand)] mix-blend-overlay opacity-0 group-hover:opacity-10 transition-opacity z-10 pointer-events-none"></div>
 
-                                        <img
-                                            src={project.previewImage}
-                                            alt={project.title}
-                                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                                        />
+                                        <ProjectPreview type={project.type} />
 
-                                        {/* Action Button */}
-                                        <div className="absolute bottom-6 right-6 z-20">
-                                            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-white text-xs font-mono uppercase tracking-widest group-hover:bg-[var(--brand)] group-hover:border-[var(--brand)] transition-all">
-                                                Based on True Story <ArrowUpRight size={14} />
-                                            </div>
+                                        {/* Obfuscated UI Overlay Effect */}
+                                        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-20 pointer-events-none"></div>
+                                    </div>
+
+                                    {/* Action Button */}
+                                    <div className="absolute bottom-6 right-6 z-20">
+                                        <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-white text-xs font-mono uppercase tracking-widest group-hover:bg-[var(--brand)] group-hover:border-[var(--brand)] transition-all">
+                                            Based on True Story <ArrowUpRight size={14} />
                                         </div>
                                     </div>
 

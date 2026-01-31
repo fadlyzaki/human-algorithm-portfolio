@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
   Lock, Unlock, AlertTriangle, ArrowRight, ShieldAlert, Database, Truck,
-  ShoppingCart, FileText, Thermometer, Activity, PenTool, Sun, Moon, X, ArrowLeft
+  ShoppingCart, FileText, Thermometer, Activity, PenTool, Sun, Moon, X, ArrowLeft, Monitor
 } from 'lucide-react';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
@@ -182,7 +182,7 @@ const ProtectedCaseStudy = () => {
 
               <div className="text-center">
                 <p className="text-[10px] text-[var(--text-secondary)] opacity-50">
-                  // HINT: Try "jakipadang"
+                  // FOR ACCESS: CONTACT ME
                 </p>
               </div>
             </div>
@@ -239,142 +239,153 @@ const ProtectedCaseStudy = () => {
 
       <main className="max-w-5xl mx-auto px-6 pt-32 pb-24">
 
-        {/* HERO */}
-        <section className="mb-24">
-          <div className="inline-block px-3 py-1 border border-[var(--brand)] text-[var(--brand)] font-mono text-xs mb-6 rounded-full bg-[var(--brand)]/10" style={{ borderColor: 'var(--brand)', color: 'var(--brand)' }}>
-            PROJECT: {projectData.title.toUpperCase()}
+        {/* 1. PROJECT SNAPSHOT */}
+        <section className="mb-24 text-center">
+          <div className="inline-block px-3 py-1 border border-[var(--brand)] text-[var(--brand)] font-mono text-xs mb-6 rounded-full bg-[var(--brand)]/10">
+            CASE FILE: {projectData.id.toUpperCase()}
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold uppercase mb-8 leading-tight">
-            {projectData.title}: <br />
-            <span className="text-[var(--text-secondary)] font-serif italic font-normal lowercase">{projectData.details.problem}</span>
+          <h1 className="text-5xl md:text-7xl font-serif italic mb-6 leading-tight">
+            {projectData.title}
           </h1>
+          <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-3xl mx-auto font-light leading-relaxed">
+            {caseData.snapshot?.tagline || caseData.memo}
+          </p>
+          {/* Snapshot Image */}
+          <div className="mt-12 w-full aspect-video rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-card)] relative">
+            <div className="absolute inset-0 bg-[var(--brand)] opacity-10 mix-blend-overlay"></div>
+            {/* Using new wireframe previews if no image */}
+            <div className="w-full h-full flex items-center justify-center text-[var(--text-secondary)] opacity-30 font-mono text-xs uppercase tracking-widest">
+              [ VISUAL EVIDENCE: {projectData.type} ]
+            </div>
+          </div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-b border-[var(--border-color)] py-8">
-            {caseData.metrics.map((m, i) => (
-              <div key={i} className="px-4 border-l border-[var(--border-color)] first:border-l-0">
+        {/* 2. CONTEXT */}
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-y border-[var(--border-color)] mb-24">
+          {[
+            { label: "Client", value: caseData.context?.client || "Confidential" },
+            { label: "Role", value: caseData.context?.role || projectData.role },
+            { label: "Timeline", value: caseData.context?.timeline || projectData.timeline },
+            { label: "Team", value: caseData.context?.team || "Product Team" }
+          ].map((item, i) => (
+            <div key={i} className="text-center md:text-left">
+              <span className="block font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">{item.label}</span>
+              <span className="text-sm font-medium">{item.value}</span>
+            </div>
+          ))}
+        </section>
+
+        {/* 3. CHALLENGE */}
+        <section className="mb-32 grid grid-cols-1 md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
+            <h2 className="font-mono text-xl uppercase flex items-center gap-2 text-[var(--accent-red)]">
+              <AlertTriangle size={20} /> The Challenge
+            </h2>
+          </div>
+          <div className="md:col-span-8">
+            <p className="text-2xl md:text-3xl font-serif leading-relaxed">
+              "{caseData.challenge || projectData.details.problem}"
+            </p>
+          </div>
+        </section>
+
+        {/* 4. PROCESS (THE PLOT) */}
+        {caseData.process && (
+          <section className="mb-32">
+            <div className="flex items-center gap-3 mb-12">
+              <PenTool size={20} className="text-[var(--text-secondary)]" />
+              <h2 className="font-mono text-xl uppercase">The Process</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {caseData.process.map((step, i) => (
+                <div key={i} className="group">
+                  <div className="aspect-square bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
+                    <span className="text-9xl font-mono opacity-5 group-hover:opacity-10 transition-opacity absolute">{i + 1}</span>
+                    <Activity className="opacity-20 group-hover:scale-110 transition-transform duration-500" />
+                  </div>
+                  <h3 className="font-bold mb-2">{step.title}</h3>
+                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 5. KEY INSIGHTS (CLIMAX) */}
+        {caseData.insights && (
+          <section className="mb-32 bg-[var(--bg-card)] border border-[var(--border-color)] p-8 md:p-12 rounded-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-4 opacity-10">
+              <Sun size={100} />
+            </div>
+            <h2 className="font-mono text-xl uppercase mb-8 flex items-center gap-2 text-[var(--accent-amber)]">
+              <Sun size={20} /> Key Insights
+            </h2>
+            <div className="space-y-8 relative z-10">
+              {caseData.insights.map((insight, i) => (
+                <div key={i}>
+                  <h3 className="text-xl md:text-2xl font-serif italic mb-2">{insight.title}</h3>
+                  <p className="text-[var(--text-secondary)]">{insight.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 6. SOLUTION */}
+        <section className="mb-32">
+          <div className="flex items-center gap-3 mb-12">
+            <Database size={20} className="text-[var(--text-secondary)]" />
+            <h2 className="font-mono text-xl uppercase">The Solution</h2>
+          </div>
+
+          {caseData.solution ? (
+            <div className="grid grid-cols-1 gap-12">
+              {caseData.solution.map((sol, i) => (
+                <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border border-[var(--border-color)] rounded-xl overflow-hidden bg-[var(--bg-card)]">
+                  <div className="aspect-video bg-[var(--bg-surface)] relative group cursor-pointer border-r border-[var(--border-color)]">
+                    {/* Placeholder for Solution UI */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-40 transition-opacity">
+                      <Monitor size={48} />
+                    </div>
+                  </div>
+                  <div className="p-8">
+                    <h3 className="text-lg font-bold mb-2">{sol.title}</h3>
+                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{sol.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <DeclassifiedMemo text={projectData.details.system} author="System Architect" />
+            </div>
+          )}
+        </section>
+
+        {/* 7. IMPACT */}
+        <section className="mb-32">
+          <div className="flex items-center gap-3 mb-12">
+            <Activity size={20} className="text-[var(--accent-green)]" />
+            <h2 className="font-mono text-xl uppercase text-[var(--accent-green)]">Impact & Outcomes</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {(caseData.metrics || []).map((m, i) => (
+              <div key={i} className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] text-center rounded-lg hover:border-[var(--accent-green)] transition-colors">
                 <div className="text-[var(--text-secondary)] text-xs uppercase mb-2 tracking-widest">{m.label}</div>
-                <div className="text-3xl font-mono text-[var(--accent-green)]">{m.value}</div>
+                <div className="text-4xl md:text-5xl font-mono text-[var(--accent-green)] mb-2">{m.value}</div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* CONTEXT: THE HUMAN CHAOS */}
-        <section className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 mb-32 items-start">
-          <div className="prose prose-invert prose-lg">
-            <h2 className="font-mono text-xl text-[var(--text-primary)] uppercase mb-6 flex items-center gap-3">
-              <Thermometer className="text-[var(--accent-red)]" />
-              The Environment (40°C)
-            </h2>
-            <p className="text-[var(--text-secondary)]">
-              I didn't design this system in an air-conditioned office. I designed it in a warehouse in Surabaya where the temperature hit 40°C by noon.
-            </p>
-            <p className="text-[var(--text-secondary)]">
-              The "database" wasn't a SQL server. It was a guy named Pak Eko shouting orders across the loading dock. The problem wasn't code; it was that the digital reality didn't match the physical sweating reality of the workers.
-            </p>
-            <p className="text-[var(--text-secondary)] border-l-2 border-[var(--accent-amber)] pl-4 italic">
-              If the app lagged for 2 seconds, Pak Eko would ignore it and go back to his whiteboard.
-            </p>
-          </div>
-
-          {/* Declassified Note Component */}
-          <div className="mt-8 lg:mt-0">
-            <DeclassifiedMemo
-              text="We found 40% of orders failed because the stock didn't actually exist. The UI was lying to the users because the sync was too slow for the fork-lifts."
-              author="Field Audit Log, Day 3"
-            />
-          </div>
-        </section>
-
-        {/* DIAGRAM: THE REFACTOR */}
-        <section className="mb-32">
-          <div className="flex items-center gap-3 mb-8">
-            <Database size={20} className="text-[var(--accent-amber)]" />
-            <h2 className="font-mono text-xl uppercase">Refactoring Trust</h2>
-          </div>
-
-          <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 md:p-12 relative overflow-hidden group">
-            {/* ASCII / DIAGRAM MOCKUP */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center font-mono text-xs relative z-10 items-center">
-
-              {/* Legacy: Chaos */}
-              <div className="space-y-4 opacity-50">
-                <div className="p-4 border border-[var(--border-color)] border-dashed rounded relative">
-                  Legacy "System"
-                  <div className="absolute -top-3 -right-3 bg-red-500/20 text-red-500 px-2 py-1 text-[8px]">UNSTABLE</div>
-                </div>
-                <div className="text-[var(--accent-red)] animate-pulse text-[10px]">Sync Latency: ~45 mins</div>
-              </div>
-
-              {/* Arrow */}
-              <div className="flex flex-col items-center justify-center text-[var(--accent-green)] gap-2">
-                <div className="h-px w-full bg-[var(--border-color)] md:hidden"></div>
-                <ArrowRight size={24} className="hidden md:block" />
-                <span className="bg-[var(--bg-surface)] px-2 text-[10px] border border-[var(--border-color)] rounded">WebSocket Impl.</span>
-              </div>
-
-              {/* New System: Clarity */}
-              <div className="space-y-4">
-                <div className="p-4 border border-[var(--accent-green)] bg-[var(--accent-green)]/5 rounded text-[var(--accent-green)] shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-                  Real-time Inventory
-                </div>
-                <div className="text-[var(--text-secondary)] text-[10px]">Sync Latency: &lt; 200ms</div>
-              </div>
-            </div>
-
-            {/* Background Grid */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
-              style={{ backgroundImage: `radial-gradient(${isDark ? '#FFF' : '#000'} 1px, transparent 1px)`, backgroundSize: '20px 20px' }}>
-            </div>
-          </div>
-
-          <div className="mt-6 flex gap-4 text-xs font-mono text-[var(--text-secondary)] opacity-70">
-            <div className="flex items-center gap-2">
-              <Activity size={12} /> Live Status: STABLE
-            </div>
-            <div className="flex items-center gap-2">
-              <PenTool size={12} /> Design: High Contrast
-            </div>
-          </div>
-        </section>
-
-        {/* UI GALLERY: HUMAN CENTERED */}
-        <section className="mb-24">
-          <h3 className="font-mono text-lg uppercase mb-8 text-[var(--text-primary)]">The Interface Solutions</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-4 group cursor-pointer">
-              <div className="aspect-[4/3] bg-[var(--bg-card)] border border-[var(--border-color)] relative flex items-center justify-center overflow-hidden transition-all group-hover:border-[var(--accent-amber)]">
-                <div className={`absolute inset-0 bg-gradient-to-t ${isDark ? 'from-[#050505]' : 'from-[#F0F0F3]'} to-transparent opacity-60 z-10`}></div>
-                <Truck size={64} className="text-[var(--text-secondary)] opacity-20 group-hover:opacity-100 group-hover:scale-110 group-hover:text-[var(--accent-amber)] transition-all duration-700" />
-                <div className="absolute bottom-6 left-6 z-20">
-                  <h3 className="text-[var(--text-primary)] font-bold group-hover:text-[var(--accent-amber)] transition-colors">Logistics Dashboard</h3>
-                  <p className="text-xs text-[var(--text-secondary)]">Big buttons for gloved hands.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-4 md:mt-12 group cursor-pointer">
-              <div className="aspect-[4/3] bg-[var(--bg-card)] border border-[var(--border-color)] relative flex items-center justify-center overflow-hidden transition-all group-hover:border-[var(--accent-green)]">
-                <div className={`absolute inset-0 bg-gradient-to-t ${isDark ? 'from-[#050505]' : 'from-[#F0F0F3]'} to-transparent opacity-60 z-10`}></div>
-                <ShoppingCart size={64} className="text-[var(--text-secondary)] opacity-20 group-hover:opacity-100 group-hover:scale-110 group-hover:text-[var(--accent-green)] transition-all duration-700" />
-                <div className="absolute bottom-6 left-6 z-20">
-                  <h3 className="text-[var(--text-primary)] font-bold group-hover:text-[var(--accent-green)] transition-colors">Smart Cart</h3>
-                  <p className="text-xs text-[var(--text-secondary)]">Auto-splitting orders by warehouse location.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FOOTER NOTE */}
-        <section className="border-t border-[var(--border-color)] pt-12">
+        {/* 8. TAKEAWAYS */}
+        <section className="border-t border-[var(--border-color)] pt-16">
           <div className="flex gap-4 items-start">
-            <FileText className="text-[var(--accent-amber)] mt-1 shrink-0" size={20} />
-            <div>
-              <h4 className="font-mono text-sm text-[var(--text-primary)] uppercase mb-2">Architect's Debrief</h4>
-              <p className="text-sm text-[var(--text-secondary)] max-w-2xl leading-relaxed">
-                "This project taught me that in B2B, 'boring' is a feature. Traders don't want delight; they want predictability. We removed 40% of the UI animations to make the app feel faster on low-end devices, and user trust immediately went up. <br /><br />
-                <span className="text-[var(--text-primary)] font-serif italic">Sometimes the best algorithm is just listening to the guy shouting in the warehouse.</span>"
+            <FileText className="text-[var(--text-secondary)] mt-1 shrink-0" size={20} />
+            <div className="max-w-3xl">
+              <h4 className="font-mono text-sm uppercase mb-4 opacity-70">Architect's Debrief (Takeaways)</h4>
+              <p className="text-lg text-[var(--text-secondary)] leading-relaxed font-light">
+                "{caseData.learnings || caseData.memo || "Confidential"}"
               </p>
             </div>
           </div>
