@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft, Terminal, Cpu, BookOpen, Coffee, MapPin, Headphones,
-  Activity, AlertTriangle, GitCommit, Download, Sun, Moon, Code,
-  PenTool, Brain, Zap, Flame, PenLine, Layers, Smartphone, Briefcase, User
+  Activity, AlertTriangle, GitCommit, Download, Sun, Moon,
+  PenTool, Zap, Flame, PenLine, Layers, Briefcase, User,
+  Database, Server, Wifi, Layout, Shield
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import ScrollReveal from '../components/ScrollReveal';
+import SystemMonitor from '../components/SystemMonitor';
+import ChaosSlider from '../components/ChaosSlider';
 
 /* --- THEME CONFIGURATION ---
    Consistent with Human Algorithm Design System v2.0
@@ -14,6 +18,19 @@ import { useTheme } from '../context/ThemeContext';
 const AboutPage = () => {
   const { isDark, setIsDark } = useTheme();
   const [scrolled, setScrolled] = useState(0);
+  const [chaosStrength, setChaosStrength] = useState(0);
+
+  // JSON Config State
+  const [config, setConfig] = useState(`const Operator = {
+  "name": "Fadly Uzzaki",
+  "quirks": ["Rubber Duck Debugging", "Playlist curator"],
+  "fuel": ["Coffee", "Lo-Fi Beats"],
+  "principles": {
+    "feasibility": true,
+    "empathy": true,
+    "panic_mode": false // Stay calm
+  }
+};`);
 
   // --- DATA: THE KERNEL LOG (Biography Timeline) ---
   const historyLog = [
@@ -100,8 +117,17 @@ const AboutPage = () => {
     { label: "Core Dump (Journal)", count: "Daily", icon: PenLine, color: "text-purple-400", note: "Processing the noise." }
   ];
 
-  // --- DATA: INSTALLED DRIVERS (Tools) ---
-  const tools = ["Notion", "Figma", "Strava", "Apple Journal", "VS Code", "Duolingo", "Obsidian"];
+  // --- DATA: INSTALLED DRIVERS (Tools Mapped to Icons) ---
+  const toolsData = [
+    { name: "Figma", icon: Layout },
+    { name: "React / Vite", icon: Cpu },
+    { name: "Tailwind CSS", icon: PenTool },
+    { name: "Node.js", icon: Server },
+    { name: "PostgreSQL", icon: Database },
+    { name: "Notion", icon: BookOpen },
+    { name: "Obsidian", icon: PenLine },
+    { name: "Physical Ops", icon: Activity }
+  ];
 
   // --- EFFECT: SCROLL PROGRESS ---
   useEffect(() => {
@@ -115,7 +141,21 @@ const AboutPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // --- DYNAMIC STYLES ---
+  // Chaos Style Generator
+  const getChaosStyle = () => {
+    if (chaosStrength === 0) return {};
+    const randomX = (Math.random() - 0.5) * chaosStrength * 0.5;
+    const randomY = (Math.random() - 0.5) * chaosStrength * 0.5;
+    const skew = (Math.random() - 0.5) * chaosStrength * 0.1;
+    const blur = chaosStrength * 0.05;
+
+    return {
+      transform: `translate(${randomX}px, ${randomY}px) skew(${skew}deg)`,
+      filter: `blur(${blur}px) contrast(${100 + chaosStrength}%)`,
+      transition: 'all 0.1s ease'
+    };
+  };
+
   const themeStyles = {
     '--bg-void': isDark ? '#111111' : '#F0F0F3',
     '--bg-surface': isDark ? '#1F1F1F' : '#FFFFFF',
@@ -132,26 +172,26 @@ const AboutPage = () => {
   return (
     <div
       style={themeStyles}
-      className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] transition-colors duration-500"
+      className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] transition-colors duration-500 overflow-x-hidden"
     >
 
       {/* 1. TEXTURE & LIGHTING */}
-      <div className={`fixed inset - 0 z - 0 pointer - events - none opacity - [0.15] ${isDark ? 'mix-blend-overlay' : 'mix-blend-multiply'} `}
+      <div className={`fixed inset-0 z-0 pointer-events-none opacity-[0.15] ${isDark ? 'mix-blend-overlay' : 'mix-blend-multiply'}`}
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
       ></div>
-      <div className={`fixed inset - 0 z - 0 pointer - events - none transition - opacity duration - 500 ${isDark ? 'opacity-100' : 'opacity-0'} `}
+      <div className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-500 ${isDark ? 'opacity-100' : 'opacity-0'}`}
         style={{ background: 'radial-gradient(circle at 70% 20%, rgba(50,50,50,0.4), rgba(17,17,17,1) 80%)' }}>
       </div>
       <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]"
         style={{
-          backgroundImage: `linear - gradient(${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px), linear - gradient(90deg, ${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}>
       </div>
 
       {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 z-50 bg-[var(--bg-surface)]">
-        <div className="h-full bg-[var(--accent-green)] shadow-[0_0_10px_var(--accent-green)]" style={{ width: `${scrolled}% ` }}></div>
+        <div className="h-full bg-[var(--accent-green)] shadow-[0_0_10px_var(--accent-green)]" style={{ width: `${scrolled}%` }}></div>
       </div>
 
       {/* --- CONTENT --- */}
@@ -174,12 +214,12 @@ const AboutPage = () => {
           </div>
         </header>
 
-        {/* PROFILE HERO */}
+        {/* PROFILE HERO - INTERACTIVE */}
         <section className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-12 mb-24 fade-in items-start">
 
           {/* Avatar Area */}
-          <div className="relative group">
-            <div className="w-full aspect-square bg-[var(--bg-card)] border border-[var(--border-color)] grayscale group-hover:grayscale-0 transition-all duration-700 overflow-hidden relative">
+          <div className="relative group" style={getChaosStyle()}>
+            <div className="w-full aspect-square bg-[var(--bg-card)] border border-[var(--border-color)] grayscale group-hover:grayscale-0 transition-all duration-700 overflow-hidden relative rounded-lg">
               <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)] to-transparent opacity-50 z-10"></div>
               <div className="w-full h-full bg-[var(--bg-surface)] flex items-center justify-center text-[var(--text-secondary)]">
                 <User size={64} strokeWidth={1} />
@@ -190,7 +230,7 @@ const AboutPage = () => {
             </div>
 
             {/* Status Badge */}
-            <div className="absolute -bottom-3 -right-3 bg-[var(--bg-surface)] border border-[var(--border-color)] px-3 py-1 flex items-center gap-2 shadow-lg">
+            <div className="absolute -bottom-3 -right-3 bg-[var(--bg-surface)] border border-[var(--border-color)] px-3 py-1 flex items-center gap-2 shadow-lg rounded-full">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
@@ -199,39 +239,36 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* Intro Text */}
+          {/* Intro Text & Chaos Control */}
           <div>
-            <h1 className="text-4xl md:text-5xl font-mono text-[var(--text-primary)] uppercase leading-[1.1] mb-6 tracking-tight">
-              Fadly Uzzaki (Zaki)
-            </h1>
-            <h2 className="text-xl text-[var(--accent-amber)] font-mono mb-8 flex items-center gap-3">
-              <span className="opacity-50 text-[var(--text-primary)]">//</span>
-              The Human Algorithm
-            </h2>
+            <div style={getChaosStyle()}>
+              <h1 className="text-4xl md:text-5xl font-mono text-[var(--text-primary)] uppercase leading-[1.1] mb-6 tracking-tight">
+                Fadly Uzzaki (Zaki)
+              </h1>
+              <h2 className="text-xl text-[var(--accent-amber)] font-mono mb-8 flex items-center gap-3">
+                <span className="opacity-50 text-[var(--text-primary)]">//</span>
+                The Human Algorithm
+              </h2>
 
-            <div className="prose prose-invert max-w-2xl">
-              <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-6 font-light">
-                I am a product designer who <strong className="text-[var(--text-primary)]">thinks in systems</strong> but <strong className="text-[var(--text-primary)]">feels in stories</strong>. I hybridize computer science logic with messy, human resilience.
-              </p>
-              <p className="text-[var(--text-primary)] text-lg leading-relaxed font-serif italic border-l-2 border-[var(--accent-blue)] pl-4">
-                "My goal is high function, low friction. I design tools that work for a living—resilient, quiet, and steady—just like the people who use them."
-              </p>
+              <div className="prose prose-invert max-w-2xl">
+                <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-6 font-light">
+                  I am a product designer who <strong className="text-[var(--text-primary)]">thinks in systems</strong> but <strong className="text-[var(--text-primary)]">feels in stories</strong>. I hybridize computer science logic with messy, human resilience.
+                </p>
+                <ScrollReveal>
+                  <p className="text-[var(--text-primary)] text-lg leading-relaxed font-serif italic border-l-2 border-[var(--accent-blue)] pl-4">
+                    "My goal is high function, low friction. I design tools that work for a living—resilient, quiet, and steady—just like the people who use them."
+                  </p>
+                </ScrollReveal>
+              </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-4 font-mono text-xs">
-              <div className="flex items-center gap-2 text-[var(--text-secondary)]">
-                <MapPin size={14} className="text-[var(--accent-red)]" /> Jakarta
-              </div>
-              <div className="flex items-center gap-2 text-[var(--text-secondary)]">
-                <Coffee size={14} className="text-[var(--accent-amber)]" /> Fuel: 85%
-              </div>
-              <div className="flex items-center gap-2 text-[var(--text-secondary)]">
-                <Layers size={14} className="text-[var(--accent-blue)]" /> Stack: Full
-              </div>
+            {/* INTERACTIVE COMPONENT: Chaos Slider */}
+            <div className="mt-12 max-w-sm">
+              <ChaosSlider value={chaosStrength} onChange={setChaosStrength} />
             </div>
 
             <div className="mt-8">
-              <Link to="/cv" className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)] text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors font-mono text-xs uppercase">
+              <Link to="/cv" className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)] text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors font-mono text-xs uppercase rounded-lg">
                 <Download size={14} />
                 Download_CV.pdf
               </Link>
@@ -239,165 +276,158 @@ const AboutPage = () => {
           </div>
         </section>
 
+        {/* SYSTEM MONITOR (Skills) */}
+        <section className="mb-32">
+          <ScrollReveal>
+            <div className="flex items-baseline gap-4 mb-8 border-b border-[var(--border-color)] pb-4">
+              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">MONITOR</span>
+              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">System Resources</h2>
+            </div>
+            <SystemMonitor skills={toolsData} />
+          </ScrollReveal>
+        </section>
+
         {/* SYSTEM MAINTENANCE (Habits) */}
         <section className="mb-32">
-          <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
-            <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">OPS</span>
-            <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">System Maintenance</h2>
-          </div>
+          <ScrollReveal>
+            <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
+              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">OPS</span>
+              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">System Maintenance</h2>
+            </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {streaks.map((habit, idx) => (
-              <div key={idx} className="bg-[var(--bg-card)] border border-[var(--border-color)] p-5 text-center group hover:border-[var(--accent-green)] transition-all">
-                <habit.icon size={24} className={`mx - auto mb - 3 ${habit.color} opacity - 80 group - hover: opacity - 100 group - hover: scale - 110 transition - transform`} />
-                <div className="font-mono text-2xl text-[var(--text-primary)] font-bold mb-1">{habit.count}</div>
-                <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">{habit.label}</div>
-                <div className="font-serif italic text-xs text-[var(--text-secondary)] border-t border-[var(--border-color)] pt-2 mt-2 opacity-60 group-hover:opacity-100">
-                  "{habit.note}"
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {streaks.map((habit, idx) => (
+                <div key={idx} className="bg-[var(--bg-card)] border border-[var(--border-color)] p-5 text-center group hover:border-[var(--accent-green)] transition-all rounded-lg">
+                  <habit.icon size={24} className={`mx-auto mb-3 ${habit.color} opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-transform`} />
+                  <div className="font-mono text-2xl text-[var(--text-primary)] font-bold mb-1">{habit.count}</div>
+                  <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">{habit.label}</div>
+                  <div className="font-serif italic text-xs text-[var(--text-secondary)] border-t border-[var(--border-color)] pt-2 mt-2 opacity-60 group-hover:opacity-100">
+                    "{habit.note}"
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </section>
 
         {/* THE KERNEL LOG (Timeline) */}
         <section className="mb-32 relative">
-          <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
-            <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">LOG</span>
-            <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">Kernel History</h2>
-          </div>
+          <ScrollReveal>
+            <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
+              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">LOG</span>
+              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">Kernel History</h2>
+            </div>
+          </ScrollReveal>
 
           <div className="relative border-l border-[var(--border-color)] ml-3 md:ml-6 space-y-12">
             {historyLog.map((item, index) => (
-              <div key={index} className="relative pl-8 md:pl-12 group">
+              <ScrollReveal key={index} delay={index * 100}>
+                <div className="relative pl-8 md:pl-12 group">
+                  {/* Timeline Node */}
+                  <div className={`absolute -left-[5px] md:-left-[5px] top-1 w-[11px] h-[11px] rounded-full bg-[var(--bg-void)] border-2 ${item.highlight ? 'border-[var(--accent-red)] animate-pulse' : 'border-[var(--border-color)] group-hover:border-[var(--accent-blue)]'} transition-colors z-10`}></div>
 
-                {/* Timeline Node */}
-                <div className={`absolute - left - [5px] md: -left - [5px] top - 1 w - [11px] h - [11px] rounded - full bg - [var(--bg - void)]border - 2 ${item.highlight ? 'border-[var(--accent-red)] animate-pulse' : 'border-[var(--border-color)] group-hover:border-[var(--accent-blue)]'} transition - colors z - 10`}></div>
-
-                <div className="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-4 md:gap-12">
-                  {/* Date & Type */}
-                  <div className="font-mono text-xs">
-                    <span className="block text-[var(--text-secondary)] mb-1">{item.year}</span>
-                    <span className={`block font - bold ${item.color} `}>{item.type}</span>
-                  </div>
-
-                  {/* Content */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <item.icon size={18} className={`${item.color} opacity - 80`} />
-                      <h3 className="text-xl text-[var(--text-primary)] font-medium">{item.title}</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-4 md:gap-12">
+                    {/* Date & Type */}
+                    <div className="font-mono text-xs">
+                      <span className="block text-[var(--text-secondary)] mb-1">{item.year}</span>
+                      <span className={`block font-bold ${item.color}`}>{item.type}</span>
                     </div>
-                    <p className="text-[var(--text-secondary)] leading-relaxed max-w-2xl">
-                      {item.desc}
-                    </p>
-                    {item.highlight && (
-                      <div className="mt-4 p-4 bg-[var(--bg-card)] border-l-2 border-[var(--accent-red)] inline-block max-w-xl shadow-lg transform -rotate-1 hover:rotate-0 transition-transform">
-                        <p className="font-serif italic text-sm text-[var(--text-primary)] opacity-90">
-                          "The 3-year gap wasn't a shutdown. It was a complete system refactor. I am now running on a more resilient kernel."
-                        </p>
+
+                    {/* Content */}
+                    <div>
+                      <div className="flex items-center gap-3 mb-2">
+                        <item.icon size={18} className={`${item.color} opacity-80`} />
+                        <h3 className="text-xl text-[var(--text-primary)] font-medium">{item.title}</h3>
                       </div>
-                    )}
+                      <p className="text-[var(--text-secondary)] leading-relaxed max-w-2xl">
+                        {item.desc}
+                      </p>
+                      {item.highlight && (
+                        <div className="mt-4 p-4 bg-[var(--bg-card)] border-l-2 border-[var(--accent-red)] inline-block max-w-xl shadow-lg transform -rotate-1 hover:rotate-0 transition-transform rounded-e-lg">
+                          <p className="font-serif italic text-sm text-[var(--text-primary)] opacity-90">
+                            "The 3-year gap wasn't a shutdown. It was a complete system refactor. I am now running on a more resilient kernel."
+                          </p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </section>
 
         {/* RUNTIME EXECUTION LOGS (Work Experience Narration) */}
         <section className="mb-32">
-          <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
-            <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">EXEC</span>
-            <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">Execution Logs (Experience)</h2>
-          </div>
+          <ScrollReveal>
+            <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
+              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">EXEC</span>
+              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">Execution Logs (Experience)</h2>
+            </div>
+          </ScrollReveal>
 
           <div className="space-y-8">
             {workExperience.map((job, idx) => (
-              <div key={idx} className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] p-8 md:p-10 hover:border-[var(--accent-blue)] transition-all">
-                {/* Decoration: Connection Line */}
-                {idx !== workExperience.length - 1 && (
-                  <div className="absolute left-10 bottom-0 top-[100%] w-px bg-[var(--border-color)] h-8 z-0"></div>
-                )}
+              <ScrollReveal key={idx} delay={idx * 100}>
+                <div className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] p-8 md:p-10 hover:border-[var(--accent-blue)] transition-all rounded-lg">
+                  {/* Decoration: Connection Line */}
+                  {idx !== workExperience.length - 1 && (
+                    <div className="absolute left-10 bottom-0 top-[100%] w-px bg-[var(--border-color)] h-8 z-0"></div>
+                  )}
 
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
-                  <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <Briefcase size={16} className="text-[var(--accent-blue)]" />
-                      <h3 className="font-mono text-xl text-[var(--text-primary)]">{job.role}</h3>
+                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
+                    <div>
+                      <div className="flex items-center gap-3 mb-2">
+                        <Briefcase size={16} className="text-[var(--accent-blue)]" />
+                        <h3 className="font-mono text-xl text-[var(--text-primary)]">{job.role}</h3>
+                      </div>
+                      <span className="font-mono text-sm text-[var(--text-secondary)]">{job.company}</span>
                     </div>
-                    <span className="font-mono text-sm text-[var(--text-secondary)]">{job.company}</span>
-                  </div>
-                  <span className="font-mono text-xs text-[var(--text-secondary)] border border-[var(--border-color)] px-3 py-1 rounded-full self-start">
-                    {job.period}
-                  </span>
-                </div>
-
-                <p className="text-[var(--text-secondary)] text-lg leading-relaxed font-light mb-6 font-serif italic border-l-2 border-[var(--border-color)] pl-6 group-hover:border-[var(--accent-blue)] transition-colors">
-                  "{job.narrative}"
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {job.tags.map(tag => (
-                    <span key={tag} className="font-mono text-[10px] text-[var(--accent-blue)] bg-[var(--bg-void)] px-2 py-1 rounded">
-                      #{tag}
+                    <span className="font-mono text-xs text-[var(--text-secondary)] border border-[var(--border-color)] px-3 py-1 rounded-full self-start">
+                      {job.period}
                     </span>
-                  ))}
+                  </div>
+
+                  <p className="text-[var(--text-secondary)] text-lg leading-relaxed font-light mb-6 font-serif italic border-l-2 border-[var(--border-color)] pl-6 group-hover:border-[var(--accent-blue)] transition-colors">
+                    "{job.narrative}"
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {job.tags.map(tag => (
+                      <span key={tag} className="font-mono text-[10px] text-[var(--accent-blue)] bg-[var(--bg-void)] px-2 py-1 rounded">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </section>
 
-        {/* INSTALLED DRIVERS (Tools) */}
-        <section className="mb-24">
-          <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 text-center">
-            <h3 className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest mb-6">Installed Drivers & Protocols</h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {tools.map((tool) => (
-                <span key={tool} className="px-3 py-1 bg-[var(--bg-void)] border border-[var(--border-color)] text-[var(--text-primary)] font-mono text-xs rounded hover:border-[var(--accent-green)] transition-colors cursor-default">
-                  {tool}.exe
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* SYSTEM CONFIG (Personal JSON) */}
+        {/* SYSTEM CONFIG (Interactive Terminal) */}
         <section className="mb-12">
-          <div className="bg-[#0D0D0D] border border-[var(--border-color)] p-6 md:p-10 font-mono text-sm overflow-x-auto rounded-sm shadow-inner relative group">
-            {/* Marginalia Note */}
-            <div className="absolute -top-3 right-10 bg-[var(--accent-amber)] text-black px-3 py-1 font-serif italic text-xs transform rotate-2 shadow-lg group-hover:rotate-0 transition-transform">
-              Config is stable but weird.
-            </div>
+          <ScrollReveal>
+            <div className="bg-[#0D0D0D] border border-[var(--border-color)] p-6 md:p-10 font-mono text-sm overflow-x-auto rounded-lg shadow-inner relative group">
+              {/* Marginalia Note */}
+              <div className="absolute -top-3 right-10 bg-[var(--accent-amber)] text-black px-3 py-1 font-serif italic text-xs transform rotate-2 shadow-lg group-hover:rotate-0 transition-transform rounded-sm">
+                Config is Editable. Try it.
+              </div>
 
-            <div className="flex gap-2 mb-4 opacity-50">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            </div>
+              <div className="flex gap-2 mb-4 opacity-50">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
 
-            <div className="text-[var(--text-secondary)]">
-              <span className="text-[var(--accent-blue)]">const</span> <span className="text-[var(--accent-amber)]">Operator</span> = {'{'}
-              <br />
-              &nbsp;&nbsp;<span className="text-[var(--text-primary)]">"name"</span>: <span className="text-[var(--accent-green)]">"Fadly Uzzaki"</span>,
-              <br />
-              &nbsp;&nbsp;<span className="text-[var(--text-primary)]">"quirks"</span>: [<span className="text-[var(--accent-green)]">"Talks to rubber ducks"</span>, <span className="text-[var(--accent-green)]">"Over-organizes playlists"</span>],
-              <br />
-              &nbsp;&nbsp;<span className="text-[var(--text-primary)]">"fuel"</span>: [<span className="text-[var(--accent-green)]">"Coffee"</span>, <span className="text-[var(--accent-green)]">"Lo-Fi Beats"</span>],
-              <br />
-              &nbsp;&nbsp;<span className="text-[var(--text-primary)]">"principles"</span>: {'{'}
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[var(--text-primary)]">"feasibility"</span>: <span className="text-[var(--accent-blue)]">true</span>,
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[var(--text-primary)]">"empathy"</span>: <span className="text-[var(--accent-blue)]">true</span>,
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[var(--text-primary)]">"panic_mode"</span>: <span className="text-[var(--accent-red)]">false</span> <span className="text-[var(--text-secondary)] opacity-50">// Stay calm in floods/crises</span>
-              <br />
-              &nbsp;&nbsp;{'}'}
-              <br />
-              {'}'};
+              <textarea
+                value={config}
+                onChange={(e) => setConfig(e.target.value)}
+                className="w-full h-48 bg-transparent text-[var(--accent-green)] resize-none focus:outline-none"
+                spellCheck="false"
+              />
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* FOOTER */}
