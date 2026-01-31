@@ -117,7 +117,7 @@ const SideProjectDetail = () => {
                {/* Left (Meta) */}
                <aside className="md:col-span-3 space-y-12 md:text-right">
                   <div>
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">Tooling</h3>
+                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">Tech Stack</h3>
                      <ul className="space-y-2 text-sm">
                         {project.stack.map((tool, i) => (
                            <li key={i}>{tool}</li>

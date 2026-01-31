@@ -490,7 +490,7 @@ const Portfolio = () => {
                 </h2>
 
                 <p className="text-[var(--text-secondary)] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
-                  Bridging the gap between <strong className="text-[var(--text-primary)] font-medium">Computer Science logic</strong> and <strong className="text-[var(--text-primary)] font-serif italic font-medium">human chaos</strong>. I design systems that feel inevitable, not forced.
+                  Bridging the gap between <strong className="text-[var(--text-primary)] font-medium">Computer Science logic</strong> and <strong className="text-[var(--text-primary)] font-serif italic font-medium">human behavior</strong>. I design systems that feel inevitable, not forced.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -529,9 +529,9 @@ const Portfolio = () => {
             <StickyNote text="Antidote to digital fatigue." className="top-48 text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
           </section>
 
-          {/* ACTIVE DAEMONS (SIDE PROJECTS) */}
+          {/* SECTION 1: SIDE PROJECTS */}
           <section className="mb-40">
-            <SectionTitle number="1" title="ACTIVE DAEMONS" />
+            <SectionTitle number="1" title="SIDE PROJECTS" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Editorial Column 1 */}
@@ -627,9 +627,9 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* SECTION 03: THE OPERATOR (Unified About/Philosophy/Hobbies) */}
+          {/* SECTION 03: ABOUT ME (Unified) */}
           <section id="about" className="mb-40 scroll-mt-24">
-            <SectionTitle number="3" title="THE OPERATOR" />
+            <SectionTitle number="3" title="ABOUT ME" />
 
             <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-12 lg:gap-20">
 
@@ -705,7 +705,7 @@ const Portfolio = () => {
                 {/* RUNTIME MODULES (Hobbies Re-imagined) */}
                 <div>
                   <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-6 border-b border-[var(--border-color)] pb-2">
-                    Background Processes
+                    Personal Interests
                   </h4>
 
                   <div className="space-y-3">
@@ -715,7 +715,7 @@ const Portfolio = () => {
                         <Users size={16} />
                       </div>
                       <div>
-                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">PROTOCOL: SYNC</div>
+                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">COMMUNITY BUILDING</div>
                         <div className="text-xs text-[var(--text-secondary)]">Thriving in clusters.</div>
                       </div>
                     </div>
@@ -726,7 +726,7 @@ const Portfolio = () => {
                         <Video size={16} />
                       </div>
                       <div>
-                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">FRAME_INTERPOLATION</div>
+                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">VIDEO EDITING</div>
                         <div className="text-xs text-[var(--text-secondary)]">Storytelling via CapCut.</div>
                       </div>
                     </div>
@@ -737,8 +737,8 @@ const Portfolio = () => {
                         <PenTool size={16} />
                       </div>
                       <div>
-                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">ANALOG_INPUT</div>
-                        <div className="text-xs text-[var(--text-secondary)]">Sketching concepts.</div>
+                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">SKETCHING & ART</div>
+                        <div className="text-xs text-[var(--text-secondary)]">Analog concepts.</div>
                       </div>
                     </div>
 
@@ -748,14 +748,14 @@ const Portfolio = () => {
                         <Languages size={16} />
                       </div>
                       <div>
-                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">LANG_PACK</div>
+                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">LANGUAGES</div>
                         <div className="text-xs text-[var(--text-secondary)]">Duolingo streak active.</div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <StickyNote text="Feasibility is empathy." className="relative text-[var(--accent-green)] mt-8 w-full" rotate="rotate-1" />
+                <StickyNote text="Good design must be buildable." className="relative text-[var(--accent-green)] mt-8 w-full" rotate="rotate-1" />
 
               </div>
             </div>
