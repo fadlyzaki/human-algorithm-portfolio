@@ -282,8 +282,13 @@ const ProtectedCaseStudy = () => {
         </section>
 
         {/* 2. CONTEXT STRIP */}
-        <section className="bg-[var(--bg-card)] border-y border-[var(--border-color)] py-12">
-          <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <section className="bg-[var(--bg-card)] border-y border-[var(--border-color)] py-12 relative overflow-hidden">
+          {/* Watermark */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 text-[10rem] font-black text-black/5 pointer-events-none select-none whitespace-nowrap z-0">
+            TOP SECRET
+          </div>
+
+          <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
             {[
               { label: "Client", value: caseData.context?.client || "Confidential" },
               { label: "Role", value: caseData.context?.role || projectData.role },
@@ -295,6 +300,30 @@ const ProtectedCaseStudy = () => {
                 <span className="font-medium text-lg font-serif">{item.value}</span>
               </div>
             ))}
+          </div>
+
+          {/* CLASSIFIED DATA BLOCK (Redacted Content) */}
+          <div className="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-dashed border-[var(--border-color)]">
+            <div className="flex items-center gap-4">
+              <div className="bg-red-500/10 text-red-500 px-2 py-1 text-[9px] font-mono tracking-widest border border-red-500/20 rounded">
+                RESTRICTED_ACCESS
+              </div>
+              <div className="flex-1 h-px bg-red-500/20"></div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6 opacity-60">
+              <div>
+                <div className="font-mono text-[9px] uppercase text-[var(--text-secondary)] mb-1">Internal Code Name</div>
+                <div className="font-mono text-sm">PROJECT_{projectData.id.toUpperCase()}_V1</div>
+              </div>
+              <div>
+                <div className="font-mono text-[9px] uppercase text-[var(--text-secondary)] mb-1">Budget Allocation</div>
+                <div className="font-mono text-sm blur-[2px] hover:blur-none transition-all duration-300 select-none">$XXX,XXX.00</div>
+              </div>
+              <div>
+                <div className="font-mono text-[9px] uppercase text-[var(--text-secondary)] mb-1">Clearance Level</div>
+                <div className="font-mono text-sm">LEVEL 5 (ARCHITECT)</div>
+              </div>
+            </div>
           </div>
         </section>
 

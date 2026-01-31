@@ -2,14 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --cursor-x: -100px;
+  --cursor-y: -100px;
+}
+
 /* Optional: Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
 }
 
+/* --- DECRYPTION LENS EFFECT --- */
+.encrypted-mode {
+  position: relative;
+}
+
+/* The dark, encrypted overlay */
+.encrypted-mode::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  /* Below cursor (9999) but above content */
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: grayscale(100%) brightness(0.5) blur(3px);
+  pointer-events: none;
+
+  /* The "Hole" - Transparent circle at cursor pos, black everywhere else */
+  /* Mask logic: opaque areas are visible (the dark overlay), transparent areas are hidden (revealing content) */
+  mask-image: radial-gradient(circle 150px at var(--cursor-x) var(--cursor-y),
+      transparent 0%,
+      black 100%);
+  -webkit-mask-image: radial-gradient(circle 150px at var(--cursor-x) var(--cursor-y),
+      transparent 0%,
+      black 100%);
+}
+
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -17,5 +53,5 @@ html {
 }
 
 .pause-on-hover:hover {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
