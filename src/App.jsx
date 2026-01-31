@@ -10,6 +10,8 @@ import ResearchCaseStudy from './pages/ResearchCaseStudy';
 import VisualCaseStudy from './pages/VisualCaseStudy';
 import ProtectedCaseStudy from './pages/ProtectedCaseStudy';
 import SideProjectDetail from './pages/SideProjectDetail';
+import SideProjectsIndex from './pages/SideProjectsIndex';
+import CompanyDetail from './pages/CompanyDetail';
 import BlogPost from './pages/BlogPost';
 import NotFound from './pages/NotFound';
 import { HandCursorProvider } from './context/HandCursorContext';
@@ -26,6 +28,10 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cv" element={<SystemManifest />} />
+
+          {/* Index Pages */}
+          <Route path="/side-projects" element={<SideProjectsIndex />} />
+          <Route path="/work/:id" element={<CompanyDetail />} />
 
           {/* Case Studies (Dynamic ID for future scaling, static for MVP) */}
           <Route path="/case-study/research" element={<ResearchCaseStudy />} />
