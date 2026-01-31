@@ -1,6 +1,6 @@
 ```
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Database, Cpu, Sparkles, Command, Zap, FileText, Share2, AlertCircle } from 'lucide-react';
+import { Search, Database, Cpu, Sparkles, Command, Zap, FileText, Share2, AlertCircle, Activity } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const KNOWLEDGE_BASE = [
