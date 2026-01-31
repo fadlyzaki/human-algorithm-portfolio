@@ -5,7 +5,7 @@ import { useTheme } from '../context/ThemeContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
-import ProjectPreview from '../components/ProjectPreview';
+import BackButton from '../components/BackButton';
 
 // Dynamic Imports for AI Interactions
 const WorkforceAI = React.lazy(() => import('../components/interactions/WorkforceAI'));
@@ -46,10 +46,7 @@ const CompanyDetail = () => {
 
             {/* NAVIGATION */}
             <nav className="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center backdrop-blur-sm border-b border-transparent hover:border-[var(--border-color)] transition-all">
-                <Link to="/" className="text-xs font-mono uppercase tracking-widest hover:text-[var(--brand)] transition-colors flex items-center gap-2 group">
-                    <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-                    Back to Index
-                </Link>
+                <BackButton to="/" label="Index" />
                 <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
                     {cluster.company} Case Study
                 </div>

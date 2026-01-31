@@ -18,6 +18,7 @@ const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 import { HandCursorProvider } from './context/HandCursorContext';
 import HandCursorOverlay from './components/HandCursorOverlay';
+import ScrollToTop from './components/ScrollToTop';
 
 // Loading Fallback Component
 const PageLoader = () => (
@@ -32,6 +33,7 @@ function App() {
     <HandCursorProvider>
       <HandCursorOverlay />
       <Router>
+        <ScrollToTop />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* Core Routes */}

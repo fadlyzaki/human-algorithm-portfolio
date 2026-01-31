@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
-   ArrowLeft, Sun, Moon, ArrowUpRight, Minus
+   Sun, Moon, ArrowUpRight, Minus
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import BackButton from '../components/BackButton';
 
 /* --- DESIGN SYSTEM: THE CURATOR ---
    Aesthetic: "Senior Product Designer / Editor"
@@ -88,9 +89,7 @@ const SideProjectDetail = () => {
 
          {/* Navigation */}
          <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
-            <Link to="/" className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity flex items-center gap-2">
-               <ArrowLeft size={16} /> INDEX
-            </Link>
+            <BackButton to="/" label="Index" className="text-white hover:opacity-70" />
             <button onClick={() => setIsDark(!isDark)} className="hover:opacity-70 transition-opacity">
                {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
