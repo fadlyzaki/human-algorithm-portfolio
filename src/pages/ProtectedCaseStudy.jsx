@@ -207,15 +207,20 @@ const ProtectedCaseStudy = () => {
     );
   }
 
-  // --- UNLOCKED VIEW ---
+  // --- UNLOCKED VIEW (VISUAL STORYTELLING MODE) ---
   return (
     <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--brand)] selection:text-white transition-colors duration-500">
 
+      {/* AMBIENT MOOD BACKGROUND */}
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-20"
+        style={{ background: `radial-gradient(circle at 50% 0%, ${themeStyles['--brand']} 0%, transparent 70%)` }}>
+      </div>
+
       {/* Navbar Mock */}
-      <div className="fixed top-0 w-full bg-[var(--bg-void)]/90 backdrop-blur z-50 border-b border-[var(--border-color)] py-4 px-6 flex justify-between items-center transition-colors duration-500">
-        <div className="flex items-center gap-2 text-[var(--accent-green)] font-mono text-xs">
+      <div className="fixed top-0 w-full bg-[var(--bg-void)]/80 backdrop-blur-md z-50 border-b border-[var(--border-color)] py-4 px-6 flex justify-between items-center transition-colors duration-500">
+        <div className="flex items-center gap-2 text-[var(--brand)] font-mono text-xs tracking-widest">
           <div className="w-2 h-2 rounded-full bg-current animate-pulse"></div>
-          DECLASSIFIED_MODE
+          CASE_FILE_{projectData.id.toUpperCase()}
         </div>
         <div className="flex items-center gap-6">
           <button
@@ -232,170 +237,205 @@ const ProtectedCaseStudy = () => {
             Lock System
           </button>
           <Link to={`/work/${parentCluster.id}`} className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-2 font-mono text-xs uppercase">
-            <X size={14} /> Close File
+            <X size={14} /> Close
           </Link>
         </div>
       </div>
 
-      <main className="max-w-5xl mx-auto px-6 pt-32 pb-24">
+      <main className="relative z-10 w-full pb-32">
 
-        {/* 1. PROJECT SNAPSHOT */}
-        <section className="mb-24 text-center">
-          <div className="inline-block px-3 py-1 border border-[var(--brand)] text-[var(--brand)] font-mono text-xs mb-6 rounded-full bg-[var(--brand)]/10">
-            CASE FILE: {projectData.id.toUpperCase()}
+        {/* 1. HERO: FULL BLEED HOOK */}
+        <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-6 text-center pt-24">
+          {/* Cinematic Title */}
+          <div className="mb-4">
+            <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--brand)] border-b border-[var(--brand)] pb-2 inline-block">
+              {caseData.snapshot?.tagline || "Confidential Project"}
+            </span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-serif italic mb-6 leading-tight">
+
+          <h1 className="text-6xl md:text-8xl font-serif italic mb-8 leading-[0.9] tracking-tight max-w-5xl mx-auto">
             {projectData.title}
           </h1>
-          <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-3xl mx-auto font-light leading-relaxed">
-            {caseData.snapshot?.tagline || caseData.memo}
+
+          <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl mx-auto font-light leading-relaxed mb-16">
+            {caseData.challenge || projectData.details.problem}
           </p>
-          {/* Snapshot Image */}
-          <div className="mt-12 w-full aspect-video rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-card)] relative">
-            <div className="absolute inset-0 bg-[var(--brand)] opacity-10 mix-blend-overlay"></div>
-            {/* Using new wireframe previews if no image */}
-            <div className="w-full h-full flex items-center justify-center text-[var(--text-secondary)] opacity-30 font-mono text-xs uppercase tracking-widest">
-              [ VISUAL EVIDENCE: {projectData.type} ]
-            </div>
-          </div>
-        </section>
 
-        {/* 2. CONTEXT */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-y border-[var(--border-color)] mb-24">
-          {[
-            { label: "Client", value: caseData.context?.client || "Confidential" },
-            { label: "Role", value: caseData.context?.role || projectData.role },
-            { label: "Timeline", value: caseData.context?.timeline || projectData.timeline },
-            { label: "Team", value: caseData.context?.team || "Product Team" }
-          ].map((item, i) => (
-            <div key={i} className="text-center md:text-left">
-              <span className="block font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">{item.label}</span>
-              <span className="text-sm font-medium">{item.value}</span>
-            </div>
-          ))}
-        </section>
-
-        {/* 3. CHALLENGE */}
-        <section className="mb-32 grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-4">
-            <h2 className="font-mono text-xl uppercase flex items-center gap-2 text-[var(--accent-red)]">
-              <AlertTriangle size={20} /> The Challenge
-            </h2>
-          </div>
-          <div className="md:col-span-8">
-            <p className="text-2xl md:text-3xl font-serif leading-relaxed">
-              "{caseData.challenge || projectData.details.problem}"
-            </p>
-          </div>
-        </section>
-
-        {/* 4. PROCESS (THE PLOT) */}
-        {caseData.process && (
-          <section className="mb-32">
-            <div className="flex items-center gap-3 mb-12">
-              <PenTool size={20} className="text-[var(--text-secondary)]" />
-              <h2 className="font-mono text-xl uppercase">The Process</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {caseData.process.map((step, i) => (
-                <div key={i} className="group">
-                  <div className="aspect-square bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
-                    <span className="text-9xl font-mono opacity-5 group-hover:opacity-10 transition-opacity absolute">{i + 1}</span>
-                    <Activity className="opacity-20 group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <h3 className="font-bold mb-2">{step.title}</h3>
-                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{step.desc}</p>
+          {/* Hero Visual Hook */}
+          <div className="w-full max-w-6xl aspect-[21/9] bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-2xl relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)] via-transparent to-[var(--brand)] opacity-20"></div>
+            {/* Abstract UI representation */}
+            <div className="absolute inset-x-0 bottom-0 h-3/4 flex items-end justify-center gap-4 px-12 pb-12 opacity-50 group-hover:opacity-80 transition-opacity duration-1000 transform group-hover:-translate-y-2">
+              <div className="w-1/3 h-full bg-[var(--text-secondary)]/10 rounded-t-xl backdrop-blur-sm border-t border-x border-[var(--text-secondary)]/20"></div>
+              <div className="w-1/2 h-[120%] bg-[var(--bg-surface)] rounded-t-xl shadow-2xl border border-[var(--border-color)] relative z-10">
+                {/* Mock Interface Header */}
+                <div className="h-12 border-b border-[var(--border-color)] flex items-center gap-2 px-4">
+                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
                 </div>
-              ))}
+              </div>
+              <div className="w-1/3 h-4/5 bg-[var(--text-secondary)]/10 rounded-t-xl backdrop-blur-sm border-t border-x border-[var(--text-secondary)]/20"></div>
             </div>
-          </section>
-        )}
-
-        {/* 5. KEY INSIGHTS (CLIMAX) */}
-        {caseData.insights && (
-          <section className="mb-32 bg-[var(--bg-card)] border border-[var(--border-color)] p-8 md:p-12 rounded-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-10">
-              <Sun size={100} />
-            </div>
-            <h2 className="font-mono text-xl uppercase mb-8 flex items-center gap-2 text-[var(--accent-amber)]">
-              <Sun size={20} /> Key Insights
-            </h2>
-            <div className="space-y-8 relative z-10">
-              {caseData.insights.map((insight, i) => (
-                <div key={i}>
-                  <h3 className="text-xl md:text-2xl font-serif italic mb-2">{insight.title}</h3>
-                  <p className="text-[var(--text-secondary)]">{insight.desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* 6. SOLUTION */}
-        <section className="mb-32">
-          <div className="flex items-center gap-3 mb-12">
-            <Database size={20} className="text-[var(--text-secondary)]" />
-            <h2 className="font-mono text-xl uppercase">The Solution</h2>
+            <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)]">Fig. 1.0 — System Architecture</div>
           </div>
-
-          {caseData.solution ? (
-            <div className="grid grid-cols-1 gap-12">
-              {caseData.solution.map((sol, i) => (
-                <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border border-[var(--border-color)] rounded-xl overflow-hidden bg-[var(--bg-card)]">
-                  <div className="aspect-video bg-[var(--bg-surface)] relative group cursor-pointer border-r border-[var(--border-color)]">
-                    {/* Placeholder for Solution UI */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-40 transition-opacity">
-                      <Monitor size={48} />
-                    </div>
-                  </div>
-                  <div className="p-8">
-                    <h3 className="text-lg font-bold mb-2">{sol.title}</h3>
-                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{sol.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <DeclassifiedMemo text={projectData.details.system} author="System Architect" />
-            </div>
-          )}
         </section>
 
-        {/* 7. IMPACT */}
-        <section className="mb-32">
-          <div className="flex items-center gap-3 mb-12">
-            <Activity size={20} className="text-[var(--accent-green)]" />
-            <h2 className="font-mono text-xl uppercase text-[var(--accent-green)]">Impact & Outcomes</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {(caseData.metrics || []).map((m, i) => (
-              <div key={i} className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] text-center rounded-lg hover:border-[var(--accent-green)] transition-colors">
-                <div className="text-[var(--text-secondary)] text-xs uppercase mb-2 tracking-widest">{m.label}</div>
-                <div className="text-4xl md:text-5xl font-mono text-[var(--accent-green)] mb-2">{m.value}</div>
+        {/* 2. CONTEXT STRIP */}
+        <section className="bg-[var(--bg-card)] border-y border-[var(--border-color)] py-12">
+          <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { label: "Client", value: caseData.context?.client || "Confidential" },
+              { label: "Role", value: caseData.context?.role || projectData.role },
+              { label: "Timeline", value: caseData.context?.timeline || projectData.timeline },
+              { label: "Team", value: caseData.context?.team || "Product Team" }
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col">
+                <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-2 opacity-70">{item.label}</span>
+                <span className="font-medium text-lg font-serif">{item.value}</span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* 8. TAKEAWAYS */}
-        <section className="border-t border-[var(--border-color)] pt-16">
-          <div className="flex gap-4 items-start">
-            <FileText className="text-[var(--text-secondary)] mt-1 shrink-0" size={20} />
-            <div className="max-w-3xl">
-              <h4 className="font-mono text-sm uppercase mb-4 opacity-70">Architect's Debrief (Takeaways)</h4>
-              <p className="text-lg text-[var(--text-secondary)] leading-relaxed font-light">
-                "{caseData.learnings || caseData.memo || "Confidential"}"
-              </p>
+        {/* 3. PROCESS: FILM STRIP */}
+        <section className="max-w-6xl mx-auto px-6 py-32">
+          <div className="flex items-baseline justify-between mb-16 border-b border-[var(--border-color)] pb-6">
+            <h2 className="text-4xl font-serif italic">The Process</h2>
+            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">Evolution of Thought</span>
+          </div>
+
+          {/* Horizontal Scroll / Grid -> Treating steps like film negatives */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {caseData.process && caseData.process.map((step, i) => (
+              <div key={i} className="group relative">
+                {/* 'Film Frame' Look */}
+                <div className="aspect-[4/5] bg-[var(--bg-card)] border-[4px] border-white dark:border-[#222] shadow-lg rotate-1 hover:rotate-0 transition-transform duration-500 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[var(--bg-surface)] p-6 flex flex-col justify-between">
+                    <div className="text-[var(--brand)] opacity-20 text-6xl font-bold font-serif">{i + 1}</div>
+                    <div className="space-y-4">
+                      <Activity size={24} className="text-[var(--text-primary)]" />
+                      <h3 className="text-xl font-bold border-b border-[var(--border-color)] pb-2">{step.title}</h3>
+                      <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-mono">
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+                  {/* Gloss overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+                </div>
+                <div className="text-center mt-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase opacity-50">
+                  Step 0{i + 1} // {step.title.toUpperCase()}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 4. KEY INSIGHTS (MOOD & TYPOGRAPHY) */}
+        {caseData.insights && (
+          <section className="bg-[var(--bg-card)] border-y border-[var(--border-color)] py-32 relative overflow-hidden">
+            <div className="absolute -right-20 -top-20 w-96 h-96 bg-[var(--brand)] opacity-5 rounded-full blur-3xl"></div>
+
+            <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+              <Sun size={32} className="mx-auto text-[var(--brand)] mb-8" />
+              <h2 className="text-3xl md:text-5xl font-serif italic mb-16 leading-tight">
+                "We realized that <span className="text-[var(--brand)]">clarity</span> was more valuable than <span className="text-[var(--text-secondary)] decoration-line-through decoration-1">features</span>."
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+                {caseData.insights.map((insight, i) => (
+                  <div key={i} className="border-l-2 border-[var(--brand)] pl-8 py-2">
+                    <h3 className="font-bold uppercase tracking-widest text-xs mb-3 text-[var(--brand)]">{insight.title}</h3>
+                    <p className="text-lg text-[var(--text-primary)] leading-relaxed">{insight.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* 5. SOLUTION: ANNOTATED SCREENS */}
+        <section className="max-w-6xl mx-auto px-6 py-32">
+          <div className="flex items-baseline justify-between mb-16">
+            <h2 className="text-4xl font-serif italic">The Solution</h2>
+            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">Interface Design</span>
+          </div>
+
+          <div className="space-y-32">
+            {caseData.solution ? caseData.solution.map((sol, i) => (
+              <div key={i} className={`flex flex-col md:flex-row gap-12 items-center ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+
+                {/* Annotated Image Area */}
+                <div className="w-full md:w-2/3 aspect-video bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] relative shadow-2xl overflow-hidden group">
+                  {/* Abstract Screen Content */}
+                  <div className="absolute inset-4 bg-[var(--bg-surface)] rounded border border-[var(--border-color)]">
+                    <div className="h-8 border-b border-[var(--border-color)] bg-[var(--bg-card)] flex items-center px-4 gap-2">
+                      <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                    </div>
+                    <div className="p-8 flex items-center justify-center opacity-10">
+                      <Monitor size={64} />
+                    </div>
+                  </div>
+
+                  {/* Annotation Hotspot (Animated) */}
+                  <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-[var(--brand)] rounded-full animate-ping"></div>
+                  <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-[var(--brand)] rounded-full border-2 border-[var(--bg-void)]"></div>
+
+                  {/* Caption Tooltip */}
+                  <div className="absolute top-1/2 left-1/2 ml-8 -mt-12 bg-[var(--bg-void)]/90 backdrop-blur border border-[var(--border-color)] p-3 rounded max-w-xs text-xs shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:translate-x-2">
+                    <span className="font-bold text-[var(--brand)] block mb-1">Feature Highlight</span>
+                    {sol.desc}
+                  </div>
+                </div>
+
+                {/* Narrative Text */}
+                <div className="w-full md:w-1/3">
+                  <div className="font-mono text-xs text-[var(--text-secondary)] mb-4 uppercase tracking-widest">Exhibit {String.fromCharCode(65 + i)}</div>
+                  <h3 className="text-2xl font-bold mb-4">{sol.title}</h3>
+                  <p className="text-[var(--text-secondary)] leading-relaxed">
+                    {sol.desc}
+                  </p>
+                </div>
+              </div>
+            )) : (
+              <div className="p-12 border border-dashed border-[var(--border-color)] text-center text-[var(--text-secondary)] font-mono">
+                [ CLASSIFIED SYSTEM ARCHITECTURE ]
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* 6. IMPACT & OUTCOMES */}
+        <section className="bg-[var(--brand)] text-[var(--bg-void)] py-24">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-black/10">
+              {(caseData.metrics || []).map((m, i) => (
+                <div key={i} className="pt-8 md:pt-0 md:px-8">
+                  <div className="text-sm font-bold uppercase tracking-widest opacity-70 mb-2">{m.label}</div>
+                  <div className="text-6xl font-mono font-bold tracking-tighter">{m.value}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="border-t border-[var(--border-color)] pt-12 mt-12 text-center pb-24">
-          <p className="font-mono text-xs text-[var(--text-secondary)] uppercase">
-            // End of File · Fadly Uzzaki © 2025
+        {/* 7. TAKEAWAYS (ARCHITECT'S NOTE) */}
+        <section className="max-w-3xl mx-auto px-6 py-32 text-center">
+          <FileText className="mx-auto text-[var(--text-secondary)] mb-8" size={32} />
+          <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">// Architect's Debrief</h4>
+          <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
+            "{caseData.learnings || caseData.memo || "Confidential"}"
           </p>
+          <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
         </section>
+
+        {/* FOOTER */}
+        <footer className="border-t border-[var(--border-color)] py-12 text-center opacity-40 hover:opacity-100 transition-opacity">
+          <p className="font-mono text-[10px] uppercase tracking-widest">
+            Human Algorithm Portfolio · Fadly Uzzaki © 2025
+          </p>
+        </footer>
 
       </main>
     </div>
