@@ -61,6 +61,7 @@ To create an immersive, narrative-driven portfolio that functions less like a st
 *   **Frontend**: React (Vite)
 *   **Styling**: Tailwind CSS + CSS Variables (ThemeContext).
 *   **Icons**: Lucide React.
+*   **Computer Vision**: MediaPipe Hands (`@mediapipe/hands`).
 *   **Animation**: Framer Motion (Gestures), Native CSS (Scroll).
 
 ## 7. Asset Requirements List

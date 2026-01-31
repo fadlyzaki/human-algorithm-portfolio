@@ -24,10 +24,15 @@ const DraggablePhoto = () => {
     <motion.div
       drag
       dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
-      whileHover={{ scale: 1.05, rotate: 0, cursor: 'grab' }}
-      whileTap={{ scale: 0.95, cursor: 'grabbing' }}
+      dragElastic={0.15}
+      dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+      whileHover={{ scale: 1.02, rotate: 0, cursor: 'grab' }}
+      whileTap={{ scale: 0.98, cursor: 'grabbing' }}
+      initial={{ rotate: 2 }}
+      animate={{ rotate: 0 }}
+      whileDrag={{ scale: 1.05, rotate: 0, zIndex: 10 }}
       onClick={handleNext}
-      className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4] mb-6 rotate-2 hover:rotate-0 transition-transform duration-500"
+      className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4] mb-6"
     >
       <AnimatePresence mode="wait">
         <motion.div
