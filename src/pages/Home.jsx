@@ -49,7 +49,7 @@ const WorkClusterCard = ({ cluster }) => {
       onClick={() => navigate(`/work/${cluster.id}`)}
     >
       {/* Hero Image */}
-      <div className="h-48 w-full overflow-hidden relative border-b border-[var(--border-color)]">
+      <div className="h-28 w-full overflow-hidden relative border-b border-[var(--border-color)]">
         <img
           src={cluster.heroImage}
           alt={cluster.title}
