@@ -392,7 +392,7 @@ const Portfolio = () => {
                 {homeSideProjects.map((item, i) => (
                   <ScrollReveal key={i} delay={i * 100}>
                     <div
-                      className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-xl overflow-hidden"
+                      className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-xl overflow-hidden rounded-lg"
                       onClick={() => navigate(`/side-project/${item.id}`)}
                     >
                       {/* Dynamic Background Hover Effect */}
@@ -428,14 +428,14 @@ const Portfolio = () => {
 
               {/* Call to Action Block */}
               <ScrollReveal delay={300} className="flex flex-col justify-center items-start border-l border-[var(--border-color)] pl-12">
-                <div className="mb-8 p-6 bg-[var(--bg-card)] border border-[var(--border-color)] shadow-sm rotate-1">
+                <div className="mb-8 p-6 bg-[var(--bg-card)] border border-[var(--border-color)] shadow-sm rotate-1 rounded-lg">
                   <Archive size={32} className="text-[var(--text-primary)] mb-4" />
                   <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2">The Archive</h3>
                   <p className="text-[var(--text-secondary)] text-sm max-w-xs font-light">
                     A collection of 20+ prototypes, failed experiments, and weekend hacks.
                   </p>
                 </div>
-                <Link to="/side-projects" className="group flex items-center gap-3 px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-xs uppercase tracking-widest hover:bg-[var(--accent-blue)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                <Link to="/side-projects" className="group flex items-center gap-3 px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-xs uppercase tracking-widest hover:bg-[var(--accent-blue)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 rounded-lg">
                   OPEN FULL ARCHIVE <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </ScrollReveal>
@@ -522,7 +522,7 @@ const Portfolio = () => {
                       { label: "Analog Photography", val: "Learning", icon: ScanEye },
                       { label: "Sci-Fi Literature", val: "Reading", icon: BookOpen }
                     ].map((interest, i) => (
-                      <div key={i} className="flex items-center justify-between p-3 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-colors group">
+                      <div key={i} className="flex items-center justify-between p-3 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-colors group rounded-lg">
                         <div className="flex items-center gap-3">
                           <interest.icon size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] transition-colors" />
                           <span className="text-sm text-[var(--text-primary)]">{interest.label}</span>
@@ -544,7 +544,7 @@ const Portfolio = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Note 1 */}
-              <div onClick={() => navigate('/blog/log-001')} className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl cursor-pointer h-80 flex flex-col justify-between overflow-hidden">
+              <div onClick={() => navigate('/blog/log-001')} className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl cursor-pointer h-80 flex flex-col justify-between overflow-hidden rounded-lg">
                 {/* Gradient Hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--accent-blue)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
@@ -571,7 +571,7 @@ const Portfolio = () => {
               </div>
 
               {/* Placeholder for future notes */}
-              <div className="bg-[var(--bg-surface)]/30 border border-[var(--border-color)] border-dashed p-8 flex flex-col justify-center items-center text-center h-80 opacity-60 hover:opacity-100 transition-opacity">
+              <div className="bg-[var(--bg-surface)]/30 border border-[var(--border-color)] border-dashed p-8 flex flex-col justify-center items-center text-center h-80 opacity-60 hover:opacity-100 transition-opacity rounded-lg">
                 <PenTool size={32} className="text-[var(--text-secondary)] mb-4" />
                 <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">More logs incoming...</p>
               </div>
