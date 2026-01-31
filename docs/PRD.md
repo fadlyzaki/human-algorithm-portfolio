@@ -41,6 +41,15 @@ To create an immersive, narrative-driven portfolio that functions less like a st
 ### 3.5 System Manifest (CV)
 *   **Concept**: A printable, high-contrast technical specification sheet.
 
+### 3.6 Decryption Lens (Hand Tracking)
+*   **Interaction**: A custom-built layer using MediaPipe Hands that translates webcam input into a global CSS mask.
+*   **Stability**: Uses pinned MediaPipe versions and robust camera initialization (`onUserMedia`) to ensure reliability in production environments.
+*   **Accessibility**: Provides `ESC` overrides and a failsafe "Exit Decryption" button.
+
+### 3.7 Draggable Visuals
+*   **Physics-based Motion**: Uses Framer Motion's `dragElastic` and `dragTransition` for tactile, high-fidelity interaction.
+*   **Conflict Resolution**: Pure Framer Motion orchestration for all transforms to avoid standard CSS transition jitters.
+
 ## 4. Security & Privacy Measures
 *   **Application Security**:
     *   **Simulated Authentication**: The "Protected Case Study" system uses client-side logic to simulate a secure environment. *Note: As a portfolio, the "password" is public knowledge (hinted in UI) to allow recruiter access while maintaining the "confidential" narrative.*
