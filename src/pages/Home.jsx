@@ -375,43 +375,44 @@ const Portfolio = () => {
               {/* Editorial Column */}
               <div className="space-y-10">
                 {homeSideProjects.map((item, i) => (
-                  <div
-                    key={i}
-                    className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-xl overflow-hidden"
-                    onClick={() => navigate(`/side-project/${item.id}`)}
-                  >
-                    {/* Dynamic Background Hover Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--accent-blue)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                  <ScrollReveal key={i} delay={i * 100}>
+                    <div
+                      className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-xl overflow-hidden"
+                      onClick={() => navigate(`/side-project/${item.id}`)}
+                    >
+                      {/* Dynamic Background Hover Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--accent-blue)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
-                    <div className="flex justify-between items-start mb-6 relative z-10">
-                      <span className="font-mono text-xs text-[var(--accent-blue)] border border-[var(--accent-blue)]/30 px-2 py-1 rounded bg-[var(--accent-blue)]/5">
-                        EXP_0{i + 1}
-                      </span>
-                      <ArrowUpRight size={20} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-                    </div>
+                      <div className="flex justify-between items-start mb-6 relative z-10">
+                        <span className="font-mono text-xs text-[var(--accent-blue)] border border-[var(--accent-blue)]/30 px-2 py-1 rounded bg-[var(--accent-blue)]/5">
+                          EXP_0{i + 1}
+                        </span>
+                        <ArrowUpRight size={20} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                      </div>
 
-                    <div className="relative z-10">
-                      <h3 className="text-3xl font-serif italic text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent-blue)] transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-[var(--text-secondary)] font-light leading-relaxed mb-6">
-                        {item.desc}
-                      </p>
+                      <div className="relative z-10">
+                        <h3 className="text-3xl font-serif italic text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent-blue)] transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-[var(--text-secondary)] font-light leading-relaxed mb-6">
+                          {item.desc}
+                        </p>
 
-                      <div className="flex gap-2 flex-wrap">
-                        {item.stack.map((tech, tIdx) => (
-                          <span key={tIdx} className="text-[10px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)]">
-                            {tech}
-                          </span>
-                        ))}
+                        <div className="flex gap-2 flex-wrap">
+                          {item.stack.map((tech, tIdx) => (
+                            <span key={tIdx} className="text-[10px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)]">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </ScrollReveal>
                 ))}
               </div>
 
               {/* Call to Action Block */}
-              <div className="flex flex-col justify-center items-start border-l border-[var(--border-color)] pl-12">
+              <ScrollReveal delay={300} className="flex flex-col justify-center items-start border-l border-[var(--border-color)] pl-12">
                 <div className="mb-8 p-6 bg-[var(--bg-card)] border border-[var(--border-color)] shadow-sm rotate-1">
                   <Archive size={32} className="text-[var(--text-primary)] mb-4" />
                   <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2">The Archive</h3>
@@ -422,12 +423,12 @@ const Portfolio = () => {
                 <Link to="/side-projects" className="group flex items-center gap-3 px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-xs uppercase tracking-widest hover:bg-[var(--accent-blue)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                   OPEN FULL ARCHIVE <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-              </div>
+              </ScrollReveal>
             </div>
-          </section >
+          </section>
 
           {/* SECTION 2: WORK */}
-          < section id="work" className="mb-40 scroll-mt-24" >
+          <section id="work" className="mb-40 scroll-mt-24">
             <ScrollReveal>
               <SectionTitle number="2" title="WORK" />
             </ScrollReveal>
@@ -439,12 +440,12 @@ const Portfolio = () => {
                 </ScrollReveal>
               ))}
             </div>
-          </section >
+          </section>
 
           {/* SECTION 03: ABOUT ME (Unified) */}
-          < section id="about" className="mb-40 scroll-mt-24" >
+          <section id="about" className="mb-40 scroll-mt-24">
             {/* Same as before, just kept standard */}
-            < SectionTitle number="3" title="ABOUT ME" />
+            <SectionTitle number="3" title="ABOUT ME" />
 
             <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-12 lg:gap-20">
               <div className="space-y-16">
