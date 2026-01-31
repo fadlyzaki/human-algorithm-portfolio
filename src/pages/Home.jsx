@@ -6,7 +6,7 @@ import {
   MapPin, Coffee, Sun, Moon, X, Grid, Activity, Users,
   Heart, PenTool, Languages, Video, ScanEye, FileJson,
   CalendarClock, ExternalLink, Layers, Smartphone, Filter, Siren,
-  FileSearch, Utensils
+  FileSearch, Utensils, LayoutGrid
 } from 'lucide-react';
 import DraggablePhoto from '../components/DraggablePhoto';
 import { useTheme } from '../context/ThemeContext';
@@ -45,53 +45,67 @@ const WorkClusterCard = ({ cluster }) => {
 
   return (
     <div
-      className="group border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-all cursor-pointer relative overflow-hidden"
+      className="group relative border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-blue)]/50 transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1 hover:shadow-2xl"
       onClick={() => navigate(`/work/${cluster.id}`)}
     >
-      <div className="absolute top-4 right-4 p-2 bg-[var(--bg-surface)]/80 backdrop-blur rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10 border border-[var(--border-color)]">
-        <ArrowRight size={20} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300 text-[var(--text-primary)]" />
+      {/* Dynamic Background Hover Effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--accent-blue)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+      <div className="absolute top-6 right-6 z-20">
+        <div className="p-3 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-sm group-hover:translate-x-0 translate-x-4">
+          <ArrowRight size={18} className="text-[var(--text-primary)]" />
+        </div>
       </div>
 
-      <div className="p-8">
-        <div className="flex justify-between items-start gap-6 mb-8">
-          <div>
-            <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-1 group-hover:text-[var(--accent-blue)] transition-colors leading-tight">
+      <div className="p-10 relative z-10">
+        <div className="flex justify-between items-start gap-8 mb-10">
+          <div className="max-w-md">
+            <h3 className="text-3xl md:text-4xl font-serif italic text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent-blue)] transition-colors leading-tight">
               {cluster.title}
             </h3>
-            <p className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+            <p className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[var(--accent-amber)]"></span>
               {cluster.subtitle}
             </p>
           </div>
 
           {/* Logo / Hero Image */}
-          <div className="w-16 h-16 shrink-0 rounded-md overflow-hidden border border-[var(--border-color)] group-hover:border-[var(--accent-blue)] transition-colors">
+          <div className="w-20 h-20 shrink-0 rounded-2xl overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)]">
             <img
               src={cluster.heroImage}
               alt={cluster.title}
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
             />
           </div>
         </div>
 
-        <p className="text-[var(--text-primary)] font-light max-w-lg mb-6 leading-relaxed">
+        <p className="text-[var(--text-primary)] text-lg font-light max-w-2xl mb-10 leading-relaxed border-l-2 border-[var(--border-color)] pl-6 group-hover:border-[var(--accent-blue)] transition-colors">
           {cluster.hook}
         </p>
 
         {/* Project List Teaser */}
-        <div className="space-y-3 border-t border-[var(--border-color)] pt-6">
-          {topProjects.map((p, i) => (
-            <div key={i} className="flex items-center justify-between text-sm group/item">
-              <span className="text-[var(--text-secondary)] group-hover/item:text-[var(--text-primary)] transition-colors">
-                {p.title}
-              </span>
-              <span className="font-mono text-[10px] text-[var(--text-secondary)] opacity-50">
-                {p.type}
-              </span>
-            </div>
-          ))}
+        <div className="bg-[var(--bg-surface)]/50 border border-[var(--border-color)] rounded-xl p-6 backdrop-blur-sm">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4 opacity-70">Selected Works</div>
+          <div className="space-y-4">
+            {topProjects.map((p, i) => (
+              <div key={i} className="flex items-center justify-between text-sm group/item border-b border-[var(--border-color)] last:border-0 pb-3 last:pb-0 border-dashed">
+                <div className="flex items-center gap-3">
+                  <GitCommit size={14} className="text-[var(--text-secondary)] group-hover/item:text-[var(--accent-blue)] transition-colors" />
+                  <span className="text-[var(--text-primary)] font-medium">
+                    {p.title}
+                  </span>
+                </div>
+                <span className="font-mono text-[10px] text-[var(--text-secondary)] bg-[var(--bg-tag)] px-2 py-1 rounded">
+                  {p.type}
+                </span>
+              </div>
+            ))}
+          </div>
+
           {cluster.projects.length > 3 && (
-            <div className="text-[10px] font-mono text-[var(--text-secondary)] pt-2 opacity-50">
-              + {cluster.projects.length - 3} more projects...
+            <div className="mt-4 pt-3 border-t border-[var(--border-color)] flex items-center gap-2 text-[10px] font-mono text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] transition-colors">
+              <LayoutGrid size={12} />
+              + {cluster.projects.length - 3} more modules inside
             </div>
           )}
         </div>
