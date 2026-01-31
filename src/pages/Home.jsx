@@ -346,10 +346,10 @@ const Portfolio = () => {
                   Bridging the gap between <strong className="text-[var(--text-primary)] font-medium">Computer Science logic</strong> and <strong className="text-[var(--text-primary)] font-serif italic font-medium">human behavior</strong>. I design systems that feel inevitable, not forced.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="#work" className="px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-sm font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all flex items-center justify-center gap-3 shadow-[4px_4px_0px_var(--accent-blue)] hover:shadow-[2px_2px_0px_var(--accent-blue)] hover:translate-x-[2px] hover:translate-y-[2px]">
+                  <a href="#work" className="px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-sm font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all flex items-center justify-center gap-3 shadow-[4px_4px_0px_var(--accent-blue)] hover:shadow-[2px_2px_0px_var(--accent-blue)] hover:translate-x-[2px] hover:translate-y-[2px] rounded-lg">
                     View Case Studies <ArrowRight size={16} />
                   </a>
-                  <Link to="/cv" className="px-8 py-4 border border-[var(--border-tag)] text-[var(--text-secondary)] font-mono text-sm uppercase tracking-wide hover:border-[var(--accent-amber)] hover:text-[var(--accent-amber)] transition-all flex items-center justify-center gap-3">
+                  <Link to="/cv" className="px-8 py-4 border border-[var(--border-tag)] text-[var(--text-secondary)] font-mono text-sm uppercase tracking-wide hover:border-[var(--accent-amber)] hover:text-[var(--accent-amber)] transition-all flex items-center justify-center gap-3 rounded-lg">
                     <FileText size={16} /> CV
                   </Link>
                 </div>
@@ -587,7 +587,7 @@ const Portfolio = () => {
               <h2 className="text-4xl md:text-5xl font-mono text-[var(--text-primary)] uppercase mb-8 leading-tight">
                 Let's build something <br /> <span className="font-serif italic lowercase text-[var(--text-secondary)]">resilient</span>.
               </h2>
-              <Link to="/contact" className="inline-flex px-10 py-5 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all items-center gap-3 shadow-xl">
+              <Link to="/contact" className="inline-flex px-10 py-5 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all items-center gap-3 shadow-xl rounded-lg">
                 <Mail size={20} /> Initiate Contact
               </Link>
             </div>
