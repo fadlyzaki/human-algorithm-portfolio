@@ -46,7 +46,7 @@ const WorkClusterCard = ({ cluster }) => {
 
   return (
     <div
-      className="group relative border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-blue)]/50 transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1 hover:shadow-2xl"
+      className="group relative border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-blue)]/50 transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1 hover:shadow-2xl rounded-lg"
       onClick={() => navigate(`/work/${cluster.id}`)}
     >
       {/* Dynamic Background Hover Effect */}
@@ -487,16 +487,16 @@ const Portfolio = () => {
               {/* Right Col */}
               <div className="space-y-10">
                 {/* Photo Placeholder */}
-                <div className="w-full aspect-video bg-[var(--bg-card)] border border-[var(--border-color)] relative flex items-center justify-center overflow-hidden group">
+                <div className="w-full aspect-video bg-[var(--bg-card)] border border-[var(--border-color)] relative flex items-center justify-center overflow-hidden group rounded-lg">
                   <User size={48} className="text-[var(--text-secondary)] opacity-20" />
                   <div className="absolute inset-0 bg-gradient-to-tr from-[var(--text-secondary)]/5 to-transparent"></div>
-                  <span className="absolute bottom-4 right-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border border-[var(--text-secondary)]/20 px-2 py-1">
+                  <span className="absolute bottom-4 right-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border border-[var(--text-secondary)]/20 px-2 py-1 rounded">
                     IMG_001.RAW
                   </span>
                 </div>
 
                 {/* Current Focus Card... same as before */}
-                <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] relative overflow-hidden group">
+                <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] relative overflow-hidden group rounded-lg">
                   <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-50 transition-opacity">
                     <Cpu size={48} strokeWidth={1} />
                   </div>
@@ -610,7 +610,7 @@ const Portfolio = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-4 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-blue)] transition-colors group cursor-pointer"
+                    className="flex items-center justify-between p-4 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-blue)] transition-colors group cursor-pointer rounded-lg"
                   >
                     <div className="flex items-center gap-4">
                       <div className="p-2 bg-[var(--bg-surface)] rounded text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] group-hover:bg-[var(--bg-void)] transition-colors">
