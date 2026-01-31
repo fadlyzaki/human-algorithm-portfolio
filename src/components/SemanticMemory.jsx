@@ -1,4 +1,3 @@
-```
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Database, Cpu, Sparkles, Command, Zap, FileText, Share2, AlertCircle, Activity } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
