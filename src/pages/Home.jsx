@@ -17,7 +17,7 @@ import { SIDE_PROJECTS, WORK_CLUSTERS } from '../data/portfolioData';
 // --- COMPONENTS ---
 
 const StickyNote = ({ text, color = 'text-[var(--text-secondary)]', className = '', rotate = 'lg:rotate-1' }) => (
-  <div className={`font-serif italic text-base ${color} opacity-90 mt-6 lg:absolute lg:right-0 lg:mr-[-15rem] lg:w-52 lg:mt-0 p-4 bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-xl ${rotate} transition-transform hover:rotate-0 duration-300 ${className}`}>
+  <div className={`font-serif italic text-base ${color} opacity-90 mt-6 lg:absolute lg:right-0 lg:mr-[-15rem] lg:w-52 lg:mt-0 p-4 bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-xl ${rotate} transition-transform hover:rotate-0 duration-300 rounded-lg ${className}`}>
     <div className="w-2 h-2 rounded-full bg-current opacity-50 mb-2"></div>
     "{text}"
   </div>
@@ -71,7 +71,7 @@ const WorkClusterCard = ({ cluster }) => {
           </div>
 
           {/* Logo / Hero Image */}
-          <div className="w-20 h-20 shrink-0 rounded-2xl overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)]">
+          <div className="w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)]">
             <img
               src={cluster.heroImage}
               alt={cluster.title}
@@ -85,7 +85,7 @@ const WorkClusterCard = ({ cluster }) => {
         </p>
 
         {/* Project List Teaser */}
-        <div className="bg-[var(--bg-surface)]/50 border border-[var(--border-color)] rounded-xl p-6 backdrop-blur-sm">
+        <div className="bg-[var(--bg-surface)]/50 border border-[var(--border-color)] rounded-lg p-6 backdrop-blur-sm">
           <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4 opacity-70">Selected Works</div>
           <div className="space-y-4">
             {topProjects.map((p, i) => (
@@ -399,7 +399,7 @@ const Portfolio = () => {
                       <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--accent-blue)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
                       <div className="flex justify-between items-start mb-6 relative z-10">
-                        <span className="font-mono text-xs text-[var(--accent-blue)] border border-[var(--accent-blue)]/30 px-2 py-1 rounded bg-[var(--accent-blue)]/5">
+                        <span className="font-mono text-xs text-[var(--accent-blue)] border border-[var(--accent-blue)]/30 px-2 py-1 rounded-lg bg-[var(--accent-blue)]/5">
                           EXP_0{i + 1}
                         </span>
                         <ArrowUpRight size={20} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
@@ -415,7 +415,7 @@ const Portfolio = () => {
 
                         <div className="flex gap-2 flex-wrap">
                           {item.stack.map((tech, tIdx) => (
-                            <span key={tIdx} className="text-[10px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)]">
+                            <span key={tIdx} className="text-[10px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-md text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)]">
                               {tech}
                             </span>
                           ))}
