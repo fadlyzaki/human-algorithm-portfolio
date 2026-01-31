@@ -10,6 +10,7 @@ import { useTheme } from '../context/ThemeContext';
 import ScrollReveal from '../components/ScrollReveal';
 import SystemMonitor from '../components/SystemMonitor';
 import ChaosSlider from '../components/ChaosSlider';
+import SystemParams from '../components/SystemParams';
 
 /* --- THEME CONFIGURATION ---
    Consistent with Human Algorithm Design System v2.0
@@ -388,24 +389,11 @@ const AboutPage = () => {
         {/* SYSTEM CONFIG (Interactive Terminal) */}
         <section className="mb-12">
           <ScrollReveal>
-            <div className="bg-[#0D0D0D] border border-[var(--border-color)] p-6 md:p-10 font-mono text-sm overflow-x-auto rounded-lg shadow-inner relative group">
-              {/* Marginalia Note */}
-              <div className="absolute -top-3 right-10 bg-[var(--accent-amber)] text-black px-3 py-1 font-serif italic text-xs transform rotate-2 shadow-lg group-hover:rotate-0 transition-transform rounded-sm">
-                Config is Editable. Try it.
-              </div>
+            <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 rounded-xl shadow-lg relative overflow-hidden">
+              {/* Background Decoration */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-green)] opacity-[0.03] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-              <div className="flex gap-2 mb-4 opacity-50">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              </div>
-
-              <textarea
-                value={config}
-                onChange={(e) => setConfig(e.target.value)}
-                className="w-full h-48 bg-transparent text-[var(--accent-green)] resize-none focus:outline-none"
-                spellCheck="false"
-              />
+              <SystemParams config={config} setConfig={setConfig} />
             </div>
           </ScrollReveal>
         </section>
