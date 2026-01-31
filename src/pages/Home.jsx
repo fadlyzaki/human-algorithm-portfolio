@@ -298,19 +298,35 @@ const Portfolio = () => {
       <main className="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-24 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-backdrop)] backdrop-blur-sm transition-colors duration-500">
         <div className="fade-in pt-12">
 
-          {/* Top System Status */}
-          <div className="flex justify-between items-center border-b border-[var(--border-color)] pb-4 mb-12">
-            <div className="font-mono text-[var(--accent-green)] text-xs flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
-              </span>
-              Open for collaboration
-            </div>
-            <div className="flex items-center gap-6">
-              <div className="font-mono text-[var(--text-secondary)] text-xs hidden sm:block">
-                {new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
-              </div>
+          {/* Top System Status / Running Ticker */}
+          <div className="border-b border-[var(--border-color)] mb-12 overflow-hidden relative group cursor-default">
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[var(--bg-backdrop)] to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[var(--bg-backdrop)] to-transparent z-10"></div>
+
+            <div className="flex whitespace-nowrap animate-marquee pause-on-hover py-3">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="flex items-center gap-12 text-xs font-mono text-[var(--text-secondary)] uppercase tracking-widest px-6">
+                  <span className="flex items-center gap-3">
+                    <MapPin size={14} className="text-[var(--accent-red)]" />
+                    Jakarta, Indonesia
+                  </span>
+                  <span className="flex items-center gap-3">
+                    <BookOpen size={14} className="text-[var(--accent-amber)]" />
+                    Reading: The Design of Everyday Things
+                  </span>
+                  <span className="flex items-center gap-3">
+                    <Headphones size={14} className="text-[var(--accent-blue)]" />
+                    Listening: Lo-Fi Beats for Coding
+                  </span>
+                  <span className="flex items-center gap-2 text-[var(--accent-green)]">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
+                    </span>
+                    System Online
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
 
