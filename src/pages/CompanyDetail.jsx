@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Box, Maximize2 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
+import Footer from '../components/Footer';
 
 const CompanyDetail = () => {
     const { isDark } = useTheme();
@@ -90,6 +91,7 @@ const CompanyDetail = () => {
                     </div>
                 </div>
             </main>
+            <Footer />
         </div>
     );
 };

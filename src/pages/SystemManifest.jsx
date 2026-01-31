@@ -15,6 +15,7 @@ import {
   BookOpen
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import Footer from '../components/Footer';
 
 /* --- THEME CONFIGURATION ---
    A 'High Contrast' mode designed for readability and printing.
@@ -237,6 +238,10 @@ const SystemManifest = () => {
 
           </aside>
         </div>
+      </div>
+
+      <div className="print:hidden mt-24">
+        <Footer />
       </div>
     </div>
   );

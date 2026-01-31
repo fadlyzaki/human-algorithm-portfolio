@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Filter } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { SIDE_PROJECTS } from '../data/portfolioData';
+import Footer from '../components/Footer';
 
 const SideProjectsIndex = () => {
     const { isDark, setIsDark } = useTheme();
@@ -60,7 +61,8 @@ const SideProjectsIndex = () => {
                     ))}
                 </div>
             </main>
-        </div>
+            <Footer />
+        </div >
     );
 };
 

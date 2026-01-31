@@ -11,6 +11,7 @@ import ScrollReveal from '../components/ScrollReveal';
 import SystemMonitor from '../components/SystemMonitor';
 import ChaosSlider from '../components/ChaosSlider';
 import SystemParams from '../components/SystemParams';
+import Footer from '../components/Footer';
 
 /* --- THEME CONFIGURATION ---
    Consistent with Human Algorithm Design System v2.0
@@ -399,10 +400,8 @@ const AboutPage = () => {
         </section>
 
         {/* FOOTER */}
-        <section className="border-t border-[var(--border-color)] pt-12 text-center pb-24">
-          <p className="font-mono text-xs text-[var(--text-secondary)] uppercase">
-            // End of Log · Fadly Uzzaki © 2025
-          </p>
+        <section>
+          <Footer />
         </section>
 
       </main>

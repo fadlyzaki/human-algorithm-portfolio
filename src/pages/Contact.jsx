@@ -6,6 +6,7 @@ import {
   Activity, BookOpen, PenTool, Terminal
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import Footer from '../components/Footer';
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Communication Uplink"
@@ -288,6 +289,7 @@ const ContactPage = () => {
         </div>
 
       </main>
+      <Footer />
     </div>
   );
 };
