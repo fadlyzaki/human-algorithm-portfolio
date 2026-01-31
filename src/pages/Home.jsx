@@ -48,33 +48,53 @@ const WorkClusterCard = ({ cluster }) => {
       className="group border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-all cursor-pointer relative overflow-hidden"
       onClick={() => navigate(`/work/${cluster.id}`)}
     >
-    </p>
-      </div >
-
-  {/* Project List Teaser */ }
-  < div className = "space-y-3 border-t border-[var(--border-color)] pt-6" >
-  {
-    topProjects.map((p, i) => (
-      <div key={i} className="flex items-center justify-between text-sm group/item">
-        <span className="text-[var(--text-secondary)] group-hover/item:text-[var(--text-primary)] transition-colors">
-          {p.title}
-        </span>
-        <span className="font-mono text-[10px] text-[var(--text-secondary)] opacity-50">
-          {p.type}
-        </span>
+      {/* Hero Image */}
+      <div className="h-48 w-full overflow-hidden relative border-b border-[var(--border-color)]">
+        <img
+          src={cluster.heroImage}
+          alt={cluster.title}
+          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent opacity-60"></div>
       </div>
-    ))
-  }
-{
-  cluster.projects.length > 3 && (
-    <div className="text-[10px] font-mono text-[var(--text-secondary)] pt-2 opacity-50">
-      + {cluster.projects.length - 3} more projects...
-    </div>
-  )
-}
-      </div >
 
-    </div >
+      <div className="absolute top-4 right-4 p-2 bg-[var(--bg-surface)]/80 backdrop-blur rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10 border border-[var(--border-color)]">
+        <ArrowRight size={20} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300 text-[var(--text-primary)]" />
+      </div>
+
+      <div className="p-8">
+        <div className="mb-8">
+          <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-blue)] transition-colors">
+            {cluster.title}
+          </h3>
+          <p className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-4">
+            {cluster.subtitle}
+          </p>
+          <p className="text-[var(--text-primary)] font-light max-w-lg mb-6">
+            {cluster.hook}
+          </p>
+        </div>
+
+        {/* Project List Teaser */}
+        <div className="space-y-3 border-t border-[var(--border-color)] pt-6">
+          {topProjects.map((p, i) => (
+            <div key={i} className="flex items-center justify-between text-sm group/item">
+              <span className="text-[var(--text-secondary)] group-hover/item:text-[var(--text-primary)] transition-colors">
+                {p.title}
+              </span>
+              <span className="font-mono text-[10px] text-[var(--text-secondary)] opacity-50">
+                {p.type}
+              </span>
+            </div>
+          ))}
+          {cluster.projects.length > 3 && (
+            <div className="text-[10px] font-mono text-[var(--text-secondary)] pt-2 opacity-50">
+              + {cluster.projects.length - 3} more projects...
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 
