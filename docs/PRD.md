@@ -15,24 +15,14 @@ To create an immersive, narrative-driven portfolio that functions less like a st
 
 ### 3.1 Core Navigation & Layout
 *   **Global Navigation**:
-    *   Desktop: Top bar with "System Online" status, section links (/ABOUT, /WORK, /NOTES), and theme toggle.
-    *   Mobile: "Control Deck" (Floating bottom bar) with Menu, Scroll-to-Top.
-    *   Overlay Menu: Full-screen "System Directory" for mobile/tablet.
+    *   **Smart Navbar**: Desktop top bar that hides on scroll-down and reappears on scroll-up to maximize focused reading area.
+    *   **Mobile Control Deck**: Floating bottom bar with Menu and Scroll-to-Top.
+    *   **Scroll Management**: Integrated `ScrollToTop` logic ensuring all route changes reset the viewport to (0,0).
 *   **Theme System**:
     *   **Modes**: Toggle between "Dark Mode" (The Void) and "Light Mode" (Paper/Surface).
-    *   **Persistence**: System should default to Dark Mode.
-    *   **Dynamic Styling**: All components (text, borders, backgrounds) must react instantly to theme changes.
+    *   **Persistence**: Handled via `ThemeContext`.
 
 ### 3.2 Landing Page (The Terminal)
-*   **Hero Section**:
-    *   Headline: "Product Designer · Systems Thinker".
-    *   **Status Ticker**: "Open to collaboration" / Live activity feed.
-    *   **Identity Anchor**: Interactive, draggable profile card (3:4 ratio, rotated) with "Identity" and "Context" modes.
-*   **Work Clusters**:
-    *   **Brand Identity**: Each cluster (Workforce, Commerce, Efficiency) adopts a specific brand color (Teal, Cyan, Orange) that dynamically tints the UI (borders, glows, text).
-    *   **Navigation**: Deep linking to specific project clusters.
-*   **Side Projects (The Archive)**:
-    *   Grid layout displaying "Experiments" with tech stack tags.
     *   "View All" link leading to the dedicated Side Projects Index.
 
 ### 3.3 Company & Case Study System
