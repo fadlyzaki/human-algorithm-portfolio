@@ -10,7 +10,7 @@ import { useTheme } from '../context/ThemeContext';
 import ScrollReveal from '../components/ScrollReveal';
 import SystemMonitor from '../components/SystemMonitor';
 import ChaosSlider from '../components/ChaosSlider';
-import SystemParams from '../components/SystemParams';
+import SemanticMemory from '../components/SemanticMemory';
 import Footer from '../components/Footer';
 
 /* --- THEME CONFIGURATION ---
@@ -23,16 +23,6 @@ const AboutPage = () => {
   const [chaosStrength, setChaosStrength] = useState(0);
 
   // JSON Config State
-  const [config, setConfig] = useState(`const Operator = {
-  "name": "Fadly Uzzaki",
-  "quirks": ["Rubber Duck Debugging", "Playlist curator"],
-  "fuel": ["Coffee", "Lo-Fi Beats"],
-  "principles": {
-    "feasibility": true,
-    "empathy": true,
-    "panic_mode": false // Stay calm
-  }
-};`);
 
   // --- MERGED DATA: SYSTEM RUNTIME LOG (Chronological) ---
   const runtimeLog = [
@@ -387,14 +377,21 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* SYSTEM CONFIG (Interactive Terminal) */}
+        {/* SEMANTIC MEMORY (Interactive RAG) */}
         <section className="mb-12">
           <ScrollReveal>
             <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 rounded-xl shadow-lg relative overflow-hidden">
               {/* Background Decoration */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-green)] opacity-[0.03] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-              <SystemParams config={config} setConfig={setConfig} />
+              <div className="mb-8">
+                <h2 className="text-2xl font-mono text-[var(--text-primary)] mb-2">System Consciousness</h2>
+                <p className="text-[var(--text-secondary)] text-sm max-w-2xl">
+                  Interact with the system directly. Query the database for insights on my philosophy, protocols, and history.
+                </p>
+              </div>
+
+              <SemanticMemory />
             </div>
           </ScrollReveal>
         </section>
