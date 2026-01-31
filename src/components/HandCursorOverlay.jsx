@@ -9,6 +9,8 @@ import { useHandCursor } from '../context/HandCursorContext';
 const HandCursorOverlay = () => {
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
+    const cursorVisualRef = useRef(null); // Ref for the visual cursor element
+
     const { isGestureMode, setCursorPosition, setIsClicking, isClicking } = useHandCursor();
     const [cameraError, setCameraError] = useState(false);
     const [scrollState, setScrollState] = useState(null);
@@ -129,6 +131,8 @@ const HandCursorOverlay = () => {
         const landmarks = results.multiHandLandmarks[0];
         const indexTip = landmarks[8];
         const thumbTip = landmarks[4];
+
+        // Mirrored mapping for webcam
         const targetX = (1 - indexTip.x) * window.innerWidth;
         const targetY = indexTip.y * window.innerHeight;
 
@@ -136,15 +140,15 @@ const HandCursorOverlay = () => {
         let smoothX = lastCursorPos.current.x + (targetX - lastCursorPos.current.x) * smoothingFactor;
         let smoothY = lastCursorPos.current.y + (targetY - lastCursorPos.current.y) * smoothingFactor;
 
-        // REMOVED LOCKING LOGIC to prevent "stuck" feeling
-        // Cursor will continue to track even when pinched.
-
         setCursorPosition({ x: smoothX, y: smoothY });
         lastCursorPos.current = { x: smoothX, y: smoothY };
 
-        // Debug & Hover Logic
-        // IMPORTANT: overlay elements must have pointer-events-none!
+        // --- GHOST CURSOR HIT TEST ---
+        // Hide visual cursor momentarily so we don't click IT instead of the button
+        if (cursorVisualRef.current) cursorVisualRef.current.style.visibility = 'hidden';
         const el = document.elementFromPoint(smoothX, smoothY);
+        if (cursorVisualRef.current) cursorVisualRef.current.style.visibility = 'visible';
+
         let debugText = '';
         if (el) {
             // Hover Check
@@ -160,22 +164,34 @@ const HandCursorOverlay = () => {
         setDebugTarget(debugText);
 
         const distance = Math.sqrt(Math.pow(indexTip.x - thumbTip.x, 2) + Math.pow(indexTip.y - thumbTip.y, 2));
-        const pinchThreshold = 0.05;
+
+        // --- HYSTERESIS ---
+        // Engage at 0.03, Release at 0.05
+        const PINCH_THRESHOLD_ENGAGE = 0.03;
+        const PINCH_THRESHOLD_RELEASE = 0.05;
         const pinchMax = 0.15;
 
-        let level = 1 - ((distance - pinchThreshold) / (pinchMax - pinchThreshold));
+        let level = 1 - ((distance - PINCH_THRESHOLD_ENGAGE) / (pinchMax - PINCH_THRESHOLD_ENGAGE));
         level = Math.max(0, Math.min(1, level));
         setPinchLevel(level);
 
-        const isPinching = distance < pinchThreshold;
+        const currentlyClicking = isClicking;
+        let isPinching = false;
+
+        if (currentlyClicking) {
+            // If already clicking, stay clicking until distance > release threshold
+            isPinching = distance < PINCH_THRESHOLD_RELEASE;
+        } else {
+            // If not clicking, start clicking only if distance < engage threshold
+            isPinching = distance < PINCH_THRESHOLD_ENGAGE;
+        }
 
         // --- CLICK ON RELEASE ---
         if (isPinching) {
             if (!isClicking) {
                 setIsClicking(true);
                 // Capture the element when pinch STARTS
-                const element = document.elementFromPoint(smoothX, smoothY);
-                pendingClickRef.current = element;
+                pendingClickRef.current = el; // Use 'el' captured from hit-test
             }
         } else {
             if (isClicking) {
@@ -192,19 +208,14 @@ const HandCursorOverlay = () => {
             }
         }
 
-        // --- AUTO SCROLL ---
+        // --- AUTO SCROLL (ALWAYS ACTIVE) ---
+        // Removed (!isClicking) check to allow scrolling anytime
         const viewH = window.innerHeight;
-        // Allow scrolling even if pinching? Maybe better to keep logic separate.
-        // If not checking "isClicking", then scroll works always. 
-        // Let's keep it clean: Scroll zones work unless you are actively pinching (trying to click).
-        if (!isClicking) {
-            if (smoothY < viewH * SCROLL_ZONE_PCT) {
-                if (scrollReqRef.current !== 'UP') { scrollReqRef.current = 'UP'; setScrollState('UP'); }
-            } else if (smoothY > viewH * (1 - SCROLL_ZONE_PCT)) {
-                if (scrollReqRef.current !== 'DOWN') { scrollReqRef.current = 'DOWN'; setScrollState('DOWN'); }
-            } else {
-                if (scrollReqRef.current !== null) { scrollReqRef.current = null; setScrollState(null); }
-            }
+
+        if (smoothY < viewH * SCROLL_ZONE_PCT) {
+            if (scrollReqRef.current !== 'UP') { scrollReqRef.current = 'UP'; setScrollState('UP'); }
+        } else if (smoothY > viewH * (1 - SCROLL_ZONE_PCT)) {
+            if (scrollReqRef.current !== 'DOWN') { scrollReqRef.current = 'DOWN'; setScrollState('DOWN'); }
         } else {
             if (scrollReqRef.current !== null) { scrollReqRef.current = null; setScrollState(null); }
         }
@@ -241,7 +252,7 @@ const HandCursorOverlay = () => {
                 </div>
             )}
 
-            {/* Visible Webcam Preview - Ensure it doesn't block clicks */}
+            {/* Visible Webcam Preview */}
             <div className="fixed bottom-4 left-4 flex flex-col gap-2 items-start z-[110] pointer-events-none">
                 <div className="font-mono text-[10px] text-cyan-500 flex flex-col items-start gap-1 opacity-70">
                     <span className="bg-black/80 px-2 py-1 border border-cyan-500/30 rounded">SYS.GESTURE_Control // ACTIVE</span>
@@ -261,8 +272,9 @@ const HandCursorOverlay = () => {
                 </div>
             </div>
 
-            {/* Cursor Visual - FORCE POINTER EVENTS NONE */}
+            {/* Cursor Visual */}
             <div
+                ref={cursorVisualRef}
                 className={`fixed w-6 h-6 border-2 rounded-full transition-all duration-150 flex items-center justify-center mix-blend-screen z-[120] pointer-events-none ${ringColor} ${isHovering ? 'scale-125' : 'scale-100'}`}
                 style={{
                     left: 0, top: 0,
