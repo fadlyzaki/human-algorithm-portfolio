@@ -214,12 +214,12 @@ const AboutPage = () => {
 
           {/* Avatar Area */}
           <div className="relative group" style={getChaosStyle()}>
-            <div className="w-full aspect-square bg-[var(--bg-card)] border border-[var(--border-color)] relative group-hover:border-[var(--accent-blue)] transition-all duration-700 overflow-hidden rounded-lg shadow-2xl">
+            <div className="w-full aspect-[3/4] bg-[var(--bg-card)] border border-[var(--border-color)] relative group-hover:border-[var(--accent-blue)] transition-all duration-700 overflow-hidden rounded-lg shadow-2xl">
               {/* Profile Image */}
               <img
-                src="/about-fadly.jpg"
+                src="/about-portrait.jpg"
                 alt="Fadly Uzzaki"
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out"
+                className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
               />
 
               {/* Tint Overlays */}
