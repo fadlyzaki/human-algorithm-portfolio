@@ -8,9 +8,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'],
+          vendor: ['react', 'react-dom', 'react-router-dom'],
           animations: ['framer-motion'],
-          icons: ['lucide-react']
+          icons: ['lucide-react'],
+          vision: ['@mediapipe/hands', '@mediapipe/camera_utils', '@mediapipe/drawing_utils', 'react-webcam']
         }
       }
     }
