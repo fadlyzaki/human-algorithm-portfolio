@@ -90,6 +90,7 @@ export const WORK_CLUSTERS = [
         id: 'workforce',
         title: 'THE WORKFORCE ECOSYSTEM',
         subtitle: 'Humanizing Ops',
+        heroImage: '/workforce_hero.png', // Generated Artifact
         hook: 'Connecting blue-collar workers to jobs without digital friction.',
         miniDesc: 'Reduced cognitive load for users who are not tech-native. Built with strict simplicity.',
         projects: [
@@ -146,7 +147,7 @@ export const WORK_CLUSTERS = [
                 details: {
                     problem: 'Users getting lost in complex job filters.',
                     system: 'Simplified faceted search.',
-                    outcome: 'Retention D1 increased by 15%.'
+                    outcome: 'Retention D1 increased by 15%'
                 }
             },
         ]
@@ -155,6 +156,7 @@ export const WORK_CLUSTERS = [
         id: 'commerce',
         title: 'THE COMMERCE ENGINE',
         subtitle: 'Managing Scale',
+        heroImage: '/commerce_hero.png', // Generated Artifact
         hook: 'Organizing the chaos of the B2B supply chain.',
         miniDesc: 'Scalable systems for massive SKU lists and complex transactions. Designed for reliability.',
         projects: [
@@ -168,6 +170,7 @@ export const WORK_CLUSTERS = [
         id: 'efficiency',
         title: 'OPERATIONAL EFFICIENCY',
         subtitle: 'Digitizing Habits',
+        heroImage: '/efficiency_hero.png', // Generated Artifact
         hook: 'Helping SMEs transition from messy offline routines to stable digital workflows.',
         miniDesc: 'Behavior change through clarity, simplicity, and rhythm.',
         projects: [

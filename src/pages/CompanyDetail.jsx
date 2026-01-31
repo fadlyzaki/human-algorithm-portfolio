@@ -28,18 +28,26 @@ const CompanyDetail = () => {
             </nav>
 
             <main className="max-w-6xl mx-auto px-6 pt-32 pb-24">
-                <header className="mb-20 border-b border-[var(--border-color)] pb-12">
-                    <div className="flex items-center gap-4 mb-6">
-                        <span className="px-3 py-1 border border-[var(--text-primary)] rounded-full text-xs font-mono uppercase tracking-widest">
-                            {cluster.title}
-                        </span>
+                <header className="mb-20 border-b border-[var(--border-color)] pb-12 relative overflow-hidden rounded-sm">
+                    {/* Background Hero */}
+                    <div className="absolute inset-0 z-0">
+                        <img src={cluster.heroImage} alt="" className="w-full h-full object-cover opacity-20 grayscale brightness-50" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-void)] via-[var(--bg-void)]/90 to-transparent"></div>
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-serif italic mb-8 leading-tight">
-                        "{cluster.subtitle}"
-                    </h1>
-                    <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-3xl font-light leading-relaxed">
-                        {cluster.hook}
-                    </p>
+
+                    <div className="relative z-10 p-8 md:p-12">
+                        <div className="flex items-center gap-4 mb-6">
+                            <span className="px-3 py-1 border border-[var(--text-primary)] rounded-full text-xs font-mono uppercase tracking-widest backdrop-blur-sm">
+                                {cluster.title}
+                            </span>
+                        </div>
+                        <h1 className="text-5xl md:text-7xl font-serif italic mb-8 leading-tight">
+                            "{cluster.subtitle}"
+                        </h1>
+                        <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-3xl font-light leading-relaxed">
+                            {cluster.hook}
+                        </p>
+                    </div>
                 </header>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
