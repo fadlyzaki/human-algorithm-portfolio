@@ -496,12 +496,16 @@ const Portfolio = () => {
 
               {/* Right Col */}
               <div className="space-y-10">
-                {/* Photo Placeholder */}
-                <div className="w-full aspect-video bg-[var(--bg-card)] border border-[var(--border-color)] relative flex items-center justify-center overflow-hidden group rounded-lg">
-                  <User size={48} className="text-[var(--text-secondary)] opacity-20" />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[var(--text-secondary)]/5 to-transparent"></div>
-                  <span className="absolute bottom-4 right-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border border-[var(--text-secondary)]/20 px-2 py-1 rounded">
-                    IMG_001.RAW
+                {/* High-Fidelity Bio Photo */}
+                <div className="w-full aspect-[16/9] bg-[var(--bg-card)] border border-[var(--border-color)] relative flex items-center justify-center overflow-hidden group rounded-lg shadow-xl">
+                  <img
+                    src="/about-fadly.jpg"
+                    alt="Fadly Uzzaki"
+                    className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-void)]/60 to-transparent opacity-40"></div>
+                  <span className="absolute bottom-4 right-4 font-mono text-[10px] text-white/70 uppercase tracking-widest border border-white/20 px-2 py-1 rounded backdrop-blur-sm z-10">
+                    BIO_MODULE.IMG
                   </span>
                 </div>
 
