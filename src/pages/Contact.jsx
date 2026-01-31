@@ -21,7 +21,7 @@ const ContactPage = () => {
   // --- DATA ---
   const contactInfo = {
     email: "fadly.uzzaki@gmail.com",
-    location: "Padang, West Sumatra, Indonesia",
+    location: "Jakarta, Indonesia",
     timezone: "GMT+7 (WIB)",
     availability: "OPEN_FOR_OPPORTUNITIES"
   };

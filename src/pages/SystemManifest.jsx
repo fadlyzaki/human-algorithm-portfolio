@@ -32,9 +32,9 @@ const SystemManifest = () => {
     location: "Jakarta, Indonesia",
     status: "Open for Deployment",
     links: [
-      { label: "linkedin.com/in/fadlyuzzaki", url: "#", icon: Linkedin },
-      { label: "fadly.design", url: "#", icon: Globe },
-      { label: "hello@fadly.design", url: "mailto:hello@fadly.design", icon: Mail }
+      { label: "linkedin.com/in/fadlyzaki", url: "https://www.linkedin.com/in/fadlyzaki/", icon: Linkedin },
+      { label: "human-algorithm.fadly.link", url: "https://fadlyzaki.github.io/human-algorithm-portfolio/", icon: Globe },
+      { label: "fadly.uzzaki@gmail.com", url: "mailto:fadly.uzzaki@gmail.com", icon: Mail }
     ]
   };
 
