@@ -450,6 +450,15 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-12 lg:gap-20">
               <div className="space-y-16">
                 <div>
+                  {/* Photo Placeholder */}
+                  <div className="w-full aspect-video bg-[var(--bg-surface)] border border-[var(--border-color)] mb-10 relative flex items-center justify-center overflow-hidden group">
+                    <User size={48} className="text-[var(--text-secondary)] opacity-20" />
+                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+                    <span className="absolute bottom-4 right-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border border-[var(--text-secondary)]/20 px-2 py-1">
+                      IMG_001.RAW
+                    </span>
+                  </div>
+
                   <div className="prose prose-invert max-w-none">
                     <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
                       "I design tools that respect your attention span."
