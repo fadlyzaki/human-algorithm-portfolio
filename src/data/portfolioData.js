@@ -104,6 +104,11 @@ export const WORK_CLUSTERS = [
                 timeline: '3 Months',
                 route: '/case-study/p1',
                 previewImage: '/workforce_hero.png',
+                details: {
+                    problem: 'Recruiters struggled to track 200+ candidate conversations per day.',
+                    system: 'Built a low-friction, latency-friendly chat architecture.',
+                    outcome: 'Reduced drop-off by 37%.'
+                },
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -147,6 +152,11 @@ export const WORK_CLUSTERS = [
                 timeline: '4 Months',
                 route: '/case-study/p2',
                 previewImage: '/workforce_hero.png',
+                details: {
+                    problem: 'Data fragmentation across spreadsheets.',
+                    system: 'Unified dashboard with drag-and-drop pipelines.',
+                    outcome: 'Hiring speed improved by 20%.'
+                },
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -188,6 +198,11 @@ export const WORK_CLUSTERS = [
                 timeline: '2 Months',
                 route: '/case-study/p3',
                 previewImage: '/workforce_hero.png',
+                details: {
+                    problem: 'Candidates intimidated by formal applications.',
+                    system: 'WhatsApp-like interface for formal requests.',
+                    outcome: 'Application starts increased by 45%.'
+                },
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -229,6 +244,11 @@ export const WORK_CLUSTERS = [
                 timeline: 'Ongoing',
                 route: '/case-study/p4',
                 previewImage: '/workforce_hero.png',
+                details: {
+                    problem: 'Users getting lost in complex job filters.',
+                    system: 'Simplified faceted search.',
+                    outcome: 'Retention D1 increased by 15%'
+                },
                 caseStudy: {
                     locked: true,
                     snapshot: {
