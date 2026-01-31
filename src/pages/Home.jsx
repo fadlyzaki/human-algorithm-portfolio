@@ -6,7 +6,7 @@ import {
   MapPin, Coffee, Sun, Moon, X, Grid, Activity, Users,
   Heart, PenTool, Languages, Video, ScanEye, FileJson,
   CalendarClock, ExternalLink, Layers, Smartphone, Filter, Siren,
-  FileSearch, Utensils, LayoutGrid, Archive
+  FileSearch, Utensils, LayoutGrid, Archive, ArrowUpRight
 } from 'lucide-react';
 import DraggablePhoto from '../components/DraggablePhoto';
 import { useTheme } from '../context/ThemeContext';
