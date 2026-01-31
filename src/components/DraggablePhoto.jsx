@@ -39,7 +39,7 @@ const DraggablePhoto = () => {
           className="w-full h-full shadow-2xl"
         >
           {currentItem.type === 'identity' ? (
-            <div className="w-full h-full bg-[var(--bg-card)] border border-[var(--border-color)] relative group overflow-hidden select-none">
+            <div className="w-full h-full bg-[var(--bg-card)] border border-[var(--border-color)] relative group overflow-hidden select-none rounded-lg">
               <div className="absolute inset-0 flex items-center justify-center text-[var(--accent-blue)]/20">
                 <User size={80} strokeWidth={0.5} />
               </div>
@@ -65,7 +65,7 @@ const DraggablePhoto = () => {
               </div>
             </div>
           ) : (
-            <div className="w-full h-full border border-[var(--border-color)] overflow-hidden relative select-none">
+            <div className="w-full h-full border border-[var(--border-color)] overflow-hidden relative select-none rounded-lg">
               <img
                 src={currentItem.src}
                 alt={currentItem.alt}
