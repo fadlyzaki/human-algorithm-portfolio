@@ -144,37 +144,58 @@ const CompanyDetail = () => {
                             <ScrollReveal key={idx} delay={idx * 100}>
                                 <div
                                     onClick={() => navigate(project.route)}
-                                    className="group bg-[var(--bg-card)] border border-[var(--border-color)] cursor-pointer hover:border-[var(--brand)] transition-all duration-500 relative overflow-hidden shadow-sm hover:shadow-xl rounded-lg"
+                                    className="group bg-[var(--bg-card)] border border-[var(--border-color)] cursor-pointer hover:border-[var(--brand)] transition-all duration-500 relative overflow-hidden shadow-sm hover:shadow-2xl rounded-2xl flex flex-col"
                                 >
-                                    <h3 className="text-3xl md:text-4xl font-serif italic mb-6 group-hover:text-[var(--brand)] transition-colors inline-block">
-                                        {project.title}
-                                    </h3>
-
-                                    {/* UI PREVIEW (Reduced Height) */}
-                                    <div className="h-40 md:h-48 w-full overflow-hidden relative border-b border-[var(--border-color)] bg-[var(--bg-void)]/50">
+                                    {/* 1. UI PREVIEW (Top, Full Bleed) */}
+                                    <div className="h-64 w-full overflow-hidden relative border-b border-[var(--border-color)] bg-[var(--bg-void)]/50">
                                         <div className="absolute inset-0 bg-[var(--brand)] mix-blend-overlay opacity-0 group-hover:opacity-10 transition-opacity z-10 pointer-events-none"></div>
 
-                                        <ProjectPreview type={project.type} />
+                                        {/* Abstract UI Component */}
+                                        <div className="w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                                            <ProjectPreview type={project.type} />
+                                        </div>
 
-                                        {/* Obfuscated UI Overlay Effect */}
+                                        {/* Overlay Pattern */}
                                         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-20 pointer-events-none"></div>
-                                    </div>
 
-                                    {/* Action Button */}
-                                    <div className="absolute bottom-6 right-6 z-20">
-                                        <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-white text-xs font-mono uppercase tracking-widest group-hover:bg-[var(--brand)] group-hover:border-[var(--brand)] transition-all">
-                                            Based on True Story <ArrowUpRight size={14} />
+                                        {/* Floating Badge */}
+                                        <div className="absolute top-4 right-4 z-20">
+                                            <div className="flex items-center gap-2 bg-[var(--bg-card)]/90 backdrop-blur px-3 py-1.5 rounded-full border border-[var(--border-color)] text-[10px] font-mono uppercase tracking-widest shadow-lg">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] animate-pulse"></div>
+                                                {project.type}
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-[var(--border-color)] pt-6">
-                                        <div>
-                                            <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest block mb-2">The Challenge</span>
-                                            <p className="text-sm leading-relaxed opacity-80">{project.details.problem}</p>
+                                    {/* 2. TEXT CONTENT (Padded) */}
+                                    <div className="p-8 flex flex-col gap-6">
+                                        <div className="flex justify-between items-start">
+                                            <h3 className="text-3xl font-serif italic group-hover:text-[var(--brand)] transition-colors">
+                                                {project.title}
+                                            </h3>
+                                            <div className="hidden md:flex items-center gap-2 text-[var(--brand)] opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300">
+                                                <span className="text-xs font-mono uppercase tracking-widest">View Case</span>
+                                                <ArrowUpRight size={16} />
+                                            </div>
                                         </div>
-                                        <div>
-                                            <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest block mb-2">The Algorithmic Fix</span>
-                                            <p className="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors">{project.details.outcome}</p>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-[var(--border-color)] pt-6">
+                                            <div className="space-y-2">
+                                                <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
+                                                    <span className="w-1 h-1 bg-red-400 rounded-full"></span> The Problem
+                                                </span>
+                                                <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+                                                    {project.details.problem}
+                                                </p>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
+                                                    <span className="w-1 h-1 bg-[var(--brand)] rounded-full"></span> The Fix
+                                                </span>
+                                                <p className="text-sm font-medium text-[var(--text-primary)]">
+                                                    {project.details.outcome}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
