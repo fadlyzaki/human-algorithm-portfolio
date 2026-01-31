@@ -453,7 +453,7 @@ const Portfolio = () => {
                   {/* Photo Placeholder */}
                   <div className="w-full aspect-video bg-[var(--bg-surface)] border border-[var(--border-color)] mb-10 relative flex items-center justify-center overflow-hidden group">
                     <User size={48} className="text-[var(--text-secondary)] opacity-20" />
-                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[var(--text-secondary)]/5 to-transparent"></div>
                     <span className="absolute bottom-4 right-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border border-[var(--text-secondary)]/20 px-2 py-1">
                       IMG_001.RAW
                     </span>
