@@ -6,7 +6,7 @@ import {
   MapPin, Coffee, Sun, Moon, X, Grid, Activity, Users,
   Heart, PenTool, Languages, Video, ScanEye, FileJson,
   CalendarClock, ExternalLink, Layers, Smartphone, Filter, Siren,
-  FileSearch, Utensils, LayoutGrid, Archive, ArrowUpRight
+  FileSearch, Utensils, LayoutGrid, Archive, ArrowUpRight, Linkedin, Instagram, Dribbble
 } from 'lucide-react';
 import DraggablePhoto from '../components/DraggablePhoto';
 import { useTheme } from '../context/ThemeContext';
@@ -563,14 +563,52 @@ const Portfolio = () => {
 
         {/* FOOTER */}
         <section className="border-t border-[var(--border-color)] pt-16 pb-24">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             <div className="max-w-xl">
               <h2 className="text-4xl md:text-5xl font-mono text-[var(--text-primary)] uppercase mb-8 leading-tight">
                 Let's build something <br /> <span className="font-serif italic lowercase text-[var(--text-secondary)]">resilient</span>.
               </h2>
-              <Link to="/contact" className="px-10 py-5 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all flex items-center gap-3 shadow-xl">
+              <Link to="/contact" className="inline-flex px-10 py-5 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all items-center gap-3 shadow-xl">
                 <Mail size={20} /> Initiate Contact
               </Link>
+            </div>
+
+            {/* Social / Runtime Connections */}
+            <div className="space-y-6">
+              <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest flex items-center gap-2">
+                <Activity size={14} className="animate-pulse text-[var(--accent-green)]" /> Active Connections
+              </h4>
+
+              <div className="space-y-4">
+                {[
+                  { label: "LinkedIn", val: "Connect", icon: Linkedin, href: "https://linkedin.com/in/fadlyzaki" },
+                  { label: "Instagram", val: "Follow", icon: Instagram, href: "https://instagram.com/fadlyzaki" },
+                  { label: "Dribbble", val: "View", icon: Dribbble, href: "https://dribbble.com/fadlyzaki" },
+                  { label: "Email", val: "Write", icon: Mail, href: "mailto:hello@fadlyzaki.com" }
+                ].map((social, i) => (
+                  <a
+                    key={i}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-4 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-blue)] transition-colors group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="p-2 bg-[var(--bg-surface)] rounded text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] group-hover:bg-[var(--bg-void)] transition-colors">
+                        <social.icon size={18} />
+                      </div>
+                      <span className="font-mono text-sm text-[var(--text-primary)] tracking-wide">{social.label}</span>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <span className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                        {social.val}
+                      </span>
+                      <ArrowUpRight size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>
