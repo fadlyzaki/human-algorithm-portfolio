@@ -624,152 +624,138 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* ABOUT SECTION */}
-          <section id="about" className="relative mb-40 grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-16">
-            <div>
-              <SectionTitle number="3" title="ABOUT" />
+          {/* SECTION 03: THE OPERATOR (Unified About/Philosophy/Hobbies) */}
+          <section id="about" className="mb-40 scroll-mt-24">
+            <SectionTitle number="3" title="THE OPERATOR" />
 
-              <div className="prose prose-invert max-w-none">
-                <p className="text-xl md:text-2xl text-[var(--text-primary)] leading-relaxed mb-8 font-serif italic opacity-90">
-                  "I design tools that respect your attention span."
-                </p>
+            <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-12 lg:gap-20">
 
-                <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
-                  <p>
-                    My design career started in <span className="text-[var(--text-primary)] font-medium">Computer Science</span>—data structures, logic, constraints.
-                  </p>
+              {/* LEFT COLUMN: Narrative & Logic */}
+              <div className="space-y-16">
 
-                  <p>
-                    But life forced me into a <strong className="text-[var(--text-primary)]">nearly three-year pause</strong> due to a major health issue. This "downtime" wasn't a loss; it was an upgrade. It taught me how fragile human systems are and how essential well-designed support structures become when we are at our limit.
-                  </p>
+                {/* 3.1: BIO & CORE */}
+                <div>
+                  <div className="prose prose-invert max-w-none">
+                    <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
+                      "I design tools that respect your attention span."
+                    </p>
 
-                  <p>
-                    Now, I combine engineering logic with this newfound human resilience. I specialize in <span className="text-[var(--text-primary)] border-b border-[var(--accent-green)]">messy, operational ecosystems</span>: marketplaces, workforce platforms, and B2B workflows.
-                  </p>
-                </div>
-
-                <div className="mt-10 p-6 bg-[var(--bg-card)] border-l-2 border-[var(--accent-amber)]">
-                  <div className="flex items-start gap-4">
-                    <Coffee className="text-[var(--accent-amber)] mt-1 shrink-0" size={20} />
-                    <div>
-                      <h4 className="font-mono text-[var(--text-primary)] text-sm uppercase mb-2">Current Focus</h4>
-                      <p className="text-[var(--text-secondary)] text-sm">
-                        Deepening this craft with a Master’s degree in Education Technology, studying <span className="text-[var(--text-primary)]">cognitive load</span> and how humans learn.
+                    <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
+                      <p>
+                        My design career started in <span className="text-[var(--text-primary)] font-medium">Computer Science</span>—data structures, logic, constraints.
+                      </p>
+                      <p>
+                        But life forced me into a <strong className="text-[var(--text-primary)]">nearly three-year pause</strong> due to a major health issue. This "downtime" wasn't a loss; it was an upgrade. It taught me how fragile human systems are and how essential well-designed support structures become when we are at our limit.
                       </p>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <div className="hidden lg:block relative h-full">
-              <div className="sticky top-24">
-                <StickyNote text="Principle: Feasibility is empathy." className="relative text-[var(--accent-green)]" rotate="rotate-1" />
-                <div className="mt-16 opacity-10 flex flex-col gap-4 items-center">
-                  <div className="w-px h-32 bg-gradient-to-b from-transparent via-[var(--text-primary)] to-transparent"></div>
-                  <Cpu size={48} strokeWidth={1} className="text-[var(--text-primary)]" />
-                  <div className="w-px h-32 bg-gradient-to-b from-[var(--text-primary)] via-transparent to-transparent"></div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* RUNTIME MODULES (HOBBIES) */}
-          <section className="mb-40">
-            <SectionTitle number="4" title="RUNTIME MODULES" />
-            <p className="text-[var(--text-secondary)] text-lg mb-12 max-w-2xl">
-              Maintenance protocols and analog input channels.
-            </p>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 auto-rows-[120px]">
-              {/* Item 1: Team/Collab (Large Square) */}
-              <div className="col-span-2 row-span-2 relative group overflow-hidden bg-[var(--bg-card)] border border-[var(--border-color)] flex flex-col justify-between p-6 hover:border-[var(--accent-blue)] transition-colors">
-                <div className="absolute inset-0 bg-[var(--bg-surface)] opacity-20"></div> {/* Img Placeholder */}
-                <div className="relative z-10 flex justify-between items-start">
-                  <Users size={24} className="text-[var(--accent-blue)]" />
-                  <span className="font-mono text-[10px] uppercase border border-[var(--border-color)] px-2 py-1 rounded bg-[var(--bg-void)]">Protocol: Sync</span>
-                </div>
-                <div className="relative z-10">
-                  <h3 className="font-mono text-lg text-[var(--text-primary)] mb-1">Collaboration</h3>
-                  <p className="text-sm text-[var(--text-secondary)] font-serif italic">"Thriving in clusters. Whiteboarding the chaos."</p>
-                </div>
-              </div>
-
-              {/* Item 2: Video Editing (Wide) */}
-              <div className="col-span-2 row-span-1 relative group overflow-hidden bg-[var(--bg-card)] border border-[var(--border-color)] p-6 flex flex-col justify-center hover:border-[var(--accent-red)] transition-colors">
-                <div className="absolute top-2 right-2 text-[var(--text-secondary)] opacity-20 group-hover:opacity-50">
-                  <Video size={48} strokeWidth={1} />
-                </div>
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-2 h-2 bg-[var(--accent-red)] rounded-full animate-pulse"></span>
-                    <span className="font-mono text-xs text-[var(--accent-red)]">REC</span>
+                {/* 3.2: PHILOSOPHY (Integrated) */}
+                <div id="philosophy" className="scroll-mt-24">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="h-px flex-grow bg-[var(--border-color)]"></div>
+                    <span className="font-mono text-xs uppercase text-[var(--accent-amber)] tracking-widest">Core Philosophy</span>
+                    <div className="h-px flex-grow bg-[var(--border-color)]"></div>
                   </div>
-                  <h3 className="font-mono text-base text-[var(--text-primary)]">Video Editing (CapCut)</h3>
-                  <p className="text-xs text-[var(--text-secondary)] mt-1">Storytelling through frame interpolation.</p>
+
+                  <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mb-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
+                    I design against <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">fragile complexity</span>. Modern apps burn people out. My job is to build resilient systems that support human energy—not drain it.
+                  </blockquote>
+
+                  <div className="grid grid-cols-1 gap-4">
+                    {[
+                      { title: 'Principle 01', text: 'Feasibility is empathy.' },
+                      { title: 'Principle 02', text: 'Resilience over perfection.' },
+                      { title: 'Principle 03', text: 'Clarity over clutter.' }
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-4 p-4 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-green)] transition-colors group">
+                        <GitCommit size={18} className="text-[var(--accent-green)]" />
+                        <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
+                          <span className="font-mono text-xs uppercase text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]">{item.title} //</span>
+                          <span className="text-[var(--text-primary)]">{item.text}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
+
               </div>
 
-              {/* Item 3: Sketching (Small) */}
-              <div className="col-span-1 row-span-1 bg-[var(--bg-card)] border border-[var(--border-color)] p-4 flex flex-col justify-between hover:border-[var(--accent-amber)] transition-colors group">
-                <PenTool size={20} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-amber)] transition-colors" />
-                <div>
-                  <div className="font-mono text-xs text-[var(--text-secondary)] uppercase">Analog_Input</div>
-                  <div className="text-[var(--text-primary)] font-bold">Sketching</div>
-                </div>
-              </div>
+              {/* RIGHT COLUMN: Runtime Modules (Data/Hobbies) */}
+              <div className="space-y-10">
 
-              {/* Item 4: Duolingo (Small) */}
-              <div className="col-span-1 row-span-1 bg-[var(--bg-card)] border border-[var(--border-color)] p-4 flex flex-col justify-between hover:border-[var(--accent-green)] transition-colors group">
-                <Languages size={20} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-green)] transition-colors" />
-                <div>
-                  <div className="font-mono text-xs text-[var(--text-secondary)] uppercase">Lang_Pack</div>
-                  <div className="text-[var(--text-primary)] font-bold">Duolingo</div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* PHILOSOPHY SECTION */}
-          <section id="philosophy" className="mb-40 relative scroll-mt-24">
-            <SectionTitle number="5" title="PHILOSOPHY" />
-
-            <div className="bg-[var(--bg-card)] p-8 md:p-16 border border-[var(--border-color)] relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-amber)] opacity-[0.03] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-
-              <h3 className="font-mono text-xl md:text-3xl mb-12 uppercase text-[var(--text-primary)] max-w-2xl leading-tight">
-                I design against <span className="text-[var(--accent-amber)]">fragile complexity</span>.
-              </h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div className="text-[var(--text-secondary)] leading-relaxed font-light text-lg">
-                  <p className="mb-6">
-                    Modern apps burn people out. Workflows break, attention fractures, and everyone silently absorbs friction.
-                  </p>
-                  <p>
-                    My job is to build resilient systems that support human energy—not drain it.
+                {/* CURRENT FOCUS CARD */}
+                <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-50 transition-opacity">
+                    <Cpu size={48} strokeWidth={1} />
+                  </div>
+                  <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-[var(--accent-amber)] rounded-full animate-pulse"></span>
+                    Current Focus
+                  </h4>
+                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
+                    Deepening craft with a <strong className="text-[var(--text-primary)]">Master’s in EdTech</strong>. Studying cognitive load and how humans learn.
                   </p>
                 </div>
-                <div className="space-y-6">
-                  {[
-                    { title: 'Principle 01', text: 'Feasibility is empathy.' },
-                    { title: 'Principle 02', text: 'Resilience over perfection.' },
-                    { title: 'Principle 03', text: 'Clarity over clutter.' }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-4 text-[var(--text-primary)] group">
-                      <div className="mt-1 p-1 bg-[var(--bg-tag)] rounded border border-[var(--border-tag)] group-hover:border-[var(--accent-green)] transition-colors">
-                        <GitCommit size={16} className="text-[var(--accent-green)]" />
+
+                {/* RUNTIME MODULES (Hobbies Re-imagined) */}
+                <div>
+                  <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-6 border-b border-[var(--border-color)] pb-2">
+                    Background Processes
+                  </h4>
+
+                  <div className="space-y-3">
+                    {/* Collaboration */}
+                    <div className="flex items-center gap-4 p-3 border border-[var(--border-color)] hover:bg-[var(--bg-card)] transition-colors group">
+                      <div className="p-2 bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--accent-blue)] group-hover:scale-110 transition-transform">
+                        <Users size={16} />
                       </div>
                       <div>
-                        <strong className="block font-mono text-sm uppercase text-[var(--accent-green)] mb-1">{item.title}</strong>
-                        <span className="text-lg">{item.text}</span>
+                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">PROTOCOL: SYNC</div>
+                        <div className="text-xs text-[var(--text-secondary)]">Thriving in clusters.</div>
                       </div>
                     </div>
-                  ))}
+
+                    {/* Video Editing */}
+                    <div className="flex items-center gap-4 p-3 border border-[var(--border-color)] hover:bg-[var(--bg-card)] transition-colors group">
+                      <div className="p-2 bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--accent-red)] group-hover:scale-110 transition-transform">
+                        <Video size={16} />
+                      </div>
+                      <div>
+                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">FRAME_INTERPOLATION</div>
+                        <div className="text-xs text-[var(--text-secondary)]">Storytelling via CapCut.</div>
+                      </div>
+                    </div>
+
+                    {/* Sketching */}
+                    <div className="flex items-center gap-4 p-3 border border-[var(--border-color)] hover:bg-[var(--bg-card)] transition-colors group">
+                      <div className="p-2 bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--accent-amber)] group-hover:scale-110 transition-transform">
+                        <PenTool size={16} />
+                      </div>
+                      <div>
+                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">ANALOG_INPUT</div>
+                        <div className="text-xs text-[var(--text-secondary)]">Sketching concepts.</div>
+                      </div>
+                    </div>
+
+                    {/* Languages */}
+                    <div className="flex items-center gap-4 p-3 border border-[var(--border-color)] hover:bg-[var(--bg-card)] transition-colors group">
+                      <div className="p-2 bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--accent-green)] group-hover:scale-110 transition-transform">
+                        <Languages size={16} />
+                      </div>
+                      <div>
+                        <div className="font-mono text-xs text-[var(--text-primary)] font-bold">LANG_PACK</div>
+                        <div className="text-xs text-[var(--text-secondary)]">Duolingo streak active.</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+                <StickyNote text="Feasibility is empathy." className="relative text-[var(--accent-green)] mt-8 w-full" rotate="rotate-1" />
+
               </div>
             </div>
-            <StickyNote text="Design for recovery, not perfection." className="top-2/3 text-[var(--accent-amber)]" rotate="lg:rotate-2" />
           </section>
 
           {/* CONTENT/WRITING */}
