@@ -8,10 +8,10 @@ const DraggablePhoto = () => {
   // Using placeholders for now - in a real scenario these would be actual image URLs
   // For the first item, we keep the original "Identity Anchor" style
   const items = [
-    { type: 'identity' },
-    { type: 'image', src: 'https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=2071&auto=format&fit=crop', alt: 'Coding Setup' }, // Example: Coding/Tech
-    { type: 'image', src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1955&auto=format&fit=crop', alt: 'Abstract Design' }, // Example: Abstract/Design
-    { type: 'image', src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop', alt: 'Code Screen' }, // Example: Code
+    { type: 'identity', src: '/hero-fadly.jpg' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=2071&auto=format&fit=crop', alt: 'Coding Setup' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1955&auto=format&fit=crop', alt: 'Abstract Design' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop', alt: 'Code Screen' },
   ];
 
   const handleNext = () => {
@@ -45,26 +45,30 @@ const DraggablePhoto = () => {
         >
           {currentItem.type === 'identity' ? (
             <div className="w-full h-full bg-[var(--bg-card)] border border-[var(--border-color)] relative group overflow-hidden select-none rounded-lg">
-              <div className="absolute inset-0 flex items-center justify-center text-[var(--accent-blue)]/20">
-                <User size={80} strokeWidth={0.5} />
-              </div>
-              {/* Mesh Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-blue)]/5 via-transparent to-[var(--accent-amber)]/5 opacity-50"></div>
+              {/* Hero Image Background */}
+              <img
+                src={currentItem.src}
+                alt="Fadly Uzzaki"
+                className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+              />
+
+              {/* Mesh Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent opacity-60"></div>
 
               {/* Metadata */}
-              <div className="absolute top-4 left-4 right-4 flex justify-between items-center border-b border-[var(--border-color)] pb-2">
-                <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">ID_CARD.001</span>
-                <div className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse"></div>
+              <div className="absolute top-4 left-4 right-4 flex justify-between items-center border-b border-white/20 pb-2 z-10">
+                <span className="font-mono text-[10px] text-white uppercase tracking-widest mix-blend-difference">ID_CARD.001</span>
+                <div className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse shadow-[0_0_10px_var(--accent-green)]"></div>
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[var(--bg-card)] to-transparent pt-12">
-                <h3 className="font-serif italic text-2xl text-[var(--text-primary)]">Fadly Uzzaki</h3>
-                <p className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mt-1">Product Designer</p>
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent pt-12 z-10">
+                <h3 className="font-serif italic text-2xl text-white">Fadly Uzzaki</h3>
+                <p className="font-mono text-[10px] text-gray-300 uppercase tracking-widest mt-1">Product Designer</p>
               </div>
 
               {/* Helper Label */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                <span className="bg-[var(--bg-inverse)] text-[var(--text-inverse)] text-[10px] font-mono px-2 py-1 rounded">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
+                <span className="bg-white text-black text-[10px] font-mono px-2 py-1 rounded shadow-xl">
                   CLICK TO SWAP
                 </span>
               </div>
