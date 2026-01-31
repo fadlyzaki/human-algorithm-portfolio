@@ -32,40 +32,49 @@ const HandCursorOverlay = () => {
             return;
         }
 
-        const hands = new Hands({
-            locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
+        const HANDS_VERSION = '0.4.1675469240';
+        const handsInstance = new Hands({
+            locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands@${HANDS_VERSION}/${file}`,
         });
-        hands.setOptions({
+        handsInstance.setOptions({
             maxNumHands: 1,
             modelComplexity: 0,
             minDetectionConfidence: 0.5,
             minTrackingConfidence: 0.5,
         });
-        hands.onResults(onResults);
+        handsInstance.onResults(onResults);
 
-        let camera = null;
-        if (webcamRef.current && webcamRef.current.video) {
-            camera = new Camera(webcamRef.current.video, {
-                onFrame: async () => {
-                    if (webcamRef.current && webcamRef.current.video) {
-                        await hands.send({ image: webcamRef.current.video });
-                    }
-                },
-                width: 640,
-                height: 480,
-            });
-            camera.start();
-        }
+        // Store handsInstance in a ref so we can access it in onUserMedia
+        handsRef.current = handsInstance;
 
         // Initialize "Encrypted" state
         document.documentElement.classList.add('encrypted-mode');
 
         return () => {
-            if (camera) camera.stop();
-            hands.close();
+            if (cameraRef.current) cameraRef.current.stop();
+            handsInstance.close();
             document.documentElement.classList.remove('encrypted-mode');
         };
     }, [isGestureMode]);
+
+    const handsRef = useRef(null);
+    const cameraRef = useRef(null);
+
+    const handleVideoReady = () => {
+        if (webcamRef.current && webcamRef.current.video && handsRef.current) {
+            console.log("Webcam ready, starting MediaPipe Camera...");
+            cameraRef.current = new Camera(webcamRef.current.video, {
+                onFrame: async () => {
+                    if (webcamRef.current && webcamRef.current.video) {
+                        await handsRef.current.send({ image: webcamRef.current.video });
+                    }
+                },
+                width: 640,
+                height: 480,
+            });
+            cameraRef.current.start();
+        }
+    };
 
     const onResults = (results) => {
         if (!results.multiHandLandmarks || results.multiHandLandmarks.length === 0) return;
@@ -140,6 +149,7 @@ const HandCursorOverlay = () => {
                         audio={false} width={128} height={96}
                         videoConstraints={{ facingMode: "user" }}
                         className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale"
+                        onUserMedia={handleVideoReady}
                         onUserMediaError={() => setCameraError(true)}
                     />
                     {/* Grid Overlay */}
