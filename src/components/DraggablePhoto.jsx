@@ -24,53 +24,64 @@ const DraggablePhoto = () => {
     <motion.div
       drag
       dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
-      whileHover={{ scale: 1.05, cursor: 'grab' }}
+      whileHover={{ scale: 1.05, rotate: 0, cursor: 'grab' }}
       whileTap={{ scale: 0.95, cursor: 'grabbing' }}
       onClick={handleNext}
-      className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-square mb-6"
+      className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4] mb-6 rotate-2 hover:rotate-0 transition-transform duration-500"
     >
-        <AnimatePresence mode="wait">
-            <motion.div
-                key={index}
-                initial={{ opacity: 0, rotateY: 90 }}
-                animate={{ opacity: 1, rotateY: 0 }}
-                exit={{ opacity: 0, rotateY: -90 }}
-                transition={{ duration: 0.3 }}
-                className="w-full h-full"
-            >
-                {currentItem.type === 'identity' ? (
-                     <div className="w-full h-full bg-[var(--bg-card)] border border-[var(--border-color)] relative group overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 select-none">
-                        <div className="absolute inset-0 flex items-center justify-center text-[var(--text-secondary)]">
-                        <User size={64} strokeWidth={1} />
-                        </div>
-                        <div className="absolute inset-0 bg-gradient-to-tr from-[#111] to-transparent opacity-60"></div>
-                        <div className="absolute bottom-4 left-4 font-mono text-xs text-[var(--text-primary)] bg-[var(--bg-void)] px-2 py-1">
-                        Fadly Uzzaki
-                        </div>
-                         {/* Helper Label */}
-                        <div className="absolute top-2 right-2 font-mono text-[10px] text-[var(--accent-amber)] opacity-0 group-hover:opacity-100 transition-opacity bg-[var(--bg-void)] px-1 border border-[var(--accent-amber)]">
-                            DRAG_ME // TAP_TO_SWITCH
-                        </div>
-                    </div>
-                ) : (
-                    <div className="w-full h-full border border-[var(--border-color)] overflow-hidden relative select-none">
-                         <img 
-                            src={currentItem.src} 
-                            alt={currentItem.alt} 
-                            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 pointer-events-none" 
-                         />
-                         <div className="absolute inset-0 ring-1 ring-inset ring-[var(--border-color)]"></div>
-                         <div className="absolute bottom-4 left-4 font-mono text-xs text-white bg-black/50 backdrop-blur-sm px-2 py-1">
-                            {currentItem.alt}
-                        </div>
-                    </div>
-                )}
-            </motion.div>
-        </AnimatePresence>
-        
-        {/* Shadow/Depth effect for the whole draggable container */}
-        <div className="absolute -inset-2 bg-[var(--accent-blue)]/20 -z-10 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, rotateY: 90 }}
+          animate={{ opacity: 1, rotateY: 0 }}
+          exit={{ opacity: 0, rotateY: -90 }}
+          transition={{ duration: 0.4, ease: "circOut" }}
+          className="w-full h-full shadow-2xl"
+        >
+          {currentItem.type === 'identity' ? (
+            <div className="w-full h-full bg-[var(--bg-card)] border border-[var(--border-color)] relative group overflow-hidden select-none">
+              <div className="absolute inset-0 flex items-center justify-center text-[var(--accent-blue)]/20">
+                <User size={80} strokeWidth={0.5} />
+              </div>
+              {/* Mesh Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-blue)]/5 via-transparent to-[var(--accent-amber)]/5 opacity-50"></div>
 
+              {/* Metadata */}
+              <div className="absolute top-4 left-4 right-4 flex justify-between items-center border-b border-[var(--border-color)] pb-2">
+                <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">ID_CARD.001</span>
+                <div className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse"></div>
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[var(--bg-card)] to-transparent pt-12">
+                <h3 className="font-serif italic text-2xl text-[var(--text-primary)]">Fadly Uzzaki</h3>
+                <p className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mt-1">Product Designer</p>
+              </div>
+
+              {/* Helper Label */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                <span className="bg-[var(--bg-inverse)] text-[var(--text-inverse)] text-[10px] font-mono px-2 py-1 rounded">
+                  CLICK TO SWAP
+                </span>
+              </div>
+            </div>
+          ) : (
+            <div className="w-full h-full border border-[var(--border-color)] overflow-hidden relative select-none">
+              <img
+                src={currentItem.src}
+                alt={currentItem.alt}
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 pointer-events-none"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-[var(--border-color)]"></div>
+              <div className="absolute bottom-4 left-4 font-mono text-xs text-white bg-black/50 backdrop-blur-sm px-2 py-1">
+                {currentItem.alt}
+              </div>
+            </div>
+          )}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Glow effect */}
+      <div className="absolute -inset-4 bg-gradient-to-tr from-[var(--accent-blue)]/20 to-[var(--accent-amber)]/20 -z-10 blur-2xl opacity-40 rounded-full group-hover:opacity-60 transition-opacity"></div>
     </motion.div>
   );
 };
