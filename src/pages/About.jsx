@@ -32,31 +32,64 @@ const AboutPage = () => {
   }
 };`);
 
-  // --- DATA: THE KERNEL LOG (Biography Timeline) ---
-  const historyLog = [
+  // --- MERGED DATA: SYSTEM RUNTIME LOG (Chronological) ---
+  const runtimeLog = [
     {
       year: '2015 - 2018',
       type: 'BOOT_SEQUENCE',
       title: 'University of Indonesia + Internships',
       desc: 'Initialization phase. From teaching Interaction Design to managing agile products at GDP Labs and researching Fintech UX at Tokopedia. This was the hybridizing of CS logic and Design thinking.',
       icon: Terminal,
-      color: 'text-[var(--accent-blue)]'
+      color: 'text-[var(--accent-blue)]',
+      category: 'bio'
     },
     {
-      year: '2018 - 2022',
-      type: 'RUNTIME_EXECUTION',
-      title: 'The B2B & Supply Chain Era',
-      desc: 'High-load operations. Spent 4 years digitizing Indonesia\'s messy supply chains at STOQO and GudangAda. Learned to hide massive backend complexity behind simple interfaces for warungs and traders.',
+      year: 'Mar 2018 - Apr 2020',
+      type: 'EXECUTION_LOG',
+      title: 'Product Designer @ STOQO',
+      company: 'STOQO',
+      link: 'efficiency',
+      desc: 'My first deep dive into operational complexity. We helped culinary businesses source materials. My job was to mask the complex backend operations so chefs could focus on cooking.',
+      tags: ["F&B Supply Chain", "Operations", "Sourcing"],
       icon: Layers,
-      color: 'text-[var(--accent-green)]'
+      color: 'text-[var(--text-primary)]',
+      category: 'work'
     },
     {
-      year: '2022',
-      type: 'COMMUNITY_PATCH',
-      title: 'Lumina (The Blue Collar Pivot)',
-      desc: 'Shifted focus to the working class. Designed job discovery tools for "grey-collar" workers, emphasizing accessibility and high-trust community features.',
+      year: 'Jun 2020 - Apr 2022',
+      type: 'EXECUTION_LOG',
+      title: 'Product Designer @ GudangAda',
+      company: 'GudangAda',
+      link: 'commerce',
+      desc: 'This was my crash course in scale. I spearheaded initiatives to optimize the B2B buyer experience within the FMCG supply chain. I learned that in high-volume B2B tools, reducing friction isn\'t just a UX goal—it\'s a revenue metric.',
+      tags: ["B2B Marketplace", "Logistics", "Design Systems"],
+      icon: Layers,
+      color: 'text-[var(--text-primary)]',
+      category: 'work'
+    },
+    {
+      year: 'Jun 2020 - Dec 2020',
+      type: 'EXECUTION_LOG',
+      title: 'UI/UX Consultant @ Du Anyam',
+      company: 'Du Anyam',
+      link: null,
+      desc: 'A study in social impact. I consulted for a social enterprise empowering rural women through wicker crafts. The interface had to connect rural skills with modern markets.',
+      tags: ["Social Enterprise", "Empowerment", "Consulting"],
+      icon: Briefcase,
+      color: 'text-[var(--text-primary)]',
+      category: 'work'
+    },
+    {
+      year: 'May 2022 - Nov 2022',
+      type: 'EXECUTION_LOG',
+      title: 'Product Designer @ Lumina (YC W22)',
+      company: 'Lumina',
+      link: 'workforce',
+      desc: 'Designing for the \'working class\' economy requires radical honesty. At Lumina, I wasn\'t just building a job board; I was building a community trust layer for SMEs and blue-collar workers.',
+      tags: ["Community Platform", "Blue Collar", "Accessibility"],
       icon: Activity,
-      color: 'text-[var(--accent-amber)]'
+      color: 'text-[var(--text-primary)]',
+      category: 'work'
     },
     {
       year: '2022 - 2025',
@@ -65,47 +98,17 @@ const AboutPage = () => {
       desc: 'Life forced a hard stop. A major health event triggered a nearly 3-year system refactor. This wasn\'t idle time; it was R&D. I learned to navigate broken healthcare systems, deepening my empathy for users in crisis. I rebuilt my "hardware" (health) and upgraded my "software" (Master\'s degree).',
       icon: AlertTriangle,
       color: 'text-[var(--accent-red)]',
-      highlight: true
+      highlight: true,
+      category: 'bio'
     },
     {
       year: '2025 - Present',
-      type: 'Open for collaboration',
-      title: 'Active Deployment',
+      type: 'ACTIVE_DEPLOYMENT',
+      title: 'Open for Collaboration',
       desc: 'Back online with a new architecture. Combining Engineering rigor with Design empathy. Currently deploying experimental builds in EdTech and AI.',
       icon: Zap,
-      color: 'text-[var(--accent-green)]'
-    }
-  ];
-
-  // --- DATA: WORK EXPERIENCE (Narration) ---
-  const workExperience = [
-    {
-      company: "Lumina (YC W22)",
-      role: "Product Designer",
-      period: "May 2022 - Nov 2022",
-      narrative: "Designing for the 'working class' economy requires radical honesty. At Lumina, I wasn't just building a job board; I was building a community trust layer for SMEs and blue-collar workers.",
-      tags: ["Community Platform", "Blue Collar", "Accessibility"]
-    },
-    {
-      company: "GudangAda",
-      role: "Product Designer",
-      period: "Jun 2020 - Apr 2022",
-      narrative: "This was my crash course in scale. I spearheaded initiatives to optimize the B2B buyer experience within the FMCG supply chain. I learned that in high-volume B2B tools, reducing friction isn't just a UX goal—it's a revenue metric.",
-      tags: ["B2B Marketplace", "Logistics", "Design Systems"]
-    },
-    {
-      company: "Du Anyam",
-      role: "UI/UX Consultant",
-      period: "Jun 2020 - Dec 2020",
-      narrative: "A study in social impact. I consulted for a social enterprise empowering rural women through wicker crafts. The interface had to connect rural skills with modern markets.",
-      tags: ["Social Enterprise", "Empowerment", "Consulting"]
-    },
-    {
-      company: "STOQO",
-      role: "Product Designer",
-      period: "Mar 2018 - Apr 2020",
-      narrative: "My first deep dive into operational complexity. We helped culinary businesses source materials. My job was to mask the complex backend operations so chefs could focus on cooking.",
-      tags: ["F&B Supply Chain", "Operations", "Sourcing"]
+      color: 'text-[var(--accent-green)]',
+      category: 'bio'
     }
   ];
 
@@ -310,17 +313,17 @@ const AboutPage = () => {
           </ScrollReveal>
         </section>
 
-        {/* THE KERNEL LOG (Timeline) */}
+        {/* UNIFIED SYSTEM RUNTIME LOG (Bio + Work) */}
         <section className="mb-32 relative">
           <ScrollReveal>
             <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
               <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">LOG</span>
-              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">Kernel History</h2>
+              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">System Runtime Log</h2>
             </div>
           </ScrollReveal>
 
           <div className="relative border-l border-[var(--border-color)] ml-3 md:ml-6 space-y-12">
-            {historyLog.map((item, index) => (
+            {runtimeLog.map((item, index) => (
               <ScrollReveal key={index} delay={index * 100}>
                 <div className="relative pl-8 md:pl-12 group">
                   {/* Timeline Node */}
@@ -339,9 +342,34 @@ const AboutPage = () => {
                         <item.icon size={18} className={`${item.color} opacity-80`} />
                         <h3 className="text-xl text-[var(--text-primary)] font-medium">{item.title}</h3>
                       </div>
-                      <p className="text-[var(--text-secondary)] leading-relaxed max-w-2xl">
+
+                      <p className="text-[var(--text-secondary)] leading-relaxed max-w-2xl mb-4">
                         {item.desc}
                       </p>
+
+                      {/* WORK ITEM SPECIFIC EXTRAS */}
+                      {item.category === 'work' && (
+                        <>
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {item.tags.map(tag => (
+                              <span key={tag} className="font-mono text-[10px] text-[var(--accent-blue)] bg-[var(--bg-void)] px-2 py-1 rounded border border-[var(--border-color)]">
+                                #{tag}
+                              </span>
+                            ))}
+                          </div>
+
+                          {item.link && (
+                            <Link
+                              to={`/work/${item.link}`}
+                              className="inline-flex items-center gap-2 text-xs font-mono text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-0.5"
+                            >
+                              Explore Case Study ↗
+                            </Link>
+                          )}
+                        </>
+                      )}
+
+                      {/* BIO ITEM SPECIFIC EXTRAS */}
                       {item.highlight && (
                         <div className="mt-4 p-4 bg-[var(--bg-card)] border-l-2 border-[var(--accent-red)] inline-block max-w-xl shadow-lg transform -rotate-1 hover:rotate-0 transition-transform rounded-e-lg">
                           <p className="font-serif italic text-sm text-[var(--text-primary)] opacity-90">
@@ -350,54 +378,6 @@ const AboutPage = () => {
                         </div>
                       )}
                     </div>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </section>
-
-        {/* RUNTIME EXECUTION LOGS (Work Experience Narration) */}
-        <section className="mb-32">
-          <ScrollReveal>
-            <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
-              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">EXEC</span>
-              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">Execution Logs (Experience)</h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="space-y-8">
-            {workExperience.map((job, idx) => (
-              <ScrollReveal key={idx} delay={idx * 100}>
-                <div className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] p-8 md:p-10 hover:border-[var(--accent-blue)] transition-all rounded-lg">
-                  {/* Decoration: Connection Line */}
-                  {idx !== workExperience.length - 1 && (
-                    <div className="absolute left-10 bottom-0 top-[100%] w-px bg-[var(--border-color)] h-8 z-0"></div>
-                  )}
-
-                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
-                    <div>
-                      <div className="flex items-center gap-3 mb-2">
-                        <Briefcase size={16} className="text-[var(--accent-blue)]" />
-                        <h3 className="font-mono text-xl text-[var(--text-primary)]">{job.role}</h3>
-                      </div>
-                      <span className="font-mono text-sm text-[var(--text-secondary)]">{job.company}</span>
-                    </div>
-                    <span className="font-mono text-xs text-[var(--text-secondary)] border border-[var(--border-color)] px-3 py-1 rounded-full self-start">
-                      {job.period}
-                    </span>
-                  </div>
-
-                  <p className="text-[var(--text-secondary)] text-lg leading-relaxed font-light mb-6 font-serif italic border-l-2 border-[var(--border-color)] pl-6 group-hover:border-[var(--accent-blue)] transition-colors">
-                    "{job.narrative}"
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {job.tags.map(tag => (
-                      <span key={tag} className="font-mono text-[10px] text-[var(--accent-blue)] bg-[var(--bg-void)] px-2 py-1 rounded">
-                        #{tag}
-                      </span>
-                    ))}
                   </div>
                 </div>
               </ScrollReveal>
