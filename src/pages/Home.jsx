@@ -168,6 +168,7 @@ const Portfolio = () => {
   const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
+  const navigate = useNavigate();
   const lastScrollY = React.useRef(0);
 
   useEffect(() => {
