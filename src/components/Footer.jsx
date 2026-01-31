@@ -41,6 +41,7 @@ const Footer = () => {
                     <Link to="/" className="hover:underline text-sm">Home</Link>
                     <Link to="/about" className="hover:underline text-sm">About</Link>
                     <Link to="/side-projects" className="hover:underline text-sm">Archive</Link>
+                    <Link to="/contact" className="hover:underline text-sm">Contact</Link>
                     <Link to="/cv" className="hover:underline text-sm">System CV</Link>
                 </div>
 

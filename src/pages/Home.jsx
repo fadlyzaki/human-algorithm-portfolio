@@ -261,6 +261,7 @@ const Portfolio = () => {
               <Link to="/about" className="hover:text-[var(--text-primary)] transition-colors">/ABOUT</Link>
               <a href="#work" className="hover:text-[var(--text-primary)] transition-colors">/WORK</a>
               <a href="#notes" className="hover:text-[var(--text-primary)] transition-colors">/NOTES</a>
+              <Link to="/contact" className="hover:text-[var(--text-primary)] transition-colors">/CONTACT</Link>
             </div>
 
             <button onClick={toggleGestureMode} className={`p-1 transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`} title="Enable Hand Tracking for 'Decryption Lens' Experiment">
