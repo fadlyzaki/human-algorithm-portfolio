@@ -323,7 +323,7 @@ const Portfolio = () => {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
                     </span>
-                    System Online
+                    Open to Collaboration
                   </span>
                 </div>
               ))}
@@ -356,17 +356,7 @@ const Portfolio = () => {
 
               <div className="hidden md:block">
                 <DraggablePhoto />
-                <div className="space-y-4 font-mono text-xs text-[var(--text-secondary)]">
-                  {humanContext.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 py-2 border-b border-[var(--border-color)] last:border-0">
-                      <item.icon size={14} className="text-[var(--accent-amber)]" />
-                      <div>
-                        <span className="block opacity-50 text-[10px] uppercase tracking-widest">{item.label}</span>
-                        <span className="text-[var(--text-primary)]">{item.value}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <div className="space-y-4 font-mono text-xs text-[var(--text-secondary)]"></div>
               </div>
             </div>
             <StickyNote text="Antidote to digital fatigue." className="top-48 text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
@@ -475,6 +465,10 @@ const Portfolio = () => {
                   <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mb-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
                     I design against <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">fragile complexity</span>. Modern apps burn people out. My job is to build resilient systems that support human energy—not drain it.
                   </blockquote>
+
+                  <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-1">
+                    READ FULL PHILOSOPHY <ArrowRight size={14} />
+                  </Link>
 
                   {/* Principles... reduced for brevity in this response, but would exist */}
                 </div>
