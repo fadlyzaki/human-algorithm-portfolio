@@ -24,8 +24,6 @@ const HandCursorOverlay = () => {
 
     // Click-on-Release State
     const pendingClickRef = useRef(null);
-    const isLockedRef = useRef(false);
-    const lockedPosRef = useRef(null);
 
     // Edge Config
     const SCROLL_ZONE_PCT = 0.15;
@@ -131,8 +129,6 @@ const HandCursorOverlay = () => {
         const landmarks = results.multiHandLandmarks[0];
         const indexTip = landmarks[8];
         const thumbTip = landmarks[4];
-
-        // Mirrored X logic
         const targetX = (1 - indexTip.x) * window.innerWidth;
         const targetY = indexTip.y * window.innerHeight;
 
@@ -140,15 +136,14 @@ const HandCursorOverlay = () => {
         let smoothX = lastCursorPos.current.x + (targetX - lastCursorPos.current.x) * smoothingFactor;
         let smoothY = lastCursorPos.current.y + (targetY - lastCursorPos.current.y) * smoothingFactor;
 
-        if (isLockedRef.current && lockedPosRef.current) {
-            smoothX = lockedPosRef.current.x;
-            smoothY = lockedPosRef.current.y;
-        }
+        // REMOVED LOCKING LOGIC to prevent "stuck" feeling
+        // Cursor will continue to track even when pinched.
 
         setCursorPosition({ x: smoothX, y: smoothY });
         lastCursorPos.current = { x: smoothX, y: smoothY };
 
         // Debug & Hover Logic
+        // IMPORTANT: overlay elements must have pointer-events-none!
         const el = document.elementFromPoint(smoothX, smoothY);
         let debugText = '';
         if (el) {
@@ -178,22 +173,20 @@ const HandCursorOverlay = () => {
         if (isPinching) {
             if (!isClicking) {
                 setIsClicking(true);
-                isLockedRef.current = true;
-                lockedPosRef.current = { x: smoothX, y: smoothY };
+                // Capture the element when pinch STARTS
                 const element = document.elementFromPoint(smoothX, smoothY);
                 pendingClickRef.current = element;
             }
         } else {
             if (isClicking) {
                 setIsClicking(false);
-                isLockedRef.current = false;
-                lockedPosRef.current = null;
+                // Fire click on release
                 if (pendingClickRef.current) {
                     const mouseEventInit = { bubbles: true, cancelable: true, view: window, clientX: lastCursorPos.current.x, clientY: lastCursorPos.current.y };
                     pendingClickRef.current.dispatchEvent(new MouseEvent('mousedown', mouseEventInit));
                     pendingClickRef.current.dispatchEvent(new MouseEvent('mouseup', mouseEventInit));
                     pendingClickRef.current.click();
-                    pendingClickRef.current.focus();
+                    try { pendingClickRef.current.focus(); } catch (e) { }
                 }
                 pendingClickRef.current = null;
             }
@@ -201,6 +194,9 @@ const HandCursorOverlay = () => {
 
         // --- AUTO SCROLL ---
         const viewH = window.innerHeight;
+        // Allow scrolling even if pinching? Maybe better to keep logic separate.
+        // If not checking "isClicking", then scroll works always. 
+        // Let's keep it clean: Scroll zones work unless you are actively pinching (trying to click).
         if (!isClicking) {
             if (smoothY < viewH * SCROLL_ZONE_PCT) {
                 if (scrollReqRef.current !== 'UP') { scrollReqRef.current = 'UP'; setScrollState('UP'); }
@@ -231,10 +227,10 @@ const HandCursorOverlay = () => {
     return (
         <div className="fixed inset-0 z-[100] pointer-events-none">
             {/* Scroll Zone Indicators */}
-            <div className={`fixed top-0 left-0 w-full h-32 bg-gradient-to-b from-cyan-500/20 to-transparent transition-opacity duration-300 ${scrollState === 'UP' ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`fixed top-0 left-0 w-full h-32 bg-gradient-to-b from-cyan-500/20 to-transparent transition-opacity duration-300 pointer-events-none ${scrollState === 'UP' ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="w-full text-center mt-4 text-cyan-400 font-mono tracking-widest animate-bounce">SCROLLING UP</div>
             </div>
-            <div className={`fixed bottom-0 left-0 w-full h-32 bg-gradient-to-t from-cyan-500/20 to-transparent transition-opacity duration-300 ${scrollState === 'DOWN' ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`fixed bottom-0 left-0 w-full h-32 bg-gradient-to-t from-cyan-500/20 to-transparent transition-opacity duration-300 pointer-events-none ${scrollState === 'DOWN' ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="w-full text-center mb-4 absolute bottom-0 text-cyan-400 font-mono tracking-widest animate-bounce">SCROLLING DOWN</div>
             </div>
 
@@ -245,11 +241,11 @@ const HandCursorOverlay = () => {
                 </div>
             )}
 
-            {/* Visible Webcam Preview */}
-            <div className="fixed bottom-4 left-4 flex flex-col gap-2 items-start z-[110]">
+            {/* Visible Webcam Preview - Ensure it doesn't block clicks */}
+            <div className="fixed bottom-4 left-4 flex flex-col gap-2 items-start z-[110] pointer-events-none">
                 <div className="font-mono text-[10px] text-cyan-500 flex flex-col items-start gap-1 opacity-70">
                     <span className="bg-black/80 px-2 py-1 border border-cyan-500/30 rounded">SYS.GESTURE_Control // ACTIVE</span>
-                    {isClicking && <span className="text-red-500 font-bold tracking-widest leading-none">TARGET_LOCKED</span>}
+                    {isClicking && <span className="text-red-500 font-bold tracking-widest leading-none">CLICK_ENGAGED</span>}
                     {isHovering && !isClicking && <span className="text-emerald-400 font-bold tracking-widest leading-none">INTERACTIVE</span>}
                     {debugTarget && <span className="text-xs text-white bg-black/50 px-1">{debugTarget}</span>}
                 </div>
@@ -265,9 +261,9 @@ const HandCursorOverlay = () => {
                 </div>
             </div>
 
-            {/* Cursor Visual */}
+            {/* Cursor Visual - FORCE POINTER EVENTS NONE */}
             <div
-                className={`fixed w-6 h-6 border-2 rounded-full transition-all duration-150 flex items-center justify-center mix-blend-screen z-[120] ${ringColor} ${isHovering ? 'scale-125' : 'scale-100'}`}
+                className={`fixed w-6 h-6 border-2 rounded-full transition-all duration-150 flex items-center justify-center mix-blend-screen z-[120] pointer-events-none ${ringColor} ${isHovering ? 'scale-125' : 'scale-100'}`}
                 style={{
                     left: 0, top: 0,
                     // Center the 24px cursor by subtracting 12px
@@ -285,7 +281,7 @@ const HandCursorOverlay = () => {
             {/* Click Ripple Effect */}
             {isClicking && (
                 <div
-                    className="fixed rounded-full border border-red-500 animate-ping z-[119]"
+                    className="fixed rounded-full border border-red-500 animate-ping z-[119] pointer-events-none"
                     style={{
                         left: useHandCursor().cursorPosition.x - 20,
                         top: useHandCursor().cursorPosition.y - 20,
