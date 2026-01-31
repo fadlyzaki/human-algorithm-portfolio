@@ -112,35 +112,35 @@ export const WORK_CLUSTERS = [
                 caseStudy: {
                     locked: true,
                     snapshot: {
-                        tagline: "Making recruitment feel as instant as WhatsApp.",
+                        tagline: "Why do we treat recruitment like email when candidates live on WhatsApp?",
                         heroImage: "/workforce_hero.png"
                     },
                     context: {
                         client: "Internal Product",
-                        role: "Lead Product Designer",
+                        role: "I led the UX & UI",
                         timeline: "3 Months",
                         team: "1 PM, 2 FE, 1 BE"
                     },
-                    challenge: "Recruiters were managing 200+ candidates in Excel and SMS, leading to a 4-day response time and high candidate ghosting rates.",
+                    challenge: "Recruiters were drowning. Managing 200+ candidates via Excel and personal WhatsApp accounts meant data was scattered and response times averaged 4 days. Candidates were ghosting us because we were too slow.",
                     process: [
-                        { title: "Shadowing", desc: "Followed 5 recruiters for a day. Found they were copy-pasting SMS templates manually." },
-                        { title: "Wireframing", desc: "Designed a 'bulk-action' interface to message 50 candidates at once." },
-                        { title: "Prototyping", desc: "Tested the chat interaction with actual blue-collar workers to ensure it felt familiar." }
+                        { title: "The Shadow", desc: "I sat with 5 recruiters for a shift. I watched them copy-paste the same message 50 times. It wasn't a 'tracking' problem; it was a 'typing' problem." },
+                        { title: "The Conflict", desc: "Engineering wanted to build a ticketing system. I argued for a Chat interface. Tickets feel like work; Chat feels like a conversation." },
+                        { title: "Prototyping", desc: "I built a 'Whatsapp-lookalike' prototype and verified it with actual blue-collar workers. If they could use WhatsApp, they could use this." }
                     ],
                     insights: [
-                        { title: "Fear of Formality", desc: "Candidates ignored email but responded to 'Chat'. The medium was the message." },
-                        { title: "Batching vs. Real-time", desc: "Recruiters work in batches; candidates work in real-time. The system had to bridge this sync gap." }
+                        { title: "Fear of Formality", desc: "I discovered that candidates ignored emails because they felt too formal. Chat felt safe. The medium was the message." },
+                        { title: "Batching vs. Real-time", desc: "Recruiters work in batches; candidates work in real-time. I had to design a system that bridged this async/sync gap." }
                     ],
                     solution: [
-                        { title: "Universal Chat Inbox", desc: "Consolidated SMS, WhatsApp, and In-App messages into one thread." },
-                        { title: "Smart Templates", desc: "One-tap replies for common status updates (Interivew Scheduled, Rejected, etc)." }
+                        { title: "Universal Inbox", desc: "I consolidated SMS, WhatsApp, and In-App messages into one unified thread. No more tab switching." },
+                        { title: "One-Tap Speed", desc: "I designed 'Smart Templates' that allowed recruiters to send commonly used replies (e.g., 'Interview Scheduled') in a single tap." }
                     ],
                     metrics: [
                         { label: "Response Rate", value: "+45%" },
                         { label: "Time-to-Hire", value: "-3 Days" },
                         { label: "NPS", value: "78" }
                     ],
-                    learnings: "We learned that 'features' don't solve problems; 'workflows' do. By mimicking the tool they already used (WhatsApp) but adding structure, we won adoption."
+                    learnings: "This project taught me that 'features' don't solve problems; 'workflows' do. By mimicking the tool they already used (WhatsApp) but adding structure, I won adoption without training."
                 }
             },
             {
@@ -160,33 +160,33 @@ export const WORK_CLUSTERS = [
                 caseStudy: {
                     locked: true,
                     snapshot: {
-                        tagline: "A command center for high-volume hiring.",
+                        tagline: "Replacing the 'Excel Comfort Blanket' with something better.",
                         heroImage: "/workforce_hero.png"
                     },
                     context: {
                         client: "Internal Product",
-                        role: "UI/UX Designer",
+                        role: "I designed the Dashboard",
                         timeline: "4 Months",
                         team: "2 Designers, 4 Devs"
                     },
-                    challenge: "HR data was fragmented across 5 different tools and spreadsheets, making it impossible to get a 'single source of truth'.",
+                    challenge: "HR data was fragmented across 5 different tools and giant spreadsheets. The team couldn't answer simple questions like 'How many drivers did we hire today?' without a standardizing ease.",
                     process: [
-                        { title: "Audit", desc: "Mapped out the data flow between the 5 existing tools." },
-                        { title: "Consolidation", desc: "Defined a unified data schema for 'Candidate State'." }
+                        { title: "The Audit", desc: "I printed out the spreadsheets and highlighted every duplicate column. We were asking for the same data 4 times." },
+                        { title: "Friction", desc: "Users resisted the new dashboard. They loved Excel's flexibility. I had to prove that 'structure' was worth the loss of 'freedom'." }
                     ],
                     insights: [
-                        { title: "The Excel Addiction", desc: "Users loved Excel because it was flexible. Our tool had to offer table-like density, not just pretty cards." }
+                        { title: "Density is King", desc: "Most dashboards drown in whitespace. HR users needed density. I designed for maximum information per vertical pixel." }
                     ],
                     solution: [
-                        { title: "Pipeline View", desc: "Drag-and-drop kanban board for visual management." },
-                        { title: "Bulk Operations", desc: "Select-all actions to move candidates through stages efficiently." }
+                        { title: "The Pipeline", desc: "I built a drag-and-drop Kanban board that visualized the candidate journey, instantly highlighting bottlenecks." },
+                        { title: "Bulk Acts", desc: "I realized users never act on one person at a time. I added 'Select All' actions to every stage." }
                     ],
                     metrics: [
                         { label: "Efficiency", value: "+20%" },
                         { label: "Data Accuracy", value: "99%" },
                         { label: "Adoption", value: "100%" }
                     ],
-                    learnings: "Replacing a spreadsheet is the hardest design challenge. You have to beat the utility of a grid."
+                    learnings: "Replacing a spreadsheet is the hardest design challenge. You can't just be prettier; you have to be faster. I learned to respect the utility of a grid."
                 }
             },
             {
@@ -206,33 +206,33 @@ export const WORK_CLUSTERS = [
                 caseStudy: {
                     locked: true,
                     snapshot: {
-                        tagline: "Breaking the 'Resume Wall' for blue-collar workers.",
+                        tagline: "What if applying for a job was as easy as saying 'Hi'?",
                         heroImage: "/workforce_hero.png"
                     },
                     context: {
                         client: "Consumer App",
-                        role: "Product Designer",
+                        role: "I led the Product Design",
                         timeline: "2 Months",
                         team: "Growth Team"
                     },
-                    challenge: "Lengthy application forms were causing a 90% drop-off rate for users who weren't comfortable typing on screens.",
+                    challenge: "We had a 90% drop-off rate on our application forms. Blue-collar workers weren't comfortable typing out long resumes on mobile screens. The 'Resume Wall' was killing our growth.",
                     process: [
-                        { title: "Experiment", desc: "A/B tested a full form vs. a simple 'Hi, I'm interested' button." },
-                        { title: "Simplification", desc: "Removed 80% of required fields for the initial contact." }
+                        { title: "The Bet", desc: "I hypothesized that users didn't lack qualification; they lacked confidence. A form feels like a test. A chat feels like a hello." },
+                        { title: "Trimming", desc: "I fought to remove 80% of the required fields. We only needed a name and a phone number to start." }
                     ],
                     insights: [
-                        { title: "Trust Deficiency", desc: "Users didn't trust a faceless form. They trusted a person they could talk to." }
+                        { title: "Trust Deficiency", desc: "Users didn't trust a faceless form. They trusted a person. I added 'Recruiter Avatars' to humanize the screen." }
                     ],
                     solution: [
-                        { title: "One-Tap Apply", desc: "Users send a pre-filled message to start the conversation." },
-                        { title: "Audio Profiles", desc: "Allowed users to record a voice note instead of typing a cover letter." }
+                        { title: "One-Tap Apply", desc: "I replaced the 'Apply Now' form with a pre-filled message: 'Hi, I'm interested in this job.'." },
+                        { title: "Voice Notes", desc: "For users who struggled with typing, I added a 'Record Audio' feature. It became the most used feature." }
                     ],
                     metrics: [
                         { label: "App Starts", value: "+45%" },
                         { label: "Completed", value: "+60%" },
                         { label: "Trust", value: "High" }
                     ],
-                    learnings: "Lowering the barrier to entry increases volume, but you need checks to maintain quality. Voice notes were the perfect middle ground."
+                    learnings: "Lowering the barrier to entry increases volume, but you need checks for quality. Voice notes were the perfect middle ground—easy to send, but rich in signal."
                 }
             },
             {
@@ -257,28 +257,28 @@ export const WORK_CLUSTERS = [
                     },
                     context: {
                         client: "Core Product",
-                        role: "Interaction Designer",
+                        role: "I redesigned the Navigation",
                         timeline: "Ongoing",
                         team: "Core Experience"
                     },
-                    challenge: "Reviewing metrics showed users were getting stuck in deep navigation trees and abandoning the app.",
+                    challenge: "Our analytics showed users were getting stuck in deep navigation trees and abandoning the app. We had over-engineered the category structure, assuming users knew exactly what they wanted. They didn't.",
                     process: [
-                        { title: "Tree Testing", desc: "Verified that the existing category structure didn't match user mental models." },
-                        { title: "Card Sorting", desc: "Let users group jobs in ways that made sense to them." }
+                        { title: "Card Sorting", desc: "I ran a card-sorting exercise with actual users. Their mental model was flat, not hierarchical." },
+                        { title: "Hard Choices", desc: "I had to convince the PMs to kill their favorite 'Advanced Search' features. Simplicity requires sacrifice." }
                     ],
                     insights: [
-                        { title: "Visual vs. Text", desc: "Our users were visual learners. Icons worked better than text labels." }
+                        { title: "Visual vs. Text", desc: "Our users were visual learners. They ignored text labels but clicked instantly on icons. I pivoted the design to be icon-first." }
                     ],
                     solution: [
-                        { title: "Flat Navigation", desc: "Removed 2 levels of hierarchy to surface jobs faster." },
-                        { title: "Visual Tags", desc: "Used distinct iconography for every job category." }
+                        { title: "Flat Hierarchy", desc: "I flattened the navigation depth from 4 levels to 2. Every job was now reachable in 2 taps." },
+                        { title: "Visual Tags", desc: "I designed a distinct icon set for every job category, acting as visual anchors for scanning." }
                     ],
                     metrics: [
                         { label: "Retention D1", value: "+15%" },
                         { label: "Search Success", value: "85%" },
                         { label: "Bounce Rate", value: "-10%" }
                     ],
-                    learnings: "Navigation is not just about structure; it's about confidence. If a user feels lost for 1 second, they are gone."
+                    learnings: "Navigation is not just about structure; it's about confidence. If a user feels lost for 1 second, they are gone. I learned to count clicks like currency."
                 }
             },
         ]
