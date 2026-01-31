@@ -74,13 +74,21 @@ To create an immersive, narrative-driven portfolio that functions less like a st
 *   **Animation**: Framer Motion (Gestures), Native CSS (Scroll).
 
 ## 7. Asset Requirements List
-To fully personalize the "Human Algorithm" system, prepare the following assets. 
 
-| Asset Type | Location | Aspect Ratio | Dimensions |
-| :--- | :--- | :--- | :--- |
-| **Hero Profile Photo** | Home Header | **3:4** | `600px x 800px` |
-| **Work Context Images** | Detail Pages | **16:9** | `1280px x 720px` |
-| **Feature Previews** | Feature Lists | **16:9** | `800px x 450px` |
+To maintain the system's "High-Fidelity" aesthetic, all assets must follow these strict specifications.
+
+| Asset Type | Location | Aspect Ratio | Min Specs | Purpose |
+| :--- | :--- | :--- | :--- | :--- |
+| **Identity Anchor** | Home Header / Draggable | **3:4** | `1200 x 1600 px` | Hero profile photo / interaction. |
+| **Cluster Hero** | Company Detail Header | **16:9** | `1920 x 1080 px` | Background fallback for AI sims. |
+| **Feature Preview** | Company Detail Project List | **16:9** | `1280 x 720 px` | Entry-point visual for case studies. |
+| **Cinematic Hero** | Protected Case Study Hook | **21:9** | `2560 x 1080 px` | Ultra-wide impact visual. |
+| **Film Strip Step** | Process / Process Section | **4:5** | `1000 x 1250 px` | "Vintage forensic" process shots. |
+| **Annotated Screen** | Solution Section | **16:9** | `1920 x 1080 px` | Key interface solution highlights. |
+| **Photo Evidence** | Research Case Study | **4:3 / 1:1** | `800 x 600 px` | Field research / physical artifacts. |
+
+> [!TIP]
+> Use high-contrast, slightly desaturated or industrial-themed photography to match "The Void" aesthetic. For interface screenshots, use a consistent background color or transparent PNGs.
 
 ## 8. Future Scope / Roadmap
 *   **Blog/Notes System**: Fully functional CMS.
