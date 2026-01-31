@@ -506,6 +506,7 @@ const Portfolio = () => {
                   </div>
                 </div>
               </div>
+            </div>
           </section>
 
           {/* SECTION 4: NOTES */}
