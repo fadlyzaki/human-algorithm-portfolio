@@ -304,12 +304,34 @@ export const WORK_CLUSTERS = [
                 details: { problem: 'Inefficient ordering process.', system: 'Streamlined checkout flow.', outcome: 'Cart abandonment -12%.' },
                 caseStudy: {
                     locked: true,
-                    memo: "The checkout flow had 7 steps. We cut it to 3. Friction implies lack of trust.",
+                    snapshot: {
+                        tagline: "7 steps to buy a box of noodles? We had to fix the trust gap.",
+                        heroImage: "/commerce_hero.png"
+                    },
+                    context: {
+                        client: "GudangAda",
+                        role: "I led the Checkout Squad",
+                        timeline: "6 Months",
+                        team: "4 PMs, 8 Engineers"
+                    },
+                    challenge: "Our checkout flow was a 7-step monster. Users were abandoning carts at a rate of 65% because they didn't trust that their money was safe. In B2B, 'trust' isn't just a feeling; it's a transaction guarantee.",
+                    process: [
+                        { title: "The Audit", desc: "I printed every screen of the checkout flow. It spanned 3 meters on the wall. We were asking for the same address 3 times." },
+                        { title: "The Fight", desc: "Finance wanted to keep the 'safety checks'. I argued that friction *is* risk. If it's too hard, they leave." }
+                    ],
+                    insights: [
+                        { title: "Payment Anxiety", desc: "I found that users only cared about one thing: 'Will I get my refund if this goes wrong?' We needed to front-load that assurance." }
+                    ],
+                    solution: [
+                        { title: "3-Step Flow", desc: "I collapsed the 7 steps into 3: Cart, Payment, Confirmation. Radical simplification." },
+                        { title: "Escrow Badge", desc: "I added a visual 'Money Back Guarantee' shield next to the Pay button. It increased conversion by 5% alone." }
+                    ],
                     metrics: [
                         { label: "Cart Abandon", value: "-12%" },
                         { label: "Conversion", value: "+8%" },
                         { label: "AOV", value: "+15%" }
-                    ]
+                    ],
+                    learnings: "Trust is built in milliseconds. You can't ask for money if you look messy. A clean UI is a trustworthy UI."
                 }
             },
             {
@@ -324,12 +346,34 @@ export const WORK_CLUSTERS = [
                 details: { problem: 'Brands lacked identity.', system: 'Store builder engine.', outcome: 'Onboarded 50+ brands.' },
                 caseStudy: {
                     locked: true,
-                    memo: "Brands wanted control. We gave them a CMS inside the marketplace.",
+                    snapshot: {
+                        tagline: "Giving Unilever and P&G their own real estate in a chaotic marketplace.",
+                        heroImage: "/commerce_hero.png"
+                    },
+                    context: {
+                        client: "Strategic Partnership",
+                        role: "I designed the CMS",
+                        timeline: "3 Months",
+                        team: "Brand Team"
+                    },
+                    challenge: "Major FMCG principals refused to join our platform because they couldn't control their brand presence. They didn't want their premium soap listed next to a grainy photo of a dusty box.",
+                    process: [
+                        { title: "The Tension", desc: "Brands wanted 'microsites'. Engineering wanted 'standard templates'. I had to design a system that felt custom but was generated from a standard JSON schema." },
+                        { title: "Modular Design", desc: "I created a drag-and-drop 'Store Builder' that allowed brands to arrange banners and carousels without writing code." }
+                    ],
+                    insights: [
+                        { title: "Vanity Metrics", desc: "Brands cared more about 'Total Views' than 'Sales'. I highlighted traffic analytics in their dashboard to satisfy this need." }
+                    ],
+                    solution: [
+                        { title: "Store Builder", desc: "A WYSIWYG editor for brand managers to customize their landing pages." },
+                        { title: "Verified Badge", desc: "A visual tick that signaled 'Official Distributor', boosting trust for buyers." }
+                    ],
                     metrics: [
                         { label: "Onboarded", value: "50+" },
                         { label: "GMV Uplift", value: "+22%" },
                         { label: "Brand NPS", value: "65" }
-                    ]
+                    ],
+                    learnings: "B2B buyers are still human. They gravitate towards 'polished' content because it signals reliability."
                 }
             },
             {
@@ -344,12 +388,34 @@ export const WORK_CLUSTERS = [
                 details: { problem: 'Complex discount logic.', system: 'Automated promo engine.', outcome: 'Utilization +25%.' },
                 caseStudy: {
                     locked: true,
-                    memo: "Discounts were confusing. We built a 'Promo Calculator' to show exact savings.",
+                    snapshot: {
+                        tagline: "Turning a math headache into a 1-click discount engine.",
+                        heroImage: "/commerce_hero.png"
+                    },
+                    context: {
+                        client: "Internal Tool",
+                        role: "I simplified the Logic",
+                        timeline: "2 Months",
+                        team: "Growth Team"
+                    },
+                    challenge: "Our promo engine was so complex that account managers were using calculators to double-check the logic. We were seeing errors where discounts were stacking uncontrollably, causing loss.",
+                    process: [
+                        { title: "Logic Mapping", desc: "I mapped out the dependency tree of our discounts. It looked like a bowl of spaghetti." },
+                        { title: "The Fix", desc: "I proposed a 'Stacking Rule' UI: Distinct categories (Shipping, Product, Bundle) that could not overlap." }
+                    ],
+                    insights: [
+                        { title: "Fear of Loss", desc: "Users were terrified of 'accidental giveaways'. I added a 'Potential Loss' calculator that showed the max burn before they published." }
+                    ],
+                    solution: [
+                        { title: "Promo Simulator", desc: "A tool that let AMs test their promo against a fake cart to see the final price." },
+                        { title: "Rule Engine", desc: "Visual toggles for 'Combinable' vs 'Exclusive' promos." }
+                    ],
                     metrics: [
                         { label: "Utilization", value: "+25%" },
                         { label: "Errors", value: "0%" },
                         { label: "Sales Spikes", value: "High" }
-                    ]
+                    ],
+                    learnings: "In complex systems, clarity is the best feature. If the user can't predict the outcome, the system is broken."
                 }
             },
             {
@@ -364,12 +430,34 @@ export const WORK_CLUSTERS = [
                 details: { problem: 'Inconsistent UI.', system: 'Unified React library.', outcome: 'Dev velocity +30%.' },
                 caseStudy: {
                     locked: true,
-                    memo: "Every dev was reinventing the button. We standardized the atomic core.",
+                    snapshot: {
+                        tagline: "Ending the '50 Shades of Grey' button chaos.",
+                        heroImage: "/commerce_hero.png"
+                    },
+                    context: {
+                        client: "Infrastructure",
+                        role: "I built the System",
+                        timeline: "1 Year",
+                        team: "All Designers"
+                    },
+                    challenge: "We had 15 different shades of blue and 4 different date pickers. Every new feature took 3 days just to style. Our design debt was slowing us down.",
+                    process: [
+                        { title: "Inventory", desc: "I collected every button in the app. Seeing them all in one place was the wake-up call management needed." },
+                        { title: "Atomic Tokens", desc: "I defined the core variables: Color, Spacing, Typography. If it wasn't a token, it didn't exist." }
+                    ],
+                    insights: [
+                        { title: "Dev First", desc: "I realized a design system isn't for designers; it's for developers. I wrote the documentation in their language (Props, API), not ours." }
+                    ],
+                    solution: [
+                        { title: "UI Kit", desc: "A comprehensive Figma library with auto-layout components." },
+                        { title: "React Library", desc: "A perfectly synced npm package. Design once, import everywhere." }
+                    ],
                     metrics: [
                         { label: "Dev Velocity", value: "+30%" },
                         { label: "Code Size", value: "-15%" },
                         { label: "Consistency", value: "100%" }
-                    ]
+                    ],
+                    learnings: "A design system is a product, not a project. It needs maintenance, versioning, and a roadmap."
                 }
             },
         ]
@@ -395,12 +483,34 @@ export const WORK_CLUSTERS = [
                 details: { problem: 'Unclear shipping costs.', system: 'Real-time tracking.', outcome: 'Tickets dropped 60%.' },
                 caseStudy: {
                     locked: true,
-                    memo: "Users were calling support just to ask 'Where is my truck?'. We put it on a map.",
+                    snapshot: {
+                        tagline: "Solving the 'Where is my truck?' anxiety loop.",
+                        heroImage: "/efficiency_hero.png"
+                    },
+                    context: {
+                        client: "Logistics",
+                        role: "I designed the Tracking UX",
+                        timeline: "2 Months",
+                        team: "Ops Team"
+                    },
+                    challenge: "Our support team was drowning in calls. 60% of all tickets were simply: 'Has my order shipped?'. It was a massive waste of human potential.",
+                    process: [
+                        { title: "The Ride Along", desc: "I rode in a delivery truck for a day. I saw the driver struggling to update his status while driving. The system had to be one-tap." },
+                        { title: "Visibility", desc: "Users didn't need exact GPS; they just needed to know 'It's coming'." }
+                    ],
+                    insights: [
+                        { title: "Psychology of Waiting", desc: "I learned that known waits feel shorter than unknown waits. Even a rough estimate calms the user." }
+                    ],
+                    solution: [
+                        { title: "Visual Timeline", desc: "A Domino's-style pizza tracker for pallets. Packed → Loaded → On the Way → Arrived." },
+                        { title: "Proactive Notifications", desc: "We sent WhatsApp alerts at every stage. We told them before they asked." }
+                    ],
                     metrics: [
                         { label: "Support Tix", value: "-60%" },
                         { label: "Trust", value: "+40%" },
                         { label: "Repeat Order", value: "+10%" }
-                    ]
+                    ],
+                    learnings: "Transparency is the cheapest form of customer support. Explain what's happening, and people will wait."
                 }
             },
             {
@@ -415,12 +525,34 @@ export const WORK_CLUSTERS = [
                 details: { problem: 'Low motivation.', system: 'Streak-based reward dashboard.', outcome: 'DAU up 40%.' },
                 caseStudy: {
                     locked: true,
-                    memo: "Sales agents are competitive. We added leaderboards and daily streaks.",
+                    snapshot: {
+                        tagline: "Using video game mechanics to drive real-world sales.",
+                        heroImage: "/efficiency_hero.png"
+                    },
+                    context: {
+                        client: "Sales Force",
+                        role: "I Gamified the App",
+                        timeline: "3 Months",
+                        team: "Sales Ops"
+                    },
+                    challenge: "Our field agents were unmotivated. They treated the app like a chore. Login rates were low, and data entry was sloppy. We needed to make the 'boring' work feel rewarding.",
+                    process: [
+                        { title: "User Interviews", desc: "I found that agents were highly competitive. They compared stats in their WhatsApp group. I needed to bring that competition into the app." },
+                        { title: "Design Sprint", desc: "We tested leaderboards, badges, and streaks. Streaks won by a landslide." }
+                    ],
+                    insights: [
+                        { title: "Loss Aversion", desc: "Agents worked harder to 'keep a streak' than to 'gain a bonus'. The psychology of loss is powerful." }
+                    ],
+                    solution: [
+                        { title: "Daily Streak", desc: "A flame icon that grew hotter every day they hit their target. Breaking the streak felt painful." },
+                        { title: "Regional Leaderboard", desc: "A live ranking of the top agents in their city. Bragging rights drove performance." }
+                    ],
                     metrics: [
                         { label: "DAU", value: "+40%" },
                         { label: "Sales Vol", value: "+18%" },
                         { label: "Engagement", value: "High" }
-                    ]
+                    ],
+                    learnings: "Gamification isn't just badges. It's about tapping into intrinsic human drives: mastery, status, and fear of missing out."
                 }
             },
             {
@@ -435,12 +567,34 @@ export const WORK_CLUSTERS = [
                 details: { problem: 'Lost invoices.', system: 'OCR-assisted filing.', outcome: '90% paper reduction.' },
                 caseStudy: {
                     locked: true,
-                    memo: "Paper gets lost. Digital is forever (and searchable).",
+                    snapshot: {
+                        tagline: "Killing the filing cabinet, one scan at a time.",
+                        heroImage: "/efficiency_hero.png"
+                    },
+                    context: {
+                        client: "Internal Ops",
+                        role: "I envisioned the Future",
+                        timeline: "1 Month",
+                        team: "Solo Project"
+                    },
+                    challenge: "Our office was drowning in paper. Invoices, delivery orders, receipts. Things got lost, coffee got spilled, and data was dark.",
+                    process: [
+                        { title: "Observation", desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals." },
+                        { title: "Ideation", desc: "What if the camera was the keyboard? I mocked up an OCR flow that auto-filled the form." }
+                    ],
+                    insights: [
+                        { title: "Trust the Machine", desc: "Users were skeptical of OCR accuracy. I designed a 'Confidence Score' UI that highlighted fields the AI wasn't sure about." }
+                    ],
+                    solution: [
+                        { title: "Smart Scan", desc: "Point the camera at an invoice, and the app extracts the Date, Total, and Vendor." },
+                        { title: "Digital Archive", desc: "A search bar that could find a receipt from 3 years ago in 2 seconds." }
+                    ],
                     metrics: [
                         { label: "Paper Redux", value: "90%" },
                         { label: "Search Speed", value: "100x" },
                         { label: "Cost Save", value: "High" }
-                    ]
+                    ],
+                    learnings: "The future is inevitable, but it needs a bridge. The 'Confidence Score' was the bridge that let users trust the AI."
                 }
             },
         ]
