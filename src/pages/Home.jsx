@@ -198,6 +198,25 @@ const Portfolio = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const homeSideProjects = SIDE_PROJECTS.filter(p => p.featured);
+
+  const themeStyles = {
+    '--bg-void': isDark ? '#0a0a0a' : '#FFFFFF',
+    '--bg-surface': isDark ? '#1C1C1C' : '#F9FAFB',
+    '--bg-card': isDark ? '#111' : '#F9FAFB',
+    '--bg-backdrop': isDark ? 'rgba(10, 10, 10, 0.8)' : 'rgba(255, 255, 255, 0.8)',
+    '--text-primary': isDark ? '#F3F4F6' : '#111827',
+    '--text-secondary': isDark ? '#A1A1AA' : '#6B7280',
+    '--text-inverse': isDark ? '#111827' : '#FFFFFF',
+    '--border-color': isDark ? '#262626' : '#E5E7EB',
+    '--border-tag': isDark ? '#262626' : '#E5E7EB',
+    '--bg-tag': isDark ? '#1C1C1C' : '#F3F4F6',
+    '--accent-blue': '#3B82F6',
+    '--accent-amber': '#F59E0B',
+    '--accent-red': '#EF4444',
+    '--accent-green': '#10B981',
+  };
+
   return (
     <div
       style={themeStyles}
