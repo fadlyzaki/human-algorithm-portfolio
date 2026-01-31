@@ -360,16 +360,16 @@ const Portfolio = () => {
                 <div className="space-y-4 font-mono text-xs text-[var(--text-secondary)]"></div>
               </div>
             </div>
-              </div>
-            </div>
             <ScrollReveal delay={500}>
-                <StickyNote text="Antidote to digital fatigue." className="top-48 text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
+              <StickyNote text="Antidote to digital fatigue." className="top-48 text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
             </ScrollReveal>
-          </section >
+          </section>
 
-  {/* SECTION 1: SIDE PROJECTS */ }
-  < section className = "mb-40" >
-            <SectionTitle number="1" title="SIDE PROJECTS" link="/side-projects" linkText="VIEW EXPERIMENTS" />
+          {/* SECTION 1: SIDE PROJECTS */}
+          <section className="mb-40">
+            <ScrollReveal>
+              <SectionTitle number="1" title="SIDE PROJECTS" link="/side-projects" linkText="VIEW EXPERIMENTS" />
+            </ScrollReveal>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               {/* Editorial Column */}
@@ -426,110 +426,110 @@ const Portfolio = () => {
             </div>
           </section >
 
-  {/* SECTION 2: WORK */ }
-  < section id = "work" className = "mb-40 scroll-mt-24" >
+          {/* SECTION 2: WORK */}
+          < section id="work" className="mb-40 scroll-mt-24" >
             <ScrollReveal>
-                <SectionTitle number="2" title="WORK" />
+              <SectionTitle number="2" title="WORK" />
             </ScrollReveal>
 
             <div className="space-y-16">
               {WORK_CLUSTERS.map((cluster, idx) => (
                 <ScrollReveal key={idx} delay={idx * 150}>
-                    <WorkClusterCard cluster={cluster} />
+                  <WorkClusterCard cluster={cluster} />
                 </ScrollReveal>
               ))}
             </div>
           </section >
 
-  {/* SECTION 03: ABOUT ME (Unified) */ }
-  < section id = "about" className = "mb-40 scroll-mt-24" >
-    {/* Same as before, just kept standard */ }
-    < SectionTitle number = "3" title = "ABOUT ME" />
+          {/* SECTION 03: ABOUT ME (Unified) */}
+          < section id="about" className="mb-40 scroll-mt-24" >
+            {/* Same as before, just kept standard */}
+            < SectionTitle number="3" title="ABOUT ME" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-12 lg:gap-20">
-        <div className="space-y-16">
-          <div>
-            <div className="prose prose-invert max-w-none">
-              <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
-                "I design tools that respect your attention span."
-              </p>
-              <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
-                <p>
-                  My design career started in <span className="text-[var(--text-primary)] font-medium">Computer Science</span>—data structures, logic, constraints.
-                </p>
-                <p>
-                  But life forced me into a <strong className="text-[var(--text-primary)]">nearly three-year pause</strong> due to a major health issue. This "downtime" wasn't a loss; it was an upgrade. It taught me how fragile human systems are and how essential well-designed support structures become when we are at our limit.
-                </p>
+            <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-12 lg:gap-20">
+              <div className="space-y-16">
+                <div>
+                  <div className="prose prose-invert max-w-none">
+                    <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
+                      "I design tools that respect your attention span."
+                    </p>
+                    <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
+                      <p>
+                        My design career started in <span className="text-[var(--text-primary)] font-medium">Computer Science</span>—data structures, logic, constraints.
+                      </p>
+                      <p>
+                        But life forced me into a <strong className="text-[var(--text-primary)]">nearly three-year pause</strong> due to a major health issue. This "downtime" wasn't a loss; it was an upgrade. It taught me how fragile human systems are and how essential well-designed support structures become when we are at our limit.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="philosophy" className="scroll-mt-24">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="h-px flex-grow bg-[var(--border-color)]"></div>
+                    <span className="font-mono text-xs uppercase text-[var(--accent-amber)] tracking-widest">Core Philosophy</span>
+                    <div className="h-px flex-grow bg-[var(--border-color)]"></div>
+                  </div>
+
+                  <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mb-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
+                    I design against <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">fragile complexity</span>. Modern apps burn people out. My job is to build resilient systems that support human energy—not drain it.
+                  </blockquote>
+
+                  <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-1">
+                    READ FULL PHILOSOPHY <ArrowRight size={14} />
+                  </Link>
+
+                  {/* Principles... reduced for brevity in this response, but would exist */}
+                </div>
+              </div>
+
+              {/* Right Col */}
+              <div className="space-y-10">
+                {/* Current Focus Card... same as before */}
+                <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-50 transition-opacity">
+                    <Cpu size={48} strokeWidth={1} />
+                  </div>
+                  <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-[var(--accent-amber)] rounded-full animate-pulse"></span>
+                    Current Focus
+                  </h4>
+                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
+                    Deepening craft with a <strong className="text-[var(--text-primary)]">Master’s in EdTech</strong>. Studying cognitive load and how humans learn.
+                  </p>
+                </div>
+
+                {/* Personal Interests / Runtime Modules */}
+                <div className="space-y-6">
+                  <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest flex items-center gap-2">
+                    <Activity size={14} /> Personal Interests
+                  </h4>
+
+                  <div className="space-y-4">
+                    {[
+                      { label: "Community Building", val: "Active", icon: Users },
+                      { label: "Design Systems", val: "Obsessed", icon: PenTool },
+                      { label: "Analog Photography", val: "Learning", icon: ScanEye },
+                      { label: "Sci-Fi Literature", val: "Reading", icon: BookOpen }
+                    ].map((interest, i) => (
+                      <div key={i} className="flex items-center justify-between p-3 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-colors group">
+                        <div className="flex items-center gap-3">
+                          <interest.icon size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] transition-colors" />
+                          <span className="text-sm text-[var(--text-primary)]">{interest.label}</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-void)] px-2 py-1 rounded">
+                          {interest.val}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div id="philosophy" className="scroll-mt-24">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="h-px flex-grow bg-[var(--border-color)]"></div>
-              <span className="font-mono text-xs uppercase text-[var(--accent-amber)] tracking-widest">Core Philosophy</span>
-              <div className="h-px flex-grow bg-[var(--border-color)]"></div>
-            </div>
-
-            <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mb-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
-              I design against <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">fragile complexity</span>. Modern apps burn people out. My job is to build resilient systems that support human energy—not drain it.
-            </blockquote>
-
-            <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-1">
-              READ FULL PHILOSOPHY <ArrowRight size={14} />
-            </Link>
-
-            {/* Principles... reduced for brevity in this response, but would exist */}
-          </div>
-        </div>
-
-        {/* Right Col */}
-        <div className="space-y-10">
-          {/* Current Focus Card... same as before */}
-          <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-50 transition-opacity">
-              <Cpu size={48} strokeWidth={1} />
-            </div>
-            <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 bg-[var(--accent-amber)] rounded-full animate-pulse"></span>
-              Current Focus
-            </h4>
-            <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
-              Deepening craft with a <strong className="text-[var(--text-primary)]">Master’s in EdTech</strong>. Studying cognitive load and how humans learn.
-            </p>
-          </div>
-
-          {/* Personal Interests / Runtime Modules */}
-          <div className="space-y-6">
-            <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest flex items-center gap-2">
-              <Activity size={14} /> Personal Interests
-            </h4>
-
-            <div className="space-y-4">
-              {[
-                { label: "Community Building", val: "Active", icon: Users },
-                { label: "Design Systems", val: "Obsessed", icon: PenTool },
-                { label: "Analog Photography", val: "Learning", icon: ScanEye },
-                { label: "Sci-Fi Literature", val: "Reading", icon: BookOpen }
-              ].map((interest, i) => (
-                <div key={i} className="flex items-center justify-between p-3 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-colors group">
-                  <div className="flex items-center gap-3">
-                    <interest.icon size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] transition-colors" />
-                    <span className="text-sm text-[var(--text-primary)]">{interest.label}</span>
-                  </div>
-                  <span className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-void)] px-2 py-1 rounded">
-                    {interest.val}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
           </section >
 
-  {/* SECTION 4: NOTES */ }
-  < section id = "notes" className = "mb-40 scroll-mt-24" >
+          {/* SECTION 4: NOTES */}
+          < section id="notes" className="mb-40 scroll-mt-24" >
             <SectionTitle number="4" title="NOTES" />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -570,68 +570,68 @@ const Portfolio = () => {
 
         </div >
 
-  {/* FOOTER */ }
-  < section className = "border-t border-[var(--border-color)] pt-16 pb-24" >
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-      <div className="max-w-xl">
-        <h2 className="text-4xl md:text-5xl font-mono text-[var(--text-primary)] uppercase mb-8 leading-tight">
-          Let's build something <br /> <span className="font-serif italic lowercase text-[var(--text-secondary)]">resilient</span>.
-        </h2>
-        <Link to="/contact" className="inline-flex px-10 py-5 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all items-center gap-3 shadow-xl">
-          <Mail size={20} /> Initiate Contact
-        </Link>
-      </div>
+        {/* FOOTER */}
+        < section className="border-t border-[var(--border-color)] pt-16 pb-24" >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            <div className="max-w-xl">
+              <h2 className="text-4xl md:text-5xl font-mono text-[var(--text-primary)] uppercase mb-8 leading-tight">
+                Let's build something <br /> <span className="font-serif italic lowercase text-[var(--text-secondary)]">resilient</span>.
+              </h2>
+              <Link to="/contact" className="inline-flex px-10 py-5 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all items-center gap-3 shadow-xl">
+                <Mail size={20} /> Initiate Contact
+              </Link>
+            </div>
 
-      {/* Social / Runtime Connections */}
-      <div className="space-y-6">
-        <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest flex items-center gap-2">
-          <Activity size={14} className="animate-pulse text-[var(--accent-green)]" /> Active Connections
-        </h4>
+            {/* Social / Runtime Connections */}
+            <div className="space-y-6">
+              <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest flex items-center gap-2">
+                <Activity size={14} className="animate-pulse text-[var(--accent-green)]" /> Active Connections
+              </h4>
 
-        <div className="space-y-4">
-          {[
-            { label: "LinkedIn", val: "Connect", icon: Linkedin, href: "https://linkedin.com/in/fadlyzaki" },
-            { label: "Instagram", val: "Follow", icon: Instagram, href: "https://instagram.com/fadlyzaki" },
-            { label: "Dribbble", val: "View", icon: Dribbble, href: "https://dribbble.com/fadlyzaki" },
-            { label: "Email", val: "Write", icon: Mail, href: "mailto:hello@fadlyzaki.com" }
-          ].map((social, i) => (
-            <a
-              key={i}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-blue)] transition-colors group cursor-pointer"
-            >
-              <div className="flex items-center gap-4">
-                <div className="p-2 bg-[var(--bg-surface)] rounded text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] group-hover:bg-[var(--bg-void)] transition-colors">
-                  <social.icon size={18} />
-                </div>
-                <span className="font-mono text-sm text-[var(--text-primary)] tracking-wide">{social.label}</span>
+              <div className="space-y-4">
+                {[
+                  { label: "LinkedIn", val: "Connect", icon: Linkedin, href: "https://linkedin.com/in/fadlyzaki" },
+                  { label: "Instagram", val: "Follow", icon: Instagram, href: "https://instagram.com/fadlyzaki" },
+                  { label: "Dribbble", val: "View", icon: Dribbble, href: "https://dribbble.com/fadlyzaki" },
+                  { label: "Email", val: "Write", icon: Mail, href: "mailto:hello@fadlyzaki.com" }
+                ].map((social, i) => (
+                  <a
+                    key={i}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-4 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-blue)] transition-colors group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="p-2 bg-[var(--bg-surface)] rounded text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] group-hover:bg-[var(--bg-void)] transition-colors">
+                        <social.icon size={18} />
+                      </div>
+                      <span className="font-mono text-sm text-[var(--text-primary)] tracking-wide">{social.label}</span>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <span className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                        {social.val}
+                      </span>
+                      <ArrowUpRight size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+                    </div>
+                  </a>
+                ))}
               </div>
+            </div>
+          </div>
 
-              <div className="flex items-center gap-3">
-                <span className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                  {social.val}
-                </span>
-                <ArrowUpRight size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-
-{/* Copyright / Credits */ }
-<div className="border-t border-[var(--border-color)] pt-8 mt-16 flex flex-col md:flex-row justify-between items-center text-xs font-mono text-[var(--text-secondary)]">
-  <div className="flex items-center gap-2">
-    <span>&copy; {new Date().getFullYear()} Fadly Uzzaki. All System Rights Reserved.</span>
-  </div>
-  <div className="flex items-center gap-2 mt-4 md:mt-0">
-    <span>Designed & Developed with</span>
-    <Heart size={12} className="text-[var(--accent-red)] fill-[var(--accent-red)] animate-pulse" />
-    <span>by Fadlyzaki</span>
-  </div>
-</div>
+          {/* Copyright / Credits */}
+          <div className="border-t border-[var(--border-color)] pt-8 mt-16 flex flex-col md:flex-row justify-between items-center text-xs font-mono text-[var(--text-secondary)]">
+            <div className="flex items-center gap-2">
+              <span>&copy; {new Date().getFullYear()} Fadly Uzzaki. All System Rights Reserved.</span>
+            </div>
+            <div className="flex items-center gap-2 mt-4 md:mt-0">
+              <span>Designed & Developed with</span>
+              <Heart size={12} className="text-[var(--accent-red)] fill-[var(--accent-red)] animate-pulse" />
+              <span>by Fadlyzaki</span>
+            </div>
+          </div>
         </section >
 
       </main >
