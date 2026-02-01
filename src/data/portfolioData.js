@@ -123,6 +123,52 @@ export const SIDE_PROJECTS = [
         ]
     },
     {
+        id: 'project-kinship',
+        title: 'Project Kinship',
+        subtitle: 'Social Logistics & Gifting',
+        desc: 'Converting transactional remittance to emotional gifting.',
+        tldr: "A strategic feature set for On-Demand platforms that allows users to send 'Care' (Food/Goods) instead of just 'Cash' across borders.",
+        sections: {
+            challenge: "Remittance is often cold and transactional. Furthermore, there's a digital divide between tech-savvy migrants and their non-tech-savvy families in rural areas who find 'Super Apps' intimidating.",
+            approach: "Building a 'Social Logistics Layer' including session-based location overrides, LLM-based curation for health-conscious gifting, and a 'Universal Bridge' using tokenized web views (PWA) that require zero app installation for the recipient."
+        },
+        stack: ["React", "LMM / AI", "Fintech (Remittance)"],
+        links: {
+            demo: "https://gemini.google.com/share/bd973765947a",
+            repo: "#"
+        },
+        iconName: 'Gift',
+        featured: true,
+        date: "February 2026",
+        coverImage: "/project-kinship-cover.png",
+        modules: [
+            {
+                title: "Executive Summary",
+                content: "Project Kinship transforms On-Demand Delivery into a relationship platform. While billions flow through traditional remittance annually, there is zero emotional context. Kinship enables sending 'Care' (Food/Goods) to bridge the gap between migrants and their families in rural areas.\n\nCore Goals:\n• Capture a slice of the $800B global remittance market.\n• Convert cash transfers into platform GTV (Gross Transaction Value).\n• Bridge the digital divide for non-tech-savvy recipients."
+            },
+            {
+                title: "The Problem Space: Digital Asymmetry",
+                content: "1. The Remittance Paradox: Cash is cold. Senders want to provide direct care but struggle with logistics.\n2. The Core Friction: Senders are urban and high-tech; Recipients are rural and low-tech. Super apps are often too complex for recipients to coordinate last-mile delivery.\n3. Result: High friction leads to abandoned intents. Senders cannot order food for family because coordinating the delivery is a burden on the recipient."
+            },
+            {
+                title: "The Solution: Social Logistics Layer",
+                content: "Feature 1: Teleport Mode (Discovery)\nA location override allowing Senders to browse local merchant inventory in the Recipient's city without changing global GPS settings.\n\nFeature 2: Contextual AI Engine (Curation)\nAn LLM recommendation system. Example: 'Find low-sodium dinner options for my dad in his hometown.'\n\nFeature 3: The Universal Bridge (Inclusion)\nThe Recipient DOES NOT need the app. A tokenized Web View (PWA) sent via SMS/WhatsApp allows real-time tracking and driver communication without a login barrier."
+            },
+            {
+                title: "Strategic Analysis & Risk Management",
+                content: "Monetization:\n• Cross-Border FX Margin: Small markup on currency conversion.\n• Priority Fee: Premium 'Gifting' fee for guaranteed clean delivery and personalized cards.\n\nTech & Risk:\n• RAG (Retrieval-Augmented Generation): For hyperlocal AI food suggestions.\n• SSR (Server-Side Rendering): For lightweight web trackers (3G compatibility).\n• IVR Bridge: Automated calls for recipients who don't check their phones/data."
+            },
+            {
+                title: "User Journey: The Happy Path",
+                content: "1. Migrant user toggles 'Gifting Mode' and selects a family member.\n2. AI suggests 'Comfort Food' based on real-time weather in the hometown.\n3. User pays via digital wallet; Recipient receives an SMS link.\n4. Recipient opens the lightweight tracker; receives food + digital video message from sender."
+            },
+            {
+                title: "Metrics of Success (KPIs)",
+                content: "• Incremental GTV: Volume of transactions where sender is >50km from merchant.\n• Web-to-App Conversion: Recipients installing the app after a seamless web-tracking experience.\n• Retention Rate: Increased LTV of senders due to emotional stickiness of the platform."
+            }
+        ]
+    },
+    {
         id: 'interactive-workbook',
         title: 'Interactive Workbook',
         subtitle: 'Bimbel Geera Platform',
