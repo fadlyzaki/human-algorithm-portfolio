@@ -15,7 +15,7 @@ import BackButton from '../components/BackButton';
 
 const ProtectedCaseStudy = () => {
   const { id } = useParams();
-  const [isLocked, setIsLocked] = useState(true);
+  const [isLocked, setIsLocked] = useState(false);
   const { isDark, setIsDark } = useTheme();
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
@@ -248,13 +248,7 @@ const ProtectedCaseStudy = () => {
           >
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <button
-            onClick={() => { setIsLocked(true); setPassword(''); setProgress(0); }}
-            className="text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors flex items-center gap-2 font-mono text-xs uppercase"
-          >
-            <Lock size={14} />
-            Lock System
-          </button>
+
           <BackButton to={`/work/${parentCluster.id}`} label="Close" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]" />
         </div>
       </div>
@@ -328,29 +322,7 @@ const ProtectedCaseStudy = () => {
             ))}
           </div>
 
-          {/* CLASSIFIED DATA BLOCK (Redacted Content) */}
-          <div className="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-dashed border-[var(--border-color)]">
-            <div className="flex items-center gap-4">
-              <div className="bg-red-500/10 text-red-500 px-2 py-1 text-[9px] font-mono tracking-widest border border-red-500/20 rounded">
-                RESTRICTED_ACCESS
-              </div>
-              <div className="flex-1 h-px bg-red-500/20"></div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6 opacity-60">
-              <div>
-                <div className="font-mono text-[9px] uppercase text-[var(--text-secondary)] mb-1">Internal Code Name</div>
-                <div className="font-mono text-sm">PROJECT_{projectData.id.toUpperCase()}_V1</div>
-              </div>
-              <div>
-                <div className="font-mono text-[9px] uppercase text-[var(--text-secondary)] mb-1">Budget Allocation</div>
-                <div className="font-mono text-sm blur-[2px] hover:blur-none transition-all duration-300 select-none">$XXX,XXX.00</div>
-              </div>
-              <div>
-                <div className="font-mono text-[9px] uppercase text-[var(--text-secondary)] mb-1">Clearance Level</div>
-                <div className="font-mono text-sm">LEVEL 5 (ARCHITECT)</div>
-              </div>
-            </div>
-          </div>
+
         </section>
 
         {/* 3. PROCESS: FILM STRIP */}
@@ -577,7 +549,7 @@ const ProtectedCaseStudy = () => {
         </footer>
 
       </main>
-    </div>
+    </div >
   );
 };
 

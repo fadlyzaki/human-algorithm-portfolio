@@ -185,13 +185,13 @@ export const WORK_CLUSTERS = [
         ],
         projects: [
             {
-                id: 'p1',
+                id: 'workforce-chat',
                 title: 'In-App Chat & Candidate Tracker',
                 tag: 'Communication',
                 type: 'Mobile App',
                 role: 'Lead Product Designer',
                 timeline: '3 Months',
-                route: '/case-study/p1',
+                route: '/case-study/workforce-chat',
                 previewImage: '/workforce_hero.png',
                 iconName: 'MessageSquare',
                 details: {
@@ -240,13 +240,13 @@ export const WORK_CLUSTERS = [
                 }
             },
             {
-                id: 'p2',
+                id: 'ats-dashboard',
                 title: 'ATS Dashboard for HR',
                 tag: 'Management',
                 type: 'Web Dashboard',
                 role: 'UI/UX Designer',
                 timeline: '4 Months',
-                route: '/case-study/p2',
+                route: '/case-study/ats-dashboard',
                 previewImage: '/workforce_hero.png',
                 iconName: 'Users',
                 details: {
@@ -293,13 +293,13 @@ export const WORK_CLUSTERS = [
                 }
             },
             {
-                id: 'p3',
+                id: 'direct-apply',
                 title: 'Chat Your Employer',
                 tag: 'Direct Access',
                 type: 'Mobile Feature',
                 role: 'Product Designer',
                 timeline: '2 Months',
-                route: '/case-study/p3',
+                route: '/case-study/direct-apply',
                 previewImage: '/workforce_hero.png',
                 iconName: 'MessageCircle',
                 details: {
@@ -346,13 +346,13 @@ export const WORK_CLUSTERS = [
                 }
             },
             {
-                id: 'p4',
+                id: 'app-navigation',
                 title: 'Main App (Navigation & Discovery)',
                 tag: 'Core UX',
                 type: 'App Architecture',
                 role: 'Interaction Designer',
                 timeline: 'Ongoing',
-                route: '/case-study/p4',
+                route: '/case-study/app-navigation',
                 previewImage: '/workforce_hero.png',
                 iconName: 'Layout',
                 details: {
@@ -418,13 +418,13 @@ export const WORK_CLUSTERS = [
         ],
         projects: [
             {
-                id: 'p5',
+                id: 'marketplace-checkout',
                 title: 'Marketplace',
                 tag: 'Transactions',
                 type: 'Web Platform',
                 role: 'Lead Designer',
                 timeline: '6 Months',
-                route: '/case-study/p5',
+                route: '/case-study/marketplace-checkout',
                 previewImage: '/commerce_hero.png',
                 iconName: 'ShoppingBag',
                 details: { problem: 'Inefficient ordering process.', system: 'Streamlined checkout flow.', outcome: 'Cart abandonment -12%.' },
@@ -467,13 +467,13 @@ export const WORK_CLUSTERS = [
                 }
             },
             {
-                id: 'p6',
+                id: 'brand-official-store',
                 title: 'Official Store',
                 tag: 'Branding',
                 type: 'System Feature',
                 role: 'System Designer',
                 timeline: '3 Months',
-                route: '/case-study/p6',
+                route: '/case-study/brand-official-store',
                 previewImage: '/commerce_hero.png',
                 iconName: 'ShieldCheck',
                 details: { problem: 'Brands lacked identity.', system: 'Store builder engine.', outcome: 'Onboarded 50+ brands.' },
@@ -516,13 +516,13 @@ export const WORK_CLUSTERS = [
                 }
             },
             {
-                id: 'p7',
+                id: 'promo-engine',
                 title: 'Promo Center',
                 tag: 'Marketing',
                 type: 'Dashboard',
                 role: 'UX Researcher',
                 timeline: '2 Months',
-                route: '/case-study/p7',
+                route: '/case-study/promo-engine',
                 previewImage: '/commerce_hero.png',
                 iconName: 'Tag',
                 details: { problem: 'Complex discount logic.', system: 'Automated promo engine.', outcome: 'Utilization +25%.' },
@@ -565,13 +565,13 @@ export const WORK_CLUSTERS = [
                 }
             },
             {
-                id: 'p8',
+                id: 'design-system-gudangada',
                 title: 'GudangAda Design System',
                 tag: 'Architecture',
                 type: 'Design System',
                 role: 'Design Ops',
                 timeline: '1 Year',
-                route: '/case-study/p8',
+                route: '/case-study/design-system-gudangada',
                 previewImage: '/commerce_hero.png',
                 iconName: 'Box',
                 details: { problem: 'Inconsistent UI.', system: 'Unified React library.', outcome: 'Dev velocity +30%.' },
@@ -643,13 +643,13 @@ export const WORK_CLUSTERS = [
         },
         projects: [
             {
-                id: 'p9',
+                id: 'stoqo-logistics',
                 title: 'Transforming Logistics Delivery',
                 tag: 'Logistics',
                 type: 'Service Design',
                 role: 'Product Designer',
                 timeline: '2 Months',
-                route: '/case-study/p9',
+                route: '/case-study/stoqo-logistics',
                 previewImage: '/case-studies/delivery-methods/delivery-status-cover.png',
                 iconName: 'Truck',
                 details: { problem: 'Anxiety over unknown arrival.', system: 'Real-time Driver Tracking.', outcome: 'Support tickets -60%.' },
@@ -699,13 +699,13 @@ export const WORK_CLUSTERS = [
                 }
             },
             {
-                id: 'p10',
+                id: 'stoqo-sales',
                 title: 'Incentive Sales Agent',
                 tag: 'Gamification',
                 type: 'Mobile App',
                 role: 'UX Strategist',
                 timeline: '3 Months',
-                route: '/case-study/p10',
+                route: '/case-study/stoqo-sales',
                 previewImage: '/efficiency_hero.png',
                 iconName: 'Trophy',
                 details: { problem: 'Low adoption of sales tools.', system: 'Gamified Streak System.', outcome: 'Daily Usage +40%.' },
