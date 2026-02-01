@@ -33,7 +33,7 @@ const SystemManifest = () => {
     status: "Available for Hire",
     links: [
       { label: "linkedin.com/in/fadlyzaki", url: "https://www.linkedin.com/in/fadlyzaki/", icon: Linkedin },
-      { label: "human-algorithm.fadly.link", url: "https://fadlyzaki.github.io/human-algorithm-portfolio/", icon: Globe },
+      { label: "fadlyzaki-design.vercel.app", url: "https://fadlyzaki-design.vercel.app/", icon: Globe },
       { label: "fadly.uzzaki@gmail.com", url: "mailto:fadly.uzzaki@gmail.com", icon: Mail }
     ]
   };
