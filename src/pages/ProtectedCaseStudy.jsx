@@ -284,17 +284,10 @@ const ProtectedCaseStudy = () => {
             </p>
 
             {/* Hero Visual Hook */}
+            {/* Hero Visual Hook */}
             <div className="w-full max-w-6xl aspect-[21/9] bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-2xl relative overflow-hidden group">
-              {caseData.snapshot?.heroImage ? (
-                <img
-                  src={caseData.snapshot.heroImage}
-                  alt={projectData.title}
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
-                />
-              ) : (
-                <ProjectCard type={projectData.type} expanded={true} id={projectData.id} />
-              )}
-              <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)] bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-2 rounded shadow-xl">Fig. 1.0 — {caseData.snapshot?.heroImage ? 'Evidence' : 'System Architecture'}</div>
+              <ProjectCard type={projectData.type} expanded={true} id={projectData.id} showChrome={true} />
+              <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)] bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-2 rounded shadow-xl">Fig. 1.0 — System Architecture</div>
             </div>
           </div>
 
