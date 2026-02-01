@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AlertTriangle, Terminal, Home, RefreshCcw, WifiOff, Activity } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import Footer from '../components/Footer';
 
 const NotFound = () => {
   const { isDark } = useTheme();
@@ -89,8 +88,6 @@ const NotFound = () => {
           404
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };
