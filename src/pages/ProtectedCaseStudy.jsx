@@ -257,35 +257,45 @@ const ProtectedCaseStudy = () => {
       <main className="relative z-10 w-full pb-32">
 
         {/* 1. HERO: FULL BLEED HOOK */}
-        <section className="flex flex-col items-center relative overflow-hidden px-6 text-center pt-32 pb-20">
-          {/* Cinematic Title */}
-          <div className="mb-4">
-            <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--brand)] border-b border-[var(--brand)] pb-2 inline-block">
-              {caseData.snapshot?.tagline || "Confidential Project"}
-            </span>
+        <section className="flex flex-col items-center relative overflow-hidden px-6 text-center pt-24 md:pt-32 pb-20">
+          {/* Technical Illustration Background */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="w-full h-full opacity-10 grayscale blur-[2px] transition-all duration-1000">
+              <ProjectCard type={projectData.type} expanded={true} id={projectData.id} />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-void)] via-[var(--bg-void)]/80 to-[var(--bg-void)]"></div>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-serif italic mb-8 leading-[0.9] tracking-tight max-w-5xl mx-auto">
-            {projectData.title}
-          </h1>
+          {/* Content Wrapper */}
+          <div className="relative z-10 w-full flex flex-col items-center">
+            {/* Cinematic Title */}
+            <div className="mb-4">
+              <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--brand)] border-b border-[var(--brand)] pb-2 inline-block">
+                {caseData.snapshot?.tagline || "Confidential Project"}
+              </span>
+            </div>
 
-          <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl mx-auto font-light leading-relaxed mb-16">
-            {caseData.challenge || projectData.details.problem}
-          </p>
+            <h1 className="text-6xl md:text-8xl font-serif italic mb-8 leading-[0.9] tracking-tight max-w-5xl mx-auto">
+              {projectData.title}
+            </h1>
 
-          {/* Hero Visual Hook */}
-          <div className="w-full max-w-6xl aspect-[21/9] bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-2xl relative overflow-hidden group">
-            {caseData.snapshot?.heroImage ? (
-              <img
-                src={caseData.snapshot.heroImage}
-                alt={projectData.title}
-                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
-              />
-            ) : (
-              <ProjectCard type={projectData.type} expanded={true} />
-            )}
-            <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)] bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-2 rounded shadow-xl">Fig. 1.0 — {caseData.snapshot?.heroImage ? 'Evidence' : 'System Architecture'}</div>
-          </div>
+            <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl mx-auto font-light leading-relaxed mb-16">
+              {caseData.challenge || projectData.details.problem}
+            </p>
+
+            {/* Hero Visual Hook */}
+            <div className="w-full max-w-6xl aspect-[21/9] bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-2xl relative overflow-hidden group">
+              {caseData.snapshot?.heroImage ? (
+                <img
+                  src={caseData.snapshot.heroImage}
+                  alt={projectData.title}
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
+                />
+              ) : (
+                <ProjectCard type={projectData.type} expanded={true} id={projectData.id} />
+              )}
+              <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)] bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-2 rounded shadow-xl">Fig. 1.0 — {caseData.snapshot?.heroImage ? 'Evidence' : 'System Architecture'}</div>
+            </div>
         </section>
 
         {/* 2. CONTEXT STRIP */}
