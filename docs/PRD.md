@@ -35,6 +35,10 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Performance**: Vite-powered React engine for near-instant transitions.
 *   **SEO/Crawler Resilience**: Implemented static HTML fallbacks in `index.html` to ensure SEO indexing for SPA (Single Page Application) content.
 *   **Theme Management**: Dark Mode (The Void) by default, with persistent user-mode selection via `ThemeContext`.
+*   **Visual Language (Airy Technical Diagrams)**:
+    *   **Primary Visual**: All Case Study headers must use the interactive "Airy Technical Diagram" (`ProjectCard.jsx`) instead of static hero images.
+    *   **Consistency Rule**: The header diagram must be a **1:1 visual match** with the project card (same schema, same geometry).
+    *   **Technical Details**: Header diagrams must render with `expanded={true}` and `showChrome={true}` to ensure labels, grids, and technical metrics are visible, distinct from the blurred background style.
 
 ## 4. Functional Specifications
 
