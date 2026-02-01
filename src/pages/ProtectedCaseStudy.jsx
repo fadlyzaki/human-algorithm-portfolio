@@ -260,8 +260,8 @@ const ProtectedCaseStudy = () => {
         <section className="flex flex-col items-center relative overflow-hidden px-6 text-center pt-24 md:pt-32 pb-20">
           {/* Technical Illustration Background */}
           <div className="absolute inset-0 z-0 pointer-events-none">
-            <div className="w-full h-full opacity-10 grayscale blur-[2px] transition-all duration-1000">
-              <ProjectCard type={projectData.type} expanded={true} id={projectData.id} />
+            <div className="w-full h-full opacity-20 grayscale transition-all duration-1000">
+              <ProjectCard type={projectData.type} expanded={true} id={projectData.id} showChrome={true} />
             </div>
             <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-void)] via-[var(--bg-void)]/80 to-[var(--bg-void)]"></div>
           </div>

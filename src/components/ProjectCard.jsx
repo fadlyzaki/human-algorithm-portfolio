@@ -30,17 +30,17 @@ const DotGrid = () => (
     </div>
 );
 
-const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null }) => {
+const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, showChrome = false }) => {
     const t = type.toLowerCase();
 
     // THE CONTAINER (White Diagram Sheet)
     const Container = ({ children, figIndex = "1.0", schematicType = "SYSTEM_ARCHITECTURE" }) => (
         <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-4'} relative group transition-colors duration-500`}>
             <div className={`w-full ${expanded ? 'h-full border-none' : 'max-w-sm aspect-[16/10] border border-slate-100 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]'} bg-white overflow-hidden flex flex-col group-hover:border-[var(--brand)]/20 transition-all duration-700`}>
-                <DotGrid />
+                {(!expanded || showChrome) && <DotGrid />}
                 <div className="flex-1 relative overflow-hidden flex flex-col">
                     {children}
-                    <FigLabel index={figIndex} type={schematicType} />
+                    {(!expanded || showChrome) && <FigLabel index={figIndex} type={schematicType} />}
                 </div>
             </div>
             {/* Ambient Base Glow (Very Subtle) */}
