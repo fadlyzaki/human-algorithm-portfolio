@@ -163,13 +163,22 @@ const SideProjectDetail = () => {
                         </div>
 
                         {/* Module Content */}
+                        {/* Module Image (Optional) */}
+                        {module.image && (
+                           <div className="mb-8 rounded-lg overflow-hidden border border-[var(--border-color)]">
+                              <img
+                                 src={module.image}
+                                 alt={module.title}
+                                 className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+                              />
+                           </div>
+                        )}
+
+                        {/* Module Content */}
                         <div className="prose prose-lg dark:prose-invert max-w-none text-[var(--text-secondary)] leading-relaxed whitespace-pre-line font-light">
                            {module.content.split('\n').map((line, i) => {
                               if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
                                  return <li key={i} className="list-inside pl-4 marker:text-[var(--accent)]">{line.replace(/^[•-]\s*/, '')}</li>;
-                              }
-                              if (line.trim().startsWith('**')) {
-                                 return <h3 key={i} className="text-[var(--text-primary)] font-medium mt-6 mb-2">{line.replace(/\*\*/g, '')}</h3>;
                               }
                               return <p key={i}>{line}</p>;
                            })}

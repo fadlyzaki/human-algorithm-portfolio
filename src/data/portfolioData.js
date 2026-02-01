@@ -1,6 +1,6 @@
 export const SIDE_PROJECTS = [
     {
-        id: 'd1',
+        id: 'interactive-workbook',
         title: 'Interactive Workbook',
         subtitle: 'Bimbel Geera Platform',
         desc: 'Solving the "feedback loop" in non-formal education.',
@@ -20,28 +20,28 @@ export const SIDE_PROJECTS = [
             },
             {
                 title: "Problem & Solution",
-                content: "**The Problems:**\n• Lack of Motivation: Students are often bored with traditional workbooks containing only static text.\n• Tracking Difficulty: Teachers struggle to monitor homework progress (like Duolingo progress) of dozens of students in real-time.\n• Fear of Speaking: Students need conversation guides that are more interactive than just reading scripts.\n\n**The Solution:**\n• Integrated Multimedia: Includes Sing Along features with YouTube videos and chat-style interactive dialogues.\n• Firestore Integration: Uses a cloud database (Firebase Firestore) to save data instantly without page refreshes or complex manual processes.\n• Teacher Dashboard: Provides dedicated access for teachers to grade, comment, and monitor student XP/Streak centrally."
+                content: "The Problems:\n• Lack of Motivation: Students are often bored with traditional workbooks containing only static text.\n• Tracking Difficulty: Teachers struggle to monitor homework progress (like Duolingo progress) of dozens of students in real-time.\n• Fear of Speaking: Students need conversation guides that are more interactive than just reading scripts.\n\nThe Solution:\n• Integrated Multimedia: Includes Sing Along features with YouTube videos and chat-style interactive dialogues.\n• Firestore Integration: Uses a cloud database (Firebase Firestore) to save data instantly without page refreshes or complex manual processes.\n• Teacher Dashboard: Provides dedicated access for teachers to grade, comment, and monitor student XP/Streak centrally."
             },
             {
                 title: "Target Users",
-                content: "• **Students (SMP & SMA):** Primary users who complete learning units and monitor their ranking on the leaderboard.\n• **Teachers/Tutors:** Content managers responsible for manual grading and providing feedback to students."
+                content: "• Students (SMP & SMA): Primary users who complete learning units and monitor their ranking on the leaderboard.\n• Teachers/Tutors: Content managers responsible for manual grading and providing feedback to students."
             },
             {
                 title: "Functional Requirements",
-                content: "**F1: Interface & Localization**\n• Bilingual System: Toggle button to switch between Indonesian and English across all UI elements.\n• Responsive Design: Mobile-first UI optimized for all devices using Tailwind CSS.\n\n**F2: Student User Flow**\n• Session Identity: Students select their name and class to start (Sessions are temporary for shared privacy).\n• Learning Units (8 Units): Each unit consists of Sing Along, New Vocabulary, Dialogue Example, Speaking Practice, Duolingo Play (Input XP/Streak), and Self Reflection.\n• Leaderboard: Displays Top 10 Streak, Best Speakers, and Vocab Masters.\n\n**F3: Teacher User Flow**\n• Protected Access: Login via special access code.\n• Dashboard Tracker: Add new grading entries, duplicate rows for speed, and sync directly to Firestore."
+                content: "F1: Interface & Localization\n• Bilingual System: Toggle button to switch between Indonesian and English across all UI elements.\n• Responsive Design: Mobile-first UI optimized for all devices using Tailwind CSS.\n\nF2: Student User Flow\n• Session Identity: Students select their name and class to start (Sessions are temporary for shared privacy).\n• Learning Units (8 Units): Each unit consists of Sing Along, New Vocabulary, Dialogue Example, Speaking Practice, Duolingo Play (Input XP/Streak), and Self Reflection.\n• Leaderboard: Displays Top 10 Streak, Best Speakers, and Vocab Masters.\n\nF3: Teacher User Flow\n• Protected Access: Login via special access code.\n• Dashboard Tracker: Add new grading entries, duplicate rows for speed, and sync directly to Firestore."
             },
             {
                 title: "Technical Specifications",
-                content: "• **Frontend:** HTML5, Tailwind CSS (Styling), JavaScript ES6+ (Logic).\n• **Database:** Firebase Firestore (NoSQL) for real-time answer storage.\n• **Visualization:** Chart.js for XP progress charts.\n• **Assets:** YouTube API, Inline SVG & Emojis.\n• **Hosting:** Firebase Hosting."
+                content: "• Frontend: HTML5, Tailwind CSS (Styling), JavaScript ES6+ (Logic).\n• Database: Firebase Firestore (NoSQL) for real-time answer storage.\n• Visualization: Chart.js for XP progress charts.\n• Assets: YouTube API, Inline SVG & Emojis.\n• Hosting: Firebase Hosting."
             },
             {
                 title: "Roadmap",
-                content: "• **V1.0:** First stable release with Firestore integration (Completed).\n• **V1.5:** Permanent student login system via Firebase Auth.\n• **V2.0:** Automatic PDF certificate generation after 8 units.\n• **V2.5:** Push notifications for study streaks."
+                content: "• V1.0: First stable release with Firestore integration (Completed).\n• V1.5: Permanent student login system via Firebase Auth.\n• V2.0: Automatic PDF certificate generation after 8 units.\n• V2.5: Push notifications for study streaks."
             }
         ]
     },
     {
-        id: 'd3',
+        id: 'year-in-review',
         title: 'Year in Review',
         subtitle: 'Manual Data Visualization',
         desc: 'Privacy-first life analytics. Zero algorithms.',
@@ -68,7 +68,30 @@ export const SIDE_PROJECTS = [
         stack: ["Sketch", "Principle", "AR Design"],
         links: { demo: "#", repo: "#" },
         iconName: 'Camera',
-        featured: false
+        featured: false,
+        modules: [
+            {
+                title: "The Design Challenge",
+                content: "This project began as an entry for the CHIuXID 2018 Design Challenge under the theme 'Designing for Intelligences'. Our team (SUX Team: Ifa, Kevin, Zaki) had a 3-week sprint to solve a problem in the online shopping experience.\n\nMethodology: Google Design Sprint (Understand -> Diverge -> Decide -> Prototype -> Validate)."
+            },
+            {
+                title: "Define: The Realness Gap",
+                content: "Through user surveys, we identified the single biggest pain point in e-commerce: The inability to validate the physical reality of a product.\n\n• \"Is this lipstick actually that shade of red?\"\n• \"Will these glasses fit my face shape?\"\n\nWe called this the 'Realness Gap'—the friction caused by the lack of touch and trial in the digital space."
+            },
+            {
+                title: "Ideate: Shopping as a 'Story'",
+                content: "We observed that our target demographic (Millennials) were heavy users of Snapchat and Instagram Stories. They were comfortable with AR filters and 'selfie' interactions.\n\n**Hypothesis:** What if we could bridge the Realness Gap by using the familiar mental model of 'Social Stories' for product trials?"
+            },
+            {
+                title: "Solution: FilterMe",
+                image: "/filterme-prototype.png",
+                content: "FilterMe is a concept feature where facial products (makeup, sunglasses, earrings) function as AR filters. Instead of looking at static photos, users open their camera and 'wear' the product instantly.\n\nKey Interaction:\n1. Browse products in a feed.\n2. Tap 'Try Filter' to launch the camera.\n3. Swipe left/right to change product variants (colors/styles).\n4. Buy directly from the AR view."
+            },
+            {
+                title: "Validation & Learnings",
+                content: "We prototyped the experience using Sketch and Principle (simulating facial tracking). Usability testing with 4 participants revealed:\n\n• High Engagement: Users found the 'fun factor' significantly higher than standard browsing.\n• The Trust Issue: While fun, users remained skeptical about color accuracy. \"It looks good as a filter, but will the real pigment match?\"\n\nVerdict: AR drives engagement and reduces hesitation, but it cannot fully replace the physical need for trust in color fidelity."
+            }
+        ]
     },
     {
         id: 'grab-merantau',
