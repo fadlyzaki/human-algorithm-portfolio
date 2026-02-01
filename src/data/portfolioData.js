@@ -636,8 +636,8 @@ export const WORK_CLUSTERS = [
             description: "I worked there as one of the early product designers, touching almost every product line—from customer-facing apps to complex warehousing logistics. We built a culture of 'Get Your Hands Dirty'.",
             images: [
                 { src: "/hero-stoqo.jpg", caption: "Warehouse Visits", span: "col-span-1 md:col-span-2 row-span-2" },
-                { src: "/case-studies/delivery-methods/MVIMG_20190507_171908.jpg", caption: "The Squad", span: "col-span-1 row-span-1" },
-                { src: "/case-studies/delivery-methods/Untitled%202.png", caption: "Usability Testing", span: "col-span-1 row-span-1" },
+                { src: "/case-studies/delivery-methods/mvimg-20190507.jpg", caption: "The Squad", span: "col-span-1 row-span-1" },
+                { src: "/case-studies/delivery-methods/untitled-2.png", caption: "Usability Testing", span: "col-span-1 row-span-1" },
                 { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80", caption: "Townhall", span: "col-span-1 md:col-span-2 row-span-1" }
             ]
         },
@@ -657,7 +657,7 @@ export const WORK_CLUSTERS = [
                     locked: true,
                     snapshot: {
                         tagline: "Solving the 'Where is my truck?' anxiety loop.",
-                        heroImage: "/case-studies/delivery-methods/Delivery_Status_Cover.png"
+                        heroImage: "/case-studies/delivery-methods/delivery-status-cover.png"
                     },
                     context: {
                         client: "STOQO Logistics",
@@ -667,13 +667,13 @@ export const WORK_CLUSTERS = [
                     },
                     challenge: "I discovered a harsh reality: our users were waking up at 4 AM not to work, but to *wait*. Late deliveries weren't just an inconvenience; they were an existential threat. My challenge was to break this cycle of anxiety without having the budget to buy 100 new trucks.",
                     process: [
-                        { title: "Methodology", desc: "I didn't trust the Jira tickets, so I rode in the delivery trucks. I saw drivers struggling to text while driving. The 'system' wasn't broken; it was dangerous.", image: "/case-studies/delivery-methods/Screen_Shot_2020-05-22_at_01.44.01.png" },
-                        { title: "The Insight", desc: "Talking to 5 owners, I found the real conflict: It wasn't about speed. It was about *silence*. They could handle a late truck; they couldn't handle not knowing.", image: "/case-studies/delivery-methods/Untitled.png" },
-                        { title: "Field Study", desc: "I joined the Field Activators to see the chaos on the ground. This bridged the gap between 'Customer Complaints' and 'Operational Reality'.", image: "/case-studies/delivery-methods/IMG_20190502_154316.jpg" },
-                        { title: "Analysis Workshop", desc: "We mapped the user journey and identified 4 pain points: Mental Model Mismatch, Uncertainty, Lack of Communication, and Lack of Awareness.", image: "/case-studies/delivery-methods/Customer_App_Board.jpg" },
-                        { title: "Co-Creation", desc: "I didn't design in a silo. We ran a full-day workshop with the Engineering and Ops leads to ensure technical feasibility wasn't an afterthought.", image: "/case-studies/delivery-methods/IMG_20190507_170816.jpg" },
-                        { title: "Ideation", desc: "We focused on 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks'—it was 'better information'.", image: "/case-studies/delivery-methods/Customer_App_Board_(1).jpg" },
-                        { title: "Validation", desc: "We took the high-fidelity prototypes back to the users for a 3-day testing sprint. Watching them struggle is the best validity test.", image: "/case-studies/delivery-methods/Untitled%201.png" }
+                        { title: "Methodology", desc: "I didn't trust the Jira tickets, so I rode in the delivery trucks. I saw drivers struggling to text while driving. The 'system' wasn't broken; it was dangerous.", image: "/case-studies/delivery-methods/screen-shot-2020.png" },
+                        { title: "The Insight", desc: "Talking to 5 owners, I found the real conflict: It wasn't about speed. It was about *silence*. They could handle a late truck; they couldn't handle not knowing.", image: "/case-studies/delivery-methods/untitled.png" },
+                        { title: "Field Study", desc: "I joined the Field Activators to see the chaos on the ground. This bridged the gap between 'Customer Complaints' and 'Operational Reality'.", image: "/case-studies/delivery-methods/img-20190502.jpg" },
+                        { title: "Analysis Workshop", desc: "We mapped the user journey and identified 4 pain points: Mental Model Mismatch, Uncertainty, Lack of Communication, and Lack of Awareness.", image: "/case-studies/delivery-methods/customer-app-board.jpg" },
+                        { title: "Co-Creation", desc: "I didn't design in a silo. We ran a full-day workshop with the Engineering and Ops leads to ensure technical feasibility wasn't an afterthought.", image: "/case-studies/delivery-methods/img-20190507.jpg" },
+                        { title: "Ideation", desc: "We focused on 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks'—it was 'better information'.", image: "/case-studies/delivery-methods/customer-app-board-1.jpg" },
+                        { title: "Validation", desc: "We took the high-fidelity prototypes back to the users for a 3-day testing sprint. Watching them struggle is the best validity test.", image: "/case-studies/delivery-methods/untitled-1.png" }
                     ],
                     insights: [
                         { title: "Psychology of Waiting", desc: "I learned that known waits feel shorter than unknown waits. Even a rough estimate calms the user." },
