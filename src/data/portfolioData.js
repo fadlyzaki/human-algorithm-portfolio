@@ -638,8 +638,8 @@ export const WORK_CLUSTERS = [
         },
         brandColor: '#FA6130', // Stoqo Orange
         heroImage: '/efficiency_hero.png',
-        hook: 'Helping SMEs transition from messy offline routines to stable digital workflows.',
-        miniDesc: 'STOQO is a B2B technology startup distributing materials to F&B businesses in Indonesia. We helped them source affordable materials reliably so they could focus on their goal: amazing food.',
+        hook: 'Streamlining the F&B supply chain to empower micro & small businesses with easy access to competitively-priced, quality ingredients.',
+        miniDesc: 'B2B platform founded in 2017 to transform the F&B supply chain. Serving thousands of culinary businesses daily with reliable, competitively-priced ingredient deliveries so business owners can focus on growing their business.',
         stats: [
             { label: 'Role', value: 'Early Product Designer' },
             { label: 'Timeline', value: 'Mar 2018 - Apr 2020' },
