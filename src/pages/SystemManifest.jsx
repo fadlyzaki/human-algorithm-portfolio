@@ -28,9 +28,9 @@ const SystemManifest = () => {
   // --- DATA: RAW SPECS ---
   const header = {
     name: "Fadly Uzzaki",
-    role: "Product Designer (Systems Specialist)",
+    role: "Product Designer | UX/UI Designer | Systems Specialist",
     location: "Jakarta, Indonesia",
-    status: "Open for Deployment",
+    status: "Available for Hire",
     links: [
       { label: "linkedin.com/in/fadlyzaki", url: "https://www.linkedin.com/in/fadlyzaki/", icon: Linkedin },
       { label: "human-algorithm.fadly.link", url: "https://fadlyzaki.github.io/human-algorithm-portfolio/", icon: Globe },
@@ -139,7 +139,7 @@ const SystemManifest = () => {
           <section>
             <div className="flex items-center gap-3 mb-6">
               <Terminal size={18} />
-              <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">Execution Logs (Experience)</h3>
+              <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">Professional Experience</h3>
             </div>
 
             <div className="space-y-10">
@@ -180,22 +180,22 @@ const SystemManifest = () => {
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <Hash size={18} />
-                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">Protocols</h3>
+                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">Skills & Expertise</h3>
               </div>
 
               <div className="space-y-6">
                 <div>
-                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">Core</h5>
+                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">Design</h5>
                   <div className="flex flex-wrap gap-2">
-                    {['Product Design', 'UX Research', 'Design Systems', 'Prototyping'].map(s => (
+                    {['Product Design', 'UX/UI Design', 'User Research', 'Design Systems', 'Prototyping', 'Wireframing', 'User Testing', 'Information Architecture'].map(s => (
                       <span key={s} className="bg-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm">{s}</span>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">Technical</h5>
+                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">Tools & Methods</h5>
                   <div className="flex flex-wrap gap-2">
-                    {['HTML/CSS', 'React Basics', 'Git', 'Agile/Scrum'].map(s => (
+                    {['Figma', 'Sketch', 'Adobe XD', 'HTML/CSS', 'JavaScript', 'React', 'Git', 'Jira', 'Linear', 'Mixpanel', 'Agile', 'Scrum', 'Design Thinking'].map(s => (
                       <span key={s} className="border border-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm text-[var(--text-secondary)]">{s}</span>
                     ))}
                   </div>
@@ -207,7 +207,7 @@ const SystemManifest = () => {
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <BookOpen size={18} />
-                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">Firmware</h3>
+                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">Education</h3>
               </div>
 
               {education.map((edu, idx) => (
