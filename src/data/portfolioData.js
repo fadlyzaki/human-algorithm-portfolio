@@ -13,6 +13,7 @@ export const SIDE_PROJECTS = [
         links: { demo: "https://buku-kerja-interaktif.web.app/", repo: "github.com/fadlyzaki/interactive-workbook" },
         iconName: 'BookOpen',
         featured: true,
+        type: 'Education',
         date: "August 2025",
         coverImage: "/interactive-workbook-cover.png",
         modules: [
@@ -55,6 +56,7 @@ export const SIDE_PROJECTS = [
         stack: ["React", "TypeScript", "Canvas API"],
         links: { demo: "https://year-in-review-jak.vercel.app/", repo: "github.com/fadlyzaki/manual-wrapped" },
         iconName: 'Calendar',
+        type: 'DataViz',
         date: "December 2025",
         coverImage: "/year-in-review-cover.png",
         modules: [
@@ -93,6 +95,7 @@ export const SIDE_PROJECTS = [
         },
         iconName: 'Shield',
         featured: true,
+        type: 'Fintech Lock',
         date: "February 2026",
         coverImage: "/price-lock-cover.png",
         modules: [
@@ -139,6 +142,7 @@ export const SIDE_PROJECTS = [
         },
         iconName: 'Gift',
         featured: true,
+        type: 'Logistics Kinship',
         date: "February 2026",
         coverImage: "/project-kinship-cover.png",
         modules: [
@@ -259,6 +263,7 @@ export const SIDE_PROJECTS = [
         links: { demo: "https://uxdesign.cc/enhancing-online-shopping-experience-fbdbd76438e8", repo: "#" },
         iconName: 'Camera',
         featured: false,
+        type: 'AR Camera',
         date: "January 2018",
         coverImage: "/filterme-cover.webp",
         modules: [
@@ -298,6 +303,7 @@ export const SIDE_PROJECTS = [
         stack: ["UX Research", "Figma", "AI Concept"],
         links: { demo: "#", repo: "#" },
         iconName: 'Heart',
+        type: 'Service Delivery',
         hidden: true,
         featured: false
     },
@@ -314,6 +320,7 @@ export const SIDE_PROJECTS = [
         stack: ["Node.js", "PostGIS", "Flutter"],
         links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
         iconName: 'AlertTriangle',
+        type: 'Service Map',
         hidden: true,
         featured: false
     },
@@ -330,6 +337,7 @@ export const SIDE_PROJECTS = [
         stack: ["Python", "Pandas", "PWA"],
         links: { demo: "medium.com/procurement", repo: "github.com/fadlyzaki/procurement" },
         iconName: 'FileText',
+        type: 'Dashboard Platform',
         hidden: true,
         featured: false
     }

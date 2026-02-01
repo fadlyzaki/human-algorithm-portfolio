@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import DraggablePhoto from '../components/DraggablePhoto';
+import ProjectPreview from '../components/ProjectPreview';
 import ScrollReveal from '../components/ScrollReveal';
 import { useTheme } from '../context/ThemeContext';
 import { useHandCursor } from '../context/HandCursorContext';
@@ -432,18 +433,16 @@ const Portfolio = () => {
                       className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-2xl overflow-hidden rounded-xl"
                       onClick={() => navigate(`/side-project/${item.id}`)}
                     >
-                      {/* Image Container */}
-                      <div className="aspect-[21/9] overflow-hidden relative">
-                        <img
-                          src={item.coverImage}
-                          alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+                      {/* Technical Illustration Container (Replaces Banner Image) */}
+                      <div className="aspect-[21/9] overflow-hidden relative bg-[var(--bg-surface)] border-b border-[var(--border-color)]">
+                        <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
+                          <ProjectPreview type={item.type || 'Web'} expanded={true} />
+                        </div>
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
 
                         {/* Status Badge */}
                         <div className="absolute top-4 left-4 flex items-center gap-2">
-                          <span className="font-mono text-[10px] text-white/90 border border-white/30 px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-md uppercase tracking-wider">
+                          <span className="font-mono text-[10px] text-[var(--text-secondary)] border border-[var(--border-color)] px-2 py-0.5 rounded-full bg-[var(--bg-card)]/80 backdrop-blur-md uppercase tracking-wider">
                             EXP_0{i + 1}
                           </span>
                         </div>

@@ -7,6 +7,7 @@ import {
 import { useTheme } from '../context/ThemeContext';
 import BackButton from '../components/BackButton';
 import { SIDE_PROJECTS } from '../data/portfolioData';
+import ProjectPreview from '../components/ProjectPreview';
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
@@ -81,13 +82,11 @@ const SideProjectDetail = () => {
 
             {/* --- 2. CINEMATIC HERO --- */}
             <header className="min-h-[90vh] flex flex-col justify-center items-center px-6 pt-32 text-center relative overflow-hidden">
-               {/* Large Background Visual */}
+               {/* Technical Illustration Background */}
                <div className="absolute inset-0 z-0">
-                  <img
-                     src={project.coverImage}
-                     alt=""
-                     className="w-full h-full object-cover opacity-20 grayscale brightness-50 mix-blend-luminosity"
-                  />
+                  <div className="w-full h-full opacity-30 grayscale blur-[2px] transition-all duration-1000 group-hover:blur-0">
+                     <ProjectPreview type={project.type || 'Web'} expanded={true} />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-void)] via-transparent to-[var(--bg-void)]"></div>
                </div>
 
