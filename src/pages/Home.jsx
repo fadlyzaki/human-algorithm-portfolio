@@ -432,7 +432,7 @@ const Portfolio = () => {
                       {/* Technical Illustration Container (Replaces Banner Image) */}
                       <div className="aspect-[21/9] overflow-hidden relative bg-[var(--bg-surface)] border-b border-[var(--border-color)]">
                         <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
-                          <ProjectCard type={item.type || 'Web'} expanded={true} />
+                          <ProjectCard type={item.type || 'Web'} expanded={true} id={item.id} />
                         </div>
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
 
