@@ -137,6 +137,11 @@ const DraggablePhoto = () => {
                   REF_IMG_{index}
                 </div>
               </div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="bg-black/80 backdrop-blur-md px-3 py-2 text-xs font-mono text-white leading-tight border border-white/10">
+                  {currentItem.alt}
+                </div>
+              </div>
             </div>
           )}
         </motion.div>
