@@ -85,7 +85,7 @@ const SideProjectDetail = () => {
                {/* Technical Illustration Background */}
                <div className="absolute inset-0 z-0">
                   <div className="w-full h-full opacity-30 grayscale blur-[2px] transition-all duration-1000 group-hover:blur-0">
-                     <ProjectPreview type={project.type || 'Web'} expanded={true} image={project.coverImage} />
+                     <ProjectPreview type={project.type || 'Web'} expanded={true} />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-void)] via-transparent to-[var(--bg-void)]"></div>
                </div>

@@ -97,12 +97,8 @@ const WorkClusterCard = ({ cluster }) => {
               />
             </div>
           ) : (
-            <div className="w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)]">
-              <img
-                src={cluster.heroImage}
-                alt={cluster.title}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
-              />
+            <div className="w-24 h-24 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)]">
+              <ProjectPreview type={cluster.subtitle || 'System'} expanded={true} />
             </div>
           )}
         </div>
@@ -436,7 +432,7 @@ const Portfolio = () => {
                       {/* Technical Illustration Container (Replaces Banner Image) */}
                       <div className="aspect-[21/9] overflow-hidden relative bg-[var(--bg-surface)] border-b border-[var(--border-color)]">
                         <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
-                          <ProjectPreview type={item.type || 'Web'} expanded={true} image={item.coverImage} />
+                          <ProjectPreview type={item.type || 'Web'} expanded={true} />
                         </div>
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
 
