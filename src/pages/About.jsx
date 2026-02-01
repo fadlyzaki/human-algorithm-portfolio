@@ -224,7 +224,7 @@ const AboutPage = () => {
             <div className="w-full aspect-[3/4] bg-[var(--bg-card)] border border-[var(--border-color)] relative group-hover:border-[var(--accent-blue)] transition-all duration-700 overflow-hidden rounded-lg shadow-2xl">
               {/* Profile Image */}
               <img
-                src="/about-portrait.jpg"
+                src="/about-portrait-new.jpg"
                 alt="Fadly Uzzaki"
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
               />
@@ -247,7 +247,7 @@ const AboutPage = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
               </span>
-              <span className="font-mono text-[10px] text-[var(--text-secondary)]">ONLINE</span>
+              <span className="font-mono text-[10px] text-[var(--text-secondary)]">OPEN TO WORK</span>
             </div>
           </div>
 
