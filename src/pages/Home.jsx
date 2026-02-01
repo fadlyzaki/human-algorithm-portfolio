@@ -485,7 +485,7 @@ const Portfolio = () => {
                   <Archive size={32} className="text-[var(--text-primary)] mb-4" />
                   <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2">The Archive</h3>
                   <p className="text-[var(--text-secondary)] text-sm max-w-xs font-light">
-                    A collection of 20+ prototypes, failed experiments, and weekend hacks.
+                    A collection of prototypes, failed experiments, and weekend hacks.
                   </p>
                 </div>
                 <Link to="/side-projects" className="group flex items-center gap-3 px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-xs uppercase tracking-widest hover:bg-[var(--accent-blue)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 rounded-lg">
