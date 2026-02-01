@@ -20,6 +20,8 @@ import { HandCursorProvider } from './context/HandCursorContext';
 import HandCursorOverlay from './components/HandCursorOverlay';
 import ScrollToTop from './components/ScrollToTop';
 
+import AnalyticsTracker from './components/AnalyticsTracker';
+
 // Loading Fallback Component
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-black text-gray-400">
@@ -33,6 +35,7 @@ function App() {
     <HandCursorProvider>
       <HandCursorOverlay />
       <Router>
+        <AnalyticsTracker />
         <ScrollToTop />
         <Suspense fallback={<PageLoader />}>
           <Routes>
