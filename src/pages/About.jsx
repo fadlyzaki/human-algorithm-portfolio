@@ -106,10 +106,10 @@ const AboutPage = () => {
 
   // --- DATA: SYSTEM MAINTENANCE (Habits) ---
   const streaks = [
-    { label: "Learning (Duolingo)", count: "412 Days", icon: Flame, color: "text-orange-500", note: "Consistency over perfection." },
-    { label: "Physical Ops (Strava)", count: "Weekly", icon: Activity, color: "text-orange-600", note: "Clearing the cache." },
-    { label: "Data Input (Reading)", count: "Daily", icon: BookOpen, color: "text-blue-400", note: "Pattern recognition." },
-    { label: "Core Dump (Journal)", count: "Daily", icon: PenLine, color: "text-purple-400", note: "Processing the noise." }
+    { label: "Duolingo", frequency: "Daily", icon: Flame, color: "text-orange-500", note: "Consistency over perfection.", url: "https://www.duolingo.com/profile/fadlyzaki" },
+    { label: "Strava", frequency: "Daily", icon: Activity, color: "text-orange-600", note: "Clearing the cache.", url: "https://www.strava.com/athletes/129304799" },
+    { label: "Goodreads", frequency: "Daily 10 mins", icon: BookOpen, color: "text-blue-400", note: "Pattern recognition.", url: "https://www.goodreads.com/user/show/32928962-fadlyzaki" },
+    { label: "Substack", frequency: "Weekly", icon: PenLine, color: "text-purple-400", note: "Processing the noise.", url: "https://substack.com/@fadlyzaki?" }
   ];
 
   // --- DATA: INSTALLED DRIVERS (Tools Mapped to Icons) ---
@@ -296,16 +296,6 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* SYSTEM MONITOR (Skills) */}
-        <section className="mb-32">
-          <ScrollReveal>
-            <div className="flex items-baseline gap-4 mb-8 border-b border-[var(--border-color)] pb-4">
-              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">MONITOR</span>
-              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">System Resources</h2>
-            </div>
-            <SystemMonitor skills={toolsData} />
-          </ScrollReveal>
-        </section>
 
         {/* SYSTEM MAINTENANCE (Habits) */}
         <section className="mb-32">
@@ -317,14 +307,20 @@ const AboutPage = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {streaks.map((habit, idx) => (
-                <div key={idx} className="bg-[var(--bg-card)] border border-[var(--border-color)] p-5 text-center group hover:border-[var(--accent-green)] transition-all rounded-lg">
-                  <habit.icon size={24} className={`mx-auto mb-3 ${habit.color} opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-transform`} />
-                  <div className="font-mono text-2xl text-[var(--text-primary)] font-bold mb-1">{habit.count}</div>
-                  <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">{habit.label}</div>
-                  <div className="font-serif italic text-xs text-[var(--text-secondary)] border-t border-[var(--border-color)] pt-2 mt-2 opacity-60 group-hover:opacity-100">
+                <a
+                  key={idx}
+                  href={habit.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[var(--bg-card)] border border-[var(--border-color)] p-6 text-center group hover:border-[var(--accent-green)] hover:bg-[var(--accent-green)]/5 transition-all rounded-lg cursor-pointer"
+                >
+                  <habit.icon size={28} className={`mx-auto mb-3 ${habit.color} opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all`} />
+                  <div className="font-mono text-sm text-[var(--text-primary)] font-bold mb-1">{habit.label}</div>
+                  <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-3 opacity-60">{habit.frequency}</div>
+                  <div className="font-serif italic text-xs text-[var(--text-secondary)] border-t border-[var(--border-color)] pt-3 mt-2 opacity-60 group-hover:opacity-100 transition-opacity">
                     "{habit.note}"
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </ScrollReveal>
