@@ -111,23 +111,16 @@ const SystemManifest = () => {
 
         {/* HEADER */}
         <header className="border-b-2 border-[var(--text-primary)] pb-6 mb-8">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-6 mb-4">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-mono uppercase tracking-tight mb-2">{header.name}</h1>
-              <h2 className="text-lg text-[var(--text-secondary)] font-mono mb-3">{header.role}</h2>
-              <div className="flex items-center gap-2 text-sm font-mono text-[var(--accent-mono)]">
-                <div className="w-2 h-2 bg-current rounded-full animate-pulse"></div>
-                {header.status}
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
-              <MapPin size={14} className="shrink-0" />
-              <span className="font-mono">{header.location}</span>
+          <div className="mb-4">
+            <h1 className="text-4xl md:text-5xl font-mono uppercase tracking-tight mb-2">{header.name}</h1>
+            <h2 className="text-lg text-[var(--text-secondary)] font-mono mb-3">{header.role}</h2>
+            <div className="flex items-center gap-2 text-sm font-mono text-[var(--accent-mono)]">
+              <div className="w-2 h-2 bg-current rounded-full animate-pulse"></div>
+              {header.status}
             </div>
           </div>
 
-          {/* Contact Links - Horizontal Layout */}
+          {/* Contact Links - Horizontal Layout with Location */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-mono text-[var(--text-secondary)] pt-4 border-t border-[var(--border-color)]">
             {header.links.map((link, i) => (
               <a
@@ -139,6 +132,10 @@ const SystemManifest = () => {
                 <span className="group-hover:underline">{link.label}</span>
               </a>
             ))}
+            <div className="flex items-center gap-2">
+              <MapPin size={14} className="shrink-0 opacity-60" />
+              <span>{header.location}</span>
+            </div>
           </div>
         </header>
 
