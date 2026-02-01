@@ -1,5 +1,51 @@
 export const SIDE_PROJECTS = [
     {
+        id: 'price-lock',
+        title: 'Price Lock',
+        subtitle: 'Fintech Feature for OTA',
+        desc: 'Solve the Anxiety Gap in ticket booking.',
+        tldr: "A micro-insurance feature that allows users to 'lock' flight prices for 24–48 hours for a small, non-refundable fee.",
+        sections: {
+            challenge: "In the highly competitive Online Travel Agent (OTA) industry, cart abandonment is rampant. Users often find a perfect price but hesitate due to pending leave approvals or travel companion confirmations, only to find the price hiked later.",
+            approach: "Developing a 'Price Lock' micro-insurance feature. By paying a nominal service fee, users secure a dynamic price point, protecting them from market volatility while creating a new ancillary revenue stream for the business."
+        },
+        stack: ["React", "Python (Algorithm Logic)", "Fintech Integration"],
+        links: {
+            demo: "https://gemini.google.com/share/e12fc1c0dab2",
+            repo: "#"
+        },
+        iconName: 'Shield',
+        featured: true,
+        date: "February 2026",
+        coverImage: "/price-lock-cover.png",
+        modules: [
+            {
+                title: "Executive Summary",
+                content: "The Challenge: Cart abandonment is a major issue in the Indonesian OTA market. Users feel 'trapped' by dynamic pricing and wait for external confirmations before booking. If prices rise during this wait, trust is lost and users switch to competitors.\n\nThe Solution: 'Price Lock' — A feature enabling users to secure a flight price for 24-48 hours via a nominal fee. This reduces decision anxiety and secures the user within the ecosystem.\n\nBusiness Impact:\n• CVR Increase: Providing a safety window reduces friction.\n• Ancillary Revenue: Monetizing the 'browsing' phase via non-refundable fees."
+            },
+            {
+                title: "Problem Statement: The Anxiety Gap",
+                content: "User Behavior Patterns:\n1. Discovery: User finds a great deal (e.g., Jakarta - Bali for $100).\n2. Friction: Cannot pay immediately (awaiting paycheck, visa, or spouse approval).\n3. Fear: High anxiety regarding dynamic price volatility.\n4. Pain Point: If the price jumps to $130 the next day, the user feels cheated and abandons the platform.\n\nBusiness Problem: 'Zero Monetization on Browsers' — Millions of searches tax servers and API costs without generating revenue if the final transaction doesn't occur. Price Lock monetizes the intent even if the final booking isn't made."
+            },
+            {
+                title: "Proposed Solution & User Flow",
+                content: "The feature turns ticket inventory into an impact-safe commodity.\n\n1. Search Result: Users see an 'Secure This Price for 24 Hours' option on flight cards.\n2. Purchase Lock: User pays a small fee ($2 - $5) using instant payment methods.\n3. Holding Period: Inventory is secured. The price remains static for the user, regardless of market fluctuations.\n4. Decision Time:\n• Scenario A (Book): User pays the locked ticket price.\n• Scenario B (Cancel): Time expires. The lock is released. The OTA retains the fee as pure profit."
+            },
+            {
+                title: "Technical Feasibility & Logic",
+                content: "To ensure profitability, the Lock Fee is calculated using a Dynamic Risk Algorithm rather than staying static. Below is the conceptual backend logic (Python) for determining the fee based on volatility risk:\n\n```python\ndef calculate_lock_fee(ticket_price, days_to_flight, seat_scarcity_index):\n    \"\"\"\n    Calculates the Price Lock fee based on price volatility risk.\n    \"\"\"\n    base_fee = 15000  # Base operational cost (approx $1)\n    \n    # Factor 1: Time Urgency (Closer to flight = higher risk)\n    if days_to_flight < 3:\n        time_multiplier = 3.0  # High risk\n    elif days_to_flight < 7:\n        time_multiplier = 1.5\n    else:\n        time_multiplier = 1.0\n\n    # Factor 2: Seat Scarcity\n    if seat_scarcity_index > 0.8: # Low availability\n        scarcity_markup = 25000\n    else:\n        scarcity_markup = 0\n\n    # Total calculated fee\n    total_fee = (base_fee * time_multiplier) + scarcity_markup\n    \n    # Psychological Pricing Rounding\n    return round(total_fee, -3)\n```"
+            },
+            {
+                title: "UX Design Decisions",
+                content: "A. Iconography & Color Psychology:\n• Shield Icon: Consistent use of a blue shield to symbolize protection and security from market fluctuation.\n• Calm Blue vs. Action Orange: Blue for 'Locked/Safe' states (calming) and Orange for 'Book Now' (transactional action).\n\nB. The 'Sunk Cost' Timer:\nDisplays a countdown on 'My Trips'. By utilizing Loss Aversion bias, the timer reminds users of the fee already paid (sunk cost), incentivizing them to complete the purchase.\n\nC. AI Transparency:\nMicro-copy like 'AI Prediction: 85% chance this price rises tomorrow' provides rational validation for the fee, shifting the perception from being 'upsold' to being 'assisted in saving'."
+            },
+            {
+                title: "Business Impact & Roadmap",
+                content: "Projections:\n• CVR +15%: Users who pay a lock fee have a 3x higher commitment to complete the transaction.\n• Ancillary Revenue: 100% profit margin from expired locks.\n• Customer Loyalty: Increased NPS as users perceive the OTA as helpful and transparent.\n\nRoadmap:\n• Auto-Conversion: Automatically issuing tickets if market price drops below locked price.\n• Group Lock: Enabling one user to lock prices for family/group coordination."
+            }
+        ]
+    },
+    {
         id: 'interactive-workbook',
         title: 'Interactive Workbook',
         subtitle: 'Bimbel Geera Platform',
