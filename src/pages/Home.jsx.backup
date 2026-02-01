@@ -409,19 +409,26 @@ const Portfolio = () => {
             </ScrollReveal>
           </section>
 
-          {/* SECTION 1: SIDE PROJECTS */}
-          <section id="side-projects" className="mb-40 scroll-mt-24">
+          {/* SECTION 1: WORK */}
+          <section id="work" className="mb-40 scroll-mt-24">
             <ScrollReveal>
-              <SectionTitle number="1" title="SIDE PROJECTS" link="/side-projects" linkText="VIEW EXPERIMENTS" />
-            </ScrollReveal>
-            
-            {/* Creative Description */}
-            <ScrollReveal>
-              <p className="text-lg text-[var(--text-secondary)] max-w-2xl mb-12 font-light leading-relaxed">
-                Where I let my creativity run wild. These are experiments, explorations, and side quests—built for learning, not perfection.
-              </p>
+              <SectionTitle number="1" title="WORK" />
             </ScrollReveal>
 
+            <div className="space-y-16">
+              {WORK_CLUSTERS.map((cluster, idx) => (
+                <ScrollReveal key={idx} delay={idx * 150}>
+                  <WorkClusterCard cluster={cluster} />
+                </ScrollReveal>
+              ))}
+            </div>
+          </section>
+
+          {/* SECTION 2: SIDE PROJECTS */}
+          <section className="mb-40">
+            <ScrollReveal>
+              <SectionTitle number="2" title="SIDE PROJECTS" link="/side-projects" linkText="VIEW EXPERIMENTS" />
+            </ScrollReveal>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               {/* Editorial Column */}
@@ -482,23 +489,9 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* SECTION 2: WORK */}
-          <section id="work" className="mb-40 scroll-mt-24">
-            <ScrollReveal>
-              <SectionTitle number="2" title="WORK" />
-            </ScrollReveal>
-
-            <div className="space-y-16">
-              {WORK_CLUSTERS.map((cluster, idx) => (
-                <ScrollReveal key={idx} delay={idx * 150}>
-                  <WorkClusterCard cluster={cluster} />
-                </ScrollReveal>
-              ))}
-            </div>
-          </section>
-
-          {/* SECTION 3: ABOUT ME */}
+          {/* SECTION 03: ABOUT ME (Unified) */}
           <section id="about" className="mb-40 scroll-mt-24">
+            {/* Same as before, just kept standard */}
             <SectionTitle number="3" title="ABOUT ME" />
 
             <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-12 lg:gap-20">
