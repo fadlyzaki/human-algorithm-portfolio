@@ -7,7 +7,7 @@ const DraggablePhoto = () => {
 
   const items = [
     { type: 'identity', src: '/hero-fadly.jpg' },
-    { type: 'image', src: 'https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=2071&auto=format&fit=crop', alt: 'Coding Setup' },
+    { type: 'image', src: '/hero-stoqo.jpg', alt: 'When I was in STOQO' },
     { type: 'image', src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1955&auto=format&fit=crop', alt: 'Abstract Design' },
     { type: 'image', src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop', alt: 'Code Screen' },
   ];
