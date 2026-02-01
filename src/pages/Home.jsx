@@ -499,7 +499,7 @@ const Portfolio = () => {
                 <div>
                   <div className="prose prose-invert max-w-none">
                     <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
-                      "I use structure to protect tenderness."
+                      "I don't chase chaos—I contain it."
                     </p>
                     <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
                       <p>
@@ -520,7 +520,7 @@ const Portfolio = () => {
                   </div>
 
                   <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mb-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
-                    I design bridges—between <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">logic and feeling</span>, data and humanity, discipline and care. Systems that don't drain you. Tools built for people who need them to work, not impress.
+                    I build <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">resilient tools</span> for people who need them to just work. Not to impress—to serve. When you're at your limit, you don't need clever design. You need systems that hold.
                   </blockquote>
 
                   <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-1">
