@@ -7,8 +7,8 @@ const DraggablePhoto = () => {
 
   const items = [
     { type: 'identity', src: '/hero-fadly.jpg' },
-    { type: 'image', src: '/hero-stoqo.jpg', alt: 'When I was in STOQO' },
-    { type: 'image', src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1955&auto=format&fit=crop', alt: 'Abstract Design' },
+    { type: 'image', src: '/hero-stoqo.jpg', alt: 'Bye-bye STOQO' },
+    { type: 'image', src: '/hero-lumina.jpg', alt: 'Career clinic in Lumina' },
     { type: 'image', src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop', alt: 'Code Screen' },
   ];
 
@@ -30,7 +30,7 @@ const DraggablePhoto = () => {
       animate={{ rotate: 0 }}
       whileDrag={{ scale: 1.05, rotate: 0, zIndex: 10 }}
       onClick={handleNext}
-      className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4.2] mb-6 select-none"
+      className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4.2] mb-6 select-none group"
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -125,11 +125,11 @@ const DraggablePhoto = () => {
             </div>
           ) : (
             /* Generic Card Back / Alt Image */
-            <div className="w-full h-full border border-[var(--border-color)] overflow-hidden relative select-none rounded-xl bg-black">
+            <div className="w-full h-full border border-[var(--border-color)] overflow-hidden relative select-none rounded-xl bg-black group-inner">
               <img
                 src={currentItem.src}
                 alt={currentItem.alt}
-                className="w-full h-full object-cover opacity-80"
+                className="w-full h-full object-cover opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10"></div>
               <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
