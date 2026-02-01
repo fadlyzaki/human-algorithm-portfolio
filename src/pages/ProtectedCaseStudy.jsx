@@ -303,7 +303,7 @@ const ProtectedCaseStudy = () => {
                 </div>
               </>
             )}
-            <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)] bg-[var(--bg-void)]/80 px-2 py-1 backdrop-blur rounded">Fig. 1.0 — {caseData.snapshot?.heroImage ? 'Evidence' : 'System Architecture'}</div>
+            <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)] bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-2 rounded shadow-xl">Fig. 1.0 — {caseData.snapshot?.heroImage ? 'Evidence' : 'System Architecture'}</div>
           </div>
         </section>
 
@@ -373,9 +373,9 @@ const ProtectedCaseStudy = () => {
                     </>
                   ) : null}
 
-                  <div className="absolute inset-0 bg-[var(--bg-surface)]/20 p-6 flex flex-col justify-between z-10">
-                    <div className="text-[var(--brand)] opacity-80 group-hover:opacity-100 text-6xl font-bold font-serif mix-blend-difference">{i + 1}</div>
-                    <div className="space-y-4 bg-[var(--bg-surface)]/90 backdrop-blur-md p-4 border border-[var(--border-color)]">
+                  <div className="absolute inset-0 bg-[var(--bg-surface)]/20 p-6 flex flex-col justify-between z-10 transition-all duration-500 group-hover:bg-[var(--bg-surface)]/10">
+                    <div className="text-[var(--brand)] opacity-100 drop-shadow-md text-6xl font-bold font-serif">{i + 1}</div>
+                    <div className="space-y-4 bg-[var(--bg-surface)] p-5 border border-[var(--border-color)] shadow-xl rounded-sm">
                       <Activity size={24} className="text-[var(--text-primary)]" />
                       <h3 className="text-xl font-bold border-b border-[var(--border-color)] pb-2">{step.title}</h3>
                       <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-mono">
