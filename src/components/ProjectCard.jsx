@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Smartphone, Monitor, Terminal, Activity, BarChart2, MessageCircle,
     Shield, Plane, BookOpen, Heart, Eye, Map, List, CheckCircle2, TrendingUp,
-    Clock, DollarSign, Camera, Users, Truck, Cpu
+    Clock, DollarSign, Camera, Users, Truck, Cpu, Trophy
 } from 'lucide-react';
 
 // ABSTRACT UI COMPONENTS
