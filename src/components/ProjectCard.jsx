@@ -324,150 +324,148 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null }
     // 9. MARKETPLACE CHECKOUT (Cart)
     if (id === 'marketplace-checkout') {
         return (
-            <Container figIndex="8.0" schematicType="TRANSACTIONAL_GRID">
-                <Container figIndex="8.0" schematicType="SUPPLY_CHAIN_HUB">
-                    <div className="w-full h-full p-8 flex items-center justify-center relative">
-                        {/* Center Hub (Warehouse) */}
-                        <div className="relative z-10">
-                            <div className="w-16 h-16 bg-white border border-[var(--brand)]/30 rounded-full flex items-center justify-center shadow-[0_0_30px_var(--brand)_inset] shadow-[var(--brand)]/5">
-                                <div className="w-8 h-8 bg-[var(--brand)] rounded-full flex items-center justify-center">
-                                    <Truck size={14} className="text-white" />
-                                </div>
-                            </div>
-                            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                                <span className="px-2 py-0.5 bg-[var(--brand)]/10 text-[var(--brand)] text-[8px] font-mono rounded border border-[var(--brand)]/20">CENTRAL_HUB</span>
+            <Container figIndex="8.0" schematicType="SUPPLY_CHAIN_HUB">
+                <div className="w-full h-full p-8 flex items-center justify-center relative">
+                    {/* Center Hub (Warehouse) */}
+                    <div className="relative z-10">
+                        <div className="w-16 h-16 bg-white border border-[var(--brand)]/30 rounded-full flex items-center justify-center shadow-[0_0_30px_var(--brand)_inset] shadow-[var(--brand)]/5">
+                            <div className="w-8 h-8 bg-[var(--brand)] rounded-full flex items-center justify-center">
+                                <Truck size={14} className="text-white" />
                             </div>
                         </div>
+                        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                            <span className="px-2 py-0.5 bg-[var(--brand)]/10 text-[var(--brand)] text-[8px] font-mono rounded border border-[var(--brand)]/20">CENTRAL_HUB</span>
+                        </div>
+                    </div>
 
-                        {/* Spokes */}
-                        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 120">
-                            <line x1="100" y1="60" x2="40" y2="30" stroke="var(--brand)" strokeWidth="0.5" strokeDasharray="2 2" />
-                            <line x1="100" y1="60" x2="160" y2="30" stroke="var(--brand)" strokeWidth="0.5" strokeDasharray="2 2" />
-                            <line x1="100" y1="60" x2="40" y2="90" stroke="var(--brand)" strokeWidth="0.5" strokeDasharray="2 2" />
-                            <line x1="100" y1="60" x2="160" y2="90" stroke="var(--brand)" strokeWidth="0.5" strokeDasharray="2 2" />
+                    {/* Spokes */}
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 120">
+                        <line x1="100" y1="60" x2="40" y2="30" stroke="var(--brand)" strokeWidth="0.5" strokeDasharray="2 2" />
+                        <line x1="100" y1="60" x2="160" y2="30" stroke="var(--brand)" strokeWidth="0.5" strokeDasharray="2 2" />
+                        <line x1="100" y1="60" x2="40" y2="90" stroke="var(--brand)" strokeWidth="0.5" strokeDasharray="2 2" />
+                        <line x1="100" y1="60" x2="160" y2="90" stroke="var(--brand)" strokeWidth="0.5" strokeDasharray="2 2" />
+                    </svg>
+
+                    {/* Endpoints (Retailers) */}
+                    <div className="absolute top-8 left-8 w-6 h-6 bg-white border border-slate-200 rounded flex items-center justify-center shadow-sm">
+                        <div className="w-2 h-2 rounded-full bg-slate-200"></div>
+                    </div>
+                    <div className="absolute top-8 right-8 w-6 h-6 bg-white border border-slate-200 rounded flex items-center justify-center shadow-sm">
+                        <div className="w-2 h-2 rounded-full bg-slate-200"></div>
+                    </div>
+                    <div className="absolute bottom-8 left-8 w-6 h-6 bg-white border border-slate-200 rounded flex items-center justify-center shadow-sm">
+                        <div className="w-2 h-2 rounded-full bg-slate-200"></div>
+                    </div>
+                    <div className="absolute bottom-8 right-8 w-6 h-6 bg-white border border-slate-200 rounded flex items-center justify-center shadow-sm">
+                        <div className="w-2 h-2 rounded-full bg-slate-200"></div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 10. OFFICIAL STORE (Storefront)
+    if (id === 'brand-official-store') {
+        return (
+            <Container figIndex="9.9" schematicType="BRAND_MICROSERVICE">
+                <div className="w-full h-full p-12 flex flex-col gap-4">
+                    <div className="w-full h-24 border border-[var(--brand)]/30 rounded-lg relative overflow-hidden bg-[var(--brand)]/5">
+                        <div className="absolute inset-0 grid grid-cols-12 gap-1 p-1 opacity-20">
+                            {[...Array(36)].map((_, i) => <div key={i} className="bg-[var(--brand)]"></div>)}
+                        </div>
+                        <div className="absolute bottom-4 left-4 flex gap-2">
+                            <div className="w-8 h-8 bg-white rounded border border-[var(--brand)]/20"></div>
+                            <div className="flex flex-col justify-center gap-1">
+                                <div className="w-16 h-2 bg-[var(--brand)]/20 rounded"></div>
+                                <div className="w-8 h-1 bg-[var(--brand)]/10 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 11. PROMO ENGINE (Logic Gate)
+    if (id === 'promo-engine') {
+        return (
+            <Container figIndex="10.4" schematicType="DECISION_TREE_LOGIC">
+                <div className="w-full h-full p-8 flex flex-col items-center justify-start pt-12">
+                    {/* Root Node */}
+                    <div className="w-24 h-8 border border-slate-200 bg-white rounded flex items-center justify-center text-[8px] font-mono text-slate-400 mb-2">
+                        CART_TOTAL &gt; 50k
+                    </div>
+                    <div className="h-4 w-px bg-slate-300"></div>
+
+                    {/* Decision Diamond */}
+                    <div className="w-8 h-8 rotate-45 border border-[var(--brand)] bg-[var(--brand)]/5 flex items-center justify-center mb-2 z-10 relative">
+                        <div className="w-1 h-1 bg-[var(--brand)] -rotate-45"></div>
+                    </div>
+
+                    {/* Branches */}
+                    <div className="flex gap-16 w-full justify-center relative">
+                        {/* Connecting Lines */}
+                        <svg className="absolute -top-2 left-0 w-full h-8 pointer-events-none" style={{ overflow: 'visible' }}>
+                            <path d="M100,0 L100,6 L150,6 L150,20" fill="none" stroke="var(--brand)" strokeWidth="1" opacity="0.5" />
+                            <path d="M100,0 L100,6 L50,6 L50,20" fill="none" stroke="currentColor" className="text-slate-200" strokeWidth="1" />
                         </svg>
 
-                        {/* Endpoints (Retailers) */}
-                        <div className="absolute top-8 left-8 w-6 h-6 bg-white border border-slate-200 rounded flex items-center justify-center shadow-sm">
-                            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
-                        </div>
-                        <div className="absolute top-8 right-8 w-6 h-6 bg-white border border-slate-200 rounded flex items-center justify-center shadow-sm">
-                            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
-                        </div>
-                        <div className="absolute bottom-8 left-8 w-6 h-6 bg-white border border-slate-200 rounded flex items-center justify-center shadow-sm">
-                            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
-                        </div>
-                        <div className="absolute bottom-8 right-8 w-6 h-6 bg-white border border-slate-200 rounded flex items-center justify-center shadow-sm">
-                            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
-                        </div>
-                    </div>
-                </Container>
-                );
-    }
-
-                // 10. OFFICIAL STORE (Storefront)
-                if (id === 'brand-official-store') {
-        return (
-                <Container figIndex="9.9" schematicType="BRAND_MICROSERVICE">
-                    <div className="w-full h-full p-12 flex flex-col gap-4">
-                        <div className="w-full h-24 border border-[var(--brand)]/30 rounded-lg relative overflow-hidden bg-[var(--brand)]/5">
-                            <div className="absolute inset-0 grid grid-cols-12 gap-1 p-1 opacity-20">
-                                {[...Array(36)].map((_, i) => <div key={i} className="bg-[var(--brand)]"></div>)}
+                        {/* No Path */}
+                        <div className="flex flex-col items-center pt-6 gap-2 opacity-40">
+                            <div className="w-12 h-6 border border-slate-200 bg-slate-50 rounded flex items-center justify-center text-[6px]">
+                                REJECT
                             </div>
-                            <div className="absolute bottom-4 left-4 flex gap-2">
-                                <div className="w-8 h-8 bg-white rounded border border-[var(--brand)]/20"></div>
-                                <div className="flex flex-col justify-center gap-1">
-                                    <div className="w-16 h-2 bg-[var(--brand)]/20 rounded"></div>
-                                    <div className="w-8 h-1 bg-[var(--brand)]/10 rounded"></div>
-                                </div>
+                        </div>
+
+                        {/* Yes Path */}
+                        <div className="flex flex-col items-center pt-6 gap-2">
+                            <div className="px-3 py-1 bg-[var(--brand)] text-white rounded shadow-md text-[8px] font-mono flex items-center gap-1">
+                                <CheckCircle2 size={8} /> APPLY_DISC
                             </div>
                         </div>
                     </div>
-                </Container>
-                );
+                </div>
+            </Container>
+        );
     }
 
-                // 11. PROMO ENGINE (Logic Gate)
-                if (id === 'promo-engine') {
+    // 12. DESIGN SYSTEM (Atomic)
+    if (id === 'design-system-gudangada') {
         return (
-                <Container figIndex="10.4" schematicType="LOGIC_GATE_CIRCUIT">
-                    <Container figIndex="10.4" schematicType="DECISION_TREE_LOGIC">
-                        <div className="w-full h-full p-8 flex flex-col items-center justify-start pt-12">
-                            {/* Root Node */}
-                            <div className="w-24 h-8 border border-slate-200 bg-white rounded flex items-center justify-center text-[8px] font-mono text-slate-400 mb-2">
-                                CART_TOTAL &gt; 50k
-                            </div>
-                            <div className="h-4 w-px bg-slate-300"></div>
-
-                            {/* Decision Diamond */}
-                            <div className="w-8 h-8 rotate-45 border border-[var(--brand)] bg-[var(--brand)]/5 flex items-center justify-center mb-2 z-10 relative">
-                                <div className="w-1 h-1 bg-[var(--brand)] -rotate-45"></div>
-                            </div>
-
-                            {/* Branches */}
-                            <div className="flex gap-16 w-full justify-center relative">
-                                {/* Connecting Lines */}
-                                <svg className="absolute -top-2 left-0 w-full h-8 pointer-events-none" style={{ overflow: 'visible' }}>
-                                    <path d="M100,0 L100,6 L150,6 L150,20" fill="none" stroke="var(--brand)" strokeWidth="1" opacity="0.5" />
-                                    <path d="M100,0 L100,6 L50,6 L50,20" fill="none" stroke="currentColor" className="text-slate-200" strokeWidth="1" />
-                                </svg>
-
-                                {/* No Path */}
-                                <div className="flex flex-col items-center pt-6 gap-2 opacity-40">
-                                    <div className="w-12 h-6 border border-slate-200 bg-slate-50 rounded flex items-center justify-center text-[6px]">
-                                        REJECT
-                                    </div>
-                                </div>
-
-                                {/* Yes Path */}
-                                <div className="flex flex-col items-center pt-6 gap-2">
-                                    <div className="px-3 py-1 bg-[var(--brand)] text-white rounded shadow-md text-[8px] font-mono flex items-center gap-1">
-                                        <CheckCircle2 size={8} /> APPLY_DISC
-                                    </div>
-                                </div>
-                            </div>
+            <Container figIndex="9.1" schematicType="ATOMIC_COMPONENT_LIBRARY">
+                <div className="w-full h-full p-12 flex items-center justify-center">
+                    <div className="grid grid-cols-2 gap-4 w-full max-w-[200px]">
+                        <div className="p-3 border border-slate-100 rounded-lg flex flex-col gap-2 bg-white shadow-sm">
+                            <span className="text-[6px] font-mono text-slate-300 uppercase">ATOM_BTN</span>
+                            <div className="h-6 w-full rounded bg-[var(--brand)] flex items-center justify-center"></div>
                         </div>
-                    </Container>
-                    );
+                        <div className="col-span-2 p-3 border border-[var(--brand)]/20 rounded-lg flex flex-col gap-2 bg-[var(--brand)]/5">
+                            <span className="text-[6px] font-mono text-[var(--brand)] uppercase">MOL_CARD</span>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
     }
 
-                    // 12. DESIGN SYSTEM (Atomic)
-                    if (id === 'design-system-gudangada') {
-        return (
-                    <Container figIndex="9.1" schematicType="ATOMIC_COMPONENT_LIBRARY">
-                        <div className="w-full h-full p-12 flex items-center justify-center">
-                            <div className="grid grid-cols-2 gap-4 w-full max-w-[200px]">
-                                <div className="p-3 border border-slate-100 rounded-lg flex flex-col gap-2 bg-white shadow-sm">
-                                    <span className="text-[6px] font-mono text-slate-300 uppercase">ATOM_BTN</span>
-                                    <div className="h-6 w-full rounded bg-[var(--brand)] flex items-center justify-center"></div>
-                                </div>
-                                <div className="col-span-2 p-3 border border-[var(--brand)]/20 rounded-lg flex flex-col gap-2 bg-[var(--brand)]/5">
-                                    <span className="text-[6px] font-mono text-[var(--brand)] uppercase">MOL_CARD</span>
-                                </div>
-                            </div>
-                        </div>
-                    </Container>
-                    );
-    }
+    // 13. APP NAV (Navigation) - Duplicated check, already covered above but added for completeness if diff logic needed.
+    // Keeping it simple.
 
-                    // 13. APP NAV (Navigation) - Duplicated check, already covered above but added for completeness if diff logic needed.
-                    // Keeping it simple.
-
-                    // DEFAULT FALLBACK
-                    return (
-                    <Container figIndex="0.1" schematicType="ABSTRACT_COMPOSITION">
-                        <div className="w-full h-full p-12 flex flex-col gap-4">
-                            <div className="flex-1 border border-dashed border-slate-200 rounded-2xl flex items-center justify-center">
-                                <div className="flex flex-col items-center gap-3">
-                                    <Cpu size={32} className="text-slate-100 group-hover:text-[var(--brand)]/20 transition-colors duration-700" />
-                                    <SkeletonLine width="80px" opacity={0.05} />
-                                </div>
-                            </div>
-                        </div>
-                    </Container>
-                    );
+    // DEFAULT FALLBACK
+    return (
+        <Container figIndex="0.1" schematicType="ABSTRACT_COMPOSITION">
+            <div className="w-full h-full p-12 flex flex-col gap-4">
+                <div className="flex-1 border border-dashed border-slate-200 rounded-2xl flex items-center justify-center">
+                    <div className="flex flex-col items-center gap-3">
+                        <Cpu size={32} className="text-slate-100 group-hover:text-[var(--brand)]/20 transition-colors duration-700" />
+                        <SkeletonLine width="80px" opacity={0.05} />
+                    </div>
+                </div>
+            </div>
+        </Container>
+    );
 };
 
 
-                    export default ProjectCard;
+export default ProjectCard;
 // Force deployment update
