@@ -636,8 +636,8 @@ export const WORK_CLUSTERS = [
             description: "I worked there as one of the early product designers, touching almost every product line—from customer-facing apps to complex warehousing logistics. We built a culture of 'Get Your Hands Dirty'.",
             images: [
                 { src: "/hero-stoqo.jpg", caption: "Warehouse Visits", span: "col-span-1 md:col-span-2 row-span-2" },
-                { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1632&q=80", caption: "Design Team", span: "col-span-1 row-span-1" },
-                { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80", caption: "Ops Meeting", span: "col-span-1 row-span-1" },
+                { src: "/case-studies/delivery-methods/MVIMG_20190507_171908.jpg", caption: "The Squad", span: "col-span-1 row-span-1" },
+                { src: "/case-studies/delivery-methods/Untitled%202.png", caption: "Usability Testing", span: "col-span-1 row-span-1" },
                 { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80", caption: "Townhall", span: "col-span-1 md:col-span-2 row-span-1" }
             ]
         },
@@ -671,7 +671,9 @@ export const WORK_CLUSTERS = [
                         { title: "The Insight", desc: "Talking to 5 owners, I found the real conflict: It wasn't about speed. It was about *silence*. They could handle a late truck; they couldn't handle not knowing.", image: "/case-studies/delivery-methods/Untitled.png" },
                         { title: "Field Study", desc: "I joined the Field Activators to see the chaos on the ground. This bridged the gap between 'Customer Complaints' and 'Operational Reality'.", image: "/case-studies/delivery-methods/IMG_20190502_154316.jpg" },
                         { title: "Analysis Workshop", desc: "We mapped the user journey and identified 4 pain points: Mental Model Mismatch, Uncertainty, Lack of Communication, and Lack of Awareness.", image: "/case-studies/delivery-methods/Customer_App_Board.jpg" },
-                        { title: "Ideation", desc: "We focused on 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks'—it was 'better information'.", image: "/case-studies/delivery-methods/Customer_App_Board_(1).jpg" }
+                        { title: "Co-Creation", desc: "I didn't design in a silo. We ran a full-day workshop with the Engineering and Ops leads to ensure technical feasibility wasn't an afterthought.", image: "/case-studies/delivery-methods/IMG_20190507_170816.jpg" },
+                        { title: "Ideation", desc: "We focused on 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks'—it was 'better information'.", image: "/case-studies/delivery-methods/Customer_App_Board_(1).jpg" },
+                        { title: "Validation", desc: "We took the high-fidelity prototypes back to the users for a 3-day testing sprint. Watching them struggle is the best validity test.", image: "/case-studies/delivery-methods/Untitled%201.png" }
                     ],
                     insights: [
                         { title: "Psychology of Waiting", desc: "I learned that known waits feel shorter than unknown waits. Even a rough estimate calms the user." },
