@@ -108,7 +108,7 @@ const ProjectPreview = ({ type = 'Web', expanded = false }) => {
     if (isService) {
         return (
             <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-8'} relative group`}>
-                <div className={`w-full ${expanded ? 'max-w-full h-full border-none' : 'max-w-sm aspect-[16/10] border border-[var(--border-color)]'} bg-[var(--bg-card)] rounded-lg shadow-xl relative overflow-hidden flex group-hover:shadow-[var(--brand)]/20 transition-all duration-500`}>
+                <div className={`w-full ${expanded ? 'max-w-full h-full border-none' : 'max-w-sm aspect-[16/10] border border-[var(--border-color)] rounded-lg shadow-xl'} bg-[var(--bg-card)] relative overflow-hidden flex group-hover:shadow-[var(--brand)]/20 transition-all duration-500`}>
 
                     {/* Simulated Map Background */}
                     <div className="absolute inset-0 opacity-20"
@@ -116,7 +116,11 @@ const ProjectPreview = ({ type = 'Web', expanded = false }) => {
                     </div>
 
                     {/* Route Path */}
-                    <svg className="absolute inset-0 w-full h-full p-8" viewBox="0 0 100 60">
+                    <svg
+                        className={`absolute inset-0 w-full h-full ${expanded ? 'p-0' : 'p-8'}`}
+                        viewBox="0 0 100 60"
+                        preserveAspectRatio={expanded ? "xMidYMid slice" : "xMidYMid meet"}
+                    >
                         <path
                             d="M10,30 Q30,50 50,30 T90,30"
                             fill="none"
