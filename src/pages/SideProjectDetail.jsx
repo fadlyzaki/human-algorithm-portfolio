@@ -1,190 +1,215 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import {
-   Sun, Moon, ArrowUpRight, Minus, Code, Cpu, Link as LinkIcon, AlertTriangle, Layers,
-   Database, Terminal, Share2, Box
+   Sun, Moon, ArrowUpRight, Code, Cpu, Link as LinkIcon, AlertTriangle,
+   Terminal, Share2, Box, ArrowLeft, Monitor, Layers, FileText
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import BackButton from '../components/BackButton';
 import { SIDE_PROJECTS } from '../data/portfolioData';
 
-/* --- DESIGN SYSTEM: THE SCHEMATIC ---
-   Aesthetic: "Technical Blueprint / Hacker Terminal"
-   Focus: High data density, monospaced typography, structural lines.
+/* --- DESIGN SYSTEM: THE MAKER'S LOG ---
+   Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
+   Focus: High-fidelity visual storytelling, schematic layouts, rich typography.
 */
 
 const SideProjectDetail = () => {
    const { isDark, setIsDark } = useTheme();
    const { id } = useParams();
 
-   // Fetch from centralized data
+   // Fetch Data
    const project = SIDE_PROJECTS.find(p => p.id === id);
 
-   // Handle 404
    if (!project) {
       return <Navigate to="/side-projects" replace />;
    }
 
    const themeStyles = {
-      '--bg-void': isDark ? '#050505' : '#F0F0F3',
+      '--bg-void': isDark ? '#050505' : '#F2F2F5', // Slightly lighter/darker concrete feel
       '--bg-surface': isDark ? '#111' : '#FFFFFF',
+      '--bg-card': isDark ? '#161616' : '#FFFFF',
       '--text-primary': isDark ? '#E5E5E5' : '#111827',
       '--text-secondary': isDark ? '#A1A1AA' : '#6B7280',
       '--border-color': isDark ? '#333' : '#E5E7EB',
-      '--accent': isDark ? '#3B82F6' : '#2563EB', // Blue accent
-      '--code-bg': isDark ? '#000' : '#F3F4F6'
+      '--accent': isDark ? '#3B82F6' : '#000000', // Blue or Strict Black
+      '--code-bg': isDark ? '#000' : '#F3F4F6',
+      '--brand': isDark ? '#60A5FA' : '#2563EB' // Dynamic brand color fallback
    };
 
    return (
-      <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white">
+      <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white pb-32">
 
-         {/* BACKGROUND GRID */}
-         <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.05]"
-            style={{ backgroundImage: `linear-gradient(${isDark ? '#FFF' : '#000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#FFF' : '#000'} 1px, transparent 1px)`, backgroundSize: '40px 40px' }}>
+         {/* --- 0. AMBIENCE --- */}
+         <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]"
+            style={{ backgroundImage: `linear-gradient(${isDark ? '#FFF' : '#000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#FFF' : '#000'} 1px, transparent 1px)`, backgroundSize: '50px 50px' }}>
          </div>
+         {/* Vignette */}
+         <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
-         {/* NAVIGATION (Floating) */}
-         <nav className="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-gradient-to-b from-[var(--bg-void)] via-[var(--bg-void)]/80 to-transparent backdrop-blur-[2px]">
-            <BackButton to="/side-projects" label="Back to Archive" />
+         {/* --- 1. NAVIGATION --- */}
+         <nav className="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-[var(--bg-void)]/80 backdrop-blur-md border-b border-[var(--border-color)]">
             <div className="flex items-center gap-4">
-               <div className="hidden md:flex items-center gap-2 font-mono text-[10px] uppercase text-[var(--text-secondary)] border border-[var(--border-color)] px-2 py-1 rounded">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></div>
-                  System_Status: Online
+               <BackButton to="/side-projects" label="Archives" />
+               <div className="hidden md:flex items-center gap-2 font-mono text-[10px] uppercase text-[var(--text-secondary)] border-l border-[var(--border-color)] pl-4">
+                  <Terminal size={12} />
+                  <span>PROJECT_{project.id.toUpperCase()}</span>
                </div>
-               <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">
-                  {isDark ? <Sun size={18} /> : <Moon size={18} />}
-               </button>
             </div>
+            <button onClick={() => setIsDark(!isDark)} className="p-2 hover:bg-[var(--bg-surface)] rounded-full transition-colors text-[var(--text-primary)]">
+               {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
          </nav>
 
-         <main className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-24">
+         <main className="relative z-10">
 
-            {/* HEADER BLOCK */}
-            <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12 lg:gap-24 items-end mb-24 pb-12 border-b border-[var(--border-color)]">
-               <div>
-                  <div className="inline-flex items-center gap-2 mb-6 text-[var(--accent)] font-mono text-xs uppercase tracking-widest border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-3 py-1 rounded-sm">
-                     <Terminal size={12} />
-                     Experiment Log #{project.id}
+            {/* --- 2. CINEMATIC HERO --- */}
+            <header className="min-h-[80vh] flex flex-col justify-center items-center px-6 pt-32 text-center relative overflow-hidden">
+               {/* Decorative floating elements */}
+               <div className="absolute top-1/4 left-10 w-24 h-24 border border-[var(--border-color)] opacity-20 rounded-full animate-[spin_10s_linear_infinite]"></div>
+               <div className="absolute bottom-1/4 right-10 w-32 h-32 border border-dashed border-[var(--border-color)] opacity-20 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+
+               <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 space-y-8 max-w-4xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)]">
+                     <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></div>
+                     <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+                        Experimental Build
+                     </span>
                   </div>
-                  <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[0.9]">
+
+                  <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif italic leading-[0.9] tracking-tighter mix-blend-difference">
                      {project.title}
                   </h1>
-                  <h2 className="text-xl md:text-2xl font-mono text-[var(--text-secondary)]">
-                     // {project.subtitle}
-                  </h2>
+
+                  <p className="text-xl md:text-2xl font-light text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
+                     {project.tldr}
+                  </p>
                </div>
 
-               <div className="space-y-6 lg:text-right">
-                  <div className="bg-[var(--bg-surface)] p-6 border border-[var(--border-color)] shadow-sm">
-                     <p className="text-sm font-mono leading-relaxed text-[var(--text-secondary)]">
-                        "{project.tldr}"
-                     </p>
-                  </div>
+               {/* Scroll Indicator */}
+               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+                  <span className="font-mono text-[10px] uppercase tracking-widest">Scroll to Decrypt</span>
+                  <div className="w-px h-8 bg-[var(--text-primary)]"></div>
                </div>
-            </div>
+            </header>
 
-            {/* MAIN CONTENT GRID */}
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-16">
+            {/* --- 3. CONTEXT STRIP (METADATA) --- */}
+            <section className="border-y border-[var(--border-color)] bg-[var(--bg-surface)] relative z-20">
+               <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
 
-               {/* LEFT: The Narrative */}
-               <div className="space-y-16">
-
-                  {project.modules ? (
-                     // Dynamic Modules (PRD Mode)
-                     project.modules.map((module, idx) => (
-                        <section key={idx} className="relative pl-8 border-l-2 border-[var(--border-color)]">
-                           <div className={`absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[var(--bg-void)] border-2 ${idx === 0 ? 'border-[var(--accent)]' : 'border-[var(--text-secondary)]'}`}></div>
-                           <h3 className={`font-mono text-xs uppercase tracking-widest ${idx === 0 ? 'text-[var(--accent)]' : 'text-[var(--text-secondary)]'} mb-4 flex items-center gap-2`}>
-                              {String(idx + 1).padStart(2, '0')}__{module.title.replace(/\s+/g, '_')}
-                           </h3>
-                           <div className="text-lg md:text-xl leading-relaxed text-[var(--text-primary)] opacity-90 whitespace-pre-line">
-                              {module.content}
-                           </div>
-                        </section>
-                     ))
-                  ) : (
-                     // Legacy Mode
-                     <>
-                        {/* Challenge Section */}
-                        <section className="relative pl-8 border-l-2 border-[var(--border-color)]">
-                           <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[var(--bg-void)] border-2 border-[var(--accent)]"></div>
-                           <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] mb-4 flex items-center gap-2">
-                              01__Problem_Statement
-                           </h3>
-                           <p className="text-lg md:text-xl leading-relaxed text-[var(--text-primary)] opacity-90">
-                              {project.sections.challenge}
-                           </p>
-                        </section>
-
-                        {/* Solution Section */}
-                        <section className="relative pl-8 border-l-2 border-[var(--border-color)]">
-                           <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[var(--bg-void)] border-2 border-[var(--text-secondary)]"></div>
-                           <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-2">
-                              02__Execution_Protocol
-                           </h3>
-                           <p className="text-lg md:text-xl leading-relaxed text-[var(--text-primary)] opacity-90">
-                              {project.sections.approach}
-                           </p>
-                        </section>
-                     </>
-                  )}
-
-               </div>
-
-               {/* RIGHT: Technical Specs Sidebar */}
-               <aside className="lg:sticky lg:top-32 space-y-8 h-fit">
-
-                  {/* Tech Stack Card */}
-                  <div className="group bg-[var(--bg-surface)] border border-[var(--border-color)] p-6 hover:border-[var(--accent)] transition-all">
-                     <div className="flex items-center gap-2 mb-4 text-[var(--text-secondary)]">
-                        <Cpu size={16} />
-                        <h4 className="font-mono text-xs uppercase tracking-widest">Tech Stack</h4>
-                     </div>
+                  {/* Stack */}
+                  <div className="space-y-2">
+                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                        <Cpu size={12} /> Technology
+                     </h3>
                      <div className="flex flex-wrap gap-2">
-                        {project.stack.map((item, i) => (
-                           <span key={i} className="px-3 py-1 bg-[var(--code-bg)] text-[var(--text-primary)] text-xs font-mono border border-[var(--border-color)] rounded-sm">
-                              {item}
-                           </span>
+                        {project.stack.map(tech => (
+                           <span key={tech} className="text-sm font-medium border-b border-[var(--border-color)] pb-0.5">{tech}</span>
                         ))}
                      </div>
                   </div>
 
-                  {/* Actions Card */}
-                  <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] p-6">
-                     <div className="flex items-center gap-2 mb-4 text-[var(--text-secondary)]">
-                        <LinkIcon size={16} />
-                        <h4 className="font-mono text-xs uppercase tracking-widest">Access Points</h4>
-                     </div>
-                     <div className="space-y-3">
+                  {/* Links */}
+                  <div className="space-y-2">
+                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                        <LinkIcon size={12} /> Coordinates
+                     </h3>
+                     <div className="flex flex-col gap-1 text-sm">
                         {project.links.demo && project.links.demo !== '#' ? (
-                           <a href={project.links.demo} target="_blank" rel="noopener noreferrer"
-                              className="flex items-center justify-between p-3 bg-[var(--text-primary)] text-[var(--bg-void)] hover:opacity-90 transition-opacity rounded-sm group">
-                              <span className="font-mono text-xs uppercase font-bold">Launch Demo</span>
-                              <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                           <a href={project.links.demo} target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-[var(--accent)] transition-colors">
+                              Live Demo <ArrowUpRight size={12} />
                            </a>
-                        ) : (
-                           <div className="p-3 bg-[var(--bg-void)] border border-[var(--border-color)] text-[var(--text-secondary)] font-mono text-xs italic flex items-center gap-2 cursor-not-allowed">
-                              <AlertTriangle size={12} />
-                              Demo Offline
-                           </div>
-                        )}
+                        ) : <span className="text-[var(--text-secondary)] italic">Demo Offline</span>}
 
                         {project.links.repo && project.links.repo !== '#' && (
-                           <a href={`https://${project.links.repo}`} target="_blank" rel="noopener noreferrer"
-                              className="flex items-center justify-between p-3 border border-[var(--border-color)] hover:bg-[var(--code-bg)] transition-colors rounded-sm group">
-                              <span className="font-mono text-xs uppercase">Source Code</span>
-                              <Code size={14} className="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition-colors" />
+                           <a href={`https://${project.links.repo}`} target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-[var(--accent)] transition-colors">
+                              Source Code <Code size={12} />
                            </a>
                         )}
                      </div>
                   </div>
 
-               </aside>
+                  {/* Date/Year (Mocked for now) */}
+                  <div className="space-y-2">
+                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                        <Terminal size={12} /> Year
+                     </h3>
+                     <div className="text-sm font-medium">2023 — Present</div>
+                  </div>
 
-            </div>
+                  {/* Context */}
+                  <div className="space-y-2">
+                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                        <Layers size={12} /> Context
+                     </h3>
+                     <div className="text-sm font-medium">{project.subtitle}</div>
+                  </div>
+               </div>
+            </section>
+
+            {/* --- 4. THE FILE (Content Modules) --- */}
+            <section className="max-w-4xl mx-auto px-6 py-24 space-y-24">
+
+               {project.modules ? (
+                  project.modules.map((module, idx) => (
+                     <article key={idx} className="group">
+                        {/* Module Header */}
+                        <div className="flex items-baseline gap-4 mb-8 border-b border-[var(--border-color)] pb-4">
+                           <span className="font-mono text-4xl font-bold text-[var(--border-color)] group-hover:text-[var(--accent)] transition-colors duration-500">
+                              0{idx + 1}
+                           </span>
+                           <h2 className="text-2xl md:text-3xl font-serif italic">
+                              {module.title}
+                           </h2>
+                        </div>
+
+                        {/* Module Content */}
+                        <div className="prose prose-lg dark:prose-invert max-w-none text-[var(--text-secondary)] leading-relaxed whitespace-pre-line font-light">
+                           {module.content.split('\n').map((line, i) => {
+                              if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
+                                 return <li key={i} className="list-inside pl-4 marker:text-[var(--accent)]">{line.replace(/^[•-]\s*/, '')}</li>;
+                              }
+                              if (line.trim().startsWith('**')) {
+                                 return <h3 key={i} className="text-[var(--text-primary)] font-medium mt-6 mb-2">{line.replace(/\*\*/g, '')}</h3>;
+                              }
+                              return <p key={i}>{line}</p>;
+                           })}
+                        </div>
+                     </article>
+                  ))
+               ) : (
+                  // LEGACY CONTENT FALLBACK
+                  <>
+                     <article>
+                        <div className="flex items-baseline gap-4 mb-8 border-b border-[var(--border-color)] pb-4">
+                           <span className="font-mono text-4xl font-bold text-[var(--border-color)]">01</span>
+                           <h2 className="text-2xl md:text-3xl font-serif italic">The Challenge</h2>
+                        </div>
+                        <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light">
+                           {project.sections.challenge}
+                        </p>
+                     </article>
+
+                     <article>
+                        <div className="flex items-baseline gap-4 mb-8 border-b border-[var(--border-color)] pb-4">
+                           <span className="font-mono text-4xl font-bold text-[var(--border-color)]">02</span>
+                           <h2 className="text-2xl md:text-3xl font-serif italic">The Approach</h2>
+                        </div>
+                        <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light">
+                           {project.sections.approach}
+                        </p>
+                     </article>
+                  </>
+               )}
+
+            </section>
+
+            {/* --- 5. FOOTER STAMP --- */}
+            <footer className="text-center py-24 opacity-60">
+               <FileText size={24} className="mx-auto mb-4 text-[var(--text-secondary)]" />
+               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">End of Record</p>
+            </footer>
 
          </main>
-
       </div>
    );
 };
