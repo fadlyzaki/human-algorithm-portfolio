@@ -44,34 +44,65 @@ const DraggablePhoto = () => {
           className="w-full h-full shadow-2xl"
         >
           {currentItem.type === 'identity' ? (
-            <div className="w-full h-full bg-[var(--bg-card)] border border-[var(--border-color)] relative group overflow-hidden select-none rounded-lg">
-              {/* Hero Image Background */}
-              <img
-                src={currentItem.src}
-                alt="Fadly Uzzaki"
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-              />
+            <div className="w-full h-full bg-[#E5E5E5] dark:bg-[#1A1A1A] border border-black/10 dark:border-white/10 relative group overflow-hidden select-none rounded-[16px] flex flex-col shadow-2xl">
 
-              {/* Mesh Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent opacity-60"></div>
+              {/* Lanyard Slot */}
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-2 bg-black/80 dark:bg-white/20 rounded-full shadow-inner z-20"></div>
 
-              {/* Metadata */}
-              <div className="absolute top-4 left-4 right-4 flex justify-between items-center border-b border-white/20 pb-2 z-10">
-                <span className="font-mono text-[10px] text-white uppercase tracking-widest mix-blend-difference">ID_CARD.001</span>
-                <div className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse shadow-[0_0_10px_var(--accent-green)]"></div>
+              {/* Card Header */}
+              <div className="pt-10 pb-4 px-6 text-center border-b border-black/5 dark:border-white/5 bg-white dark:bg-[#222]">
+                <h3 className="font-mono text-[10px] tracking-[0.2em] font-bold text-[var(--accent)] uppercase">Human Algorithm</h3>
+                <p className="text-[8px] font-mono text-gray-400 mt-1 uppercase">Access Pass v2.0</p>
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent pt-12 z-10">
-                <h3 className="font-serif italic text-2xl text-white">Fadly Uzzaki</h3>
-                <p className="font-mono text-[10px] text-gray-300 uppercase tracking-widest mt-1">Product Designer</p>
+              {/* Photo Area */}
+              <div className="p-6 pb-2 flex-grow flex flex-col items-center justify-center">
+                <div className="w-32 h-40 bg-gray-200 relative mb-4 overflow-hidden rounded-sm border-2 border-white dark:border-gray-700 shadow-sm">
+                  <img
+                    src={currentItem.src}
+                    alt="Fadly Uzzaki"
+                    className="w-full h-full object-cover grayscale contrast-125"
+                  />
+                  {/* Holographic sheen */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
+                </div>
+
+                <h2 className="font-serif italic text-2xl text-[var(--text-primary)]">Fadly Uzzaki</h2>
+                <p className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mt-1">Product Designer</p>
               </div>
 
-              {/* Helper Label */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                <span className="bg-white text-black text-[10px] font-mono px-2 py-1 rounded shadow-xl">
-                  CLICK TO SWAP
-                </span>
+              {/* Footer / Barcode */}
+              <div className="p-4 bg-white dark:bg-[#222] border-t border-black/5 dark:border-white/5 flex justify-between items-end relative">
+                <div className="space-y-1">
+                  <div className="text-[8px] font-mono text-gray-400">ID: 8829-2025</div>
+                  <div className="text-[8px] font-mono text-gray-400">LOC: JAKARTA, ID</div>
+                </div>
+                {/* Fake Barcode */}
+                <div className="flex items-end gap-[2px] h-6 opacity-60">
+                  {[...Array(12)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="bg-[var(--text-primary)]"
+                      style={{
+                        width: Math.random() > 0.5 ? '2px' : '4px',
+                        height: `${40 + Math.random() * 60}%`
+                      }}
+                    ></div>
+                  ))}
+                </div>
+
+                {/* Click Hint */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                  <span className="bg-[var(--accent)] text-white text-[8px] font-mono px-2 py-1 rounded shadow-xl">
+                    TAP_TO_SWAP
+                  </span>
+                </div>
               </div>
+
+              {/* Texture Overlay */}
+              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none mix-blend-overlay"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-black/10 pointer-events-none"></div>
+
             </div>
           ) : (
             <div className="w-full h-full border border-[var(--border-color)] overflow-hidden relative select-none rounded-lg">
