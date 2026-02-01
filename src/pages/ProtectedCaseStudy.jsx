@@ -280,21 +280,30 @@ const ProtectedCaseStudy = () => {
 
           {/* Hero Visual Hook */}
           <div className="w-full max-w-6xl aspect-[21/9] bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)] via-transparent to-[var(--brand)] opacity-20"></div>
-            {/* Abstract UI representation */}
-            <div className="absolute inset-x-0 bottom-0 h-3/4 flex items-end justify-center gap-4 px-12 pb-12 opacity-50 group-hover:opacity-80 transition-opacity duration-1000 transform group-hover:-translate-y-2">
-              <div className="w-1/3 h-full bg-[var(--text-secondary)]/10 rounded-t-xl backdrop-blur-sm border-t border-x border-[var(--text-secondary)]/20"></div>
-              <div className="w-1/2 h-[120%] bg-[var(--bg-surface)] rounded-t-xl shadow-2xl border border-[var(--border-color)] relative z-10">
-                {/* Mock Interface Header */}
-                <div className="h-12 border-b border-[var(--border-color)] flex items-center gap-2 px-4">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
+            {caseData.snapshot?.heroImage ? (
+              <img
+                src={caseData.snapshot.heroImage}
+                alt={projectData.title}
+                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
+              />
+            ) : (
+              <>
+                <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)] via-transparent to-[var(--brand)] opacity-20"></div>
+                {/* Abstract UI representation */}
+                <div className="absolute inset-x-0 bottom-0 h-3/4 flex items-end justify-center gap-4 px-12 pb-12 opacity-50 group-hover:opacity-80 transition-opacity duration-1000 transform group-hover:-translate-y-2">
+                  <div className="w-1/3 h-full bg-[var(--text-secondary)]/10 rounded-t-xl backdrop-blur-sm border-t border-x border-[var(--text-secondary)]/20"></div>
+                  <div className="w-1/2 h-[120%] bg-[var(--bg-surface)] rounded-t-xl shadow-2xl border border-[var(--border-color)] relative z-10">
+                    <div className="h-12 border-b border-[var(--border-color)] flex items-center gap-2 px-4">
+                      <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
+                    </div>
+                  </div>
+                  <div className="w-1/3 h-4/5 bg-[var(--text-secondary)]/10 rounded-t-xl backdrop-blur-sm border-t border-x border-[var(--text-secondary)]/20"></div>
                 </div>
-              </div>
-              <div className="w-1/3 h-4/5 bg-[var(--text-secondary)]/10 rounded-t-xl backdrop-blur-sm border-t border-x border-[var(--text-secondary)]/20"></div>
-            </div>
-            <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)]">Fig. 1.0 — System Architecture</div>
+              </>
+            )}
+            <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)] bg-[var(--bg-void)]/80 px-2 py-1 backdrop-blur rounded">Fig. 1.0 — {caseData.snapshot?.heroImage ? 'Evidence' : 'System Architecture'}</div>
           </div>
         </section>
 
@@ -357,9 +366,16 @@ const ProtectedCaseStudy = () => {
               <div key={i} className="group relative">
                 {/* 'Film Frame' Look */}
                 <div className="aspect-[4/5] bg-[var(--bg-card)] border-[4px] border-white dark:border-[#222] shadow-lg rotate-1 hover:rotate-0 transition-transform duration-500 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[var(--bg-surface)] p-6 flex flex-col justify-between">
-                    <div className="text-[var(--brand)] opacity-20 text-6xl font-bold font-serif">{i + 1}</div>
-                    <div className="space-y-4">
+                  {step.image ? (
+                    <>
+                      <img src={step.image} alt={step.title} className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-surface)] via-transparent to-transparent opacity-90"></div>
+                    </>
+                  ) : null}
+
+                  <div className="absolute inset-0 bg-[var(--bg-surface)]/20 p-6 flex flex-col justify-between z-10">
+                    <div className="text-[var(--brand)] opacity-80 group-hover:opacity-100 text-6xl font-bold font-serif mix-blend-difference">{i + 1}</div>
+                    <div className="space-y-4 bg-[var(--bg-surface)]/90 backdrop-blur-md p-4 border border-[var(--border-color)]">
                       <Activity size={24} className="text-[var(--text-primary)]" />
                       <h3 className="text-xl font-bold border-b border-[var(--border-color)] pb-2">{step.title}</h3>
                       <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-mono">
@@ -368,7 +384,7 @@ const ProtectedCaseStudy = () => {
                     </div>
                   </div>
                   {/* Gloss overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none z-20"></div>
                 </div>
                 <div className="text-center mt-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase opacity-50">
                   Step 0{i + 1} // {step.title.toUpperCase()}
@@ -414,22 +430,34 @@ const ProtectedCaseStudy = () => {
 
                 {/* Annotated Image Area */}
                 <div className="w-full md:w-2/3 aspect-video bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] relative shadow-2xl overflow-hidden group">
-                  {/* Abstract Screen Content */}
-                  <div className="absolute inset-4 bg-[var(--bg-surface)] rounded border border-[var(--border-color)]">
-                    <div className="h-8 border-b border-[var(--border-color)] bg-[var(--bg-card)] flex items-center px-4 gap-2">
-                      <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                  {/* Real Image or Abstract Fallback */}
+                  {sol.image ? (
+                    <img
+                      src={sol.image}
+                      alt={sol.title}
+                      className="absolute inset-0 w-full h-full object-contain bg-black/5 dark:bg-black/50"
+                    />
+                  ) : (
+                    <div className="absolute inset-4 bg-[var(--bg-surface)] rounded border border-[var(--border-color)]">
+                      <div className="h-8 border-b border-[var(--border-color)] bg-[var(--bg-card)] flex items-center px-4 gap-2">
+                        <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                      </div>
+                      <div className="p-8 flex items-center justify-center opacity-10">
+                        <Monitor size={64} />
+                      </div>
                     </div>
-                    <div className="p-8 flex items-center justify-center opacity-10">
-                      <Monitor size={64} />
-                    </div>
-                  </div>
+                  )}
 
-                  {/* Annotation Hotspot (Animated) */}
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-[var(--brand)] rounded-full animate-ping"></div>
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-[var(--brand)] rounded-full border-2 border-[var(--bg-void)]"></div>
+                  {/* Annotation Hotspot (Animated) - Only show if image is missing to avoid clutter? Or keep it? Keeping it for vibe. */}
+                  {!sol.image && (
+                    <>
+                      <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-[var(--brand)] rounded-full animate-ping"></div>
+                      <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-[var(--brand)] rounded-full border-2 border-[var(--bg-void)]"></div>
+                    </>
+                  )}
 
                   {/* Caption Tooltip */}
-                  <div className="absolute top-1/2 left-1/2 ml-8 -mt-12 bg-[var(--bg-void)]/90 backdrop-blur border border-[var(--border-color)] p-3 rounded max-w-xs text-xs shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:translate-x-2">
+                  <div className="absolute bottom-6 left-6 bg-[var(--bg-void)]/90 backdrop-blur border border-[var(--border-color)] p-3 rounded max-w-xs text-xs shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:-translate-y-2 translate-y-2">
                     <span className="font-bold text-[var(--brand)] block mb-1">Feature Highlight</span>
                     {sol.desc}
                   </div>
