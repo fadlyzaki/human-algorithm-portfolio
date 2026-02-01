@@ -15,8 +15,9 @@ To create an immersive, narrative-driven portfolio that functions less like a st
 
 ### 3.1 Core Navigation & Layout
 *   **Global Navigation**:
-    *   **Smart Navbar**: Desktop top bar that hides on scroll-down and reappears on scroll-up to maximize focused reading area.
+    *   **Smart Navbar**: Desktop top bar that hides on scroll-down and reappears on scroll-up. Includes **Active State Indicators** to show current location.
     *   **Mobile Control Deck**: Floating bottom bar with Menu and Scroll-to-Top.
+    *   **Keyboard Support**: Global menu and modals support `ESC` key closure.
     *   **Scroll Management**: Integrated `ScrollToTop` logic ensuring all route changes reset the viewport to (0,0).
 *   **Theme System**:
     *   **Modes**: Toggle between "Dark Mode" (The Void) and "Light Mode" (Paper/Surface).
@@ -32,6 +33,7 @@ To create an immersive, narrative-driven portfolio that functions less like a st
 *   **Protected Case Studies**:
     *   **Dynamic Routing**: Unique URLs for each project (`/case-study/:id`).
     *   **Simulated Security**: A "Classified File" interface requiring a password to decrypt.
+    *   **Error Handling**: "Access Denied" (Themed 404) states for invalid IDs, replacing silent redirects.
     *   **Contextual Data**: Loads specific "Declassified Memos" and metrics for each project.
 
 ### 3.4 Semantic Memory (The Agent)
@@ -59,6 +61,11 @@ To create an immersive, narrative-driven portfolio that functions less like a st
     *   **Source Integrity**: Codebase is version-controlled with strict main-branch protection policies (simulated via git workflow).
 
 ## 5. Non-Functional Requirements
+*   **Usability & Accessibility**:
+    *   **Heuristics**: Audited against Nielsen's 10 Usability Heuristics.
+    *   **Error Recovery**: No silent redirects; dedicated "System Error" / "404" views for missing data.
+    *   **Consistency**: Standardized `BackButton` logic across all detail views.
+    *   **Accessibility**: Semantic `aria-label` attributes on all interactive elements.
 *   **Aesthetics**:
     *   **Theme**: "Human Algorithm" – blending industrial Swiss design with soft digital humanism.
     *   **Visual Language**: 

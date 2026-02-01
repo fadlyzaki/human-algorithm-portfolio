@@ -7,8 +7,6 @@ const Home = React.lazy(() => import('./pages/Home'));
 const About = React.lazy(() => import('./pages/About'));
 const Contact = React.lazy(() => import('./pages/Contact'));
 const SystemManifest = React.lazy(() => import('./pages/SystemManifest'));
-const ResearchCaseStudy = React.lazy(() => import('./pages/ResearchCaseStudy'));
-const VisualCaseStudy = React.lazy(() => import('./pages/VisualCaseStudy'));
 const ProtectedCaseStudy = React.lazy(() => import('./pages/ProtectedCaseStudy'));
 const SideProjectDetail = React.lazy(() => import('./pages/SideProjectDetail'));
 const SideProjectsIndex = React.lazy(() => import('./pages/SideProjectsIndex'));
