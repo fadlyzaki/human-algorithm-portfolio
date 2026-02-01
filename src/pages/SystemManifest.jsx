@@ -12,7 +12,8 @@ import {
   CheckCircle,
   Hash,
   Terminal,
-  BookOpen
+  BookOpen,
+  User
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
