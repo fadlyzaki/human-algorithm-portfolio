@@ -15,7 +15,7 @@ import BackButton from '../components/BackButton';
 
 const ProtectedCaseStudy = () => {
   const { id } = useParams();
-  const [isLocked, setIsLocked] = useState(false);
+  const [isLocked, setIsLocked] = useState(true);
   const { isDark, setIsDark } = useTheme();
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
@@ -69,7 +69,7 @@ const ProtectedCaseStudy = () => {
   // --- HANDLER: UNLOCK ---
   const handleUnlock = (e) => {
     e.preventDefault();
-    if (password.length > 0) {
+    if (password.toLowerCase() === 'desainzaki') {
       setDecrypting(true);
       setError(false);
 
@@ -200,7 +200,7 @@ const ProtectedCaseStudy = () => {
 
               <div className="text-center">
                 <p className="text-[10px] text-[var(--text-secondary)] opacity-50">
-                  // FOR ACCESS: CONTACT ME
+                  // FOR ACCESS: <Link to="/contact" className="hover:text-[var(--accent-red)] underline decoration-dotted underline-offset-4 transition-colors">CONTACT ME</Link>
                 </p>
               </div>
             </div>
