@@ -361,33 +361,37 @@ const ProtectedCaseStudy = () => {
           </div>
 
           {/* Horizontal Scroll / Grid -> Treating steps like film negatives */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Horizontal Scroll / Grid -> Treating steps like film negatives */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {caseData.process && caseData.process.map((step, i) => (
               <div key={i} className="group relative">
-                {/* 'Film Frame' Look */}
-                <div className="aspect-[4/5] bg-[var(--bg-card)] border-[4px] border-white dark:border-[#222] shadow-lg rotate-1 hover:rotate-0 transition-transform duration-500 relative overflow-hidden">
-                  {step.image ? (
-                    <>
-                      <img src={step.image} alt={step.title} className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-surface)] via-transparent to-transparent opacity-90"></div>
-                    </>
-                  ) : null}
+                {/* 'Polaroid / Evidence Card' Look */}
+                <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-4 shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500 hover:z-10 relative">
 
-                  <div className="absolute inset-0 bg-[var(--bg-surface)]/20 p-6 flex flex-col justify-between z-10 transition-all duration-500 group-hover:bg-[var(--bg-surface)]/10">
-                    <div className="text-[var(--brand)] opacity-100 drop-shadow-md text-6xl font-bold font-serif">{i + 1}</div>
-                    <div className="space-y-4 bg-[var(--bg-surface)] p-5 border border-[var(--border-color)] shadow-xl rounded-sm">
-                      <Activity size={24} className="text-[var(--text-primary)]" />
-                      <h3 className="text-xl font-bold border-b border-[var(--border-color)] pb-2">{step.title}</h3>
-                      <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-mono">
-                        {step.desc}
-                      </p>
-                    </div>
+                  {/* Image Area - Unobstructed */}
+                  <div className="aspect-video w-full bg-[var(--bg-surface)] mb-6 overflow-hidden border border-[var(--border-color)] relative group-hover:scale-[1.02] transition-transform duration-500">
+                    {step.image ? (
+                      <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center opacity-20">
+                        <div className="text-[var(--brand)] text-6xl font-bold font-serif">{i + 1}</div>
+                      </div>
+                    )}
+                    {/* Tape Effect */}
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-8 bg-yellow-100/20 backdrop-blur-sm border-l border-r border-white/20 rotate-[-2deg] shadow-sm"></div>
                   </div>
-                  {/* Gloss overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none z-20"></div>
-                </div>
-                <div className="text-center mt-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase opacity-50">
-                  Step 0{i + 1} // {step.title.toUpperCase()}
+
+                  {/* Text Details - Below Image */}
+                  <div className="space-y-4 px-2 pb-2">
+                    <div className="flex items-center justify-between border-b border-[var(--border-color)] pb-3">
+                      <h3 className="text-2xl font-bold font-serif italic">{step.title}</h3>
+                      <div className="font-mono text-xs text-[var(--brand)] border border-[var(--brand)] px-2 py-1 rounded-full">STEP 0{i + 1}</div>
+                    </div>
+
+                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-mono">
+                      {step.desc}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
