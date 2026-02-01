@@ -263,13 +263,21 @@ const AboutPage = () => {
               </h2>
 
               <div className="prose prose-invert max-w-2xl">
-                <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-6 font-light">
-                  I am a product designer who <strong className="text-[var(--text-primary)]">thinks in systems</strong> but <strong className="text-[var(--text-primary)]">feels in stories</strong>. I hybridize computer science logic with messy, human resilience.
+                <p className="text-xl md:text-2xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
+                  "I design tools that respect your attention span."
                 </p>
-                <ScrollReveal>
-                  <p className="text-[var(--text-primary)] text-lg leading-relaxed font-serif italic border-l-2 border-[var(--accent-blue)] pl-4">
-                    "My goal is high function, low friction. I design tools that work for a living—resilient, quiet, and steady—just like the people who use them."
+                <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
+                  <p>
+                    My design career started in <span className="text-[var(--text-primary)] font-medium">Computer Science</span>—data structures, logic, constraints.
                   </p>
+                  <p>
+                    But life forced me into a <strong className="text-[var(--text-primary)]">nearly three-year pause</strong> due to a major health issue. This "downtime" wasn't a loss; it was an upgrade. It taught me how fragile human systems are and how essential well-designed support structures become when we are at our limit.
+                  </p>
+                </div>
+                <ScrollReveal>
+                  <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mt-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
+                    I design against <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">fragile complexity</span>. Modern apps burn people out. My job is to build resilient systems that support human energy—not drain it.
+                  </blockquote>
                 </ScrollReveal>
               </div>
             </div>
