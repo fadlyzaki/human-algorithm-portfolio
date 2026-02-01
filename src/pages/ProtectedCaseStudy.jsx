@@ -362,37 +362,56 @@ const ProtectedCaseStudy = () => {
 
           {/* Horizontal Scroll / Grid -> Treating steps like film negatives */}
           {/* Horizontal Scroll / Grid -> Treating steps like film negatives */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Vertical Investigation Board -> Zig-Zag Layout */}
+          <div className="space-y-24 relative">
+            {/* Central Timeline Line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[var(--border-color)] -translate-x-1/2 hidden md:block z-0"></div>
+
             {caseData.process && caseData.process.map((step, i) => (
-              <div key={i} className="group relative">
-                {/* 'Polaroid / Evidence Card' Look */}
-                <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-4 shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500 hover:z-10 relative">
+              <div key={i} className={`flex flex-col md:flex-row gap-12 items-center relative z-10 ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
 
-                  {/* Image Area - Unobstructed */}
-                  <div className="aspect-video w-full bg-[var(--bg-surface)] mb-6 overflow-hidden border border-[var(--border-color)] relative group-hover:scale-[1.02] transition-transform duration-500">
-                    {step.image ? (
-                      <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center opacity-20">
-                        <div className="text-[var(--brand)] text-6xl font-bold font-serif">{i + 1}</div>
-                      </div>
-                    )}
-                    {/* Tape Effect */}
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-8 bg-yellow-100/20 backdrop-blur-sm border-l border-r border-white/20 rotate-[-2deg] shadow-sm"></div>
-                  </div>
+                {/* 1. VISUAL EVIDENCE (Image) */}
+                <div className="w-full md:w-1/2 relative group">
+                  <div className="relative bg-[var(--bg-card)] border border-[var(--border-color)] p-2 shadow-2xl transform transition-transform duration-500 hover:scale-[1.02] hover:rotate-0 rotate-1">
+                    {/* Tape/Pin */}
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-red-500/80 shadow-lg border-2 border-white/20 z-20"></div>
 
-                  {/* Text Details - Below Image */}
-                  <div className="space-y-4 px-2 pb-2">
-                    <div className="flex items-center justify-between border-b border-[var(--border-color)] pb-3">
-                      <h3 className="text-2xl font-bold font-serif italic">{step.title}</h3>
-                      <div className="font-mono text-xs text-[var(--brand)] border border-[var(--brand)] px-2 py-1 rounded-full">STEP 0{i + 1}</div>
+                    {/* Image Container */}
+                    <div className="aspect-[16/10] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50">
+                      {step.image ? (
+                        <img src={step.image} alt={step.title} className="w-full h-full object-contain p-2" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center opacity-20 bg-[var(--bg-card)]">
+                          <Activity size={48} />
+                        </div>
+                      )}
+                      {/* Grid Overlay for texture */}
+                      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
                     </div>
 
-                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-mono">
-                      {step.desc}
-                    </p>
+                    <div className="mt-2 flex justify-between items-center px-2">
+                      <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">EVIDENCE #{i + 1}</span>
+                      <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] opacity-50">CONFIDENTIAL</span>
+                    </div>
                   </div>
                 </div>
+
+                {/* 2. CONNECTIVE TISSUE (Timeline Node) */}
+                <div className="hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-[var(--bg-void)] border border-[var(--brand)] text-[var(--brand)] font-mono text-xs z-20 relative">
+                  {i + 1}
+                </div>
+
+                {/* 3. NARRATIVE (Text) */}
+                <div className={`w-full md:w-1/2 ${i % 2 === 1 ? 'text-right md:pr-12' : 'md:pl-12'}`}>
+                  <div className={`inline-block font-mono text-xs text-[var(--brand)] border border-[var(--brand)] px-3 py-1 rounded-full mb-4 opacity-80`}>
+                    STEP 0{i + 1}
+                  </div>
+                  <h3 className="text-3xl font-bold font-serif mb-6">{step.title}</h3>
+                  <div className={`prose prose-sm dark:prose-invert font-mono text-[var(--text-secondary)] leading-relaxed ${i % 2 === 1 ? 'ml-auto' : ''}`}>
+                    {step.desc}
+                  </div>
+                </div>
+
               </div>
             ))}
           </div>
