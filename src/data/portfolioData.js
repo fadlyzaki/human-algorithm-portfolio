@@ -84,7 +84,7 @@ export const SIDE_PROJECTS = [
             },
             {
                 title: "Solution: FilterMe",
-                image: "/filterme-prototype.png",
+                image: "/filterme-prototype.gif",
                 content: "FilterMe is a concept feature where facial products (makeup, sunglasses, earrings) function as AR filters. Instead of looking at static photos, users open their camera and 'wear' the product instantly.\n\nKey Interaction:\n1. Browse products in a feed.\n2. Tap 'Try Filter' to launch the camera.\n3. Swipe left/right to change product variants (colors/styles).\n4. Buy directly from the AR view."
             },
             {
