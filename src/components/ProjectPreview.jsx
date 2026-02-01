@@ -17,6 +17,7 @@ const SkeletonLine = ({ width = "100%", opacity = 0.2 }) => (
 const ProjectPreview = ({ type = 'Web' }) => {
     const isMobile = type.toLowerCase().includes('mobile') || type.toLowerCase().includes('app');
     const isDashboard = type.toLowerCase().includes('dashboard') || type.toLowerCase().includes('platform');
+    const isService = type.toLowerCase().includes('service') || type.toLowerCase().includes('logistics');
 
     // 1. MOBILE MOCKUP (Chat / List Interface)
     if (isMobile) {
@@ -103,7 +104,48 @@ const ProjectPreview = ({ type = 'Web' }) => {
         );
     }
 
-    // 3. SYSTEM / GENERIC (Terminal Code)
+    // 3. SERVICE / LOGISTICS (Map & Tracking)
+    if (isService) {
+        return (
+            <div className="w-full h-full flex items-center justify-center p-8 relative group">
+                <div className="w-full max-w-sm aspect-[16/10] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg shadow-xl relative overflow-hidden flex group-hover:shadow-[var(--brand)]/20 transition-all duration-500">
+
+                    {/* Simulated Map Background */}
+                    <div className="absolute inset-0 opacity-20"
+                        style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, var(--text-secondary) 1px, transparent 0)', backgroundSize: '20px 20px' }}>
+                    </div>
+
+                    {/* Route Path */}
+                    <svg className="absolute inset-0 w-full h-full p-8" viewBox="0 0 100 60">
+                        <path
+                            d="M10,30 Q30,50 50,30 T90,30"
+                            fill="none"
+                            stroke="currentColor"
+                            className="text-[var(--text-secondary)] opacity-30"
+                            strokeWidth="2"
+                            strokeDasharray="4 4"
+                        />
+                        {/* Nodes */}
+                        <circle cx="10" cy="30" r="3" className="fill-[var(--text-secondary)] opacity-50" />
+                        <circle cx="50" cy="30" r="3" className="fill-[var(--text-secondary)] opacity-50" />
+                        <circle cx="90" cy="30" r="3" className="fill-[var(--brand)] animate-pulse" />
+                    </svg>
+
+                    {/* Tracking Card overlay */}
+                    <div className="absolute bottom-4 right-4 w-40 bg-[var(--bg-void)]/90 backdrop-blur border border-[var(--border-color)] rounded-lg p-3 shadow-lg flex flex-col gap-2">
+                        <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 rounded-full bg-[var(--brand)] animate-ping"></div>
+                            <span className="text-[8px] font-mono text-[var(--brand)] uppercase tracking-widest">In Transit</span>
+                        </div>
+                        <SkeletonLine width="80%" opacity={0.6} />
+                        <SkeletonLine width="60%" opacity={0.4} />
+                    </div>
+                </div>
+                {/* Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+        );
+    }
     return (
         <div className="w-full h-full flex items-center justify-center p-8 relative group">
             <div className="w-full max-w-sm aspect-[16/10] bg-[#1e1e1e] border border-[var(--border-color)] rounded-lg shadow-2xl relative overflow-hidden flex flex-col group-hover:-translate-y-1 transition-transform duration-500">
