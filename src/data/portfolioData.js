@@ -657,7 +657,7 @@ export const WORK_CLUSTERS = [
                     locked: true,
                     snapshot: {
                         tagline: "Solving the 'Where is my truck?' anxiety loop.",
-                        heroImage: "/case-studies/delivery-methods/delivery-status-cover.png"
+                        heroImage: null
                     },
                     context: {
                         client: "STOQO Logistics",

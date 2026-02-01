@@ -7,6 +7,7 @@ import {
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
 import BackButton from '../components/BackButton';
+import ProjectPreview from '../components/ProjectPreview';
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Classified Archives" meets "Human Reality"
@@ -281,21 +282,7 @@ const ProtectedCaseStudy = () => {
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
               />
             ) : (
-              <>
-                <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)] via-transparent to-[var(--brand)] opacity-20"></div>
-                {/* Abstract UI representation */}
-                <div className="absolute inset-x-0 bottom-0 h-3/4 flex items-end justify-center gap-4 px-12 pb-12 opacity-50 group-hover:opacity-80 transition-opacity duration-1000 transform group-hover:-translate-y-2">
-                  <div className="w-1/3 h-full bg-[var(--text-secondary)]/10 rounded-t-xl backdrop-blur-sm border-t border-x border-[var(--text-secondary)]/20"></div>
-                  <div className="w-1/2 h-[120%] bg-[var(--bg-surface)] rounded-t-xl shadow-2xl border border-[var(--border-color)] relative z-10">
-                    <div className="h-12 border-b border-[var(--border-color)] flex items-center gap-2 px-4">
-                      <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-                    </div>
-                  </div>
-                  <div className="w-1/3 h-4/5 bg-[var(--text-secondary)]/10 rounded-t-xl backdrop-blur-sm border-t border-x border-[var(--text-secondary)]/20"></div>
-                </div>
-              </>
+              <ProjectPreview type={projectData.type} expanded={true} />
             )}
             <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)] bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-2 rounded shadow-xl">Fig. 1.0 — {caseData.snapshot?.heroImage ? 'Evidence' : 'System Architecture'}</div>
           </div>

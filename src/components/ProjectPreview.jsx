@@ -14,7 +14,7 @@ const SkeletonLine = ({ width = "100%", opacity = 0.2 }) => (
     <div className="h-1.5 bg-current rounded-full" style={{ width, opacity }}></div>
 );
 
-const ProjectPreview = ({ type = 'Web' }) => {
+const ProjectPreview = ({ type = 'Web', expanded = false }) => {
     const isMobile = type.toLowerCase().includes('mobile') || type.toLowerCase().includes('app');
     const isDashboard = type.toLowerCase().includes('dashboard') || type.toLowerCase().includes('platform');
     const isService = type.toLowerCase().includes('service') || type.toLowerCase().includes('logistics');
@@ -22,8 +22,8 @@ const ProjectPreview = ({ type = 'Web' }) => {
     // 1. MOBILE MOCKUP (Chat / List Interface)
     if (isMobile) {
         return (
-            <div className="w-full h-full flex items-center justify-center p-6 relative group">
-                <div className="w-[120px] aspect-[9/18] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[20px] p-2 relative shadow-2xl group-hover:-translate-y-2 transition-transform duration-500 overflow-hidden">
+            <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-6'} relative group`}>
+                <div className={`${expanded ? 'w-full h-full rounded-none border-none' : 'w-[120px] aspect-[9/18] rounded-[20px] border border-[var(--border-color)]'} bg-[var(--bg-card)]  p-2 relative shadow-2xl group-hover:-translate-y-2 transition-transform duration-500 overflow-hidden`}>
                     {/* Notch */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 h-3 w-16 bg-[var(--bg-void)] rounded-b-lg z-10"></div>
 
@@ -61,8 +61,8 @@ const ProjectPreview = ({ type = 'Web' }) => {
     // 2. DASHBOARD MOCKUP (Sidebar + Cards)
     if (isDashboard) {
         return (
-            <div className="w-full h-full flex items-center justify-center p-8 relative group">
-                <div className="w-full max-w-sm aspect-[16/10] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg shadow-xl relative overflow-hidden group-hover:shadow-[var(--brand)]/20 transition-all duration-500">
+            <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-8'} relative group`}>
+                <div className={`w-full ${expanded ? 'max-w-full h-full border-none' : 'max-w-sm aspect-[16/10] border border-[var(--border-color)]'} bg-[var(--bg-card)] rounded-lg shadow-xl relative overflow-hidden group-hover:shadow-[var(--brand)]/20 transition-all duration-500`}>
                     <div className="flex h-full">
                         {/* Sidebar */}
                         <div className="w-12 h-full border-r border-[var(--border-color)] bg-[var(--bg-void)]/30 flex flex-col items-center py-3 gap-3">
@@ -107,8 +107,8 @@ const ProjectPreview = ({ type = 'Web' }) => {
     // 3. SERVICE / LOGISTICS (Map & Tracking)
     if (isService) {
         return (
-            <div className="w-full h-full flex items-center justify-center p-8 relative group">
-                <div className="w-full max-w-sm aspect-[16/10] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg shadow-xl relative overflow-hidden flex group-hover:shadow-[var(--brand)]/20 transition-all duration-500">
+            <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-8'} relative group`}>
+                <div className={`w-full ${expanded ? 'max-w-full h-full border-none' : 'max-w-sm aspect-[16/10] border border-[var(--border-color)]'} bg-[var(--bg-card)] rounded-lg shadow-xl relative overflow-hidden flex group-hover:shadow-[var(--brand)]/20 transition-all duration-500`}>
 
                     {/* Simulated Map Background */}
                     <div className="absolute inset-0 opacity-20"
@@ -147,8 +147,8 @@ const ProjectPreview = ({ type = 'Web' }) => {
         );
     }
     return (
-        <div className="w-full h-full flex items-center justify-center p-8 relative group">
-            <div className="w-full max-w-sm aspect-[16/10] bg-[#1e1e1e] border border-[var(--border-color)] rounded-lg shadow-2xl relative overflow-hidden flex flex-col group-hover:-translate-y-1 transition-transform duration-500">
+        <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-8'} relative group`}>
+            <div className={`w-full ${expanded ? 'max-w-full h-full border-none' : 'max-w-sm aspect-[16/10] border border-[var(--border-color)]'} bg-[#1e1e1e] rounded-lg shadow-2xl relative overflow-hidden flex flex-col group-hover:-translate-y-1 transition-transform duration-500`}>
                 {/* Header */}
                 <div className="h-6 bg-[#252526] border-b border-[#333] flex items-center px-3">
                     <WindowControls />
