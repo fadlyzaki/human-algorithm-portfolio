@@ -12,7 +12,33 @@ export const SIDE_PROJECTS = [
         stack: ["React", "Firebase", "Tailwind CSS"],
         links: { demo: "https://buku-kerja-interaktif.web.app/", repo: "github.com/fadlyzaki/interactive-workbook" },
         iconName: 'BookOpen',
-        featured: true
+        featured: true,
+        modules: [
+            {
+                title: "Introduction & Product Vision",
+                content: "Interactive Workbook is a bilingual educational web app (Indonesian-English) designed to help Junior and Senior High School students improve their English conversational skills. It combines self-paced learning, gamification elements (inspired by Duolingo), and direct supervision by teachers in one interactive platform.\n\nVision: To transform the conventional learning experience from static printed books into a dynamic, fun, and easily trackable digital platform."
+            },
+            {
+                title: "Problem & Solution",
+                content: "**The Problems:**\n• Lack of Motivation: Students are often bored with traditional workbooks containing only static text.\n• Tracking Difficulty: Teachers struggle to monitor homework progress (like Duolingo progress) of dozens of students in real-time.\n• Fear of Speaking: Students need conversation guides that are more interactive than just reading scripts.\n\n**The Solution:**\n• Integrated Multimedia: Includes Sing Along features with YouTube videos and chat-style interactive dialogues.\n• Firestore Integration: Uses a cloud database (Firebase Firestore) to save data instantly without page refreshes or complex manual processes.\n• Teacher Dashboard: Provides dedicated access for teachers to grade, comment, and monitor student XP/Streak centrally."
+            },
+            {
+                title: "Target Users",
+                content: "• **Students (SMP & SMA):** Primary users who complete learning units and monitor their ranking on the leaderboard.\n• **Teachers/Tutors:** Content managers responsible for manual grading and providing feedback to students."
+            },
+            {
+                title: "Functional Requirements",
+                content: "**F1: Interface & Localization**\n• Bilingual System: Toggle button to switch between Indonesian and English across all UI elements.\n• Responsive Design: Mobile-first UI optimized for all devices using Tailwind CSS.\n\n**F2: Student User Flow**\n• Session Identity: Students select their name and class to start (Sessions are temporary for shared privacy).\n• Learning Units (8 Units): Each unit consists of Sing Along, New Vocabulary, Dialogue Example, Speaking Practice, Duolingo Play (Input XP/Streak), and Self Reflection.\n• Leaderboard: Displays Top 10 Streak, Best Speakers, and Vocab Masters.\n\n**F3: Teacher User Flow**\n• Protected Access: Login via special access code.\n• Dashboard Tracker: Add new grading entries, duplicate rows for speed, and sync directly to Firestore."
+            },
+            {
+                title: "Technical Specifications",
+                content: "• **Frontend:** HTML5, Tailwind CSS (Styling), JavaScript ES6+ (Logic).\n• **Database:** Firebase Firestore (NoSQL) for real-time answer storage.\n• **Visualization:** Chart.js for XP progress charts.\n• **Assets:** YouTube API, Inline SVG & Emojis.\n• **Hosting:** Firebase Hosting."
+            },
+            {
+                title: "Roadmap",
+                content: "• **V1.0:** First stable release with Firestore integration (Completed).\n• **V1.5:** Permanent student login system via Firebase Auth.\n• **V2.0:** Automatic PDF certificate generation after 8 units.\n• **V2.5:** Push notifications for study streaks."
+            }
+        ]
     },
     {
         id: 'd3',

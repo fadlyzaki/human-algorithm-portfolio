@@ -1,178 +1,189 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import {
-   Sun, Moon, ArrowUpRight, Minus
+   Sun, Moon, ArrowUpRight, Minus, Code, Cpu, Link as LinkIcon, AlertTriangle, Layers,
+   Database, Terminal, Share2, Box
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import BackButton from '../components/BackButton';
+import { SIDE_PROJECTS } from '../data/portfolioData';
 
-/* --- DESIGN SYSTEM: THE CURATOR ---
-   Aesthetic: "Senior Product Designer / Editor"
-   Focus: Storytelling, clean typography, editorial layout.
+/* --- DESIGN SYSTEM: THE SCHEMATIC ---
+   Aesthetic: "Technical Blueprint / Hacker Terminal"
+   Focus: High data density, monospaced typography, structural lines.
 */
 
 const SideProjectDetail = () => {
    const { isDark, setIsDark } = useTheme();
-   const [scrolled, setScrolled] = useState(0);
    const { id } = useParams();
 
-   const projectDatabase = {
-      "d1": {
-         title: "Interactive Workbook",
-         subtitle: "Bimbel Geera Platform",
-         tldr: "Bridging the gap between static textbooks and gamified learning.",
-         sections: {
-            challenge: "Traditional workbooks are 'write-only' memory. Teachers can't track progress until the book is collected, and students lose motivation without instant feedback. We needed a loop.",
-            approach: "I designed a bilingual interface that syncs student inputs to a teacher dashboard in real-time. It’s not just a quiz app; it’s a digital workbook that respects the classroom workflow."
-         },
-         stack: ["React", "Firebase", "Tailwind CSS"],
-         links: { demo: "https://buku-kerja-interaktif.web.app/", repo: "github.com/fadly/interactive-workbook" }
-      },
-      "d3": {
-         title: "Year in Review",
-         subtitle: "Manual Data Visualization",
-         tldr: "Privacy-first analytics for your 'un-tracked' life wins.",
-         sections: {
-            challenge: "Algorithms track our consumption (Spotify, Netflix) but ignore our creation. I wanted a way to visualize the books read, miles run, and code written—without handing that data to a corporation.",
-            approach: "A purely client-side generator. You upload your JSON/CSV, pick from 12 editorial themes, and export high-res images. No database, no tracking, just design tools for personal data."
-         },
-         stack: ["React", "TypeScript", "Canvas API"],
-         links: { demo: "https://year-in-review-jak.vercel.app/", repo: "github.com/fadly/manual-wrapped" }
-      },
-      "filter-me": {
-         title: "FilterMe",
-         subtitle: "AR Commerce Experiment",
-         tldr: "Can augmented reality bridge the physical trust gap?",
-         sections: {
-            challenge: "In beauty e-commerce, the 'Trust Gap' is massive. Users can't touch the product. We hypothesized that hyper-realistic AR filters could simulate the 'try-on' experience better than static photos.",
-            approach: "A 3-week design sprint using Face Mesh technology. We focused less on technical perfection and more on the 'Fun Factor'—making the shopping experience feel like a social media interaction."
-         },
-         stack: ["Sketch", "Principle", "AR Design"],
-         links: { demo: "#", repo: "#" }
-      },
-      "grab-merantau": {
-         title: "Grab Merantau",
-         subtitle: "Cross-City Emotional Commerce",
-         tldr: "Empowering the diaspora to care for family remotely.",
-         sections: {
-            challenge: "Sending food to parents in another city feels transactional. It lacks warmth. The current UI minimizes location context, making it hard to find 'safe' food for elderly parents.",
-            approach: "I designed 'Merantau Mode'—a specific interface state. It uses an AI Concierge to recommend food based on texture (e.g., 'Soft meat for mom') and allows users to attach voice notes to the delivery."
-         },
-         stack: ["UX Research", "Figma", "AI Concept"],
-         links: { demo: "#", repo: "#" }
-      }
-   };
+   // Fetch from centralized data
+   const project = SIDE_PROJECTS.find(p => p.id === id);
 
-   const project = projectDatabase[id] || projectDatabase["d1"];
-
-   useEffect(() => {
-      const handleScroll = () => {
-         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-         setScrolled((winScroll / height) * 100);
-      };
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-   }, []);
+   // Handle 404
+   if (!project) {
+      return <Navigate to="/side-projects" replace />;
+   }
 
    const themeStyles = {
-      '--bg-void': isDark ? '#111111' : '#FFFFFF',
-      '--bg-surface': isDark ? '#1C1C1C' : '#F9FAFB',
-      '--text-primary': isDark ? '#F3F4F6' : '#111827',
-      '--text-secondary': isDark ? '#9CA3AF' : '#6B7280',
-      '--border-color': isDark ? '#374151' : '#E5E7EB',
-      '--accent': isDark ? '#D4D4D8' : '#1F2937', // Mono accent
+      '--bg-void': isDark ? '#050505' : '#F0F0F3',
+      '--bg-surface': isDark ? '#111' : '#FFFFFF',
+      '--text-primary': isDark ? '#E5E5E5' : '#111827',
+      '--text-secondary': isDark ? '#A1A1AA' : '#6B7280',
+      '--border-color': isDark ? '#333' : '#E5E7EB',
+      '--accent': isDark ? '#3B82F6' : '#2563EB', // Blue accent
+      '--code-bg': isDark ? '#000' : '#F3F4F6'
    };
 
    return (
-      <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--text-primary)] selection:text-[var(--bg-void)]">
+      <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white">
 
-         {/* Navigation */}
-         <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
-            <BackButton to="/" label="Index" className="text-white hover:opacity-70" />
-            <button onClick={() => setIsDark(!isDark)} className="hover:opacity-70 transition-opacity">
-               {isDark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
+         {/* BACKGROUND GRID */}
+         <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.05]"
+            style={{ backgroundImage: `linear-gradient(${isDark ? '#FFF' : '#000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#FFF' : '#000'} 1px, transparent 1px)`, backgroundSize: '40px 40px' }}>
+         </div>
+
+         {/* NAVIGATION (Floating) */}
+         <nav className="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-gradient-to-b from-[var(--bg-void)] via-[var(--bg-void)]/80 to-transparent backdrop-blur-[2px]">
+            <BackButton to="/side-projects" label="Back to Archive" />
+            <div className="flex items-center gap-4">
+               <div className="hidden md:flex items-center gap-2 font-mono text-[10px] uppercase text-[var(--text-secondary)] border border-[var(--border-color)] px-2 py-1 rounded">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></div>
+                  System_Status: Online
+               </div>
+               <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">
+                  {isDark ? <Sun size={18} /> : <Moon size={18} />}
+               </button>
+            </div>
          </nav>
 
-         <main className="max-w-4xl mx-auto px-6 pt-32 pb-24">
+         <main className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-24">
 
-            {/* HEADER: Editorial Center */}
-            <header className="text-center mb-20 md:mb-32">
-               <div className="inline-block border-b border-[var(--text-primary)] pb-1 mb-6">
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--text-secondary)]">{project.subtitle}</span>
+            {/* HEADER BLOCK */}
+            <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12 lg:gap-24 items-end mb-24 pb-12 border-b border-[var(--border-color)]">
+               <div>
+                  <div className="inline-flex items-center gap-2 mb-6 text-[var(--accent)] font-mono text-xs uppercase tracking-widest border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-3 py-1 rounded-sm">
+                     <Terminal size={12} />
+                     Experiment Log #{project.id}
+                  </div>
+                  <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[0.9]">
+                     {project.title}
+                  </h1>
+                  <h2 className="text-xl md:text-2xl font-mono text-[var(--text-secondary)]">
+                     // {project.subtitle}
+                  </h2>
                </div>
-               <h1 className="text-5xl md:text-7xl font-serif italic mb-8 leading-tight">
-                  {project.title}
-               </h1>
-               <p className="text-xl md:text-2xl font-light text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
-                  {project.tldr}
-               </p>
-            </header>
 
-            {/* CONTENT: Magazine Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24">
+               <div className="space-y-6 lg:text-right">
+                  <div className="bg-[var(--bg-surface)] p-6 border border-[var(--border-color)] shadow-sm">
+                     <p className="text-sm font-mono leading-relaxed text-[var(--text-secondary)]">
+                        "{project.tldr}"
+                     </p>
+                  </div>
+               </div>
+            </div>
 
-               {/* Left (Meta) */}
-               <aside className="md:col-span-3 space-y-12 md:text-right">
-                  <div>
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">Tech Stack</h3>
-                     <ul className="space-y-2 text-sm">
-                        {project.stack.map((tool, i) => (
-                           <li key={i}>{tool}</li>
+            {/* MAIN CONTENT GRID */}
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-16">
+
+               {/* LEFT: The Narrative */}
+               <div className="space-y-16">
+
+                  {project.modules ? (
+                     // Dynamic Modules (PRD Mode)
+                     project.modules.map((module, idx) => (
+                        <section key={idx} className="relative pl-8 border-l-2 border-[var(--border-color)]">
+                           <div className={`absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[var(--bg-void)] border-2 ${idx === 0 ? 'border-[var(--accent)]' : 'border-[var(--text-secondary)]'}`}></div>
+                           <h3 className={`font-mono text-xs uppercase tracking-widest ${idx === 0 ? 'text-[var(--accent)]' : 'text-[var(--text-secondary)]'} mb-4 flex items-center gap-2`}>
+                              {String(idx + 1).padStart(2, '0')}__{module.title.replace(/\s+/g, '_')}
+                           </h3>
+                           <div className="text-lg md:text-xl leading-relaxed text-[var(--text-primary)] opacity-90 whitespace-pre-line">
+                              {module.content}
+                           </div>
+                        </section>
+                     ))
+                  ) : (
+                     // Legacy Mode
+                     <>
+                        {/* Challenge Section */}
+                        <section className="relative pl-8 border-l-2 border-[var(--border-color)]">
+                           <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[var(--bg-void)] border-2 border-[var(--accent)]"></div>
+                           <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] mb-4 flex items-center gap-2">
+                              01__Problem_Statement
+                           </h3>
+                           <p className="text-lg md:text-xl leading-relaxed text-[var(--text-primary)] opacity-90">
+                              {project.sections.challenge}
+                           </p>
+                        </section>
+
+                        {/* Solution Section */}
+                        <section className="relative pl-8 border-l-2 border-[var(--border-color)]">
+                           <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[var(--bg-void)] border-2 border-[var(--text-secondary)]"></div>
+                           <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-2">
+                              02__Execution_Protocol
+                           </h3>
+                           <p className="text-lg md:text-xl leading-relaxed text-[var(--text-primary)] opacity-90">
+                              {project.sections.approach}
+                           </p>
+                        </section>
+                     </>
+                  )}
+
+               </div>
+
+               {/* RIGHT: Technical Specs Sidebar */}
+               <aside className="lg:sticky lg:top-32 space-y-8 h-fit">
+
+                  {/* Tech Stack Card */}
+                  <div className="group bg-[var(--bg-surface)] border border-[var(--border-color)] p-6 hover:border-[var(--accent)] transition-all">
+                     <div className="flex items-center gap-2 mb-4 text-[var(--text-secondary)]">
+                        <Cpu size={16} />
+                        <h4 className="font-mono text-xs uppercase tracking-widest">Tech Stack</h4>
+                     </div>
+                     <div className="flex flex-wrap gap-2">
+                        {project.stack.map((item, i) => (
+                           <span key={i} className="px-3 py-1 bg-[var(--code-bg)] text-[var(--text-primary)] text-xs font-mono border border-[var(--border-color)] rounded-sm">
+                              {item}
+                           </span>
                         ))}
-                     </ul>
+                     </div>
                   </div>
-                  <div>
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">Links</h3>
-                     <ul className="space-y-2 text-sm">
-                        {project.links.demo !== "#" && (
-                           <li>
-                              <a href={project.links.demo} target="_blank" rel="noreferrer" className="hover:underline flex items-center justify-end gap-1 group">
-                                 Live Demo <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                              </a>
-                           </li>
+
+                  {/* Actions Card */}
+                  <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] p-6">
+                     <div className="flex items-center gap-2 mb-4 text-[var(--text-secondary)]">
+                        <LinkIcon size={16} />
+                        <h4 className="font-mono text-xs uppercase tracking-widest">Access Points</h4>
+                     </div>
+                     <div className="space-y-3">
+                        {project.links.demo && project.links.demo !== '#' ? (
+                           <a href={project.links.demo} target="_blank" rel="noopener noreferrer"
+                              className="flex items-center justify-between p-3 bg-[var(--text-primary)] text-[var(--bg-void)] hover:opacity-90 transition-opacity rounded-sm group">
+                              <span className="font-mono text-xs uppercase font-bold">Launch Demo</span>
+                              <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                           </a>
+                        ) : (
+                           <div className="p-3 bg-[var(--bg-void)] border border-[var(--border-color)] text-[var(--text-secondary)] font-mono text-xs italic flex items-center gap-2 cursor-not-allowed">
+                              <AlertTriangle size={12} />
+                              Demo Offline
+                           </div>
                         )}
-                        {project.links.repo !== "#" && (
-                           <li>
-                              <a href={project.links.repo} target="_blank" rel="noreferrer" className="hover:underline opacity-70 hover:opacity-100">
-                                 Source Code
-                              </a>
-                           </li>
+
+                        {project.links.repo && project.links.repo !== '#' && (
+                           <a href={`https://${project.links.repo}`} target="_blank" rel="noopener noreferrer"
+                              className="flex items-center justify-between p-3 border border-[var(--border-color)] hover:bg-[var(--code-bg)] transition-colors rounded-sm group">
+                              <span className="font-mono text-xs uppercase">Source Code</span>
+                              <Code size={14} className="text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition-colors" />
+                           </a>
                         )}
-                     </ul>
+                     </div>
                   </div>
+
                </aside>
-
-               {/* Right (Story) */}
-               <article className="md:col-span-9 space-y-16">
-                  <section>
-                     <h2 className="text-lg font-medium mb-4 flex items-center gap-3">
-                        <Minus className="text-[var(--text-secondary)]" /> The Challenge
-                     </h2>
-                     <p className="text-lg md:text-xl leading-relaxed font-light text-[var(--text-secondary)]">
-                        {project.sections.challenge}
-                     </p>
-                  </section>
-
-                  <section>
-                     <h2 className="text-lg font-medium mb-4 flex items-center gap-3">
-                        <Minus className="text-[var(--text-secondary)]" /> Design Approach
-                     </h2>
-                     <p className="text-lg md:text-xl leading-relaxed font-light text-[var(--text-secondary)]">
-                        {project.sections.approach}
-                     </p>
-                  </section>
-               </article>
 
             </div>
 
          </main>
-
-         {/* Footer */}
-         <footer className="text-center py-12 border-t border-[var(--border-color)] mt-12 opacity-50">
-            <p className="font-mono text-[10px] uppercase tracking-widest">Fadly Uzzaki · Systems Designer</p>
-         </footer>
 
       </div>
    );
