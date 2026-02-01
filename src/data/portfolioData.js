@@ -188,7 +188,7 @@ export const SIDE_PROJECTS = [
         featured: false,
         type: 'AR Camera',
         date: "January 2018",
-        coverImage: "/filterme-cover.webp",
+        coverImage: "/filterme-cover.png",
         modules: [
             {
                 title: "The Design Challenge",
