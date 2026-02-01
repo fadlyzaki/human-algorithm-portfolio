@@ -1,63 +1,66 @@
-# Human Algorithm :: The Portfolio System
+# Human Algorithm :: The Portfolio System v2.1
 
-> **Bridging Computer Science logic with human behavior.**
+> **"I don't chase chaos—I contain it."**
 
-Built as a high-performance, narrative-driven interface, this system serves as more than a portfolio—it is an exploration of "Design for Recovery," emphasizing resilience, system transparency, and human-centric feedback loops.
-
----
-
-## 🛠 Engineering Core
-
-This project is architected for speed, modularity, and immersive interactivity. It rejects "delight for the sake of delight," opting instead for functional aesthetics that respect the user's cognitive load.
-
--   **Runtime**: [React](https://react.dev/) + [Vite](https://vite.dev/) (Optimized for HMR and cold-start speed)
--   **Style Engine**: [Tailwind CSS](https://tailwindcss.com/) + Custom CSS Variables (Atomic theme injection via `ThemeContext`)
--   **Computer Vision**: [MediaPipe Hands](https://google.github.io/mediapipe/solutions/hands.html) (Driving the "Decryption Lens" interaction layer)
--   **Performance**: Route-based [Lazy Loading](https://react.dev/reference/react/lazy) and `Suspense` for critical-path optimization.
--   **Typography**: Variable font stacks (Sans/Serif/Mono) tailored for specific data hierarchy.
+A high-performance, narrative-driven portfolio system built for **Fadly Uzzaki (Product Designer & Systems Specialist)**. This platform is architected as an "Interactive Manifesto," bridging Computer Science rigor with human-centered resilience.
 
 ---
 
-## 🛰 System Architecture
+## 🛠 Strategic Core
 
-### 1. The Decryption Lens (CV Interaction)
-A custom-built interaction layer using MediaPipe. It translates standard webcam input into a global CSS mask, allowing users to "scrub" through an encrypted UI layer to reveal the "True UI." 
-- **Accessibility Logic**: Includes `ESC` overrides and a failsafe floating exit button for non-CV environments.
+This system is engineered for **speed, modularity, and cognitive efficiency**. It prioritizes "Design for Recovery" over cosmetic delight, utilizing an industrial-cyberpunk aesthetic to tell a story of technical excellence and emotional truth.
 
-### 2. Editorial Case Study Framework
-A structured 8-step narrative system defined in `portfolioData.js`. This allows for data-driven storytelling while maintaining a consistent visual rhythm across both visual and research-heavy projects.
-
-### 3. Smart Navigation System
-- **Scroll-Aware Navbar**: Uses `requestAnimationFrame` style logic (via standard scroll events) to hide/show based on scroll direction, maximizing reading real estate.
-- **Route Persistence**: Integrated `ScrollToTop` higher-order component logic ensures consistent viewport state on navigation.
-
-### 4. Semantic Memory Module
-A simulated RAG (Retrieval-Augmented Generation) interface designed to replace static biographies with an interactive, terminal-style query system.
+- **Stack**: React (Vite) + Tailwind CSS + Framer Motion.
+- **SSOT (Single Source of Truth)**: Centralized data architecture in `portfolioData.js` driving all views.
+- **ATS Optimization**: Specialized "System Manifest" built for high-performance HR parsing.
+- **SEO Resilience**: Integrated static HTML fallbacks to ensure metadata and introductory content are indexed even without JS execution.
 
 ---
 
-## 🚀 Deployment & Development
+## 🛰 System Information Architecture
+
+### 1. The Priority-First Homepage
+Reorganized into a 5-tier logical sequence designed for maximum narrative impact:
+1. **Hero**: Strategic positioning and identity.
+2. **Side Projects**: Experimental "Wild Creativity" playground.
+3. **Work**: Validated industrial ecosystems (Lumina, GudangAda, Stoqo).
+4. **About Me**: Personality synthesis and system history.
+5. **Notes**: Professional logs and intellectual logs.
+
+### 2. System Manifest (ATS-Friendly CV)
+A high-density technical specification sheet optimized for both human scanners and automated systems.
+- **Dynamic Sync**: Projects, timelines, and outcomes mirror the main portfolio data.
+- **Compact Header**: Horizontal contact block minimizing vertical friction.
+- **Standardized Semantics**: Uses HRD-friendly terminology for zero-friction parsing.
+
+### 3. Decryption Lens (Webcam Interaction)
+A custom interaction layer using **MediaPipe Hands** that translates gesture input into a global CSS mask, revealing hidden system layers. Includes robust failsafes and accessibility overrides.
+
+### 4. Semantic Memory Module (The Agent)
+An experimental simulated RAG (Retrieval-Augmented Generation) module that replaces static bios with an interactive CLI-style query system.
+
+---
+
+## 🚀 Execution & Deployment
 
 ### Local Uplink
 ```bash
 # Install dependencies
 npm install
 
-# Start development server
+# Start development terminal
 npm run dev
 
-# Build for production (optimized assets)
+# Compile production build
 npm run build
-
-# Preview production build locally
-npm run preview
 ```
 
 ### Production Standards
-- **Standardized Radius**: `rounded-lg` (8px) across all modules for a cohesive industrial feel.
-- **Interaction Model**: Every clickable element follows the Nielsen Heuristics for feedback and visibility.
+- **Global Radius**: Strict **8px** (`rounded-lg`) industrial standard.
+- **Design System**: Atomic theme injection via `ThemeContext` (Dark/Light modes).
+- **Interactions**: All components audited against Nielsen's 10 Usability Heuristics.
 
 ---
 
-**Designed & Engineered by [Fadly Uzzaki](https://github.com/fadlyzaki)**
-*"Building systems that feel inevitable, not forced."*
+**Architected & Engineered by [Fadly Uzzaki](https://fadlyzaki-design.vercel.app/)**  
+*"Building systems that hold up when everything else breaks."*
