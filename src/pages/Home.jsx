@@ -87,13 +87,23 @@ const WorkClusterCard = ({ cluster }) => {
           </div>
 
           {/* Logo / Hero Image */}
-          <div className="w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)]">
-            <img
-              src={cluster.logo || cluster.heroImage}
-              alt={cluster.title}
-              className="w-full h-full object-contain p-2 grayscale group-hover:grayscale-0 transition-all duration-700"
-            />
-          </div>
+          {cluster.logo ? (
+            <div className="h-16 w-auto shrink-0 flex items-center justify-end">
+              <img
+                src={cluster.logo}
+                alt={cluster.title}
+                className="h-full w-auto object-contain"
+              />
+            </div>
+          ) : (
+            <div className="w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)]">
+              <img
+                src={cluster.heroImage}
+                alt={cluster.title}
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+              />
+            </div>
+          )}
         </div>
 
         <p className="text-[var(--text-primary)] text-lg font-light max-w-2xl mb-10 leading-relaxed border-l-2 border-[var(--border-color)] pl-6 group-hover:border-[var(--brand)] transition-colors">
