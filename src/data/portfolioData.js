@@ -173,6 +173,11 @@ export const WORK_CLUSTERS = [
         company: 'Lumina',
         logo: '/logos/lumina-logo.png', // Lumina Logo
         subtitle: 'Humanizing Ops',
+        companyFocus: {
+            title: "Unique Context",
+            icon: "Users",
+            items: ["Blue Collar Users", "Android-First Market", "Offline-Ready UX"]
+        },
         brandColor: '#1AA8B4', // Lumina Teal
         heroImage: '/workforce_hero.png',
         hook: 'Connecting blue-collar workers to jobs without digital friction.',
@@ -406,6 +411,11 @@ export const WORK_CLUSTERS = [
         company: 'GudangAda',
         logo: '/gudangada-logo.png', // Placeholder for company logo
         subtitle: 'Managing Scale',
+        companyFocus: {
+            title: "Scale Factor",
+            icon: "TrendingUp",
+            items: ["$100B B2B Market", "FMCG Supply Chain", "Fragmented Logistics"]
+        },
         brandColor: '#00D1C7', // GudangAda Cyan
         heroImage: '/commerce_hero.png',
         hook: 'Organizing the chaos of the B2B supply chain.',
@@ -621,6 +631,11 @@ export const WORK_CLUSTERS = [
         company: 'STOQO',
         logo: '/stoqo-logo.png',
         subtitle: 'Digitizing Habits',
+        companyFocus: {
+            title: "Operational Reality",
+            icon: "Truck",
+            items: ["Perishable Goods", "Just-In-Time Delivery", "High-Churn Workforce"]
+        },
         brandColor: '#FA6130', // Stoqo Orange
         heroImage: '/efficiency_hero.png',
         hook: 'Helping SMEs transition from messy offline routines to stable digital workflows.',

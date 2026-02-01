@@ -149,10 +149,12 @@ const CompanyDetail = () => {
                             </div>
 
                             <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg">
-                                <Cpu size={24} className="text-[var(--brand)] mb-4" />
-                                <h4 className="font-serif italic text-lg mb-2">Technological Core</h4>
+                                <div className="text-[var(--brand)] mb-4">
+                                    <IconMapper iconName={cluster.companyFocus?.icon || 'Cpu'} size={24} />
+                                </div>
+                                <h4 className="font-serif italic text-lg mb-2">{cluster.companyFocus?.title || 'Technological Core'}</h4>
                                 <ul className="space-y-2">
-                                    {['React Ecosystem', 'Node.js', 'Python Data Science'].map((t, i) => (
+                                    {(cluster.companyFocus?.items || ['React Ecosystem', 'Node.js', 'Python Data Science']).map((t, i) => (
                                         <li key={i} className="text-xs font-mono text-[var(--text-secondary)] flex items-center gap-2">
                                             <span className="w-1 h-1 bg-[var(--text-primary)] rounded-full"></span> {t}
                                         </li>
