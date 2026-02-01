@@ -185,7 +185,7 @@ export const WORK_CLUSTERS = [
         miniDesc: 'First-of-its-kind job community platform for the working class. Helping tens of thousands of SMEs find suitable workers fast and easily.',
         stats: [
             { label: 'Role', value: 'Lead Product Designer' },
-            { label: 'Timeline', value: '2020 - 2023' },
+            { label: 'Timeline', value: 'May 2022 - Nov 2022' },
             { label: 'Impact', value: 'Scale & Reliability' },
             { label: 'Platform', value: 'Mobile app (android) & Websites' }
         ],
@@ -424,7 +424,7 @@ export const WORK_CLUSTERS = [
         miniDesc: 'Building a B2B ecosystem to digitalize Indonesia\'s distribution chain with marketplace, logistics, merchant solutions, and financial services. Series B: $135M from Sequoia, Alpha JWC, and others.',
         stats: [
             { label: 'Role', value: 'Product Designer' },
-            { label: 'Timeline', value: '2020 - 2021' },
+            { label: 'Timeline', value: 'April 2020 - April 2022' },
             { label: 'Impact', value: 'Marketplace Liquidity' },
             { label: 'Platform', value: 'Web Dashboard & PWA' }
         ],
@@ -645,7 +645,7 @@ export const WORK_CLUSTERS = [
         miniDesc: 'B2B platform founded in 2017 to transform the F&B supply chain. Serving thousands of culinary businesses daily with reliable, competitively-priced ingredient deliveries so business owners can focus on growing their business.',
         stats: [
             { label: 'Role', value: 'Early Product Designer' },
-            { label: 'Timeline', value: 'Mar 2018 - Apr 2020' },
+            { label: 'Timeline', value: 'Mar 2018 - April 2020' },
             { label: 'Scope', value: 'Customer, Ops, Warehousing' },
             { label: 'Status', value: 'Closed (Covid-19)' }
         ],
