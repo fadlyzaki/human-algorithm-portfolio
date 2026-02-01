@@ -404,7 +404,7 @@ export const WORK_CLUSTERS = [
         id: 'commerce',
         title: 'THE COMMERCE ENGINE',
         company: 'GudangAda',
-        logo: null, // Placeholder for company logo
+        logo: '/gudangada-logo.png', // Placeholder for company logo
         subtitle: 'Managing Scale',
         brandColor: '#00D1C7', // GudangAda Cyan
         heroImage: '/commerce_hero.png',
