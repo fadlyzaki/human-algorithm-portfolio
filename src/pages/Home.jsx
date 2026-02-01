@@ -382,7 +382,7 @@ const Portfolio = () => {
                   <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">systems thinker</span>
                 </h1>
                 <h2 className="text-xl md:text-2xl font-mono text-[var(--text-primary)] mb-8 pb-4 inline-block border-b-2 border-[var(--accent-amber)]">
-                  THE HUMAN ALGORITHM.
+                  FADLY UZZAKI.
                 </h2>
                 <p className="text-[var(--text-secondary)] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
                   Bridging the gap between <strong className="text-[var(--text-primary)] font-medium">Computer Science logic</strong> and <strong className="text-[var(--text-primary)] font-serif italic font-medium">human behavior</strong>. I design systems that feel inevitable, not forced.
