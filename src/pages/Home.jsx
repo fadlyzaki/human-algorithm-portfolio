@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   Terminal, Cpu, BookOpen, ArrowRight, ArrowUp, GitCommit,
   Maximize2, Minimize2, Mail, FileText, User, Headphones,
@@ -133,28 +133,55 @@ const WorkClusterCard = ({ cluster }) => {
 
 // --- NAVIGATION COMPONENTS ---
 const NavigationMenu = ({ isOpen, onClose }) => {
+  const location = useLocation(); // Make sure to import this from react-router-dom
+
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleEsc);
+    }
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
+
   const links = [
     { label: "Home", href: "/" },
     { label: "About Me", href: "#about" },
     { label: "Work", href: "#work" },
-    { label: "Side Projects", href: "/side-projects" }, // New Link
+    { label: "Side Projects", href: "/side-projects" },
     { label: "Notes", href: "#notes" },
   ];
   const metaLinks = [
     { label: "Download CV", icon: FileText, href: "/cv" },
     { label: "Contact Uplink", icon: Mail, href: "/contact" },
   ];
+
+  const isActive = (path) => {
+    if (path.startsWith('#')) return false; // Hash links handled by scroll or manual check
+    return location.pathname === path;
+  };
+
   return (
-    <div className="fixed inset-0 z-[100] bg-[var(--bg-void)]/95 backdrop-blur-xl flex flex-col justify-center items-center animate-in fade-in duration-200">
-      <button onClick={onClose} className="absolute top-6 right-6 p-4 text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors">
+    <div className="fixed inset-0 z-[100] bg-[var(--bg-void)]/95 backdrop-blur-xl flex flex-col justify-center items-center animate-in fade-in duration-200" role="dialog" aria-modal="true" aria-label="Main Navigation">
+      <button onClick={onClose} className="absolute top-6 right-6 p-4 text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors" aria-label="Close Menu">
         <X size={32} />
       </button>
       <div className="space-y-8 text-center">
         <div className="font-mono text-xs text-[var(--accent-amber)] uppercase tracking-widest mb-8">System Directory</div>
         <nav className="flex flex-col gap-6">
           {links.map((link, idx) => (
-            <Link key={idx} to={link.href.startsWith('/') ? link.href : '/' + link.href} onClick={onClose} className="font-mono text-2xl md:text-4xl text-[var(--text-primary)] hover:text-[var(--accent-blue)] hover:scale-105 transition-all">
+            <Link
+              key={idx}
+              to={link.href.startsWith('/') ? link.href : '/' + link.href}
+              onClick={onClose}
+              className={`font-mono text-2xl md:text-4xl transition-all ${isActive(link.href)
+                ? 'text-[var(--accent-blue)] scale-105 font-bold'
+                : 'text-[var(--text-primary)] hover:text-[var(--accent-blue)] hover:scale-105'
+                }`}
+            >
               {link.label}
             </Link>
           ))}
@@ -280,7 +307,7 @@ const Portfolio = () => {
             <button onClick={toggleGestureMode} className={`p-1 transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`} title="Enable Hand Tracking for 'Decryption Lens' Experiment">
               <ScanEye size={16} />
             </button>
-            <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1">
+            <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1" aria-label="Toggle Theme">
               {isDark ? <Sun size={16} /> : <Moon size={16} />}
             </button>
           </div>
@@ -290,7 +317,7 @@ const Portfolio = () => {
       {/* 2. Mobile Control Deck */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 md:hidden animate-in slide-in-from-bottom-10 fade-in duration-700">
         <div className="bg-[var(--bg-surface)]/90 backdrop-blur-xl border border-[var(--border-color)] rounded-full px-6 py-3 shadow-2xl flex items-center gap-8">
-          <button onClick={() => setIsMenuOpen(true)} className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex flex-col items-center gap-1">
+          <button onClick={() => setIsMenuOpen(true)} className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex flex-col items-center gap-1" aria-label="Open Menu">
             <Grid size={20} />
           </button>
           <div className="w-px h-6 bg-[var(--border-color)]"></div>

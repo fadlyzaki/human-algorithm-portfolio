@@ -101,7 +101,7 @@ const BlogPost = () => {
           <span>Return to Terminal</span>
         </Link>
         <div className="flex gap-4">
-          <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-color)] transition-colors">
+          <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-color)] transition-colors" aria-label="Toggle Theme">
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         </div>

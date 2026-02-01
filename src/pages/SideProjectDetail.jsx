@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import {
    Sun, Moon, ArrowUpRight, Code, Cpu, Link as LinkIcon, AlertTriangle,
    Terminal, Share2, Box, ArrowLeft, Monitor, Layers, FileText
@@ -21,7 +21,27 @@ const SideProjectDetail = () => {
    const project = SIDE_PROJECTS.find(p => p.id === id);
 
    if (!project) {
-      return <Navigate to="/side-projects" replace />;
+      return (
+         <div style={{
+            '--bg-void': isDark ? '#050505' : '#F2F2F5',
+            '--text-primary': isDark ? '#E5E5E5' : '#111827',
+            '--text-secondary': isDark ? '#A1A1AA' : '#6B7280',
+            '--accent-red': '#EF4444'
+         }} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] flex flex-col items-center justify-center p-6 text-center font-mono">
+            <div className="border border-[var(--accent-red)] p-8 max-w-md w-full relative">
+               <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[var(--accent-red)]"></div>
+               <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-[var(--accent-red)]"></div>
+               <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[var(--accent-red)]"></div>
+               <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[var(--accent-red)]"></div>
+
+               <h1 className="text-xl text-[var(--accent-red)] mb-4 uppercase tracking-widest">Error 404</h1>
+               <p className="mb-8 text-[var(--text-secondary)]">Project ID "{id}" unavailable or corrupted.</p>
+               <Link to="/side-projects" className="inline-block px-6 py-3 bg-[var(--text-primary)] text-[var(--bg-void)] uppercase tracking-wider text-xs font-bold hover:opacity-80 transition-opacity">
+                  Return to Index
+               </Link>
+            </div>
+         </div>
+      );
    }
 
    const themeStyles = {
@@ -55,7 +75,7 @@ const SideProjectDetail = () => {
                   <span>PROJECT_{project.id.toUpperCase()}</span>
                </div>
             </div>
-            <button onClick={() => setIsDark(!isDark)} className="p-2 hover:bg-[var(--bg-surface)] rounded-full transition-colors text-[var(--text-primary)]">
+            <button onClick={() => setIsDark(!isDark)} className="p-2 hover:bg-[var(--bg-surface)] rounded-full transition-colors text-[var(--text-primary)]" aria-label="Toggle Theme">
                {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
          </nav>

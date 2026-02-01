@@ -203,6 +203,7 @@ const AboutPage = () => {
             <button
               onClick={() => setIsDark(!isDark)}
               className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors"
+              aria-label="Toggle Theme"
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>

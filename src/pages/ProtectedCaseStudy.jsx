@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
+import BackButton from '../components/BackButton';
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Classified Archives" meets "Human Reality"
@@ -36,8 +37,26 @@ const ProtectedCaseStudy = () => {
   });
 
   // Fallback if not found (or handle redirect)
+  // Fallback if not found
   if (!projectData) {
-    return <div className="min-h-screen flex items-center justify-center">Project Not Found</div>;
+    return (
+      <div className="min-h-screen bg-black text-white font-mono flex items-center justify-center p-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none"
+          style={{ backgroundImage: 'linear-gradient(0deg, transparent 24%, #333 25%, #333 26%, transparent 27%, transparent 74%, #333 75%, #333 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #333 25%, #333 26%, transparent 27%, transparent 74%, #333 75%, #333 76%, transparent 77%, transparent)', backgroundSize: '50px 50px' }}>
+        </div>
+        <div className="z-10 text-center border border-red-900/50 bg-red-950/10 p-12 backdrop-blur-sm max-w-lg w-full">
+          <ShieldAlert size={48} className="mx-auto text-red-500 mb-6 animate-pulse" />
+          <h1 className="text-2xl font-bold text-red-500 mb-2 uppercase tracking-[0.2em]">Access Denied</h1>
+          <div className="h-px w-16 bg-red-800 mx-auto mb-6"></div>
+          <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+            The requested case file <span className="text-white">"{id}"</span> does not exist or has been redacted from the archives.
+          </p>
+          <Link to="/" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-red-400 hover:text-red-300 border border-red-900/50 px-6 py-3 hover:bg-red-950/30 transition-all">
+            <ArrowLeft size={14} /> Return to Base
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   // Use mock case study data if specific fields missing
@@ -117,15 +136,14 @@ const ProtectedCaseStudy = () => {
 
         {/* Home Navigation (Abort) */}
         <div className="absolute top-6 left-6 z-20">
-          <Link to={`/work/${parentCluster.id}`} className="text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors flex items-center gap-2 font-mono text-xs uppercase p-2">
-            <ArrowLeft size={16} /> Abort
-          </Link>
+          <BackButton to={`/work/${parentCluster.id}`} label="Abort" className="text-[var(--text-secondary)] hover:text-[var(--accent-red)]" />
         </div>
 
         <div className="absolute top-6 right-6 z-20">
           <button
             onClick={() => setIsDark(!isDark)}
             className="text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors p-2"
+            aria-label="Toggle Theme"
           >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
           </button>
@@ -226,6 +244,7 @@ const ProtectedCaseStudy = () => {
           <button
             onClick={() => setIsDark(!isDark)}
             className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1"
+            aria-label="Toggle Theme"
           >
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
@@ -236,9 +255,7 @@ const ProtectedCaseStudy = () => {
             <Lock size={14} />
             Lock System
           </button>
-          <Link to={`/work/${parentCluster.id}`} className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-2 font-mono text-xs uppercase">
-            <X size={14} /> Close
-          </Link>
+          <BackButton to={`/work/${parentCluster.id}`} label="Close" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]" />
         </div>
       </div>
 

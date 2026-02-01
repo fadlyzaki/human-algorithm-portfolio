@@ -163,7 +163,7 @@ const ContactPage = () => {
           <span>Abort Transmission</span>
         </Link>
         <div className="flex gap-4">
-          <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors">
+          <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors" aria-label="Toggle Theme">
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         </div>
@@ -200,6 +200,7 @@ const ContactPage = () => {
                 onClick={handleCopy}
                 className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                 title="Copy to Clipboard"
+                aria-label="Copy Email to Clipboard"
               >
                 {copied ? <Check size={18} className="text-[var(--accent-green)]" /> : <Copy size={18} />}
               </button>

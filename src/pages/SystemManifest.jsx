@@ -105,7 +105,7 @@ const SystemManifest = () => {
           <ArrowLeft size={16} /> Return
         </Link>
         <div className="flex gap-4">
-          <button onClick={() => setIsDark(!isDark)} className="p-2 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
+          <button onClick={() => setIsDark(!isDark)} className="p-2 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Toggle Theme">
             {isDark ? "Light Mode" : "Dark Mode"}
           </button>
           <button className="flex items-center gap-2 px-4 py-2 bg-[var(--text-primary)] text-[var(--bg-void)] font-mono text-sm uppercase font-bold hover:opacity-90">

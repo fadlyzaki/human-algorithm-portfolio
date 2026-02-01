@@ -5,6 +5,7 @@ import {
    GitBranch, Microscope, CheckCircle2, BarChart3, PieChart, FileDigit, Coffee, PenTool
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import BackButton from '../components/BackButton';
 
 /* --- THEME: "THE FORENSIC AUDIT" ---
    Focus: Text density, evidence, mixed methods (Quant/Qual), "messy reality".
@@ -70,9 +71,7 @@ const ResearchCaseStudy = () => {
 
          {/* Header */}
          <nav className="fixed top-0 w-full bg-[var(--bg-void)]/90 backdrop-blur z-40 border-b border-[var(--border-color)] px-6 py-4 flex justify-between items-center">
-            <Link to="/" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-xs uppercase">
-               <ArrowLeft size={14} /> Close File
-            </Link>
+            <BackButton to="/" label="Close File" />
             <div className="font-mono text-xs text-[var(--accent-green)] flex items-center gap-2">
                <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
@@ -80,7 +79,7 @@ const ResearchCaseStudy = () => {
                </span>
                RESEARCH_LOG_ONLINE
             </div>
-            <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-green)]">
+            <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-green)]" aria-label="Toggle Theme">
                {isDark ? <Sun size={16} /> : <Moon size={16} />}
             </button>
          </nav>

@@ -6,12 +6,13 @@ import {
   PenTool, Brain, Zap, Flame, PenLine, Layers, Smartphone, Briefcase, User
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import BackButton from '../components/BackButton';
 
 /* --- THEME CONFIGURATION ---
    Consistent with Human Algorithm Design System v2.0
 */
 
-const AboutPage = () => {
+const VisualCaseStudy = () => {
   const { isDark, setIsDark } = useTheme();
   const [scrolled, setScrolled] = useState(0);
 
@@ -159,15 +160,13 @@ const AboutPage = () => {
 
         {/* HEADER */}
         <header className="flex justify-between items-center mb-16 border-b border-[var(--border-color)] pb-6 sticky top-0 bg-[var(--bg-void)]/95 backdrop-blur z-40 pt-4 -mt-4">
-          <Link to="/" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider group transition-colors">
-            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            <span>Main Terminal</span>
-          </Link>
+          <BackButton to="/" label="Main Terminal" />
 
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsDark(!isDark)}
               className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors"
+              aria-label="Toggle Theme"
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
@@ -412,4 +411,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default VisualCaseStudy;

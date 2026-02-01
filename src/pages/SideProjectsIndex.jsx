@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, Filter } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { SIDE_PROJECTS } from '../data/portfolioData';
 import Footer from '../components/Footer';
+import BackButton from '../components/BackButton';
 
 const SideProjectsIndex = () => {
     const { isDark, setIsDark } = useTheme();
@@ -20,9 +21,7 @@ const SideProjectsIndex = () => {
         <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500">
             {/* Nav */}
             <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
-                <Link to="/" className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity flex items-center gap-2">
-                    <ArrowLeft size={16} /> INDEX
-                </Link>
+                <BackButton to="/" label="Index" className="text-white hover:text-white/80 mix-blend-difference" />
             </nav>
 
             <main className="max-w-6xl mx-auto px-6 pt-32 pb-24">
