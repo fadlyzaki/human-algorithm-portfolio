@@ -264,22 +264,25 @@ const AboutPage = () => {
 
               <div className="prose prose-invert max-w-2xl">
                 <p className="text-xl md:text-2xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
-                  "I build things that don't waste your time."
+                  "I'm a systems-builder who uses structure to protect tenderness, and design to turn survival into meaning."
                 </p>
                 <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
                   <p>
-                    I started as a <span className="text-[var(--text-primary)] font-medium">Computer Science student</span>—algorithms, data structures, the whole bit. I loved the precision. The certainty. If-then logic was my comfort zone.
+                    I started as a <span className="text-[var(--text-primary)] font-medium">Computer Science student</span>. I loved the certainty. The if-then clarity. Systems made sense when people didn't.
                   </p>
                   <p>
-                    Then life threw me a curveball. A <strong className="text-[var(--text-primary)]">major health crisis</strong> forced me offline for nearly three years. At first, it felt like the end. But looking back? It was the beginning. I learned what it means to depend on broken systems when you're at your weakest. Healthcare interfaces. Hospital workflows. Apps built by people who've never been desperate.
+                    Then a <strong className="text-[var(--text-primary)]">major health crisis</strong> forced me offline for nearly three years. At first, I thought it was the end. But silence has a way of teaching what noise can't. I learned what it means to depend on broken systems when you're at your most fragile. Bad hospital UX. Interfaces built by people who've never been desperate. Apps that assume you have energy you don't have.
                   </p>
                   <p>
-                    That pause taught me more about <strong className="text-[var(--text-primary)]">human-centered design</strong> than any bootcamp ever could. When you're exhausted, in pain, or scared—you don't have bandwidth for bad UX. You need tools that just <em>work</em>.
+                    That pause taught me more about <strong className="text-[var(--text-primary)]">human-centered design</strong> than any degree. When you're exhausted, scared, or in pain—you don't have bandwidth for clever UX. You need tools that just <em>work</em>. Quietly. Reliably. Without asking for applause.
+                  </p>
+                  <p>
+                    I don't chase chaos. I <span className="text-[var(--text-primary)] font-medium">contain it</span>. I build systems not to optimize life, but to hold it gently when it breaks.
                   </p>
                 </div>
                 <ScrollReveal>
                   <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mt-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
-                    Modern software is too fragile. Too complex. Too draining. I design systems that hold up under pressure—<span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">resilient, quiet, and steady</span>—like the people who actually use them.
+                    I design at the intersection of <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">logic and vulnerability</span>. Bridges between tech and feeling. Data and care. Systems that hold up under pressure—resilient, quiet, and steady—like the people who actually use them.
                   </blockquote>
                 </ScrollReveal>
               </div>

@@ -499,14 +499,14 @@ const Portfolio = () => {
                 <div>
                   <div className="prose prose-invert max-w-none">
                     <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
-                      "I design tools that respect your attention span."
+                      "I use structure to protect tenderness."
                     </p>
                     <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
                       <p>
-                        My design career started in <span className="text-[var(--text-primary)] font-medium">Computer Science</span>—data structures, logic, constraints.
+                        I started in <span className="text-[var(--text-primary)] font-medium">Computer Science</span>—where everything has an answer. Clean logic. Predictable systems. If-then certainty.
                       </p>
                       <p>
-                        But life forced me into a <strong className="text-[var(--text-primary)]">nearly three-year pause</strong> due to a major health issue. This "downtime" wasn't a loss; it was an upgrade. It taught me how fragile human systems are and how essential well-designed support structures become when we are at our limit.
+                        Then life broke the algorithm. A <strong className="text-[var(--text-primary)]">major health crisis</strong> pulled me offline for nearly three years. What looked like a stop was actually a recalibration. I learned that resilient systems aren't the ones that never break—they're the ones designed to hold you when you do.
                       </p>
                     </div>
                   </div>
@@ -520,7 +520,7 @@ const Portfolio = () => {
                   </div>
 
                   <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mb-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
-                    I design against <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">fragile complexity</span>. Modern apps burn people out. My job is to build resilient systems that support human energy—not drain it.
+                    I design bridges—between <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">logic and feeling</span>, data and humanity, discipline and care. Systems that don't drain you. Tools built for people who need them to work, not impress.
                   </blockquote>
 
                   <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-1">
