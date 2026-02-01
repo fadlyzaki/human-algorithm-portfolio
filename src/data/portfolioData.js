@@ -180,8 +180,8 @@ export const WORK_CLUSTERS = [
         },
         brandColor: '#1AA8B4', // Lumina Teal
         heroImage: '/workforce_hero.png',
-        hook: 'Connecting blue-collar workers to jobs without digital friction.',
-        miniDesc: 'Reduced cognitive load for users who are not tech-native. Built with strict simplicity.',
+        hook: 'Revolutionizing blue-collar recruitment through a highly engaged job community platform connecting hundreds of thousands of workers with SMEs.',
+        miniDesc: 'First-of-its-kind job community platform for the working class. Helping tens of thousands of SMEs find suitable workers fast and easily.',
         stats: [
             { label: 'Role', value: 'Lead Product Designer' },
             { label: 'Timeline', value: '2020 - 2023' },
@@ -418,8 +418,8 @@ export const WORK_CLUSTERS = [
         },
         brandColor: '#00D1C7', // GudangAda Cyan
         heroImage: '/commerce_hero.png',
-        hook: 'Organizing the chaos of the B2B supply chain.',
-        miniDesc: 'Scalable systems for massive SKU lists and complex transactions. Designed for reliability.',
+        hook: 'Transforming Indonesia\'s B2B distribution chain through end-to-end digital solutions connecting principals, distributors, wholesalers, and retailers.',
+        miniDesc: 'Building a B2B ecosystem to digitalize Indonesia\'s distribution chain with marketplace, logistics, merchant solutions, and financial services. Series B: $135M from Sequoia, Alpha JWC, and others.',
         stats: [
             { label: 'Role', value: 'Product Designer' },
             { label: 'Timeline', value: '2020 - 2021' },
