@@ -171,7 +171,7 @@ export const WORK_CLUSTERS = [
         id: 'workforce',
         title: 'THE WORKFORCE ECOSYSTEM',
         company: 'Lumina',
-        logo: null, // Placeholder for company logo
+        logo: '/logos/lumina-logo.png', // Lumina Logo
         subtitle: 'Humanizing Ops',
         brandColor: '#1AA8B4', // Lumina Teal
         heroImage: '/workforce_hero.png',
