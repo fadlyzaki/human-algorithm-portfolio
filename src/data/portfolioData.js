@@ -13,6 +13,8 @@ export const SIDE_PROJECTS = [
         links: { demo: "https://buku-kerja-interaktif.web.app/", repo: "github.com/fadlyzaki/interactive-workbook" },
         iconName: 'BookOpen',
         featured: true,
+        date: "August 2025",
+        coverImage: "/interactive-workbook-cover.png",
         modules: [
             {
                 title: "Introduction & Product Vision",
@@ -53,7 +55,26 @@ export const SIDE_PROJECTS = [
         stack: ["React", "TypeScript", "Canvas API"],
         links: { demo: "https://year-in-review-jak.vercel.app/", repo: "github.com/fadlyzaki/manual-wrapped" },
         iconName: 'Calendar',
-        featured: true
+        date: "December 2025",
+        coverImage: "/year-in-review-cover.png",
+        modules: [
+            {
+                title: "Executive Summary",
+                content: "Vision: To empower users to turn their raw annual data into compelling, highly shareable visual stories.\n\nThe Opportunity: Users track data across multiple platforms but lack a unified, aesthetic way to visualize this \"life data.\" The Year in Review Generator bridges this gap via \"Story-first\" design (9:16 aspect ratio).\n\nStrategic Objectives:\n• Maximize Shareability: Frictionless flow from input to social share via \"Screenshot Mode\".\n• Visual Excellence: 12 diverse themes catering to different user personas.\n• Engineering Scalability: Transitioning to Domain-Driven Design to support mobile app integration."
+            },
+            {
+                title: "Features & Roadmap",
+                content: "A. Core Features\n• Smart Summary: Deterministic algorithm generating personalized summaries based on icon usage.\n• Data Persistence: Auto-save to localStorage.\n\nB. Visual Themes (12 Implemented)\n• Retro (8-Bit), Swiss (Typographic), Neon (Cyberpunk), Brutal (Neo-Brutalism), Blueprint (Technical), and more.\n\nC. Release 2.1 Improvements\n• Screenshot Mode: Hides all UI chrome for clean sharing.\n• Onboarding: 3-step guide for first-time users."
+            },
+            {
+                title: "Architecture 2.0",
+                content: "We are refactoring the monolithic prototype into a component-based structure to ensure maintainability and strict type safety.\n\nTech Stack:\n• React 18+ (Vite)\n• TypeScript (Strict)\n• Tailwind CSS\n• html2canvas\n\nKey Changes:\n• Domain-Driven Design: Separating components, hooks, and business logic.\n• Strict Typing: Defining contracts for `StatItem`, `HighlightItem`, and `ThemeConfig`."
+            },
+            {
+                title: "Success Metrics",
+                content: "• Technical Debt: Reduction in App.tsx lines of code (Target: < 200 LOC).\n• Performance: Lighthouse Performance Score > 95.\n• Share Rate: % of users who activate \"Screenshot Mode\"."
+            }
+        ]
     },
     {
         id: 'filter-me',
@@ -69,6 +90,8 @@ export const SIDE_PROJECTS = [
         links: { demo: "#", repo: "#" },
         iconName: 'Camera',
         featured: false,
+        date: "May 2018",
+        coverImage: "/filterme-cover.png",
         modules: [
             {
                 title: "The Design Challenge",
@@ -106,6 +129,7 @@ export const SIDE_PROJECTS = [
         stack: ["UX Research", "Figma", "AI Concept"],
         links: { demo: "#", repo: "#" },
         iconName: 'Heart',
+        hidden: true,
         featured: false
     },
     {
@@ -121,6 +145,7 @@ export const SIDE_PROJECTS = [
         stack: ["Node.js", "PostGIS", "Flutter"],
         links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
         iconName: 'AlertTriangle',
+        hidden: true,
         featured: false
     },
     {
@@ -136,6 +161,7 @@ export const SIDE_PROJECTS = [
         stack: ["Python", "Pandas", "PWA"],
         links: { demo: "medium.com/procurement", repo: "github.com/fadlyzaki/procurement" },
         iconName: 'FileText',
+        hidden: true,
         featured: false
     }
 ];

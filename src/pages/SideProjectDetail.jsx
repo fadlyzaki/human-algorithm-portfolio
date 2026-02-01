@@ -133,7 +133,7 @@ const SideProjectDetail = () => {
                      <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
                         <Terminal size={12} /> Year
                      </h3>
-                     <div className="text-sm font-medium">2023 — Present</div>
+                     <div className="text-sm font-medium">{project.date || '2023 — Present'}</div>
                   </div>
 
                   {/* Context */}

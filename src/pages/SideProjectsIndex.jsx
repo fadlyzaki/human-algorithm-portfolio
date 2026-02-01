@@ -34,14 +34,22 @@ const SideProjectsIndex = () => {
                 </header>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
-                    {SIDE_PROJECTS.map((project, idx) => (
+                    {SIDE_PROJECTS.filter(p => !p.hidden).map((project, idx) => (
                         <div key={idx} onClick={() => navigate(`/side-project/${project.id}`)} className="group cursor-pointer">
                             <div className="aspect-[4/3] bg-[var(--text-secondary)]/10 border border-[var(--border-color)] mb-6 overflow-hidden relative">
-                                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--text-primary)]/5"></div>
-                                <div className="absolute bottom-4 left-4 font-mono text-xs text-[var(--text-secondary)]">
+                                {project.coverImage ? (
+                                    <img
+                                        src={project.coverImage}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                                    />
+                                ) : (
+                                    <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--text-primary)]/5"></div>
+                                )}
+                                <div className="absolute bottom-4 left-4 font-mono text-xs text-white/80 bg-black/50 px-2 py-1 backdrop-blur-sm rounded">
                                     0{idx + 1}
                                 </div>
-                                <ArrowUpRight className="absolute top-4 right-4 text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity" size={20} />
+                                <ArrowUpRight className="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={20} />
                             </div>
 
                             <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4">
