@@ -71,6 +71,21 @@ const CompanyDetail = () => {
                         {/* Text Content */}
                         <ScrollReveal>
                             <div className="relative z-20">
+                                {/* Company Logo Space */}
+                                <div className="mb-6 h-12 flex items-center">
+                                    {cluster.logo ? (
+                                        <img
+                                            src={cluster.logo}
+                                            alt={`${cluster.company} Logo`}
+                                            className="h-full w-auto object-contain"
+                                        />
+                                    ) : (
+                                        <div className="h-10 w-10 rounded bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center opacity-50 border-dashed">
+                                            <span className="text-[8px] font-mono text-[var(--text-secondary)]">LOGO</span>
+                                        </div>
+                                    )}
+                                </div>
+
                                 <div className="flex items-center gap-3 mb-6">
                                     <div className="h-px w-8 bg-[var(--brand)]"></div>
                                     <span className="text-[var(--brand)] font-mono text-xs uppercase tracking-[0.2em]">
@@ -108,7 +123,7 @@ const CompanyDetail = () => {
                             { label: 'Role', value: 'Lead Product Designer' },
                             { label: 'Timeline', value: '2020 - 2023' },
                             { label: 'Impact', value: 'Scale & Reliability' },
-                            { label: 'System', value: 'AI-Driven' }
+                            { label: 'Platform', value: 'Mobile app (android) & Websites' }
                         ].map((stat, i) => (
                             <div key={i} className="flex flex-col">
                                 <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-1">{stat.label}</span>

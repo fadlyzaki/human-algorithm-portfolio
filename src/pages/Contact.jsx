@@ -88,15 +88,51 @@ const ContactPage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQSNBdHW4C6kX20Cc9cvQMCrTsmtBDCgJ5a4mUfWrAyopux072Zw4rzwaQt0jJpSen/exec";
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('sending');
-    // Simulate network request
-    setTimeout(() => {
-      setFormStatus('success');
-      // Reset after 3 seconds
+
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        // text/plain prevents CORS preflight issues with simple requests in some cases, 
+        // but for Apps Script 'no-cors' mode is often needed if you want it simple, 
+        // though that makes the response opaque. 
+        // Standard approach for Apps Script Web App:
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+      });
+
+      // Google Apps Script redirect behavior can sometimes be tricky with CORS.
+      // If the script returns strict JSON, we can check response.ok or await json.
+      // However, typical robust "no-cors" usage might be needed if strictly cross-origin without proper headers.
+      // Given the setup instructions, we assume standard fetching.
+
+      if (response.ok) {
+        setFormStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setFormStatus('idle'), 3000);
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Fallback: If CORS blocks the response reading but the request actually succeeded (common in Apps Script),
+      // we might want to assume success or show a generic error.
+      // For now, let's treat it as an error to be safe, or just show a "Sent" state if we trust it.
+      // Simulating success for the user if URL is valid structure but local dev environment issues:
+      setFormStatus('error');
       setTimeout(() => setFormStatus('idle'), 3000);
-    }, 1500);
+    }
   };
 
   // --- DYNAMIC STYLES ---
@@ -232,6 +268,9 @@ const ContactPage = () => {
               <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">Sender_ID (Name)</label>
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 required
                 className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] text-[var(--text-primary)] p-4 focus:outline-none focus:border-[var(--accent-blue)] transition-colors font-mono text-sm"
                 placeholder="Enter your name..."
@@ -242,6 +281,9 @@ const ContactPage = () => {
               <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">Return_Address (Email)</label>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 required
                 className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] text-[var(--text-primary)] p-4 focus:outline-none focus:border-[var(--accent-blue)] transition-colors font-mono text-sm"
                 placeholder="name@domain.com"
@@ -251,6 +293,9 @@ const ContactPage = () => {
             <div className="space-y-2">
               <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">Data_Payload (Message)</label>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 required
                 rows="5"
                 className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] text-[var(--text-primary)] p-4 focus:outline-none focus:border-[var(--accent-blue)] transition-colors font-mono text-sm resize-none"
@@ -263,7 +308,7 @@ const ContactPage = () => {
               disabled={formStatus === 'sending' || formStatus === 'success'}
               className={`w-full py-4 font-mono text-sm uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 ${formStatus === 'success'
                 ? 'bg-[var(--accent-green)] text-black border-transparent'
-                : 'bg-[var(--text-primary)] text-[var(--bg-void)] hover:opacity-90'
+                : (formStatus === 'error' ? 'bg-red-500 text-white' : 'bg-[var(--text-primary)] text-[var(--bg-void)] hover:opacity-90')
                 }`}
             >
               {formStatus === 'idle' && (
@@ -281,6 +326,11 @@ const ContactPage = () => {
                 <>
                   <Check size={16} />
                   <span>Transmission Complete</span>
+                </>
+              )}
+              {formStatus === 'error' && (
+                <>
+                  <span>Error. Try Again.</span>
                 </>
               )}
             </button>
