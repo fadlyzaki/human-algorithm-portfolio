@@ -7,7 +7,8 @@ import {
   Heart, PenTool, Languages, Video, ScanEye, FileJson,
   CalendarClock, ExternalLink, Layers, Smartphone, Filter, Siren,
   FileSearch, Utensils, LayoutGrid, Archive, ArrowUpRight, Linkedin, Instagram, Dribbble,
-  MessageSquare, MessageCircle, ShoppingBag, ShieldCheck, Tag, Box, Truck, Trophy, Scan, Layout, AlertTriangle, Monitor
+  MessageSquare, MessageCircle, ShoppingBag, ShieldCheck, Tag, Box, Truck, Trophy, Scan, Layout, AlertTriangle, Monitor,
+  Flame, PenLine
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import DraggablePhoto from '../components/DraggablePhoto';
@@ -584,10 +585,10 @@ const Portfolio = () => {
 
                   <div className="space-y-4">
                     {[
-                      { label: "Community Building", val: "Active", icon: Users },
-                      { label: "Design Systems", val: "Obsessed", icon: PenTool },
-                      { label: "Analog Photography", val: "Learning", icon: ScanEye },
-                      { label: "Sci-Fi Literature", val: "Reading", icon: BookOpen }
+                      { label: "Duolingo", val: "Daily", icon: Flame },
+                      { label: "Strava", val: "Daily", icon: Activity },
+                      { label: "Goodreads", val: "Daily 10m", icon: BookOpen },
+                      { label: "Substack", val: "Weekly", icon: PenLine }
                     ].map((interest, i) => (
                       <div key={i} className="flex items-center justify-between p-3 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-colors group rounded-lg">
                         <div className="flex items-center gap-3">
