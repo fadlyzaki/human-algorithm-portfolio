@@ -644,7 +644,7 @@ export const WORK_CLUSTERS = [
         projects: [
             {
                 id: 'p9',
-                title: 'Delivery Methods',
+                title: 'Transfoming Logistics Delivery',
                 tag: 'Logistics',
                 type: 'Service Design',
                 role: 'Product Designer',
@@ -657,32 +657,37 @@ export const WORK_CLUSTERS = [
                     locked: true,
                     snapshot: {
                         tagline: "Solving the 'Where is my truck?' anxiety loop.",
-                        heroImage: "/efficiency_hero.png"
+                        heroImage: "/case-studies/delivery-methods/Delivery_Status_Cover.png"
                     },
                     context: {
-                        client: "Logistics",
-                        role: "I designed the Tracking UX",
+                        client: "STOQO Logistics",
+                        role: "End-to-End Experience",
                         timeline: "2 Months",
-                        team: "Ops Team"
+                        team: "Ops & Engineering"
                     },
-                    challenge: "Our support team was drowning in calls. 60% of all tickets were simply: 'Has my order shipped?'. It was a massive waste of human potential.",
+                    challenge: "Small business owners wake up at 4 AM to shop at markets because they need certainty. When they switched to STOQO, late deliveries disrupted their entire operation. We needed to manage user anxiety in a high-stakes supply chain where extensive delays meant no food to sell.",
                     process: [
-                        { title: "The Ride Along", desc: "I rode in a delivery truck for a day. I saw the driver struggling to update his status while driving. The system had to be one-tap." },
-                        { title: "Visibility", desc: "Users didn't need exact GPS; they just needed to know 'It's coming'." }
+                        { title: "Methodology", desc: "I combined Contextual Interviews with Field Studies. I didn't just ask questions; I followed the drivers.", image: "/case-studies/delivery-methods/Screen_Shot_2020-05-22_at_01.44.01.png" },
+                        { title: "Contextual Interviews", desc: "We interviewed 5 business owners and discovered that 'late' wasn't the only problem—'uncertainty' was. If they knew it was late, they could plan. Silence was the killer.", image: "/case-studies/delivery-methods/Untitled.png" },
+                        { title: "Field Study", desc: "I joined the Field Activators and Salesmen to see the chaos on the ground. This bridged the gap between 'Customer Complaints' and 'Operational Reality'.", image: "/case-studies/delivery-methods/IMG_20190502_154316.jpg" },
+                        { title: "Analysis Workshop", desc: "We mapped the user journey and identified 4 pain points: Mental Model Mismatch, Uncertainty, Lack of Communication, and Lack of Awareness.", image: "/case-studies/delivery-methods/Customer_App_Board.jpg" },
+                        { title: "Ideation", desc: "We focused on 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks'—it was 'better information'.", image: "/case-studies/delivery-methods/Customer_App_Board_(1).jpg" }
                     ],
                     insights: [
-                        { title: "Psychology of Waiting", desc: "I learned that known waits feel shorter than unknown waits. Even a rough estimate calms the user." }
+                        { title: "Psychology of Waiting", desc: "Known waits feel shorter than unknown waits. Even a rough estimate calms the user." },
+                        { title: "The 'Early' Problem", desc: "Surprisingly, drivers arriving *too early* was also a disruption. Customers weren't ready to receive goods at 3 AM if they expected 5 AM." }
                     ],
                     solution: [
-                        { title: "Visual Timeline", desc: "A Domino's-style pizza tracker for pallets. Packed → Loaded → On the Way → Arrived." },
-                        { title: "Proactive Notifications", desc: "We sent WhatsApp alerts at every stage. We told them before they asked." }
+                        { title: "Status Tracking", desc: "A comprehensive Domino's-style tracker: Order Received -> Preparing -> On the Way -> Arrived.", image: "/case-studies/delivery-methods/tes.png" },
+                        { title: "Real-Time Push", desc: "Intelligent notifications that alerted users not just when items were delivered, but when they 'Left the Warehouse'.", image: "/case-studies/delivery-methods/tes2.png" },
+                        { title: "Driver Info", desc: "Secure contact info for the driver, giving users a direct line to their goods.", image: "/case-studies/delivery-methods/tes3.png" }
                     ],
                     metrics: [
                         { label: "Support Tix", value: "-60%" },
                         { label: "Trust", value: "+40%" },
                         { label: "Repeat Order", value: "+10%" }
                     ],
-                    learnings: "Transparency is the cheapest form of customer support. Explain what's happening, and people will wait.",
+                    learnings: "Transparency is the cheapest form of customer support. Explain what's happening, and people will wait. Also, transforming raw qualitative data into actionable insights is an art form—we had to look beyond what users asked for (faster trucks) to what they needed (certainty).",
                     aiHypothesis: {
                         tech: "Computer Vision & IoT",
                         title: "Smart Loading Docks",
