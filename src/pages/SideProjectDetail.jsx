@@ -81,7 +81,8 @@ const SideProjectDetail = () => {
          <main className="relative z-10">
 
             {/* --- 2. CINEMATIC HERO --- */}
-            <header className="min-h-[90vh] flex flex-col justify-center items-center px-6 pt-32 text-center relative overflow-hidden">
+            {/* --- 2. CINEMATIC HERO --- */}
+            <header className="min-h-[90vh] flex flex-col justify-center items-center px-6 pt-24 md:pt-32 text-center relative overflow-hidden">
                {/* Technical Illustration Background */}
                <div className="absolute inset-0 z-0">
                   <div className="w-full h-full opacity-30 grayscale blur-[2px] transition-all duration-1000 group-hover:blur-0">
@@ -102,7 +103,7 @@ const SideProjectDetail = () => {
                      </span>
                   </div>
 
-                  <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif italic leading-[0.9] tracking-tighter text-[var(--text-primary)]">
+                  <h1 className="text-4xl md:text-8xl lg:text-9xl font-serif italic leading-[0.9] tracking-tighter text-[var(--text-primary)]">
                      {project.title}
                   </h1>
 

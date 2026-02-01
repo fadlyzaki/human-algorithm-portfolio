@@ -65,7 +65,7 @@ const CompanyDetail = () => {
             <main className="relative z-10 w-full">
 
                 {/* 1. IMMERSIVE HERO SECTION */}
-                <header className="min-h-screen flex flex-col pt-32 px-6 lg:px-12 relative overflow-hidden border-b border-[var(--border-color)]">
+                <header className="min-h-screen flex flex-col pt-24 md:pt-32 px-6 lg:px-12 relative overflow-hidden border-b border-[var(--border-color)]">
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center flex-grow mb-12">
                         {/* Text Content */}
@@ -92,7 +92,7 @@ const CompanyDetail = () => {
                                         {cluster.company} — {cluster.title}
                                     </span>
                                 </div>
-                                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif italic mb-8 leading-[0.9] tracking-tight">
+                                <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif italic mb-8 leading-[0.9] tracking-tight">
                                     {cluster.subtitle}
                                 </h1>
                                 <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-xl font-light leading-relaxed border-l-2 border-[var(--border-color)] pl-6">

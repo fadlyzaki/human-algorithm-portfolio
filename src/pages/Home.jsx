@@ -75,13 +75,13 @@ const WorkClusterCard = ({ cluster }) => {
 
 
 
-      <div className="p-10 relative z-10">
-        <div className="flex justify-between items-start gap-8 mb-10">
-          <div className="max-w-md">
-            <h3 className="text-3xl md:text-4xl font-serif italic text-[var(--text-primary)] mb-3 group-hover:text-[var(--brand)] transition-colors leading-tight">
+      <div className="p-6 md:p-10 relative z-10">
+        <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-6 md:gap-8 mb-6 md:mb-10">
+          <div className="max-w-md w-full">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif italic text-[var(--text-primary)] mb-3 group-hover:text-[var(--brand)] transition-colors leading-tight">
               {cluster.title}
             </h3>
-            <p className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+            <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[var(--brand)]"></span>
               {cluster.subtitle}
             </p>
@@ -89,7 +89,7 @@ const WorkClusterCard = ({ cluster }) => {
 
           {/* Logo / Hero Image */}
           {cluster.logo ? (
-            <div className="h-16 w-auto shrink-0 flex items-center justify-end">
+            <div className="h-10 md:h-16 w-full md:w-auto shrink-0 flex items-center justify-start md:justify-end mb-2 md:mb-0">
               <img
                 src={cluster.logo}
                 alt={cluster.title}
@@ -97,7 +97,7 @@ const WorkClusterCard = ({ cluster }) => {
               />
             </div>
           ) : (
-            <div className="w-24 h-24 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)]">
+            <div className="w-16 h-16 md:w-24 md:h-24 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)] mb-2 md:mb-0">
               <ProjectCard type={cluster.subtitle || 'System'} expanded={true} id={cluster.id} />
             </div>
           )}
