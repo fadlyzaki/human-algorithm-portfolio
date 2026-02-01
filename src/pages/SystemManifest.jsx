@@ -38,35 +38,31 @@ const SystemManifest = () => {
     ]
   };
 
+  const summary = "AI-native Product Designer specializing in building resilient systems that hold up under pressure. I bridge the gap between technical logic and human vulnerability, designing for people at their limit, not just their peak. Expert in design systems, B2B marketplaces, and complex operational workflows.";
 
   // Transform WORK_CLUSTERS data to CV format
   const experience = WORK_CLUSTERS.map(cluster => {
     const rolestat = cluster.stats?.find(s => s.label === 'Role');
     const timelineStat = cluster.stats?.find(s => s.label === 'Timeline');
 
-    // Extract key achievements from the first 2-3 projects
-    const metrics = cluster.projects?.slice(0, 3).map(project => {
+    // Extract key achievements from the projects
+    const metrics = cluster.projects?.map(project => {
       const { caseStudy } = project;
       if (caseStudy?.metrics && caseStudy.metrics.length > 0) {
-        const metricStr = caseStudy.metrics.map(m => `${m.label}: ${m.value}`).join(', ');
-        return `${project.title}: ${metricStr}`;
+        // Find the most impactful metric or join them
+        return `${project.title}: ${caseStudy.metrics.map(m => `${m.label} ${m.value}`).join(', ')}`;
       }
-      return project.details?.outcome || project.tag;
-    }).filter(Boolean) || [];
-
-    // Extract stack from projects
-    const stack = ['Figma', 'Linear', 'Mixpanel']; // Default tools
+      return project.details?.outcome ? `${project.title}: ${project.details.outcome}` : null;
+    }).filter(Boolean).slice(0, 3) || [];
 
     return {
       company: cluster.company,
       role: rolestat?.value || 'Product Designer',
-      period: timelineStat?.value || '2020 - 2023',
+      period: timelineStat?.value || 'Ongoing',
       summary: cluster.miniDesc || cluster.hook,
-      metrics: metrics.length > 0 ? metrics : [cluster.hook],
-      stack
+      metrics: metrics.length > 0 ? metrics : [cluster.hook]
     };
   });
-
 
   const education = [
     {
@@ -90,16 +86,22 @@ const SystemManifest = () => {
   return (
     <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-300 p-8 md:p-12 print:p-0 print:bg-white print:text-black">
 
-      {/* TOOLBAR */}
-      <div className="max-w-[210mm] mx-auto flex justify-between items-center mb-12 print:hidden">
-        <Link to="/" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-sm uppercase">
-          <ArrowLeft size={16} /> Return
+      {/* UI CONTROLS - HIDDEN IN PRINT */}
+      <div className="max-w-[210mm] mx-auto mb-8 flex justify-between items-center print:hidden">
+        <Link to="/about" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-sm uppercase group">
+          <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back_to_About
         </Link>
         <div className="flex gap-4">
-          <button onClick={() => setIsDark(!isDark)} className="p-2 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Toggle Theme">
+          <button
+            onClick={() => setIsDark(!isDark)}
+            className="px-4 py-2 border border-[var(--border-color)] hover:border-[var(--accent-mono)] font-mono text-sm uppercase transition-colors"
+          >
             {isDark ? "Light Mode" : "Dark Mode"}
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-[var(--text-primary)] text-[var(--bg-void)] font-mono text-sm uppercase font-bold hover:opacity-90">
+          <button
+            onClick={() => window.print()}
+            className="flex items-center gap-2 px-4 py-2 bg-[var(--text-primary)] text-[var(--bg-void)] font-mono text-sm uppercase font-bold hover:opacity-90"
+          >
             <Printer size={16} /> Print / PDF
           </button>
         </div>
@@ -138,6 +140,17 @@ const SystemManifest = () => {
             </div>
           </div>
         </header>
+
+        {/* PROFILE SUMMARY */}
+        <section className="mb-12">
+          <div className="flex items-center gap-3 mb-4">
+            <User size={18} />
+            <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">Professional Summary</h3>
+          </div>
+          <p className="text-[var(--text-secondary)] leading-relaxed text-sm md:text-base font-light">
+            {summary}
+          </p>
+        </section>
 
         {/* CONTENT GRID */}
         <div className="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-12">
