@@ -394,6 +394,6 @@ const ProjectPreview = ({ type = 'Web', expanded = false, image = null, id = nul
         </Container>
     );
 };
-};
+
 
 export default ProjectPreview;
