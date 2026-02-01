@@ -53,8 +53,16 @@ const HandCursorOverlay = () => {
         const videoElement = webcamRef.current.video;
         const camera = new Camera(videoElement, {
             onFrame: async () => {
+                // Double check ref exists and isn't cleaned up
                 if (handsRef.current) {
-                    await handsRef.current.send({ image: videoElement });
+                    try {
+                        await handsRef.current.send({ image: videoElement });
+                    } catch (err) {
+                        // Ignore BindingError during teardown
+                        if (!err.message.includes('deleted object')) {
+                            console.error("MediaPipe error:", err);
+                        }
+                    }
                 }
             },
             width: 640,
@@ -97,6 +105,7 @@ const HandCursorOverlay = () => {
         document.documentElement.classList.add('encrypted-mode');
 
         return () => {
+            handsRef.current = null;
             handsInstance.close();
             document.documentElement.classList.remove('encrypted-mode');
         };
