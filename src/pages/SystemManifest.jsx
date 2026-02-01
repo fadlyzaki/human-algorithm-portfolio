@@ -108,27 +108,37 @@ const SystemManifest = () => {
       {/* DOCUMENT SHEET (A4 Width Capable) */}
       <div className="max-w-[210mm] mx-auto bg-[var(--bg-void)] md:bg-[var(--bg-panel)] md:p-12 md:shadow-2xl md:border border-[var(--border-color)] print:border-none print:shadow-none print:p-0">
 
+
         {/* HEADER */}
-        <header className="border-b-2 border-[var(--text-primary)] pb-8 mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-mono uppercase tracking-tight mb-2">{header.name}</h1>
-            <h2 className="text-xl text-[var(--text-secondary)] font-mono">{header.role}</h2>
-            <div className="flex items-center gap-2 mt-4 text-sm font-mono text-[var(--accent-mono)]">
-              <div className="w-2 h-2 bg-current rounded-full animate-pulse"></div>
-              {header.status}
+        <header className="border-b-2 border-[var(--text-primary)] pb-6 mb-8">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-6 mb-4">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-mono uppercase tracking-tight mb-2">{header.name}</h1>
+              <h2 className="text-lg text-[var(--text-secondary)] font-mono mb-3">{header.role}</h2>
+              <div className="flex items-center gap-2 text-sm font-mono text-[var(--accent-mono)]">
+                <div className="w-2 h-2 bg-current rounded-full animate-pulse"></div>
+                {header.status}
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
+              <MapPin size={14} className="shrink-0" />
+              <span className="font-mono">{header.location}</span>
             </div>
           </div>
 
-          <div className="flex flex-col items-start md:items-end gap-2 text-sm font-mono text-[var(--text-secondary)]">
+          {/* Contact Links - Horizontal Layout */}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-mono text-[var(--text-secondary)] pt-4 border-t border-[var(--border-color)]">
             {header.links.map((link, i) => (
-              <a key={i} href={link.url} className="flex items-center gap-2 hover:text-[var(--text-primary)] group">
-                {link.label}
-                <link.icon size={14} className="group-hover:translate-x-1 transition-transform" />
+              <a
+                key={i}
+                href={link.url}
+                className="flex items-center gap-2 hover:text-[var(--text-primary)] transition-colors group"
+              >
+                <link.icon size={14} className="shrink-0 opacity-60" />
+                <span className="group-hover:underline">{link.label}</span>
               </a>
             ))}
-            <div className="flex items-center gap-2 mt-2">
-              <MapPin size={14} /> {header.location}
-            </div>
           </div>
         </header>
 
