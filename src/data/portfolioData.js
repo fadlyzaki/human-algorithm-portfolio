@@ -87,7 +87,7 @@ export const SIDE_PROJECTS = [
             approach: "A 3-week design sprint using Face Mesh. We focused less on technical perfection and more on the 'Fun Factor'—making shopping feel like social media."
         },
         stack: ["Sketch", "Principle", "AR Design"],
-        links: { demo: "#", repo: "#" },
+        links: { demo: "https://uxdesign.cc/enhancing-online-shopping-experience-fbdbd76438e8", repo: "#" },
         iconName: 'Camera',
         featured: false,
         date: "May 2018",
