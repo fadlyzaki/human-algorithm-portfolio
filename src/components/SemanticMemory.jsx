@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Database, Cpu, Sparkles, Command, Zap, FileText, Share2, AlertCircle, Activity } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -45,7 +45,6 @@ const SemanticMemory = () => {
     const [status, setStatus] = useState('idle'); // idle, searching, streaming, done
     const [response, setResponse] = useState('');
     const [activeResult, setActiveResult] = useState(null);
-    const responseRef = useRef(null);
 
     const themeStyles = {
         '--bg-panel': isDark ? '#111' : '#F9FAFB',
@@ -94,7 +93,7 @@ const SemanticMemory = () => {
             {/* HEADER */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-panel)] bg-[var(--bg-panel)] z-10 relative">
                 <div className="flex items-center gap-3">
-                    <div className={`p - 2 rounded - md transition - colors ${ status === 'searching' ? 'bg-[var(--accent-color)] text-white animate-pulse' : 'bg-[var(--border-panel)] text-[var(--text-secondary)]' } `}>
+                    <div className={`p - 2 rounded - md transition - colors ${status === 'searching' ? 'bg-[var(--accent-color)] text-white animate-pulse' : 'bg-[var(--border-panel)] text-[var(--text-secondary)]'} `}>
                         <Database size={16} />
                     </div>
                     <div>

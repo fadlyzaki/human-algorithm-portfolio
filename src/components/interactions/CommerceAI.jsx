@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 const CommerceAI = ({ color = '#00D1C7' }) => {
     const [pulses, setPulses] = useState([]);
@@ -44,7 +44,7 @@ const CommerceAI = ({ color = '#00D1C7' }) => {
     return (
         <div className="w-full h-full min-h-[400px] relative overflow-hidden bg-black/5 rounded-xl border border-white/10 backdrop-blur-sm p-8 flex flex-col items-center justify-center font-mono">
             <div className="absolute inset-0 opacity-10" style={{
-                backgroundImage: `linear-gradient(45deg, ${color} 1px, transparent 1px)`,
+                backgroundImage: `linear - gradient(45deg, ${color} 1px, transparent 1px)`,
                 backgroundSize: '30px 30px'
             }}></div>
 
@@ -55,7 +55,7 @@ const CommerceAI = ({ color = '#00D1C7' }) => {
                     const from = hubs.find(h => h.id === c.from);
                     const to = hubs.find(h => h.id === c.to);
                     return (
-                        <line key={i} x1={`${from.x}%`} y1={`${from.y}%`} x2={`${to.x}%`} y2={`${to.y}%`} stroke="white" strokeOpacity="0.1" strokeWidth="2" className="absolute top-0 left-0 w-full h-full" /> // SVG needed here really, using div approximation below
+                        <line key={i} x1={`${from.x}% `} y1={`${from.y}% `} x2={`${to.x}% `} y2={`${to.y}% `} stroke="white" strokeOpacity="0.1" strokeWidth="2" className="absolute top-0 left-0 w-full h-full" /> // SVG needed here really, using div approximation below
                     );
                 })}
 
@@ -64,7 +64,7 @@ const CommerceAI = ({ color = '#00D1C7' }) => {
                     {connections.map((c, i) => {
                         const from = hubs.find(h => h.id === c.from);
                         const to = hubs.find(h => h.id === c.to);
-                        return <line key={i} x1={`${from.x}%`} y1={`${from.y}%`} x2={`${to.x}%`} y2={`${to.y}%`} stroke={color} strokeOpacity="0.2" strokeWidth="1" />;
+                        return <line key={i} x1={`${from.x}% `} y1={`${from.y}% `} x2={`${to.x}% `} y2={`${to.y}% `} stroke={color} strokeOpacity="0.2" strokeWidth="1" />;
                     })}
 
                     {/* Pulsing Packets */}
@@ -73,8 +73,8 @@ const CommerceAI = ({ color = '#00D1C7' }) => {
                             key={p.id}
                             r="4"
                             fill={color}
-                            initial={{ cx: `${p.x1}%`, cy: `${p.y1}%` }}
-                            animate={{ cx: `${p.x2}%`, cy: `${p.y2}%` }}
+                            initial={{ cx: `${p.x1}% `, cy: `${p.y1}% ` }}
+                            animate={{ cx: `${p.x2}% `, cy: `${p.y2}% ` }}
                             transition={{ duration: 1, ease: "linear" }}
                             onAnimationComplete={() => setPulses(prev => prev.filter(item => item.id !== p.id))}
                         />
@@ -90,8 +90,8 @@ const CommerceAI = ({ color = '#00D1C7' }) => {
                             borderColor: color,
                             width: hub.size,
                             height: hub.size,
-                            left: `${hub.x}%`,
-                            top: `${hub.y}%`,
+                            left: `${hub.x}% `,
+                            top: `${hub.y}% `,
                             transform: 'translate(-50%, -50%)' // Center anchor
                         }}
                     >

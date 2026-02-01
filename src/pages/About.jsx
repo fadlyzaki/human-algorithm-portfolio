@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft, Terminal, Cpu, BookOpen, Coffee, MapPin, Headphones,
@@ -137,19 +137,25 @@ const AboutPage = () => {
   }, []);
 
   // Chaos Style Generator
-  const getChaosStyle = () => {
+  const chaosStyle = useMemo(() => {
     if (chaosStrength === 0) return {};
-    const randomX = (Math.random() - 0.5) * chaosStrength * 0.5;
-    const randomY = (Math.random() - 0.5) * chaosStrength * 0.5;
-    const skew = (Math.random() - 0.5) * chaosStrength * 0.1;
-    const blur = chaosStrength * 0.05;
+
+    // Use deterministic "randomness" based on chaosStrength to satisfy purity
+    // We add arbitrary multipliers to create pseudo-random distribution
+    const s = chaosStrength;
+    const randomX = (Math.sin(s * 12.34) - 0.5) * s * 0.5;
+    const randomY = (Math.cos(s * 56.78) - 0.5) * s * 0.5;
+    const skew = (Math.sin(s * 90.12) - 0.5) * s * 0.1;
+    const blur = s * 0.05;
 
     return {
       transform: `translate(${randomX}px, ${randomY}px) skew(${skew}deg)`,
-      filter: `blur(${blur}px) contrast(${100 + chaosStrength}%)`,
+      filter: `blur(${blur}px) contrast(${100 + s}%)`,
       transition: 'all 0.1s ease'
     };
-  };
+  }, [chaosStrength]);
+
+  const getChaosStyle = () => chaosStyle;
 
   const themeStyles = {
     '--bg-void': isDark ? '#111111' : '#F0F0F3',

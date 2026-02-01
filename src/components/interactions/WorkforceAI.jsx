@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 const WorkforceAI = ({ color = '#1AA8B4' }) => {
-    const [nodes, setNodes] = useState([]);
-    const [matches, setMatches] = useState([]);
-
-    useEffect(() => {
-        // Generate initial nodes
+    const [nodes] = useState(() => {
         const leftNodes = Array.from({ length: 5 }).map((_, i) => ({
             id: `l-${i}`,
             x: 20,
@@ -19,10 +15,21 @@ const WorkforceAI = ({ color = '#1AA8B4' }) => {
             y: 30 + i * 12,
             type: 'job'
         }));
-        setNodes([...leftNodes, ...rightNodes]);
+        return [...leftNodes, ...rightNodes];
+    });
 
+    const [matches, setMatches] = useState([]);
+
+    useEffect(() => {
         // Simulate matching process loop
         const interval = setInterval(() => {
+            // Need to filter nodes from state to be safe, or just re-generate since static logic
+            const currentNodes = nodes;
+            const leftNodes = currentNodes.filter(n => n.type === 'candidate');
+            const rightNodes = currentNodes.filter(n => n.type === 'job');
+
+            if (leftNodes.length === 0 || rightNodes.length === 0) return;
+
             const matchId = Date.now();
             const startNode = leftNodes[Math.floor(Math.random() * leftNodes.length)];
             const endNode = rightNodes[Math.floor(Math.random() * rightNodes.length)];
@@ -40,7 +47,7 @@ const WorkforceAI = ({ color = '#1AA8B4' }) => {
         }, 2000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [nodes]);
 
     return (
         <div className="w-full h-full min-h-[400px] relative overflow-hidden bg-black/5 rounded-xl border border-white/10 backdrop-blur-sm p-8 flex items-center justify-center font-mono">

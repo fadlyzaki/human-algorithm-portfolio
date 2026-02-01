@@ -106,8 +106,9 @@ const DraggablePhoto = () => {
               <div className="h-12 bg-white dark:bg-[#222] border-t border-black/5 dark:border-white/5 flex items-center justify-between px-4 relative overflow-hidden">
                 {/* Barcode Strip */}
                 <div className="flex items-center gap-[2px] h-6 opacity-40 mix-blend-multiply dark:mix-blend-screen w-full">
+                  {/* Pseudo-random barcode using index for determinism */}
                   {[...Array(24)].map((_, i) => (
-                    <div key={i} className="bg-black dark:bg-white" style={{ width: Math.random() > 0.5 ? '2px' : '4px', height: '100%' }}></div>
+                    <div key={i} className="bg-black dark:bg-white" style={{ width: (i * 13) % 7 > 3 ? '2px' : '4px', height: '100%' }}></div>
                   ))}
                 </div>
 

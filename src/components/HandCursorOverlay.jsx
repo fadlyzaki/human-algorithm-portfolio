@@ -6,75 +6,11 @@ import { useHandCursor } from '../context/HandCursorContext';
 
 const HandCursorOverlay = () => {
     const webcamRef = useRef(null);
-    const canvasRef = useRef(null);
     const { isGestureMode, setCursorPosition, cursorPosition, setIsGestureMode } = useHandCursor();
-    const [cameraError, setCameraError] = useState(false);
+    const [videoReady, setVideoReady] = useState(false);
 
     // Smoothing State
     const lastCursorPos = useRef({ x: 0, y: 0 });
-
-    // --- KEYBOARD SHORTCUT (ESC) ---
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (isGestureMode && e.key === 'Escape') {
-                setIsGestureMode(false);
-            }
-        };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [isGestureMode, setIsGestureMode]);
-
-    useEffect(() => {
-        if (!isGestureMode) {
-            // Reset cursor to center or hide when mode is off
-            document.documentElement.style.setProperty('--cursor-x', '-1000px');
-            document.documentElement.style.setProperty('--cursor-y', '-1000px');
-            return;
-        }
-
-        const HANDS_VERSION = '0.4.1675469240';
-        const handsInstance = new Hands({
-            locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands@${HANDS_VERSION}/${file}`,
-        });
-        handsInstance.setOptions({
-            maxNumHands: 1,
-            modelComplexity: 0,
-            minDetectionConfidence: 0.5,
-            minTrackingConfidence: 0.5,
-        });
-        handsInstance.onResults(onResults);
-
-        // Store handsInstance in a ref so we can access it in onUserMedia
-        handsRef.current = handsInstance;
-
-        // Initialize "Encrypted" state
-        document.documentElement.classList.add('encrypted-mode');
-
-        return () => {
-            if (cameraRef.current) cameraRef.current.stop();
-            handsInstance.close();
-            document.documentElement.classList.remove('encrypted-mode');
-        };
-    }, [isGestureMode]);
-
-    const handsRef = useRef(null);
-    const cameraRef = useRef(null);
-
-    const handleVideoReady = () => {
-        if (webcamRef.current && webcamRef.current.video && handsRef.current) {
-            console.log("Webcam ready, starting MediaPipe Camera...");
-            cameraRef.current = new Camera(webcamRef.current.video, {
-                onFrame: async () => {
-                    if (webcamRef.current && webcamRef.current.video) {
-                        await handsRef.current.send({ image: webcamRef.current.video });
-                    }
-                },
-                width: 640,
-                height: 480,
-            });
-            cameraRef.current.start();
-        }
-    };
 
     const onResults = (results) => {
         if (!results.multiHandLandmarks || results.multiHandLandmarks.length === 0) return;
@@ -98,6 +34,83 @@ const HandCursorOverlay = () => {
         document.documentElement.style.setProperty('--cursor-x', `${smoothX}px`);
         document.documentElement.style.setProperty('--cursor-y', `${smoothY}px`);
     };
+
+    // --- KEYBOARD SHORTCUT (ESC) ---
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (isGestureMode && e.key === 'Escape') {
+                setIsGestureMode(false);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isGestureMode, setIsGestureMode]);
+
+    // Initialize Camera when video is ready
+    useEffect(() => {
+        if (!isGestureMode || !videoReady || !webcamRef.current?.video) return;
+
+        const videoElement = webcamRef.current.video;
+        const camera = new Camera(videoElement, {
+            onFrame: async () => {
+                if (handsRef.current) {
+                    await handsRef.current.send({ image: videoElement });
+                }
+            },
+            width: 640,
+            height: 480,
+        });
+
+        camera.start();
+        cameraRef.current = camera;
+
+        return () => {
+            camera.stop();
+        };
+    }, [isGestureMode, videoReady]);
+
+    useEffect(() => {
+        if (!isGestureMode) {
+            // Reset cursor to center or hide when mode is off
+            document.documentElement.style.setProperty('--cursor-x', '-1000px');
+            document.documentElement.style.setProperty('--cursor-y', '-1000px');
+            return;
+        }
+
+        const HANDS_VERSION = '0.4.1675469240';
+        const handsInstance = new Hands({
+            locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands@${HANDS_VERSION}/${file}`,
+        });
+        handsInstance.setOptions({
+            maxNumHands: 1,
+            modelComplexity: 0,
+            minDetectionConfidence: 0.5,
+            minTrackingConfidence: 0.5,
+        });
+
+        // Define onResults locally or use ref if circular dependency
+        // We can pass the function we defined earlier
+        handsInstance.onResults(onResults);
+
+        // eslint-disable-next-line react-hooks/immutability
+        handsRef.current = handsInstance;
+        document.documentElement.classList.add('encrypted-mode');
+
+        return () => {
+            handsInstance.close();
+            document.documentElement.classList.remove('encrypted-mode');
+        };
+    }, [isGestureMode]);
+
+    const handsRef = useRef(null);
+    const cameraRef = useRef(null);
+    // Unused refs removed (canvasRef)
+
+    const handleVideoReady = () => {
+        setVideoReady(true);
+    };
+
+
 
     if (!isGestureMode) return null;
 
@@ -150,7 +163,6 @@ const HandCursorOverlay = () => {
                         videoConstraints={{ facingMode: "user" }}
                         className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale"
                         onUserMedia={handleVideoReady}
-                        onUserMediaError={() => setCameraError(true)}
                     />
                     {/* Grid Overlay */}
                     <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(16,185,129,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.1) 1px, transparent 1px)', backgroundSize: '10px 10px' }}></div>

@@ -1,22 +1,22 @@
 import React from 'react';
 import { Smartphone, Monitor, Terminal, Activity, BarChart2, MessageSquare } from 'lucide-react';
 
+// ABSTRACT UI COMPONENTS
+const WindowControls = () => (
+    <div className="flex gap-1.5 mb-2 opacity-50">
+        <div className="w-2 h-2 rounded-full bg-red-400"></div>
+        <div className="w-2 h-2 rounded-full bg-amber-400"></div>
+        <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
+    </div>
+);
+
+const SkeletonLine = ({ width = "100%", opacity = 0.2 }) => (
+    <div className="h-1.5 bg-current rounded-full" style={{ width, opacity }}></div>
+);
+
 const ProjectPreview = ({ type = 'Web' }) => {
     const isMobile = type.toLowerCase().includes('mobile') || type.toLowerCase().includes('app');
     const isDashboard = type.toLowerCase().includes('dashboard') || type.toLowerCase().includes('platform');
-
-    // ABSTRACT UI COMPONENTS
-    const WindowControls = () => (
-        <div className="flex gap-1.5 mb-2 opacity-50">
-            <div className="w-2 h-2 rounded-full bg-red-400"></div>
-            <div className="w-2 h-2 rounded-full bg-amber-400"></div>
-            <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
-        </div>
-    );
-
-    const SkeletonLine = ({ width = "100%", opacity = 0.2 }) => (
-        <div className="h-1.5 bg-current rounded-full" style={{ width, opacity }}></div>
-    );
 
     // 1. MOBILE MOCKUP (Chat / List Interface)
     if (isMobile) {

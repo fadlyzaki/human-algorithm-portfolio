@@ -3,16 +3,16 @@ import { Activity, Cpu, Database, Server, Wifi } from 'lucide-react';
 
 const SystemMonitor = ({ skills }) => {
     // Simulate "live" resource usage
-    const [metrics, setMetrics] = useState({});
-
-    useEffect(() => {
-        // Initialize random values
+    const [metrics, setMetrics] = useState(() => {
+        // Initialize random values lazily
         const initial = {};
         skills.forEach(skill => {
             initial[skill.name] = Math.floor(Math.random() * 30) + 60; // 60-90%
         });
-        setMetrics(initial);
+        return initial;
+    });
 
+    useEffect(() => {
         // Update interval
         const interval = setInterval(() => {
             setMetrics(prev => {
@@ -27,7 +27,7 @@ const SystemMonitor = ({ skills }) => {
         }, 2000);
 
         return () => clearInterval(interval);
-    }, [skills]);
+    }, []); // Removed 'skills' dependency as it's only used for initial state
 
     return (
         <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg p-6 font-mono text-xs shadow-xl backdrop-blur-sm">
