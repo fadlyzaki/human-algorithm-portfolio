@@ -239,7 +239,7 @@ const Portfolio = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const homeSideProjects = SIDE_PROJECTS.filter(p => p.featured);
+  const homeSideProjects = SIDE_PROJECTS.filter(p => !p.hidden).slice(0, 2);
 
   const themeStyles = {
     '--bg-void': isDark ? '#0a0a0a' : '#FFFFFF',
