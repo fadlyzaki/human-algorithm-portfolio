@@ -257,7 +257,7 @@ const ProtectedCaseStudy = () => {
       <main className="relative z-10 w-full pb-32">
 
         {/* 1. HERO: FULL BLEED HOOK */}
-        <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-6 text-center pt-24">
+        <section className="flex flex-col items-center relative overflow-hidden px-6 text-center pt-32 pb-20">
           {/* Cinematic Title */}
           <div className="mb-4">
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--brand)] border-b border-[var(--brand)] pb-2 inline-block">
