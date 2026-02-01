@@ -5,8 +5,6 @@ import { User } from 'lucide-react';
 const DraggablePhoto = () => {
   const [index, setIndex] = useState(0);
 
-  // Using placeholders for now - in a real scenario these would be actual image URLs
-  // For the first item, we keep the original "Identity Anchor" style
   const items = [
     { type: 'identity', src: '/hero-fadly.jpg' },
     { type: 'image', src: 'https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=2071&auto=format&fit=crop', alt: 'Coding Setup' },
@@ -32,7 +30,7 @@ const DraggablePhoto = () => {
       animate={{ rotate: 0 }}
       whileDrag={{ scale: 1.05, rotate: 0, zIndex: 10 }}
       onClick={handleNext}
-      className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4] mb-6"
+      className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4.2] mb-6 select-none"
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -41,87 +39,107 @@ const DraggablePhoto = () => {
           animate={{ opacity: 1, rotateY: 0 }}
           exit={{ opacity: 0, rotateY: -90 }}
           transition={{ duration: 0.4, ease: "circOut" }}
-          className="w-full h-full shadow-2xl"
+          className="w-full h-full shadow-2xl rounded-xl"
         >
           {currentItem.type === 'identity' ? (
-            <div className="w-full h-full bg-[#E5E5E5] dark:bg-[#1A1A1A] border border-black/10 dark:border-white/10 relative group overflow-hidden select-none rounded-[16px] flex flex-col shadow-2xl">
+            <div className="w-full h-full bg-[#f0f0f4] dark:bg-[#1a1a1c] border-[1px] border-white/20 relative group overflow-hidden rounded-xl flex flex-col shadow-xl">
 
-              {/* Lanyard Slot */}
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-2 bg-black/80 dark:bg-white/20 rounded-full shadow-inner z-20"></div>
-
-              {/* Card Header */}
-              <div className="pt-10 pb-4 px-6 text-center border-b border-black/5 dark:border-white/5 bg-white dark:bg-[#222]">
-                <h3 className="font-mono text-[10px] tracking-[0.2em] font-bold text-[var(--accent)] uppercase">Human Algorithm</h3>
-                <p className="text-[8px] font-mono text-gray-400 mt-1 uppercase">Access Pass v2.0</p>
+              {/* --- 1. PHYSICAL ACCENTS --- */}
+              {/* Punch Hole */}
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-[#222] rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)] z-30 flex items-center justify-center">
+                <div className="w-6 h-0.5 bg-black/50 rounded-full"></div>
               </div>
 
-              {/* Photo Area */}
-              <div className="p-6 pb-2 flex-grow flex flex-col items-center justify-center">
-                <div className="w-32 h-40 bg-gray-200 relative mb-4 overflow-hidden rounded-sm border-2 border-white dark:border-gray-700 shadow-sm">
-                  <img
-                    src={currentItem.src}
-                    alt="Fadly Uzzaki"
-                    className="w-full h-full object-cover grayscale contrast-125"
-                  />
-                  {/* Holographic sheen */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
-                </div>
+              {/* Holographic Sheen Layer */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-duration-700 pointer-events-none z-20 mix-blend-overlay bg-no-repeat" style={{ backgroundSize: '200% 200%' }}></div>
 
-                <h2 className="font-serif italic text-2xl text-[var(--text-primary)]">Fadly Uzzaki</h2>
-                <p className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mt-1">Product Designer</p>
+              {/* Noise Texture */}
+              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-color-burn z-10"></div>
+
+              {/* --- 2. HEADER --- */}
+              <div className="h-24 bg-[#0a0a0a] relative flex items-center justify-between px-4 pt-4 border-b-2 border-[var(--accent)]">
+                <div className="flex flex-col">
+                  <span className="text-[var(--accent)] font-mono text-[10px] font-bold tracking-[0.2em]">ACCESS_LEVEL_4</span>
+                  <span className="text-white font-sans text-xs font-bold tracking-wide mt-1">HUMAN ALGORITHM</span>
+                </div>
+                <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
+                  <User size={14} className="text-white/60" />
+                </div>
               </div>
 
-              {/* Footer / Barcode */}
-              <div className="p-4 bg-white dark:bg-[#222] border-t border-black/5 dark:border-white/5 flex justify-between items-end relative">
-                <div className="space-y-1">
-                  <div className="text-[8px] font-mono text-gray-400">ID: 8829-2025</div>
-                  <div className="text-[8px] font-mono text-gray-400">LOC: JAKARTA, ID</div>
+              {/* --- 3. CORE CONTENT --- */}
+              <div className="flex-grow p-4 bg-[#f0f0f4] dark:bg-[#1C1C1E] relative">
+                {/* Smart Chip */}
+                <div className="absolute top-4 right-4 w-10 h-8 bg-gradient-to-br from-yellow-200 to-yellow-600 rounded-md border border-yellow-700 shadow-sm flex flex-wrap gap-[1px] content-center justify-center p-[2px] opacity-90">
+                  <div className="w-2.5 h-3 border border-yellow-800/20 rounded-tl-sm"></div>
+                  <div className="w-2.5 h-3 border border-yellow-800/20 rounded-tr-sm"></div>
+                  <div className="w-2.5 h-3 border border-yellow-800/20 rounded-bl-sm"></div>
+                  <div className="w-2.5 h-3 border border-yellow-800/20 rounded-br-sm"></div>
                 </div>
-                {/* Fake Barcode */}
-                <div className="flex items-end gap-[2px] h-6 opacity-60">
-                  {[...Array(12)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="bg-[var(--text-primary)]"
-                      style={{
-                        width: Math.random() > 0.5 ? '2px' : '4px',
-                        height: `${40 + Math.random() * 60}%`
-                      }}
-                    ></div>
+
+                {/* Photo */}
+                <div className="w-28 h-36 bg-gray-300 border border-black/10 shadow-inner mb-4 relative overflow-hidden grayscale contrast-125 brightness-110">
+                  <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover" />
+                </div>
+
+                {/* Data Fields */}
+                <div className="space-y-3">
+                  <div className="flex flex-col">
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white leading-none uppercase tracking-tight">UZZAKI, FADLY</h2>
+                    <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mt-1">Product Designer // SysOp</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4 mt-2">
+                    <div>
+                      <label className="text-[8px] font-mono text-gray-400 uppercase block">ID_NO</label>
+                      <span className="text-xs font-mono font-medium text-gray-800 dark:text-gray-200">8829-2025</span>
+                    </div>
+                    <div>
+                      <label className="text-[8px] font-mono text-gray-400 uppercase block">EXP</label>
+                      <span className="text-xs font-mono font-medium text-gray-800 dark:text-gray-200">INDEFINITE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* --- 4. FOOTER --- */}
+              <div className="h-12 bg-white dark:bg-[#222] border-t border-black/5 dark:border-white/5 flex items-center justify-between px-4 relative overflow-hidden">
+                {/* Barcode Strip */}
+                <div className="flex items-center gap-[2px] h-6 opacity-40 mix-blend-multiply dark:mix-blend-screen w-full">
+                  {[...Array(24)].map((_, i) => (
+                    <div key={i} className="bg-black dark:bg-white" style={{ width: Math.random() > 0.5 ? '2px' : '4px', height: '100%' }}></div>
                   ))}
                 </div>
 
-                {/* Click Hint */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                  <span className="bg-[var(--accent)] text-white text-[8px] font-mono px-2 py-1 rounded shadow-xl">
-                    TAP_TO_SWAP
-                  </span>
-                </div>
+                <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white dark:from-[#222] to-transparent"></div>
               </div>
 
-              {/* Texture Overlay */}
-              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none mix-blend-overlay"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-black/10 pointer-events-none"></div>
+              {/* TAP HINT */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/10 backdrop-blur-[1px] z-50 pointer-events-none">
+                <span className="bg-black/80 text-white text-[9px] font-mono px-3 py-1.5 rounded-full uppercase tracking-widest border border-white/20">
+                  Tap to Flip
+                </span>
+              </div>
 
             </div>
           ) : (
-            <div className="w-full h-full border border-[var(--border-color)] overflow-hidden relative select-none rounded-lg">
+            /* Generic Card Back / Alt Image */
+            <div className="w-full h-full border border-[var(--border-color)] overflow-hidden relative select-none rounded-xl bg-black">
               <img
                 src={currentItem.src}
                 alt={currentItem.alt}
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 pointer-events-none"
+                className="w-full h-full object-cover opacity-80"
               />
-              <div className="absolute inset-0 ring-1 ring-inset ring-[var(--border-color)]"></div>
-              <div className="absolute bottom-4 left-4 font-mono text-xs text-white bg-black/50 backdrop-blur-sm px-2 py-1">
-                {currentItem.alt}
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10"></div>
+              <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
+                <div className="bg-black/60 backdrop-blur-md px-2 py-1 text-[9px] font-mono text-white uppercase border border-white/10 pt-1.5">
+                  REF_IMG_{index}
+                </div>
               </div>
             </div>
           )}
         </motion.div>
       </AnimatePresence>
-
-      {/* Glow effect */}
-      <div className="absolute -inset-4 bg-gradient-to-tr from-[var(--accent-blue)]/20 to-[var(--accent-amber)]/20 -z-10 blur-2xl opacity-40 rounded-full group-hover:opacity-60 transition-opacity"></div>
     </motion.div>
   );
 };
