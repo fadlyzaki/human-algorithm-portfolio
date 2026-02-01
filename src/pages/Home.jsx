@@ -98,7 +98,7 @@ const WorkClusterCard = ({ cluster }) => {
             </div>
           ) : (
             <div className="w-24 h-24 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)]">
-              <ProjectPreview type={cluster.subtitle || 'System'} expanded={true} />
+              <ProjectPreview type={cluster.subtitle || 'System'} expanded={true} id={cluster.id} />
             </div>
           )}
         </div>

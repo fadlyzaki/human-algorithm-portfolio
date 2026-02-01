@@ -31,7 +31,7 @@ const DotGrid = () => (
     </div>
 );
 
-const ProjectPreview = ({ type = 'Web', expanded = false, image = null }) => {
+const ProjectPreview = ({ type = 'Web', expanded = false, image = null, id = null }) => {
     const t = type.toLowerCase();
 
     // THE CONTAINER (White Diagram Sheet)
@@ -72,104 +72,12 @@ const ProjectPreview = ({ type = 'Web', expanded = false, image = null }) => {
         );
     }
 
-    // 1. FLEET / LOGISTICS (Project Kinship) - EXPLICIT STYLE FROM ATTACHMENT
-    if (t.includes('fleet') || t.includes('logistics') || t.includes('kinship') || t.includes('service')) {
-        return (
-            <Container figIndex="1.2" schematicType="SOCIAL_LOGISTICS_PATH">
-                <div className="w-full h-full p-12">
-                    <svg className="w-full h-full" viewBox="0 0 100 60">
-                        {/* Dashed Path (Exact style from attachment) */}
-                        <path
-                            d="M20,40 C35,40 45,20 60,25 C75,30 85,15 90,10"
-                            fill="none"
-                            stroke="var(--brand)"
-                            strokeWidth="3"
-                            strokeDasharray="6 8"
-                            strokeLinecap="round"
-                            className="opacity-20"
-                        />
-                        <circle cx="20" cy="40" r="4" className="fill-[var(--brand)] opacity-20" />
-                        <circle cx="90" cy="10" r="4" className="fill-[var(--brand)]" />
-                    </svg>
-                    {/* Floating Detail Card (Exact style from attachment) */}
-                    <div className="absolute bottom-10 right-10 w-48 bg-white border border-slate-100 rounded-lg p-4 shadow-[0_10px_40px_rgba(0,0,0,0.06)] flex flex-col gap-2.5">
-                        <div className="flex items-center gap-2">
-                            <Heart size={10} className="text-orange-500" />
-                            <span className="font-mono text-[8px] uppercase tracking-widest text-orange-500 font-bold">EMOTIONAL LINK</span>
-                        </div>
-                        <div className="h-px w-full bg-slate-200"></div>
-                        <div className="flex items-center justify-between">
-                            <div className="w-12 h-1 bg-slate-100 rounded-full"></div>
-                            <div className="w-3 h-3 rounded-full border-2 border-slate-200"></div>
-                        </div>
-                    </div>
-                </div>
-            </Container>
-        );
-    }
+    // --------------------------------------------------------------------------
+    // UNIQUE DIAGRAMS PER PROJECT ID
+    // --------------------------------------------------------------------------
 
-    // 2. MANAGEMENT / ATS / PIPELINE
-    if (t.includes('management') || t.includes('ats') || t.includes('pipeline')) {
-        return (
-            <Container figIndex="1.4" schematicType="RECRUITMENT_WORKFLOW_V2">
-                <div className="w-full h-full p-12 flex flex-col">
-                    <div className="flex justify-between items-center mb-10">
-                        {[1, 2, 3, 4].map(i => (
-                            <React.Fragment key={i}>
-                                <div className={`w-8 h-8 rounded-full border-2 ${i === 1 ? 'border-[var(--brand)] bg-[var(--brand)]/5' : 'border-slate-100 bg-white'} flex items-center justify-center`}>
-                                    <Users size={12} className={i === 1 ? 'text-[var(--brand)]' : 'text-slate-300'} />
-                                </div>
-                                {i < 4 && <div className="flex-1 h-px bg-slate-100 mx-2 border-t-2 border-dashed border-slate-100"></div>}
-                            </React.Fragment>
-                        ))}
-                    </div>
-                    <div className="flex-1 flex gap-4 pr-12">
-                        <div className="w-full h-24 bg-white border border-slate-100 rounded-xl shadow-sm p-4 flex flex-col gap-3">
-                            <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded bg-slate-50 border border-slate-100"></div>
-                                <div className="flex-1 flex flex-col gap-1.5">
-                                    <SkeletonLine width="70%" opacity={0.1} />
-                                    <SkeletonLine width="40%" opacity={0.05} />
-                                </div>
-                            </div>
-                            <div className="mt-auto flex justify-end">
-                                <div className="h-5 w-16 bg-[var(--brand)]/10 rounded-full"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Container>
-        );
-    }
-
-    // 3. MESSAGING / CHAT
-    if (t.includes('message') || t.includes('chat') || t.includes('apply')) {
-        return (
-            <Container figIndex="3.2" schematicType="CONVERSATIONAL_UI_FLOW">
-                <div className="w-full h-full p-12 flex flex-col gap-6">
-                    <div className="self-start w-2/3 p-4 bg-slate-50 border border-slate-100 rounded-2xl rounded-tl-sm flex flex-col gap-2">
-                        <SkeletonLine width="90%" opacity={0.1} />
-                        <SkeletonLine width="60%" opacity={0.05} />
-                    </div>
-                    <div className="self-end w-3/4 p-4 bg-[var(--brand)]/5 border border-[var(--brand)]/10 rounded-2xl rounded-tr-sm flex flex-col gap-2 shadow-sm">
-                        <div className="flex items-center gap-2 mb-1">
-                            <div className="w-4 h-4 rounded-full bg-[var(--brand)] opacity-20"></div>
-                            <div className="w-12 h-1 bg-[var(--brand)] opacity-20 rounded-full"></div>
-                        </div>
-                        <SkeletonLine width="100%" opacity={0.1} />
-                    </div>
-                    <div className="self-center mt-4">
-                        <div className="px-6 py-2 rounded-full bg-[var(--brand)] text-white text-[9px] font-mono tracking-widest shadow-lg shadow-[var(--brand)]/20 animate-pulse">
-                            REPLY_AUTO_DRAFTED
-                        </div>
-                    </div>
-                </div>
-            </Container>
-        );
-    }
-
-    // 4. EDUCATION (Interactive Workbook)
-    if (t.includes('education') || t.includes('learning')) {
+    // 1. INTERACTIVE WORKBOOK (Education)
+    if (id === 'interactive-workbook') {
         return (
             <Container figIndex="4.0" schematicType="PEDAGOGICAL_STRUCTURE">
                 <div className="w-full h-full p-10 grid grid-cols-2 gap-4">
@@ -187,8 +95,35 @@ const ProjectPreview = ({ type = 'Web', expanded = false, image = null }) => {
         );
     }
 
-    // 5. FINTECH (Price Lock)
-    if (t.includes('fintech') || t.includes('lock')) {
+    // 2. YEAR IN REVIEW (DataViz)
+    if (id === 'year-in-review') {
+        return (
+            <Container figIndex="6.2" schematicType="QUARTAL_PERFORMANCE_METRICS">
+                <div className="w-full h-full p-12 flex flex-col">
+                    <div className="flex-1 flex items-end gap-3 px-4">
+                        {[40, 70, 45, 90, 60, 80, 50, 65].map((h, i) => (
+                            <div key={i} className="flex-1 flex flex-col items-center gap-2">
+                                <div className="w-full bg-slate-50 rounded-t-lg group-hover:bg-[var(--brand)]/10 transition-colors relative overflow-hidden"
+                                    style={{ height: `${h}%` }}>
+                                    <div className="absolute inset-x-0 top-0 h-1 bg-[var(--brand)]/40"></div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="mt-6 pt-6 border-t border-slate-100 flex justify-between items-center">
+                        <TrendingUp size={16} className="text-[var(--brand)] opacity-40" />
+                        <div className="flex gap-2">
+                            <SkeletonLine width="40px" opacity={0.1} />
+                            <SkeletonLine width="20px" opacity={0.05} />
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 3. PRICE LOCK (Fintech)
+    if (id === 'price-lock') {
         return (
             <Container figIndex="5.5" schematicType="FINANCIAL_ESCROW_WRAPPER">
                 <div className="w-full h-full p-12 flex items-center justify-center">
@@ -217,26 +152,35 @@ const ProjectPreview = ({ type = 'Web', expanded = false, image = null }) => {
         );
     }
 
-    // 6. DATAVIZ / ANALYTICS
-    if (t.includes('dataviz') || t.includes('review') || t.includes('data') || t.includes('analytics')) {
+    // 4. PROJECT KINSHIP / STOQO LOGISTICS (Logistics)
+    if (id === 'project-kinship' || id === 'stoqo-logistics') {
         return (
-            <Container figIndex="6.2" schematicType="QUARTAL_PERFORMANCE_METRICS">
-                <div className="w-full h-full p-12 flex flex-col">
-                    <div className="flex-1 flex items-end gap-3 px-4">
-                        {[40, 70, 45, 90, 60, 80, 50, 65].map((h, i) => (
-                            <div key={i} className="flex-1 flex flex-col items-center gap-2">
-                                <div className="w-full bg-slate-50 rounded-t-lg group-hover:bg-[var(--brand)]/10 transition-colors relative overflow-hidden"
-                                    style={{ height: `${h}%` }}>
-                                    <div className="absolute inset-x-0 top-0 h-1 bg-[var(--brand)]/40"></div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="mt-6 pt-6 border-t border-slate-100 flex justify-between items-center">
-                        <TrendingUp size={16} className="text-[var(--brand)] opacity-40" />
-                        <div className="flex gap-2">
-                            <SkeletonLine width="40px" opacity={0.1} />
-                            <SkeletonLine width="20px" opacity={0.05} />
+            <Container figIndex="1.2" schematicType="SOCIAL_LOGISTICS_PATH">
+                <div className="w-full h-full p-12">
+                    <svg className="w-full h-full" viewBox="0 0 100 60">
+                        {/* Dashed Path */}
+                        <path
+                            d="M20,40 C35,40 45,20 60,25 C75,30 85,15 90,10"
+                            fill="none"
+                            stroke="var(--brand)"
+                            strokeWidth="3"
+                            strokeDasharray="6 8"
+                            strokeLinecap="round"
+                            className="opacity-20"
+                        />
+                        <circle cx="20" cy="40" r="4" className="fill-[var(--brand)] opacity-20" />
+                        <circle cx="90" cy="10" r="4" className="fill-[var(--brand)]" />
+                    </svg>
+                    {/* Floating Detail Card */}
+                    <div className="absolute bottom-10 right-10 w-48 bg-white border border-slate-100 rounded-lg p-4 shadow-[0_10px_40px_rgba(0,0,0,0.06)] flex flex-col gap-2.5">
+                        <div className="flex items-center gap-2">
+                            <Truck size={10} className="text-orange-500" />
+                            <span className="font-mono text-[8px] uppercase tracking-widest text-orange-500 font-bold">LAST_MILE_NODE</span>
+                        </div>
+                        <div className="h-px w-full bg-slate-200"></div>
+                        <div className="flex items-center justify-between">
+                            <div className="w-12 h-1 bg-slate-100 rounded-full"></div>
+                            <div className="w-3 h-3 rounded-full border-2 border-slate-200"></div>
                         </div>
                     </div>
                 </div>
@@ -244,8 +188,8 @@ const ProjectPreview = ({ type = 'Web', expanded = false, image = null }) => {
         );
     }
 
-    // 7. AR / CAMERA
-    if (t.includes('ar') || t.includes('camera') || t.includes('filter')) {
+    // 5. FILTER ME (AR)
+    if (id === 'filter-me') {
         return (
             <Container figIndex="7.1" schematicType="COMPUTER_VISION_NODE_MESH">
                 <div className="w-full h-full flex items-center justify-center p-12">
@@ -274,7 +218,169 @@ const ProjectPreview = ({ type = 'Web', expanded = false, image = null }) => {
         );
     }
 
-    // DEFAULT DIAGRAM
+    // 6. WORKFORCE CHAT / DIRECT APPLY (Messaging)
+    if (id === 'workforce-chat' || id === 'direct-apply') {
+        return (
+            <Container figIndex="3.2" schematicType="CONVERSATIONAL_UI_FLOW">
+                <div className="w-full h-full p-12 flex flex-col gap-6">
+                    <div className="self-start w-2/3 p-4 bg-slate-50 border border-slate-100 rounded-2xl rounded-tl-sm flex flex-col gap-2">
+                        <SkeletonLine width="90%" opacity={0.1} />
+                        <SkeletonLine width="60%" opacity={0.05} />
+                    </div>
+                    <div className="self-end w-3/4 p-4 bg-[var(--brand)]/5 border border-[var(--brand)]/10 rounded-2xl rounded-tr-sm flex flex-col gap-2 shadow-sm">
+                        <div className="flex items-center gap-2 mb-1">
+                            <div className="w-4 h-4 rounded-full bg-[var(--brand)] opacity-20"></div>
+                            <div className="w-12 h-1 bg-[var(--brand)] opacity-20 rounded-full"></div>
+                        </div>
+                        <SkeletonLine width="100%" opacity={0.1} />
+                    </div>
+                    <div className="self-center mt-4">
+                        <div className="px-6 py-2 rounded-full bg-[var(--brand)] text-white text-[9px] font-mono tracking-widest shadow-lg shadow-[var(--brand)]/20 animate-pulse">
+                            {id === 'direct-apply' ? 'INSTANT_APPLY_SENT' : 'REPLY_AUTO_DRAFTED'}
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 7. ATS DASHBOARD (Kanban)
+    if (id === 'ats-dashboard') {
+        return (
+            <Container figIndex="1.4" schematicType="RECRUITMENT_PIPELINE">
+                <div className="w-full h-full p-12 flex flex-col">
+                    <div className="flex justify-between items-center mb-10">
+                        {[1, 2, 3, 4].map(i => (
+                            <React.Fragment key={i}>
+                                <div className={`w-8 h-8 rounded-full border-2 ${i === 1 ? 'border-[var(--brand)] bg-[var(--brand)]/5' : 'border-slate-100 bg-white'} flex items-center justify-center`}>
+                                    <Users size={12} className={i === 1 ? 'text-[var(--brand)]' : 'text-slate-300'} />
+                                </div>
+                                {i < 4 && <div className="flex-1 h-px bg-slate-100 mx-2 border-t-2 border-dashed border-slate-100"></div>}
+                            </React.Fragment>
+                        ))}
+                    </div>
+                    <div className="flex-1 flex gap-4 pr-12">
+                        <div className="w-full h-24 bg-white border border-slate-100 rounded-xl shadow-sm p-4 flex flex-col gap-3">
+                            <div className="mt-auto flex justify-end">
+                                <div className="h-5 w-16 bg-[var(--brand)]/10 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 8. APP NAVIGATION (Sitemap)
+    if (id === 'app-navigation') {
+        return (
+            <Container figIndex="8.8" schematicType="INFORMATION_ARCHITECTURE">
+                <div className="w-full h-full p-12 flex flex-col items-center justify-center">
+                    <div className="flex flex-col items-center gap-6">
+                        <div className="w-24 h-12 border border-[var(--brand)] bg-[var(--brand)]/5 rounded-lg flex items-center justify-center">
+                            <div className="w-8 h-1 bg-[var(--brand)]/20 rounded-full"></div>
+                        </div>
+                        <div className="w-px h-8 bg-slate-200"></div>
+                        <div className="flex gap-4">
+                            {[1, 2, 3].map(i => (
+                                <div key={i} className="flex flex-col items-center gap-4">
+                                    <div className="w-px h-4 bg-slate-200"></div>
+                                    <div className="w-16 h-10 border border-slate-100 bg-white rounded-lg"></div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 9. MARKETPLACE CHECKOUT (Cart)
+    if (id === 'marketplace-checkout') {
+        return (
+            <Container figIndex="8.0" schematicType="TRANSACTIONAL_GRID">
+                <div className="w-full h-full p-10 flex flex-col gap-3">
+                    <div className="flex-1 grid grid-cols-3 gap-2">
+                        {[1, 2, 3, 4, 5, 6].map(i => (
+                            <div key={i} className={`rounded border ${i === 2 ? 'border-[var(--brand)] bg-[var(--brand)]/5' : 'border-slate-100 bg-white'} relative overflow-hidden group/item`}>
+                                <div className="absolute inset-x-2 top-2 bottom-6 bg-slate-50 rounded-sm"></div>
+                                {i === 2 && <div className="absolute top-1 right-1 w-2 h-2 bg-[var(--brand)] rounded-full shadow-sm"></div>}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 10. OFFICIAL STORE (Storefront)
+    if (id === 'brand-official-store') {
+        return (
+            <Container figIndex="9.9" schematicType="BRAND_MICROSERVICE">
+                <div className="w-full h-full p-12 flex flex-col gap-4">
+                    <div className="w-full h-24 border border-[var(--brand)]/30 rounded-lg relative overflow-hidden bg-[var(--brand)]/5">
+                        <div className="absolute inset-0 grid grid-cols-12 gap-1 p-1 opacity-20">
+                            {[...Array(36)].map((_, i) => <div key={i} className="bg-[var(--brand)]"></div>)}
+                        </div>
+                        <div className="absolute bottom-4 left-4 flex gap-2">
+                            <div className="w-8 h-8 bg-white rounded border border-[var(--brand)]/20"></div>
+                            <div className="flex flex-col justify-center gap-1">
+                                <div className="w-16 h-2 bg-[var(--brand)]/20 rounded"></div>
+                                <div className="w-8 h-1 bg-[var(--brand)]/10 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 11. PROMO ENGINE (Logic Gate)
+    if (id === 'promo-engine') {
+        return (
+            <Container figIndex="10.4" schematicType="LOGIC_GATE_CIRCUIT">
+                <div className="w-full h-full p-10 flex flex-col justify-center">
+                    <div className="flex items-center gap-4">
+                        <div className="w-16 p-2 border border-slate-200 rounded bg-white text-center">
+                            <div className="h-1 w-8 bg-slate-200 mx-auto rounded-full mb-1"></div>
+                        </div>
+                        <div className="flex-1 h-px bg-slate-300 relative"></div>
+                        <div className="w-12 h-12 rounded border-2 border-[var(--brand)] bg-white flex items-center justify-center relative shadow-lg shadow-[var(--brand)]/10">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></div>
+                        </div>
+                        <div className="flex-1 h-px bg-slate-300 relative"></div>
+                        <div className="w-16 p-2 border border-[var(--brand)]/30 rounded bg-[var(--brand)]/5 text-center">
+                            <div className="h-1 w-8 bg-[var(--brand)]/20 mx-auto rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 12. DESIGN SYSTEM (Atomic)
+    if (id === 'design-system-gudangada') {
+        return (
+            <Container figIndex="9.1" schematicType="ATOMIC_COMPONENT_LIBRARY">
+                <div className="w-full h-full p-12 flex items-center justify-center">
+                    <div className="grid grid-cols-2 gap-4 w-full max-w-[200px]">
+                        <div className="p-3 border border-slate-100 rounded-lg flex flex-col gap-2 bg-white shadow-sm">
+                            <span className="text-[6px] font-mono text-slate-300 uppercase">ATOM_BTN</span>
+                            <div className="h-6 w-full rounded bg-[var(--brand)] flex items-center justify-center"></div>
+                        </div>
+                        <div className="col-span-2 p-3 border border-[var(--brand)]/20 rounded-lg flex flex-col gap-2 bg-[var(--brand)]/5">
+                            <span className="text-[6px] font-mono text-[var(--brand)] uppercase">MOL_CARD</span>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 13. APP NAV (Navigation) - Duplicated check, already covered above but added for completeness if diff logic needed.
+    // Keeping it simple.
+
+    // DEFAULT FALLBACK
     return (
         <Container figIndex="0.1" schematicType="ABSTRACT_COMPOSITION">
             <div className="w-full h-full p-12 flex flex-col gap-4">
@@ -287,6 +393,7 @@ const ProjectPreview = ({ type = 'Web', expanded = false, image = null }) => {
             </div>
         </Container>
     );
+};
 };
 
 export default ProjectPreview;

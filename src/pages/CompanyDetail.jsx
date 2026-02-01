@@ -192,7 +192,7 @@ const CompanyDetail = () => {
 
                                         {/* Abstract UI Component */}
                                         <div className="w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out">
-                                            <ProjectPreview type={project.type} />
+                                            <ProjectPreview type={project.type} id={project.id} />
                                         </div>
 
                                         {/* Overlay Pattern */}

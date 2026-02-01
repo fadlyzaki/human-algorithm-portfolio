@@ -38,7 +38,7 @@ const SideProjectsIndex = () => {
                         <div key={idx} onClick={() => navigate(`/side-project/${project.id}`)} className="group cursor-pointer">
                             <div className="aspect-[4/3] bg-[var(--text-secondary)]/10 border border-[var(--border-color)] mb-6 overflow-hidden relative">
                                 <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
-                                    <ProjectPreview type={project.type || 'Web'} expanded={true} />
+                                    <ProjectPreview type={project.type || 'Web'} id={project.id} expanded={true} />
                                 </div>
                                 <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
                                 <div className="absolute bottom-4 left-4 font-mono text-xs text-white/80 bg-black/50 px-2 py-1 backdrop-blur-sm rounded">
