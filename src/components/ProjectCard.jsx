@@ -509,6 +509,116 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null }
         );
     }
 
+    // 16. GRAB MERANTAU (Emotional Bridge)
+    if (id === 'grab-merantau') {
+        return (
+            <Container figIndex="2.4" schematicType="EMOTIONAL_BRIDGE">
+                <div className="w-full h-full p-12 flex items-center justify-center relative">
+                    {/* City A (Origin) */}
+                    <div className="absolute left-8 bottom-8 flex flex-col items-center gap-2">
+                        <div className="w-8 h-8 rounded-full border border-slate-200 bg-white flex items-center justify-center">
+                            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
+                        </div>
+                        <span className="text-[6px] font-mono text-slate-300">ORIGIN</span>
+                    </div>
+
+                    {/* City B (Dest) */}
+                    <div className="absolute right-8 top-8 flex flex-col items-center gap-2">
+                        <div className="w-12 h-12 rounded-full border border-[var(--brand)] bg-[var(--brand)]/5 flex items-center justify-center">
+                            <Heart size={16} className="text-[var(--brand)] fill-[var(--brand)]/20" />
+                        </div>
+                        <span className="text-[6px] font-mono text-[var(--brand)]">FAMILY</span>
+                    </div>
+
+                    {/* Connection Path */}
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 120">
+                        <path d="M40,90 Q100,90 160,30" fill="none" stroke="var(--brand)" strokeWidth="1" strokeDasharray="4 4" className="opacity-40" />
+                        <circle cx="100" cy="60" r="3" fill="var(--brand)" className="animate-ping" />
+                    </svg>
+
+                    {/* Traveling Gift */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 py-1 border border-[var(--brand)] rounded-full shadow-sm text-[8px] text-[var(--brand)] font-mono flex items-center gap-1">
+                        <Truck size={8} /> SENDING_LOVE
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 17. FLOOD ALERT (Geospatial Radar)
+    if (id === 'flood-alert') {
+        return (
+            <Container figIndex="6.0" schematicType="GEOSPATIAL_RADAR">
+                <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
+                    {/* Radar Rings */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-48 h-48 rounded-full border border-slate-100 opacity-50"></div>
+                        <div className="absolute w-32 h-32 rounded-full border border-[var(--brand)]/20"></div>
+                        <div className="absolute w-16 h-16 rounded-full border border-[var(--brand)]/50 bg-[var(--brand)]/5 animate-pulse"></div>
+                    </div>
+
+                    {/* Map Grid Background */}
+                    <div className="absolute inset-0 opacity-[0.05]"
+                        style={{ backgroundImage: 'linear-gradient(#000 0.5px, transparent 0.5px), linear-gradient(90deg, #000 0.5px, transparent 0.5px)', backgroundSize: '20px 20px' }}>
+                    </div>
+
+                    {/* Alert Beacon */}
+                    <div className="relative z-10 flex flex-col items-center gap-2">
+                        <div className="w-8 h-8 bg-red-500 text-white rounded-md flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.4)] animate-bounce">
+                            <AlertTriangle size={16} />
+                        </div>
+                        <div className="px-2 py-0.5 bg-red-100 text-red-600 text-[6px] font-bold font-mono rounded uppercase tracking-widest border border-red-200">
+                            CRITICAL_LEVEL
+                        </div>
+                    </div>
+
+                    {/* Data Points */}
+                    <div className="absolute top-10 right-10 w-2 h-2 bg-slate-300 rounded-full"></div>
+                    <div className="absolute bottom-12 left-16 w-2 h-2 bg-slate-300 rounded-full"></div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 18. PROCUREMENT REFORM (Transparency Filter)
+    if (id === 'procurement') {
+        return (
+            <Container figIndex="1.1" schematicType="TRANSPARENCY_FILTER">
+                <div className="w-full h-full p-8 flex flex-col items-center justify-center gap-4">
+                    {/* Chaos Input (Top) */}
+                    <div className="flex gap-1 opacity-40">
+                        <div className="w-6 h-8 bg-slate-200 rotate-6 rounded-sm"></div>
+                        <div className="w-6 h-8 bg-slate-300 -rotate-12 rounded-sm"></div>
+                        <div className="w-6 h-8 bg-slate-200 rotate-3 rounded-sm"></div>
+                    </div>
+
+                    {/* The Filter (Middle) */}
+                    <div className="w-full h-px bg-[var(--brand)]/20 relative">
+                        <div className="absolute left-1/2 -translate-x-1/2 -top-3 px-2 py-0.5 bg-white border border-[var(--brand)] text-[var(--brand)] text-[6px] font-mono rounded-full">
+                            AUDIT_LAYER
+                        </div>
+                    </div>
+
+                    {/* Order Output (Bottom) */}
+                    <div className="flex flex-col gap-1.5 w-full max-w-[120px]">
+                        <div className="w-full h-6 bg-white border border-[var(--brand)]/30 rounded flex items-center px-2 gap-2 shadow-sm">
+                            <div className="w-2 h-2 rounded-full bg-[var(--brand)]"></div>
+                            <div className="w-16 h-1 bg-slate-100 rounded"></div>
+                        </div>
+                        <div className="w-full h-6 bg-white border border-[var(--brand)]/30 rounded flex items-center px-2 gap-2 shadow-sm opacity-80">
+                            <div className="w-2 h-2 rounded-full bg-[var(--brand)]"></div>
+                            <div className="w-12 h-1 bg-slate-100 rounded"></div>
+                        </div>
+                        <div className="w-full h-6 bg-white border border-[var(--brand)]/30 rounded flex items-center px-2 gap-2 shadow-sm opacity-60">
+                            <div className="w-2 h-2 rounded-full bg-[var(--brand)]"></div>
+                            <div className="w-20 h-1 bg-slate-100 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
     // DEFAULT FALLBACK
     return (
         <Container figIndex="0.1" schematicType="ABSTRACT_COMPOSITION">
