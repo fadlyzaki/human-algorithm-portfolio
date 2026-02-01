@@ -451,6 +451,38 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null }
     // 13. APP NAV (Navigation) - Duplicated check, already covered above but added for completeness if diff logic needed.
     // Keeping it simple.
 
+    // 14. INCENTIVE SALES AGENT (Gamification)
+    if (id === 'stoqo-sales') {
+        return (
+            <Container figIndex="5.5" schematicType="GAMIFIED_LEADERBOARD">
+                <div className="w-full h-full p-10 flex flex-col items-center justify-end pb-8">
+                    {/* Podium */}
+                    <div className="flex items-end gap-1">
+                        {/* 2nd Place */}
+                        <div className="flex flex-col items-center gap-2">
+                            <div className="w-10 h-16 bg-slate-50 border border-slate-200 rounded-t-sm relative">
+                                <div className="absolute top-2 w-full text-center text-[8px] font-mono text-slate-300">02</div>
+                            </div>
+                        </div>
+                        {/* 1st Place */}
+                        <div className="flex flex-col items-center gap-2">
+                            <Trophy size={16} className="text-[var(--brand)] animate-bounce" />
+                            <div className="w-12 h-24 bg-[var(--brand)]/5 border border-[var(--brand)]/30 rounded-t-sm relative">
+                                <div className="absolute top-2 w-full text-center text-[10px] font-mono text-[var(--brand)] font-bold">01</div>
+                            </div>
+                        </div>
+                        {/* 3rd Place */}
+                        <div className="flex flex-col items-center gap-2">
+                            <div className="w-10 h-10 bg-slate-50 border border-slate-200 rounded-t-sm relative">
+                                <div className="absolute top-2 w-full text-center text-[8px] font-mono text-slate-300">03</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
     // DEFAULT FALLBACK
     return (
         <Container figIndex="0.1" schematicType="ABSTRACT_COMPOSITION">
