@@ -177,6 +177,12 @@ export const WORK_CLUSTERS = [
         heroImage: '/workforce_hero.png',
         hook: 'Connecting blue-collar workers to jobs without digital friction.',
         miniDesc: 'Reduced cognitive load for users who are not tech-native. Built with strict simplicity.',
+        stats: [
+            { label: 'Role', value: 'Lead Product Designer' },
+            { label: 'Timeline', value: '2020 - 2023' },
+            { label: 'Impact', value: 'Scale & Reliability' },
+            { label: 'Platform', value: 'Mobile app (android) & Websites' }
+        ],
         projects: [
             {
                 id: 'p1',
@@ -404,6 +410,12 @@ export const WORK_CLUSTERS = [
         heroImage: '/commerce_hero.png',
         hook: 'Organizing the chaos of the B2B supply chain.',
         miniDesc: 'Scalable systems for massive SKU lists and complex transactions. Designed for reliability.',
+        stats: [
+            { label: 'Role', value: 'Product Designer' },
+            { label: 'Timeline', value: '2020 - 2021' },
+            { label: 'Impact', value: 'Marketplace Liquidity' },
+            { label: 'Platform', value: 'Web Dashboard & PWA' }
+        ],
         projects: [
             {
                 id: 'p5',
@@ -607,12 +619,28 @@ export const WORK_CLUSTERS = [
         id: 'efficiency',
         title: 'OPERATIONAL EFFICIENCY',
         company: 'STOQO',
-        logo: null, // Placeholder for company logo
+        logo: '/stoqo-logo.png',
         subtitle: 'Digitizing Habits',
         brandColor: '#FA6130', // Stoqo Orange
         heroImage: '/efficiency_hero.png',
         hook: 'Helping SMEs transition from messy offline routines to stable digital workflows.',
-        miniDesc: 'Behavior change through clarity, simplicity, and rhythm.',
+        miniDesc: 'STOQO is a B2B technology startup distributing materials to F&B businesses in Indonesia. We helped them source affordable materials reliably so they could focus on their goal: amazing food.',
+        stats: [
+            { label: 'Role', value: 'Early Product Designer' },
+            { label: 'Timeline', value: 'Mar 2018 - Apr 2020' },
+            { label: 'Scope', value: 'Customer, Ops, Warehousing' },
+            { label: 'Status', value: 'Closed (Covid-19)' }
+        ],
+        culture: {
+            title: "The Arena",
+            description: "I worked there as one of the early product designers, touching almost every product line—from customer-facing apps to complex warehousing logistics. We built a culture of 'Get Your Hands Dirty'.",
+            images: [
+                { src: "/hero-stoqo.jpg", caption: "Warehouse Visits", span: "col-span-1 md:col-span-2 row-span-2" },
+                { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1632&q=80", caption: "Design Team", span: "col-span-1 row-span-1" },
+                { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80", caption: "Ops Meeting", span: "col-span-1 row-span-1" },
+                { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80", caption: "Townhall", span: "col-span-1 md:col-span-2 row-span-1" }
+            ]
+        },
         projects: [
             {
                 id: 'p9',

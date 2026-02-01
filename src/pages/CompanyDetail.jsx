@@ -119,12 +119,12 @@ const CompanyDetail = () => {
 
                     {/* Stats Ticker */}
                     <div className="border-t border-[var(--border-color)] py-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-                        {[
+                        {(cluster.stats || [
                             { label: 'Role', value: 'Lead Product Designer' },
                             { label: 'Timeline', value: '2020 - 2023' },
                             { label: 'Impact', value: 'Scale & Reliability' },
                             { label: 'Platform', value: 'Mobile app (android) & Websites' }
-                        ].map((stat, i) => (
+                        ]).map((stat, i) => (
                             <div key={i} className="flex flex-col">
                                 <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-1">{stat.label}</span>
                                 <span className="font-medium text-sm md:text-base">{stat.value}</span>
@@ -233,6 +233,43 @@ const CompanyDetail = () => {
                     </div>
 
                 </div>
+
+                {/* 3. CULTURE GALLERY (Dynamic) */}
+                {cluster.culture && (
+                    <section className="py-24 border-t border-[var(--border-color)] relative">
+                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-30"></div>
+
+                        <div className="max-w-7xl mx-auto px-6">
+                            <ScrollReveal>
+                                <div className="mb-12 max-w-2xl">
+                                    <h3 className="font-serif italic text-4xl mb-4">{cluster.culture.title}</h3>
+                                    <p className="text-[var(--text-secondary)] leading-relaxed">
+                                        {cluster.culture.description}
+                                    </p>
+                                </div>
+                            </ScrollReveal>
+
+                            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[240px]">
+                                {cluster.culture.images.map((img, i) => (
+                                    <ScrollReveal key={i} delay={i * 100} className={`relative group overflow-hidden rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] ${img.span || 'col-span-1'}`}>
+                                        <img
+                                            src={img.src}
+                                            alt={img.caption}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                            <div className="absolute bottom-4 left-4">
+                                                <span className="text-xs font-mono text-white/90 uppercase tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10">
+                                                    {img.caption}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </ScrollReveal>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
 
             </main>
             <Footer />
