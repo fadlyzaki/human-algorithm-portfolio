@@ -159,7 +159,7 @@ const SystemManifest = () => {
                   <div className="text-[var(--accent-mono)] font-mono text-sm mb-3">{job.role}</div>
                   <p className="text-[var(--text-secondary)] italic mb-4 text-sm">"{job.summary}"</p>
 
-                  <ul className="space-y-2 mb-4">
+                  <ul className="space-y-2">
                     {job.metrics.map((metric, mIdx) => (
                       <li key={mIdx} className="flex items-start gap-3 text-sm leading-relaxed">
                         <CheckCircle size={14} className="mt-1 shrink-0 text-[var(--text-secondary)] opacity-50" />
@@ -167,14 +167,6 @@ const SystemManifest = () => {
                       </li>
                     ))}
                   </ul>
-
-                  <div className="flex flex-wrap gap-2 opacity-50 group-hover:opacity-100 transition-opacity">
-                    {job.stack.map(tool => (
-                      <span key={tool} className="text-[10px] font-mono border border-[var(--border-color)] px-1.5 py-0.5 rounded text-[var(--text-secondary)]">
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               ))}
             </div>
