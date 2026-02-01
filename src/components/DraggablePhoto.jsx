@@ -9,7 +9,7 @@ const DraggablePhoto = () => {
     { type: 'identity', src: '/hero-fadly.jpg' },
     { type: 'image', src: '/hero-stoqo.jpg', alt: 'Bye-bye STOQO' },
     { type: 'image', src: '/hero-lumina.jpg', alt: 'Career clinic in Lumina' },
-    { type: 'image', src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop', alt: 'Code Screen' },
+    { type: 'image', src: '/hero-running.jpg', alt: 'Physical Ops' },
   ];
 
   const handleNext = () => {
