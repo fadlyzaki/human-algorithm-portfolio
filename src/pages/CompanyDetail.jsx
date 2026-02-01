@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, Box, Maximize2, Cpu, Activity, Share2, MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Truck, Trophy, Scan, GitCommit, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Box, Maximize2, Cpu, Activity, Share2, MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Truck, Trophy, Scan, GitCommit, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video, Linkedin } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import Footer from '../components/Footer';
@@ -161,6 +161,20 @@ const CompanyDetail = () => {
                                     ))}
                                 </ul>
                             </div>
+
+                            {/* LinkedIn Link */}
+                            {cluster.linkedinUrl && (
+                                <a
+                                    href={cluster.linkedinUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 p-4 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg hover:border-[var(--brand)] hover:bg-[var(--brand)]/5 transition-all duration-300 group"
+                                >
+                                    <Linkedin size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors" />
+                                    <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors">Company Page</span>
+                                    <ArrowUpRight size={14} className="text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors" />
+                                </a>
+                            )}
                         </div>
                     </aside>
 

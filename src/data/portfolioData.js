@@ -179,6 +179,7 @@ export const WORK_CLUSTERS = [
             items: ["Blue Collar Users", "Android-First Market", "Offline-Ready UX"]
         },
         brandColor: '#1AA8B4', // Lumina Teal
+        linkedinUrl: 'https://www.linkedin.com/company/luminatechnologies/about/',
         heroImage: '/workforce_hero.png',
         hook: 'Revolutionizing blue-collar recruitment through a highly engaged job community platform connecting hundreds of thousands of workers with SMEs.',
         miniDesc: 'First-of-its-kind job community platform for the working class. Helping tens of thousands of SMEs find suitable workers fast and easily.',
@@ -417,6 +418,7 @@ export const WORK_CLUSTERS = [
             items: ["$100B B2B Market", "FMCG Supply Chain", "Fragmented Logistics"]
         },
         brandColor: '#00D1C7', // GudangAda Cyan
+        linkedinUrl: 'https://www.linkedin.com/company/gudangada/about/',
         heroImage: '/commerce_hero.png',
         hook: 'Transforming Indonesia\'s B2B distribution chain through end-to-end digital solutions connecting principals, distributors, wholesalers, and retailers.',
         miniDesc: 'Building a B2B ecosystem to digitalize Indonesia\'s distribution chain with marketplace, logistics, merchant solutions, and financial services. Series B: $135M from Sequoia, Alpha JWC, and others.',
@@ -637,6 +639,7 @@ export const WORK_CLUSTERS = [
             items: ["Perishable Goods", "Just-In-Time Delivery", "High-Churn Workforce"]
         },
         brandColor: '#FA6130', // Stoqo Orange
+        linkedinUrl: 'https://www.linkedin.com/company/stoqo-technologies/about/',
         heroImage: '/efficiency_hero.png',
         hook: 'Streamlining the F&B supply chain to empower micro & small businesses with easy access to competitively-priced, quality ingredients.',
         miniDesc: 'B2B platform founded in 2017 to transform the F&B supply chain. Serving thousands of culinary businesses daily with reliable, competitively-priced ingredient deliveries so business owners can focus on growing their business.',
