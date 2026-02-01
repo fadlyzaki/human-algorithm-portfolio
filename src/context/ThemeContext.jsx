@@ -4,31 +4,52 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
     // Initialize from localStorage or default to true (Dark Mode)
+    // Initialize from localStorage or default to system preference
     const [isDark, setIsDark] = useState(() => {
-        // 1. Check localStorage
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme !== null) {
             return JSON.parse(savedTheme);
         }
-        // 2. Check System Preference
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             return true;
         }
-        // 3. Default to Light (or Dark if you prefer, but usually match system)
         return false;
     });
 
+    // Listen for SYSTEM changes (only if user hasn't overridden)
     useEffect(() => {
-        localStorage.setItem('theme', JSON.stringify(isDark));
-        // Optional: Add/remove class from body if using Tailwind dark mode class strategy
-        // if (isDark) {
-        //   document.documentElement.classList.add('dark');
-        // } else {
-        //   document.documentElement.classList.remove('dark');
-        // }
-    }, [isDark]);
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const handleChange = (e) => {
+            if (localStorage.getItem('theme') === null) {
+                setIsDark(e.matches);
+            }
+        };
 
-    const toggleTheme = () => setIsDark(prev => !prev);
+        // Modern browsers
+        if (mediaQuery.addEventListener) {
+            mediaQuery.addEventListener('change', handleChange);
+        } else {
+            // Fallback for older browsers
+            mediaQuery.addListener(handleChange);
+        }
+
+        return () => {
+            if (mediaQuery.removeEventListener) {
+                mediaQuery.removeEventListener('change', handleChange);
+            } else {
+                mediaQuery.removeListener(handleChange);
+            }
+        };
+    }, []);
+
+    // Toggle and SAVE to localStorage
+    const toggleTheme = () => {
+        setIsDark(prev => {
+            const newValue = !prev;
+            localStorage.setItem('theme', JSON.stringify(newValue));
+            return newValue;
+        });
+    };
 
     return (
         <ThemeContext.Provider value={{ isDark, setIsDark, toggleTheme }}>
