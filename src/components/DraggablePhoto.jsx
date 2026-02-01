@@ -6,7 +6,7 @@ const DraggablePhoto = () => {
   const [index, setIndex] = useState(0);
 
   const items = [
-    { type: 'identity', src: '/hero-fadly.jpg' },
+    { type: 'identity', src: '/hero-id-v2.jpg' },
     { type: 'image', src: '/hero-stoqo.jpg', alt: 'Bye-bye STOQO' },
     { type: 'image', src: '/hero-lumina.jpg', alt: 'Career clinic in Lumina' },
     { type: 'image', src: '/hero-running.jpg', alt: 'Physical Ops' },
