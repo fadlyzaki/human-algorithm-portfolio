@@ -15,7 +15,7 @@ import {
   BookOpen
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import Footer from '../components/Footer';
+import { WORK_CLUSTERS } from '../data/portfolioData';
 
 /* --- THEME CONFIGURATION ---
    A 'High Contrast' mode designed for readability and printing.
@@ -38,44 +38,35 @@ const SystemManifest = () => {
     ]
   };
 
-  const experience = [
-    {
-      company: "Lumina (YC W22)",
-      role: "Product Designer",
-      period: "May 2022 - Nov 2022",
-      summary: "Designed high-trust recruitment tools for the blue-collar workforce.",
-      metrics: [
-        "Designed and shipped the 'Community' feature, increasing Daily Active Users (DAU) by 25%.",
-        "Reduced job application drop-off rates by 37% by restructuring the chat-to-apply flow for low-end devices.",
-        "Built the initial design system 'BluePrint' to unify mobile and web interfaces."
-      ],
-      stack: ["Figma", "Linear", "Mixpanel"]
-    },
-    {
-      company: "GudangAda",
-      role: "Product Designer",
-      period: "Jun 2020 - Apr 2022",
-      summary: "Optimized B2B marketplace operations for FMCG supply chain.",
-      metrics: [
-        "Led the UX for 'Official Stores', onboarding 50+ major FMCG principals (Unilever, Danone) in Q1.",
-        "Streamlined the checkout flow, reducing cart abandonment by 12% across 4 platforms.",
-        "Designed the 'Promo Engine' dashboard, allowing ops teams to deploy campaigns 3x faster."
-      ],
-      stack: ["Figma", "Jira", "React (Basic)"]
-    },
-    {
-      company: "STOQO",
-      role: "Product Designer",
-      period: "Mar 2018 - Apr 2020",
-      summary: "Simplified culinary logistics for SMEs (Warungs/Restaurants).",
-      metrics: [
-        "Redesigned the logistics tracking interface, reducing 'Where is my order?' support tickets by 60%.",
-        "Conducted 20+ field studies with warung owners to optimize the app for one-handed usage.",
-        "Collaborated with engineers to implement an 'Offline Mode' for unstable connection areas."
-      ],
-      stack: ["Sketch", "Zeplin", "Abstract"]
-    }
-  ];
+
+  // Transform WORK_CLUSTERS data to CV format
+  const experience = WORK_CLUSTERS.map(cluster => {
+    const rolestat = cluster.stats?.find(s => s.label === 'Role');
+    const timelineStat = cluster.stats?.find(s => s.label === 'Timeline');
+
+    // Extract key achievements from the first 2-3 projects
+    const metrics = cluster.projects?.slice(0, 3).map(project => {
+      const { caseStudy } = project;
+      if (caseStudy?.metrics && caseStudy.metrics.length > 0) {
+        const metricStr = caseStudy.metrics.map(m => `${m.label}: ${m.value}`).join(', ');
+        return `${project.title}: ${metricStr}`;
+      }
+      return project.details?.outcome || project.tag;
+    }).filter(Boolean) || [];
+
+    // Extract stack from projects
+    const stack = ['Figma', 'Linear', 'Mixpanel']; // Default tools
+
+    return {
+      company: cluster.company,
+      role: rolestat?.value || 'Product Designer',
+      period: timelineStat?.value || '2020 - 2023',
+      summary: cluster.miniDesc || cluster.hook,
+      metrics: metrics.length > 0 ? metrics : [cluster.hook],
+      stack
+    };
+  });
+
 
   const education = [
     {
@@ -240,9 +231,7 @@ const SystemManifest = () => {
         </div>
       </div>
 
-      <div className="print:hidden mt-24">
-        <Footer />
-      </div>
+
     </div>
   );
 };
