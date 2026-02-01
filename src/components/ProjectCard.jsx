@@ -483,6 +483,32 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null }
         );
     }
 
+    // 15. PAPER TO PAPERLESS (OCR/Scanning)
+    if (id === 'p11') {
+        return (
+            <Container figIndex="3.0" schematicType="OPTICAL_CHAR_RECOGNITION">
+                <div className="w-full h-full p-10 flex flex-col items-center justify-center">
+                    <div className="relative w-24 h-32 bg-white border border-slate-200 shadow-sm flex flex-col p-2 gap-2">
+                        {/* Document Lines */}
+                        <div className="w-full h-1 bg-slate-100 mb-1"></div>
+                        <div className="w-2/3 h-1 bg-slate-100 mb-4"></div>
+                        <div className="w-full h-1 bg-slate-100"></div>
+                        <div className="w-full h-1 bg-slate-100"></div>
+                        <div className="w-3/4 h-1 bg-slate-100"></div>
+
+                        {/* Scanning BeamOverlay */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--brand)]/20 to-transparent h-1/4 animate-[scan_2s_linear_infinite] border-b border-[var(--brand)]/50"></div>
+
+                        {/* Extracted Data Box */}
+                        <div className="absolute -right-8 top-8 bg-[var(--brand)] text-white text-[6px] font-mono px-2 py-1 rounded shadow-lg animate-pulse">
+                            DATA_EXTRACTED
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
     // DEFAULT FALLBACK
     return (
         <Container figIndex="0.1" schematicType="ABSTRACT_COMPOSITION">
