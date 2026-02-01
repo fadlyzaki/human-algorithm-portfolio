@@ -22,22 +22,19 @@ const SideProjectDetail = () => {
 
    if (!project) {
       return (
-         <div style={{
-            '--bg-void': isDark ? '#050505' : '#F2F2F5',
-            '--text-primary': isDark ? '#E5E5E5' : '#111827',
-            '--text-secondary': isDark ? '#A1A1AA' : '#6B7280',
-            '--accent-red': '#EF4444'
-         }} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] flex flex-col items-center justify-center p-6 text-center font-mono">
-            <div className="border border-[var(--accent-red)] p-8 max-w-md w-full relative">
-               <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[var(--accent-red)]"></div>
-               <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-[var(--accent-red)]"></div>
-               <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[var(--accent-red)]"></div>
-               <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[var(--accent-red)]"></div>
-
-               <h1 className="text-xl text-[var(--accent-red)] mb-4 uppercase tracking-widest">Error 404</h1>
-               <p className="mb-8 text-[var(--text-secondary)]">Project ID "{id}" unavailable or corrupted.</p>
-               <Link to="/side-projects" className="inline-block px-6 py-3 bg-[var(--text-primary)] text-[var(--bg-void)] uppercase tracking-wider text-xs font-bold hover:opacity-80 transition-opacity">
-                  Return to Index
+         <div className="min-h-screen bg-black text-white font-mono flex items-center justify-center p-6 relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10 pointer-events-none"
+               style={{ backgroundImage: 'linear-gradient(0deg, transparent 24%, #333 25%, #333 26%, transparent 27%, transparent 74%, #333 75%, #333 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #333 25%, #333 26%, transparent 27%, transparent 74%, #333 75%, #333 76%, transparent 77%, transparent)', backgroundSize: '50px 50px' }}>
+            </div>
+            <div className="z-10 text-center border border-red-900/50 bg-red-950/10 p-12 backdrop-blur-sm max-w-lg w-full">
+               <AlertTriangle size={48} className="mx-auto text-red-500 mb-6 animate-pulse" />
+               <h1 className="text-2xl font-bold text-red-500 mb-2 uppercase tracking-[0.2em]">Data Corrupted</h1>
+               <div className="h-px w-16 bg-red-800 mx-auto mb-6"></div>
+               <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+                  The project file <span className="text-white">"{id}"</span> could not be retrieved from the archives.
+               </p>
+               <Link to="/" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-red-400 hover:text-red-300 border border-red-900/50 px-6 py-3 hover:bg-red-950/30 transition-all">
+                  <ArrowLeft size={14} /> Return to Base
                </Link>
             </div>
          </div>
