@@ -31,7 +31,7 @@ const DotGrid = () => (
     </div>
 );
 
-const ProjectPreview = ({ type = 'Web', expanded = false, image = null, id = null }) => {
+const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null }) => {
     const t = type.toLowerCase();
 
     // THE CONTAINER (White Diagram Sheet)
@@ -396,5 +396,5 @@ const ProjectPreview = ({ type = 'Web', expanded = false, image = null, id = nul
 };
 
 
-export default ProjectPreview;
+export default ProjectCard;
 // Force deployment update

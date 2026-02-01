@@ -7,7 +7,7 @@ import {
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
 import BackButton from '../components/BackButton';
-import ProjectPreview from '../components/ProjectPreview';
+import ProjectCard from '../components/ProjectCard';
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Classified Archives" meets "Human Reality"
@@ -282,7 +282,7 @@ const ProtectedCaseStudy = () => {
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
               />
             ) : (
-              <ProjectPreview type={projectData.type} expanded={true} />
+              <ProjectCard type={projectData.type} expanded={true} />
             )}
             <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)] bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-2 rounded shadow-xl">Fig. 1.0 — {caseData.snapshot?.heroImage ? 'Evidence' : 'System Architecture'}</div>
           </div>

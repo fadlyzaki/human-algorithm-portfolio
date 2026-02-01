@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import DraggablePhoto from '../components/DraggablePhoto';
-import ProjectPreview from '../components/ProjectPreview';
+import ProjectCard from '../components/ProjectCard';
 import ScrollReveal from '../components/ScrollReveal';
 import { useTheme } from '../context/ThemeContext';
 import { useHandCursor } from '../context/HandCursorContext';
@@ -98,7 +98,7 @@ const WorkClusterCard = ({ cluster }) => {
             </div>
           ) : (
             <div className="w-24 h-24 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)]">
-              <ProjectPreview type={cluster.subtitle || 'System'} expanded={true} id={cluster.id} />
+              <ProjectCard type={cluster.subtitle || 'System'} expanded={true} id={cluster.id} />
             </div>
           )}
         </div>
@@ -432,7 +432,7 @@ const Portfolio = () => {
                       {/* Technical Illustration Container (Replaces Banner Image) */}
                       <div className="aspect-[21/9] overflow-hidden relative bg-[var(--bg-surface)] border-b border-[var(--border-color)]">
                         <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
-                          <ProjectPreview type={item.type || 'Web'} expanded={true} />
+                          <ProjectCard type={item.type || 'Web'} expanded={true} />
                         </div>
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
 

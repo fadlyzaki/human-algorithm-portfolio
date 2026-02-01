@@ -6,7 +6,7 @@ import { WORK_CLUSTERS } from '../data/portfolioData';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
 import BackButton from '../components/BackButton';
-import ProjectPreview from '../components/ProjectPreview';
+import ProjectCard from '../components/ProjectCard';
 
 // Dynamic Imports for AI Interactions
 const WorkforceAI = React.lazy(() => import('../components/interactions/WorkforceAI'));
@@ -192,7 +192,7 @@ const CompanyDetail = () => {
 
                                         {/* Abstract UI Component */}
                                         <div className="w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out">
-                                            <ProjectPreview type={project.type} id={project.id} />
+                                            <ProjectCard type={project.type} id={project.id} />
                                         </div>
 
                                         {/* Overlay Pattern */}
