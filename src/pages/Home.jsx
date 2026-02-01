@@ -436,7 +436,7 @@ const Portfolio = () => {
                       {/* Technical Illustration Container (Replaces Banner Image) */}
                       <div className="aspect-[21/9] overflow-hidden relative bg-[var(--bg-surface)] border-b border-[var(--border-color)]">
                         <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
-                          <ProjectPreview type={item.type || 'Web'} expanded={true} />
+                          <ProjectPreview type={item.type || 'Web'} expanded={true} image={item.coverImage} />
                         </div>
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
 

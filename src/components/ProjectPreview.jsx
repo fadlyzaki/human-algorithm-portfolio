@@ -18,8 +18,49 @@ const SkeletonLine = ({ width = "100%", opacity = 0.2, height = "1.5px" }) => (
     <div className="bg-current rounded-full" style={{ width, opacity, height }}></div>
 );
 
-const ProjectPreview = ({ type = 'Web', expanded = false }) => {
+const ProjectPreview = ({ type = 'Web', expanded = false, image = null }) => {
     const t = type.toLowerCase();
+
+    // IF IMAGE IS PROVIDED, RENDER IT INSIDE THE TECHNICAL FRAME
+    if (image) {
+        return (
+            <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-6'} relative group`}>
+                <div className={`w-full ${expanded ? 'h-full border-none' : 'max-w-sm aspect-[16/10] border border-[var(--border-color)] rounded-lg shadow-xl'} bg-[var(--bg-surface)] overflow-hidden flex flex-col group-hover:border-[var(--brand)]/30 transition-all duration-500`}>
+                    <div className="h-6 bg-[var(--bg-surface)] border-b border-[var(--border-color)] flex items-center px-3 shrink-0">
+                        <WindowControls />
+                        <div className="ml-auto flex items-center gap-2">
+                            <div className="w-1 h-1 rounded-full bg-[var(--brand)] animate-pulse"></div>
+                            <span className="font-mono text-[8px] uppercase tracking-tighter opacity-50">{type}</span>
+                        </div>
+                    </div>
+                    <div className="flex-1 relative overflow-hidden bg-[var(--bg-void)]">
+                        {/* THE ACTUAL PROJECT IMAGE */}
+                        <img
+                            src={image}
+                            alt={type}
+                            className={`w-full h-full ${expanded ? 'object-cover' : 'object-cover'} opacity-80 group-hover:opacity-100 transition-all duration-700 ${expanded ? 'scale-100' : 'scale-100 group-hover:scale-105'}`}
+                        />
+
+                        {/* TECHNICAL OVERLAYS (Scanlines/Grid) */}
+                        <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')]"></div>
+                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent opacity-60"></div>
+
+                        {/* DATA STAMP */}
+                        <div className="absolute bottom-4 right-4 z-10 flex flex-col items-end gap-1 pointer-events-none">
+                            <div className="font-mono text-[8px] uppercase tracking-widest text-white/40 bg-black/40 px-2 py-0.5 rounded backdrop-blur-sm border border-white/5">
+                                SOURCE: {type.toUpperCase()}
+                            </div>
+                            <div className="flex gap-1">
+                                {[1, 2, 3].map(i => <div key={i} className="w-1 h-1 bg-[var(--brand)] rounded-full opacity-30"></div>)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* AMBIENT GLOW */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[var(--brand)] opacity-5 blur-3xl -z-10 group-hover:opacity-15 transition-opacity"></div>
+            </div>
+        );
+    }
 
     // 1. EDUCATION (Interactive Workbook)
     if (t.includes('education') || t.includes('learning')) {
