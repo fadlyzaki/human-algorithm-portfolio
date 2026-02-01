@@ -644,7 +644,7 @@ export const WORK_CLUSTERS = [
         projects: [
             {
                 id: 'p9',
-                title: 'Transfoming Logistics Delivery',
+                title: 'Transforming Logistics Delivery',
                 tag: 'Logistics',
                 type: 'Service Design',
                 role: 'Product Designer',
@@ -652,7 +652,7 @@ export const WORK_CLUSTERS = [
                 route: '/case-study/p9',
                 previewImage: '/case-studies/delivery-methods/delivery-status-cover.png',
                 iconName: 'Truck',
-                details: { problem: 'Unclear shipping costs.', system: 'Real-time tracking.', outcome: 'Tickets dropped 60%.' },
+                details: { problem: 'Anxiety over unknown arrival.', system: 'Real-time Driver Tracking.', outcome: 'Support tickets -60%.' },
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -708,7 +708,7 @@ export const WORK_CLUSTERS = [
                 route: '/case-study/p10',
                 previewImage: '/efficiency_hero.png',
                 iconName: 'Trophy',
-                details: { problem: 'Low motivation.', system: 'Streak-based reward dashboard.', outcome: 'DAU up 40%.' },
+                details: { problem: 'Low adoption of sales tools.', system: 'Gamified Streak System.', outcome: 'Daily Usage +40%.' },
                 caseStudy: {
                     locked: true,
                     snapshot: {
