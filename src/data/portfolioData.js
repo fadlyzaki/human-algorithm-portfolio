@@ -650,7 +650,7 @@ export const WORK_CLUSTERS = [
                 role: 'Product Designer',
                 timeline: '2 Months',
                 route: '/case-study/p9',
-                previewImage: '/efficiency_hero.png',
+                previewImage: '/case-studies/delivery-methods/delivery-status-cover.png',
                 iconName: 'Truck',
                 details: { problem: 'Unclear shipping costs.', system: 'Real-time tracking.', outcome: 'Tickets dropped 60%.' },
                 caseStudy: {

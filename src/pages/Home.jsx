@@ -89,7 +89,7 @@ const WorkClusterCard = ({ cluster }) => {
           {/* Logo / Hero Image */}
           <div className="w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)]">
             <img
-              src={cluster.heroImage}
+              src={cluster.logo || cluster.heroImage}
               alt={cluster.title}
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
             />
