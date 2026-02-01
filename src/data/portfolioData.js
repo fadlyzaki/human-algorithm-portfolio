@@ -665,21 +665,21 @@ export const WORK_CLUSTERS = [
                         timeline: "2 Months",
                         team: "Ops & Engineering"
                     },
-                    challenge: "Small business owners wake up at 4 AM to shop at markets because they need certainty. When they switched to STOQO, late deliveries disrupted their entire operation. We needed to manage user anxiety in a high-stakes supply chain where extensive delays meant no food to sell.",
+                    challenge: "I discovered a harsh reality: our users were waking up at 4 AM not to work, but to *wait*. Late deliveries weren't just an inconvenience; they were an existential threat. My challenge was to break this cycle of anxiety without having the budget to buy 100 new trucks.",
                     process: [
-                        { title: "Methodology", desc: "I combined Contextual Interviews with Field Studies. I didn't just ask questions; I followed the drivers.", image: "/case-studies/delivery-methods/Screen_Shot_2020-05-22_at_01.44.01.png" },
-                        { title: "Contextual Interviews", desc: "We interviewed 5 business owners and discovered that 'late' wasn't the only problem—'uncertainty' was. If they knew it was late, they could plan. Silence was the killer.", image: "/case-studies/delivery-methods/Untitled.png" },
-                        { title: "Field Study", desc: "I joined the Field Activators and Salesmen to see the chaos on the ground. This bridged the gap between 'Customer Complaints' and 'Operational Reality'.", image: "/case-studies/delivery-methods/IMG_20190502_154316.jpg" },
+                        { title: "Methodology", desc: "I didn't trust the Jira tickets, so I rode in the delivery trucks. I saw drivers struggling to text while driving. The 'system' wasn't broken; it was dangerous.", image: "/case-studies/delivery-methods/Screen_Shot_2020-05-22_at_01.44.01.png" },
+                        { title: "The Insight", desc: "Talking to 5 owners, I found the real conflict: It wasn't about speed. It was about *silence*. They could handle a late truck; they couldn't handle not knowing.", image: "/case-studies/delivery-methods/Untitled.png" },
+                        { title: "Field Study", desc: "I joined the Field Activators to see the chaos on the ground. This bridged the gap between 'Customer Complaints' and 'Operational Reality'.", image: "/case-studies/delivery-methods/IMG_20190502_154316.jpg" },
                         { title: "Analysis Workshop", desc: "We mapped the user journey and identified 4 pain points: Mental Model Mismatch, Uncertainty, Lack of Communication, and Lack of Awareness.", image: "/case-studies/delivery-methods/Customer_App_Board.jpg" },
                         { title: "Ideation", desc: "We focused on 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks'—it was 'better information'.", image: "/case-studies/delivery-methods/Customer_App_Board_(1).jpg" }
                     ],
                     insights: [
-                        { title: "Psychology of Waiting", desc: "Known waits feel shorter than unknown waits. Even a rough estimate calms the user." },
+                        { title: "Psychology of Waiting", desc: "I learned that known waits feel shorter than unknown waits. Even a rough estimate calms the user." },
                         { title: "The 'Early' Problem", desc: "Surprisingly, drivers arriving *too early* was also a disruption. Customers weren't ready to receive goods at 3 AM if they expected 5 AM." }
                     ],
                     solution: [
-                        { title: "Status Tracking", desc: "A comprehensive Domino's-style tracker: Order Received -> Preparing -> On the Way -> Arrived.", image: "/case-studies/delivery-methods/tes.png" },
-                        { title: "Real-Time Push", desc: "Intelligent notifications that alerted users not just when items were delivered, but when they 'Left the Warehouse'.", image: "/case-studies/delivery-methods/tes2.png" },
+                        { title: "Status Tracking", desc: "I stole the mental model from Domino's. If you can track a $10 pizza, why not a $500 pallet of rice?", image: "/case-studies/delivery-methods/tes.png" },
+                        { title: "Proactive Push", desc: "We stopped waiting for them to ask. I designed notifications that triggered the moment the truck left the warehouse.", image: "/case-studies/delivery-methods/tes2.png" },
                         { title: "Driver Info", desc: "Secure contact info for the driver, giving users a direct line to their goods.", image: "/case-studies/delivery-methods/tes3.png" }
                     ],
                     metrics: [
@@ -687,7 +687,7 @@ export const WORK_CLUSTERS = [
                         { label: "Trust", value: "+40%" },
                         { label: "Repeat Order", value: "+10%" }
                     ],
-                    learnings: "Transparency is the cheapest form of customer support. Explain what's happening, and people will wait. Also, transforming raw qualitative data into actionable insights is an art form—we had to look beyond what users asked for (faster trucks) to what they needed (certainty).",
+                    learnings: "Transparency is cheaper than speed. Users will wait if they know *why*. This project wasn't about UI; it was about selling 'peace of mind' as a feature.",
                     aiHypothesis: {
                         tech: "Computer Vision & IoT",
                         title: "Smart Loading Docks",
