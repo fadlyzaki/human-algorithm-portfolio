@@ -259,8 +259,8 @@ export const SIDE_PROJECTS = [
         links: { demo: "https://uxdesign.cc/enhancing-online-shopping-experience-fbdbd76438e8", repo: "#" },
         iconName: 'Camera',
         featured: false,
-        date: "May 2018",
-        coverImage: "/filterme-cover.png",
+        date: "January 2018",
+        coverImage: "/filterme-cover.webp",
         modules: [
             {
                 title: "The Design Challenge",

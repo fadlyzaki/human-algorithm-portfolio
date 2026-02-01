@@ -414,7 +414,7 @@ const Portfolio = () => {
             <ScrollReveal>
               <SectionTitle number="1" title="SIDE PROJECTS" link="/side-projects" linkText="VIEW EXPERIMENTS" />
             </ScrollReveal>
-            
+
             {/* Creative Description */}
             <ScrollReveal>
               <p className="text-lg text-[var(--text-secondary)] max-w-2xl mb-12 font-light leading-relaxed">
@@ -429,38 +429,52 @@ const Portfolio = () => {
                 {homeSideProjects.map((item, i) => (
                   <ScrollReveal key={i} delay={i * 100}>
                     <div
-                      className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-xl overflow-hidden rounded-lg"
+                      className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-2xl overflow-hidden rounded-xl"
                       onClick={() => navigate(`/side-project/${item.id}`)}
                     >
-                      {/* Dynamic Background Hover Effect */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--accent-blue)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                      {/* Image Container */}
+                      <div className="aspect-[21/9] overflow-hidden relative">
+                        <img
+                          src={item.coverImage}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
 
-                      <div className="flex justify-between items-start mb-6 relative z-10">
-                        <div className="flex items-center gap-3">
-                          <IconMapper iconName={item.iconName} size={20} className="text-[var(--accent-blue)]" />
-                          <span className="font-mono text-xs text-[var(--accent-blue)] border border-[var(--accent-blue)]/30 px-2 py-1 rounded-lg bg-[var(--accent-blue)]/5">
+                        {/* Status Badge */}
+                        <div className="absolute top-4 left-4 flex items-center gap-2">
+                          <span className="font-mono text-[10px] text-white/90 border border-white/30 px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-md uppercase tracking-wider">
                             EXP_0{i + 1}
                           </span>
                         </div>
-                        <ArrowUpRight size={20} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
                       </div>
 
-                      <div className="relative z-10">
-                        <h3 className="text-3xl font-serif italic text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent-blue)] transition-colors">
-                          {item.title}
-                        </h3>
-                        <p className="text-[var(--text-secondary)] font-light leading-relaxed mb-6">
+                      <div className="p-8 relative z-10">
+                        <div className="flex justify-between items-start mb-4">
+                          <div className="flex items-center gap-3">
+                            <IconMapper iconName={item.iconName} size={18} className="text-[var(--accent-blue)]" />
+                            <h3 className="text-2xl font-serif italic text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
+                              {item.title}
+                            </h3>
+                          </div>
+                          <ArrowUpRight size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                        </div>
+
+                        <p className="text-[var(--text-secondary)] font-light leading-relaxed mb-6 text-sm line-clamp-2">
                           {item.desc}
                         </p>
 
                         <div className="flex gap-2 flex-wrap">
                           {item.stack.map((tech, tIdx) => (
-                            <span key={tIdx} className="text-[10px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-md text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)]">
+                            <span key={tIdx} className="text-[9px] font-mono border border-[var(--border-color)] px-2 py-0.5 rounded-md text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)]/50">
                               {tech}
                             </span>
                           ))}
                         </div>
                       </div>
+
+                      {/* Hover Overlay */}
+                      <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue)] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                     </div>
                   </ScrollReveal>
                 ))}

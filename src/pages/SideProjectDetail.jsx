@@ -80,12 +80,22 @@ const SideProjectDetail = () => {
          <main className="relative z-10">
 
             {/* --- 2. CINEMATIC HERO --- */}
-            <header className="min-h-[80vh] flex flex-col justify-center items-center px-6 pt-32 text-center relative overflow-hidden">
-               {/* Decorative floating elements */}
-               <div className="absolute top-1/4 left-10 w-24 h-24 border border-[var(--border-color)] opacity-20 rounded-full animate-[spin_10s_linear_infinite]"></div>
-               <div className="absolute bottom-1/4 right-10 w-32 h-32 border border-dashed border-[var(--border-color)] opacity-20 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+            <header className="min-h-[90vh] flex flex-col justify-center items-center px-6 pt-32 text-center relative overflow-hidden">
+               {/* Large Background Visual */}
+               <div className="absolute inset-0 z-0">
+                  <img
+                     src={project.coverImage}
+                     alt=""
+                     className="w-full h-full object-cover opacity-20 grayscale brightness-50 mix-blend-luminosity"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-void)] via-transparent to-[var(--bg-void)]"></div>
+               </div>
 
-               <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 space-y-8 max-w-4xl mx-auto">
+               {/* Decorative floating elements */}
+               <div className="absolute top-1/4 left-10 w-24 h-24 border border-[var(--border-color)] opacity-20 rounded-full animate-[spin_10s_linear_infinite] z-10"></div>
+               <div className="absolute bottom-1/4 right-10 w-32 h-32 border border-dashed border-[var(--border-color)] opacity-20 rounded-full animate-[spin_15s_linear_infinite_reverse] z-10"></div>
+
+               <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 space-y-8 max-w-4xl mx-auto relative z-20">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)]">
                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></div>
                      <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
@@ -93,7 +103,7 @@ const SideProjectDetail = () => {
                      </span>
                   </div>
 
-                  <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif italic leading-[0.9] tracking-tighter mix-blend-difference">
+                  <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif italic leading-[0.9] tracking-tighter text-[var(--text-primary)]">
                      {project.title}
                   </h1>
 
