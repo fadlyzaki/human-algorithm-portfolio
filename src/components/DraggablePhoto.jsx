@@ -97,8 +97,8 @@ const DraggablePhoto = () => {
       {/* Header */}
       <div className="h-20 bg-cyan-950/30 flex items-center justify-between px-4 border-b border-cyan-500/50 backdrop-blur-sm z-10">
         <div className="flex flex-col">
-          <span className="text-cyan-400 font-mono text-xs font-bold animate-pulse">NET_RUNNER</span>
-          <span className="text-white font-mono text-[10px] opacity-70">CLASS: HACKER</span>
+          <span className="text-cyan-400 font-mono text-xs font-bold animate-pulse uppercase">ACCESS_LEVEL_4</span>
+          <span className="text-white font-mono text-[10px] opacity-70">HUMAN BY DESIGN</span>
         </div>
         <div className="w-8 h-8 border border-cyan-400 rotate-45 flex items-center justify-center">
           <div className="w-6 h-6 bg-cyan-400/20 -rotate-45"></div>
@@ -114,18 +114,18 @@ const DraggablePhoto = () => {
           </div>
           <div className="flex-1 space-y-2">
             <div>
-              <label className="text-[9px] text-cyan-700 font-mono block">OPERATIVE</label>
-              <h2 className="text-lg text-white font-bold font-mono tracking-tighter">FADLY.Z</h2>
+              <label className="text-[9px] text-cyan-700 font-mono block">IDENTITY</label>
+              <h2 className="text-lg text-white font-bold font-mono tracking-tighter leading-tight">UZZAKI,<br />FADLY 🧢</h2>
             </div>
             <div>
-              <label className="text-[9px] text-cyan-700 font-mono block">AFFILIATION</label>
-              <span className="text-xs text-cyan-100 font-mono">HUMAN_ALGO</span>
+              <label className="text-[9px] text-cyan-700 font-mono block">ROLE</label>
+              <span className="text-xs text-cyan-100 font-mono">Product Designer // SysOp</span>
             </div>
             <div className="pt-2">
+              <span className="text-[8px] text-cyan-500 font-mono block mb-1">EXP: INDEFINITE</span>
               <div className="h-1 w-full bg-gray-800 rounded-full overflow-hidden">
-                <div className="h-full bg-cyan-400 w-[85%] animate-pulse"></div>
+                <div className="h-full bg-cyan-400 w-[100%] animate-pulse"></div>
               </div>
-              <span className="text-[8px] text-cyan-500 font-mono absolute right-0 -bottom-3">SYNC: 85%</span>
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@ const DraggablePhoto = () => {
 
       {/* Footer */}
       <div className="h-10 bg-cyan-950/80 border-t border-cyan-500/50 flex items-center justify-between px-4 z-10">
-        <span className="text-[10px] font-mono text-cyan-400">ID: 1407-1995</span>
+        <span className="text-[10px] font-mono text-cyan-400">ID_NO: 1407-1995</span>
         <div className="flex gap-1">
           <div className="w-2 h-2 rounded-full bg-cyan-500 animate-ping"></div>
           <span className="text-[8px] font-mono text-cyan-300">ONLINE</span>
@@ -150,7 +150,7 @@ const DraggablePhoto = () => {
           <span className="font-bold text-2xl tracking-tighter leading-none">ID.<br />CARD</span>
           <div className="w-4 h-4 rounded-full bg-white"></div>
         </div>
-        <span className="font-mono text-xs opacity-80">INTERNATIONAL DESIGN</span>
+        <span className="font-mono text-xs opacity-80 uppercase">Human By Design</span>
       </div>
 
       {/* Content */}
@@ -162,16 +162,16 @@ const DraggablePhoto = () => {
         <div className="mt-8 space-y-4">
           <div>
             <h2 className="text-3xl font-black text-black tracking-tighter leading-none">UZZAKI.</h2>
-            <h2 className="text-3xl font-black text-transparent stroke-black tracking-tighter leading-none" style={{ WebkitTextStroke: '1px black' }}>FADLY.</h2>
+            <h2 className="text-3xl font-black text-transparent stroke-black tracking-tighter leading-none" style={{ WebkitTextStroke: '1px black' }}>FADLY 🧢.</h2>
           </div>
-          <div className="grid grid-cols-2 gap-8 pt-4">
+          <div className="grid grid-cols-2 gap-4 pt-4">
             <div>
-              <label className="font-bold text-xs block mb-1">Born</label>
-              <span className="font-mono text-sm">1995</span>
+              <label className="font-bold text-xs block mb-1">ID NO</label>
+              <span className="font-mono text-sm">1407-1995</span>
             </div>
             <div>
               <label className="font-bold text-xs block mb-1">Role</label>
-              <span className="font-mono text-sm">Product</span>
+              <span className="font-mono text-sm leading-tight block">Product Designer // SysOp</span>
             </div>
           </div>
         </div>
