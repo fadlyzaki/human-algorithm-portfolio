@@ -451,7 +451,46 @@ export const WORK_CLUSTERS = [
                         desc: "Instead of recruiters manually typing replies, an Agent would draft responses based on the candidate's sentiment and availability. It could schedule interviews automatically by syncing with calendar APIs.",
                         impact: "Response Time < 5 mins"
                     }
-                }
+                },
+                caseStudy_id: {
+                    locked: true,
+                    snapshot: {
+                        tagline: "Kenapa rekrutmen kaku kayak email, padahal kandidat hidup di WhatsApp?",
+                        heroImage: "/workforce_hero.png"
+                    },
+                    context: {
+                        client: "Produk Internal",
+                        role: "Lead UX & UI",
+                        timeline: "3 Bulan",
+                        team: "1 PM, 2 FE, 1 BE"
+                    },
+                    challenge: "Rekruter kewalahan. Ngurus 200+ kandidat cuma pake Excel sama WhatsApp pribadi bikin data berantakan dan respon jadi lambat banget (rata-rata 4 hari). Kandidat kabur gara-gara kita lelet.",
+                    process: [
+                        { title: "Observasi Langsung", desc: "Saya duduk bareng 5 rekruter selama satu shift. Saya liat mereka copy-paste pesan yang sama 50 kali. Ini bukan masalah 'tracking', ini masalah 'ngetik'." },
+                        { title: "Konflik", desc: "Tim Engineering mau bikin sistem tiket. Saya ngotot minta antarmuka Chat. Tiket rasanya kayak kerjaan admin; Chat rasanya kayak ngobrol." },
+                        { title: "Prototipe", desc: "Saya bikin prototipe mirip WhatsApp dan verifikasi langsung sama pekerja kerah biru. Kalau mereka bisa pake WhatsApp, mereka pasti bisa pake ini." }
+                    ],
+                    insights: [
+                        { title: "Takut Formalitas", desc: "Kandidat nyuekin email karena terlalu formal. Chat terasa aman. Mediumnya adalah pesannya." },
+                        { title: "Batch vs Real-time", desc: "Rekruter kerja numpuk (batching); kandidat maunya real-time. Saya harus desain sistem yang ngejembatanin kesenjangan ini." }
+                    ],
+                    solution: [
+                        { title: "Inbox Terpadu", desc: "Saya gabungin SMS, WhatsApp, dan In-App jadi satu thread. Gak perlu gonta-ganti tab lagi." },
+                        { title: "Kecepatan Satu Tap", desc: "Saya desain 'Template Pintar' buat jawaban umum (misal: 'Interview Dijadwalkan') cuma pake satu tap." }
+                    ],
+                    metrics: [
+                        { label: "Rate Respon", value: "+45%" },
+                        { label: "Waktu Rekrut", value: "-3 Hari" },
+                        { label: "NPS", value: "78" }
+                    ],
+                    learnings: "Proyek ini ngajarin saya kalo fitur gak nyelesain masalah; alur kerja (workflow) yang nyelesain. Dengan niru alat yang udah biasa mereka pake (WhatsApp) tapi dikasih struktur, saya dapet adopsi tanpa perlu training ribet.",
+                    aiHypothesis: {
+                        tech: "Agen LLM & Analisa Sentimen",
+                        title: "Bot Negosiasi Otomatis",
+                        desc: "Daripada rekruter ngetik manual, Agen bakal nulis draft jawaban berdasarkan mood kandidat dan ketersediaan waktu. Bisa jadwalin interview otomatis lho.",
+                        impact: "Waktu Respon < 5 menit"
+                    }
+                },
             },
             {
                 id: 'ats-dashboard',
