@@ -36,6 +36,9 @@ export const HandCursorProvider = ({ children }) => {
     };
 
     const activateGestureMode = () => {
+        // Start fresh with empty collection
+        setFoundEggs([]);
+        localStorage.removeItem('foundEasterEggs');
         setIsGestureMode(true);
         setShowWelcomeModal(false);
     };
