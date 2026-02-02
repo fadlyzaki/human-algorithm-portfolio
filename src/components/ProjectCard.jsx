@@ -619,6 +619,35 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
         );
     }
 
+    // 19. AGENCY PIVOT (A/B Toggle)
+    if (id === 'agency-pivot') {
+        return (
+            <Container figIndex="4.2" schematicType="AGENCY_CONTROL_DIAL">
+                <div className="w-full h-full p-10 flex flex-col items-center justify-center gap-4">
+                    {/* Toggle Switch */}
+                    <div className="relative w-32 h-12 bg-slate-100 rounded-full border border-slate-200 p-1 shadow-inner flex items-center">
+                        <div className="w-10 h-10 bg-white rounded-full shadow-sm border border-slate-200 absolute left-1"></div>
+                        <div className="absolute right-4 font-mono text-[8px] text-slate-400 uppercase tracking-widest">
+                            MODE_B
+                        </div>
+                    </div>
+
+                    {/* Connection Lines */}
+                    <div className="flex gap-8 opacity-40">
+                        <div className="flex flex-col items-center gap-2">
+                            <div className="w-px h-8 bg-slate-300"></div>
+                            <span className="text-[6px] font-mono uppercase">VIBE_1</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2">
+                            <div className="w-px h-8 bg-[var(--brand)]"></div>
+                            <span className="text-[6px] font-mono text-[var(--brand)] uppercase">VIBE_2</span>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
     // DEFAULT FALLBACK
     return (
         <Container figIndex="0.1" schematicType="ABSTRACT_COMPOSITION">

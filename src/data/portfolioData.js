@@ -263,6 +263,50 @@ export const SIDE_PROJECTS = [
         type: 'Dashboard Platform',
         hidden: true,
         featured: false
+    },
+    {
+        id: 'agency-pivot',
+        title: 'The "Agency" Pivot',
+        subtitle: 'Redesigning Algorithms',
+        desc: 'Redesigning the Social Media algorithm from a Black Box into a Co-Pilot.',
+        tldr: "Moving from a 'Control Panel' to a 'Streamlined Feed' to give users agency without friction.",
+        sections: {
+            challenge: "Social media has transitioned from Connecting People to Retaining Attention. In doing so, it has stripped the user of agency, creating a \"Feed of Slop\" that prioritizes cheap dopamine over meaningful connection.",
+            approach: "We realized that users don't have static preferences. They have Contextual Moods. We needed to move the controls out of the Settings Menu and onto the Feed itself, using Stealth UX."
+        },
+        stack: ["UX Design", "Social Psychology", "Algorithm Design"],
+        links: { demo: "https://gemini.google.com/share/0092c9314d8b", repo: "#" },
+        iconName: 'ToggleRight',
+        featured: true,
+        type: 'Algorithm Design',
+        date: "February 2026",
+        coverImage: null,
+        modules: [
+            {
+                title: "The Protagonist: Meet Sarah",
+                content: "Sarah is a 24-year-old Graphic Designer. She grew up on Instagram. She remembers when the feed was chronological and just her friends.\n\nThe Situation (2025):\nSarah opens her favorite social app. She is immediately hit with:\n• An ad for drop-shipped teeth whitener.\n• A viral video of a stranger screaming about politics.\n• An AI-generated image of a cat in space that looks vaguely unsettling.\n\nThe Conflict:\nShe scrolls for 10 minutes. She feels anxious and bored simultaneously. Suddenly, she gets a text from her best friend, Mike: \"Did you see my engagement photos? I posted them yesterday!\"\nSarah hadn't seen them. The algorithm decided she liked \"Space Cats\" more than Mike. She closes the app, feeling a distinct sense of digital loneliness.\n\nThe Problem Statement:\nSocial media has transitioned from Connecting People to Retaining Attention. In doing so, it has stripped the user of agency, creating a \"Feed of Slop\" that prioritizes cheap dopamine over meaningful connection."
+            },
+            {
+                title: "The First Attempt: The \"Cockpit\" Solution",
+                content: "The Hypothesis: If users hate the algorithm, let them rebuild it manually.\n\nWe designed the \"Algorithm Control Panel.\" It was a settings screen filled with sliders, percentages, and toggles. We gave Sarah the keys to the kingdom. She could set \"Politics\" to 0% and \"Friends\" to 100%.\n\nThe User Test:\nSarah opened the Settings menu. She stared at the 12 different sliders. She frowned.\n\"This looks like work,\" she said. \"I don't want to calibrate my feed like a sound engineer. I just want it to be good.\"\n\nThe Failure:\nWe fell into the Engineering Trap. We confused \"Control\" with \"Complexity.\" Users want agency, but they don't want friction. The Control Panel was powerful, but it was too buried and too heavy to use daily."
+            },
+            {
+                title: "The Pivot: From \"Settings\" to \"Vibes\"",
+                content: "The Insight:\nWe realized that users don't have static preferences (e.g., \"I always hate video\"). They have Contextual Moods.\n• Sometimes Sarah wants to rot her brain with viral videos (The \"Doom Scroll\").\n• Sometimes she just wants to see what Mike is doing (The \"Update\").\n\nWe needed to move the controls out of the Settings Menu and onto the Feed itself, but without cluttering the interface."
+            },
+            {
+                title: "The Solution: Stealth UX & The \"Modes\" Design",
+                content: "We built the Compact SocialFlux Interface.\n\nA. The \"Stealth\" Mode Switcher\nInstead of a row of buttons taking up screen space, we utilized the existing UI mental model.\nThe Design: We turned the \"For You\" text at the top left into a dropdown menu.\nThe Story: Sarah opens the app. It defaults to \"For You\" (the standard mix). She feels overwhelmed. She taps the header and selects \"Friends Only.\"\nThe Result: Instantly, the noise vanishes. No ads, no AI, no strangers. Just Mike’s engagement photos.\n\nB. The \"Chill Mode\"\nSarah wants to browse, but she's tired of high-energy screaming videos.\nThe Design: She selects \"Chill Mode\" from the dropdown.\nThe Logic: This mode filters out high-BPM audio, rapid cuts, and \"viral/hype\" tags in the backend. It prioritizes photos, nature, and art.\nThe Result: The feed becomes a digital magazine, not a slot machine.\n\nC. Contextual \"Micro-Blocking\"\nSarah sees an AI-generated image of a celebrity that feels fake.\nThe Design: We added tiny, grey, pill-shaped tags at the bottom of the post: #AI, #Celebrity.\nThe Interaction: Sarah doesn't need to find a \"Report\" button. She just taps the #AI tag. The app asks: \"Hide content like this?\" She clicks Yes.\nThe Result: She has trained her algorithm in 2 seconds without leaving the feed."
+            },
+            {
+                title: "The Outcome: Why It Worked",
+                content: "By moving from a \"Control Panel\" (Prototype 1) to a \"Streamlined Feed\" (Prototype 3), we achieved the following:\n\nTrust Score ⬆️ High Increase\nUsers stopped feeling \"manipulated\" because the controls were visible and responsive.\n\nSession Length ↔️ Stable\nUsers spent the same amount of time, but reported feeling 50% less \"guilty\" afterwards.\n\nFriend Interaction ⬆️ 300% Increase\nThe \"Friends Only\" mode removed the friction of finding loved ones."
+            },
+            {
+                title: "Conclusion",
+                content: "The future of social media isn't about better AI predicting what you want. It's about AI listening to what you say.\n\nSarah didn't need a new app. She just needed the current app to respect her enough to hand over the steering wheel.\n\n\"Technology should be a bicycle for the mind, not a conveyor belt for the eyes.\""
+            }
+        ]
     }
 ];
 
