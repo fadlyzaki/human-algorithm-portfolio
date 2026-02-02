@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, Filter, Sun, Moon } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Filter, Sun, Moon, Globe } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { SIDE_PROJECTS } from '../data/portfolioData';
 import Footer from '../components/Footer';
 import BackButton from '../components/BackButton';
@@ -9,6 +10,7 @@ import ProjectCard from '../components/ProjectCard';
 
 const SideProjectsIndex = () => {
     const { isDark, setIsDark } = useTheme();
+    const { language, toggleLanguage, isIndonesian } = useLanguage();
     const navigate = useNavigate();
 
     const themeStyles = {
@@ -24,13 +26,24 @@ const SideProjectsIndex = () => {
             <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
                 <BackButton to="/" label="Index" className="text-white hover:text-white/80 mix-blend-difference" />
 
-                <button
-                    onClick={() => setIsDark(!isDark)}
-                    className="p-2 hover:bg-white/10 rounded-full transition-colors mix-blend-difference text-white"
-                    aria-label="Toggle Theme"
-                >
-                    {isDark ? <Sun size={20} /> : <Moon size={20} />}
-                </button>
+                <div className="flex items-center gap-4">
+                    <button
+                        onClick={toggleLanguage}
+                        className="flex items-center gap-2 text-sm font-mono uppercase tracking-widest hover:opacity-80 transition-opacity mix-blend-difference text-white"
+                        aria-label="Toggle Language"
+                    >
+                        <Globe size={14} />
+                        <span>{language}</span>
+                    </button>
+
+                    <button
+                        onClick={() => setIsDark(!isDark)}
+                        className="p-2 hover:bg-white/10 rounded-full transition-colors mix-blend-difference text-white"
+                        aria-label="Toggle Theme"
+                    >
+                        {isDark ? <Sun size={20} /> : <Moon size={20} />}
+                    </button>
+                </div>
             </nav>
 
             <main className="max-w-6xl mx-auto px-6 pt-32 pb-24">
@@ -56,10 +69,10 @@ const SideProjectsIndex = () => {
                             </div>
 
                             <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4">
-                                {project.title}
+                                {(isIndonesian && project.title_id) ? project.title_id : project.title}
                             </h3>
                             <p className="text-[var(--text-secondary)] font-light text-sm leading-relaxed mb-4">
-                                {project.desc}
+                                {(isIndonesian && project.desc_id) ? project.desc_id : project.desc}
                             </p>
                             <div className="flex gap-2 flex-wrap">
                                 {project.stack.map((tech, tIdx) => (
