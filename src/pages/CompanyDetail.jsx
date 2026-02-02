@@ -1,8 +1,9 @@
 import React, { Suspense } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, Box, Maximize2, Cpu, Activity, Share2, MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Truck, Trophy, Scan, GitCommit, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video, Linkedin, BookOpen, Calendar, Shield, Gift, Camera, Heart, AlertTriangle, FileText, ToggleRight, TrendingUp } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Box, Maximize2, Cpu, Activity, Share2, MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Truck, Trophy, Scan, GitCommit, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video, Linkedin, BookOpen, Calendar, Shield, Gift, Camera, Heart, AlertTriangle, FileText, ToggleRight, TrendingUp, ScanEye } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useHandCursor } from '../context/HandCursorContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
@@ -27,6 +28,7 @@ const IconMapper = ({ iconName, ...props }) => {
 const CompanyDetail = () => {
     const { isDark, setIsDark } = useTheme();
     const { t, language, toggleLanguage } = useLanguage();
+    const { isGestureMode, toggleGestureMode } = useHandCursor();
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -74,6 +76,13 @@ const CompanyDetail = () => {
                         className="flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] uppercase tracking-widest transition-colors"
                     >
                         <Globe size={14} /> {language}
+                    </button>
+                    <button
+                        onClick={toggleGestureMode}
+                        className={`transition-colors p-1 ${isGestureMode ? 'text-[var(--brand)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
+                        title="Toggle Hand Tracking"
+                    >
+                        <ScanEye size={16} />
                     </button>
                     <button
                         onClick={() => setIsDark(!isDark)}

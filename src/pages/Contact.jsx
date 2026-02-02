@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import {
   ArrowLeft, Mail, Linkedin, Twitter, Send, Copy, Check, Sun, Moon,
   MapPin, Clock, Wifi, Globe, Dribbble, Facebook, Instagram, FileText,
-  Activity, BookOpen, PenTool, Terminal
+  Activity, BookOpen, PenTool, Terminal, ScanEye
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 
@@ -18,6 +19,7 @@ import Footer from '../components/Footer';
 const ContactPage = () => {
   const { isDark, setIsDark } = useTheme();
   const { t, language, toggleLanguage } = useLanguage();
+  const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [copied, setCopied] = useState(false);
   const [formStatus, setFormStatus] = useState('idle'); // idle, sending, success, error
 
@@ -177,6 +179,13 @@ const ContactPage = () => {
           >
             <Globe size={18} />
             <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
+          </button>
+          <button
+            onClick={toggleGestureMode}
+            className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}
+            title="Toggle Hand Tracking"
+          >
+            <ScanEye size={18} />
           </button>
           <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors" aria-label="Toggle Theme">
             {isDark ? <Sun size={18} /> : <Moon size={18} />}

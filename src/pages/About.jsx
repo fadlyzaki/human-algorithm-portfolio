@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
 import ScrollReveal from '../components/ScrollReveal';
 import SystemMonitor from '../components/SystemMonitor';
@@ -22,6 +23,7 @@ import Footer from '../components/Footer';
 const AboutPage = () => {
   const { isDark, setIsDark } = useTheme();
   const { t, language, toggleLanguage } = useLanguage();
+  const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [scrolled, setScrolled] = useState(0);
   const [chaosStrength, setChaosStrength] = useState(0);
 
@@ -220,6 +222,13 @@ const AboutPage = () => {
             >
               <Globe size={18} />
               <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
+            </button>
+            <button
+              onClick={toggleGestureMode}
+              className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}
+              title="Toggle Hand Tracking"
+            >
+              <ScanEye size={18} />
             </button>
             <button
               onClick={() => setIsDark(!isDark)}

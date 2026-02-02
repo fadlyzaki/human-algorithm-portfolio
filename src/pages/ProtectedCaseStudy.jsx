@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
   Lock, Unlock, AlertTriangle, ArrowRight, ShieldAlert, Database, Truck,
-  ShoppingCart, FileText, Thermometer, Activity, PenTool, Sun, Moon, X, ArrowLeft, Monitor
+  ShoppingCart, FileText, Thermometer, Activity, PenTool, Sun, Moon, X, ArrowLeft, Monitor, Globe, ScanEye
 } from 'lucide-react';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useHandCursor } from '../context/HandCursorContext';
 import BackButton from '../components/BackButton';
 import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
@@ -20,6 +21,8 @@ const ProtectedCaseStudy = () => {
   const { id } = useParams();
   const [isLocked, setIsLocked] = useState(true);
   const { isDark, setIsDark } = useTheme();
+  const { toggleLanguage, language } = useLanguage();
+  const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const [decrypting, setDecrypting] = useState(false);
@@ -63,7 +66,6 @@ const ProtectedCaseStudy = () => {
   }
 
   // Use mock case study data if specific fields missing
-  const { language } = useLanguage();
   const isId = language === 'id';
 
   // Resolve Case Data (Bilingual)
@@ -266,13 +268,33 @@ const ProtectedCaseStudy = () => {
             <div className="w-2 h-2 rounded-full bg-current animate-pulse"></div>
             CASE_FILE_{projectData.id.toUpperCase()}
           </div>
-          <button
-            onClick={() => setIsDark(!isDark)}
-            className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1"
-            aria-label="Toggle Theme"
-          >
-            {isDark ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              title="Switch Language"
+            >
+              <Globe size={16} />
+              <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
+            </button>
+
+            <button
+              onClick={toggleGestureMode}
+              className={`transition-colors p-1 ${isGestureMode ? 'text-[var(--brand)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
+              title="Toggle Hand Tracking"
+            >
+              <ScanEye size={18} />
+            </button>
+
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1"
+              aria-label="Toggle Theme"
+            >
+              {isDark ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
+          </div>
         </div>
       </nav>
 

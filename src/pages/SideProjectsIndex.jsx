@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, Filter, Sun, Moon, Globe } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Filter, Sun, Moon, Globe, ScanEye } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useHandCursor } from '../context/HandCursorContext';
 import { SIDE_PROJECTS } from '../data/portfolioData';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
@@ -12,6 +13,7 @@ import ProjectCard from '../components/ProjectCard';
 const SideProjectsIndex = () => {
     const { isDark, setIsDark } = useTheme();
     const { language, toggleLanguage, isIndonesian } = useLanguage();
+    const { isGestureMode, toggleGestureMode } = useHandCursor();
     const navigate = useNavigate();
 
     const themeStyles = {
@@ -39,6 +41,14 @@ const SideProjectsIndex = () => {
                     >
                         <Globe size={14} />
                         <span>{language}</span>
+                    </button>
+
+                    <button
+                        onClick={toggleGestureMode}
+                        className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-white/80 hover:text-white mix-blend-difference'}`}
+                        title="Toggle Hand Tracking"
+                    >
+                        <ScanEye size={20} />
                     </button>
 
                     <button

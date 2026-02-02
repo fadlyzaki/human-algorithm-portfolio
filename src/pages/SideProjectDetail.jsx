@@ -2,10 +2,11 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
    Sun, Moon, ArrowUpRight, Code, Cpu, Link as LinkIcon, AlertTriangle,
-   Terminal, Share2, Box, ArrowLeft, Monitor, Layers, FileText, Globe
+   Terminal, Share2, Box, ArrowLeft, Monitor, Layers, FileText, Globe, ScanEye
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useHandCursor } from '../context/HandCursorContext';
 import BackButton from '../components/BackButton';
 import { SIDE_PROJECTS } from '../data/portfolioData';
 import SEO from '../components/SEO';
@@ -19,6 +20,7 @@ import ProjectCard from '../components/ProjectCard';
 const SideProjectDetail = () => {
    const { isDark, setIsDark } = useTheme();
    const { language, toggleLanguage, isIndonesian } = useLanguage();
+   const { isGestureMode, toggleGestureMode } = useHandCursor();
    const { id } = useParams();
 
    // Fetch Data
@@ -98,6 +100,14 @@ const SideProjectDetail = () => {
                >
                   <Globe size={14} />
                   <span>{language}</span>
+               </button>
+
+               <button
+                  onClick={toggleGestureMode}
+                  className={`transition-colors ${isGestureMode ? 'text-[var(--brand)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
+                  title="Toggle Hand Tracking"
+               >
+                  <ScanEye size={18} />
                </button>
 
                <button onClick={() => setIsDark(!isDark)} className="p-2 hover:bg-[var(--bg-surface)] rounded-full transition-colors text-[var(--text-primary)]" aria-label="Toggle Theme">
