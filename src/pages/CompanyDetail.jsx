@@ -25,7 +25,7 @@ const IconMapper = ({ iconName, ...props }) => {
 };
 
 const CompanyDetail = () => {
-    const { isDark } = useTheme();
+    const { isDark, setIsDark } = useTheme();
     const { t, language, toggleLanguage } = useLanguage();
     const { id } = useParams();
     const navigate = useNavigate();
@@ -75,7 +75,14 @@ const CompanyDetail = () => {
                     >
                         <Globe size={14} /> {language}
                     </button>
-                    <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest hidden md:block">
+                    <button
+                        onClick={() => setIsDark(!isDark)}
+                        className="text-[var(--text-secondary)] hover:text-[var(--brand)] transition-colors p-1"
+                        aria-label="Toggle Theme"
+                    >
+                        {isDark ? <Sun size={16} /> : <Moon size={16} />}
+                    </button>
+                    <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest hidden md:block pl-4 border-l border-[var(--border-color)]">
                         {cluster.company} {t('company.case_study')}
                     </div>
                 </div>
