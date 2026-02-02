@@ -217,7 +217,7 @@ const SystemManifest = () => {
                 <div>
                   <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">{t('manifest.skills_design')}</h5>
                   <div className="flex flex-wrap gap-2">
-                    {['Product Design', 'UX/UI Design', 'User Research', 'Design Systems', 'Prototyping', 'Wireframing', 'User Testing', 'Information Architecture'].map(s => (
+                    {['Product Design', 'UX Design', 'User Research', 'Design Systems', 'Prototyping', 'Wireframing', 'User Testing', 'Information Architecture'].map(s => (
                       <span key={s} className="bg-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm">{s}</span>
                     ))}
                   </div>

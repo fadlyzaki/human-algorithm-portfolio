@@ -497,7 +497,7 @@ export const WORK_CLUSTERS = [
                 title: 'ATS Dashboard for HR',
                 tag: 'Management',
                 type: 'Web Dashboard',
-                role: 'UI/UX Designer',
+                role: 'UX Designer',
                 timeline: '4 Months',
                 route: '/case-study/ats-dashboard',
                 previewImage: '/workforce_hero.png',
