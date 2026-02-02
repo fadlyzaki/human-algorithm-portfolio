@@ -7,6 +7,7 @@ import {
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
 import BackButton from '../components/BackButton';
+import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
 
 /* --- THEME CONFIGURATION ---
@@ -135,6 +136,10 @@ const ProtectedCaseStudy = () => {
   if (isLocked) {
     return (
       <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-mono flex items-center justify-center p-6 relative overflow-hidden transition-colors duration-500">
+        <SEO
+          title={`🔒 Protected: ${projectData.title}`}
+          description="Confidential Case Study. Access Restricted."
+        />
 
         {/* Background Grid */}
         <div className="absolute inset-0 opacity-[0.05]"
@@ -241,6 +246,10 @@ const ProtectedCaseStudy = () => {
   // --- UNLOCKED VIEW (VISUAL STORYTELLING MODE) ---
   return (
     <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--brand)] selection:text-white transition-colors duration-500">
+      <SEO
+        title={projectData.title}
+        description={caseData.challenge || projectData.details.problem}
+      />
 
       {/* AMBIENT MOOD BACKGROUND */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-20"

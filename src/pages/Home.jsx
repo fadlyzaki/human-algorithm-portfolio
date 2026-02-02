@@ -11,6 +11,7 @@ import {
   Flame, PenLine, Globe
 } from 'lucide-react';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import DraggablePhoto from '../components/DraggablePhoto';
 import ProjectCard from '../components/ProjectCard';
 import ScrollReveal from '../components/ScrollReveal';
@@ -297,6 +298,7 @@ const Portfolio = () => {
       style={themeStyles}
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] overflow-x-hidden transition-colors duration-500"
     >
+      <SEO />
 
       {/* 1. TEXTURE */}
       <div className={`fixed inset-0 z-0 pointer-events-none opacity-[0.15] ${isDark ? 'mix-blend-overlay' : 'mix-blend-multiply'}`}

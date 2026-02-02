@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, Box, Maximize2, Cpu, Activity, Share2, Message
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
+import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
 import BackButton from '../components/BackButton';
@@ -52,6 +53,11 @@ const CompanyDetail = () => {
 
     return (
         <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--brand)] selection:text-white">
+            <SEO
+                title={`${cluster.company} — ${cluster.title}`}
+                description={isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
+                image={cluster.logo}
+            />
 
             {/* BACKGROUND NOISE TEXTURE */}
             <div className={`fixed inset-0 z-0 pointer-events-none opacity-[0.05] ${isDark ? 'mix-blend-overlay' : 'mix-blend-multiply'}`}

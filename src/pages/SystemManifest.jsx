@@ -16,6 +16,7 @@ import {
   User
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 
@@ -91,7 +92,11 @@ const SystemManifest = () => {
   };
 
   return (
-    <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-300 p-8 md:p-12 print:p-0 print:bg-white print:text-black">
+    <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-mono selection:bg-black selection:text-white print:bg-white print:text-black">
+      <SEO
+        title="Curriculum Vitae"
+        description="System Manifest: Professional experience validation and skill inventory."
+      />
 
       {/* UI CONTROLS - HIDDEN IN PRINT */}
       <div className="max-w-[210mm] mx-auto mb-8 flex justify-between items-center print:hidden">

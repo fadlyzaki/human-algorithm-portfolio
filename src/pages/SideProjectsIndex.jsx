@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, Filter, Sun, Moon, Globe } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { SIDE_PROJECTS } from '../data/portfolioData';
+import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import BackButton from '../components/BackButton';
 import ProjectCard from '../components/ProjectCard';
@@ -22,6 +23,10 @@ const SideProjectsIndex = () => {
 
     return (
         <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500">
+            <SEO
+                title="Archive: Experiments"
+                description="Full log of side projects, prototypes, and daemons."
+            />
             {/* Nav */}
             <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
                 <BackButton to="/" label="Index" className="text-white hover:text-white/80 mix-blend-difference" />

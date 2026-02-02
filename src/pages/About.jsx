@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 import ScrollReveal from '../components/ScrollReveal';
 import SystemMonitor from '../components/SystemMonitor';
 import ChaosSlider from '../components/ChaosSlider';
@@ -177,6 +178,10 @@ const AboutPage = () => {
       style={themeStyles}
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] transition-colors duration-500 overflow-x-hidden"
     >
+      <SEO
+        title="About Me"
+        description="A timeline of my design career, philosophy, and chaos containment strategies."
+      />
 
       {/* 1. TEXTURE & LIGHTING */}
       <div className={`fixed inset-0 z-0 pointer-events-none opacity-[0.15] ${isDark ? 'mix-blend-overlay' : 'mix-blend-multiply'}`}

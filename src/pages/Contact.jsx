@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 
 /* --- THEME CONFIGURATION ---
@@ -151,7 +152,11 @@ const ContactPage = () => {
   };
 
   return (
-    <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5]">
+    <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-mono selection:bg-[var(--text-primary)] selection:text-[var(--bg-void)] transition-colors duration-500 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+      <SEO
+        title="Contact"
+        description="Get in touch for collaborations, freelance inquiries, or just to say hello."
+      />
 
       {/* BACKGROUND GRID */}
       <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]"

@@ -8,6 +8,7 @@ import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import BackButton from '../components/BackButton';
 import { SIDE_PROJECTS } from '../data/portfolioData';
+import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
@@ -66,6 +67,11 @@ const SideProjectDetail = () => {
 
    return (
       <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white pb-32">
+         <SEO
+            title={activeTitle}
+            description={activeTldr}
+         // image={project.coverImage} // If available
+         />
 
          {/* --- 0. AMBIENCE --- */}
          <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]"
