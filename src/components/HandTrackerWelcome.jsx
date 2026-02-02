@@ -81,7 +81,7 @@ const HandTrackerWelcome = () => {
 
                 {/* Control Hints */}
                 <div className="text-center text-gray-500 text-xs font-mono">
-                    <p>👆 Point with Index Finger • 🤏 Pinch to Click</p>
+                    <p>👆 Move your hand to discover treasures</p>
                 </div>
             </div>
         </div>
