@@ -206,7 +206,7 @@ const AboutPage = () => {
       <main className="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-20 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-void)]/80 backdrop-blur-sm shadow-2xl">
 
         {/* HEADER */}
-        <header className="flex justify-between items-center mb-16 border-b border-[var(--border-color)] pb-6 sticky top-0 bg-[var(--bg-void)]/95 backdrop-blur z-40 pt-4 -mt-4">
+        <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)] transition-all duration-300">
           <Link to="/" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider group transition-colors">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
             <span>{t('about.main_terminal')}</span>
@@ -230,6 +230,9 @@ const AboutPage = () => {
             </button>
           </div>
         </header>
+
+        {/* Padding for fixed header */}
+        <div className="h-24 md:h-32"></div>
 
         {/* PROFILE HERO - INTERACTIVE */}
         <section className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-12 mb-24 fade-in items-start">

@@ -65,7 +65,7 @@ const CompanyDetail = () => {
             ></div>
 
             {/* NAVIGATION */}
-            <nav className="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center backdrop-blur-sm border-b border-transparent hover:border-[var(--border-color)] transition-all">
+            <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-[var(--bg-void)]/80 backdrop-blur-md border-b border-transparent hover:border-[var(--border-color)] transition-all">
                 <BackButton to="/" label={t('company.index')} />
 
                 <div className="flex items-center gap-4">

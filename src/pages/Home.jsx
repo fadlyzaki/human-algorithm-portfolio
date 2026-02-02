@@ -327,7 +327,7 @@ const Portfolio = () => {
 
       {/* 1. Desktop Top Bar */}
       {/* REC-03: Ensure Navbar stays visible if Gesture Mode is active */}
-      <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${(showNav || isGestureMode) ? 'translate-y-0' : '-translate-y-full'}`}>
+      <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 translate-y-0`}>
         <div className="bg-[var(--bg-backdrop)] backdrop-blur-md border-b border-[var(--border-color)] px-6 py-3 flex justify-between items-center max-w-5xl mx-auto">
           <Link to="/" className="font-mono text-[var(--text-primary)] font-bold text-lg hover:text-[var(--accent-blue)] transition-colors tracking-tight">
             Fadlyzaki

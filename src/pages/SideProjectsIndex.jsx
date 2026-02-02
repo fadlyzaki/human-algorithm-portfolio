@@ -28,7 +28,7 @@ const SideProjectsIndex = () => {
                 description="Full log of side projects, prototypes, and daemons."
             />
             {/* Nav */}
-            <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
+            <nav className="fixed top-0 left-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
                 <BackButton to="/" label="Index" className="text-white hover:text-white/80 mix-blend-difference" />
 
                 <div className="flex items-center gap-4">

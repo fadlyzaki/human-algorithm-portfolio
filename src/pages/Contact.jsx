@@ -164,7 +164,7 @@ const ContactPage = () => {
       </div>
 
       {/* NAVBAR */}
-      <nav className="fixed top-0 w-full bg-[var(--bg-void)]/90 backdrop-blur z-40 border-b border-[var(--border-color)] px-6 py-4 flex justify-between items-center">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[var(--bg-void)]/90 backdrop-blur border-b border-[var(--border-color)] px-6 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider group">
           <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
           <span>{t('contact.abort')}</span>

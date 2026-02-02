@@ -58,7 +58,7 @@ npm run build
 ### Production Standards
 - **Global Radius**: Strict **8px** (`rounded-lg`) industrial standard.
 - **Design System**: Atomic theme injection via `ThemeContext` (Dark/Light modes).
-- **Interactions**: All components audited against Nielsen's 10 Usability Heuristics.
+- **Interactions**: All components audited against Nielsen's 10 Usability Heuristics. Navbars standardized for constant visibility.
 
 ---
 
