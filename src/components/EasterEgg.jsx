@@ -12,8 +12,20 @@ const EasterEgg = ({
     const { isGestureMode, collectEgg, foundEggs } = useHandCursor();
     const [isRevealed, setIsRevealed] = useState(false);
     const [showCollectedFeedback, setShowCollectedFeedback] = useState(false);
+    const [randomPosition, setRandomPosition] = useState({ top: 0, left: 0 });
 
     const isFound = foundEggs.includes(id);
+
+    // Generate random position when gesture mode is activated
+    useEffect(() => {
+        if (isGestureMode) {
+            // Random position within safe bounds (avoid edges)
+            const top = Math.random() * 60 + 10; // 10% to 70% from top
+            const left = Math.random() * 60 + 10; // 10% to 70% from left
+
+            setRandomPosition({ top, left });
+        }
+    }, [isGestureMode, id]); // Re-randomize when gesture mode changes
 
     // If gesture mode is OFF, return nothing (hidden)
     if (!isGestureMode) return null;
@@ -56,7 +68,11 @@ const EasterEgg = ({
 
     return (
         <div
-            className={`absolute z-40 cursor-crosshair ${className}`}
+            className={`fixed z-40 cursor-crosshair ${className}`}
+            style={{
+                top: `${randomPosition.top}%`,
+                left: `${randomPosition.left}%`,
+            }}
             onMouseEnter={handleReveal}
             onMouseLeave={() => setIsRevealed(false)}
         >
