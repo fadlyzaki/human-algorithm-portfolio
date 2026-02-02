@@ -4,19 +4,23 @@ import { Hands } from '@mediapipe/hands';
 import { Camera } from '@mediapipe/camera_utils';
 import { useHandCursor } from '../context/HandCursorContext';
 import EasterEggProgress from './EasterEggProgress';
+import { AlertTriangle } from 'lucide-react';
 
 const HandCursorOverlay = () => {
     const webcamRef = useRef(null);
     const { isGestureMode, setCursorPosition, cursorPosition, setIsGestureMode } = useHandCursor();
     const [isModelLoading, setIsModelLoading] = useState(false);
     const [modelReady, setModelReady] = useState(false);
+    const [loadError, setLoadError] = useState(null);
+    const [showFallbackNotice, setShowFallbackNotice] = useState(false);
 
     // Refs for persistence
     const handsRef = useRef(null);
     const cameraRef = useRef(null);
     const lastCursorPos = useRef({ x: 0, y: 0 });
+    const loadingTimeoutRef = useRef(null);
 
-    // --- 1. INITIALIZE MODEL (Once or Lazy) ---
+    // --- 1. INITIALIZE MODEL (Once or Lazy) WITH ERROR HANDLING ---
     useEffect(() => {
         // Only initialize if we haven't already
         if (handsRef.current) return;
@@ -24,31 +28,81 @@ const HandCursorOverlay = () => {
         // Start loading only when first activated to save resources on initial page load
         if (isGestureMode && !modelReady && !isModelLoading) {
             setIsModelLoading(true);
+            setLoadError(null);
+
+            // Set timeout for loading (15 seconds)
+            loadingTimeoutRef.current = setTimeout(() => {
+                if (!modelReady) {
+                    console.error('Hand tracker loading timeout');
+                    setLoadError('Connection timeout. Please check your internet connection.');
+                    setIsModelLoading(false);
+                    setShowFallbackNotice(true);
+                    // Auto-dismiss after 5 seconds
+                    setTimeout(() => {
+                        setShowFallbackNotice(false);
+                        setIsGestureMode(false);
+                    }, 5000);
+                }
+            }, 15000);
+
             const HANDS_VERSION = '0.4.1675469240';
-            const handsInstance = new Hands({
-                locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands@${HANDS_VERSION}/${file}`,
-            });
 
-            handsInstance.setOptions({
-                maxNumHands: 1,
-                modelComplexity: 0, // Lite model for speed
-                minDetectionConfidence: 0.5,
-                minTrackingConfidence: 0.5,
-            });
+            try {
+                const handsInstance = new Hands({
+                    locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands@${HANDS_VERSION}/${file}`,
+                });
 
-            handsInstance.onResults(onResults);
+                handsInstance.setOptions({
+                    maxNumHands: 1,
+                    modelComplexity: 0, // Lite model for speed
+                    minDetectionConfidence: 0.5,
+                    minTrackingConfidence: 0.5,
+                });
 
-            // Store instance
-            handsRef.current = handsInstance;
+                handsInstance.onResults(onResults);
 
-            // Mark as ready (simulated micro-delay to ensure WASM initializes)
-            handsInstance.initialize().then(() => {
-                setModelReady(true);
+                // Store instance
+                handsRef.current = handsInstance;
+
+                // Mark as ready (simulated micro-delay to ensure WASM initializes)
+                handsInstance.initialize()
+                    .then(() => {
+                        clearTimeout(loadingTimeoutRef.current);
+                        setModelReady(true);
+                        setIsModelLoading(false);
+                        setLoadError(null);
+                        console.log("MediaPipe Hands Initialized (Persisted)");
+                    })
+                    .catch((error) => {
+                        clearTimeout(loadingTimeoutRef.current);
+                        console.error('Hand tracker initialization error:', error);
+                        setLoadError('Failed to load hand tracking. Using regular cursor.');
+                        setIsModelLoading(false);
+                        setShowFallbackNotice(true);
+                        setTimeout(() => {
+                            setShowFallbackNotice(false);
+                            setIsGestureMode(false);
+                        }, 5000);
+                    });
+            } catch (error) {
+                clearTimeout(loadingTimeoutRef.current);
+                console.error('Hand tracker creation error:', error);
+                setLoadError('Hand tracking unavailable. Using regular cursor.');
                 setIsModelLoading(false);
-                console.log("MediaPipe Hands Initialized (Persisted)");
-            });
+                setShowFallbackNotice(true);
+                setTimeout(() => {
+                    setShowFallbackNotice(false);
+                    setIsGestureMode(false);
+                }, 5000);
+            }
         }
-    }, [isGestureMode, modelReady, isModelLoading]);
+
+        return () => {
+            if (loadingTimeoutRef.current) {
+                clearTimeout(loadingTimeoutRef.current);
+            }
+        };
+    }, [isGestureMode, modelReady, isModelLoading, setIsGestureMode]);
 
 
     // --- 2. HANDLE RESULTS ---
@@ -159,6 +213,23 @@ const HandCursorOverlay = () => {
                     <div className="text-center space-y-4">
                         <div className="w-12 h-12 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
                         <div className="font-mono text-emerald-500 text-sm tracking-widest animate-pulse">INITIALIZING NEURAL NET...</div>
+                        <div className="font-mono text-gray-400 text-xs">This may take a few seconds</div>
+                    </div>
+                </div>
+            )}
+
+            {/* FALLBACK ERROR NOTICE */}
+            {showFallbackNotice && loadError && (
+                <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[10002] max-w-md animate-in slide-in-from-top duration-500">
+                    <div className="bg-amber-500/95 backdrop-blur-xl border-2 border-amber-300 rounded-xl px-6 py-4 shadow-2xl">
+                        <div className="flex items-start gap-3">
+                            <AlertTriangle size={24} className="text-white flex-shrink-0 mt-0.5" />
+                            <div>
+                                <p className="font-bold text-white text-sm mb-1">Hand Tracking Unavailable</p>
+                                <p className="text-amber-50 text-xs leading-relaxed mb-2">{loadError}</p>
+                                <p className="text-amber-100 text-[10px] font-mono">Reverting to regular cursor in 5s...</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}
