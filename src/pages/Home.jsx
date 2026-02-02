@@ -438,7 +438,7 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* HERO */}}
+          {/* HERO */}
           <section className="relative mb-40">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12 items-start">
               <div className="relative">
