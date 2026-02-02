@@ -12,73 +12,75 @@ const HandTrackerWelcome = () => {
     };
 
     return (
-        <div className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-300">
-            <div className="bg-[var(--bg-card)] border-2 border-[var(--accent-blue)] rounded-xl shadow-2xl max-w-md w-full p-8 relative animate-in zoom-in-95 duration-300">
+        <div className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-300">
+            <div className="bg-[#1a1a1a] border-2 border-blue-500 rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-in zoom-in-95 duration-300">
                 {/* Close Button */}
                 <button
                     onClick={closeWelcomeModal}
-                    className="absolute top-4 right-4 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                    className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors p-1"
                     aria-label="Close"
                 >
-                    <X size={20} />
+                    <X size={24} />
                 </button>
 
                 {/* Icon */}
                 <div className="flex justify-center mb-6">
                     <div className="relative">
-                        <ScanEye size={48} className="text-[var(--accent-blue)] animate-pulse" />
-                        <Sparkles className="absolute -top-2 -right-2 text-[var(--accent-amber)] animate-ping" size={20} />
-                        <Zap className="absolute -bottom-1 -left-1 text-[var(--accent-red)] animate-pulse" size={16} />
+                        <ScanEye size={56} className="text-blue-500 animate-pulse" />
+                        <Sparkles className="absolute -top-2 -right-2 text-amber-400 animate-ping" size={20} />
+                        <Zap className="absolute -bottom-1 -left-1 text-red-400 animate-pulse" size={16} />
                     </div>
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl font-serif italic text-[var(--text-primary)] mb-4 text-center">
-                    Activate Decryption Lens?
+                <h2 className="text-3xl font-serif italic text-white mb-6 text-center leading-tight">
+                    Activate Hand Tracker?
                 </h2>
 
                 {/* Content */}
-                <div className="space-y-4 text-[var(--text-secondary)] mb-6">
-                    <div className="flex items-start gap-3 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg p-3">
-                        <Camera size={20} className="text-[var(--accent-blue)] mt-0.5 flex-shrink-0" />
-                        <div className="text-sm">
-                            <p className="font-medium text-[var(--text-primary)] mb-1">Camera Access Required</p>
-                            <p className="text-xs leading-relaxed">
+                <div className="space-y-4 mb-8">
+                    {/* Camera Permission Card */}
+                    <div className="flex items-start gap-4 bg-blue-500/10 border border-blue-500/30 rounded-xl p-4">
+                        <Camera size={24} className="text-blue-400 mt-1 flex-shrink-0" />
+                        <div>
+                            <p className="font-semibold text-white mb-2 text-base">Camera Access Required</p>
+                            <p className="text-sm text-gray-300 leading-relaxed">
                                 Hand tracking uses your camera to detect gestures. Your video is processed locally and never uploaded.
                             </p>
                         </div>
                     </div>
 
-                    <div className="flex items-start gap-3 bg-gradient-to-r from-amber-500/10 to-purple-500/10 border border-[var(--accent-amber)]/30 rounded-lg p-3">
-                        <Sparkles size={20} className="text-[var(--accent-amber)] mt-0.5 flex-shrink-0 animate-pulse" />
-                        <div className="text-sm">
-                            <p className="font-medium text-[var(--text-primary)] mb-1">🎁 8 Hidden Secrets</p>
-                            <p className="text-xs leading-relaxed">
-                                Scan the site with your hand to discover <span className="text-[var(--accent-amber)] font-mono">Easter Eggs</span> hidden in plain sight.
+                    {/* Easter Egg Discovery Card */}
+                    <div className="flex items-start gap-4 bg-amber-500/10 border border-amber-500/30 rounded-xl p-4">
+                        <Sparkles size={24} className="text-amber-400 mt-1 flex-shrink-0 animate-pulse" />
+                        <div>
+                            <p className="font-semibold text-white mb-2 text-base">🎁 8 Hidden Secrets</p>
+                            <p className="text-sm text-gray-300 leading-relaxed">
+                                Scan the site with your hand to discover <span className="text-amber-400 font-bold">Easter Eggs</span> hidden across different pages.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col sm:flex-row gap-3 mb-4">
                     <button
                         onClick={closeWelcomeModal}
-                        className="flex-1 px-4 py-3 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-all rounded-lg font-mono text-sm uppercase tracking-wider"
+                        className="flex-1 px-6 py-3.5 border-2 border-gray-600 text-white hover:border-gray-400 hover:bg-gray-800 transition-all rounded-xl font-mono text-sm uppercase tracking-wider font-medium"
                     >
                         Cancel
                     </button>
                     <button
                         onClick={handleActivate}
-                        className="flex-1 px-4 py-3 bg-[var(--accent-blue)] text-white hover:bg-[var(--accent-blue)]/90 transition-all rounded-lg font-mono text-sm uppercase tracking-wider shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                        className="flex-1 px-6 py-3.5 bg-blue-600 text-white hover:bg-blue-500 transition-all rounded-xl font-mono text-sm uppercase tracking-wider shadow-lg hover:shadow-xl flex items-center justify-center gap-2 font-bold"
                     >
-                        <ScanEye size={16} />
+                        <ScanEye size={18} />
                         Activate
                     </button>
                 </div>
 
                 {/* Footer Note */}
-                <p className="text-[10px] font-mono text-[var(--text-secondary)] text-center mt-4 opacity-60">
+                <p className="text-xs font-mono text-gray-500 text-center">
                     EXPERIMENTAL FEATURE · PRIVACY FIRST
                 </p>
             </div>
