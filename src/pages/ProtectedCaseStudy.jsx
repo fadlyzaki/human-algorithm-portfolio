@@ -61,11 +61,17 @@ const ProtectedCaseStudy = () => {
   }
 
   // Use mock case study data if specific fields missing
-  const caseData = projectData.caseStudy || {
+  const { language } = useLanguage();
+  const isId = language === 'id';
+
+  // Resolve Case Data (Bilingual)
+  const rawCaseData = projectData.caseStudy || {
     locked: true,
     memo: "CONFIDENTIAL DATA NOT AVAILABLE",
     metrics: []
   };
+
+  const caseData = (isId && projectData.caseStudy_id) ? projectData.caseStudy_id : rawCaseData;
 
   // --- HANDLER: UNLOCK ---
   const handleUnlock = (e) => {
