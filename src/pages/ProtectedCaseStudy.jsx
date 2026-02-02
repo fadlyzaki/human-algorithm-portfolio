@@ -52,13 +52,13 @@ const ProtectedCaseStudy = () => {
         </div>
         <div className="z-10 text-center border border-red-900/50 bg-red-950/10 p-12 backdrop-blur-sm max-w-lg w-full">
           <ShieldAlert size={48} className="mx-auto text-red-500 mb-6 animate-pulse" />
-          <h1 className="text-2xl font-bold text-red-500 mb-2 uppercase tracking-[0.2em]">Access Denied</h1>
+          <h1 className="text-2xl font-bold text-red-500 mb-2 uppercase tracking-[0.2em]">{t('protected.access_denied') || "Access Denied"}</h1>
           <div className="h-px w-16 bg-red-800 mx-auto mb-6"></div>
           <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-            The requested case file <span className="text-white">"{id}"</span> does not exist or has been redacted from the archives.
+            {t('protected.file_not_exist') || `The requested case file "${id}" does not exist or has been redacted from the archives.`}
           </p>
           <Link to="/" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-red-400 hover:text-red-300 border border-red-900/50 px-6 py-3 hover:bg-red-950/30 transition-all">
-            <ArrowLeft size={14} /> Return to Base
+            <ArrowLeft size={14} /> {t('protected.return_base') || "Return to Base"}
           </Link>
         </div>
       </div>
@@ -182,8 +182,8 @@ const ProtectedCaseStudy = () => {
         <div className="max-w-md w-full relative z-10">
           {/* Header Status */}
           <div className="flex justify-between items-center mb-12 text-xs text-[var(--accent-red)] uppercase tracking-widest border-b border-[var(--accent-red)] pb-2 opacity-80">
-            <span className="flex items-center gap-2"><ShieldAlert size={14} /> SYSTEM_LOCKED</span>
-            <span>AUTH_REQUIRED</span>
+            <span className="flex items-center gap-2"><ShieldAlert size={14} /> {t('protected.system_locked') || "SYSTEM_LOCKED"}</span>
+            <span>{t('protected.auth_required') || "AUTH_REQUIRED"}</span>
           </div>
 
           {!decrypting ? (
@@ -192,9 +192,9 @@ const ProtectedCaseStudy = () => {
                 <div className="w-20 h-20 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(239,68,68,0.2)]">
                   <Lock size={32} className="text-[var(--text-secondary)]" />
                 </div>
-                <h1 className="text-2xl font-bold tracking-tight">RESTRICTED CASE FILE: {projectData.id.toUpperCase()}</h1>
+                <h1 className="text-2xl font-bold tracking-tight">{t('protected.restricted_file') || "RESTRICTED CASE FILE"}: {projectData.id.toUpperCase()}</h1>
                 <p className="text-[var(--text-secondary)] text-sm">
-                  Enter credentials to view the messy reality behind "{isId ? (projectData.title_id || projectData.title) : projectData.title}".
+                  {t('protected.enter_credentials') || "Enter credentials to view the messy reality behind"} "{isId ? (projectData.title_id || projectData.title) : projectData.title}".
                 </p>
               </div>
 
@@ -206,7 +206,7 @@ const ProtectedCaseStudy = () => {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="ENTER PASSKEY"
+                    placeholder={t('protected.enter_passkey') || "ENTER PASSKEY"}
                     className="relative w-full bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] px-4 py-4 text-center tracking-[0.5em] focus:outline-none focus:border-[var(--accent-red)] transition-all placeholder:tracking-normal placeholder:text-[var(--text-secondary)]/50"
                     autoFocus
                   />
@@ -224,19 +224,19 @@ const ProtectedCaseStudy = () => {
                   className="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)] py-3 hover:bg-[var(--accent-red)] hover:text-black hover:border-[var(--accent-red)] transition-all duration-200 uppercase text-xs tracking-widest flex items-center justify-center gap-2 group"
                 >
                   <Unlock size={14} className="group-hover:unlock" />
-                  Decrypt File
+                  {t('protected.decrypt_file') || "Decrypt File"}
                 </button>
               </form>
 
               <div className="text-center">
                 <p className="text-[10px] text-[var(--text-secondary)] opacity-50 mb-2">
-                  // UNAUTHORIZED PERSONNEL
+                  {t('protected.unauthorized') || "// UNAUTHORIZED PERSONNEL"}
                 </p>
                 <Link
                   to="/contact"
                   className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[var(--accent-red)] border-b border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-black transition-all pb-1"
                 >
-                  Request Access Key <ArrowRight size={12} />
+                  {t('protected.request_access') || "Request Access Key"} <ArrowRight size={12} />
                 </Link>
               </div>
             </div>
@@ -249,10 +249,10 @@ const ProtectedCaseStudy = () => {
                 ></div>
               </div>
               <div className="font-mono text-xs text-[var(--accent-green)] space-y-1">
-                <p>{'>'} DECRYPTING_NARRATIVE...</p>
-                {progress > 30 && <p>{'>'} LOADING_HUMAN_CONTEXT...</p>}
-                {progress > 60 && <p>{'>'} EXPOSING_MISTAKES...</p>}
-                {progress > 90 && <p>{'>'} ACCESS_GRANTED.</p>}
+                <p>{'>'} {t('protected.decrypting') || "DECRYPTING_NARRATIVE..."}</p>
+                {progress > 30 && <p>{'>'} {t('protected.loading_context') || "LOADING_HUMAN_CONTEXT..."}</p>}
+                {progress > 60 && <p>{'>'} {t('protected.exposing_mistakes') || "EXPOSING_MISTAKES..."}</p>}
+                {progress > 90 && <p>{'>'} {t('protected.access_granted') || "ACCESS_GRANTED."}</p>}
               </div>
             </div>
           )}
@@ -379,8 +379,8 @@ const ProtectedCaseStudy = () => {
         {/* 3. PROCESS: FILM STRIP */}
         <section className="max-w-6xl mx-auto px-6 py-32">
           <div className="flex items-baseline justify-between mb-16 border-b border-[var(--border-color)] pb-6">
-            <h2 className="text-4xl font-serif italic">The Process</h2>
-            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">Evolution of Thought</span>
+            <h2 className="text-4xl font-serif italic">{t('protected.process_title') || "The Process"}</h2>
+            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.process_subtitle') || "Evolution of Thought"}</span>
           </div>
 
           {/* Horizontal Scroll / Grid -> Treating steps like film negatives */}
@@ -413,7 +413,7 @@ const ProtectedCaseStudy = () => {
                     </div>
 
                     <div className="mt-2 flex justify-between items-center px-2">
-                      <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">EVIDENCE #{i + 1}</span>
+                      <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">{t('protected.evidence') || "EVIDENCE"} #{i + 1}</span>
                       <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] opacity-50">CONFIDENTIAL</span>
                     </div>
                   </div>
@@ -427,7 +427,7 @@ const ProtectedCaseStudy = () => {
                 {/* 3. NARRATIVE (Text) */}
                 <div className={`w-full md:w-1/2 ${i % 2 === 1 ? 'text-right md:pr-12' : 'md:pl-12'}`}>
                   <div className={`inline-block font-mono text-xs text-[var(--brand)] border border-[var(--brand)] px-3 py-1 rounded-full mb-4 opacity-80`}>
-                    STEP 0{i + 1}
+                    {t('protected.step') || "STEP"} 0{i + 1}
                   </div>
                   <h3 className="text-3xl font-bold font-serif mb-6">{step.title}</h3>
                   <div className={`prose prose-sm dark:prose-invert font-mono text-[var(--text-secondary)] leading-relaxed ${i % 2 === 1 ? 'ml-auto' : ''}`}>
@@ -448,7 +448,7 @@ const ProtectedCaseStudy = () => {
             <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
               <Sun size={32} className="mx-auto text-[var(--brand)] mb-8" />
               <h2 className="text-3xl md:text-5xl font-serif italic mb-16 leading-tight">
-                "We realized that <span className="text-[var(--brand)]">clarity</span> was more valuable than <span className="text-[var(--text-secondary)] decoration-line-through decoration-1">features</span>."
+                {t('protected.insights_title') || "\"We realized that clarity was more valuable than features.\""}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
@@ -466,8 +466,8 @@ const ProtectedCaseStudy = () => {
         {/* 5. SOLUTION: ANNOTATED SCREENS */}
         <section className="max-w-6xl mx-auto px-6 py-32">
           <div className="flex items-baseline justify-between mb-16">
-            <h2 className="text-4xl font-serif italic">The Solution</h2>
-            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">Interface Design</span>
+            <h2 className="text-4xl font-serif italic">{t('protected.solution_title') || "The Solution"}</h2>
+            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.solution_subtitle') || "Interface Design"}</span>
           </div>
 
           <div className="space-y-32">
@@ -511,7 +511,7 @@ const ProtectedCaseStudy = () => {
 
                 {/* Narrative Text */}
                 <div className="w-full md:w-1/3">
-                  <div className="font-mono text-xs text-[var(--text-secondary)] mb-4 uppercase tracking-widest">Exhibit {String.fromCharCode(65 + i)}</div>
+                  <div className="font-mono text-xs text-[var(--text-secondary)] mb-4 uppercase tracking-widest">{t('protected.exhibit') || "Exhibit"} {String.fromCharCode(65 + i)}</div>
                   <h3 className="text-2xl font-bold mb-4">{sol.title}</h3>
                   <p className="text-[var(--text-secondary)] leading-relaxed">
                     {sol.desc}
@@ -520,7 +520,7 @@ const ProtectedCaseStudy = () => {
               </div>
             )) : (
               <div className="p-12 border border-dashed border-[var(--border-color)] text-center text-[var(--text-secondary)] font-mono">
-                [ CLASSIFIED SYSTEM ARCHITECTURE ]
+                {t('protected.classified_arch') || "[ CLASSIFIED SYSTEM ARCHITECTURE ]"}
               </div>
             )}
           </div>
@@ -549,31 +549,31 @@ const ProtectedCaseStudy = () => {
             <div className="max-w-4xl mx-auto px-6 relative z-10">
               <div className="flex items-center gap-4 mb-12 text-emerald-400 font-mono text-xs uppercase tracking-widest">
                 <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                System Update // 2025 Vision
+                {t('protected.system_update') || "System Update // 2025 Vision"}
               </div>
 
               <h2 className="text-4xl md:text-5xl font-serif italic mb-8">
-                "If I built this today..."
+                {t('protected.if_built_today') || "\"If I built this today...\""}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div>
                   <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                    Back then, we solved this with logic and loops. Today, I would solve it with <span className="text-white font-bold">{caseData.aiHypothesis.tech}</span>.
+                    {t('protected.back_then') || "Back then, we solved this with logic and loops. Today, I would solve it with"} <span className="text-white font-bold">{caseData.aiHypothesis.tech}</span>.
                   </p>
                   <div className="p-6 border border-white/10 bg-white/5 rounded-lg backdrop-blur-sm">
-                    <h3 className="font-mono text-xs text-emerald-400 uppercase tracking-widest mb-2">The New Concept</h3>
+                    <h3 className="font-mono text-xs text-emerald-400 uppercase tracking-widest mb-2">{t('protected.new_concept') || "The New Concept"}</h3>
                     <p className="text-xl font-bold">{caseData.aiHypothesis.title}</p>
                   </div>
                 </div>
 
                 <div className="space-y-8">
                   <div>
-                    <h4 className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-2">Retro-Fit Logic</h4>
+                    <h4 className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-2">{t('protected.retrofit') || "Retro-Fit Logic"}</h4>
                     <p className="text-gray-300 leading-relaxed border-l-2 border-emerald-500/50 pl-4">{caseData.aiHypothesis.desc}</p>
                   </div>
                   <div>
-                    <h4 className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-2">Potential Impact</h4>
+                    <h4 className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-2">{t('protected.potential_impact') || "Potential Impact"}</h4>
                     <div className="text-3xl font-mono font-bold text-emerald-400">{caseData.aiHypothesis.impact}</div>
                   </div>
                 </div>
@@ -585,7 +585,7 @@ const ProtectedCaseStudy = () => {
         {/* 8. TAKEAWAYS (ARCHITECT'S NOTE) */}
         <section className="max-w-3xl mx-auto px-6 py-40 text-center">
           <FileText className="mx-auto text-[var(--text-secondary)] mb-8" size={32} />
-          <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">// Architect's Debrief</h4>
+          <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">{t('protected.architect_debrief') || "// Architect's Debrief"}</h4>
           <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
             "{caseData.learnings || caseData.memo || "Confidential"}"
           </p>

@@ -751,6 +751,43 @@ export const WORK_CLUSTERS = [
                         desc: "The app anticipates user intent based on time-of-day and location. If a user opens the app at 8 AM in a warehouse district, the 'Forklift Driver' jobs appear instantly on the home screen.",
                         impact: "Time-to-Apply -40%"
                     }
+                },
+                caseStudy_id: {
+                    locked: true,
+                    snapshot: {
+                        tagline: "Bantu user temukan jalan tanpa peta.",
+                        heroImage: "/workforce_hero.png"
+                    },
+                    context: {
+                        client: "Produk Utama",
+                        role: "Redesain Navigasi",
+                        timeline: "Berjalan",
+                        team: "Core Experience"
+                    },
+                    challenge: "Data menunjukkan user terjebak di menu navigasi yang dalam lalu keluar dari aplikasi. Kami terlalu memperumit struktur kategori (over-engineered), berasumsi user tahu persis apa yang dicari. Ternyata tidak.",
+                    process: [
+                        { title: "Card Sorting", desc: "Saya lakukan card-sorting dengan user asli. Mental model mereka itu datar (flat), bukan hirarkis macam pohon." },
+                        { title: "Pilihan Sulit", desc: "Saya harus meyakinkan PM untuk membunuh fitur 'Advanced Search' kesayangan mereka. Kesederhanaan butuh pengorbanan." }
+                    ],
+                    insights: [
+                        { title: "Visual vs Teks", desc: "User kami adalah pembelajar visual. Mereka mengabaikan label teks tapi langsung klik ikon. Saya ubah desain jadi icon-first." }
+                    ],
+                    solution: [
+                        { title: "Hirarki Datar", desc: "Saya pangkas kedalaman navigasi dari 4 level jadi 2. Setiap lowongan kerja kini bisa dijangkau dalam 2 tap." },
+                        { title: "Tag Visual", desc: "Saya desain set ikon unik untuk setiap kategori pekerjaan, berfungsi sebagai jangkar visual saat scanning cepat." }
+                    ],
+                    metrics: [
+                        { label: "Retensi D1", value: "+15%" },
+                        { label: "Sukses Cari", value: "85%" },
+                        { label: "Bounce Rate", value: "-10%" }
+                    ],
+                    learnings: "Navigasi bukan cuma soal struktur; ini soal kepercayaan diri. Kalau user merasa tersesat 1 detik saja, mereka pergi. Saya belajar menghargai setiap klik.",
+                    aiHypothesis: {
+                        tech: "Predictive UI",
+                        title: "Penemuan Tanpa-Klik",
+                        desc: "Aplikasi mengantisipasi niat user berdasarkan waktu dan lokasi. Jika user buka aplikasi jam 8 pagi di area pergudangan, lowongan 'Supir Forklift' langsung muncul di layar utama.",
+                        impact: "Waktu-Lamar -40%"
+                    }
                 }
             },
         ]
@@ -833,6 +870,43 @@ export const WORK_CLUSTERS = [
                         desc: "An AI analyzes the buyer's purchase history and creditworthiness in real-time. If they are trusted, they skip the 'Payment Proof' step entirely. Instant credit approval.",
                         impact: "Friction Reduced 100%"
                     }
+                },
+                caseStudy_id: {
+                    locked: true,
+                    snapshot: {
+                        tagline: "7 langkah buat beli semardus mie? Kami harus perbaiki gap kepercayaan.",
+                        heroImage: "/commerce_hero.png"
+                    },
+                    context: {
+                        client: "GudangAda",
+                        role: "Lead Squad Checkout",
+                        timeline: "6 Bulan",
+                        team: "4 PM, 8 Engineer"
+                    },
+                    challenge: "Alur checkout kami adalah 'monster' 7 langkah. User meninggalkan keranjang (abandon cart) sebesar 65% karena mereka tidak percaya uang mereka aman. Di B2B, 'trust' bukan sekadar perasaan; itu jaminan transaksi.",
+                    process: [
+                        { title: "Audit Total", desc: "Saya print setiap layar alur checkout. Panjangnya 3 meter di dinding. Ternyata kami minta alamat yang sama 3 kali." },
+                        { title: "Perdebatan", desc: "Tim Finance mau mempertahankan 'cek keamanan'. Saya berargumen bahwa friksi *adalah* risiko. Kalau terlalu ribet, mereka pergi." }
+                    ],
+                    insights: [
+                        { title: "Kecemasan Bayar", desc: "Saya temukan user cuma peduli satu hal: 'Uang saya balik nggak kalau ini gagal?' Kami harus taruh jaminan itu di depan." }
+                    ],
+                    solution: [
+                        { title: "Alur 3-Langkah", desc: "Saya ringkas 7 langkah jadi 3: Keranjang, Bayar, Konfirmasi. Penyederhanaan radikal." },
+                        { title: "Badge Escrow", desc: "Saya tambah perisai visual 'Jaminan Uang Kembali' di sebelah tombol Bayar. Ini menaikkan konversi 5% sendirian." }
+                    ],
+                    metrics: [
+                        { label: "Cart Abandon", value: "-12%" },
+                        { label: "Konversi", value: "+8%" },
+                        { label: "AOV", value: "+15%" }
+                    ],
+                    learnings: "Kepercayaan dibangun dalam milidetik. Anda nggak bisa minta uang kalau tampilan berantakan. UI yang rapi adalah UI yang bisa dipercaya.",
+                    aiHypothesis: {
+                        tech: "Predictive Fraud Detection",
+                        title: "Checkout 'Lampu Hijau'",
+                        desc: "AI menganalisis riwayat belanja dan kredit pembeli secara real-time. Jika terpercaya, mereka bisa skip tahap 'Bukti Bayar' sepenuhnya. Persetujuan kredit instan.",
+                        impact: "Friksi Berkurang 100%"
+                    }
                 }
             },
             {
@@ -884,6 +958,43 @@ export const WORK_CLUSTERS = [
                         title: "Brand Asset Autopilot",
                         desc: "Brands upload 1 logo and 1 product image. The AI automatically generates 50 variations of banners, social posts, and store themes that adhere to their brand guidelines.",
                         impact: "Onboarding Time -90%"
+                    }
+                },
+                caseStudy_id: {
+                    locked: true,
+                    snapshot: {
+                        tagline: "Memberi Unilever dan P&G 'lahan real estate' di pasar yang chaotic.",
+                        heroImage: "/commerce_hero.png"
+                    },
+                    context: {
+                        client: "Partnership Strategis",
+                        role: "Desainer CMS",
+                        timeline: "3 Bulan",
+                        team: "Tim Brand"
+                    },
+                    challenge: "Prinsipal FMCG besar menolak bergabung karena tidak bisa kontrol brand image mereka. Mereka nggak mau sabun premium mereka dipajang di sebelah foto buram kardus berdebu.",
+                    process: [
+                        { title: "Ketegangan", desc: "Brand minta 'microsites'. Engineering minta 'template standar'. Saya harus desain sistem yang terasa custom tapi digenerate dari skema JSON standar." },
+                        { title: "Desain Modular", desc: "Saya buat 'Store Builder' drag-and-drop yang bikin manajer brand bisa atur banner dan karos tanpa coding." }
+                    ],
+                    insights: [
+                        { title: "Vanity Metrics", desc: "Brand lebih peduli 'Total Views' daripada 'Sales'. Saya highlight analitik trafik di dashboard mereka untuk memuaskan kebutuhan ini." }
+                    ],
+                    solution: [
+                        { title: "Store Builder", desc: "Editor WYSIWYG buat manajer brand kustomisasi landing page mereka." },
+                        { title: "Badge Terverifikasi", desc: "Centang visual yang menandakan 'Distributor Resmi', meningkatkan kepercayaan pembeli." }
+                    ],
+                    metrics: [
+                        { label: "Onboarded", value: "50+" },
+                        { label: "Kenaikan GMV", value: "+22%" },
+                        { label: "NPS Brand", value: "65" }
+                    ],
+                    learnings: "Pembeli B2B juga manusia. Mereka tertarik pada konten yang 'poles' karena itu sinyal keandalan.",
+                    aiHypothesis: {
+                        tech: "Generative Design (StyleGAN)",
+                        title: "Autopilot Aset Brand",
+                        desc: "Brand upload 1 logo dan 1 gambar produk. AI otomatis generate 50 variasi banner, posting sosial, dan tema toko yang sesuai panduan brand mereka.",
+                        impact: "Waktu Onboarding -90%"
                     }
                 }
             },
@@ -937,6 +1048,43 @@ export const WORK_CLUSTERS = [
                         desc: "Instead of fixed rules, the AI simulates 10,000 potential cart combinations to find the 'Sweet Spot' discount that maximizes volume without eroding margin. It accepts or rejects the promo for the user.",
                         impact: "Margin Protected +15%"
                     }
+                },
+                caseStudy_id: {
+                    locked: true,
+                    snapshot: {
+                        tagline: "Mengubah sakit kepala matematika jadi mesin diskon 1-klik.",
+                        heroImage: "/commerce_hero.png"
+                    },
+                    context: {
+                        client: "Internal Tool",
+                        role: "Penyederhana Logika",
+                        timeline: "2 Bulan",
+                        team: "Tim Growth"
+                    },
+                    challenge: "Mesin promo kami sangat rumit sampai Account Manager (AM) harus pakai kalkulator buat cek logika. Sering terjadi diskon bertumpuk (stacking) yang bikin rugi bandar.",
+                    process: [
+                        { title: "Mapping Logika", desc: "Saya petakan pohon dependensi diskon kami. Bentuknya kayak benang kusut." },
+                        { title: "Perbaikan", desc: "Saya usulkan UI 'Aturan Tumpuk': Kategori tegas (Ongkir, Produk, Bundling) yang tidak boleh tumpang tindih." }
+                    ],
+                    insights: [
+                        { title: "Takut Rugi", desc: "User takut banget 'sedekah tak sengaja'. Saya tambah kalkulator 'Potensi Loss' yang nunjukin maksimal uang terbakar sebelum mereka publish promo." }
+                    ],
+                    solution: [
+                        { title: "Simulator Promo", desc: "Tool yang membiarkan AM ngetes promo mereka lawan keranjang palsu buat lihat harga akhir." },
+                        { title: "Mesin Aturan", desc: "Toggle visual untuk promo 'Bisa Digabung' vs 'Eksklusif'." }
+                    ],
+                    metrics: [
+                        { label: "Utilisasi", value: "+25%" },
+                        { label: "Error", value: "0%" },
+                        { label: "Lonjakan Sales", value: "Tinggi" }
+                    ],
+                    learnings: "Di sistem kompleks, kejelasan adalah fitur terbaik. Kalau user nggak bisa prediksi hasilnya, sistemnya rusak.",
+                    aiHypothesis: {
+                        tech: "Reinforcement Learning",
+                        title: "Optimasi Diskon Dinamis",
+                        desc: "Alih-alih aturan kaku, AI mensimulasikan 10.000 kombinasi keranjang untuk cari 'Sweet Spot' diskon yang maksimalkan volume tanpa menggerus margin. AI yang accept/reject promo user.",
+                        impact: "Margin Terlindungi +15%"
+                    }
                 }
             },
             {
@@ -988,6 +1136,43 @@ export const WORK_CLUSTERS = [
                         title: "Screenshot-to-Component",
                         desc: "Designers upload a screenshot of a new UI pattern. The AI scans it against our existing component library and outputs the exact React code using our Design System tokens.",
                         impact: "Design Handoff 0m"
+                    }
+                },
+                caseStudy_id: {
+                    locked: true,
+                    snapshot: {
+                        tagline: "Mengakhiri kekacauan tombol '50 Shades of Grey'.",
+                        heroImage: "/commerce_hero.png"
+                    },
+                    context: {
+                        client: "Infrastruktur",
+                        role: "Pembangun Sistem",
+                        timeline: "1 Tahun",
+                        team: "Semua Desainer"
+                    },
+                    challenge: "Kami punya 15 varian warna biru dan 4 date picker beda. Setiap fitur baru butuh 3 hari cuma buat styling. Utang desain (design debt) memperlambat kami.",
+                    process: [
+                        { title: "Inventaris", desc: "Saya kumpulkan semua tombol di aplikasi. Melihat semuanya di satu tempat adalah tamparan yang dibutuhkan manajemen." },
+                        { title: "Token Atomik", desc: "Saya definisikan variabel inti: Warna, Spasi, Tipografi. Kalau bukan token, berarti nggak ada." }
+                    ],
+                    insights: [
+                        { title: "Dev First", desc: "Saya sadar design system bukan buat desainer; tapi buat developer. Saya tulis dokumentasi pakai bahasa mereka (Props, API), bukan bahasa desain." }
+                    ],
+                    solution: [
+                        { title: "UI Kit", desc: "Library Figma komprehensif dengan komponen auto-layout." },
+                        { title: "Library React", desc: "Paket npm yang tersinkronisasi sempurna. Desain sekali, impor di mana saja." }
+                    ],
+                    metrics: [
+                        { label: "Kecepatan Dev", value: "+30%" },
+                        { label: "Ukuran Kode", value: "-15%" },
+                        { label: "Konsistensi", value: "100%" }
+                    ],
+                    learnings: "Design system itu produk, bukan proyek. Butuh maintenance, versioning, dan roadmap.",
+                    aiHypothesis: {
+                        tech: "Multimodal LLM (Vision-to-Code)",
+                        title: "Screenshot-to-Component",
+                        desc: "Desainer upload screenshot pola UI baru. AI scan komponen itu lawan library yang ada dan output kode React persis pakai token Design System kami.",
+                        impact: "Handoff Desain 0m"
                     }
                 }
             },
@@ -1080,6 +1265,50 @@ export const WORK_CLUSTERS = [
                         desc: "Cameras at the warehouse scan the volume of goods being loaded. The AI predicts the exact truck fill-rate and notifies the customer: 'Your order consumes 40% of the truck, arriving in 2 hours.'",
                         impact: "Capacity Usage +20%"
                     }
+                },
+                caseStudy_id: {
+                    locked: true,
+                    snapshot: {
+                        tagline: "Mengakhiri siklus cemas 'Truk saya di mana?'",
+                        heroImage: null
+                    },
+                    context: {
+                        client: "STOQO Logistics",
+                        role: "End-to-End Experience",
+                        timeline: "2 Bulan",
+                        team: "Ops & Engineering"
+                    },
+                    challenge: "Saya menemukan fakta pahit: pengguna kami bangun jam 4 pagi bukan untuk bekerja, tapi untuk menunggu. Pengiriman terlambat bukan cuma ketidaknyamanan; ini ancaman eksistensial bagi usaha warung mereka. Tantangan saya adalah memutus siklus kecemasan ini tanpa punya budget untuk beli 100 truk baru.",
+                    process: [
+                        { title: "Metodologi", desc: "Saya tidak percaya tiket Jira, jadi saya ikut naik truk pengiriman. Saya melihat sopir kesulitan SMS sambil menyetir. Sistemnya bukan rusak; tapi berbahaya.", image: "/case-studies/delivery-methods/screen-shot-2020.png" },
+                        { title: "Insight Utama", desc: "Setelah bicara dengan 5 pemilik warung, saya temukan konflik aslinya: Masalahnya bukan kecepatan. Tapi kesunyian (ketidaktahuan). Mereka bisa terima telat; tapi nggak bisa terima kalau nggak dikabarin.", image: "/case-studies/delivery-methods/untitled.png" },
+                        { title: "Studi Lapangan", desc: "Saya bergabung dengan Field Activators untuk melihat kekacauan di lapangan. Ini menjembatani 'Keluhan Pelanggan' dengan 'Realita Operasional'.", image: "/case-studies/delivery-methods/img-20190502.jpg" },
+                        { title: "Workshop Analisis", desc: "Saya memfasilitasi sesi journey mapping di mana kami identifikasi 4 pain points: Mismacth Mental Model, Ketidakpastian, Kurang Komunikasi, dan Kurang Awareness.", image: "/case-studies/delivery-methods/customer-app-board.jpg" },
+                        { title: "Ko-Kreasi", desc: "Saya tidak mendesain sendirian. Saya pimpin workshop seharian bareng Lead Engineering dan Ops untuk memastikan desain ini bisa dibangun (feasible).", image: "/case-studies/delivery-methods/img-20190507.jpg" },
+                        { title: "Ideasi", desc: "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Jawabannya bukan 'truk lebih cepat'—tapi 'informasi yang lebih baik'.", image: "/case-studies/delivery-methods/customer-app-board-1.jpg" },
+                        { title: "Validasi", desc: "Saya bawa high-fidelity prototype kembali ke user untuk testing sprint 3 hari. Melihat mereka bingung adalah validasi terbaik.", image: "/case-studies/delivery-methods/untitled-1.png" }
+                    ],
+                    insights: [
+                        { title: "Psikologi Menunggu", desc: "Menunggu yang jelas estimasinya terasa lebih cepat daripada menunggu tanpa kabar. Estimasi kasar pun bisa menenangkan user." },
+                        { title: "Masalah 'Kepagian'", desc: "Ternyata, sopir yang datang kepagian juga masalah. Warung belum siap terima barang jam 3 pagi kalau janjinya jam 5." }
+                    ],
+                    solution: [
+                        { title: "Pelacakan Status", desc: "Saya curi mental model dari Domino's Pizza. Kalau pizza 50 ribu aja bisa dilacak, kenapa beras 500 ribu enggak?", image: "/case-studies/delivery-methods/tes.png" },
+                        { title: "Notifikasi Proaktif", desc: "Berhenti nunggu user nanya. Saya desain notifikasi yang otomatis dikirim begitu truk keluar dari gudang.", image: "/case-studies/delivery-methods/tes2.png" },
+                        { title: "Info Pengemudi", desc: "Info kontak sopir yang aman, memberi user jalur langsung ke barang mereka.", image: "/case-studies/delivery-methods/tes3.png" }
+                    ],
+                    metrics: [
+                        { label: "Tiket Support", value: "-60%" },
+                        { label: "Trust", value: "+40%" },
+                        { label: "Repeat Order", value: "+10%" }
+                    ],
+                    learnings: "Transparansi itu lebih murah daripada kecepatan. User mau nunggu kalau mereka tau alasannya. Proyek ini bukan soal UI; ini soal menjual 'ketenangan pikiran' sebagai fitur.",
+                    aiHypothesis: {
+                        tech: "Computer Vision & IoT",
+                        title: "Loading Dock Pintar",
+                        desc: "Kamera di gudang men-scan volume barang yang dimuat. AI memprediksi seberapa penuh truk dan memberi notifikasi ke user: 'Pesanan Anda memakan 40% kapasitas truk, tiba dalam 2 jam.'",
+                        impact: "Kapasitas Terpakai +20%"
+                    }
                 }
             },
             {
@@ -1128,6 +1357,43 @@ export const WORK_CLUSTERS = [
                         title: "The 'Jarvis' for Sales",
                         desc: "An AI voice coach that listens to sales calls (privacy-safe) and gives real-time whispers: 'Talk slower', 'Mention the bundle discount now', 'They sound hesitant about price'.",
                         impact: "Conversion Rate +25%"
+                    }
+                },
+                caseStudy_id: {
+                    locked: true,
+                    snapshot: {
+                        tagline: "Pakai mekanika video game buat genjot penjualan nyata.",
+                        heroImage: "/efficiency_hero.png"
+                    },
+                    context: {
+                        client: "Sales Force",
+                        role: "Saya Gamifikasi Apps",
+                        timeline: "3 Bulan",
+                        team: "Sales Ops"
+                    },
+                    challenge: "Agen lapangan kami kurang termotivasi. Mereka anggap aplikasi itu beban administrasi. Tingkat login rendah, input data asal-asalan. Kami harus bikin kerjaan 'membosankan' ini jadi terasa rewarding.",
+                    process: [
+                        { title: "User Interviews", desc: "Saya temukan kalau agen itu sangat kompetitif. Mereka suka banding-bandingin stats di grup WhatsApp. Saya harus bawa kompetisi itu masuk ke aplikasi." },
+                        { title: "Design Sprint", desc: "Kami tes leaderboard, badges, dan streaks. Konsep 'Streak' (berturut-turut) menang telak." }
+                    ],
+                    insights: [
+                        { title: "Loss Aversion", desc: "Agen bekerja lebih keras untuk 'menjaga streak' daripada untuk 'dapet bonus'. Psikologi takut kehilangan itu kuat banget." }
+                    ],
+                    solution: [
+                        { title: "Daily Streak", desc: "Ikon api yang makin panas setiap hari mereka capai target. Memutus streak rasanya sakit." },
+                        { title: "Leaderboard Regional", desc: "Ranking live agen terbaik di kota mereka. Hak pamer (bragging rights) memacu performa." }
+                    ],
+                    metrics: [
+                        { label: "DAU", value: "+40%" },
+                        { label: "Vol Penjualan", value: "+18%" },
+                        { label: "Engagement", value: "Tinggi" }
+                    ],
+                    learnings: "Gamifikasi bukan cuma tempel lencana. Ini soal memanfaatkan dorongan alami manusia: penguasaan skill, status sosial, dan FOMO.",
+                    aiHypothesis: {
+                        tech: "Personalized Coaching Agents",
+                        title: "'Jarvis' untuk Sales",
+                        desc: "AI voice coach yang dengerin panggilan sales (privacy-safe) dan kasih bisikan real-time: 'Ngomongnya pelan dikit', 'Tawarin diskon bundle sekarang', 'Mereka kedengeran ragu soal harga tuh'.",
+                        impact: "Konversi +25%"
                     }
                 }
             },
@@ -1178,8 +1444,45 @@ export const WORK_CLUSTERS = [
                         desc: "You can ask the system: 'Find me the invoice for the red chair we bought last May.' The AI visualizes the document and highlights the exact line item.",
                         impact: "Audit Speed 100x"
                     }
+                },
+                caseStudy_id: {
+                    locked: true,
+                    snapshot: {
+                        tagline: "Memusnahkan lemari arsip, satu scan tiap kali.",
+                        heroImage: "/efficiency_hero.png"
+                    },
+                    context: {
+                        client: "Ops Internal",
+                        role: "Visi Masa Depan",
+                        timeline: "1 Bulan",
+                        team: "Proyek Solo"
+                    },
+                    challenge: "Kantor kami tenggelam dalam kertas. Faktur, surat jalan, bon. Dokumen hilang, kena tumpahan kopi, dan datanya 'gelap' (tidak bisa diolah).",
+                    process: [
+                        { title: "Observasi", desc: "Saya perhatikan tim admin menghabiskan 4 jam sehari cuma buat ketik ulang data dari kertas ke komputer." },
+                        { title: "Ideasi", desc: "Gimana kalau kamera jadi keyboard-nya? Saya mock-up alur OCR yang otomatis ngisi formulir." }
+                    ],
+                    insights: [
+                        { title: "Percaya Mesin", desc: "User awalnya skeptis sama akurasi OCR. Saya desain UI 'Skor Kepercayaan' (Confidence Score) yang menghighlight kolom mana yang AI-nya ragu, jadi user bisa cek ulang." }
+                    ],
+                    solution: [
+                        { title: "Smart Scan", desc: "Arahkan kamera ke faktur, dan aplikasi langsung ekstrak Tanggal, Total, dan Vendor." },
+                        { title: "Arsip Digital", desc: "Kolom pencarian yang bisa nemuin bon dari 3 tahun lalu dalam 2 detik." }
+                    ],
+                    metrics: [
+                        { label: "Kertas Turun", value: "90%" },
+                        { label: "Cari Cepat", value: "100x" },
+                        { label: "Hemat Biaya", value: "Tinggi" }
+                    ],
+                    learnings: "Masa depan itu pasti, tapi butuh jembatan. 'Confidence Score' adalah jembatan yang bikin user berani percaya sama AI.",
+                    aiHypothesis: {
+                        tech: "Visual Document Understanding (VDU)",
+                        title: "Pencarian Semantik Kertas",
+                        desc: "Anda bisa tanya sistem: 'Cariin faktur kursi merah yang kita beli Mei lalu.' AI bakal visualisasikan dokumen dan highlight baris item yang dimaksud.",
+                        impact: "Kecepatan Audit 100x"
+                    }
                 }
-            },
+            }
         ]
     }
 ];

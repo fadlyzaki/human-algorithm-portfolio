@@ -78,7 +78,7 @@ const Footer = () => {
                     className="group flex flex-col items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-300"
                 >
                     <div className="w-px h-12 bg-[var(--text-secondary)]/30 group-hover:bg-[var(--text-primary)] transition-colors duration-300"></div>
-                    <span className="font-mono text-[10px] uppercase tracking-widest">Return to Surface</span>
+                    <span className="font-mono text-[10px] uppercase tracking-widest">{t('footer.return') || 'Return to Surface'}</span>
                 </button>
             </div>
 
