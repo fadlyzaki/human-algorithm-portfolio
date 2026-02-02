@@ -26,7 +26,7 @@ import { WORK_CLUSTERS } from '../data/portfolioData';
 
 const SystemManifest = () => {
   const { isDark, setIsDark } = useTheme();
-  const { t } = useLanguage();
+  const { t, language, toggleLanguage } = useLanguage();
 
   // --- DATA: RAW SPECS ---
   const header = {
@@ -95,6 +95,12 @@ const SystemManifest = () => {
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> {t('manifest.back')}
         </Link>
         <div className="flex gap-4">
+          <button
+            onClick={toggleLanguage}
+            className="px-4 py-2 border border-[var(--border-color)] hover:border-[var(--accent-mono)] font-mono text-sm uppercase transition-colors flex items-center gap-2"
+          >
+            <Globe size={14} /> {language}
+          </button>
           <button
             onClick={() => setIsDark(!isDark)}
             className="px-4 py-2 border border-[var(--border-color)] hover:border-[var(--accent-mono)] font-mono text-sm uppercase transition-colors"

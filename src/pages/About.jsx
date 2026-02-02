@@ -4,7 +4,7 @@ import {
   ArrowLeft, Terminal, Cpu, BookOpen, Coffee, MapPin, Headphones,
   Activity, AlertTriangle, GitCommit, Download, Sun, Moon,
   PenTool, Zap, Flame, PenLine, Layers, Briefcase, User,
-  Database, Server, Wifi, Layout, Shield
+  Database, Server, Wifi, Layout, Shield, Globe
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
@@ -20,7 +20,7 @@ import Footer from '../components/Footer';
 
 const AboutPage = () => {
   const { isDark, setIsDark } = useTheme();
-  const { t } = useLanguage();
+  const { t, language, toggleLanguage } = useLanguage();
   const [scrolled, setScrolled] = useState(0);
   const [chaosStrength, setChaosStrength] = useState(0);
 
@@ -208,6 +208,14 @@ const AboutPage = () => {
           </Link>
 
           <div className="flex items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              title="Switch Language"
+            >
+              <Globe size={18} />
+              <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
+            </button>
             <button
               onClick={() => setIsDark(!isDark)}
               className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors"

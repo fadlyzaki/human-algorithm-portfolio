@@ -25,7 +25,7 @@ const IconMapper = ({ iconName, ...props }) => {
 
 const CompanyDetail = () => {
     const { isDark } = useTheme();
-    const { t } = useLanguage();
+    const { t, language, toggleLanguage } = useLanguage();
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -59,8 +59,17 @@ const CompanyDetail = () => {
             {/* NAVIGATION */}
             <nav className="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center backdrop-blur-sm border-b border-transparent hover:border-[var(--border-color)] transition-all">
                 <BackButton to="/" label={t('company.index')} />
-                <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
-                    {cluster.company} {t('company.case_study')}
+
+                <div className="flex items-center gap-4">
+                    <button
+                        onClick={toggleLanguage}
+                        className="flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] uppercase tracking-widest transition-colors"
+                    >
+                        <Globe size={14} /> {language}
+                    </button>
+                    <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest hidden md:block">
+                        {cluster.company} {t('company.case_study')}
+                    </div>
                 </div>
             </nav>
 

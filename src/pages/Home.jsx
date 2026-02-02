@@ -8,7 +8,7 @@ import {
   CalendarClock, ExternalLink, Layers, Smartphone, Filter, Siren,
   FileSearch, Utensils, LayoutGrid, Archive, ArrowUpRight, Linkedin, Instagram, Dribbble,
   MessageSquare, MessageCircle, ShoppingBag, ShieldCheck, Tag, Box, Truck, Trophy, Scan, Layout, AlertTriangle, Monitor,
-  Flame, PenLine
+  Flame, PenLine, Globe
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import DraggablePhoto from '../components/DraggablePhoto';
@@ -143,7 +143,7 @@ const WorkClusterCard = ({ cluster }) => {
 // --- NAVIGATION COMPONENTS ---
 const NavigationMenu = ({ isOpen, onClose }) => {
   const location = useLocation();
-  const { t } = useLanguage();
+  const { t, language, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleEsc = (e) => {
@@ -195,6 +195,14 @@ const NavigationMenu = ({ isOpen, onClose }) => {
               {link.label}
             </Link>
           ))}
+          {/* Mobile Language Toggle */}
+          <button
+            onClick={() => { toggleLanguage(); onClose(); }}
+            className="flex items-center justify-center gap-2 font-mono text-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] uppercase tracking-widest mt-4"
+          >
+            <Globe size={20} />
+            <span>{language === 'en' ? 'Bahasa Indonesia' : 'English'}</span>
+          </button>
         </nav>
         <div className="w-16 h-px bg-[var(--border-color)] mx-auto my-8"></div>
         <div className="flex gap-6 justify-center">
@@ -216,7 +224,7 @@ const Portfolio = () => {
   const [scrolled, setScrolled] = useState(0);
   const { isDark, setIsDark } = useTheme();
   const { isGestureMode, toggleGestureMode } = useHandCursor();
-  const { t } = useLanguage();
+  const { t, language, toggleLanguage } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const navigate = useNavigate();
@@ -317,6 +325,13 @@ const Portfolio = () => {
 
             <button onClick={toggleGestureMode} className={`p-1 transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`} title="Enable Hand Tracking for 'Decryption Lens' Experiment">
               <ScanEye size={16} />
+            </button>
+            <button
+              onClick={toggleLanguage}
+              className="font-mono text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors text-xs uppercase tracking-widest flex items-center gap-1 p-1"
+              title="Switch Language"
+            >
+              {language}
             </button>
             <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1" aria-label="Toggle Theme">
               {isDark ? <Sun size={16} /> : <Moon size={16} />}
