@@ -263,11 +263,12 @@ const ProtectedCaseStudy = () => {
       <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-[var(--bg-void)]/80 backdrop-blur-md border-b border-[var(--border-color)] transition-all duration-500">
         <BackButton to={`/work/${parentCluster.id}`} label="Close" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]" />
 
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-2 text-[var(--brand)] font-mono text-xs tracking-widest hidden md:flex">
+          <div className="w-2 h-2 rounded-full bg-current animate-pulse"></div>
+          CASE_FILE_{projectData.id.toUpperCase()}
+        </div>
+
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2 text-[var(--brand)] font-mono text-xs tracking-widest hidden md:flex">
-            <div className="w-2 h-2 rounded-full bg-current animate-pulse"></div>
-            CASE_FILE_{projectData.id.toUpperCase()}
-          </div>
 
           <div className="flex items-center gap-4">
             <button

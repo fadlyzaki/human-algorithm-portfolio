@@ -33,6 +33,10 @@ const SideProjectsIndex = () => {
             <nav className="fixed top-0 left-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
                 <BackButton to="/" label="Index" className="text-white hover:text-white/80 mix-blend-difference" />
 
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-sm uppercase tracking-widest mix-blend-difference text-white hidden md:block">
+                    ARCHIVES
+                </div>
+
                 <div className="flex items-center gap-4">
                     <button
                         onClick={toggleLanguage}

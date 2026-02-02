@@ -70,6 +70,10 @@ const CompanyDetail = () => {
             <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-[var(--bg-void)]/80 backdrop-blur-md border-b border-transparent hover:border-[var(--border-color)] transition-all">
                 <BackButton to="/" label={t('company.index')} />
 
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest hidden md:block">
+                    {cluster.company} {t('company.case_study')}
+                </div>
+
                 <div className="flex items-center gap-4">
                     <button
                         onClick={toggleLanguage}
@@ -91,9 +95,6 @@ const CompanyDetail = () => {
                     >
                         {isDark ? <Sun size={16} /> : <Moon size={16} />}
                     </button>
-                    <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest hidden md:block pl-4 border-l border-[var(--border-color)]">
-                        {cluster.company} {t('company.case_study')}
-                    </div>
                 </div>
             </nav>
 

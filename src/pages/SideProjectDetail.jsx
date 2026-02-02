@@ -86,10 +86,11 @@ const SideProjectDetail = () => {
          <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-[var(--bg-void)]/80 backdrop-blur-md border-b border-[var(--border-color)]">
             <div className="flex items-center gap-4">
                <BackButton to="/side-projects" label="Archives" />
-               <div className="hidden md:flex items-center gap-2 font-mono text-[10px] uppercase text-[var(--text-secondary)] border-l border-[var(--border-color)] pl-4">
-                  <Terminal size={12} />
-                  <span>PROJECT_{project.id.toUpperCase()}</span>
-               </div>
+            </div>
+
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-2 font-mono text-[10px] uppercase text-[var(--text-secondary)]">
+               <Terminal size={12} />
+               <span>PROJECT_{project.id.toUpperCase()}</span>
             </div>
 
             <div className="flex items-center gap-4">
