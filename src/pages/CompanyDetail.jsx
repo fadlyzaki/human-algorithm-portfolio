@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
 import BackButton from '../components/BackButton';
 import ProjectCard from '../components/ProjectCard';
-import EasterEgg from '../components/EasterEgg';
+import Treasure from '../components/Treasure';
 
 // Dynamic Imports for AI Interactions
 const WorkforceAI = React.lazy(() => import('../components/interactions/WorkforceAI'));
@@ -140,13 +140,13 @@ const CompanyDetail = () => {
 
                         {/* Interactive AI Visualization */}
                         <ScrollReveal delay={200} className="w-full h-[500px] relative">
-                            <EasterEgg
+                            <Treasure
+                                id="company-detail"
                                 className="top-4 right-4"
-                                hint="AI CORE"
-                                type="glitch"
+                                type="crown"
                             >
-                                NEURAL LINK ACTIVE
-                            </EasterEgg>
+                                KING'S TREASURE!
+                            </Treasure>
                             <div className="absolute -inset-4 bg-[var(--brand)] opacity-10 blur-3xl rounded-full"></div>
                             <div className="relative h-full w-full rounded-2xl overflow-hidden border border-[var(--border-color)] shadow-2xl bg-[var(--bg-card)]">
                                 <div className="absolute top-4 left-4 z-10 flex gap-2">

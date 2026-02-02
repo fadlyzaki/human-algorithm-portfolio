@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Camera, Sparkles, ScanEye, Zap } from 'lucide-react';
+import { X, Camera, Map, ScanEye, Compass } from 'lucide-react';
 import { useHandCursor } from '../context/HandCursorContext';
 
 const HandTrackerWelcome = () => {
@@ -13,7 +13,7 @@ const HandTrackerWelcome = () => {
 
     return (
         <div className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-300">
-            <div className="bg-[#1a1a1a] border-2 border-blue-500 rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-in zoom-in-95 duration-300">
+            <div className="bg-[#1a1a1a] border-2 border-amber-500 rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-in zoom-in-95 duration-300">
                 {/* Close Button */}
                 <button
                     onClick={closeWelcomeModal}
@@ -26,15 +26,15 @@ const HandTrackerWelcome = () => {
                 {/* Icon */}
                 <div className="flex justify-center mb-6">
                     <div className="relative">
-                        <ScanEye size={56} className="text-blue-500 animate-pulse" />
-                        <Sparkles className="absolute -top-2 -right-2 text-amber-400 animate-ping" size={20} />
-                        <Zap className="absolute -bottom-1 -left-1 text-red-400 animate-pulse" size={16} />
+                        <ScanEye size={56} className="text-amber-500 animate-pulse" />
+                        <Map className="absolute -top-2 -right-2 text-amber-400 animate-bounce" size={20} />
+                        <Compass className="absolute -bottom-1 -left-1 text-amber-300 animate-spin" size={16} style={{ animationDuration: '3s' }} />
                     </div>
                 </div>
 
                 {/* Title */}
                 <h2 className="text-3xl font-serif italic text-white mb-6 text-center leading-tight">
-                    Activate Hand Tracker?
+                    Start Treasure Hunt?
                 </h2>
 
                 {/* Content */}
@@ -50,13 +50,13 @@ const HandTrackerWelcome = () => {
                         </div>
                     </div>
 
-                    {/* Easter Egg Discovery Card */}
+                    {/* Treasure Hunt Discovery Card */}
                     <div className="flex items-start gap-4 bg-amber-500/10 border border-amber-500/30 rounded-xl p-4">
-                        <Sparkles size={24} className="text-amber-400 mt-1 flex-shrink-0 animate-pulse" />
+                        <Map size={24} className="text-amber-400 mt-1 flex-shrink-0" />
                         <div>
-                            <p className="font-semibold text-white mb-2 text-base">🎁 8 Hidden Secrets</p>
+                            <p className="font-semibold text-white mb-2 text-base">🗺️ 8 Hidden Treasures</p>
                             <p className="text-sm text-gray-300 leading-relaxed">
-                                Scan the site with your hand to discover <span className="text-amber-400 font-bold">Easter Eggs</span> hidden across different pages.
+                                Explore the site with your hand to discover <span className="text-amber-400 font-bold">hidden treasures</span> scattered across different pages.
                             </p>
                         </div>
                     </div>
@@ -72,17 +72,17 @@ const HandTrackerWelcome = () => {
                     </button>
                     <button
                         onClick={handleActivate}
-                        className="flex-1 px-6 py-3.5 bg-blue-600 text-white hover:bg-blue-500 transition-all rounded-xl font-mono text-sm uppercase tracking-wider shadow-lg hover:shadow-xl flex items-center justify-center gap-2 font-bold"
+                        className="flex-1 px-6 py-3.5 bg-amber-600 text-white hover:bg-amber-500 transition-all rounded-xl font-mono text-sm uppercase tracking-wider shadow-lg hover:shadow-xl flex items-center justify-center gap-2 font-bold"
                     >
-                        <ScanEye size={18} />
-                        Activate
+                        <Compass size={18} />
+                        Start Hunt
                     </button>
                 </div>
 
-                {/* Footer Note */}
-                <p className="text-xs font-mono text-gray-500 text-center">
-                    EXPERIMENTAL FEATURE · PRIVACY FIRST
-                </p>
+                {/* Control Hints */}
+                <div className="text-center text-gray-500 text-xs font-mono">
+                    <p>👆 Point with Index Finger • 🤏 Pinch to Click</p>
+                </div>
             </div>
         </div>
     );

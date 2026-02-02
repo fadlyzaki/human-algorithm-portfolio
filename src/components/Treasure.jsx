@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useHandCursor } from '../context/HandCursorContext';
-import { Sparkles, Zap, Star, Terminal, Trophy, Plus, Check } from 'lucide-react';
+import { Gem, Coins, Crown, Anchor, MapPin, Plus, Check } from 'lucide-react';
 
-const EasterEgg = ({
+const Treasure = ({
     id, // Unique ID for tracking
     children,
-    hint = "SIGNAL DETECTED",
+    hint = "TREASURE DETECTED",
     className = "",
-    type = "default" // default, glitch, system, secret
+    type = "gem" // gem, coins, crown, anchor
 }) => {
     const { isGestureMode, collectEgg, foundEggs, cursorPosition } = useHandCursor();
     const [isRevealed, setIsRevealed] = useState(false);
     const [showCollectedFeedback, setShowCollectedFeedback] = useState(false);
     const [randomPosition, setRandomPosition] = useState({ top: 0, left: 0 });
-    const eggRef = useRef(null);
+    const treasureRef = useRef(null);
 
     const isFound = foundEggs.includes(id);
 
@@ -30,14 +30,14 @@ const EasterEgg = ({
 
     // Check collision with hand cursor
     useEffect(() => {
-        if (!isGestureMode || !eggRef.current) return;
+        if (!isGestureMode || !treasureRef.current) return;
 
         const checkCollision = () => {
-            const rect = eggRef.current.getBoundingClientRect();
+            const rect = treasureRef.current.getBoundingClientRect();
             const cursorX = cursorPosition.x;
             const cursorY = cursorPosition.y;
 
-            // Check if cursor is within the egg's bounds
+            // Check if cursor is within the treasure's bounds
             const isHovering =
                 cursorX >= rect.left &&
                 cursorX <= rect.right &&
@@ -64,35 +64,39 @@ const EasterEgg = ({
     // If gesture mode is OFF, return nothing (hidden)
     if (!isGestureMode) return null;
 
-    // Type specific colors and icons
+    // Type specific colors and icons - Treasure themed
     const config = {
-        default: {
-            color: '#3B82F6',
-            glow: 'rgba(59, 130, 246, 0.6)',
-            Icon: Sparkles
+        gem: {
+            color: '#8B5CF6', // Purple for gems
+            glow: 'rgba(139, 92, 246, 0.6)',
+            Icon: Gem,
+            label: 'GEM'
         },
-        glitch: {
-            color: '#EF4444',
-            glow: 'rgba(239, 68, 68, 0.6)',
-            Icon: Zap
-        },
-        system: {
-            color: '#10B981',
-            glow: 'rgba(16, 185, 129, 0.6)',
-            Icon: Terminal
-        },
-        secret: {
-            color: '#F59E0B',
+        coins: {
+            color: '#F59E0B', // Gold for coins
             glow: 'rgba(245, 158, 11, 0.6)',
-            Icon: Star
+            Icon: Coins,
+            label: 'COINS'
+        },
+        crown: {
+            color: '#EF4444', // Red for crown
+            glow: 'rgba(239, 68, 68, 0.6)',
+            Icon: Crown,
+            label: 'CROWN'
+        },
+        anchor: {
+            color: '#3B82F6', // Blue for anchor
+            glow: 'rgba(59, 130, 246, 0.6)',
+            Icon: Anchor,
+            label: 'RELIC'
         }
     };
 
-    const { color, glow, Icon } = config[type] || config.default;
+    const { color, glow, Icon, label } = config[type] || config.gem;
 
     return (
         <div
-            ref={eggRef}
+            ref={treasureRef}
             className={`fixed z-40 pointer-events-none ${className}`}
             style={{
                 top: `${randomPosition.top}%`,
@@ -102,16 +106,16 @@ const EasterEgg = ({
             {/* Collection Feedback Animation */}
             {showCollectedFeedback && (
                 <div className="absolute -top-16 left-1/2 -translate-x-1/2 z-50 animate-in slide-in-from-bottom fade-in duration-500">
-                    <div className="bg-green-500 text-white px-4 py-2 rounded-full shadow-2xl flex items-center gap-2 whitespace-nowrap">
+                    <div className="bg-amber-500 text-white px-4 py-2 rounded-full shadow-2xl flex items-center gap-2 whitespace-nowrap">
                         <Plus size={16} className="font-bold" />
-                        <span className="font-bold text-sm">COLLECTED!</span>
-                        <Trophy size={16} />
+                        <span className="font-bold text-sm">{label} FOUND!</span>
+                        <Icon size={16} />
                     </div>
                 </div>
             )}
 
             {!isRevealed ? (
-                // UNREVEALED STATE - Glowing Orb Anomaly
+                // UNREVEALED STATE - Glowing Treasure Orb
                 <div className="relative w-16 h-16 flex items-center justify-center">
                     {/* Pulsing Glow Rings - Different style if already found */}
                     <div
@@ -132,7 +136,7 @@ const EasterEgg = ({
 
                     {/* Center Orb - Green if found, original color if not */}
                     <div
-                        className={`relative w-8 h-8 rounded-full flex items-center justify-center ${isFound ? 'opacity-60' : ''}`}
+                        className={`relative w-10 h-10 rounded-full flex items-center justify-center ${isFound ? 'opacity-60' : ''}`}
                         style={{
                             backgroundColor: isFound ? '#10B981' : color,
                             boxShadow: isFound
@@ -141,42 +145,42 @@ const EasterEgg = ({
                         }}
                     >
                         {isFound ? (
-                            <Check size={16} className="text-white" />
+                            <Check size={18} className="text-white" />
                         ) : (
-                            <Icon size={14} className="text-white animate-pulse" />
+                            <Icon size={18} className="text-white animate-pulse" />
                         )}
                     </div>
 
-                    {/* Scan Lines Effect - Only if not found */}
+                    {/* Sparkle/Shimmer Effect - Only if not found */}
                     {!isFound && (
-                        <div className="absolute inset-0 overflow-hidden rounded-full opacity-30">
+                        <div className="absolute inset-0 overflow-hidden rounded-full">
                             <div
-                                className="absolute w-full h-0.5 animate-scan"
-                                style={{ backgroundColor: color }}
+                                className="absolute w-full h-1 animate-scan opacity-40"
+                                style={{ backgroundColor: 'white' }}
                             />
                         </div>
                     )}
 
-                    {/* FOUND Badge - Much More Prominent */}
+                    {/* COLLECTED Badge */}
                     {isFound && (
                         <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-2 border-white shadow-2xl flex items-center justify-center animate-bounce"
                             style={{
                                 boxShadow: '0 0 20px rgba(16, 185, 129, 0.8), 0 4px 12px rgba(0, 0, 0, 0.6)'
                             }}
                         >
-                            <Trophy size={14} className="text-white" />
+                            <MapPin size={14} className="text-white" />
                         </div>
                     )}
 
-                    {/* "FOUND" Label */}
+                    {/* "COLLECTED" Label */}
                     {isFound && (
                         <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-green-500 text-white px-2 py-0.5 rounded text-[8px] font-mono font-bold uppercase tracking-wider shadow-lg whitespace-nowrap">
-                            ✓ Found
+                            ✓ Collected
                         </div>
                     )}
                 </div>
             ) : (
-                // REVEALED STATE - Holographic Message
+                // REVEALED STATE - Treasure Chest Message
                 <div className="relative px-6 py-4 rounded-xl backdrop-blur-xl border-2 animate-in zoom-in-50 duration-500"
                     style={{
                         backgroundColor: isFound ? 'rgba(16, 185, 129, 0.2)' : `${color}20`,
@@ -186,13 +190,13 @@ const EasterEgg = ({
                             : `0 0 40px ${glow}, inset 0 0 20px ${glow}`
                     }}
                 >
-                    {/* Particle Burst */}
-                    {isFound && (
+                    {/* Sparkle Burst */}
+                    {!isFound && (
                         <>
-                            <Sparkles className="absolute -top-4 -left-4 text-yellow-300 animate-ping" size={20} />
-                            <Sparkles className="absolute -top-4 -right-4 text-pink-300 animate-ping" size={16} style={{ animationDelay: '100ms' }} />
-                            <Sparkles className="absolute -bottom-4 -left-4 text-blue-300 animate-ping" size={16} style={{ animationDelay: '200ms' }} />
-                            <Sparkles className="absolute -bottom-4 -right-4 text-purple-300 animate-ping" size={20} style={{ animationDelay: '300ms' }} />
+                            <Gem className="absolute -top-4 -left-4 text-purple-300 animate-ping" size={16} />
+                            <Coins className="absolute -top-4 -right-4 text-amber-300 animate-ping" size={16} style={{ animationDelay: '100ms' }} />
+                            <Crown className="absolute -bottom-4 -left-4 text-red-300 animate-ping" size={16} style={{ animationDelay: '200ms' }} />
+                            <Anchor className="absolute -bottom-4 -right-4 text-blue-300 animate-ping" size={16} style={{ animationDelay: '300ms' }} />
                         </>
                     )}
 
@@ -200,10 +204,9 @@ const EasterEgg = ({
                     <div className="flex items-center gap-3">
                         <Icon
                             size={24}
-                            className="animate-spin flex-shrink-0"
+                            className="animate-bounce flex-shrink-0"
                             style={{
-                                color: isFound ? '#10B981' : color,
-                                animationDuration: '3s'
+                                color: isFound ? '#10B981' : color
                             }}
                         />
                         <span
@@ -219,16 +222,15 @@ const EasterEgg = ({
                         </span>
                         <Icon
                             size={24}
-                            className="animate-spin flex-shrink-0"
+                            className="animate-bounce flex-shrink-0"
                             style={{
                                 color: isFound ? '#10B981' : color,
-                                animationDuration: '3s',
-                                animationDirection: 'reverse'
+                                animationDelay: '200ms'
                             }}
                         />
                     </div>
 
-                    {/* Glitch Overlay */}
+                    {/* Shimmer Overlay */}
                     <div
                         className="absolute inset-0 -skew-x-12 animate-pulse opacity-20 rounded-xl"
                         style={{
@@ -253,4 +255,4 @@ const EasterEgg = ({
     );
 };
 
-export default EasterEgg;
+export default Treasure;

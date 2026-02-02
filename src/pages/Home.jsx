@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
-import EasterEgg from '../components/EasterEgg';
+import Treasure from '../components/Treasure';
 import DraggablePhoto from '../components/DraggablePhoto';
 import ProjectCard from '../components/ProjectCard';
 import ScrollReveal from '../components/ScrollReveal';
@@ -414,14 +414,14 @@ const Portfolio = () => {
           <section className="relative mb-40">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12 items-start">
               <div className="relative">
-                {/* Easter Egg */}
-                <EasterEgg
+                {/* Treasure Hunt */}
+                <Treasure
+                  id="home-hero"
                   className="-top-8 left-0"
-                  hint="ANOMALY DETECTED"
-                  type="glitch"
+                  type="gem"
                 >
-                  IS THIS A SIMULATION?
-                </EasterEgg>
+                  HIDDEN GEM FOUND!
+                </Treasure>
 
                 <h1 className="font-mono text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
                   {t('home.role')} · <br />
@@ -541,13 +541,13 @@ const Portfolio = () => {
 
           {/* SECTION 2: WORK */}
           <section id="work" className="mb-40 scroll-mt-24 relative">
-            <EasterEgg
+            <Treasure
+              id="home-work"
               className="top-0 left-0"
-              hint="WORK.LOG"
-              type="system"
+              type="crown"
             >
-              CLASSIFIED PROJECTS
-            </EasterEgg>
+              ROYAL TREASURE!
+            </Treasure>
             <ScrollReveal>
               <SectionTitle number="2" title={t('home.section_work')} />
             </ScrollReveal>

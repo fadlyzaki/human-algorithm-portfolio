@@ -3,7 +3,7 @@ import Webcam from 'react-webcam';
 import { Hands } from '@mediapipe/hands';
 import { Camera } from '@mediapipe/camera_utils';
 import { useHandCursor } from '../context/HandCursorContext';
-import EasterEggProgress from './EasterEggProgress';
+import TreasureProgress from './TreasureProgress';
 import { AlertTriangle } from 'lucide-react';
 
 const HandCursorOverlay = () => {
@@ -279,7 +279,7 @@ const HandCursorOverlay = () => {
 
             {/* 3. EASTER EGG PROGRESS - Top Left */}
             <div className="fixed top-24 left-6 z-[100]">
-                <EasterEggProgress />
+                <TreasureProgress />
             </div>
 
         </div>
