@@ -1,66 +1,136 @@
-# Human Algorithm :: The Portfolio System v2.1
+# Fadly Zaki's Portfolio
 
-> **"I don't chase chaos—I contain it."**
+A cyberpunk-themed portfolio showcasing product design and engineering work, built with React and featuring experimental AI-powered hand tracking interactions.
 
-A high-performance, narrative-driven portfolio system built for **Fadly Uzzaki (Product Designer & Systems Specialist)**. This platform is architected as an "Interactive Manifesto," bridging Computer Science rigor with human-centered resilience.
+## 🎮 Features
 
----
+### Hand Tracker Easter Eggs
+Activate hand tracking mode to discover **8 hidden Easter Eggs** scattered across the portfolio using AI-powered gesture recognition.
 
-## 🛠 Strategic Core
+- **Hand Tracking**: MediaPipe-based gesture control (point with index finger, pinch to click)
+- **Random Hunt**: Egg positions randomize every session for replayability
+- **Progress Tracking**: Real-time counter and collection system
+- **Achievement System**: Trophy modal when all 8 eggs are discovered
+- **Privacy First**: All video processing happens locally in your browser
 
-This system is engineered for **speed, modularity, and cognitive efficiency**. It prioritizes "Design for Recovery" over cosmetic delight, utilizing an industrial-cyberpunk aesthetic to tell a story of technical excellence and emotional truth.
+**How to Play:**
+1. Click the ScanEye 👁️ icon in navigation
+2. Grant camera permission
+3. Move your hand to discover glowing orbs
+4. Collect all 8 to unlock the achievement!
 
-- **Stack**: React (Vite) + Tailwind CSS + Framer Motion.
-- **SSOT (Single Source of Truth)**: Centralized data architecture in `portfolioData.js` driving all views.
-- **ATS Optimization**: Specialized "System Manifest" built for high-performance HR parsing.
-- **SEO Resilience**: Integrated static HTML fallbacks to ensure metadata and introductory content are indexed even without JS execution.
+### Core Portfolio Features
+- **Responsive Design**: Optimized for desktop and mobile
+- **Dark/Light Theme**: Toggle between themes
+- **Bilingual Support**: English and Indonesian
+- **Interactive Projects**: Featuring case studies from Gojek, PayPal, and more
+- **Semantic SEO**: Optimized meta tags and structure
+- **Performance**: Lazy loading and code splitting
 
----
+## 🛠️ Tech Stack
 
-## 🛰 System Information Architecture
+- **Framework**: React 18 + Vite
+- **AI/ML**: MediaPipe Hands (hand tracking)
+- **Styling**: CSS + Tailwind-like utilities
+- **Icons**: Lucide React
+- **Routing**: React Router v6
+- **Analytics**: Google Analytics 4
+- **Deployment**: Vercel
 
-### 1. The Priority-First Homepage
-Reorganized into a 5-tier logical sequence designed for maximum narrative impact:
-1. **Hero**: Strategic positioning and identity.
-2. **Side Projects**: Experimental "Wild Creativity" playground.
-3. **Work**: Validated industrial ecosystems (Lumina, GudangAda, Stoqo).
-4. **About Me**: Personality synthesis and system history.
-5. **Notes**: Professional logs and intellectual logs.
+## 🚀 Getting Started
 
-### 2. System Manifest (ATS-Friendly CV)
-A high-density technical specification sheet optimized for both human scanners and automated systems.
-- **Dynamic Sync**: Projects, timelines, and outcomes mirror the main portfolio data.
-- **Compact Header**: Horizontal contact block minimizing vertical friction.
-- **Standardized Semantics**: Uses HRD-friendly terminology for zero-friction parsing.
+### Prerequisites
+- Node.js 16+
+- npm or yarn
 
-### 3. Decryption Lens (Webcam Interaction)
-A custom interaction layer using **MediaPipe Hands** that translates gesture input into a global CSS mask, revealing hidden system layers. Includes robust failsafes and accessibility overrides.
+### Installation
 
-### 4. Semantic Memory Module (The Agent)
-An experimental simulated RAG (Retrieval-Augmented Generation) module that replaces static bios with an interactive CLI-style query system.
-
----
-
-## 🚀 Execution & Deployment
-
-### Local Uplink
 ```bash
+# Clone the repository
+git clone https://github.com/fadlyzaki/human-algorithm-portfolio.git
+cd human-algorithm-portfolio
+
 # Install dependencies
 npm install
 
-# Start development terminal
+# Start development server
 npm run dev
 
-# Compile production build
+# Build for production
 npm run build
+
+# Preview production build
+npm run preview
 ```
 
-### Production Standards
-- **Global Radius**: Strict **8px** (`rounded-lg`) industrial standard.
-- **Design System**: Atomic theme injection via `ThemeContext` (Dark/Light modes).
-- **Interactions**: All components audited against Nielsen's 10 Usability Heuristics. Navbars standardized for constant visibility.
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── EasterEgg.jsx           # Easter egg component
+│   ├── HandCursorOverlay.jsx   # Hand tracking engine
+│   └── ...
+├── context/            # React Context providers
+│   ├── HandCursorContext.jsx   # Hand tracking state
+│   ├── ThemeContext.jsx        # Theme management
+│   └── LanguageContext.jsx     # i18n
+├── pages/              # Route pages
+│   ├── Home.jsx
+│   ├── About.jsx
+│   └── ...
+├── data/               # Portfolio content
+│   └── portfolioData.js
+└── App.jsx             # Main app component
+```
+
+## 🎯 Easter Egg Locations
+
+Find all 8 hidden Easter Eggs:
+- 🏠 **Home** (2 eggs): Hero section, Work section
+- 👤 **About** (2 eggs): Photo area, Chaos slider
+- 📁 **Side Projects** (2 eggs): Index page, Detail page
+- 💼 **Company Detail** (1 egg): AI visualization
+- 📬 **Contact** (1 egg): Network matrix
+
+## 🔧 Configuration
+
+### Environment Variables
+Create `.env` file in root:
+```env
+VITE_GA_MEASUREMENT_ID=your_ga_id
+```
+
+### Hand Tracker Settings
+Edit `src/components/HandCursorOverlay.jsx`:
+```javascript
+modelComplexity: 0,  // 0=Lite, 1=Full (faster vs more accurate)
+minDetectionConfidence: 0.5,
+minTrackingConfidence: 0.5,
+```
+
+## 🌐 Deployment
+
+Deployed on Vercel with automatic deployments from `main` branch.
+
+```bash
+# Build command
+npm run build
+
+# Output directory
+dist
+```
+
+## 📄 License
+
+© 2024 Fadly Zaki. All rights reserved.
+
+## 🤝 Contact
+
+- Portfolio: [fadlyzaki.com](https://fadlyzaki.com)
+- Email: fadly.zaki96@gmail.com
+- LinkedIn: [fadlyzaki](https://linkedin.com/in/fadlyzaki)
 
 ---
 
-**Architected & Engineered by [Fadly Uzzaki](https://fadlyzaki-design.vercel.app/)**  
-*"Building systems that hold up when everything else breaks."*
+**Note**: Hand tracking requires camera access and works best in good lighting conditions. Supported on modern browsers (Chrome, Edge, Firefox). Safari support is limited.
