@@ -379,6 +379,13 @@ export const WORK_CLUSTERS = [
             icon: "Users",
             items: ["Blue Collar Users", "Android-First Market", "Offline-Ready UX"]
         },
+        subtitle_id: 'Memanusiakan Operasional',
+        hook_id: 'Merevolusi rekrutmen kerah biru lewat platform komunitas kerja yang menghubungkan ratusan ribu pekerja dengan UMKM.',
+        miniDesc_id: 'Platform komunitas kerja pertama untuk kelas pekerja. Membantu puluhan ribu UMKM menemukan pekerja yang tepat dengan cepat dan mudah.',
+        companyFocus_id: {
+            title: "Konteks Unik",
+            items: ["Pengguna Kerah Biru", "Pasar Android-First", "UX Siap Offline"]
+        },
         brandColor: '#1AA8B4', // Lumina Teal
         linkedinUrl: 'https://www.linkedin.com/company/luminatechnologies/about/',
         heroImage: '/workforce_hero.png',
