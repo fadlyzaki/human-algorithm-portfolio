@@ -4,7 +4,7 @@ import {
   ArrowLeft, Terminal, Cpu, BookOpen, Coffee, MapPin, Headphones,
   Activity, AlertTriangle, GitCommit, Download, Sun, Moon,
   PenTool, Zap, Flame, PenLine, Layers, Briefcase, User,
-  Database, Server, Wifi, Layout, Shield, Globe
+  Database, Server, Wifi, Layout, Shield, Globe, ScanEye
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
