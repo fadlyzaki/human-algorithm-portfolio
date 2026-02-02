@@ -60,7 +60,7 @@ const DraggablePhoto = () => {
               <div className="h-24 bg-[#0a0a0a] relative flex items-center justify-between px-4 pt-4 border-b-2 border-[var(--accent)]">
                 <div className="flex flex-col">
                   <span className="text-[var(--accent)] font-mono text-[10px] font-bold tracking-[0.2em]">ACCESS_LEVEL_4</span>
-                  <span className="text-white font-sans text-xs font-bold tracking-wide mt-1">HUMAN ALGORITHM</span>
+                  <span className="text-white font-sans text-xs font-bold tracking-wide mt-1">HUMAN BY DESIGN</span>
                 </div>
                 <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
                   <User size={14} className="text-white/60" />
@@ -85,7 +85,7 @@ const DraggablePhoto = () => {
                 {/* Data Fields */}
                 <div className="space-y-3">
                   <div className="flex flex-col">
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white leading-none uppercase tracking-tight">UZZAKI, FADLY</h2>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white leading-none uppercase tracking-tight">UZZAKI, FADLY 🧢</h2>
                     <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mt-1">Product Designer // SysOp</span>
                   </div>
 

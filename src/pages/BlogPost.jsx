@@ -138,7 +138,7 @@ const BlogPost = () => {
             </div>
             <div className="flex items-center gap-2">
               <User size={14} />
-              <span>Fadly Uzzaki</span>
+              <span>Fadly Uzzaki 🧢</span>
             </div>
           </div>
         </header>
@@ -193,7 +193,7 @@ const BlogPost = () => {
         <div className="mt-20 pt-12 border-t border-[var(--border-color)] flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <h3 className="font-mono text-sm uppercase text-[var(--text-secondary)] mb-1">Written By</h3>
-            <div className="font-bold text-lg">Fadly Uzzaki</div>
+            <div className="font-bold text-lg">Fadly Uzzaki 🧢</div>
           </div>
 
           <button className="flex items-center gap-2 px-6 py-3 border border-[var(--border-color)] hover:border-[var(--accent-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] transition-colors font-mono text-xs uppercase tracking-widest group">
@@ -211,7 +211,7 @@ const BlogPost = () => {
 
         <footer className="mt-24 text-center">
           <p className="font-mono text-xs text-[var(--text-secondary)] uppercase opacity-50">
-             // End of File · Fadly Uzzaki © 2025
+             // End of File · Fadly Uzzaki 🧢 © 2025
           </p>
         </footer>
       </main>

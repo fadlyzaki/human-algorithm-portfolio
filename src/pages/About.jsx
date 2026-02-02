@@ -18,7 +18,7 @@ import SemanticMemory from '../components/SemanticMemory';
 import Footer from '../components/Footer';
 
 /* --- THEME CONFIGURATION ---
-   Consistent with Human Algorithm Design System v2.0
+   Consistent with Human By Design System v2.0
 */
 
 const AboutPage = () => {
@@ -292,7 +292,7 @@ const AboutPage = () => {
           <div>
             <div style={getChaosStyle()}>
               <h1 className="text-4xl md:text-5xl font-mono text-[var(--text-primary)] uppercase leading-[1.1] mb-6 tracking-tight">
-                Fadly Uzzaki (Zaki)
+                Fadly Uzzaki 🧢 (Zaki)
               </h1>
               <h2 className="text-xl text-[var(--accent-amber)] font-mono mb-8 flex items-center gap-3">
                 <span className="opacity-50 text-[var(--text-primary)]">//</span>
