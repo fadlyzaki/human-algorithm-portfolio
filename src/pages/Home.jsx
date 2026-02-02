@@ -408,6 +408,24 @@ const Portfolio = () => {
                     <Headphones size={14} className="text-[var(--accent-blue)]" />
                     {t('home.status_listening')}
                   </a>
+                  <a
+                    href="https://www.strava.com/athletes/129304799"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 hover:text-orange-500 transition-colors cursor-pointer"
+                  >
+                    <Activity size={14} className="text-orange-500" />
+                    {t('home.status_training')}
+                  </a>
+                  <a
+                    href="https://substack.com/@fadlyzaki?"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 hover:text-purple-400 transition-colors cursor-pointer"
+                  >
+                    <PenLine size={14} className="text-purple-400" />
+                    {t('home.status_reflecting')}
+                  </a>
                   <span className="flex items-center gap-2 text-[var(--accent-green)]">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>

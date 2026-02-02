@@ -42,6 +42,8 @@ export const translations = {
             status_location: "Jakarta, Indonesia",
             status_reading: "Reading: Daring Greatly by Brené Brown",
             status_listening: "Let's get things done — together",
+            status_training: "Running 5K & Swimming 1K Weekly",
+            status_reflecting: "Reflecting on Life Weekly",
             status_collab: "Open to Collaboration"
         },
         about: {
@@ -188,6 +190,8 @@ export const translations = {
             status_location: "Jakarta, Indonesia",
             status_reading: "Membaca: Daring Greatly oleh Brené Brown",
             status_listening: "Let's get things done — together",
+            status_training: "Lari 5K & Renang 1K Mingguan",
+            status_reflecting: "Merefleksikan Hidup Mingguan",
             status_collab: "Terbuka untuk Kolaborasi"
         },
         about: {
