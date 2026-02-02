@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
+import EasterEgg from '../components/EasterEgg';
 import DraggablePhoto from '../components/DraggablePhoto';
 import ProjectCard from '../components/ProjectCard';
 import ScrollReveal from '../components/ScrollReveal';
@@ -412,7 +413,16 @@ const Portfolio = () => {
           {/* HERO */}
           <section className="relative mb-40">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12 items-start">
-              <div>
+              <div className="relative">
+                {/* Easter Egg */}
+                <EasterEgg
+                  className="-top-8 left-0"
+                  hint="ANOMALY DETECTED"
+                  type="glitch"
+                >
+                  IS THIS A SIMULATION?
+                </EasterEgg>
+
                 <h1 className="font-mono text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
                   {t('home.role')} · <br />
                   <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">{t('home.role_sub')}</span>

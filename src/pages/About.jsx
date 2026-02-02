@@ -11,6 +11,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
 import ScrollReveal from '../components/ScrollReveal';
+import EasterEgg from '../components/EasterEgg';
 import SystemMonitor from '../components/SystemMonitor';
 import ChaosSlider from '../components/ChaosSlider';
 import SemanticMemory from '../components/SemanticMemory';
@@ -249,6 +250,15 @@ const AboutPage = () => {
           {/* Avatar Area */}
           <div className="relative group" style={getChaosStyle()}>
             <div className="w-full aspect-[3/4] bg-[var(--bg-card)] border border-[var(--border-color)] relative group-hover:border-[var(--accent-blue)] transition-all duration-700 overflow-hidden rounded-lg shadow-2xl">
+              {/* Easter Egg */}
+              <EasterEgg
+                className="top-4 right-4"
+                hint="SCAN SUBJECT"
+                type="system"
+              >
+                human.confidence = 10%
+              </EasterEgg>
+
               {/* Profile Image */}
               <img
                 src="/about-portrait-new.jpg"

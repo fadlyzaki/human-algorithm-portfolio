@@ -10,6 +10,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
+import EasterEgg from '../components/EasterEgg';
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Communication Uplink"
@@ -246,7 +247,14 @@ const ContactPage = () => {
           </div>
 
           {/* NETWORK MATRIX (Socials) */}
-          <div className="space-y-6">
+          <div className="space-y-6 relative">
+            <EasterEgg
+              className="top-0 right-0"
+              hint="VOID SIGNAL"
+              type="default"
+            >
+              NO SPOON DETECTED
+            </EasterEgg>
             <div className="flex items-center gap-3 text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2">
               <Globe size={16} />
               <h3 className="font-mono text-xs uppercase tracking-widest">{t('contact.network_matrix')}</h3>

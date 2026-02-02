@@ -9,6 +9,7 @@ import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import BackButton from '../components/BackButton';
 import ProjectCard from '../components/ProjectCard';
+import EasterEgg from '../components/EasterEgg';
 
 const SideProjectsIndex = () => {
     const { isDark, setIsDark } = useTheme();
@@ -191,7 +192,14 @@ const SideProjectsIndex = () => {
             </nav>
 
             <main className="max-w-6xl mx-auto px-6 pt-32 pb-24" ref={containerRef}>
-                <header className="mb-24">
+                <header className="mb-24 relative">
+                    <EasterEgg
+                        className="top-0 right-0"
+                        hint="DECRYPTING..."
+                        type="secret"
+                    >
+                        ALL DAEMONS ACTIVE
+                    </EasterEgg>
                     <h1 className="text-4xl md:text-6xl font-serif italic mb-6">Side Projects</h1>
                     <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl font-light">
                         Full log of side projects, prototypes, and daemons.
