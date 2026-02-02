@@ -2,9 +2,10 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
    Sun, Moon, ArrowUpRight, Code, Cpu, Link as LinkIcon, AlertTriangle,
-   Terminal, Share2, Box, ArrowLeft, Monitor, Layers, FileText
+   Terminal, Share2, Box, ArrowLeft, Monitor, Layers, FileText, Globe
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import BackButton from '../components/BackButton';
 import { SIDE_PROJECTS } from '../data/portfolioData';
 import ProjectCard from '../components/ProjectCard';
@@ -16,6 +17,7 @@ import ProjectCard from '../components/ProjectCard';
 
 const SideProjectDetail = () => {
    const { isDark, setIsDark } = useTheme();
+   const { language, toggleLanguage, isIndonesian } = useLanguage();
    const { id } = useParams();
 
    // Fetch Data
@@ -54,6 +56,14 @@ const SideProjectDetail = () => {
       '--brand': isDark ? '#60A5FA' : '#2563EB' // Dynamic brand color fallback
    };
 
+   // Content Resolution Fallbacks
+   const activeTitle = (isIndonesian && project.title_id) ? project.title_id : project.title;
+   const activeSubtitle = (isIndonesian && project.subtitle_id) ? project.subtitle_id : project.subtitle;
+   const activeTldr = (isIndonesian && project.tldr_id) ? project.tldr_id : project.tldr;
+   const activeModules = (isIndonesian && project.modules_id) ? project.modules_id : project.modules;
+   const activeSections = (isIndonesian && project.sections_id) ? project.sections_id : project.sections;
+
+
    return (
       <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white pb-32">
 
@@ -73,9 +83,21 @@ const SideProjectDetail = () => {
                   <span>PROJECT_{project.id.toUpperCase()}</span>
                </div>
             </div>
-            <button onClick={() => setIsDark(!isDark)} className="p-2 hover:bg-[var(--bg-surface)] rounded-full transition-colors text-[var(--text-primary)]" aria-label="Toggle Theme">
-               {isDark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
+
+            <div className="flex items-center gap-4">
+               <button
+                  onClick={toggleLanguage}
+                  className="flex items-center gap-2 text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                  aria-label="Toggle Language"
+               >
+                  <Globe size={14} />
+                  <span>{language}</span>
+               </button>
+
+               <button onClick={() => setIsDark(!isDark)} className="p-2 hover:bg-[var(--bg-surface)] rounded-full transition-colors text-[var(--text-primary)]" aria-label="Toggle Theme">
+                  {isDark ? <Sun size={18} /> : <Moon size={18} />}
+               </button>
+            </div>
          </nav>
 
          <main className="relative z-10">
@@ -104,11 +126,11 @@ const SideProjectDetail = () => {
                   </div>
 
                   <h1 className="text-4xl md:text-8xl lg:text-9xl font-serif italic leading-[0.9] tracking-tighter text-[var(--text-primary)]">
-                     {project.title}
+                     {activeTitle}
                   </h1>
 
                   <p className="text-xl md:text-2xl font-light text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
-                     {project.tldr}
+                     {activeTldr}
                   </p>
                </div>
 
@@ -168,7 +190,7 @@ const SideProjectDetail = () => {
                      <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
                         <Layers size={12} /> Context
                      </h3>
-                     <div className="text-sm font-medium">{project.subtitle}</div>
+                     <div className="text-sm font-medium">{activeSubtitle}</div>
                   </div>
                </div>
             </section>
@@ -176,8 +198,8 @@ const SideProjectDetail = () => {
             {/* --- 4. THE FILE (Content Modules) --- */}
             <section className="max-w-4xl mx-auto px-6 py-24 space-y-24">
 
-               {project.modules ? (
-                  project.modules.map((module, idx) => (
+               {activeModules ? (
+                  activeModules.map((module, idx) => (
                      <article key={idx} className="group">
                         {/* Module Header */}
                         <div className="flex items-baseline gap-4 mb-8 border-b border-[var(--border-color)] pb-4">
@@ -221,7 +243,7 @@ const SideProjectDetail = () => {
                            <h2 className="text-2xl md:text-3xl font-serif italic">The Challenge</h2>
                         </div>
                         <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light">
-                           {project.sections.challenge}
+                           {activeSections?.challenge || project.sections.challenge}
                         </p>
                      </article>
 
@@ -231,7 +253,7 @@ const SideProjectDetail = () => {
                            <h2 className="text-2xl md:text-3xl font-serif italic">The Approach</h2>
                         </div>
                         <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light">
-                           {project.sections.approach}
+                           {activeSections?.approach || project.sections.approach}
                         </p>
                      </article>
                   </>

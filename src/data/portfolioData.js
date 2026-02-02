@@ -281,6 +281,43 @@ export const SIDE_PROJECTS = [
         type: 'Algorithm Design',
         date: "February 2026",
         coverImage: null,
+
+        // Bahasa Indonesia Translations
+        title_id: 'Pivot "Agensi"',
+        subtitle_id: 'Mendesain Ulang Algoritma',
+        desc_id: 'Mengubah algoritma Media Sosial dari Kotak Hitam menjadi Co-Pilot.',
+        tldr_id: "Berpindah dari 'Panel Kontrol' ke 'Feed Terpadu' untuk memberikan kontrol kepada pengguna tanpa friksi.",
+        sections_id: {
+            challenge: "Media sosial telah berubah dari Menghubungkan Orang menjadi Menahan Perhatian. Dalam prosesnya, pengguna kehilangan kendali, menciptakan \"Feed Sampah\" yang memprioritaskan dopamin murah daripada koneksi yang bermakna.",
+            approach: "Kami menyadari bahwa pengguna tidak memiliki preferensi statis. Mereka memiliki Mood Kontekstual. Kami perlu memindahkan kontrol dari Menu Pengaturan ke Feed itu sendiri, menggunakan Stealth UX."
+        },
+        modules_id: [
+            {
+                title: "Protagonis: Berkencan dengan Sarah",
+                content: "Sarah adalah Desainer Grafis berusia 24 tahun. Dia tumbuh besar dengan Instagram. Dia ingat ketika feed masih kronologis dan isinya hanya teman-temannya.\n\nSituasi (2025):\nSarah membuka aplikasi sosial favoritnya. Dia langsung disambut dengan:\n• Iklan pemutih gigi dropship.\n• Video viral orang asing berteriak tentang politik.\n• Gambar kucing di luar angkasa buatan AI yang agak meresahkan.\n\nKonflik:\nDia menggulir selama 10 menit. Dia merasa cemas sekaligus bosan. Tiba-tiba, dia mendapat pesan dari sahabatnya, Mike: \"Kamu lihat foto tunanganku? Aku posting kemarin!\"\nSarah belum melihatnya. Algoritma memutuskan dia lebih suka \"Kucing Angkasa\" daripada Mike. Dia menutup aplikasi, merasakan kesepian digital.\n\nMasalah:\nMedia sosial telah beralih dari Menghubungkan Orang menjadi Retensi Perhatian. Ini menghilangkan agensi pengguna, menciptakan \"Feed Sampah\" yang memprioritaskan dopamin murah."
+            },
+            {
+                title: "Percobaan Pertama: Solusi \"Kokpit\"",
+                content: "Hipotesis: Jika pengguna membenci algoritma, biarkan mereka membangunnya kembali secara manual.\n\nKami merancang \"Panel Kontrol Algoritma.\" Itu adalah layar pengaturan yang penuh dengan slider, persentase, dan tombol beralih. Kami memberi Sarah kunci kerajaan. Dia bisa mengatur \"Politik\" ke 0% dan \"Teman\" ke 100%.\n\nUji Pengguna:\nSarah membuka menu Pengaturan. Dia menatap 12 slider yang berbeda. Dia mengerutkan kening.\n\"Ini terlihat seperti pekerjaan rumah,\" katanya. \"Saya tidak ingin mengkalibrasi feed saya seperti insinyur suara. Saya hanya ingin isinya bagus.\"\n\nKegagalan:\nKami jatuh ke dalam Perangkap Rekayasa. Kami menyamakan \"Kontrol\" dengan \"Kompleksitas.\" Pengguna menginginkan agensi, tetapi mereka tidak menginginkan friksi. Panel Kontrol itu kuat, tetapi terlalu tersembunyi dan berat untuk digunakan setiap hari."
+            },
+            {
+                title: "Pivot: Dari \"Pengaturan\" ke \"Vibe\"",
+                content: "Wawasan:\nKami menyadari bahwa pengguna tidak memiliki preferensi statis (misalnya, \"Saya selalu benci video\"). Mereka memiliki Mood Kontekstual.\n• Kadang Sarah ingin merusak otaknya dengan video viral (\"Doom Scroll\").\n• Kadang dia hanya ingin melihat apa yang dilakukan Mike (\"Update\").\n\nKami perlu memindahkan kontrol dari Menu Pengaturan ke Feed itu sendiri, tetapi tanpa membuat antarmuka berantakan."
+            },
+            {
+                title: "Solusi: Stealth UX & Desain \"Mode\"",
+                content: "Kami membangun Antarmuka SocialFlux Kompak.\n\nA. Mode Switcher \"Stealth\"\nAlih-alih deretan tombol yang memakan ruang layar, kami memanfaatkan model mental UI yang ada.\nDesain: Kami mengubah teks \"Untuk Anda\" di kiri atas menjadi menu dropdown.\nCerita: Sarah membuka aplikasi. Defaultnya ke \"Untuk Anda\" (campuran standar). Dia merasa kewalahan. Dia mengetuk header dan memilih \"Hanya Teman.\"\nHasilnya: Seketika, kebisingan lenyap. Tidak ada iklan, tidak ada AI, tidak ada orang asing. Hanya foto tunangan Mike.\n\nB. \"Mode Santai\"\nSarah ingin menjelajah, tapi dia lelah dengan video berteriak energi tinggi.\nDesain: Dia memilih \"Mode Santai\" dari dropdown.\nLogika: Mode ini menyaring audio BPM tinggi, potongan cepat, dan tag \"viral/hype\" di backend. Ini memprioritaskan foto, alam, dan seni.\nHasilnya: Feed menjadi majalah digital, bukan mesin slot.\n\nC. \"Micro-Blocking\" Kontekstual\nSarah melihat gambar selebriti buatan AI yang terasa palsu.\nDesain: Kami menambahkan tag kecil berbentuk pil abu-abu di bagian bawah posting: #AI, #Celebrity.\nInteraksi: Sarah tidak perlu mencari tombol \"Laporkan\". Dia cukup mengetuk tag #AI. Aplikasi bertanya: \"Sembunyikan konten seperti ini?\" Dia mengklik Ya.\nHasilnya: Dia telah melatih algoritmanya dalam 2 detik tanpa meninggalkan feed."
+            },
+            {
+                title: "Hasil: Mengapa Ini Berhasil",
+                content: "Dengan beralih dari \"Panel Kontrol\" (Prototipe 1) ke \"Feed Terpadu\" (Prototipe 3), kami mencapai hal berikut:\n\nSkor Kepercayaan ⬆️ Peningkatatn Tinggi\nPengguna berhenti merasa \"dimanipulasi\" karena kontrol terlihat dan responsif.\n\nDurasi Sesi ↔️ Stabil\nPengguna menghabiskan waktu yang sama, tetapi melaporkan merasa 50% lebih sedikit \"bersalah\" setelahnya.\n\nInteraksi Teman ⬆️ 300% Peningkatan\nMode \"Hanya Teman\" menghilangkan hambatan untuk menemukan orang-orang terkasih."
+            },
+            {
+                title: "Kesimpulan",
+                content: "Masa depan media sosial bukan tentang AI yang lebih baik memprediksi apa yang Anda inginkan. Ini tentang AI yang mendengarkan apa yang Anda katakan.\n\nSarah tidak butuh aplikasi baru. Dia hanya butuh aplikasi saat ini untuk cukup menghormatinya untuk menyerahkan kemudi.\n\n\"Teknologi seharusnya menjadi sepeda untuk pikiran, bukan ban berjalan untuk mata.\""
+            }
+        ],
+
         modules: [
             {
                 title: "The Protagonist: Meet Sarah",

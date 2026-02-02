@@ -14,6 +14,7 @@ const CompanyDetail = React.lazy(() => import('./pages/CompanyDetail'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 
+import { LanguageProvider } from './context/LanguageContext';
 import { HandCursorProvider } from './context/HandCursorContext';
 import HandCursorOverlay from './components/HandCursorOverlay';
 import ScrollToTop from './components/ScrollToTop';
@@ -30,36 +31,38 @@ const PageLoader = () => (
 
 function App() {
   return (
-    <HandCursorProvider>
-      <HandCursorOverlay />
-      <Router>
-        <AnalyticsTracker />
-        <ScrollToTop />
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            {/* Core Routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/cv" element={<SystemManifest />} />
+    <LanguageProvider>
+      <HandCursorProvider>
+        <HandCursorOverlay />
+        <Router>
+          <AnalyticsTracker />
+          <ScrollToTop />
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              {/* Core Routes */}
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/cv" element={<SystemManifest />} />
 
-            {/* Index Pages */}
-            <Route path="/side-projects" element={<SideProjectsIndex />} />
-            <Route path="/work/:id" element={<CompanyDetail />} />
+              {/* Index Pages */}
+              <Route path="/side-projects" element={<SideProjectsIndex />} />
+              <Route path="/work/:id" element={<CompanyDetail />} />
 
-            {/* Case Studies (Dynamic ID for future scaling) */}
-            <Route path="/case-study/:id" element={<ProtectedCaseStudy />} />
+              {/* Case Studies (Dynamic ID for future scaling) */}
+              <Route path="/case-study/:id" element={<ProtectedCaseStudy />} />
 
-            {/* Detail Pages */}
-            <Route path="/side-project/:id" element={<SideProjectDetail />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
+              {/* Detail Pages */}
+              <Route path="/side-project/:id" element={<SideProjectDetail />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
 
-            {/* 404 Catch-All */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </Router>
-    </HandCursorProvider>
+              {/* 404 Catch-All */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </Router>
+      </HandCursorProvider>
+    </LanguageProvider>
   );
 }
 
