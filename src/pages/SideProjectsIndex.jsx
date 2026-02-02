@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Filter, Sun, Moon, Globe, ScanEye } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
@@ -16,19 +16,144 @@ const SideProjectsIndex = () => {
     const { isGestureMode, toggleGestureMode } = useHandCursor();
     const navigate = useNavigate();
 
+    // Interaction Refs
+    const canvasRef = useRef(null);
+    const containerRef = useRef(null);
+    const cardsRef = useRef([]);
+    const requestRef = useRef(null);
+    const mouseRef = useRef({ x: -1000, y: -1000 }); // Start off-screen
+
+    // Configuration
+    const CONFIG = {
+        proximity: 400, // Distance to trigger effect
+        lineOpacity: 0.15,
+        magneticForce: 0.5, // Strength of tilt
+        scaleForce: 1.02 // Max scale
+    };
+
     const themeStyles = {
         '--bg-void': isDark ? '#111111' : '#FFFFFF',
         '--text-primary': isDark ? '#F3F4F6' : '#111827',
         '--text-secondary': isDark ? '#9CA3AF' : '#6B7280',
         '--border-color': isDark ? '#374151' : '#E5E7EB',
+        '--accent-line': isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)',
+        '--accent-dot': isDark ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)',
     };
 
+    // Initialize refs array
+    useEffect(() => {
+        cardsRef.current = cardsRef.current.slice(0, SIDE_PROJECTS.length);
+    }, []);
+
+    // Mouse Tracking
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            // Get relative position to container if possible, or just page coordinates
+            // Using page coordinates simplifies canvas drawing relative to window if canvas is fixed
+            // But here canvas is absolute in container?
+            // Let's assume canvas covers the whole document or fixed.
+            // For simplicity in a scrollable page: track ClientX/Y and adjust map.
+
+            // Simpler: Track pageX/Y for absolute canvas, or clientX/Y for fixed.
+            // Given the scroll, let's use client coordinates and keeping canvas fixed is easier visual, 
+            // BUT lines need to stick to scrollable elements. 
+            // Better: Canvas absolute covering the specific section or fixed.
+            // Let's make cursor track clientX/Y.
+            mouseRef.current = { x: e.clientX, y: e.clientY };
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
+    // Animation Loop
+    useEffect(() => {
+        const animate = () => {
+            if (!canvasRef.current) return;
+
+            const canvas = canvasRef.current;
+            const ctx = canvas.getContext('2d');
+
+            // Resize canvas to match window view (fixed overlay)
+            if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Line Style
+            const isDarkMode = isDark;
+            ctx.strokeStyle = isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.08)';
+            ctx.lineWidth = 1;
+
+            const mx = mouseRef.current.x;
+            const my = mouseRef.current.y;
+
+            cardsRef.current.forEach((card, index) => {
+                if (!card) return;
+
+                const rect = card.getBoundingClientRect();
+                const cardCx = rect.left + rect.width / 2;
+                const cardCy = rect.top + rect.height / 2;
+
+                const dist = Math.hypot(mx - cardCx, my - cardCy);
+
+                // 1. Draw Lines if close
+                if (dist < CONFIG.proximity) {
+                    ctx.beginPath();
+                    ctx.moveTo(mx, my);
+                    ctx.lineTo(cardCx, cardCy);
+                    // Fade out based on distance
+                    ctx.globalAlpha = 1 - Math.pow(dist / CONFIG.proximity, 2);
+                    ctx.stroke();
+                    ctx.globalAlpha = 1.0;
+
+                    // Draw connection dots
+                    ctx.fillStyle = isDarkMode ? '#FFF' : '#000';
+                    ctx.beginPath();
+                    ctx.arc(cardCx, cardCy, 3, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // 2. Magnetic Tilt
+                if (dist < CONFIG.proximity * 1.5) { // Slightly larger radius for movement
+                    const xRel = (mx - cardCx) / (rect.width / 2); // -1 to 1 mostly
+                    const yRel = (my - cardCy) / (rect.height / 2);
+
+                    // Limit rotation
+                    const rotX = -yRel * CONFIG.magneticForce * 5; // Rotate X based on Y movement
+                    const rotY = xRel * CONFIG.magneticForce * 5;  // Rotate Y based on X movement
+                    const scale = 1 + ((1 - Math.min(dist / (CONFIG.proximity * 1.5), 1)) * (CONFIG.scaleForce - 1));
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`;
+                    card.style.zIndex = 10; // Bring to front
+                } else {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+                    card.style.zIndex = 1;
+                }
+            });
+
+            requestRef.current = requestAnimationFrame(animate);
+        };
+
+        requestRef.current = requestAnimationFrame(animate);
+        return () => cancelAnimationFrame(requestRef.current);
+    }, [isDark]); // Re-bind on theme change for colors
+
     return (
-        <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500">
+        <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 relative">
             <SEO
                 title="Archive: Experiments"
                 description="Full log of side projects, prototypes, and daemons."
             />
+
+            {/* Neural Network Overlay */}
+            <canvas
+                ref={canvasRef}
+                className="fixed inset-0 pointer-events-none z-50 mix-blend-difference" // z-50 but pointer-events-none allows clicks through
+            />
+
             {/* Nav */}
             <nav className="fixed top-0 left-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
                 <BackButton to="/" label="Index" className="text-white hover:text-white/80 mix-blend-difference" />
@@ -65,7 +190,7 @@ const SideProjectsIndex = () => {
                 </div>
             </nav>
 
-            <main className="max-w-6xl mx-auto px-6 pt-32 pb-24">
+            <main className="max-w-6xl mx-auto px-6 pt-32 pb-24" ref={containerRef}>
                 <header className="mb-24">
                     <h1 className="text-4xl md:text-6xl font-serif italic mb-6">Side Projects</h1>
                     <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl font-light">
@@ -73,9 +198,14 @@ const SideProjectsIndex = () => {
                     </p>
                 </header>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
                     {SIDE_PROJECTS.filter(p => !p.hidden).map((project, idx) => (
-                        <div key={idx} onClick={() => navigate(`/side-project/${project.id}`)} className="group cursor-pointer">
+                        <div
+                            key={idx}
+                            ref={el => cardsRef.current[idx] = el}
+                            onClick={() => navigate(`/side-project/${project.id}`)}
+                            className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform" // Optimized for smooth physics, removed duration-700
+                        >
                             <div className="aspect-[4/3] bg-[var(--text-secondary)]/10 border border-[var(--border-color)] mb-6 overflow-hidden relative">
                                 <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
                                     <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} />
