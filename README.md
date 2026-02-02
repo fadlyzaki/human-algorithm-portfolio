@@ -1,4 +1,4 @@
-# Fadly Zaki's Portfolio
+# Fadly Zaki 🧢 Human By Design
 
 A cyberpunk-themed portfolio showcasing product design and engineering work, built with React and featuring experimental AI-powered hand tracking interactions.
 
