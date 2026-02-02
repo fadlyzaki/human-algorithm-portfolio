@@ -7,6 +7,7 @@ import {
   Database, Server, Wifi, Layout, Shield
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
 import SystemMonitor from '../components/SystemMonitor';
 import ChaosSlider from '../components/ChaosSlider';
@@ -19,6 +20,7 @@ import Footer from '../components/Footer';
 
 const AboutPage = () => {
   const { isDark, setIsDark } = useTheme();
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(0);
   const [chaosStrength, setChaosStrength] = useState(0);
 
@@ -29,8 +31,8 @@ const AboutPage = () => {
     {
       year: '2015 - 2018',
       type: 'BOOT_SEQUENCE',
-      title: 'University of Indonesia + Internships',
-      desc: 'Initialization phase. From teaching Interaction Design to managing agile products at GDP Labs and researching Fintech UX at Tokopedia. This was the hybridizing of CS logic and Design thinking.',
+      title: t('about.log_1_title'),
+      desc: t('about.log_1_desc'),
       icon: Terminal,
       color: 'text-[var(--accent-blue)]',
       category: 'bio'
@@ -38,10 +40,10 @@ const AboutPage = () => {
     {
       year: 'Mar 2018 - Apr 2020',
       type: 'EXECUTION_LOG',
-      title: 'Product Designer @ STOQO',
+      title: t('about.log_2_title'),
       company: 'STOQO',
       link: 'efficiency',
-      desc: 'My first deep dive into operational complexity. STOQO streamlines the F&B supply chain, empowering micro & small businesses with easy access to competitively-priced ingredients. My job was to digitize offline routines so business owners could focus on cooking, not shopping.',
+      desc: t('about.log_2_desc'),
       tags: ["F&B Supply Chain", "Operations", "Sourcing"],
       icon: Layers,
       color: 'text-[var(--text-primary)]',
@@ -50,10 +52,10 @@ const AboutPage = () => {
     {
       year: 'Jun 2020 - Apr 2022',
       type: 'EXECUTION_LOG',
-      title: 'Product Designer @ GudangAda',
+      title: t('about.log_3_title'),
       company: 'GudangAda',
       link: 'commerce',
-      desc: 'This was my crash course in scale. GudangAda transforms Indonesia\'s B2B distribution chain through end-to-end digital solutions. I learned that in high-volume B2B tools serving principals, distributors, and retailers, reducing friction isn\'t just a UX goal—it\'s a revenue metric.',
+      desc: t('about.log_3_desc'),
       tags: ["B2B Marketplace", "Logistics", "Design Systems"],
       icon: Layers,
       color: 'text-[var(--text-primary)]',
@@ -62,10 +64,10 @@ const AboutPage = () => {
     {
       year: 'Jun 2020 - Dec 2020',
       type: 'EXECUTION_LOG',
-      title: 'UI/UX Consultant @ Du Anyam',
+      title: t('about.log_4_title'),
       company: 'Du Anyam',
       link: null,
-      desc: 'A study in social impact. I consulted for a social enterprise empowering rural women through wicker crafts. The interface had to connect rural skills with modern markets.',
+      desc: t('about.log_4_desc'),
       tags: ["Social Enterprise", "Empowerment", "Consulting"],
       icon: Briefcase,
       color: 'text-[var(--text-primary)]',
@@ -74,10 +76,10 @@ const AboutPage = () => {
     {
       year: 'May 2022 - Nov 2022',
       type: 'EXECUTION_LOG',
-      title: 'Product Designer @ Lumina (YC W22)',
+      title: t('about.log_5_title'),
       company: 'Lumina',
       link: 'workforce',
-      desc: 'Designing for the blue-collar economy requires radical honesty. Lumina revolutionizes recruitment through a highly engaged job community platform. I wasn\'t just building features; I was building a trust layer connecting hundreds of thousands of workers with SMEs.',
+      desc: t('about.log_5_desc'),
       tags: ["Community Platform", "Blue Collar", "Accessibility"],
       icon: Activity,
       color: 'text-[var(--text-primary)]',
@@ -86,8 +88,8 @@ const AboutPage = () => {
     {
       year: '2022 - 2025',
       type: 'SYSTEM_UPGRADE',
-      title: 'The Great Reshape (Career Break)',
-      desc: 'Life forced a hard stop. A major health event triggered a nearly 3-year system refactor. This wasn\'t idle time; it was R&D. I learned to navigate broken healthcare systems, deepening my empathy for users in crisis. I rebuilt my "hardware" (health) and upgraded my "software" (Master\'s degree).',
+      title: t('about.log_6_title'),
+      desc: t('about.log_6_desc'),
       icon: AlertTriangle,
       color: 'text-[var(--accent-red)]',
       highlight: true,
@@ -96,8 +98,8 @@ const AboutPage = () => {
     {
       year: '2025 - Present',
       type: 'ACTIVE_DEPLOYMENT',
-      title: 'Open for Collaboration',
-      desc: 'Back online with a new architecture. Combining Engineering rigor with Design empathy. Currently deploying experimental builds in EdTech and AI.',
+      title: t('about.log_7_title'),
+      desc: t('about.log_7_desc'),
       icon: Zap,
       color: 'text-[var(--accent-green)]',
       category: 'bio'
@@ -106,10 +108,10 @@ const AboutPage = () => {
 
   // --- DATA: SYSTEM MAINTENANCE (Habits) ---
   const streaks = [
-    { label: "Duolingo", frequency: "Daily", icon: Flame, color: "text-orange-500", note: "Consistency over perfection.", url: "https://www.duolingo.com/profile/fadlyzaki" },
-    { label: "Strava", frequency: "Daily", icon: Activity, color: "text-orange-600", note: "Clearing the cache.", url: "https://www.strava.com/athletes/129304799" },
-    { label: "Goodreads", frequency: "Daily 10 mins", icon: BookOpen, color: "text-blue-400", note: "Pattern recognition.", url: "https://www.goodreads.com/user/show/32928962-fadlyzaki" },
-    { label: "Substack", frequency: "Weekly", icon: PenLine, color: "text-purple-400", note: "Processing the noise.", url: "https://substack.com/@fadlyzaki?" }
+    { label: "Duolingo", frequency: "Daily", icon: Flame, color: "text-orange-500", note: t('about.habit_consistency'), url: "https://www.duolingo.com/profile/fadlyzaki" },
+    { label: "Strava", frequency: "Daily", icon: Activity, color: "text-orange-600", note: t('about.habit_cache'), url: "https://www.strava.com/athletes/129304799" },
+    { label: "Goodreads", frequency: "Daily 10 mins", icon: BookOpen, color: "text-blue-400", note: t('about.habit_pattern'), url: "https://www.goodreads.com/user/show/32928962-fadlyzaki" },
+    { label: "Substack", frequency: "Weekly", icon: PenLine, color: "text-purple-400", note: t('about.habit_noise'), url: "https://substack.com/@fadlyzaki?" }
   ];
 
   // --- DATA: INSTALLED DRIVERS (Tools Mapped to Icons) ---
@@ -202,7 +204,7 @@ const AboutPage = () => {
         <header className="flex justify-between items-center mb-16 border-b border-[var(--border-color)] pb-6 sticky top-0 bg-[var(--bg-void)]/95 backdrop-blur z-40 pt-4 -mt-4">
           <Link to="/" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider group transition-colors">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            <span>Main Terminal</span>
+            <span>{t('about.main_terminal')}</span>
           </Link>
 
           <div className="flex items-center gap-4">
@@ -259,30 +261,22 @@ const AboutPage = () => {
               </h1>
               <h2 className="text-xl text-[var(--accent-amber)] font-mono mb-8 flex items-center gap-3">
                 <span className="opacity-50 text-[var(--text-primary)]">//</span>
-                The Human Algorithm
+                {t('about.intro_title')}
               </h2>
 
               <div className="prose prose-invert max-w-2xl">
                 <p className="text-xl md:text-2xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
-                  "I don't chase chaos—I contain it."
+                  {t('home.about_quote')}
                 </p>
                 <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
-                  <p>
-                    I started as a <span className="text-[var(--text-primary)] font-medium">Computer Science student</span>. I loved the certainty. The if-then clarity. Systems made sense when people didn't.
-                  </p>
-                  <p>
-                    Then a <strong className="text-[var(--text-primary)]">major health crisis</strong> forced me offline for nearly three years. At first, I thought it was the end. But silence has a way of teaching what noise can't. I learned what it means to depend on broken systems when you're at your most fragile. Bad hospital UX. Interfaces built by people who've never been desperate. Apps that assume you have energy you don't have.
-                  </p>
-                  <p>
-                    That pause taught me more about <strong className="text-[var(--text-primary)]">human-centered design</strong> than any degree. When you're exhausted, scared, or in pain—you don't have bandwidth for clever UX. You need tools that just <em>work</em>. Quietly. Reliably. Without asking for applause.
-                  </p>
-                  <p>
-                    So now I build <span className="text-[var(--text-primary)] font-medium">resilient systems</span>—not to optimize life, but to hold it gently when it breaks. I design for people at their limit, not their peak.
-                  </p>
+                  <p dangerouslySetInnerHTML={{ __html: t('about.intro_p1').replace(/\*\*(.*?)\*\*/g, '<span class="text-[var(--text-primary)] font-medium">$1</span>') }} />
+                  <p dangerouslySetInnerHTML={{ __html: t('about.intro_p2').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)]">$1</strong>') }} />
+                  <p dangerouslySetInnerHTML={{ __html: t('about.intro_p3').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)]">$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>') }} />
+                  <p dangerouslySetInnerHTML={{ __html: t('about.intro_p4').replace(/\*\*(.*?)\*\*/g, '<span class="text-[var(--text-primary)] font-medium">$1</span>') }} />
                 </div>
                 <ScrollReveal>
                   <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mt-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
-                    I build tools for people who need them to <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">just work</span>. Systems that hold up under pressure—resilient, quiet, and steady—like the people who actually use them.
+                    <span dangerouslySetInnerHTML={{ __html: t('about.quote_full').replace(/\*\*(.*?)\*\*/g, '<span class="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">$1</span>') }} />
                   </blockquote>
                 </ScrollReveal>
               </div>
@@ -296,7 +290,7 @@ const AboutPage = () => {
             <div className="mt-8">
               <Link to="/cv" className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)] text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors font-mono text-xs uppercase rounded-lg">
                 <Download size={14} />
-                Download_CV.pdf
+                {t('about.download_cv')}
               </Link>
             </div>
           </div>
@@ -307,8 +301,8 @@ const AboutPage = () => {
         <section className="mb-32">
           <ScrollReveal>
             <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
-              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">OPS</span>
-              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">System Maintenance</h2>
+              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">{t('about.section_ops')}</span>
+              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">{t('about.section_maintenance')}</h2>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -336,8 +330,8 @@ const AboutPage = () => {
         <section className="mb-32 relative">
           <ScrollReveal>
             <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
-              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">LOG</span>
-              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">System Runtime Log</h2>
+              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">{t('about.section_log')}</span>
+              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">{t('about.section_runtime')}</h2>
             </div>
           </ScrollReveal>
 
@@ -382,7 +376,7 @@ const AboutPage = () => {
                               to={`/work/${item.link}`}
                               className="inline-flex items-center gap-2 text-xs font-mono text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-0.5"
                             >
-                              Explore Case Study ↗
+                              {t('about.log_explore')}
                             </Link>
                           )}
                         </>
@@ -392,7 +386,7 @@ const AboutPage = () => {
                       {item.highlight && (
                         <div className="mt-4 p-4 bg-[var(--bg-card)] border-l-2 border-[var(--accent-red)] inline-block max-w-xl shadow-lg transform -rotate-1 hover:rotate-0 transition-transform rounded-e-lg">
                           <p className="font-serif italic text-sm text-[var(--text-primary)] opacity-90">
-                            "The 3-year gap wasn't a shutdown. It was a complete system refactor. I am now running on a more resilient kernel."
+                            {t('about.log_6_quote')}
                           </p>
                         </div>
                       )}

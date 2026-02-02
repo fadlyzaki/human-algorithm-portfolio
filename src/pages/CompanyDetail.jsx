@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Box, Maximize2, Cpu, Activity, Share2, MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Truck, Trophy, Scan, GitCommit, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video, Linkedin } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
@@ -24,6 +25,7 @@ const IconMapper = ({ iconName, ...props }) => {
 
 const CompanyDetail = () => {
     const { isDark } = useTheme();
+    const { t } = useLanguage();
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -56,9 +58,9 @@ const CompanyDetail = () => {
 
             {/* NAVIGATION */}
             <nav className="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center backdrop-blur-sm border-b border-transparent hover:border-[var(--border-color)] transition-all">
-                <BackButton to="/" label="Index" />
+                <BackButton to="/" label={t('company.index')} />
                 <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
-                    {cluster.company} Case Study
+                    {cluster.company} {t('company.case_study')}
                 </div>
             </nav>
 
@@ -124,12 +126,21 @@ const CompanyDetail = () => {
                             { label: 'Timeline', value: '2020 - 2023' },
                             { label: 'Impact', value: 'Scale & Reliability' },
                             { label: 'Platform', value: 'Mobile app (android) & Websites' }
-                        ]).map((stat, i) => (
-                            <div key={i} className="flex flex-col">
-                                <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-1">{stat.label}</span>
-                                <span className="font-medium text-sm md:text-base">{stat.value}</span>
-                            </div>
-                        ))}
+                        ]).map((stat, i) => {
+                            // Map labels to translations
+                            const labelMap = {
+                                'Role': t('company.role'),
+                                'Timeline': t('company.period'),
+                                'Impact': t('company.impact'),
+                                'Platform': t('company.platform')
+                            };
+                            return (
+                                <div key={i} className="flex flex-col">
+                                    <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-1">{labelMap[stat.label] || stat.label}</span>
+                                    <span className="font-medium text-sm md:text-base">{stat.value}</span>
+                                </div>
+                            );
+                        })}
                     </div>
                 </header>
 
@@ -141,7 +152,7 @@ const CompanyDetail = () => {
                         <div className="sticky top-32 space-y-12">
                             <div>
                                 <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-2">
-                                    <Activity size={14} /> System Context
+                                    <Activity size={14} /> {t('company.context_title')}
                                 </h3>
                                 <p className="text-[var(--text-primary)] text-sm leading-relaxed opacity-80">
                                     {cluster.miniDesc || "This ecosystem required a shift from manual boolean logic to fuzzy, human-centric algorithms."}
@@ -152,7 +163,7 @@ const CompanyDetail = () => {
                                 <div className="text-[var(--brand)] mb-4">
                                     <IconMapper iconName={cluster.companyFocus?.icon || 'Cpu'} size={24} />
                                 </div>
-                                <h4 className="font-serif italic text-lg mb-2">{cluster.companyFocus?.title || 'Technological Core'}</h4>
+                                <h4 className="font-serif italic text-lg mb-2">{cluster.companyFocus?.title || t('company.tech_core')}</h4>
                                 <ul className="space-y-2">
                                     {(cluster.companyFocus?.items || ['React Ecosystem', 'Node.js', 'Python Data Science']).map((t, i) => (
                                         <li key={i} className="text-xs font-mono text-[var(--text-secondary)] flex items-center gap-2">
@@ -171,7 +182,7 @@ const CompanyDetail = () => {
                                     className="flex items-center justify-center gap-2 p-4 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg hover:border-[var(--brand)] hover:bg-[var(--brand)]/5 transition-all duration-300 group"
                                 >
                                     <Linkedin size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors" />
-                                    <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors">Company Page</span>
+                                    <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors">{t('company.company_page')}</span>
                                     <ArrowUpRight size={14} className="text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors" />
                                 </a>
                             )}
@@ -219,7 +230,7 @@ const CompanyDetail = () => {
                                                 </h3>
                                             </div>
                                             <div className="hidden md:flex items-center gap-2 text-[var(--brand)] opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300">
-                                                <span className="text-xs font-mono uppercase tracking-widest">View Case</span>
+                                                <span className="text-xs font-mono uppercase tracking-widest">{t('company.view_case')}</span>
                                                 <ArrowUpRight size={16} />
                                             </div>
                                         </div>
@@ -227,7 +238,7 @@ const CompanyDetail = () => {
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-[var(--border-color)] pt-6">
                                             <div className="space-y-2">
                                                 <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
-                                                    <span className="w-1 h-1 bg-red-400 rounded-full"></span> The Problem
+                                                    <span className="w-1 h-1 bg-red-400 rounded-full"></span> {t('company.problem')}
                                                 </span>
                                                 <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
                                                     {project.details.problem}
@@ -235,7 +246,7 @@ const CompanyDetail = () => {
                                             </div>
                                             <div className="space-y-2">
                                                 <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
-                                                    <span className="w-1 h-1 bg-[var(--brand)] rounded-full"></span> The Fix
+                                                    <span className="w-1 h-1 bg-[var(--brand)] rounded-full"></span> {t('company.fix')}
                                                 </span>
                                                 <p className="text-sm font-medium text-[var(--text-primary)]">
                                                     {project.details.outcome}

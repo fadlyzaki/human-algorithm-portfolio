@@ -6,6 +6,7 @@ import {
   Activity, BookOpen, PenTool, Terminal
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import Footer from '../components/Footer';
 
 /* --- THEME CONFIGURATION ---
@@ -15,6 +16,7 @@ import Footer from '../components/Footer';
 
 const ContactPage = () => {
   const { isDark, setIsDark } = useTheme();
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
   const [formStatus, setFormStatus] = useState('idle'); // idle, sending, success, error
 
@@ -160,7 +162,7 @@ const ContactPage = () => {
       <nav className="fixed top-0 w-full bg-[var(--bg-void)]/90 backdrop-blur z-40 border-b border-[var(--border-color)] px-6 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider group">
           <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-          <span>Abort Transmission</span>
+          <span>{t('contact.abort')}</span>
         </Link>
         <div className="flex gap-4">
           <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors" aria-label="Toggle Theme">
@@ -178,19 +180,19 @@ const ContactPage = () => {
           <div>
             <div className="flex items-center gap-2 text-[var(--accent-green)] font-mono text-xs mb-4">
               <div className="w-2 h-2 rounded-full bg-current animate-pulse"></div>
-              SYSTEM_LISTENING
+              {t('contact.system_listening')}
             </div>
             <h1 className="text-4xl md:text-5xl font-mono uppercase leading-tight mb-6">
-              Initialize <br /> <span className="text-[var(--text-secondary)]">Handshake.</span>
+              {t('contact.title')} <br /> <span className="text-[var(--text-secondary)]">{t('contact.subtitle')}</span>
             </h1>
             <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-md">
-              Whether you have a complex system to debug or just want to discuss the ethics of AI, my frequency is open.
+              {t('contact.desc')}
             </p>
           </div>
 
           {/* Direct Line Card */}
           <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-6 group hover:border-[var(--accent-blue)] transition-colors">
-            <h3 className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest mb-4">Direct Uplink</h3>
+            <h3 className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest mb-4">{t('contact.direct_uplink')}</h3>
             <div className="flex items-center justify-between bg-[var(--bg-void)] border border-[var(--border-color)] p-4 rounded-sm">
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-[var(--accent-blue)]" />
@@ -211,12 +213,12 @@ const ContactPage = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
               <MapPin size={16} className="text-[var(--accent-amber)] mb-2" />
-              <div className="font-mono text-xs text-[var(--text-secondary)] uppercase">Location</div>
+              <div className="font-mono text-xs text-[var(--text-secondary)] uppercase">{t('contact.location')}</div>
               <div className="font-bold text-sm">{contactInfo.location}</div>
             </div>
             <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
               <Clock size={16} className="text-[var(--accent-amber)] mb-2" />
-              <div className="font-mono text-xs text-[var(--text-secondary)] uppercase">Timezone</div>
+              <div className="font-mono text-xs text-[var(--text-secondary)] uppercase">{t('contact.timezone')}</div>
               <div className="font-bold text-sm">{contactInfo.timezone}</div>
             </div>
           </div>
@@ -225,7 +227,7 @@ const ContactPage = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-3 text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2">
               <Globe size={16} />
-              <h3 className="font-mono text-xs uppercase tracking-widest">Global Network Matrix</h3>
+              <h3 className="font-mono text-xs uppercase tracking-widest">{t('contact.network_matrix')}</h3>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -260,13 +262,13 @@ const ContactPage = () => {
 
           <h2 className="font-mono text-lg text-[var(--text-primary)] mb-8 flex items-center gap-2">
             <Terminal size={18} />
-            Message Protocol
+            {t('contact.protocol_message')}
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-6">
 
             <div className="space-y-2">
-              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">Sender_ID (Name)</label>
+              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">{t('contact.label_name')}</label>
               <input
                 type="text"
                 name="name"
@@ -274,12 +276,12 @@ const ContactPage = () => {
                 onChange={handleChange}
                 required
                 className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] text-[var(--text-primary)] p-4 focus:outline-none focus:border-[var(--accent-blue)] transition-colors font-mono text-sm"
-                placeholder="Enter your name..."
+                placeholder={t('contact.placeholder_name')}
               />
             </div>
 
             <div className="space-y-2">
-              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">Return_Address (Email)</label>
+              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">{t('contact.label_email')}</label>
               <input
                 type="email"
                 name="email"
@@ -287,12 +289,12 @@ const ContactPage = () => {
                 onChange={handleChange}
                 required
                 className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] text-[var(--text-primary)] p-4 focus:outline-none focus:border-[var(--accent-blue)] transition-colors font-mono text-sm"
-                placeholder="name@domain.com"
+                placeholder={t('contact.placeholder_email')}
               />
             </div>
 
             <div className="space-y-2">
-              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">Data_Payload (Message)</label>
+              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">{t('contact.label_message')}</label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -300,7 +302,7 @@ const ContactPage = () => {
                 required
                 rows="5"
                 className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] text-[var(--text-primary)] p-4 focus:outline-none focus:border-[var(--accent-blue)] transition-colors font-mono text-sm resize-none"
-                placeholder="Describe your project parameters..."
+                placeholder={t('contact.placeholder_message')}
               ></textarea>
             </div>
 
@@ -314,24 +316,24 @@ const ContactPage = () => {
             >
               {formStatus === 'idle' && (
                 <>
-                  <span>Transmit Data</span>
+                  <span>{t('contact.btn_transmit')}</span>
                   <Send size={16} />
                 </>
               )}
               {formStatus === 'sending' && (
                 <>
-                  <span className="animate-pulse">Uploading...</span>
+                  <span className="animate-pulse">{t('contact.btn_sending')}</span>
                 </>
               )}
               {formStatus === 'success' && (
                 <>
                   <Check size={16} />
-                  <span>Transmission Complete</span>
+                  <span>{t('contact.btn_success')}</span>
                 </>
               )}
               {formStatus === 'error' && (
                 <>
-                  <span>Error. Try Again.</span>
+                  <span>{t('contact.btn_error')}</span>
                 </>
               )}
             </button>

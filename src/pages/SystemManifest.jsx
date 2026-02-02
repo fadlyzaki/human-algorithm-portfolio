@@ -16,6 +16,7 @@ import {
   User
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 
 /* --- THEME CONFIGURATION ---
@@ -25,13 +26,14 @@ import { WORK_CLUSTERS } from '../data/portfolioData';
 
 const SystemManifest = () => {
   const { isDark, setIsDark } = useTheme();
+  const { t } = useLanguage();
 
   // --- DATA: RAW SPECS ---
   const header = {
     name: "Fadly Uzzaki",
-    role: "Product Designer | UX/UI Designer | Systems Specialist",
+    role: t('manifest.role'),
     location: "Jakarta, Indonesia",
-    status: "Available for Hire",
+    status: t('manifest.status'),
     links: [
       { label: "linkedin.com/in/fadlyzaki", url: "https://www.linkedin.com/in/fadlyzaki/", icon: Linkedin },
       { label: "fadlyzaki-design.vercel.app", url: "https://fadlyzaki-design.vercel.app/", icon: Globe },
@@ -39,7 +41,7 @@ const SystemManifest = () => {
     ]
   };
 
-  const summary = "AI-native Product Designer specializing in building resilient systems that hold up under pressure. I bridge the gap between technical logic and human vulnerability, designing for people at their limit, not just their peak. Expert in design systems, B2B marketplaces, and complex operational workflows.";
+  const summary = t('manifest.summary_text');
 
   // Transform WORK_CLUSTERS data to CV format
   const experience = WORK_CLUSTERS.map(cluster => {
@@ -67,10 +69,10 @@ const SystemManifest = () => {
 
   const education = [
     {
-      school: "University of Indonesia",
-      degree: "Bachelor of Computer Science",
+      school: t('manifest.edu_school'),
+      degree: t('manifest.edu_degree'),
       year: "2014 - 2018",
-      note: "Specialized in Human-Computer Interaction. Teaching Assistant for Interaction Design."
+      note: t('manifest.edu_note')
     }
   ];
 
@@ -90,7 +92,7 @@ const SystemManifest = () => {
       {/* UI CONTROLS - HIDDEN IN PRINT */}
       <div className="max-w-[210mm] mx-auto mb-8 flex justify-between items-center print:hidden">
         <Link to="/about" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-sm uppercase group">
-          <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back_to_About
+          <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> {t('manifest.back')}
         </Link>
         <div className="flex gap-4">
           <button
@@ -103,7 +105,7 @@ const SystemManifest = () => {
             onClick={() => window.print()}
             className="flex items-center gap-2 px-4 py-2 bg-[var(--text-primary)] text-[var(--bg-void)] font-mono text-sm uppercase font-bold hover:opacity-90"
           >
-            <Printer size={16} /> Print / PDF
+            <Printer size={16} /> {t('manifest.print')}
           </button>
         </div>
       </div>
@@ -146,7 +148,7 @@ const SystemManifest = () => {
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-4">
             <User size={18} />
-            <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">Professional Summary</h3>
+            <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">{t('manifest.summary_title')}</h3>
           </div>
           <p className="text-[var(--text-secondary)] leading-relaxed text-sm md:text-base font-light">
             {summary}
@@ -160,7 +162,7 @@ const SystemManifest = () => {
           <section>
             <div className="flex items-center gap-3 mb-6">
               <Terminal size={18} />
-              <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">Professional Experience</h3>
+              <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">{t('manifest.exp_title')}</h3>
             </div>
 
             <div className="space-y-10">
@@ -193,12 +195,12 @@ const SystemManifest = () => {
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <Hash size={18} />
-                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">Skills & Expertise</h3>
+                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">{t('manifest.skills_title')}</h3>
               </div>
 
               <div className="space-y-6">
                 <div>
-                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">Design</h5>
+                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">{t('manifest.skills_design')}</h5>
                   <div className="flex flex-wrap gap-2">
                     {['Product Design', 'UX/UI Design', 'User Research', 'Design Systems', 'Prototyping', 'Wireframing', 'User Testing', 'Information Architecture'].map(s => (
                       <span key={s} className="bg-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm">{s}</span>
@@ -206,7 +208,7 @@ const SystemManifest = () => {
                   </div>
                 </div>
                 <div>
-                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">Tools & Methods</h5>
+                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">{t('manifest.skills_tools')}</h5>
                   <div className="flex flex-wrap gap-2">
                     {['Figma', 'Sketch', 'Adobe XD', 'HTML/CSS', 'JavaScript', 'React', 'Git', 'Jira', 'Linear', 'Mixpanel', 'Agile', 'Scrum', 'Design Thinking'].map(s => (
                       <span key={s} className="border border-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm text-[var(--text-secondary)]">{s}</span>
@@ -220,7 +222,7 @@ const SystemManifest = () => {
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <BookOpen size={18} />
-                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">Education</h3>
+                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">{t('manifest.edu_title')}</h3>
               </div>
 
               {education.map((edu, idx) => (
@@ -235,7 +237,7 @@ const SystemManifest = () => {
             {/* QR / FOOTER AREA FOR PRINT */}
             <div className="pt-12 mt-12 border-t border-[var(--border-color)] print:block hidden">
               <p className="font-mono text-[10px] text-[var(--text-secondary)]">
-                  // Generated by Human Algorithm<br />
+                {t('manifest.footer_gen')}<br />
                   // Fadly Uzzaki © 2025
               </p>
             </div>

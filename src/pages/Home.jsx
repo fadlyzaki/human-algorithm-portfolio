@@ -16,6 +16,7 @@ import ProjectCard from '../components/ProjectCard';
 import ScrollReveal from '../components/ScrollReveal';
 import { useTheme } from '../context/ThemeContext';
 import { useHandCursor } from '../context/HandCursorContext';
+import { useLanguage } from '../context/LanguageContext';
 import { SIDE_PROJECTS, WORK_CLUSTERS } from '../data/portfolioData';
 
 // --- HELPERS ---
@@ -141,7 +142,8 @@ const WorkClusterCard = ({ cluster }) => {
 
 // --- NAVIGATION COMPONENTS ---
 const NavigationMenu = ({ isOpen, onClose }) => {
-  const location = useLocation(); // Make sure to import this from react-router-dom
+  const location = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleEsc = (e) => {
@@ -156,15 +158,15 @@ const NavigationMenu = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const links = [
-    { label: "Home", href: "/" },
-    { label: "About Me", href: "#about" },
-    { label: "Work", href: "#work" },
-    { label: "Side Projects", href: "/side-projects" },
-    { label: "Notes", href: "#notes" },
+    { label: t('nav.home'), href: "/" },
+    { label: t('nav.about'), href: "#about" },
+    { label: t('nav.work'), href: "#work" },
+    { label: t('nav.side_projects'), href: "/side-projects" },
+    { label: t('nav.notes'), href: "#notes" },
   ];
   const metaLinks = [
-    { label: "Download CV", icon: FileText, href: "/cv" },
-    { label: "Contact Uplink", icon: Mail, href: "/contact" },
+    { label: t('nav.cv'), icon: FileText, href: "/cv" },
+    { label: t('nav.contact'), icon: Mail, href: "/contact" },
   ];
 
   const isActive = (path) => {
@@ -178,7 +180,7 @@ const NavigationMenu = ({ isOpen, onClose }) => {
         <X size={32} />
       </button>
       <div className="space-y-8 text-center">
-        <div className="font-mono text-xs text-[var(--accent-amber)] uppercase tracking-widest mb-8">System Directory</div>
+        <div className="font-mono text-xs text-[var(--accent-amber)] uppercase tracking-widest mb-8">{t('nav.system_directory')}</div>
         <nav className="flex flex-col gap-6">
           {links.map((link, idx) => (
             <Link
@@ -214,6 +216,7 @@ const Portfolio = () => {
   const [scrolled, setScrolled] = useState(0);
   const { isDark, setIsDark } = useTheme();
   const { isGestureMode, toggleGestureMode } = useHandCursor();
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const navigate = useNavigate();
@@ -306,9 +309,9 @@ const Portfolio = () => {
 
           <div className="flex items-center gap-6">
             <div className="hidden md:flex gap-6 font-mono text-xs text-[var(--text-secondary)]">
-              <Link to="/about" className="hover:text-[var(--text-primary)] transition-colors">/ABOUT</Link>
-              <a href="#work" className="hover:text-[var(--text-primary)] transition-colors">/WORK</a>
-              <a href="#notes" className="hover:text-[var(--text-primary)] transition-colors">/NOTES</a>
+              <Link to="/about" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.about').toUpperCase()}</Link>
+              <a href="#work" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.work').toUpperCase()}</a>
+              <a href="#notes" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.notes').toUpperCase()}</a>
               <Link to="/contact" className="hover:text-[var(--text-primary)] transition-colors">/CONTACT</Link>
             </div>
 
@@ -351,22 +354,22 @@ const Portfolio = () => {
                 <div key={i} className="flex items-center gap-12 text-xs font-mono text-[var(--text-secondary)] uppercase tracking-widest px-6">
                   <span className="flex items-center gap-3">
                     <MapPin size={14} className="text-[var(--accent-red)]" />
-                    Jakarta, Indonesia
+                    {t('home.status_location')}
                   </span>
                   <span className="flex items-center gap-3">
                     <BookOpen size={14} className="text-[var(--accent-amber)]" />
-                    Reading: The Design of Everyday Things
+                    {t('home.status_reading')}
                   </span>
                   <span className="flex items-center gap-3">
                     <Headphones size={14} className="text-[var(--accent-blue)]" />
-                    Listening: Lo-Fi Beats for Coding
+                    {t('home.status_listening')}
                   </span>
                   <span className="flex items-center gap-2 text-[var(--accent-green)]">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
                     </span>
-                    Open to Collaboration
+                    {t('home.status_collab')}
                   </span>
                 </div>
               ))}
@@ -378,21 +381,22 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12 items-start">
               <div>
                 <h1 className="font-mono text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
-                  Product Designer · <br />
-                  <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">systems thinker</span>
+                  {t('home.role')} · <br />
+                  <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">{t('home.role_sub')}</span>
                 </h1>
                 <h2 className="text-xl md:text-2xl font-mono text-[var(--text-primary)] mb-8 pb-4 inline-block border-b-2 border-[var(--accent-amber)]">
-                  FADLY UZZAKI.
+                  {t('home.intro_title')}
                 </h2>
-                <p className="text-[var(--text-secondary)] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
-                  Bridging the gap between <strong className="text-[var(--text-primary)] font-medium">Computer Science logic</strong> and <strong className="text-[var(--text-primary)] font-serif italic font-medium">human behavior</strong>. I design systems that feel inevitable, not forced.
-                </p>
+                <div className="text-[var(--text-secondary)] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
+                  {/* Render helper for markdown-like bolding if needed, or just insert text */}
+                  <p dangerouslySetInnerHTML={{ __html: t('home.intro_desc').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)] font-medium">$1</strong>') }} />
+                </div>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a href="#work" className="px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-sm font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all flex items-center justify-center gap-3 shadow-[4px_4px_0px_var(--accent-blue)] hover:shadow-[2px_2px_0px_var(--accent-blue)] hover:translate-x-[2px] hover:translate-y-[2px] rounded-lg">
-                    View Case Studies <ArrowRight size={16} />
+                    {t('home.cta_work')} <ArrowRight size={16} />
                   </a>
                   <Link to="/cv" className="px-8 py-4 border border-[var(--border-tag)] text-[var(--text-secondary)] font-mono text-sm uppercase tracking-wide hover:border-[var(--accent-amber)] hover:text-[var(--accent-amber)] transition-all flex items-center justify-center gap-3 rounded-lg">
-                    <FileText size={16} /> CV
+                    <FileText size={16} /> {t('home.cta_cv')}
                   </Link>
                 </div>
               </div>
@@ -403,20 +407,20 @@ const Portfolio = () => {
               </div>
             </div>
             <ScrollReveal delay={500}>
-              <StickyNote text="Antidote to digital fatigue." className="top-48 text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
+              <StickyNote text={t('home.sticky_note')} className="top-48 text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
             </ScrollReveal>
           </section>
 
           {/* SECTION 1: SIDE PROJECTS */}
           <section id="side-projects" className="mb-40 scroll-mt-24">
             <ScrollReveal>
-              <SectionTitle number="1" title="SIDE PROJECTS" link="/side-projects" linkText="VIEW EXPERIMENTS" />
+              <SectionTitle number="1" title={t('home.section_side_projects')} link="/side-projects" linkText={t('home.view_experiments')} />
             </ScrollReveal>
 
             {/* Creative Description */}
             <ScrollReveal>
               <p className="text-lg text-[var(--text-secondary)] max-w-2xl mb-12 font-light leading-relaxed">
-                Where I let my creativity run wild. These are experiments, explorations, and side quests—built for learning, not perfection.
+                {t('home.side_projects_desc')}
               </p>
             </ScrollReveal>
 
@@ -480,13 +484,13 @@ const Portfolio = () => {
               <ScrollReveal delay={300} className="flex flex-col justify-center items-start border-l border-[var(--border-color)] pl-12">
                 <div className="mb-8 p-6 bg-[var(--bg-card)] border border-[var(--border-color)] shadow-sm rotate-1 rounded-lg">
                   <Archive size={32} className="text-[var(--text-primary)] mb-4" />
-                  <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2">The Archive</h3>
+                  <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2">{t('home.archive_title')}</h3>
                   <p className="text-[var(--text-secondary)] text-sm max-w-xs font-light">
-                    A collection of prototypes, failed experiments, and weekend hacks.
+                    {t('home.archive_desc')}
                   </p>
                 </div>
                 <Link to="/side-projects" className="group flex items-center gap-3 px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-xs uppercase tracking-widest hover:bg-[var(--accent-blue)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 rounded-lg">
-                  OPEN FULL ARCHIVE <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  {t('home.open_archive')} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </ScrollReveal>
             </div>
@@ -495,7 +499,7 @@ const Portfolio = () => {
           {/* SECTION 2: WORK */}
           <section id="work" className="mb-40 scroll-mt-24">
             <ScrollReveal>
-              <SectionTitle number="2" title="WORK" />
+              <SectionTitle number="2" title={t('home.section_work')} />
             </ScrollReveal>
 
             <div className="space-y-16">
@@ -509,22 +513,18 @@ const Portfolio = () => {
 
           {/* SECTION 3: ABOUT ME */}
           <section id="about" className="mb-40 scroll-mt-24">
-            <SectionTitle number="3" title="ABOUT ME" />
+            <SectionTitle number="3" title={t('home.section_about')} />
 
             <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-12 lg:gap-20">
               <div className="space-y-16">
                 <div>
                   <div className="prose prose-invert max-w-none">
                     <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
-                      "I don't chase chaos—I contain it."
+                      {t('home.about_quote')}
                     </p>
                     <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
-                      <p>
-                        I started in <span className="text-[var(--text-primary)] font-medium">Computer Science</span>—where everything has an answer. Clean logic. Predictable systems. If-then certainty.
-                      </p>
-                      <p>
-                        Then life broke the algorithm. A <strong className="text-[var(--text-primary)]">major health crisis</strong> pulled me offline for nearly three years. What looked like a stop was actually a recalibration. I learned that resilient systems aren't the ones that never break—they're the ones designed to hold you when you do.
-                      </p>
+                      <p dangerouslySetInnerHTML={{ __html: t('home.about_p1').replace(/\*\*(.*?)\*\*/g, '<span class="text-[var(--text-primary)] font-medium">$1</span>') }} />
+                      <p dangerouslySetInnerHTML={{ __html: t('home.about_p2').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)]">$1</strong>') }} />
                     </div>
                   </div>
                 </div>
@@ -532,16 +532,16 @@ const Portfolio = () => {
                 <div id="philosophy" className="scroll-mt-24">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="h-px flex-grow bg-[var(--border-color)]"></div>
-                    <span className="font-mono text-xs uppercase text-[var(--accent-amber)] tracking-widest">Core Philosophy</span>
+                    <span className="font-mono text-xs uppercase text-[var(--accent-amber)] tracking-widest">{t('home.philosophy_title')}</span>
                     <div className="h-px flex-grow bg-[var(--border-color)]"></div>
                   </div>
 
                   <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mb-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
-                    I build <span className="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">resilient tools</span> for people who need them to just work. Not to impress—to serve. When you're at your limit, you don't need clever design. You need systems that hold.
+                    <span dangerouslySetInnerHTML={{ __html: t('home.philosophy_quote').replace(/\*\*(.*?)\*\*/g, '<span class="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">$1</span>') }} />
                   </blockquote>
 
                   <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-1">
-                    READ FULL PHILOSOPHY <ArrowRight size={14} />
+                    {t('home.read_philosophy')} <ArrowRight size={14} />
                   </Link>
 
                   {/* Principles... reduced for brevity in this response, but would exist */}
@@ -570,17 +570,15 @@ const Portfolio = () => {
                   </div>
                   <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
                     <span className="w-2 h-2 bg-[var(--accent-amber)] rounded-full animate-pulse"></span>
-                    Current Focus
+                    {t('home.current_focus')}
                   </h4>
-                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
-                    Deepening craft with a <strong className="text-[var(--text-primary)]">Master’s in EdTech</strong>. Studying cognitive load and how humans learn.
-                  </p>
+                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10" dangerouslySetInnerHTML={{ __html: t('home.current_focus_desc').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)]">$1</strong>') }} />
                 </div>
 
                 {/* Personal Interests / Runtime Modules */}
                 <div className="space-y-6">
                   <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest flex items-center gap-2">
-                    <Activity size={14} /> Personal Interests
+                    <Activity size={14} /> {t('home.personal_interests')}
                   </h4>
 
                   <div className="space-y-4">
@@ -608,7 +606,7 @@ const Portfolio = () => {
 
           {/* SECTION 4: NOTES */}
           < section id="notes" className="mb-40 scroll-mt-24" >
-            <SectionTitle number="4" title="NOTES" />
+            <SectionTitle number="4" title={t('home.section_notes')} />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Note 1 */}
@@ -641,7 +639,7 @@ const Portfolio = () => {
               {/* Placeholder for future notes */}
               <div className="bg-[var(--bg-surface)]/30 border border-[var(--border-color)] border-dashed p-8 flex flex-col justify-center items-center text-center h-80 opacity-60 hover:opacity-100 transition-opacity rounded-lg">
                 <PenTool size={32} className="text-[var(--text-secondary)] mb-4" />
-                <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">More logs incoming...</p>
+                <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('home.more_logs')}</p>
               </div>
             </div>
           </section >
