@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useHandCursor } from '../context/HandCursorContext';
 import { Sparkles, Zap, Star, Terminal, Trophy, Plus, Check } from 'lucide-react';
 
@@ -9,10 +9,11 @@ const EasterEgg = ({
     className = "",
     type = "default" // default, glitch, system, secret
 }) => {
-    const { isGestureMode, collectEgg, foundEggs } = useHandCursor();
+    const { isGestureMode, collectEgg, foundEggs, cursorPosition } = useHandCursor();
     const [isRevealed, setIsRevealed] = useState(false);
     const [showCollectedFeedback, setShowCollectedFeedback] = useState(false);
     const [randomPosition, setRandomPosition] = useState({ top: 0, left: 0 });
+    const eggRef = useRef(null);
 
     const isFound = foundEggs.includes(id);
 
@@ -27,18 +28,41 @@ const EasterEgg = ({
         }
     }, [isGestureMode, id]); // Re-randomize when gesture mode changes
 
+    // Check collision with hand cursor
+    useEffect(() => {
+        if (!isGestureMode || !eggRef.current) return;
+
+        const checkCollision = () => {
+            const rect = eggRef.current.getBoundingClientRect();
+            const cursorX = cursorPosition.x;
+            const cursorY = cursorPosition.y;
+
+            // Check if cursor is within the egg's bounds
+            const isHovering =
+                cursorX >= rect.left &&
+                cursorX <= rect.right &&
+                cursorY >= rect.top &&
+                cursorY <= rect.bottom;
+
+            if (isHovering) {
+                setIsRevealed(true);
+                if (!isFound) {
+                    collectEgg(id);
+                    // Show collection feedback
+                    setShowCollectedFeedback(true);
+                    setTimeout(() => setShowCollectedFeedback(false), 2000);
+                }
+            } else {
+                setIsRevealed(false);
+            }
+        };
+
+        // Check collision on every cursor move
+        checkCollision();
+    }, [cursorPosition, isGestureMode, isFound, collectEgg, id]);
+
     // If gesture mode is OFF, return nothing (hidden)
     if (!isGestureMode) return null;
-
-    const handleReveal = () => {
-        setIsRevealed(true);
-        if (!isFound) {
-            collectEgg(id);
-            // Show collection feedback
-            setShowCollectedFeedback(true);
-            setTimeout(() => setShowCollectedFeedback(false), 2000);
-        }
-    };
 
     // Type specific colors and icons
     const config = {
@@ -68,13 +92,12 @@ const EasterEgg = ({
 
     return (
         <div
-            className={`fixed z-40 cursor-crosshair ${className}`}
+            ref={eggRef}
+            className={`fixed z-40 pointer-events-none ${className}`}
             style={{
                 top: `${randomPosition.top}%`,
                 left: `${randomPosition.left}%`,
             }}
-            onMouseEnter={handleReveal}
-            onMouseLeave={() => setIsRevealed(false)}
         >
             {/* Collection Feedback Animation */}
             {showCollectedFeedback && (
