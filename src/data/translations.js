@@ -40,8 +40,8 @@ export const translations = {
             section_notes: "NOTES",
             more_logs: "More logs incoming...",
             status_location: "Jakarta, Indonesia",
-            status_reading: "Reading: The Design of Everyday Things",
-            status_listening: "Listening: Lo-Fi Beats for Coding",
+            status_reading: "Reading: Daring Greatly by Brené Brown",
+            status_listening: "Let's get things done — together",
             status_collab: "Open to Collaboration"
         },
         about: {
@@ -186,8 +186,8 @@ export const translations = {
             section_notes: "CATATAN",
             more_logs: "Lebih banyak log segera hadir...",
             status_location: "Jakarta, Indonesia",
-            status_reading: "Membaca: The Design of Everyday Things",
-            status_listening: "Mendengarkan: Lo-Fi Beats for Coding",
+            status_reading: "Membaca: Daring Greatly oleh Brené Brown",
+            status_listening: "Let's get things done — together",
             status_collab: "Terbuka untuk Kolaborasi"
         },
         about: {

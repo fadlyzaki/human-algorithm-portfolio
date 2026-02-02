@@ -390,11 +390,21 @@ const Portfolio = () => {
                     <MapPin size={14} className="text-[var(--accent-red)]" />
                     {t('home.status_location')}
                   </span>
-                  <span className="flex items-center gap-3">
+                  <a
+                    href="https://www.goodreads.com/fadlyzaki"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 hover:text-[var(--accent-amber)] transition-colors cursor-pointer"
+                  >
                     <BookOpen size={14} className="text-[var(--accent-amber)]" />
                     {t('home.status_reading')}
-                  </span>
-                  <span className="flex items-center gap-3">
+                  </a>
+                  <a
+                    href="https://music.youtube.com/watch?v=S02l82H9yks&si=9yoJMKDyzHDW8vgZ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 hover:text-[var(--accent-blue)] transition-colors cursor-pointer"
+                  >
                     <Headphones size={14} className="text-[var(--accent-blue)]" />
                     {t('home.status_listening')}
                   </span>
