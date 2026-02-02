@@ -318,7 +318,14 @@ const AboutPage = () => {
             </div>
 
             {/* INTERACTIVE COMPONENT: Chaos Slider */}
-            <div className="mt-12 max-w-sm">
+            <div className="mt-12 max-w-sm relative">
+              <Treasure
+                id="about-chaos"
+                className="top-0 right-0"
+                type="gem"
+              >
+                CHAOS_LEVEL = MAX
+              </Treasure>
               <ChaosSlider value={chaosStrength} onChange={setChaosStrength} />
             </div>
 
