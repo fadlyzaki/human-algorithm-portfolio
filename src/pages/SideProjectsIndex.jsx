@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, Filter } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Filter, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { SIDE_PROJECTS } from '../data/portfolioData';
 import Footer from '../components/Footer';
@@ -23,6 +23,14 @@ const SideProjectsIndex = () => {
             {/* Nav */}
             <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
                 <BackButton to="/" label="Index" className="text-white hover:text-white/80 mix-blend-difference" />
+
+                <button
+                    onClick={() => setIsDark(!isDark)}
+                    className="p-2 hover:bg-white/10 rounded-full transition-colors mix-blend-difference text-white"
+                    aria-label="Toggle Theme"
+                >
+                    {isDark ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
             </nav>
 
             <main className="max-w-6xl mx-auto px-6 pt-32 pb-24">
