@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, Box, Maximize2, Cpu, Activity, Share2, MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Truck, Trophy, Scan, GitCommit, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video, Linkedin } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Box, Maximize2, Cpu, Activity, Share2, MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Truck, Trophy, Scan, GitCommit, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video, Linkedin, BookOpen, Calendar, Shield, Gift, Camera, Heart, AlertTriangle, FileText, ToggleRight, TrendingUp } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
@@ -18,7 +18,7 @@ const EfficiencyAI = React.lazy(() => import('../components/interactions/Efficie
 // --- HELPERS ---
 const IconMapper = ({ iconName, ...props }) => {
     const icons = {
-        MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Box, Truck, Trophy, Scan, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video, GitCommit
+        MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Box, Truck, Trophy, Scan, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video, GitCommit, BookOpen, Calendar, Shield, Gift, Camera, Heart, AlertTriangle, FileText, ToggleRight, TrendingUp
     };
     const IconComponent = icons[iconName] || GitCommit;
     return <IconComponent {...props} />;
