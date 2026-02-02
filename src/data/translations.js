@@ -1,12 +1,12 @@
 export const translations = {
     en: {
         nav: {
-            home: "Home",
-            about: "About Me",
+            home: "fadlyzaki",
+            about: "About",
             work: "Work",
-            side_projects: "Side Projects",
+            side_projects: "Projects",
             notes: "Notes",
-            contact: "Contact Uplink",
+            contact: "Contact",
             cv: "Download CV",
             system_directory: "System Directory",
             index: "Index",
@@ -147,12 +147,12 @@ export const translations = {
     },
     id: {
         nav: {
-            home: "Beranda",
-            about: "Tentang Saya",
+            home: "fadlyzaki",
+            about: "Tentang",
             work: "Karya",
-            side_projects: "Proyek Sampingan",
+            side_projects: "Proyek",
             notes: "Catatan",
-            contact: "Hubungi Uplink",
+            contact: "Kontak",
             cv: "Unduh CV",
             system_directory: "Direktori Sistem",
             index: "Indeks",

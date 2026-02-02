@@ -338,7 +338,7 @@ const Portfolio = () => {
               <Link to="/about" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.about').toUpperCase()}</Link>
               <a href="#work" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.work').toUpperCase()}</a>
               <a href="#notes" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.notes').toUpperCase()}</a>
-              <Link to="/contact" className="hover:text-[var(--text-primary)] transition-colors">/CONTACT</Link>
+              <Link to="/contact" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.contact').toUpperCase()}</Link>
             </div>
 
             <button onClick={toggleGestureMode} className={`p-1 transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`} title="Enable Hand Tracking for 'Decryption Lens' Experiment">
