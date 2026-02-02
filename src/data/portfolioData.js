@@ -9,12 +9,8 @@ export const SIDE_PROJECTS = [
             challenge: "Traditional workbooks are 'write-only' memory. Teachers can't track progress until the book is collected, and students lose motivation without instant feedback.",
             approach: "A bilingual interface that syncs student inputs to a teacher dashboard in real-time. It’s not just a quiz app; it’s a digital workbook that respects the classroom workflow."
         },
-        tldr_id: "Menjembatani kesenjangan antara buku teks statis dan pembelajaran gamifikasi melalui sinkronisasi real-time.",
-        desc_id: "Solusi untuk 'feedback loop' dalam pendidikan non-formal.",
-        title_id: 'Buku Kerja Interaktif',
-        subtitle_id: 'Platform Bimbel Geera',
-        tldr_id: "Menjembatani kesenjangan antara buku teks statis dan pembelajaran gamifikasi melalui sinkronisasi real-time.",
-        desc_id: "Solusi untuk 'feedback loop' dalam pendidikan non-formal.",
+        tldr_id: "Mengubah buku teks statis jadi pengalaman belajar interaktif yang real-time.",
+        desc_id: "Solusi biar siswa langsung tahu hasilnya tanpa nunggu diperiksa guru (Feedback Loop).",
         title_id: 'Buku Kerja Interaktif',
         subtitle_id: 'Platform Bimbel Geera',
         stack: ["React", "Firebase", "Tailwind CSS"],
@@ -61,8 +57,8 @@ export const SIDE_PROJECTS = [
             challenge: "Algorithms track our consumption but ignore our creation. I wanted a way to visualize books read and miles run without handing data to a corporation.",
             approach: "A purely client-side generator. Upload JSON/CSV, pick from 12 editorial themes, and export high-res images. No database, just design tools."
         },
-        tldr_id: "Analitik privasi-first untuk kemenangan hidup Anda yang 'tak terlacak'.",
-        desc_id: "Analitik kehidupan yang mengutamakan privasi. Nol algoritma.",
+        tldr_id: "Bikin 'Spotify Wrapped' versi manual buat momen hidupmu yang nggak keselip algoritma.",
+        desc_id: "Analitik kehidupan yang privat. Tanpa algoritma pengintaian.",
         title_id: 'Year in Review',
         subtitle_id: 'Visualisasi Data Manual',
         stack: ["React", "TypeScript", "Canvas API"],
@@ -100,8 +96,8 @@ export const SIDE_PROJECTS = [
             challenge: "In the highly competitive Online Travel Agent (OTA) industry, cart abandonment is rampant. Users often find a perfect price but hesitate due to pending leave approvals or travel companion confirmations, only to find the price hiked later.",
             approach: "Developing a 'Price Lock' micro-insurance feature. By paying a nominal service fee, users secure a dynamic price point, protecting them from market volatility while creating a new ancillary revenue stream for the business."
         },
-        tldr_id: "Fitur asuransi mikro yang memungkinkan pengguna 'mengunci' harga penerbangan selama 24–48 jam dengan biaya kecil.",
-        desc_id: "Menyelesaikan Kesenjangan Kecemasan dalam pemesanan tiket.",
+        tldr_id: "Bayar sedikit buat 'kunci' harga tiket murah selama 24-48 jam. Anti deg-degan.",
+        desc_id: "Hapus rasa cemas 'takut harga naik' pas mau beli tiket.",
         title_id: 'Price Lock',
         subtitle_id: 'Fitur Fintech untuk OTA',
         stack: ["React", "Python (Algorithm Logic)", "Fintech Integration"],
@@ -151,8 +147,8 @@ export const SIDE_PROJECTS = [
             challenge: "Remittance is often cold and transactional. Furthermore, there's a digital divide between tech-savvy migrants and their non-tech-savvy families in rural areas who find 'Super Apps' intimidating.",
             approach: "Building a 'Social Logistics Layer' including session-based location overrides, LLM-based curation for health-conscious gifting, and a 'Universal Bridge' using tokenized web views (PWA) that require zero app installation for the recipient."
         },
-        tldr_id: "Kirim 'Perhatian' (Makanan/Barang), bukan hanya 'Uang', melintasi batas kota/negara.",
-        desc_id: "Mengubah remitansi transaksional menjadi pemberian hadiah emosional.",
+        tldr_id: "Kirim 'Perhatian' (Makanan/Barang) ke kampung halaman, bukan cuma transfer uang.",
+        desc_id: "Bikin kiriman uang jadi lebih personal dan penuh makna.",
         title_id: 'Project Kinship',
         subtitle_id: 'Logistik Sosial & Hadiah',
         stack: ["React", "LMM / AI", "Fintech (Remittance)"],
@@ -202,8 +198,8 @@ export const SIDE_PROJECTS = [
             challenge: "In beauty e-commerce, the 'Trust Gap' is massive. Users can't touch the product.",
             approach: "A 3-week design sprint using Face Mesh. We focused less on technical perfection and more on the 'Fun Factor'—making shopping feel like social media."
         },
-        tldr_id: "Dapatkah augmented reality menjembatani kesenjangan kepercayaan fisik dalam e-commerce kecantikan?",
-        desc_id: "Bisakah filter AR menggantikan sentuhan fisik?",
+        tldr_id: "Apa AR bisa bikin kita lebih percaya sebelum beli makeup online?",
+        desc_id: "Bisakah filter Instagram gantiin rasanya nyoba produk langsung?",
         title_id: 'FilterMe',
         subtitle_id: 'Eksperimen AR Commerce',
         stack: ["Sketch", "Principle", "AR Design"],
@@ -309,11 +305,11 @@ export const SIDE_PROJECTS = [
         // Bahasa Indonesia Translations
         title_id: 'Pivot "Agensi"',
         subtitle_id: 'Mendesain Ulang Algoritma',
-        desc_id: 'Mengubah algoritma Media Sosial dari Kotak Hitam menjadi Co-Pilot.',
-        tldr_id: "Berpindah dari 'Panel Kontrol' ke 'Feed Terpadu' untuk memberikan kontrol kepada pengguna tanpa friksi.",
+        desc_id: 'Ubah algoritma medsos dari Kotak Hitam misterius jadi Co-Pilot yang bantu user.',
+        tldr_id: "Ganti 'Panel Kontrol' yang ribet jadi 'Feed' yang ngerti mood kamu.",
         sections_id: {
-            challenge: "Media sosial telah berubah dari Menghubungkan Orang menjadi Menahan Perhatian. Dalam prosesnya, pengguna kehilangan kendali, menciptakan \"Feed Sampah\" yang memprioritaskan dopamin murah daripada koneksi yang bermakna.",
-            approach: "Kami menyadari bahwa pengguna tidak memiliki preferensi statis. Mereka memiliki Mood Kontekstual. Kami perlu memindahkan kontrol dari Menu Pengaturan ke Feed itu sendiri, menggunakan Stealth UX."
+            challenge: "Medsos sekarang cuma mau nyuri perhatian kita. Akibatnya user gak punya kendali, cuma dikasih konten sampah biar terus scroll.",
+            approach: "Kita sadar user itu mood-nya berubah-ubah. Jadi kita pindahin kontrolnya langsung ke Feed, pake cara yang halus (Stealth UX)."
         },
         modules_id: [
             {
@@ -473,9 +469,9 @@ export const WORK_CLUSTERS = [
                     outcome: 'Hiring speed improved by 20%.'
                 },
                 details_id: {
-                    problem: 'Fragmentasi data di berbagai spreadsheet.',
-                    system: 'Dashboard terpadu dengan pipeline drag-and-drop.',
-                    outcome: 'Kecepatan perekrutan meningkat 20%.'
+                    problem: 'Data HR berantakan di mana-mana (banyak spreadsheet).',
+                    system: 'Satu dashboard pusat, tinggal drag-and-drop.',
+                    outcome: 'Hiring jadi 20% lebih ngebut.'
                 },
                 title_id: 'Dashboard ATS untuk HR',
                 tag_id: 'Manajemen',
@@ -533,9 +529,9 @@ export const WORK_CLUSTERS = [
                     outcome: 'Application starts increased by 45%.'
                 },
                 details_id: {
-                    problem: 'Kandidat terintimidasi oleh lamaran formal.',
-                    system: 'Antarmuka mirip WhatsApp untuk permintaan formal.',
-                    outcome: 'Aplikasi dimulai meningkat 45%.'
+                    problem: 'Pelamar takut duluan liat formulir panjang.',
+                    system: 'Lamar kerja kayak chattingan di WhatsApp.',
+                    outcome: 'Yang mulai melamar naik 45%.'
                 },
                 title_id: 'Chat Your Employer',
                 tag_id: 'Akses Langsung',
