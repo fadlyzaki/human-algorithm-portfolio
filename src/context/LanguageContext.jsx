@@ -10,7 +10,7 @@ export const LanguageProvider = ({ children }) => {
 
     // Persist language preference
     useEffect(() => {
-        const savedLang = localStorage.getItem('portfolio-lang');
+        const savedLang = localStorage.getItem('portfolio-lang-v1');
         if (savedLang) {
             setLanguage(savedLang);
         }
@@ -19,7 +19,7 @@ export const LanguageProvider = ({ children }) => {
     const toggleLanguage = () => {
         const newLang = language === 'en' ? 'id' : 'en';
         setLanguage(newLang);
-        localStorage.setItem('portfolio-lang', newLang);
+        localStorage.setItem('portfolio-lang-v1', newLang);
     };
 
     const isIndonesian = language === 'id';
