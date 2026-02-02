@@ -92,7 +92,7 @@ const DraggablePhoto = () => {
                   <div className="grid grid-cols-2 gap-4 mt-2">
                     <div>
                       <label className="text-[8px] font-mono text-gray-400 uppercase block">ID_NO</label>
-                      <span className="text-xs font-mono font-medium text-gray-800 dark:text-gray-200">8829-2025</span>
+                      <span className="text-xs font-mono font-medium text-gray-800 dark:text-gray-200">1407-1995</span>
                     </div>
                     <div>
                       <label className="text-[8px] font-mono text-gray-400 uppercase block">EXP</label>
