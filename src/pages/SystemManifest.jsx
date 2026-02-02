@@ -47,23 +47,27 @@ const SystemManifest = () => {
   const experience = WORK_CLUSTERS.map(cluster => {
     const rolestat = cluster.stats?.find(s => s.label === 'Role');
     const timelineStat = cluster.stats?.find(s => s.label === 'Timeline');
+    const isId = language === 'id';
 
     // Extract key achievements from the projects
     const metrics = cluster.projects?.map(project => {
       const { caseStudy } = project;
+      const pTitle = isId ? (project.title_id || project.title) : project.title;
+      const pOutcome = isId ? (project.details_id?.outcome || project.details.outcome) : project.details?.outcome;
+
       if (caseStudy?.metrics && caseStudy.metrics.length > 0) {
         // Find the most impactful metric or join them
-        return `${project.title}: ${caseStudy.metrics.map(m => `${m.label} ${m.value}`).join(', ')}`;
+        return `${pTitle}: ${caseStudy.metrics.map(m => `${m.label} ${m.value}`).join(', ')}`;
       }
-      return project.details?.outcome ? `${project.title}: ${project.details.outcome}` : null;
+      return pOutcome ? `${pTitle}: ${pOutcome}` : null;
     }).filter(Boolean).slice(0, 3) || [];
 
     return {
       company: cluster.company,
       role: rolestat?.value || 'Product Designer',
       period: timelineStat?.value || 'Ongoing',
-      summary: cluster.miniDesc || cluster.hook,
-      metrics: metrics.length > 0 ? metrics : [cluster.hook]
+      summary: isId ? (cluster.miniDesc_id || cluster.miniDesc || cluster.hook_id || cluster.hook) : (cluster.miniDesc || cluster.hook),
+      metrics: metrics.length > 0 ? metrics : [isId ? (cluster.hook_id || cluster.hook) : cluster.hook]
     };
   });
 

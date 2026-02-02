@@ -57,6 +57,8 @@ const SectionTitle = ({ number, title, id, link, linkText }) => (
 
 const WorkClusterCard = ({ cluster }) => {
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const isId = language === 'id';
 
   // Top 3 Projects Teaser
   const topProjects = cluster.projects.slice(0, 3);
@@ -81,11 +83,11 @@ const WorkClusterCard = ({ cluster }) => {
         <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-6 md:gap-8 mb-6 md:mb-10">
           <div className="max-w-md w-full">
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif italic text-[var(--text-primary)] mb-3 group-hover:text-[var(--brand)] transition-colors leading-tight">
-              {cluster.title}
+              {isId ? (cluster.title_id || cluster.title) : cluster.title}
             </h3>
             <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[var(--brand)]"></span>
-              {cluster.subtitle}
+              {isId ? (cluster.subtitle_id || cluster.subtitle) : cluster.subtitle}
             </p>
           </div>
 
@@ -106,7 +108,7 @@ const WorkClusterCard = ({ cluster }) => {
         </div>
 
         <p className="text-[var(--text-primary)] text-lg font-light max-w-2xl mb-10 leading-relaxed border-l-2 border-[var(--border-color)] pl-6 group-hover:border-[var(--brand)] transition-colors">
-          {cluster.hook}
+          {isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
         </p>
 
         {/* Project List Teaser */}
@@ -118,7 +120,7 @@ const WorkClusterCard = ({ cluster }) => {
                 <div className="flex items-center gap-3">
                   <IconMapper iconName={p.iconName} size={14} className="text-[var(--text-secondary)] group-hover/item:text-[var(--brand)] transition-colors" />
                   <span className="text-[var(--text-primary)] font-medium group-hover/item:text-[var(--text-primary)]">
-                    {p.title}
+                    {isId ? (p.title_id || p.title) : p.title}
                   </span>
                 </div>
                 <span className="font-mono text-[10px] text-[var(--text-secondary)] bg-[var(--bg-tag)] px-2 py-1 rounded">
@@ -259,6 +261,7 @@ const Portfolio = () => {
   };
 
   const homeSideProjects = SIDE_PROJECTS.filter(p => !p.hidden).slice(0, 2);
+  const isId = language === 'id';
 
   const themeStyles = {
     '--bg-void': isDark ? '#0a0a0a' : '#FFFFFF',
@@ -469,14 +472,14 @@ const Portfolio = () => {
                           <div className="flex items-center gap-3">
                             <IconMapper iconName={item.iconName} size={18} className="text-[var(--accent-blue)]" />
                             <h3 className="text-2xl font-serif italic text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
-                              {item.title}
+                              {isId ? (item.title_id || item.title) : item.title}
                             </h3>
                           </div>
                           <ArrowUpRight size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
                         </div>
 
                         <p className="text-[var(--text-secondary)] font-light leading-relaxed mb-6 text-sm line-clamp-2">
-                          {item.desc}
+                          {isId ? (item.desc_id || item.desc) : item.desc}
                         </p>
 
                         <div className="flex gap-2 flex-wrap">

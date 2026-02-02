@@ -9,6 +9,14 @@ export const SIDE_PROJECTS = [
             challenge: "Traditional workbooks are 'write-only' memory. Teachers can't track progress until the book is collected, and students lose motivation without instant feedback.",
             approach: "A bilingual interface that syncs student inputs to a teacher dashboard in real-time. It’s not just a quiz app; it’s a digital workbook that respects the classroom workflow."
         },
+        tldr_id: "Menjembatani kesenjangan antara buku teks statis dan pembelajaran gamifikasi melalui sinkronisasi real-time.",
+        desc_id: "Solusi untuk 'feedback loop' dalam pendidikan non-formal.",
+        title_id: 'Buku Kerja Interaktif',
+        subtitle_id: 'Platform Bimbel Geera',
+        tldr_id: "Menjembatani kesenjangan antara buku teks statis dan pembelajaran gamifikasi melalui sinkronisasi real-time.",
+        desc_id: "Solusi untuk 'feedback loop' dalam pendidikan non-formal.",
+        title_id: 'Buku Kerja Interaktif',
+        subtitle_id: 'Platform Bimbel Geera',
         stack: ["React", "Firebase", "Tailwind CSS"],
         links: { demo: "https://buku-kerja-interaktif.web.app/", repo: "github.com/fadlyzaki/interactive-workbook" },
         iconName: 'BookOpen',
@@ -53,6 +61,10 @@ export const SIDE_PROJECTS = [
             challenge: "Algorithms track our consumption but ignore our creation. I wanted a way to visualize books read and miles run without handing data to a corporation.",
             approach: "A purely client-side generator. Upload JSON/CSV, pick from 12 editorial themes, and export high-res images. No database, just design tools."
         },
+        tldr_id: "Analitik privasi-first untuk kemenangan hidup Anda yang 'tak terlacak'.",
+        desc_id: "Analitik kehidupan yang mengutamakan privasi. Nol algoritma.",
+        title_id: 'Year in Review',
+        subtitle_id: 'Visualisasi Data Manual',
         stack: ["React", "TypeScript", "Canvas API"],
         links: { demo: "https://year-in-review-jak.vercel.app/", repo: "github.com/fadlyzaki/manual-wrapped" },
         iconName: 'Calendar',
@@ -88,6 +100,10 @@ export const SIDE_PROJECTS = [
             challenge: "In the highly competitive Online Travel Agent (OTA) industry, cart abandonment is rampant. Users often find a perfect price but hesitate due to pending leave approvals or travel companion confirmations, only to find the price hiked later.",
             approach: "Developing a 'Price Lock' micro-insurance feature. By paying a nominal service fee, users secure a dynamic price point, protecting them from market volatility while creating a new ancillary revenue stream for the business."
         },
+        tldr_id: "Fitur asuransi mikro yang memungkinkan pengguna 'mengunci' harga penerbangan selama 24–48 jam dengan biaya kecil.",
+        desc_id: "Menyelesaikan Kesenjangan Kecemasan dalam pemesanan tiket.",
+        title_id: 'Price Lock',
+        subtitle_id: 'Fitur Fintech untuk OTA',
         stack: ["React", "Python (Algorithm Logic)", "Fintech Integration"],
         links: {
             demo: "https://gemini.google.com/share/e12fc1c0dab2",
@@ -135,6 +151,10 @@ export const SIDE_PROJECTS = [
             challenge: "Remittance is often cold and transactional. Furthermore, there's a digital divide between tech-savvy migrants and their non-tech-savvy families in rural areas who find 'Super Apps' intimidating.",
             approach: "Building a 'Social Logistics Layer' including session-based location overrides, LLM-based curation for health-conscious gifting, and a 'Universal Bridge' using tokenized web views (PWA) that require zero app installation for the recipient."
         },
+        tldr_id: "Kirim 'Perhatian' (Makanan/Barang), bukan hanya 'Uang', melintasi batas kota/negara.",
+        desc_id: "Mengubah remitansi transaksional menjadi pemberian hadiah emosional.",
+        title_id: 'Project Kinship',
+        subtitle_id: 'Logistik Sosial & Hadiah',
         stack: ["React", "LMM / AI", "Fintech (Remittance)"],
         links: {
             demo: "https://gemini.google.com/share/bd973765947a",
@@ -182,6 +202,10 @@ export const SIDE_PROJECTS = [
             challenge: "In beauty e-commerce, the 'Trust Gap' is massive. Users can't touch the product.",
             approach: "A 3-week design sprint using Face Mesh. We focused less on technical perfection and more on the 'Fun Factor'—making shopping feel like social media."
         },
+        tldr_id: "Dapatkah augmented reality menjembatani kesenjangan kepercayaan fisik dalam e-commerce kecantikan?",
+        desc_id: "Bisakah filter AR menggantikan sentuhan fisik?",
+        title_id: 'FilterMe',
+        subtitle_id: 'Eksperimen AR Commerce',
         stack: ["Sketch", "Principle", "AR Design"],
         links: { demo: "https://uxdesign.cc/enhancing-online-shopping-experience-fbdbd76438e8", repo: "#" },
         iconName: 'Camera',
@@ -386,6 +410,13 @@ export const WORK_CLUSTERS = [
                     system: 'Built a low-friction, latency-friendly chat architecture.',
                     outcome: 'Reduced drop-off by 37%.'
                 },
+                details_id: {
+                    problem: 'Perekrut kesulitan melacak 200+ percakapan kandidat per hari.',
+                    system: 'Membangun arsitektur obrolan rendah gesekan dan ramah latensi.',
+                    outcome: 'Mengurangi drop-off sebesar 37%.'
+                },
+                title_id: 'In-App Chat & Pelacak Kandidat',
+                tag_id: 'Komunikasi',
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -441,6 +472,13 @@ export const WORK_CLUSTERS = [
                     system: 'Unified dashboard with drag-and-drop pipelines.',
                     outcome: 'Hiring speed improved by 20%.'
                 },
+                details_id: {
+                    problem: 'Fragmentasi data di berbagai spreadsheet.',
+                    system: 'Dashboard terpadu dengan pipeline drag-and-drop.',
+                    outcome: 'Kecepatan perekrutan meningkat 20%.'
+                },
+                title_id: 'Dashboard ATS untuk HR',
+                tag_id: 'Manajemen',
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -494,6 +532,13 @@ export const WORK_CLUSTERS = [
                     system: 'WhatsApp-like interface for formal requests.',
                     outcome: 'Application starts increased by 45%.'
                 },
+                details_id: {
+                    problem: 'Kandidat terintimidasi oleh lamaran formal.',
+                    system: 'Antarmuka mirip WhatsApp untuk permintaan formal.',
+                    outcome: 'Aplikasi dimulai meningkat 45%.'
+                },
+                title_id: 'Chat Your Employer',
+                tag_id: 'Akses Langsung',
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -547,6 +592,13 @@ export const WORK_CLUSTERS = [
                     system: 'Simplified faceted search.',
                     outcome: 'Retention D1 increased by 15%'
                 },
+                details_id: {
+                    problem: 'Pengguna tersesat dalam filter pekerjaan yang rumit.',
+                    system: 'Pencarian berjenjang yang disederhanakan.',
+                    outcome: 'Retensi D1 meningkat 15%.'
+                },
+                title_id: 'App Utama (Navigasi & Penemuan)',
+                tag_id: 'UX Inti',
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -598,6 +650,11 @@ export const WORK_CLUSTERS = [
             icon: "TrendingUp",
             items: ["$100B B2B Market", "FMCG Supply Chain", "Fragmented Logistics"]
         },
+        companyFocus_id: {
+            title: "Faktor Skala",
+            items: ["Pasar B2B $100M", "Rantai Pasokan FMCG", "Logistik Terfragmentasi"]
+        },
+        hook_id: 'Mentransformasi rantai distribusi B2B Indonesia melalui solusi digital end-to-end yang menghubungkan prinsipal, distributor, grosir, dan pengecer.',
         brandColor: '#00D1C7', // GudangAda Cyan
         linkedinUrl: 'https://www.linkedin.com/company/gudangada/about/',
         heroImage: '/commerce_hero.png',
@@ -621,6 +678,9 @@ export const WORK_CLUSTERS = [
                 previewImage: '/commerce_hero.png',
                 iconName: 'ShoppingBag',
                 details: { problem: 'Inefficient ordering process.', system: 'Streamlined checkout flow.', outcome: 'Cart abandonment -12%.' },
+                details_id: { problem: 'Proses pemesanan tidak efisien.', system: 'Alur checkout yang disederhanakan.', outcome: 'Cart abandonment -12%.' },
+                title_id: 'Marketplace',
+                tag_id: 'Transaksi',
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -670,6 +730,9 @@ export const WORK_CLUSTERS = [
                 previewImage: '/commerce_hero.png',
                 iconName: 'ShieldCheck',
                 details: { problem: 'Brands lacked identity.', system: 'Store builder engine.', outcome: 'Onboarded 50+ brands.' },
+                details_id: { problem: 'Brand kurang identitas.', system: 'Mesin pembuat toko.', outcome: 'Onboarded 50+ brand.' },
+                title_id: 'Official Store',
+                tag_id: 'Branding',
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -719,6 +782,9 @@ export const WORK_CLUSTERS = [
                 previewImage: '/commerce_hero.png',
                 iconName: 'Tag',
                 details: { problem: 'Complex discount logic.', system: 'Automated promo engine.', outcome: 'Utilization +25%.' },
+                details_id: { problem: 'Logika diskon rumit.', system: 'Mesin promo otomatis.', outcome: 'Utilisasi +25%.' },
+                title_id: 'Promo Center',
+                tag_id: 'Pemasaran',
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -768,6 +834,9 @@ export const WORK_CLUSTERS = [
                 previewImage: '/commerce_hero.png',
                 iconName: 'Box',
                 details: { problem: 'Inconsistent UI.', system: 'Unified React library.', outcome: 'Dev velocity +30%.' },
+                details_id: { problem: 'UI tidak konsisten.', system: 'Perpustakaan React terpadu.', outcome: 'Kecepatan Dev +30%.' },
+                title_id: 'GudangAda Design System',
+                tag_id: 'Arsitektur',
                 caseStudy: {
                     locked: true,
                     snapshot: {

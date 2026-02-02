@@ -32,6 +32,8 @@ const CompanyDetail = () => {
     const cluster = WORK_CLUSTERS.find(c => c.id === id) || WORK_CLUSTERS[0];
     const brandColor = cluster.brandColor || 'var(--accent-blue)';
 
+    const isId = language === 'id';
+
     // Map ID to Component
     const InteractionComponent = {
         'workforce': WorkforceAI,
@@ -104,10 +106,10 @@ const CompanyDetail = () => {
                                     </span>
                                 </div>
                                 <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif italic mb-8 leading-[0.9] tracking-tight">
-                                    {cluster.subtitle}
+                                    {isId ? (cluster.subtitle_id || cluster.subtitle) : cluster.subtitle}
                                 </h1>
                                 <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-xl font-light leading-relaxed border-l-2 border-[var(--border-color)] pl-6">
-                                    {cluster.hook}
+                                    {isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
                                 </p>
                             </div>
                         </ScrollReveal>
@@ -164,7 +166,10 @@ const CompanyDetail = () => {
                                     <Activity size={14} /> {t('company.context_title')}
                                 </h3>
                                 <p className="text-[var(--text-primary)] text-sm leading-relaxed opacity-80">
-                                    {cluster.miniDesc || "This ecosystem required a shift from manual boolean logic to fuzzy, human-centric algorithms."}
+                                    {isId ?
+                                        ((cluster.miniDesc_id || cluster.miniDesc) || "This ecosystem required a shift from manual boolean logic to fuzzy, human-centric algorithms.") :
+                                        (cluster.miniDesc || "This ecosystem required a shift from manual boolean logic to fuzzy, human-centric algorithms.")
+                                    }
                                 </p>
                             </div>
 
@@ -172,9 +177,11 @@ const CompanyDetail = () => {
                                 <div className="text-[var(--brand)] mb-4">
                                     <IconMapper iconName={cluster.companyFocus?.icon || 'Cpu'} size={24} />
                                 </div>
-                                <h4 className="font-serif italic text-lg mb-2">{cluster.companyFocus?.title || t('company.tech_core')}</h4>
+                                <h4 className="font-serif italic text-lg mb-2">
+                                    {isId ? (cluster.companyFocus_id?.title || cluster.companyFocus?.title || t('company.tech_core')) : (cluster.companyFocus?.title || t('company.tech_core'))}
+                                </h4>
                                 <ul className="space-y-2">
-                                    {(cluster.companyFocus?.items || ['React Ecosystem', 'Node.js', 'Python Data Science']).map((t, i) => (
+                                    {(isId ? (cluster.companyFocus_id?.items || cluster.companyFocus?.items || ['React Ecosystem', 'Node.js', 'Python Data Science']) : (cluster.companyFocus?.items || ['React Ecosystem', 'Node.js', 'Python Data Science'])).map((t, i) => (
                                         <li key={i} className="text-xs font-mono text-[var(--text-secondary)] flex items-center gap-2">
                                             <span className="w-1 h-1 bg-[var(--text-primary)] rounded-full"></span> {t}
                                         </li>
@@ -235,7 +242,7 @@ const CompanyDetail = () => {
                                                     <IconMapper iconName={project.iconName} size={24} className="text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors" />
                                                 </div>
                                                 <h3 className="text-3xl font-serif italic group-hover:text-[var(--brand)] transition-colors">
-                                                    {project.title}
+                                                    {isId ? (project.title_id || project.title) : project.title}
                                                 </h3>
                                             </div>
                                             <div className="hidden md:flex items-center gap-2 text-[var(--brand)] opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300">
@@ -250,7 +257,7 @@ const CompanyDetail = () => {
                                                     <span className="w-1 h-1 bg-red-400 rounded-full"></span> {t('company.problem')}
                                                 </span>
                                                 <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-                                                    {project.details.problem}
+                                                    {isId ? (project.details_id?.problem || project.details.problem) : project.details.problem}
                                                 </p>
                                             </div>
                                             <div className="space-y-2">
@@ -258,7 +265,7 @@ const CompanyDetail = () => {
                                                     <span className="w-1 h-1 bg-[var(--brand)] rounded-full"></span> {t('company.fix')}
                                                 </span>
                                                 <p className="text-sm font-medium text-[var(--text-primary)]">
-                                                    {project.details.outcome}
+                                                    {isId ? (project.details_id?.outcome || project.details.outcome) : project.details.outcome}
                                                 </p>
                                             </div>
                                         </div>
