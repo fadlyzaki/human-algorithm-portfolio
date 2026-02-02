@@ -540,7 +540,14 @@ const Portfolio = () => {
           </section>
 
           {/* SECTION 2: WORK */}
-          <section id="work" className="mb-40 scroll-mt-24">
+          <section id="work" className="mb-40 scroll-mt-24 relative">
+            <EasterEgg
+              className="top-0 left-0"
+              hint="WORK.LOG"
+              type="system"
+            >
+              CLASSIFIED PROJECTS
+            </EasterEgg>
             <ScrollReveal>
               <SectionTitle number="2" title={t('home.section_work')} />
             </ScrollReveal>

@@ -11,6 +11,7 @@ import BackButton from '../components/BackButton';
 import { SIDE_PROJECTS } from '../data/portfolioData';
 import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
+import EasterEgg from '../components/EasterEgg';
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
@@ -135,6 +136,13 @@ const SideProjectDetail = () => {
                <div className="absolute bottom-1/4 right-10 w-32 h-32 border border-dashed border-[var(--border-color)] opacity-20 rounded-full animate-[spin_15s_linear_infinite_reverse] z-10"></div>
 
                <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 space-y-8 max-w-4xl mx-auto relative z-20">
+                  <EasterEgg
+                     className="-top-12 right-0"
+                     hint="EXPERIMENT"
+                     type="secret"
+                  >
+                     PROTOTYPE v0.1
+                  </EasterEgg>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)]">
                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></div>
                      <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
