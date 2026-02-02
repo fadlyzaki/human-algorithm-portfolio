@@ -407,7 +407,7 @@ const Portfolio = () => {
                   >
                     <Headphones size={14} className="text-[var(--accent-blue)]" />
                     {t('home.status_listening')}
-                  </span>
+                  </a>
                   <span className="flex items-center gap-2 text-[var(--accent-green)]">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
