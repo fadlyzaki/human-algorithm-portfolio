@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import BackButton from '../components/BackButton';
 import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
