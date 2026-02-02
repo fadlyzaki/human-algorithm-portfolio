@@ -209,7 +209,7 @@ const SideProjectDetail = () => {
                      <article key={idx} className="group">
                         {/* Module Header */}
                         <div className="flex items-baseline gap-4 mb-8 border-b border-[var(--border-color)] pb-4">
-                           <span className="font-mono text-4xl font-bold text-[var(--border-color)] group-hover:text-[var(--accent)] transition-colors duration-500">
+                           <span className="font-mono text-4xl font-bold text-[var(--border-color)] group-hover:text-[var(--accent)] transition-colors duration-300">
                               0{idx + 1}
                            </span>
                            <h2 className="text-2xl md:text-3xl font-serif italic">

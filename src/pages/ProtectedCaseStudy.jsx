@@ -77,7 +77,7 @@ const ProtectedCaseStudy = () => {
   // --- HANDLER: UNLOCK ---
   const handleUnlock = (e) => {
     e.preventDefault();
-    if (password.toLowerCase() === 'desainzaki') {
+    if (password.trim().toLowerCase() === 'desainzaki') {
       setDecrypting(true);
       setError(false);
 
@@ -203,7 +203,7 @@ const ProtectedCaseStudy = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)] py-3 hover:bg-[var(--accent-red)] hover:text-black hover:border-[var(--accent-red)] transition-all uppercase text-xs tracking-widest flex items-center justify-center gap-2 group"
+                  className="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)] py-3 hover:bg-[var(--accent-red)] hover:text-black hover:border-[var(--accent-red)] transition-all duration-200 uppercase text-xs tracking-widest flex items-center justify-center gap-2 group"
                 >
                   <Unlock size={14} className="group-hover:unlock" />
                   Decrypt File
@@ -356,7 +356,7 @@ const ProtectedCaseStudy = () => {
 
                 {/* 1. VISUAL EVIDENCE (Image) */}
                 <div className="w-full md:w-1/2 relative group">
-                  <div className="relative bg-[var(--bg-card)] border border-[var(--border-color)] p-2 shadow-2xl transform transition-transform duration-500 hover:scale-[1.02] hover:rotate-0 rotate-1">
+                  <div className="relative bg-[var(--bg-card)] border border-[var(--border-color)] p-2 shadow-2xl transform transition-transform duration-300 hover:scale-[1.02] hover:rotate-0 rotate-1">
                     {/* Tape/Pin */}
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-red-500/80 shadow-lg border-2 border-white/20 z-20"></div>
 

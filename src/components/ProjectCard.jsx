@@ -35,7 +35,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
 
     // THE CONTAINER (White Diagram Sheet)
     const Container = ({ children, figIndex = "1.0", schematicType = "SYSTEM_ARCHITECTURE" }) => (
-        <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-4'} relative group transition-colors duration-500`}>
+        <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-4'} relative group transition-colors duration-300`}>
             <div className={`w-full ${expanded ? 'h-full border-none' : 'max-w-sm aspect-[16/10] border border-slate-100 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]'} bg-white overflow-hidden flex flex-col group-hover:border-[var(--brand)]/20 transition-all duration-700`}>
                 {(!expanded || showChrome) && <DotGrid />}
                 <div className="flex-1 relative overflow-hidden flex flex-col">
@@ -63,7 +63,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                         <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand)]/10 to-transparent mix-blend-overlay"></div>
                     </div>
                     {/* Floating Tech Badges */}
-                    <div className="absolute top-12 right-12 w-12 h-12 rounded-full border border-slate-100 bg-white/80 backdrop-blur shadow-sm flex items-center justify-center text-[var(--brand)] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0">
+                    <div className="absolute top-12 right-12 w-12 h-12 rounded-full border border-slate-100 bg-white/80 backdrop-blur shadow-sm flex items-center justify-center text-[var(--brand)] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0">
                         <Monitor size={20} />
                     </div>
                 </div>

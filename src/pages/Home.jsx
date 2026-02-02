@@ -72,7 +72,7 @@ const WorkClusterCard = ({ cluster }) => {
   return (
     <div
       style={brandStyle}
-      className="group relative border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--brand)] transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1 hover:shadow-2xl rounded-lg"
+      className="group relative border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--brand)] transition-all duration-300 cursor-pointer overflow-hidden hover:-translate-y-1 hover:shadow-2xl rounded-lg"
       onClick={() => navigate(`/work/${cluster.id}`)}
     >
       {/* Dynamic Background Hover Effect */}
@@ -102,7 +102,7 @@ const WorkClusterCard = ({ cluster }) => {
               />
             </div>
           ) : (
-            <div className="w-16 h-16 md:w-24 md:h-24 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-500 bg-[var(--bg-surface)] mb-2 md:mb-0">
+            <div className="w-16 h-16 md:w-24 md:h-24 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-300 bg-[var(--bg-surface)] mb-2 md:mb-0">
               <ProjectCard type={cluster.subtitle || 'System'} expanded={true} id={cluster.id} />
             </div>
           )}
@@ -472,7 +472,7 @@ const Portfolio = () => {
                         <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
                           <ProjectCard type={item.type || 'Web'} expanded={true} id={item.id} />
                         </div>
-                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
 
                         {/* Status Badge */}
                         <div className="absolute top-4 left-4 flex items-center gap-2">
@@ -507,7 +507,7 @@ const Portfolio = () => {
                       </div>
 
                       {/* Hover Overlay */}
-                      <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue)] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                      <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue)] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
                     </div>
                   </ScrollReveal>
                 ))}
@@ -643,7 +643,7 @@ const Portfolio = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Note 1 */}
-              <div onClick={() => navigate('/blog/log-001')} className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl cursor-pointer h-80 flex flex-col justify-between overflow-hidden rounded-lg">
+              <div onClick={() => navigate('/blog/log-001')} className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer h-80 flex flex-col justify-between overflow-hidden rounded-lg">
                 {/* Gradient Hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--accent-blue)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 

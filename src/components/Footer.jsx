@@ -27,7 +27,7 @@ const Footer = () => {
 
                 <a
                     href="mailto:fadly.uzzaki@gmail.com"
-                    className="inline-flex items-center gap-2 text-lg md:text-xl font-mono uppercase tracking-wide border-b border-[var(--text-primary)] pb-1 hover:text-[var(--text-secondary)] hover:border-[var(--text-secondary)] transition-all group"
+                    className="inline-flex items-center gap-2 text-lg md:text-xl font-mono uppercase tracking-wide border-b border-[var(--text-primary)] pb-1 hover:text-[var(--text-secondary)] hover:border-[var(--text-secondary)] transition-all duration-200 group"
                 >
                     fadly.uzzaki@gmail.com
                     <ArrowUpRight size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
@@ -69,6 +69,17 @@ const Footer = () => {
                     <span className="text-[var(--text-secondary)] text-sm leading-relaxed whitespace-pre-line">{t('footer.colophon_desc')}</span>
                 </div>
 
+            </div>
+
+            {/* PEAK-END RULE: A satisfying closure action */}
+            <div className="max-w-7xl mx-auto mb-16 flex justify-center">
+                <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="group flex flex-col items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-300"
+                >
+                    <div className="w-px h-12 bg-[var(--text-secondary)]/30 group-hover:bg-[var(--text-primary)] transition-colors duration-300"></div>
+                    <span className="font-mono text-[10px] uppercase tracking-widest">Return to Surface</span>
+                </button>
             </div>
 
             {/* 3. SIGNATURE */}

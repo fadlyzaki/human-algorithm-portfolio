@@ -217,7 +217,7 @@ const CompanyDetail = () => {
                             <ScrollReveal key={idx} delay={idx * 100}>
                                 <div
                                     onClick={() => navigate(project.route)}
-                                    className="group bg-[var(--bg-card)] border border-[var(--border-color)] cursor-pointer hover:border-[var(--brand)] transition-all duration-500 relative overflow-hidden shadow-sm hover:shadow-2xl rounded-2xl flex flex-col"
+                                    className="group bg-[var(--bg-card)] border border-[var(--border-color)] cursor-pointer hover:border-[var(--brand)] transition-all duration-300 relative overflow-hidden shadow-sm hover:shadow-2xl rounded-2xl flex flex-col"
                                 >
                                     {/* 1. UI PREVIEW (Top, Full Bleed) */}
                                     <div className="h-64 w-full overflow-hidden relative border-b border-[var(--border-color)] bg-[var(--bg-void)]/50">
@@ -306,7 +306,7 @@ const CompanyDetail = () => {
                                             alt={img.caption}
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                             <div className="absolute bottom-4 left-4">
                                                 <span className="text-xs font-mono text-white/90 uppercase tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10">
                                                     {img.caption}
