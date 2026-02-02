@@ -272,15 +272,6 @@ const ProtectedCaseStudy = () => {
 
           <div className="flex items-center gap-4">
             <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-              title="Switch Language"
-            >
-              <Globe size={16} />
-              <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
-            </button>
-
-            <button
               onClick={toggleGestureMode}
               className={`transition-colors p-1 ${isGestureMode ? 'text-[var(--brand)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
               title="Toggle Hand Tracking"
@@ -294,6 +285,15 @@ const ProtectedCaseStudy = () => {
               aria-label="Toggle Theme"
             >
               {isDark ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
+
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              title="Switch Language"
+            >
+              <Globe size={16} />
+              <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
             </button>
           </div>
         </div>

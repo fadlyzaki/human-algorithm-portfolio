@@ -39,15 +39,6 @@ const SideProjectsIndex = () => {
 
                 <div className="flex items-center gap-4">
                     <button
-                        onClick={toggleLanguage}
-                        className="flex items-center gap-2 text-sm font-mono uppercase tracking-widest hover:opacity-80 transition-opacity mix-blend-difference text-white"
-                        aria-label="Toggle Language"
-                    >
-                        <Globe size={14} />
-                        <span>{language}</span>
-                    </button>
-
-                    <button
                         onClick={toggleGestureMode}
                         className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-white/80 hover:text-white mix-blend-difference'}`}
                         title="Toggle Hand Tracking"
@@ -62,12 +53,21 @@ const SideProjectsIndex = () => {
                     >
                         {isDark ? <Sun size={20} /> : <Moon size={20} />}
                     </button>
+
+                    <button
+                        onClick={toggleLanguage}
+                        className="flex items-center gap-2 text-sm font-mono uppercase tracking-widest hover:opacity-80 transition-opacity mix-blend-difference text-white"
+                        aria-label="Toggle Language"
+                    >
+                        <Globe size={14} />
+                        <span>{language}</span>
+                    </button>
                 </div>
             </nav>
 
             <main className="max-w-6xl mx-auto px-6 pt-32 pb-24">
                 <header className="mb-24">
-                    <h1 className="text-4xl md:text-6xl font-serif italic mb-6">Archive: Experiments</h1>
+                    <h1 className="text-4xl md:text-6xl font-serif italic mb-6">Side Projects</h1>
                     <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl font-light">
                         Full log of side projects, prototypes, and daemons.
                     </p>

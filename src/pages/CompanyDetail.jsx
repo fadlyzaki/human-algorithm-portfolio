@@ -76,12 +76,6 @@ const CompanyDetail = () => {
 
                 <div className="flex items-center gap-4">
                     <button
-                        onClick={toggleLanguage}
-                        className="flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] uppercase tracking-widest transition-colors"
-                    >
-                        <Globe size={14} /> {language}
-                    </button>
-                    <button
                         onClick={toggleGestureMode}
                         className={`transition-colors p-1 ${isGestureMode ? 'text-[var(--brand)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
                         title="Toggle Hand Tracking"
@@ -94,6 +88,12 @@ const CompanyDetail = () => {
                         aria-label="Toggle Theme"
                     >
                         {isDark ? <Sun size={16} /> : <Moon size={16} />}
+                    </button>
+                    <button
+                        onClick={toggleLanguage}
+                        className="flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] uppercase tracking-widest transition-colors"
+                    >
+                        <Globe size={14} /> {language}
                     </button>
                 </div>
             </nav>

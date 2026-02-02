@@ -165,7 +165,7 @@ const NavigationMenu = ({ isOpen, onClose }) => {
     { label: t('nav.about'), href: "#about" },
     { label: t('nav.work'), href: "#work" },
     { label: t('nav.side_projects'), href: "/side-projects" },
-    { label: t('nav.notes'), href: "#notes" },
+    { label: 'PROJECTS', href: "#side-projects" },
   ];
   const metaLinks = [
     { label: t('nav.cv'), icon: FileText, href: "/cv" },
@@ -337,12 +337,15 @@ const Portfolio = () => {
             <div className="hidden md:flex gap-6 font-mono text-xs text-[var(--text-secondary)]">
               <Link to="/about" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.about').toUpperCase()}</Link>
               <a href="#work" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.work').toUpperCase()}</a>
-              <a href="#notes" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.notes').toUpperCase()}</a>
+              <a href="#side-projects" className="hover:text-[var(--text-primary)] transition-colors">/PROJECTS</a>
               <Link to="/contact" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.contact').toUpperCase()}</Link>
             </div>
 
             <button onClick={toggleGestureMode} className={`p-1 transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`} title="Enable Hand Tracking for 'Decryption Lens' Experiment">
               <ScanEye size={16} />
+            </button>
+            <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1" aria-label="Toggle Theme">
+              {isDark ? <Sun size={16} /> : <Moon size={16} />}
             </button>
             <button
               onClick={toggleLanguage}
@@ -350,9 +353,6 @@ const Portfolio = () => {
               title="Switch Language"
             >
               {language}
-            </button>
-            <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1" aria-label="Toggle Theme">
-              {isDark ? <Sun size={16} /> : <Moon size={16} />}
             </button>
           </div>
         </div>

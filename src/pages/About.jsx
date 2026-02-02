@@ -216,14 +216,6 @@ const AboutPage = () => {
 
           <div className="flex items-center gap-4">
             <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-              title="Switch Language"
-            >
-              <Globe size={18} />
-              <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
-            </button>
-            <button
               onClick={toggleGestureMode}
               className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}
               title="Toggle Hand Tracking"
@@ -236,6 +228,14 @@ const AboutPage = () => {
               aria-label="Toggle Theme"
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              title="Switch Language"
+            >
+              <Globe size={18} />
+              <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
             </button>
           </div>
         </header>
