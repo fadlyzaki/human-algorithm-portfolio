@@ -81,7 +81,7 @@ const SideProjectDetail = () => {
          <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
          {/* --- 1. NAVIGATION --- */}
-         <nav className="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-[var(--bg-void)]/80 backdrop-blur-md border-b border-[var(--border-color)]">
+         <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-[var(--bg-void)]/80 backdrop-blur-md border-b border-[var(--border-color)]">
             <div className="flex items-center gap-4">
                <BackButton to="/side-projects" label="Archives" />
                <div className="hidden md:flex items-center gap-2 font-mono text-[10px] uppercase text-[var(--text-secondary)] border-l border-[var(--border-color)] pl-4">

@@ -258,12 +258,14 @@ const ProtectedCaseStudy = () => {
       </div>
 
       {/* Navbar Mock */}
-      <div className="fixed top-0 w-full bg-[var(--bg-void)]/80 backdrop-blur-md z-50 border-b border-[var(--border-color)] py-4 px-6 flex justify-between items-center transition-colors duration-500">
-        <div className="flex items-center gap-2 text-[var(--brand)] font-mono text-xs tracking-widest">
-          <div className="w-2 h-2 rounded-full bg-current animate-pulse"></div>
-          CASE_FILE_{projectData.id.toUpperCase()}
-        </div>
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-[var(--bg-void)]/80 backdrop-blur-md border-b border-[var(--border-color)] transition-all duration-500">
+        <BackButton to={`/work/${parentCluster.id}`} label="Close" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]" />
+
         <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 text-[var(--brand)] font-mono text-xs tracking-widest hidden md:flex">
+            <div className="w-2 h-2 rounded-full bg-current animate-pulse"></div>
+            CASE_FILE_{projectData.id.toUpperCase()}
+          </div>
           <button
             onClick={() => setIsDark(!isDark)}
             className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1"
@@ -271,10 +273,8 @@ const ProtectedCaseStudy = () => {
           >
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-
-          <BackButton to={`/work/${parentCluster.id}`} label="Close" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]" />
         </div>
-      </div>
+      </nav>
 
       <main className="relative z-10 w-full pb-32">
 
