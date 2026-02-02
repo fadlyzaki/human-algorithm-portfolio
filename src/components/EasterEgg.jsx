@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHandCursor } from '../context/HandCursorContext';
 import { Sparkles, Zap, Star, Terminal } from 'lucide-react';
 
 const EasterEgg = ({
+    id, // Unique ID for tracking
     children,
     hint = "SIGNAL DETECTED",
     className = "",
     type = "default" // default, glitch, system, secret
 }) => {
-    const { isGestureMode } = useHandCursor();
+    const { isGestureMode, collectEgg, foundEggs } = useHandCursor();
     const [isRevealed, setIsRevealed] = useState(false);
-    const [hasBeenFound, setHasBeenFound] = useState(false);
+
+    const isFound = foundEggs.includes(id);
 
     // If gesture mode is OFF, return nothing (hidden)
     if (!isGestureMode) return null;
 
     const handleReveal = () => {
         setIsRevealed(true);
-        if (!hasBeenFound) {
-            setHasBeenFound(true);
+        if (!isFound) {
+            collectEgg(id);
         }
     };
 
@@ -94,7 +96,7 @@ const EasterEgg = ({
                     </div>
 
                     {/* Found Badge */}
-                    {hasBeenFound && (
+                    {isFound && (
                         <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white shadow-lg">
                             <div className="absolute inset-0 bg-green-300 rounded-full animate-ping" />
                         </div>
@@ -110,7 +112,7 @@ const EasterEgg = ({
                     }}
                 >
                     {/* Particle Burst */}
-                    {hasBeenFound && (
+                    {isFound && (
                         <>
                             <Sparkles className="absolute -top-4 -left-4 text-yellow-300 animate-ping" size={20} />
                             <Sparkles className="absolute -top-4 -right-4 text-pink-300 animate-ping" size={16} style={{ animationDelay: '100ms' }} />

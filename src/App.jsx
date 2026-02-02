@@ -18,6 +18,8 @@ import { LanguageProvider } from './context/LanguageContext';
 import { HandCursorProvider } from './context/HandCursorContext';
 import HandCursorOverlay from './components/HandCursorOverlay';
 import HandTrackerWelcome from './components/HandTrackerWelcome';
+import EasterEggCongrats from './components/EasterEggCongrats';
+import EasterEggProgress from './components/EasterEggProgress';
 import ScrollToTop from './components/ScrollToTop';
 
 import AnalyticsTracker from './components/AnalyticsTracker';
@@ -36,6 +38,8 @@ function App() {
       <HandCursorProvider>
         <HandCursorOverlay />
         <HandTrackerWelcome />
+        <EasterEggCongrats />
+        <EasterEggProgress />
         <Router>
           <AnalyticsTracker />
           <ScrollToTop />

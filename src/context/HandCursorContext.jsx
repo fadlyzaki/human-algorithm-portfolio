@@ -7,6 +7,20 @@ export const HandCursorProvider = ({ children }) => {
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     const [isClicking, setIsClicking] = useState(false);
     const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+    const [foundEggs, setFoundEggs] = useState(() => {
+        // Load from localStorage on init
+        const saved = localStorage.getItem('foundEasterEggs');
+        return saved ? JSON.parse(saved) : [];
+    });
+    const [showCongratsModal, setShowCongratsModal] = useState(false);
+
+    // Total number of Easter Eggs
+    const TOTAL_EGGS = 8;
+
+    // Save to localStorage whenever foundEggs changes
+    useEffect(() => {
+        localStorage.setItem('foundEasterEggs', JSON.stringify(foundEggs));
+    }, [foundEggs]);
 
     const toggleGestureMode = () => {
         if (!isGestureMode) {
@@ -27,6 +41,27 @@ export const HandCursorProvider = ({ children }) => {
         setShowWelcomeModal(false);
     };
 
+    const collectEgg = (eggId) => {
+        if (!foundEggs.includes(eggId)) {
+            const newFoundEggs = [...foundEggs, eggId];
+            setFoundEggs(newFoundEggs);
+
+            // Check if all eggs are found
+            if (newFoundEggs.length === TOTAL_EGGS) {
+                // Small delay for effect
+                setTimeout(() => {
+                    setShowCongratsModal(true);
+                }, 500);
+            }
+        }
+    };
+
+    const resetCollection = () => {
+        setFoundEggs([]);
+        localStorage.removeItem('foundEasterEggs');
+        setShowCongratsModal(false);
+    };
+
     return (
         <HandCursorContext.Provider value={{
             isGestureMode,
@@ -38,7 +73,13 @@ export const HandCursorProvider = ({ children }) => {
             isClicking,
             setIsClicking,
             showWelcomeModal,
-            closeWelcomeModal
+            closeWelcomeModal,
+            foundEggs,
+            collectEgg,
+            resetCollection,
+            totalEggs: TOTAL_EGGS,
+            showCongratsModal,
+            setShowCongratsModal
         }}>
             {children}
         </HandCursorContext.Provider>
