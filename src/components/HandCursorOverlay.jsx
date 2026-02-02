@@ -196,16 +196,7 @@ const HandCursorOverlay = () => {
     return (
         <div className="fixed inset-0 z-[9999] pointer-events-none overflow-hidden">
 
-            {/* 0. EXIT BUTTON (Interactive) - Bottom Right to avoid blocking navbar */}
-            <div className="fixed bottom-6 right-6 pointer-events-auto z-[10000]">
-                <button
-                    onClick={() => setIsGestureMode(false)}
-                    className="bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/50 px-4 py-2 rounded-full font-mono text-xs tracking-widest backdrop-blur-md transition-all flex items-center gap-2 group"
-                >
-                    <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                    EXIT HUNT (ESC)
-                </button>
-            </div>
+
 
             {/* LOADING STATE */}
             {isModelLoading && (
@@ -258,12 +249,24 @@ const HandCursorOverlay = () => {
                 </div>
             )}
 
-            {/* 2. WEBCAM PREVIEW (Mini HUD) */}
-            <div className="fixed bottom-6 left-6 z-[100] flex flex-col items-start gap-2">
+            {/* 2. WEBCAM PREVIEW (Mini HUD) with EXIT button */}
+            <div className="fixed bottom-6 left-6 z-[100] flex flex-col items-start gap-2 pointer-events-auto">
+                {/* EXIT Button - Above sensor */}
+                <button
+                    onClick={() => setIsGestureMode(false)}
+                    className="w-full bg-red-500/20 hover:bg-red-500/30 text-red-400 border border-red-500/50 px-3 py-1.5 rounded-lg font-mono text-[10px] tracking-widest backdrop-blur-md transition-all flex items-center justify-center gap-2"
+                >
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                    EXIT HUNT (ESC)
+                </button>
+
+                {/* Sensor Status */}
                 <div className="font-mono text-[9px] text-emerald-500 flex items-center gap-2">
                     <div className={`w-2 h-2 rounded-full ${modelReady ? 'bg-emerald-500 animate-pulse' : 'bg-yellow-500'}`}></div>
                     {modelReady ? 'SENSOR_ACTIVE' : 'SENSOR_LOADING'}
                 </div>
+
+                {/* Camera Preview */}
                 <div className="w-32 h-24 border border-emerald-500/20 rounded bg-black/90 relative overflow-hidden">
                     <Webcam
                         ref={webcamRef}
