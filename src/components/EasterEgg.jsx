@@ -45,30 +45,17 @@ const EasterEgg = ({
             onMouseEnter={handleReveal}
             onMouseLeave={() => setIsRevealed(false)}
         >
-            {/* Ripple Effect when in Gesture Mode */}
-            {!isRevealed && (
-                <div className="absolute inset-0 -m-4">
-                    <div className="absolute inset-0 rounded-full bg-white/10 animate-ping"></div>
-                    <div className="absolute inset-0 rounded-full bg-white/5 animate-pulse"></div>
-                </div>
-            )}
-
-            <div className={`relative flex items-center justify-center px-4 py-3 rounded-xl backdrop-blur-xl border-2 transition-all duration-300 ease-out origin-center shadow-2xl
+            <div className={`relative flex items-center justify-center px-3 py-2 rounded-lg backdrop-blur-sm transition-all duration-300 ease-out origin-center
         ${isRevealed
-                    ? `${styles[type]} border-white/40 scale-125 shadow-[0_0_60px_rgba(255,255,255,0.3)] rotate-0 animate-in zoom-in-50 duration-500`
-                    : 'bg-black/40 border-white/20 hover:border-white/40 opacity-70 hover:opacity-100 scale-100 hover:scale-110 rotate-1 hover:rotate-0'
+                    ? `${styles[type]} border-2 border-white/40 scale-125 shadow-[0_0_60px_rgba(255,255,255,0.3)] rotate-0 animate-in zoom-in-50 duration-500`
+                    : 'bg-transparent border border-dashed border-white/10 opacity-50 hover:opacity-80 scale-100 hover:scale-105'
                 }`}
             >
                 {!isRevealed ? (
-                    // HINT STATE - More obvious pulsing
-                    <div className="flex items-center gap-2 text-white/90 text-xs font-mono tracking-[0.15em] uppercase whitespace-nowrap">
-                        <Scan size={16} className="animate-pulse" />
-                        <span className="animate-pulse font-bold">{hint}</span>
-                        <div className="flex gap-1">
-                            <div className="w-1 h-1 rounded-full bg-white/60 animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                            <div className="w-1 h-1 rounded-full bg-white/60 animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                            <div className="w-1 h-1 rounded-full bg-white/60 animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                        </div>
+                    // HINT STATE - Subtle, not button-like
+                    <div className="flex items-center gap-1.5 text-white/60 text-[9px] font-mono tracking-[0.2em] uppercase whitespace-nowrap">
+                        <Scan size={10} className="opacity-40" />
+                        <span className="opacity-60">{hint}</span>
                     </div>
                 ) : (
                     // REVEALED STATE - Celebration!
@@ -95,10 +82,10 @@ const EasterEgg = ({
                 )}
             </div>
 
-            {/* Found Badge */}
+            {/* Found Badge - small and subtle */}
             {hasBeenFound && !isRevealed && (
-                <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow-lg animate-bounce">
-                    <div className="absolute inset-0 bg-green-400 rounded-full animate-ping"></div>
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full border border-white/30 shadow-sm">
+                    <div className="absolute inset-0 bg-green-300 rounded-full animate-ping opacity-50"></div>
                 </div>
             )}
         </div>
