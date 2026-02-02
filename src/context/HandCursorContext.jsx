@@ -27,8 +27,11 @@ export const HandCursorProvider = ({ children }) => {
             // Show welcome modal before activating
             setShowWelcomeModal(true);
         } else {
-            // Deactivate directly
+            // Deactivate and reset collection
             setIsGestureMode(false);
+            // Reset collection when deactivating
+            setFoundEggs([]);
+            localStorage.removeItem('foundEasterEggs');
         }
     };
 
