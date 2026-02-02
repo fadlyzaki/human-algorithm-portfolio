@@ -154,13 +154,28 @@ const ProtectedCaseStudy = () => {
           <BackButton to={`/work/${parentCluster.id}`} label="Abort" className="text-[var(--text-secondary)] hover:text-[var(--accent-red)]" />
         </div>
 
-        <div className="absolute top-6 right-6 z-20">
+        <div className="absolute top-6 right-6 z-20 flex items-center gap-4">
+          <button
+            onClick={toggleGestureMode}
+            className={`transition-colors p-1 ${isGestureMode ? 'text-[var(--brand)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
+            title="Toggle Hand Tracking"
+          >
+            <ScanEye size={18} />
+          </button>
           <button
             onClick={() => setIsDark(!isDark)}
             className="text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors p-2"
             aria-label="Toggle Theme"
           >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+            title="Switch Language"
+          >
+            <Globe size={16} />
+            <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
           </button>
         </div>
 
@@ -179,7 +194,7 @@ const ProtectedCaseStudy = () => {
                 </div>
                 <h1 className="text-2xl font-bold tracking-tight">RESTRICTED CASE FILE: {projectData.id.toUpperCase()}</h1>
                 <p className="text-[var(--text-secondary)] text-sm">
-                  Enter credentials to view the messy reality behind "{projectData.title}".
+                  Enter credentials to view the messy reality behind "{isId ? (projectData.title_id || projectData.title) : projectData.title}".
                 </p>
               </div>
 
@@ -250,8 +265,8 @@ const ProtectedCaseStudy = () => {
   return (
     <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--brand)] selection:text-white transition-colors duration-500">
       <SEO
-        title={projectData.title}
-        description={caseData.challenge || projectData.details.problem}
+        title={isId ? (projectData.title_id || projectData.title) : projectData.title}
+        description={caseData.challenge || (isId ? (projectData.details_id?.problem || projectData.details.problem) : projectData.details.problem)}
       />
 
       {/* AMBIENT MOOD BACKGROUND */}
@@ -321,7 +336,7 @@ const ProtectedCaseStudy = () => {
             </div>
 
             <h1 className="text-6xl md:text-8xl font-serif italic mb-8 leading-[0.9] tracking-tight max-w-5xl mx-auto">
-              {projectData.title}
+              {isId ? (projectData.title_id || projectData.title) : projectData.title}
             </h1>
 
             <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl mx-auto font-light leading-relaxed mb-16">
