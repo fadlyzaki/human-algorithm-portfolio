@@ -4,20 +4,51 @@ A cyberpunk-themed portfolio showcasing product design and engineering work, bui
 
 ## 🎮 Features
 
-### Hand Tracker Easter Eggs
-Activate hand tracking mode to discover **8 hidden Easter Eggs** scattered across the portfolio using AI-powered gesture recognition.
+### 🏴‍☠️ Treasure Hunt Game
+Activate hand tracking mode to discover **8 hidden treasures** scattered across the portfolio using AI-powered gesture recognition.
 
-- **Hand Tracking**: MediaPipe-based gesture control (point with index finger, pinch to click)
-- **Random Hunt**: Egg positions randomize every session for replayability
+- **Hand Tracking**: MediaPipe-based gesture control (point with index finger)
+- **Random Positions**: Treasure locations randomize on activation and reset
 - **Progress Tracking**: Real-time counter and collection system
-- **Achievement System**: Trophy modal when all 8 eggs are discovered
+- **Achievement System**: Trophy modal when all 8 treasures are discovered
+- **Manual Reset**: "Reset Hunt" button to re-randomize and start fresh
 - **Privacy First**: All video processing happens locally in your browser
+
+**Treasure Types:**
+| Type | Icon | Color |
+|------|------|-------|
+| 💎 Gem | Diamond | Purple |
+| 🪙 Coins | Circle Stack | Gold |
+| 👑 Crown | Crown | Yellow |
+| ⚓ Relic | Anchor | Teal |
 
 **How to Play:**
 1. Click the ScanEye 👁️ icon in navigation
 2. Grant camera permission
 3. Move your hand to discover glowing orbs
 4. Collect all 8 to unlock the achievement!
+5. Click "Reset Hunt" to re-randomize and play again
+
+### 📜 Running Ticker
+Interactive status ticker at the top of the homepage with clickable links:
+- 📍 **Location**: Jakarta, Indonesia
+- 📖 **Reading**: "Daring Greatly" → [Goodreads](https://www.goodreads.com/fadlyzaki)
+- 🎧 **Listening**: "Let's get things done — together" → [YouTube Music](https://music.youtube.com/watch?v=S02l82H9yks)
+- 🏃 **Training**: Running 5K & Swimming 1K Weekly → [Strava](https://www.strava.com/athletes/129304799)
+- ✍️ **Reflecting**: Reflecting on Life Weekly → [Substack](https://substack.com/@fadlyzaki)
+- 🟢 **Status**: Open to Collaboration
+
+### 🪪 Interactive ID Card
+Draggable identity card with:
+- Realistic smart chip design
+- Holographic sheen effect on hover
+- Flip animation to reveal other photos
+- Custom ID number: 1407-1995
+
+### 📌 Sticky Notes
+Dual motivational sticky notes in the hero section:
+- 💙 "Antidote to digital fatigue."
+- 🧡 "Built for humans at their limit."
 
 ### Core Portfolio Features
 - **Responsive Design**: Optimized for desktop and mobile
@@ -31,7 +62,7 @@ Activate hand tracking mode to discover **8 hidden Easter Eggs** scattered acros
 
 - **Framework**: React 18 + Vite
 - **AI/ML**: MediaPipe Hands (hand tracking)
-- **Styling**: CSS + Tailwind-like utilities
+- **Styling**: Tailwind CSS + Custom CSS
 - **Icons**: Lucide React
 - **Routing**: React Router v6
 - **Analytics**: Google Analytics 4
@@ -68,8 +99,11 @@ npm run preview
 ```
 src/
 ├── components/          # Reusable UI components
-│   ├── EasterEgg.jsx           # Easter egg component
+│   ├── Treasure.jsx            # Treasure hunt collectible
+│   ├── TreasureProgress.jsx    # Progress counter + reset button
+│   ├── TreasureCongrats.jsx    # Completion modal
 │   ├── HandCursorOverlay.jsx   # Hand tracking engine
+│   ├── DraggablePhoto.jsx      # Interactive ID card
 │   └── ...
 ├── context/            # React Context providers
 │   ├── HandCursorContext.jsx   # Hand tracking state
@@ -80,18 +114,19 @@ src/
 │   ├── About.jsx
 │   └── ...
 ├── data/               # Portfolio content
-│   └── portfolioData.js
+│   ├── portfolioData.js
+│   └── translations.js
 └── App.jsx             # Main app component
 ```
 
-## 🎯 Easter Egg Locations
+## 🎯 Treasure Locations
 
-Find all 8 hidden Easter Eggs:
-- 🏠 **Home** (2 eggs): Hero section, Work section
-- 👤 **About** (2 eggs): Photo area, Chaos slider
-- 📁 **Side Projects** (2 eggs): Index page, Detail page
-- 💼 **Company Detail** (1 egg): AI visualization
-- 📬 **Contact** (1 egg): Network matrix
+Find all 8 hidden treasures:
+- 🏠 **Home** (2 treasures): Hero section (gem), Work section
+- 👤 **About** (1 treasure): Photo area (coins)
+- 📁 **Side Projects** (2 treasures): Index page (gem), Detail page (coins)
+- 💼 **Company Detail** (1 treasure): Hero area (crown)
+- 📬 **Contact** (1 treasure): Network matrix (anchor/relic)
 
 ## 🔧 Configuration
 
@@ -123,7 +158,7 @@ dist
 
 ## 📄 License
 
-© 2024 Fadly Zaki. All rights reserved.
+© 2024-2025 Fadly Zaki. All rights reserved.
 
 ## 🤝 Contact
 
