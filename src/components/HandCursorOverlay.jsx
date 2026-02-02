@@ -196,14 +196,14 @@ const HandCursorOverlay = () => {
     return (
         <div className="fixed inset-0 z-[9999] pointer-events-none overflow-hidden">
 
-            {/* 0. EXIT BUTTON (Interactive) */}
-            <div className="fixed top-6 left-1/2 -translate-x-1/2 pointer-events-auto z-[10000]">
+            {/* 0. EXIT BUTTON (Interactive) - Bottom Right to avoid blocking navbar */}
+            <div className="fixed bottom-6 right-6 pointer-events-auto z-[10000]">
                 <button
                     onClick={() => setIsGestureMode(false)}
                     className="bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/50 px-4 py-2 rounded-full font-mono text-xs tracking-widest backdrop-blur-md transition-all flex items-center gap-2 group"
                 >
                     <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                    EXIT DECRYPTION (ESC)
+                    EXIT HUNT (ESC)
                 </button>
             </div>
 

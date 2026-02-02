@@ -39,7 +39,7 @@ const TreasureProgress = () => {
             {/* Hint */}
             <div className="mt-2 pt-2 border-t border-amber-400/30">
                 <p className="text-amber-100 text-[10px] font-mono leading-relaxed">
-                    👆 Point to explore • 🤏 Pinch to click
+                    👆 Move hand to discover treasures
                 </p>
             </div>
         </div>
