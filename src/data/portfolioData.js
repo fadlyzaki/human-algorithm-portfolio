@@ -550,7 +550,44 @@ export const WORK_CLUSTERS = [
                         desc: "A natural language sidebar where HR can ask: 'Who are the top 3 drivers for East Jakarta?' The AI retrieves data from the pipeline and summarizes it, eliminating the need for complex filters.",
                         impact: "Data Retrieval Speed 10x"
                     }
-                }
+                },
+                caseStudy_id: {
+                    locked: true,
+                    snapshot: {
+                        tagline: "Ganti 'Selimut Nyaman' Excel dengan sesuatu yang lebih baik, tanpa bikin kaget.",
+                        heroImage: "/workforce_hero.png"
+                    },
+                    context: {
+                        client: "Produk Internal",
+                        role: "Desainer Dashboard",
+                        timeline: "4 Bulan",
+                        team: "2 Desainer, 4 Devs"
+                    },
+                    challenge: "Data HR berantakan di 5 tools beda dan spreadsheet raksasa. Tim gak bisa jawab pertanyaan simpel kayak 'Berapa driver yang kita rekrut hari ini?' tanpa pusing dulu.",
+                    process: [
+                        { title: "Audit Total", desc: "Saya print semua spreadsheet dan stabilo-in setiap kolom yang duplikat. Ternyata kita minta data yang sama sampe 4 kali." },
+                        { title: "Friksi", desc: "User nolak dashboard baru. Mereka cinta banget fleksibilitas Excel. Saya harus buktiin kalau 'struktur' itu sepadan dengan hilangnya 'kebebasan'." }
+                    ],
+                    insights: [
+                        { title: "Kepadatan itu Raja", desc: "Kebanyakan dashboard modern kebanyakan ruang kosong (whitespace). User HR butuh kepadatan data. Saya desain supaya informasi maksimal per piksel." }
+                    ],
+                    solution: [
+                        { title: "Pipeline Visual", desc: "Saya bikin papan Kanban drag-and-drop yang memvisualisasikan perjalanan kandidat. Langsung keliatan macetnya di mana." },
+                        { title: "Aksi Massal", desc: "User gak pernah kerja satu-satu. Saya tambahin fitur 'Pilih Semua' (Select All) di setiap tahap." }
+                    ],
+                    metrics: [
+                        { label: "Efisiensi", value: "+20%" },
+                        { label: "Akurasi Data", value: "99%" },
+                        { label: "Adopsi", value: "100%" }
+                    ],
+                    learnings: "Gantiin Excel itu tantangan desain paling susah. Gak bisa cuma main cantik; harus lebih cepet. Saya belajar buat menghargai fungsi grid.",
+                    aiHypothesis: {
+                        tech: "RAG (Retrieval-Augmented Generation)",
+                        title: "Sidebar 'Chief of Staff'",
+                        desc: "Sidebar chat di mana HR bisa tanya: 'Siapa 3 driver terbaik di Jakarta Timur?' AI bakal ambil data dari pipeline dan ngerangkum, gak perlu filter ribet lagi.",
+                        impact: "Kecepatan Data 10x"
+                    }
+                },
             },
             {
                 id: 'direct-apply',
@@ -609,6 +646,43 @@ export const WORK_CLUSTERS = [
                         title: "Instant Resume Generator",
                         desc: "Candidates simply talk about their experience for 1 minute. The AI transcribes the audio, extracts skills/dates, and builds a formatted tabular resume automatically.",
                         impact: "Completion Rate +90%"
+                    }
+                },
+                caseStudy_id: {
+                    locked: true,
+                    snapshot: {
+                        tagline: "Gimana kalau ngelamar kerja itu segampang bilang 'Halo'?",
+                        heroImage: "/workforce_hero.png"
+                    },
+                    context: {
+                        client: "Aplikasi Konsumen",
+                        role: "Lead Desain Produk",
+                        timeline: "2 Bulan",
+                        team: "Tim Growth"
+                    },
+                    challenge: "90% pelamar kabur pas liat formulir lamaran. Pekerja kerah biru gak nyaman ngetik CV panjang di layar HP. 'Tembok CV' ini membunuh pertumbuhan user kami.",
+                    process: [
+                        { title: "Taruhan", desc: "Hipotesis saya: User bukan gak berkualitas, tapi kurang PD. Formulir rasanya kayak ujian. Chat rasanya kayak nyapa." },
+                        { title: "Pangkas Habis", desc: "Saya debatin buat hapus 80% kolom isian. Kita cuma butuh Nama dan Nomor HP buat mulai." }
+                    ],
+                    insights: [
+                        { title: "Defisit Kepercayaan", desc: "User gak percaya sama formulir tanpa wajah. Mereka percaya sama orang. Saya tambahin 'Avatar Rekruter' buat memanusiakan layar." }
+                    ],
+                    solution: [
+                        { title: "Lamar Satu Tap", desc: "Saya ganti formulir 'Apply Now' dengan pesan template: 'Halo, saya tertarik sama kerjaan ini.'." },
+                        { title: "Voice Notes", desc: "Buat user yang susah ngetik, saya tambahin fitur 'Rekam Suara'. Jadi fitur paling laku." }
+                    ],
+                    metrics: [
+                        { label: "Mulai Lamar", value: "+45%" },
+                        { label: "Selesai", value: "+60%" },
+                        { label: "Trust", value: "Tinggi" }
+                    ],
+                    learnings: "Nurunin hambatan masuk ningkatin volume, tapi butuh filter kualitas. Voice note itu jalan tengah sempurna—gampang dikirim, tapi kaya info.",
+                    aiHypothesis: {
+                        tech: "Audio-ke-Data-Terstruktur (Whisper)",
+                        title: "Generator CV Instan",
+                        desc: "Kandidat cukup ngomong soal pengalaman mereka selama 1 menit. AI bakal transkrip audio, ekstrak skill/tanggal, dan bikin CV rapi secara otomatis.",
+                        impact: "Tingkat Penyelesaian +90%"
                     }
                 }
             },
