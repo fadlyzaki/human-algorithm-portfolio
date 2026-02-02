@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHandCursor } from '../context/HandCursorContext';
-import { Sparkles, Zap, Star, Terminal } from 'lucide-react';
+import { Sparkles, Zap, Star, Terminal, Trophy, Plus } from 'lucide-react';
 
 const EasterEgg = ({
     id, // Unique ID for tracking
@@ -11,6 +11,7 @@ const EasterEgg = ({
 }) => {
     const { isGestureMode, collectEgg, foundEggs } = useHandCursor();
     const [isRevealed, setIsRevealed] = useState(false);
+    const [showCollectedFeedback, setShowCollectedFeedback] = useState(false);
 
     const isFound = foundEggs.includes(id);
 
@@ -21,6 +22,9 @@ const EasterEgg = ({
         setIsRevealed(true);
         if (!isFound) {
             collectEgg(id);
+            // Show collection feedback
+            setShowCollectedFeedback(true);
+            setTimeout(() => setShowCollectedFeedback(false), 2000);
         }
     };
 
@@ -56,6 +60,17 @@ const EasterEgg = ({
             onMouseEnter={handleReveal}
             onMouseLeave={() => setIsRevealed(false)}
         >
+            {/* Collection Feedback Animation */}
+            {showCollectedFeedback && (
+                <div className="absolute -top-16 left-1/2 -translate-x-1/2 z-50 animate-in slide-in-from-bottom fade-in duration-500">
+                    <div className="bg-green-500 text-white px-4 py-2 rounded-full shadow-2xl flex items-center gap-2 whitespace-nowrap">
+                        <Plus size={16} className="font-bold" />
+                        <span className="font-bold text-sm">COLLECTED!</span>
+                        <Trophy size={16} />
+                    </div>
+                </div>
+            )}
+
             {!isRevealed ? (
                 // UNREVEALED STATE - Glowing Orb Anomaly
                 <div className="relative w-16 h-16 flex items-center justify-center">
@@ -95,10 +110,11 @@ const EasterEgg = ({
                         />
                     </div>
 
-                    {/* Found Badge */}
+                    {/* Found Badge - More Prominent */}
                     {isFound && (
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white shadow-lg">
-                            <div className="absolute inset-0 bg-green-300 rounded-full animate-ping" />
+                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-400 rounded-full border-2 border-white shadow-lg flex items-center justify-center">
+                            <Trophy size={12} className="text-white" />
+                            <div className="absolute inset-0 bg-green-300 rounded-full animate-ping opacity-50" />
                         </div>
                     )}
                 </div>
