@@ -9,7 +9,7 @@ const Treasure = ({
     className = "",
     type = "gem" // gem, coins, crown, anchor
 }) => {
-    const { isGestureMode, collectEgg, foundEggs, cursorPosition } = useHandCursor();
+    const { isGestureMode, collectEgg, foundEggs, cursorPosition, resetTrigger } = useHandCursor();
     const [isRevealed, setIsRevealed] = useState(false);
     const [showCollectedFeedback, setShowCollectedFeedback] = useState(false);
     const [randomPosition, setRandomPosition] = useState({ top: 0, left: 0 });
@@ -17,7 +17,7 @@ const Treasure = ({
 
     const isFound = foundEggs.includes(id);
 
-    // Generate random position when gesture mode is activated
+    // Generate random position when gesture mode is activated OR when reset is triggered
     useEffect(() => {
         if (isGestureMode) {
             // Random position within safe bounds (avoid edges)
@@ -26,7 +26,7 @@ const Treasure = ({
 
             setRandomPosition({ top, left });
         }
-    }, [isGestureMode, id]); // Re-randomize when gesture mode changes
+    }, [isGestureMode, id, resetTrigger]); // Re-randomize when gesture mode changes OR reset triggered
 
     // Check collision with hand cursor
     useEffect(() => {

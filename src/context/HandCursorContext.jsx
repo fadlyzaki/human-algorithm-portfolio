@@ -14,6 +14,9 @@ export const HandCursorProvider = ({ children }) => {
     });
     const [showCongratsModal, setShowCongratsModal] = useState(false);
 
+    // Reset trigger - increments when positions should be re-randomized
+    const [resetTrigger, setResetTrigger] = useState(0);
+
     // Total number of Easter Eggs
     const TOTAL_EGGS = 8;
 
@@ -39,6 +42,7 @@ export const HandCursorProvider = ({ children }) => {
         // Start fresh with empty collection
         setFoundEggs([]);
         localStorage.removeItem('foundEasterEggs');
+        setResetTrigger(prev => prev + 1); // Trigger new positions
         setIsGestureMode(true);
         setShowWelcomeModal(false);
     };
@@ -66,6 +70,8 @@ export const HandCursorProvider = ({ children }) => {
         setFoundEggs([]);
         localStorage.removeItem('foundEasterEggs');
         setShowCongratsModal(false);
+        // Trigger position re-randomization
+        setResetTrigger(prev => prev + 1);
     };
 
     return (
@@ -85,7 +91,8 @@ export const HandCursorProvider = ({ children }) => {
             resetCollection,
             totalEggs: TOTAL_EGGS,
             showCongratsModal,
-            setShowCongratsModal
+            setShowCongratsModal,
+            resetTrigger
         }}>
             {children}
         </HandCursorContext.Provider>
