@@ -3,6 +3,7 @@ import Webcam from 'react-webcam';
 import { Hands } from '@mediapipe/hands';
 import { Camera } from '@mediapipe/camera_utils';
 import { useHandCursor } from '../context/HandCursorContext';
+import EasterEggProgress from './EasterEggProgress';
 
 const HandCursorOverlay = () => {
     const webcamRef = useRef(null);
@@ -203,6 +204,11 @@ const HandCursorOverlay = () => {
                     {/* Grid Overlay */}
                     <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(16,185,129,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.1) 1px, transparent 1px)', backgroundSize: '10px 10px' }}></div>
                 </div>
+            </div>
+
+            {/* 3. EASTER EGG PROGRESS - Top Left */}
+            <div className="fixed top-24 left-6 z-[100]">
+                <EasterEggProgress />
             </div>
 
         </div>
