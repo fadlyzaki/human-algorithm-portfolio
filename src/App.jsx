@@ -17,6 +17,7 @@ const NotFound = React.lazy(() => import('./pages/NotFound'));
 import { LanguageProvider } from './context/LanguageContext';
 import { HandCursorProvider } from './context/HandCursorContext';
 import HandCursorOverlay from './components/HandCursorOverlay';
+import HandTrackerWelcome from './components/HandTrackerWelcome';
 import ScrollToTop from './components/ScrollToTop';
 
 import AnalyticsTracker from './components/AnalyticsTracker';
@@ -34,6 +35,7 @@ function App() {
     <LanguageProvider>
       <HandCursorProvider>
         <HandCursorOverlay />
+        <HandTrackerWelcome />
         <Router>
           <AnalyticsTracker />
           <ScrollToTop />
