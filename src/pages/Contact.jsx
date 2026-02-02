@@ -346,6 +346,17 @@ const ContactPage = () => {
               )}
             </button>
 
+            {/* ERROR RECOVERY: FALLBACK (REC-01) */}
+            {formStatus === 'error' && (
+              <a
+                href={`mailto:${contactInfo.email}?subject=Project Inquiry: ${formData.name}&body=${formData.message}`}
+                className="mt-4 w-full py-3 border border-red-500 text-red-500 font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-red-500 hover:text-white transition-colors animate-in fade-in slide-in-from-top-2"
+              >
+                <Mail size={14} />
+                SWITCH TO MANUAL PROTOCOL
+              </a>
+            )}
+
           </form>
         </div>
 

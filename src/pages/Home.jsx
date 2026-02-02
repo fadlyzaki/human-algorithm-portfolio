@@ -243,8 +243,8 @@ const Portfolio = () => {
       // Smart Navbar Logic
       // Only trigger if difference is substantial to avoid flicker
       if (Math.abs(currentScrollY - lastScrollY.current) > 10) {
-        if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
-          setShowNav(false); // Scrolling DOWN -> HIDE
+        if (currentScrollY > lastScrollY.current && currentScrollY > 50 && !isGestureMode) {
+          setShowNav(false); // Scrolling DOWN -> HIDE (Only if NOT in gesture mode)
         } else {
           setShowNav(true);  // Scrolling UP -> SHOW
         }
@@ -254,7 +254,19 @@ const Portfolio = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isGestureMode]); // Add isGestureMode dependency
+
+  // REC-02: Handle Hash Scrolling on Mount
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100); // Small delay to ensure rendering
+    }
+  }, [location]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -312,7 +324,8 @@ const Portfolio = () => {
       {/* --- NAVIGATION SYSTEM --- */}
 
       {/* 1. Desktop Top Bar */}
-      <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${showNav ? 'translate-y-0' : '-translate-y-full'}`}>
+      {/* REC-03: Ensure Navbar stays visible if Gesture Mode is active */}
+      <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${(showNav || isGestureMode) ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="bg-[var(--bg-backdrop)] backdrop-blur-md border-b border-[var(--border-color)] px-6 py-3 flex justify-between items-center max-w-5xl mx-auto">
           <Link to="/" className="font-mono text-[var(--text-primary)] font-bold text-lg hover:text-[var(--accent-blue)] transition-colors tracking-tight">
             Fadlyzaki

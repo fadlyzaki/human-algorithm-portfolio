@@ -206,9 +206,15 @@ const ProtectedCaseStudy = () => {
               </form>
 
               <div className="text-center">
-                <p className="text-[10px] text-[var(--text-secondary)] opacity-50">
-                  // FOR ACCESS: <Link to="/contact" className="hover:text-[var(--accent-red)] underline decoration-dotted underline-offset-4 transition-colors">CONTACT ME</Link>
+                <p className="text-[10px] text-[var(--text-secondary)] opacity-50 mb-2">
+                  // UNAUTHORIZED PERSONNEL
                 </p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[var(--accent-red)] border-b border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-black transition-all pb-1"
+                >
+                  Request Access Key <ArrowRight size={12} />
+                </Link>
               </div>
             </div>
           ) : (
