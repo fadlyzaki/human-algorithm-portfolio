@@ -378,53 +378,8 @@ const Portfolio = () => {
       <main className="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-24 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-backdrop)] backdrop-blur-sm transition-colors duration-500 overflow-x-hidden">
         <div className="fade-in pt-12">
 
-
-          {/* HERO */}
-          <section className="relative mb-40">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12 items-start">
-              <div className="relative">
-                {/* Treasure Hunt */}
-                <Treasure
-                  id="home-hero"
-                  className="-top-8 left-0"
-                  type="gem"
-                >
-                  HIDDEN GEM FOUND!
-                </Treasure>
-
-                <h1 className="font-mono text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
-                  {t('home.role')} · <br />
-                  <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">{t('home.role_sub')}</span>
-                </h1>
-                <h2 className="text-xl md:text-2xl font-mono text-[var(--text-primary)] mb-8 pb-4 inline-block border-b-2 border-[var(--accent-amber)]">
-                  {t('home.intro_title')}
-                </h2>
-                <div className="text-[var(--text-secondary)] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
-                  {/* Render helper for markdown-like bolding if needed, or just insert text */}
-                  <p dangerouslySetInnerHTML={{ __html: t('home.intro_desc').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)] font-medium">$1</strong>') }} />
-                </div>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="#work" className="px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-sm font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all flex items-center justify-center gap-3 shadow-[4px_4px_0px_var(--accent-blue)] hover:shadow-[2px_2px_0px_var(--accent-blue)] hover:translate-x-[2px] hover:translate-y-[2px] rounded-lg">
-                    {t('home.cta_work')} <ArrowRight size={16} />
-                  </a>
-                  <Link to="/cv" className="px-8 py-4 border border-[var(--border-tag)] text-[var(--text-secondary)] font-mono text-sm uppercase tracking-wide hover:border-[var(--accent-amber)] hover:text-[var(--accent-amber)] transition-all flex items-center justify-center gap-3 rounded-lg">
-                    <FileText size={16} /> {t('home.cta_cv')}
-                  </Link>
-                </div>
-              </div>
-
-              <div className="hidden md:block">
-                <DraggablePhoto />
-                <div className="space-y-4 font-mono text-xs text-[var(--text-secondary)]"></div>
-              </div>
-            </div>
-            <ScrollReveal delay={500}>
-              <StickyNote text={t('home.sticky_note')} className="top-48 text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
-            </ScrollReveal>
-          </section>
-
-          {/* Running Ticker - Between Header and Side Projects */}
-          <div className="border-y border-[var(--border-color)] mb-12 overflow-hidden relative group cursor-default">
+          {/* Running Ticker - Top of Page */}
+          <div className="border-b border-[var(--border-color)] mb-12 overflow-hidden relative group cursor-default">
             <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[var(--bg-backdrop)] to-transparent z-10"></div>
             <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[var(--bg-backdrop)] to-transparent z-10"></div>
 
@@ -482,6 +437,50 @@ const Portfolio = () => {
               ))}
             </div>
           </div>
+
+          {/* HERO */}}
+          <section className="relative mb-40">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12 items-start">
+              <div className="relative">
+                {/* Treasure Hunt */}
+                <Treasure
+                  id="home-hero"
+                  className="-top-8 left-0"
+                  type="gem"
+                >
+                  HIDDEN GEM FOUND!
+                </Treasure>
+
+                <h1 className="font-mono text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
+                  {t('home.role')} · <br />
+                  <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">{t('home.role_sub')}</span>
+                </h1>
+                <h2 className="text-xl md:text-2xl font-mono text-[var(--text-primary)] mb-8 pb-4 inline-block border-b-2 border-[var(--accent-amber)]">
+                  {t('home.intro_title')}
+                </h2>
+                <div className="text-[var(--text-secondary)] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
+                  {/* Render helper for markdown-like bolding if needed, or just insert text */}
+                  <p dangerouslySetInnerHTML={{ __html: t('home.intro_desc').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)] font-medium">$1</strong>') }} />
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="#work" className="px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-sm font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all flex items-center justify-center gap-3 shadow-[4px_4px_0px_var(--accent-blue)] hover:shadow-[2px_2px_0px_var(--accent-blue)] hover:translate-x-[2px] hover:translate-y-[2px] rounded-lg">
+                    {t('home.cta_work')} <ArrowRight size={16} />
+                  </a>
+                  <Link to="/cv" className="px-8 py-4 border border-[var(--border-tag)] text-[var(--text-secondary)] font-mono text-sm uppercase tracking-wide hover:border-[var(--accent-amber)] hover:text-[var(--accent-amber)] transition-all flex items-center justify-center gap-3 rounded-lg">
+                    <FileText size={16} /> {t('home.cta_cv')}
+                  </Link>
+                </div>
+              </div>
+
+              <div className="hidden md:block">
+                <DraggablePhoto />
+                <div className="space-y-4 font-mono text-xs text-[var(--text-secondary)]"></div>
+              </div>
+            </div>
+            <ScrollReveal delay={500}>
+              <StickyNote text={t('home.sticky_note')} className="top-48 text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
+            </ScrollReveal>
+          </section>
 
           {/* SECTION 1: SIDE PROJECTS */}
           <section id="side-projects" className="mb-40 scroll-mt-24">
