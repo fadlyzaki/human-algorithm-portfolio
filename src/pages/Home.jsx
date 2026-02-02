@@ -439,7 +439,7 @@ const Portfolio = () => {
           </div>
 
           {/* HERO */}
-          <section className="relative mb-40">
+          <section className="relative mb-16">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12 items-start">
               <div className="relative">
                 {/* Treasure Hunt */}
@@ -478,7 +478,10 @@ const Portfolio = () => {
               </div>
             </div>
             <ScrollReveal delay={500}>
-              <StickyNote text={t('home.sticky_note')} className="top-48 text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
+              <div className="flex flex-wrap gap-4">
+                <StickyNote text={t('home.sticky_note')} className="text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
+                <StickyNote text={t('home.sticky_note_2')} className="text-[var(--accent-amber)]" rotate="lg:rotate-1" />
+              </div>
             </ScrollReveal>
           </section>
 
