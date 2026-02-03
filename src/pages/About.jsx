@@ -130,6 +130,14 @@ const AboutPage = () => {
     { name: "Physical Ops", icon: Activity }
   ];
 
+  // --- DATA: CREATIVE PROCESSES (Habits) ---
+  const creativeProcesses = [
+    { name: "PIANO_DRIVER.EXE", icon: Headphones, url: "https://www.instagram.com/stories/highlights/18053183015382725/" },
+    { name: "ANALOG_SKETCH", icon: PenLine, url: "https://www.instagram.com/stories/highlights/18100704214828888/" },
+    { name: "DIGITAL_CANVAS", icon: PenTool, url: "https://www.instagram.com/stories/highlights/18140818381062819/" },
+    { name: "SYSTEM_IDLE", icon: Coffee } // Filler process
+  ];
+
   // --- EFFECT: SCROLL PROGRESS ---
   useEffect(() => {
     const handleScroll = () => {
@@ -372,6 +380,27 @@ const AboutPage = () => {
             </div>
           </ScrollReveal>
         </section >
+
+        {/* BACKGROUND PROCESSES (Creative Habits) */}
+        <section className="mb-32">
+          <ScrollReveal>
+            <div className="flex items-baseline gap-4 mb-8">
+              <span className="font-mono text-sm text-[var(--accent-blue)] opacity-60 uppercase tracking-widest">// BACKGROUND_TASKS</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight mb-4"> Creative Subroutines</h2>
+                <p className="text-[var(--text-secondary)] font-light leading-relaxed mb-6">
+                  These non-essential processes run in the background to prevent system overheating.
+                  Click on a process to view the raw output log (Instagram).
+                </p>
+              </div>
+              <div>
+                <SystemMonitor skills={creativeProcesses} />
+              </div>
+            </div>
+          </ScrollReveal>
+        </section>
 
         {/* UNIFIED SYSTEM RUNTIME LOG (Bio + Work) */}
         < section className="mb-32 relative" >

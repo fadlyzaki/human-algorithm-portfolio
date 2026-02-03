@@ -47,15 +47,23 @@ const SystemMonitor = ({ skills }) => {
                         <div className="flex justify-between items-center">
                             <span className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] transition-colors flex items-center gap-2">
                                 {skill.icon && <skill.icon size={12} />}
-                                {skill.name}
+                                {skill.url ? (
+                                    <a href={skill.url} target="_blank" rel="noopener noreferrer" className="hover:underline decoration-dashed underline-offset-4">
+                                        {skill.name}
+                                    </a>
+                                ) : (
+                                    skill.name
+                                )}
                             </span>
                             <span className="text-[var(--accent-green)]">
                                 {metrics[skill.name]}%
                             </span>
                         </div>
+                        {skill.url && <div className="absolute right-0 top-0 w-2 h-2 bg-[var(--accent-blue)] rounded-full animate-pulse opacity-50"></div>}
 
                         {/* Bar Graph */}
                         <div className="h-2 bg-[var(--bg-void)] rounded-full overflow-hidden border border-[var(--border-color)] relative">
+
                             <div
                                 className="h-full bg-[var(--text-primary)] transition-all duration-1000 ease-out relative"
                                 style={{ width: `${metrics[skill.name]}%` }}
