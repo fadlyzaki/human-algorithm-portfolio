@@ -161,7 +161,7 @@ const SideProjectDetail = () => {
 
                {/* Scroll Indicator */}
                <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
-                  <span className="font-mono text-[10px] uppercase tracking-widest">Scroll to Decrypt</span>
+                  <span className="font-mono text-[10px] uppercase tracking-widest">Scroll to Initialize</span>
                   <div className="w-px h-8 bg-[var(--text-primary)]"></div>
                </div>
             </header>

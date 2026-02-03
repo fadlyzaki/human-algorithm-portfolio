@@ -163,8 +163,8 @@ const DraggablePhoto = () => {
 
         <div className="mt-8 space-y-4">
           <div>
-            <h2 className="text-3xl font-black text-black tracking-tighter leading-none">UZZAKI.</h2>
-            <h2 className="text-3xl font-black text-transparent stroke-black tracking-tighter leading-none" style={{ WebkitTextStroke: '1px black' }}>FADLY 🧢.</h2>
+            <h2 className="text-3xl font-black text-black tracking-tighter leading-none">UZZAKI</h2>
+            <h2 className="text-3xl font-black text-transparent stroke-black tracking-tighter leading-none" style={{ WebkitTextStroke: '1px black' }}>FADLY 🧢</h2>
           </div>
           <div className="grid grid-cols-2 gap-4 pt-4">
             <div>
