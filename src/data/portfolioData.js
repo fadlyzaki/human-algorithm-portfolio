@@ -18,54 +18,46 @@ export const SIDE_PROJECTS = [
         coverImage: "/interactive-workbook-cover.png",
         modules: [
             {
-                title: "Introduction & Product Vision",
-                content: "Interactive Workbook is a bilingual educational web app (Indonesian-English) designed to help Junior and Senior High School students improve their English conversational skills. It combines self-paced learning, gamification elements (inspired by Duolingo), and direct supervision by teachers in one interactive platform.\n\nVision: To transform the conventional learning experience from static printed books into a dynamic, fun, and easily trackable digital platform."
+                title: "The Silent Crisis",
+                content: "In every classroom, there is a student who knows the answer but stays silent. They are terrified of pronunciation mistakes, of the giggles from the back row, of being 'seen' failing.\n\nTraditional workbooks don't help. They are silent, static, and lonely. They don't listen, and they certainly don't encourage."
             },
             {
-                title: "Problem & Solution",
-                content: "The Problems:\n• Lack of Motivation: Students are often bored with traditional workbooks containing only static text.\n• Tracking Difficulty: Teachers struggle to monitor homework progress (like Duolingo progress) of dozens of students in real-time.\n• Fear of Speaking: Students need conversation guides that are more interactive than just reading scripts.\n\nThe Solution:\n• Integrated Multimedia: Includes Sing Along features with YouTube videos and chat-style interactive dialogues.\n• Firestore Integration: Uses a cloud database (Firebase Firestore) to save data instantly without page refreshes or complex manual processes.\n• Teacher Dashboard: Provides dedicated access for teachers to grade, comment, and monitor student XP/Streak centrally."
+                title: "Why Raisa Stopped Raising Her Hand",
+                content: "We followed 'Raisa' (a persona based on real student interviews). She loves English songs but hates English class.\n\n• The Fear: \"If I say it wrong, they will laugh.\"\n• The Gap: She practices in the shower (safe) but freezes in class (unsafe).\n• The need: A bridge between the safety of solitude and the pressure of performance."
             },
             {
-                title: "Target Users",
-                content: "• Students (SMP & SMA): Primary users who complete learning units and monitor their ranking on the leaderboard.\n• Teachers/Tutors: Content managers responsible for manual grading and providing feedback to students."
+                title: "A Safe Space to Stutter",
+                content: "We built a 'Digital Practice Room' where mistakes don't have an audience.\n\n• Sing Along Mode: Learning through melody bypasses the anxiety center of the brain.\n• Private Recording: Students record their voice, listen back, and self-correct before the teacher ever hears it.\n• The Outcome: It's not about perfect grammar; it's about the courage to speak."
             },
             {
-                title: "Functional Requirements",
-                content: "F1: Interface & Localization\n• Bilingual System: Toggle button to switch between Indonesian and English across all UI elements.\n• Responsive Design: Mobile-first UI optimized for all devices using Tailwind CSS.\n\nF2: Student User Flow\n• Session Identity: Students select their name and class to start (Sessions are temporary for shared privacy).\n• Learning Units (8 Units): Each unit consists of Sing Along, New Vocabulary, Dialogue Example, Speaking Practice, Duolingo Play (Input XP/Streak), and Self Reflection.\n• Leaderboard: Displays Top 10 Streak, Best Speakers, and Vocab Masters.\n\nF3: Teacher User Flow\n• Protected Access: Login via special access code.\n• Dashboard Tracker: Add new grading entries, duplicate rows for speed, and sync directly to Firestore."
+                title: "Teacher as a Guide, Not a Grader",
+                content: "For teachers, the dashboard isn't a grade book—it's a 'Confidence Monitor'.\n\nThey can see who is trying (Streak), who is struggling (repeated attempts), and intervene with encouragement rather than red ink. We turned 'Homework' into 'Home Practice'."
             },
             {
-                title: "Technical Specifications",
-                content: "• Frontend: HTML5, Tailwind CSS (Styling), JavaScript ES6+ (Logic).\n• Database: Firebase Firestore (NoSQL) for real-time answer storage.\n• Visualization: Chart.js for XP progress charts.\n• Assets: YouTube API, Inline SVG & Emojis.\n• Hosting: Firebase Hosting."
-            },
-            {
-                title: "Roadmap",
-                content: "• V1.0: First stable release with Firestore integration (Completed).\n• V1.5: Permanent student login system via Firebase Auth.\n• V2.0: Automatic PDF certificate generation after 8 units.\n• V2.5: Push notifications for study streaks."
+                title: "Technical Empathy",
+                content: "We chose Firebase Realtime Database not for its speed, but for its feedback loop. When a student completes a task, the feedback is instant. That millisecond of 'Ding! You did it!' is the dopamine hit they need to keep going."
             }
         ],
         modules_id: [
             {
-                title: "Pengantar & Visi Produk",
-                content: "Interactive Workbook adalah aplikasi web edukasi dwibahasa (Indonesia-Inggris) yang dirancang untuk membantu siswa SMP & SMA meningkatkan kemampuan percakapan bahasa Inggris. Menggabungkan pembelajaran mandiri, gamifikasi (terinspirasi Duolingo), dan supervisi langsung guru dalam satu platform interaktif.\n\nVisi: Mengubah pengalaman belajar konvensional dari buku cetak statis menjadi platform digital yang dinamis, menyenangkan, dan mudah dilacak."
+                title: "Krisis Kebisuan",
+                content: "Di setiap kelas, ada siswa yang tahu jawabannya tapi memilih diam. Mereka takut salah ucap, takut ditertawakan teman belakang, takut 'terlihat' gagal.\n\nLKS tradisional tidak membantu. Mereka diam, statis, dan sepi. Mereka tidak mendengar, dan pastinya tidak menyemangati."
             },
             {
-                title: "Masalah & Solusi",
-                content: "Masalah:\n• Kurang Motivasi: Siswa bosan dengan buku kerja tradisional yang cuma teks statis.\n• Sulit Melacak: Guru kesulitan memantau PR puluhan siswa secara real-time.\n• Takut Bicara: Siswa butuh panduan percakapan yang lebih interaktif daripada sekadar baca naskah.\n\nSolusi:\n• Multimedia Terintegrasi: Fitur Sing Along dengan video YouTube dan dialog interaktif gaya chat.\n• Integrasi Firestore: Pakai database cloud (Firebase) buat simpan data instan tanpa refresh halaman.\n• Dashboard Guru: Akses khusus buat guru untuk menilai, memberi komentar, dan memantau XP/Streak siswa secara terpusat."
+                title: "Kenapa Raisa Berhenti Tunjuk Tangan",
+                content: "Kami mengikuti persona 'Raisa'. Dia hafal semua lagu Taylor Swift tapi benci pelajaran Bahasa Inggris.\n\n• Ketakutan: \"Kalau aku salah ngomong, mereka bakal ketawa.\"\n• Kesenjangan: Dia berlatih di kamar mandi (aman) tapi membeku di kelas (tidak aman).\n• Kebutuhan: Sebuah jembatan antara keamanan kesendirian dan tekanan performa."
             },
             {
-                title: "Target Pengguna",
-                content: "• Siswa (SMP & SMA): Pengguna utama yang menyelesaikan unit belajar dan pantau ranking di leaderboard.\n• Guru/Tutor: Pengelola konten yang tanggung jawab menilai manual dan kasih feedback."
+                title: "Ruang Aman untuk Terbata-bata",
+                content: "Kami membangun 'Ruang Latihan Digital' di mana kesalahan tidak punya penonton.\n\n• Mode Sing Along: Belajar lewat melodi memintas pusat kecemasan di otak.\n• Rekaman Pribadi: Siswa merekam suara, dengar ulang, dan koreksi sendiri sebelum guru mendengarnya.\n• Hasilnya: Bukan soal grammar sempurna; tapi soal keberanian untuk bersuara."
             },
             {
-                title: "Kebutuhan Fungsional",
-                content: "F1: Antarmuka & Lokalisasi\n• Sistem Dwibahasa: Tombol toggle buat ganti bahasa Indo-Inggris di semua elemen UI.\n• Desain Responsif: UI mobile-first yang dioptimalkan buat semua perangkat pakai Tailwind CSS.\n\nF2: Alur Siswa\n• Identitas Sesi: Siswa pilih nama dan kelas buat mulai (Sesi sementara buat privasi bareng).\n• Unit Belajar (8 Unit): Tiap unit ada Sing Along, Kosakata Baru, Contoh Dialog, Latihan Bicara, Duolingo Play (Input XP), dan Refleksi Diri.\n• Leaderboard: Nampilin Top 10 Streak, Pembicara Terbaik, dan Master Vocab.\n\nF3: Alur Guru\n• Akses Terproteksi: Login pakai kode akses khusus.\n• Dashboard Tracker: Tambah nilai baru, duplikasi baris buat cepet, dan sinkron langsung ke Firestore."
+                title: "Guru sebagai Pemandu, Bukan Penilai",
+                content: "Bagi guru, dashboard ini bukan buku nilai—ini 'Monitor Kepercayaan Diri'.\n\nMereka bisa lihat siapa yang mencoba (Streak), siapa yang berjuang (percobaan berulang), dan masuk dengan dorongan semangat, bukan tinta merah."
             },
             {
-                title: "Spesifikasi Teknis",
-                content: "• Frontend: HTML5, Tailwind CSS (Styling), JavaScript ES6+ (Logic).\n• Database: Firebase Firestore (NoSQL) buat simpan jawaban real-time.\n• Visualisasi: Chart.js buat grafik progres XP.\n• Aset: YouTube API, Inline SVG & Emojis.\n• Hosting: Firebase Hosting."
-            },
-            {
-                title: "Peta Jalan (Roadmap)",
-                content: "• V1.0: Rilis stabil pertama dengan integrasi Firestore (Selesai).\n• V1.5: Sistem login siswa permanen via Firebase Auth.\n• V2.0: Generasi sertifikat PDF otomatis setelah 8 unit.\n• V2.5: Notifikasi push biar streak gak putus."
+                title: "Empati Teknis",
+                content: "Kami pilih Firebase Realtime Database bukan karena kecepatannya, tapi karena loop umpan baliknya. Saat siswa selesai tugas, feedback-nya instan. Milidetik 'Ting! Kamu bisa!' itu adalah suntikan dopamin yang mereka butuhkan untuk lanjut."
             }
         ]
     },
@@ -87,38 +79,38 @@ export const SIDE_PROJECTS = [
         coverImage: "/year-in-review-cover.png",
         modules: [
             {
-                title: "Executive Summary",
-                content: "Vision: To empower users to turn their raw annual data into compelling, highly shareable visual stories.\n\nThe Opportunity: Users track data across multiple platforms but lack a unified, aesthetic way to visualize this \"life data.\" The Year in Review Generator bridges this gap via \"Story-first\" design (9:16 aspect ratio).\n\nStrategic Objectives:\n• Maximize Shareability: Frictionless flow from input to social share via \"Screenshot Mode\".\n• Visual Excellence: 12 diverse themes catering to different user personas.\n• Engineering Scalability: Transitioning to Domain-Driven Design to support mobile app integration."
+                title: "The Algorithm is Not Your Diarist",
+                content: "Spotify Wrapped is fun, but it's a corporate summary of your consumption, not your creation. It tells you what you bought, watched, and listened to. It doesn't know about the breakup, the new puppy, or the night you finally quit your toxic job.\n\nWe outsourced our memories to platforms that optimize for engagement, not reflection."
             },
             {
-                title: "Features & Roadmap",
-                content: "A. Core Features\n• Smart Summary: Deterministic algorithm generating personalized summaries based on icon usage.\n• Data Persistence: Auto-save to localStorage.\n\nB. Visual Themes (12 Implemented)\n• Retro (8-Bit), Swiss (Typographic), Neon (Cyberpunk), Brutal (Neo-Brutalism), Blueprint (Technical), and more.\n\nC. Release 2.1 Improvements\n• Screenshot Mode: Hides all UI chrome for clean sharing.\n• Onboarding: 3-step guide for first-time users."
+                title: "Designing for Nostalgia",
+                content: "We built a tool that asks: \"What actually happened?\"\n\n• The Input: A simple, manual entry form. No API connections. You have to remember it yourself.\n• The Friction: The act of typing is the point. It forces reflection.\n• The Output: A beautiful, shareable 'story' card that looks like it came from a major app, but contains deeply personal data."
             },
             {
-                title: "Architecture 2.0",
-                content: "We are refactoring the monolithic prototype into a component-based structure to ensure maintainability and strict type safety.\n\nTech Stack:\n• React 18+ (Vite)\n• TypeScript (Strict)\n• Tailwind CSS\n• html2canvas\n\nKey Changes:\n• Domain-Driven Design: Separating components, hooks, and business logic.\n• Strict Typing: Defining contracts for `StatItem`, `HighlightItem`, and `ThemeConfig`."
+                title: "Visualizing the Invisible",
+                content: "How do you visualize 'Heartbreak'? Or 'Growth'?\n\nWe created a series of abstract 'Aura Themes'.\n• Neon: For a high-energy, chaotic year.\n• Blueprint: For a year of building and structure.\n• Soft Focus: For a year of healing and quiet."
             },
             {
-                title: "Success Metrics",
-                content: "• Technical Debt: Reduction in App.tsx lines of code (Target: < 200 LOC).\n• Performance: Lighthouse Performance Score > 95.\n• Share Rate: % of users who activate \"Screenshot Mode\"."
+                title: "The 'Share' Paradox",
+                content: "People want to be private, but they love to perform.\n\nWe added a 'Screenshot Mode' that strips away the UI chrome, leaving only the art. It allows users to perform their vulnerability on Instagram Stories, reclaiming the 'Wrapped' aesthetic for their own human narrative."
             }
         ],
         modules_id: [
             {
-                title: "Ringkasan Eksekutif",
-                content: "Visi: Memberdayakan pengguna untuk mengubah data tahunan mentah mereka menjadi cerita visual yang menarik dan layak dibagikan.\n\nPeluang: Pengguna melacak data di banyak platform tapi tidak punya cara yang estetik untuk memvisualisasikan \"data kehidupan\" ini. Generator Year in Review menjembatani ini lewat desain \"Story-first\" (rasio 9:16).\n\nObjektif Strategis:\n• Maksimalkan Shareability: Alur tanpa hambatan dari input ke share sosmed via \"Screenshot Mode\".\n• Keunggulan Visual: 12 tema beragam untuk berbagai persona pengguna.\n• Skalabilitas Engineering: Transisi ke Domain-Driven Design untuk mendukung integrasi aplikasi mobile."
+                title: "Algoritma Bukan Penulis Diarimu",
+                content: "Spotify Wrapped itu seru, tapi itu sekadar rangkuman korporat dari apa yang kamu konsumsi. Mereka tahu lagumu, tapi mereka tidak tahu soal putus cinta, anjing barumu, atau malam di mana kamu akhirnya resign dari kerjaan toxic.\n\nKita menyerahkan ingatan kita pada platform yang mengurusi engagement, bukan refleksi diri."
             },
             {
-                title: "Fitur & Roadmap",
-                content: "A. Fitur Inti\n• Ringkasan Cerdas: Algoritma deterministik yang bikin ringkasan personal berdasarkan penggunaan ikon.\n• Persistensi Data: Simpan otomatis ke localStorage.\n\nB. Tema Visual (12 Terimplementasi)\n• Retro (8-Bit), Swiss (Tipografi), Neon (Cyberpunk), Brutal (Neo-Brutalism), Blueprint (Teknis), dll.\n\nC. Peningkatan Rilis 2.1\n• Screenshot Mode: Sembunyikan semua UI chrome biar bersih saat dishare.\n• Onboarding: Panduan 3 langkah buat pengguna baru."
+                title: "Mendesain Nostalgia",
+                content: "Kami membuat alat yang bertanya: \"Apa yang sebenarnya terjadi?\"\n\n• Input: Form manual sederhana. Tanpa koneksi API. Kamu harus mengingatnya sendiri.\n• Friksi: Proses mengetik itulah intinya. Itu memaksanmu berefleksi.\n• Output: Kartu 'story' cantik yang terlihat seperti buatan app besar, tapi berisi data personal yang intim."
             },
             {
-                title: "Arsitektur 2.0",
-                content: "Kami melakukan refactoring prototipe monolitik menjadi struktur berbasis komponen untuk memastikan maintainability dan type safety yang ketat.\n\nTech Stack:\n• React 18+ (Vite)\n• TypeScript (Strict)\n• Tailwind CSS\n• html2canvas\n\nPerubahan Kunci:\n• Domain-Driven Design: Memisahkan komponen, hooks, dan logika bisnis.\n• Strict Typing: Mendefinisikan kontrak untuk `StatItem`, `HighlightItem`, dan `ThemeConfig`."
+                title: "Memvisualisasikan yang Tak Terlihat",
+                content: "Gimana cara visualisasi 'Patah Hati'? Atau 'Pertumbuhan'?\n\nKami buat seri 'Tema Aura' abstrak.\n• Neon: Untuk tahun yang penuh energi dan chaos.\n• Blueprint: Untuk tahun membangun struktur.\n• Soft Focus: Untuk tahun penyembuhan dan ketenangan."
             },
             {
-                title: "Metrik Sukses",
-                content: "• Utang Teknis: Pengurangan baris kode App.tsx (Target: < 200 LOC).\n• Performa: Skor Lighthouse Performance > 95.\n• Share Rate: % pengguna yang mengaktifkan \"Screenshot Mode\"."
+                title: "Paradoks 'Share'",
+                content: "Orang ingin privasi, tapi suka 'tampil'.\n\nKami tambahkan 'Screenshot Mode' yang menyembunyikan tombol UI, menyisakan hanya seninya. Ini memvalidasi pengguna untuk memamerkan kerentanan mereka di Instagram Stories, merebut kembali estetika 'Wrapped' untuk narasi manusiawi mereka sendiri."
             }
         ]
     },
@@ -144,54 +136,38 @@ export const SIDE_PROJECTS = [
         coverImage: "/price-lock-cover.png",
         modules: [
             {
-                title: "Executive Summary",
-                content: "The Challenge: Cart abandonment is a major issue in the Indonesian OTA market. Users feel 'trapped' by dynamic pricing and wait for external confirmations before booking. If prices rise during this wait, trust is lost and users switch to competitors.\n\nThe Solution: 'Price Lock' — A feature enabling users to secure a flight price for 24-48 hours via a nominal fee. This reduces decision anxiety and secures the user within the ecosystem.\n\nBusiness Impact:\n• CVR Increase: Providing a safety window reduces friction.\n• Ancillary Revenue: Monetizing the 'browsing' phase via non-refundable fees."
+                title: "The $50 Heartbeat Skip",
+                content: "You find the perfect flight to Bali. It's $100. You text your friends. They take 3 hours to reply. You refresh the page. It's now $150.\n\nThat physical feeling of regret? That's what we are designing against. In a world of dynamic pricing, the user is always the loser. We wanted to give them a weapon."
             },
             {
-                title: "Problem Statement: The Anxiety Gap",
-                content: "User Behavior Patterns:\n1. Discovery: User finds a great deal (e.g., Jakarta - Bali for $100).\n2. Friction: Cannot pay immediately (awaiting paycheck, visa, or spouse approval).\n3. Fear: High anxiety regarding dynamic price volatility.\n4. Pain Point: If the price jumps to $130 the next day, the user feels cheated and abandons the platform.\n\nBusiness Problem: 'Zero Monetization on Browsers' — Millions of searches tax servers and API costs without generating revenue if the final transaction doesn't occur. Price Lock monetizes the intent even if the final booking isn't made."
+                title: "The Pause Button",
+                content: "Price Lock is not a fintech product; it's an anxiety medication.\n\n• The Promise: \"Pause the world for 24 hours.\"\n• The Mechanism: A small fee ($2) to freeze the algorithm.\n• The Psychology: It shifts the user from a state of Panic (\"I must buy now!\") to a state of Control (\"I have time to decide.\")."
             },
             {
-                title: "Proposed Solution & User Flow",
-                content: "The feature turns ticket inventory into an impact-safe commodity.\n\n1. Search Result: Users see an 'Secure This Price for 24 Hours' option on flight cards.\n2. Purchase Lock: User pays a small fee ($2 - $5) using instant payment methods.\n3. Holding Period: Inventory is secured. The price remains static for the user, regardless of market fluctuations.\n4. Decision Time:\n• Scenario A (Book): User pays the locked ticket price.\n• Scenario B (Cancel): Time expires. The lock is released. The OTA retains the fee as pure profit."
+                title: "Buying Time, Not Tickets",
+                content: "We discovered that users weren't paying for the ticket; they were paying for the *option* to buy the ticket.\n\nThey were buying the ability to wait for their paycheck. They were buying the ability to ask their boss for leave without risking a price hike. They were buying peace of mind."
             },
             {
-                title: "Technical Feasibility & Logic",
-                content: "To ensure profitability, the Lock Fee is calculated using a Dynamic Risk Algorithm rather than staying static. Below is the conceptual backend logic (Python) for determining the fee based on volatility risk:\n\n```python\ndef calculate_lock_fee(ticket_price, days_to_flight, seat_scarcity_index):\n    \"\"\"\n    Calculates the Price Lock fee based on price volatility risk.\n    \"\"\"\n    base_fee = 15000  # Base operational cost (approx $1)\n    \n    # Factor 1: Time Urgency (Closer to flight = higher risk)\n    if days_to_flight < 3:\n        time_multiplier = 3.0  # High risk\n    elif days_to_flight < 7:\n        time_multiplier = 1.5\n    else:\n        time_multiplier = 1.0\n\n    # Factor 2: Seat Scarcity\n    if seat_scarcity_index > 0.8: # Low availability\n        scarcity_markup = 25000\n    else:\n        scarcity_markup = 0\n\n    # Total calculated fee\n    total_fee = (base_fee * time_multiplier) + scarcity_markup\n    \n    # Psychological Pricing Rounding\n    return round(total_fee, -3)\n```"
-            },
-            {
-                title: "UX Design Decisions",
-                content: "A. Iconography & Color Psychology:\n• Shield Icon: Consistent use of a blue shield to symbolize protection and security from market fluctuation.\n• Calm Blue vs. Action Orange: Blue for 'Locked/Safe' states (calming) and Orange for 'Book Now' (transactional action).\n\nB. The 'Sunk Cost' Timer:\nDisplays a countdown on 'My Trips'. By utilizing Loss Aversion bias, the timer reminds users of the fee already paid (sunk cost), incentivizing them to complete the purchase.\n\nC. AI Transparency:\nMicro-copy like 'AI Prediction: 85% chance this price rises tomorrow' provides rational validation for the fee, shifting the perception from being 'upsold' to being 'assisted in saving'."
-            },
-            {
-                title: "Business Impact & Roadmap",
-                content: "Projections:\n• CVR +15%: Users who pay a lock fee have a 3x higher commitment to complete the transaction.\n• Ancillary Revenue: 100% profit margin from expired locks.\n• Customer Loyalty: Increased NPS as users perceive the OTA as helpful and transparent.\n\nRoadmap:\n• Auto-Conversion: Automatically issuing tickets if market price drops below locked price.\n• Group Lock: Enabling one user to lock prices for family/group coordination."
+                title: "The Honest Algorithm",
+                content: "To build trust, we couldn't just guess the fee. We showed our work.\n\n\"AI Prediction: 85% chance this price rises tomorrow.\"\n\nBy being transparent about the volatility, the fee stopped feeling like an extra cost and started feeling like insurance. We turned a 'Hidden Fee' into a 'Hero Feature'."
             }
         ],
         modules_id: [
             {
-                title: "Ringkasan Eksekutif",
-                content: "Tantangan: Cart abandonment adalah masalah besar di pasar OTA Indonesia. User merasa 'terjebak' oleh harga dinamis dan nunggu konfirmasi eksternal sebelum booking. Kalau harga naik pas lagi nunggu, kepercayaan hilang dan user pindah ke kompetitor.\n\nSolusi: 'Price Lock' — Fitur yang memungkinan user mengunci harga tiket selama 24-48 jam dengan biaya nominal. Ini mengurangi kecemasan keputusan dan mengamankan user dalam ekosistem.\n\nDampak Bisnis:\n• Kenaikan CVR: Memberi jendela waktu aman mengurangi friksi.\n• Pendapatan Tambahan: Monetisasi fase 'browsing' lewat biaya non-refundable."
+                title: "Jantung Copot Karena 500 Ribu",
+                content: "Kamu nemu tiket ke Bali harga 1 juta. Kamu chat temen-temen di grup. Mereka balesnya 3 jam kemudian. Kamu refresh halamannya. Harganya sekarang 1,5 juta.\n\nPerasaan nyesek di dada itu? Itu yang kami desain solusinya. Di dunia 'dynamic pricing', user selalu jadi pihak yang kalah. Kami ingin memberi mereka senjata."
             },
             {
-                title: "Pernyataan Masalah: Celah Kecemasan",
-                content: "Pola Perilaku User:\n1. Penemuan: User nemu harga bagus (misal: Jakarta - Bali $100).\n2. Friksi: Gak bisa bayar langsung (nunggu gaji, visa, atau persetujuan istri).\n3. Ketakutan: Cemas tinggi soal volatilitas harga.\n4. Pain Point: Kalau harga lompat ke $130 besoknya, user merasa dicurangi dan ninggalin platform.\n\nMasalah Bisnis: 'Nol Monetisasi pada Browser' — Jutaan pencarian membebani server dan biaya API tanpa menghasilkan pendapatan jika transaksi akhir tidak terjadi. Price Lock memonetisasi niat bahkan jika booking tidak jadi."
+                title: "Tombol Pause",
+                content: "Price Lock bukan produk fintech; ini obat anti-cemas.\n\n• Janjinya: \"Pause dunia selama 24 jam.\"\n• Mekanismenya: Bayar receh (20rb) buat bekukan algoritma.\n• Psikologinya: Mengubah user dari mode Panik (\"Harus beli sekarang!\") ke mode Kontrol (\"Gue punya waktu buat mikir.\")."
             },
             {
-                title: "Solusi & Alur User",
-                content: "Fitur ini mengubah inventaris tiket menjadi komoditas yang aman dari dampak.\n\n1. Hasil Pencarian: User lihat opsi 'Amankan Harga Ini selama 24 Jam' di kartu penerbangan.\n2. Kunci Pembelian: User bayar biaya kecil ($2 - $5) pakai metode pembayaran instan.\n3. Periode Tahan: Inventaris diamankan. Harga tetap statis buat user, gak peduli pasar gejolak.\n4. Waktu Keputusan:\n• Skenario A (Book): User bayar harga tiket yang dikunci.\n• Skenario B (Batal): Waktu habis. Kunci dilepas. OTA simpan biaya kunci sebagai profit murni."
+                title: "Beli Waktu, Bukan Tiket",
+                content: "Kami menemukan bahwa user itu sebenarnya bukan bayar buat tiketnya; mereka bayar buat *opsi* untuk membeli tiketnya.\n\nMereka membeli kemampuan buat nunggu gajian. Mereka membeli kemampuan buat minta izin cuti ke bos tanpa takut harga naik. Mereka membeli ketenangan pikiran."
             },
             {
-                title: "Kelayakan Teknis & Logika",
-                content: "Untuk memastikan profitabilitas, Biaya Kunci dihitung menggunakan Algoritma Risiko Dinamis, bukan statis. Di bawah ini konsep logika backend (Python) untuk menentukan biaya berdasarkan risiko volatilitas:\n\n```python\ndef calculate_lock_fee(ticket_price, days_to_flight, seat_scarcity_index):\n    \"\"\"\n    Menghitung biaya Price Lock berdasarkan risiko volatilitas harga.\n    \"\"\"\n    base_fee = 15000  # Biaya operasional dasar (sekitar $1)\n\n    # Faktor 1: Urgensi Waktu (Makin dekat terbang = makin tinggi risiko)\n    if days_to_flight < 3:\n        time_multiplier = 3.0  # Risiko tinggi\n    elif days_to_flight < 7:\n        time_multiplier = 1.5\n    else:\n        time_multiplier = 1.0\n\n    # Faktor 2: Kelangkaan Kursi\n    if seat_scarcity_index > 0.8: # Ketersediaan rendah\n        scarcity_markup = 25000\n    else:\n        scarcity_markup = 0\n\n    # Total biaya terhitung\n    total_fee = (base_fee * time_multiplier) + scarcity_markup\n\n    # Pembulatan Harga Psikologis\n    return round(total_fee, -3)\n```"
-            },
-            {
-                title: "Keputusan Desain UX",
-                content: "A. Ikonografi & Psikologi Warna:\n• Ikon Perisai: Penggunaan konsisten perisai biru melambangkan perlindungan dan keamanan dari fluktuasi pasar.\n• Biru Tenang vs. Oranye Aksi: Biru untuk status 'Terkunci/Aman' (menenangkan) dan Oranye untuk 'Pesan Sekarang' (aksi transaksional).\n\nB. Timer 'Sunk Cost':\nMenampilkan hitung mundur di 'My Trips'. Dengan memanfaatkan bias Loss Aversion, timer mengingatkan user akan biaya yang sudah dibayar (sunk cost), mendorong mereka menyelesaikan pembelian.\n\nC. Transparansi AI:\nMicro-copy seperti 'Prediksi AI: 85% peluang harga naik besok' memberikan validasi rasional untuk biaya tersebut, mengubah persepsi dari 'dijuali' menjadi 'dibantu berhemat'."
-            },
-            {
-                title: "Dampak Bisnis & Roadmap",
-                content: "Proyeksi:\n• CVR +15%: User yang bayar biaya kunci punya komitmen 3x lebih tinggi buat selesaikan transaksi.\n• Pendapatan Tambahan: 100% margin profit dari kunci yang kadaluwarsa.\n• Loyalitas Pelanggan: NPS meningkat karena user merasa OTA membantu dan transparan.\n\nRoadmap:\n• Konversi Otomatis: Otomatis terbitkan tiket jika harga pasar turun di bawah harga terkunci.\n• Kunci Grup: Memungkinkan satu user mengunci harga buat koordinasi keluarga/grup."
+                title: "Algoritma yang Jujur",
+                content: "Untuk membangun trust, kami gak bisa asal nembak harga. Kami buka dapur kami.\n\n\"Prediksi AI: 85% peluang harga naik besok.\"\n\nDengan transparan soal volatilitas, biaya lock ini berhenti terasa sebagai 'biaya tambahan' dan mulai terasa sebagai 'asuransi'. Kami mengubah 'Hidden Fee' jadi 'Hero Feature'."
             }
         ]
     },
@@ -217,54 +193,38 @@ export const SIDE_PROJECTS = [
         coverImage: "/project-kinship-cover.png",
         modules: [
             {
-                title: "Executive Summary",
-                content: "Project Kinship transforms On-Demand Delivery into a relationship platform. While billions flow through traditional remittance annually, there is zero emotional context. Kinship enables sending 'Care' (Food/Goods) to bridge the gap between migrants and their families in rural areas.\n\nCore Goals:\n• Capture a slice of the $800B global remittance market.\n• Convert cash transfers into platform GTV (Gross Transaction Value).\n• Bridge the digital divide for non-tech-savvy recipients."
+                title: "Why Cash Feels Cold",
+                content: "Every month, millions of migrant workers send money home. It's a transaction of love, but the interface is cold, sterile, and purely numeric.\n\nMoney says \"I support you,\" but it doesn't say \"I miss you.\"\n\nWe wanted to build a remittance tool that carried the warmth of the hand that sent it."
             },
             {
-                title: "The Problem Space: Digital Asymmetry",
-                content: "1. The Remittance Paradox: Cash is cold. Senders want to provide direct care but struggle with logistics.\n2. The Core Friction: Senders are urban and high-tech; Recipients are rural and low-tech. Super apps are often too complex for recipients to coordinate last-mile delivery.\n3. Result: High friction leads to abandoned intents. Senders cannot order food for family because coordinating the delivery is a burden on the recipient."
+                title: "Delivering Warmth, Not Just Funds",
+                content: "Kinship isn't about sending Rupiah; it's about sending 'Care Packages'.\n\n• The Context: Instead of just wiring $50, the user sends a 'Sunday Dinner' (a curated basket of groceries).\n• The Bridge: The sender (in the city) navigates the village map remotely. They become present in their family's daily life, even from 500km away."
             },
             {
-                title: "The Solution: Social Logistics Layer",
-                content: "Feature 1: Teleport Mode (Discovery)\nA location override allowing Senders to browse local merchant inventory in the Recipient's city without changing global GPS settings.\n\nFeature 2: Contextual AI Engine (Curation)\nAn LLM recommendation system. Example: 'Find low-sodium dinner options for my dad in his hometown.'\n\nFeature 3: The Universal Bridge (Inclusion)\nThe Recipient DOES NOT need the app. A tokenized Web View (PWA) sent via SMS/WhatsApp allows real-time tracking and driver communication without a login barrier."
+                title: "The Zero-UI Receiver",
+                content: "The harsh reality: The people who need care the most often have the oldest phones.\n\nWe built a 'Zero-UI' receiver experience.\n• No App Install: The receiver gets a WhatsApp link.\n• SMS Fallback: If data fails, the updates arrive via SMS.\n• Empathy-First: The driver is trained not just to drop off a package, but to deliver a greeting."
             },
             {
-                title: "Strategic Analysis & Risk Management",
-                content: "Monetization:\n• Cross-Border FX Margin: Small markup on currency conversion.\n• Priority Fee: Premium 'Gifting' fee for guaranteed clean delivery and personalized cards.\n\nTech & Risk:\n• RAG (Retrieval-Augmented Generation): For hyperlocal AI food suggestions.\n• SSR (Server-Side Rendering): For lightweight web trackers (3G compatibility).\n• IVR Bridge: Automated calls for recipients who don't check their phones/data."
-            },
-            {
-                title: "User Journey: The Happy Path",
-                content: "1. Migrant user toggles 'Gifting Mode' and selects a family member.\n2. AI suggests 'Comfort Food' based on real-time weather in the hometown.\n3. User pays via digital wallet; Recipient receives an SMS link.\n4. Recipient opens the lightweight tracker; receives food + digital video message from sender."
-            },
-            {
-                title: "Metrics of Success (KPIs)",
-                content: "• Incremental GTV: Volume of transactions where sender is >50km from merchant.\n• Web-to-App Conversion: Recipients installing the app after a seamless web-tracking experience.\n• Retention Rate: Increased LTV of senders due to emotional stickiness of the platform."
+                title: "Closing the Loop",
+                content: "A transaction ends when money arrives. A relationship continues.\n\nWe added a 'Video Receipt' feature. When the package arrives, the driver records the family's reaction (with consent). The sender doesn't just see a 'delivered' checkmark; they see their mother smiling."
             }
         ],
         modules_id: [
             {
-                title: "Ringkasan Eksekutif",
-                content: "Project Kinship mengubah Pengiriman On-Demand menjadi platform hubungan. Meskipun miliaran mengalir melalui remitansi tradisional setiap tahun, tidak ada konteks emosional. Kinship memungkinkan pengiriman 'Perhatian' (Makanan/Barang) untuk menjembatani kesenjangan antara perantau dan keluarga mereka di kampung.\n\nTujuan Inti:\n• Mengambil bagian dari pasar remitansi global $800M.\n• Mengubah transfer tunai menjadi GTV (Gross Transaction Value) platform.\n• Menjembatani kesenjangan digital bagi penerima yang tidak melek teknologi."
+                title: "Kenapa Uang Tunai Terasa Dingin",
+                content: "Setiap bulan, jutaan perantau kirim uang ke kampung. Itu transaksi penuh cinta, tapi antarmukanya dingin, steril, dan cuma angka.\n\nUang bilang \"Aku support kamu,\" tapi dia gak bilang \"Aku kangen kamu.\"\n\nKami ingin bangun alat remitansi yang membawa kehangatan tangan yang mengirimnya."
             },
             {
-                title: "Ruang Masalah: Asimetri Digital",
-                content: "1. Paradoks Remitansi: Uang tunai itu dingin. Pengirim ingin memberikan perhatian langsung tapi kesulitan logistik.\n2. Friksi Inti: Pengirim adalah orang kota berteknologi tinggi; Penerima adalah orang desa berteknologi rendah. Super app seringkali terlalu rumit bagi penerima untuk mengoordinasikan pengiriman last-mile.\n3. Hasil: Friksi tinggi menyebabkan niat yang ditinggalkan. Pengirim tidak bisa memesan makanan untuk keluarga karena koordinasi pengiriman membebani penerima."
+                title: "Mengirim Kehangatan, Bukan Cuma Dana",
+                content: "Kinship bukan soal kirim Rupiah; ini soal kirim 'Paket Perhatian'.\n\n• Konteks: Daripada cuma transfer 500rb, user kirim 'Makan Malam Minggu' (paket sembako terkurasi).\n• Jembatan: Pengirim (di kota) menavigasi peta kampung dari jauh. Mereka hadir di keseharian keluarga, walau jarak 500km."
             },
             {
-                title: "Solusi: Lapisan Logistik Sosial",
-                content: "Fitur 1: Mode Teleport (Penemuan)\nOverride lokasi yang memungkinkan Pengirim menjelajahi inventaris pedagang lokal di kota Penerima tanpa mengubah pengaturan GPS global.\n\nFitur 2: Mesin AI Kontekstual (Kurasi)\nSistem rekomendasi LLM. Contoh: 'Carikan menu makan malam rendah natrium buat ayah di kampung halamannya.'\n\nFitur 3: Jembatan Universal (Inklusi)\nPenerima TIDAK PERLU aplikasi. Tampilan Web tokenized (PWA) dikirim via SMS/WhatsApp memungkinkan pelacakan real-time dan komunikasi driver tanpa hambatan login."
+                title: "Penerima Tanpa-UI",
+                content: "Realita pahit: Orang yang paling butuh perhatian seringkali punya HP paling jadul.\n\nKami bangun pengalaman penerima 'Zero-UI'.\n• Tanpa Install App: Penerima dapat link WhatsApp.\n• Fallback SMS: Kalau data mati, update masuk lewat SMS.\n• Empati-Dulu: Driver dilatih bukan cuma lempar paket, tapi sampaikan salam."
             },
             {
-                title: "Analisis Strategis & Manajemen Risiko",
-                content: "Monetisasi:\n• Margin FX Lintas Batas: Markup kecil pada konversi mata uang.\n• Biaya Prioritas: Biaya 'Gifting' premium untuk pengiriman bersih terjamin dan kartu personal.\n\nTeknologi & Risiko:\n• RAG (Retrieval-Augmented Generation): Untuk saran makanan AI hiperlokal.\n• SSR (Server-Side Rendering): Untuk pelacak web ringan (kompatibilitas 3G).\n• Jembatan IVR: Panggilan otomatis untuk penerima yang tidak mengecek ponsel/data mereka."
-            },
-            {
-                title: "Perjalanan Pengguna: The Happy Path",
-                content: "1. User perantau mengaktifkan 'Mode Gifting' dan memilih anggota keluarga.\n2. AI menyarankan 'Comfort Food' berdasarkan cuaca real-time di kampung halaman.\n3. User membayar via dompet digital; Penerima menerima link SMS.\n4. Penerima membuka pelacak ringan; menerima makanan + pesan video digital dari pengirim."
-            },
-            {
-                title: "Metrik Sukses (KPI)",
-                content: "• GTV Inkremental: Volume transaksi di mana pengirim >50km dari pedagang.\n• Konversi Web-ke-App: Penerima menginstal aplikasi setelah pengalaman web-tracking yang mulus.\n• Tingkat Retensi: Peningkatan LTV pengirim karena keterikatan emosional platform."
+                title: "Menutup Lingkaran",
+                content: "Transaksi berakhir saat uang sampai. Hubungan berlanjut.\n\nKami tambah fitur 'Resi Video'. Saat paket sampai, driver rekam reaksi keluarga (dengan izin). Pengirim gak cuma lihat centang 'delivered'; mereka lihat Ibu mereka tersenyum."
             }
         ]
     },
@@ -287,48 +247,38 @@ export const SIDE_PROJECTS = [
         coverImage: "/filterme-cover.png",
         modules: [
             {
-                title: "The Design Challenge",
-                content: "This project began as an entry for the CHIuXID 2018 Design Challenge under the theme 'Designing for Intelligences'. Our team (SUX Team: Ifa, Kevin, Zaki) had a 3-week sprint to solve a problem in the online shopping experience.\n\nMethodology: Google Design Sprint (Understand -> Diverge -> Decide -> Prototype -> Validate)."
+                title: "The Mirror Test",
+                content: "We've all been there: You see sunglasses online. They look cool on the model. You buy them. They arrive. You put them on. You look ridiculous.\n\nThis gap between 'Pixel Perfection' and 'Physical Reality' is why 40% of fashion e-commerce is returned. It's a trust deficit."
             },
             {
-                title: "Define: The Realness Gap",
-                content: "Through user surveys, we identified the single biggest pain point in e-commerce: The inability to validate the physical reality of a product.\n\n• \"Is this lipstick actually that shade of red?\"\n• \"Will these glasses fit my face shape?\"\n\nWe called this the 'Realness Gap'—the friction caused by the lack of touch and trial in the digital space."
+                title: "Trying It On (Digitally)",
+                content: "We asked: Why do we trust a mirror? Because it moves with us.\n\nFilterMe isn't a catalog; it's a mirror. using AR, we let users 'wear' the product before they buy it. It changes the question from \"Is this product good?\" to \"Is this product good *on me*?\""
             },
             {
-                title: "Ideate: Shopping as a 'Story'",
-                content: "We observed that our target demographic (Millennials) were heavy users of Snapchat and Instagram Stories. They were comfortable with AR filters and 'selfie' interactions.\n\n**Hypothesis:** What if we could bridge the Realness Gap by using the familiar mental model of 'Social Stories' for product trials?"
+                title: "The Social Proof",
+                content: "Shopping is inherently social. \"Does this look good?\" is a question we ask friends, not algorithms.\n\nWe integrated 'Share to Story'. Users could snap a selfie wearing the AR lipstick, post it to Instagram, and get real-time validation from their friends before spending a dime."
             },
             {
-                title: "Solution: FilterMe",
-                image: "/filterme-prototype.gif",
-                content: "FilterMe is a concept feature where facial products (makeup, sunglasses, earrings) function as AR filters. Instead of looking at static photos, users open their camera and 'wear' the product instantly.\n\nKey Interaction:\n1. Browse products in a feed.\n2. Tap 'Try Filter' to launch the camera.\n3. Swipe left/right to change product variants (colors/styles).\n4. Buy directly from the AR view."
-            },
-            {
-                title: "Validation & Learnings",
-                content: "We prototyped the experience using Sketch and Principle (simulating facial tracking). Usability testing with 4 participants revealed:\n\n• High Engagement: Users found the 'fun factor' significantly higher than standard browsing.\n• The Trust Issue: While fun, users remained skeptical about color accuracy. \"It looks good as a filter, but will the real pigment match?\"\n\nVerdict: AR drives engagement and reduces hesitation, but it cannot fully replace the physical need for trust in color fidelity."
+                title: "The Limits of Tech",
+                content: "We learned a hard lesson: Fun does not equal Trust.\n\nUsers loved playing with the filters (Engagement), but they still hesitated to buy (Conversion). Why? Because they didn't trust the color accuracy of their phone screen.\n\nConclusion: AR can solve for 'Shape' and 'Vibe', but it struggles to solve for 'Texture' and 'Shade'."
             }
         ],
         modules_id: [
             {
-                title: "Tantangan Desain",
-                content: "Proyek ini dimulai sebagai entri untuk CHIuXID 2018 Design Challenge dengan tema 'Designing for Intelligences'. Tim kami (SUX Team: Ifa, Kevin, Zaki) punya sprint 3 minggu untuk memecahkan masalah dalam pengalaman belanja online.\n\nMetodologi: Google Design Sprint (Understand -> Diverge -> Decide -> Prototype -> Validate)."
+                title: "Ujian Cermin",
+                content: "Kita semua pernah mengalaminya: Lihat kacamata online. Keren di model. Beli. Sampai rumah. Pakai. Kelihatan konyol.\n\nJarak antara 'Kesempurnaan Piksel' dan 'Realitas Fisik' inilah alasan kenapa 40% barang fashion dikembalikan. Ini adalah defisit kepercayaan."
             },
             {
-                title: "Definisi: Celah Realitas",
-                content: "Lewat survei pengguna, kami mengidentifikasi satu pain point terbesar di e-commerce: Ketidakmampuan memvalidasi realitas fisik produk.\n\n• \"Lipstick ini beneran warna merah gitu?\"\n• \"Kacamata ini bakal pas gak di muka gue?\"\n\nKami menyebut ini 'Realness Gap'—friksi yang disebabkan oleh ketiadaan sentuhan dan uji coba di ruang digital."
+                title: "Mencoba Secara Digital",
+                content: "Kami bertanya: Kenapa kita percaya cermin? Karena dia bergerak mengikuti kita.\n\nFilterMe bukan katalog; ini cermin. Pakai AR, kami biarkan user 'memakai' produk sebelum beli. Ini mengubah pertanyaan dari \"Produk ini bagus gak?\" jadi \"Produk ini bagus gak *di gue*?\""
             },
             {
-                title: "Ideasi: Belanja sebagai 'Cerita'",
-                content: "Kami mengamati demografis target kami (Milenial) adalah pengguna berat Snapchat dan Instagram Stories. Mereka nyaman dengan filter AR dan interaksi 'selfie'.\n\n**Hipotesis:** Gimana kalau kita bisa menjembatani Celah Realitas dengan menggunakan mental model familiar 'Social Stories' untuk uji coba produk?"
+                title: "Bukti Sosial",
+                content: "Belanja itu kegiatan sosial. \"Ini cocok gak?\" adalah pertanyaan buat teman, bukan algoritma.\n\nKami integrasikan 'Share to Story'. User bisa selfie pakai lipstik AR, post ke Instagram, dan dapat validasi real-time dari teman sebelum keluar uang."
             },
             {
-                title: "Solusi: FilterMe",
-                image: "/filterme-prototype.gif",
-                content: "FilterMe adalah konsep fitur di mana produk wajah (makeup, kacamata, anting) berfungsi sebagai filter AR. Alih-alih melihat foto statis, pengguna membuka kamera dan 'memakai' produk secara instan.\n\nInteraksi Kunci:\n1. Jelajahi produk di feed.\n2. Tap 'Try Filter' buat buka kamera.\n3. Swipe kiri/kanan buat ganti varian produk (warna/gaya).\n4. Beli langsung dari tampilan AR."
-            },
-            {
-                title: "Validasi & Pembelajaran",
-                content: "Kami memprototipe pengalaman ini pakai Sketch dan Principle (simulasi tracking wajah). User testing dengan 4 partisipan mengungkapkan:\n\n• Keterlibatan Tinggi: User merasa 'fun factor' jauh lebih tinggi daripada browsing standar.\n• Masalah Kepercayaan: Walau seru, user tetap skeptis soal akurasi warna. \"Kelihatannya bagus sebagai filter, tapi pigmen aslinya bakal sama gak?\"\n\nVerdict: AR mendorong engagement dan mengurangi keraguan, tapi belum bisa sepenuhnya menggantikan kebutuhan fisik akan kepercayaan fidelitas warna."
+                title: "Batas Teknologi",
+                content: "Kami belajar hal sulit: Seru bukan berarti Percaya.\n\nUser suka main filter (Engagement), tapi masih ragu beli (Konversi). Kenapa? Karena mereka gak percaya akurasi warna layar HP mereka.\n\nKesimpulan: AR bisa selesaikan masalah 'Bentuk' dan 'Vibe', tapi kesulitan selesaikan 'Tekstur' dan 'Warna Asli'."
             }
         ]
     },
