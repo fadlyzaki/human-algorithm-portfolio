@@ -42,7 +42,9 @@ const Footer = () => {
                     <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">{t('footer.index')}</h4>
                     <Link to="/" className="hover:underline text-sm">{t('nav.home')}</Link>
                     <Link to="/about" className="hover:underline text-sm">{t('nav.about')}</Link>
+                    <Link to="/#work" className="hover:underline text-sm">{t('nav.work')}</Link>
                     <Link to="/side-projects" className="hover:underline text-sm">{t('nav.side_projects')}</Link>
+                    <Link to="/#notes" className="hover:underline text-sm">{t('nav.notes')}</Link>
                     <Link to="/contact" className="hover:underline text-sm">{t('nav.contact')}</Link>
                     <Link to="/cv" className="hover:underline text-sm">{t('nav.system_directory')}</Link>
                 </div>
