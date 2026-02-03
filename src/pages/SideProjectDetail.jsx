@@ -268,7 +268,7 @@ const SideProjectDetail = () => {
                            <h2 className="text-2xl md:text-3xl font-serif italic">The Challenge</h2>
                         </div>
                         <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light">
-                           {activeSections?.challenge || project.sections.challenge}
+                           {activeSections?.challenge || project.sections?.challenge || "Challenge content not available."}
                         </p>
                      </article>
 
@@ -278,7 +278,7 @@ const SideProjectDetail = () => {
                            <h2 className="text-2xl md:text-3xl font-serif italic">The Approach</h2>
                         </div>
                         <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light">
-                           {activeSections?.approach || project.sections.approach}
+                           {activeSections?.approach || project.sections?.approach || "Approach content not available."}
                         </p>
                      </article>
                   </>

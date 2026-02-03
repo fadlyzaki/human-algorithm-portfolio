@@ -361,8 +361,15 @@ export const SIDE_PROJECTS = [
         desc_id: "Kami berhenti memperlakukan user seperti pecandu dopamin dan mulai memperlakukan mereka sebagai pilot.",
         sections_id: {
             challenge: "Medsos sekarang cuma mau nyuri perhatian kita. Akibatnya user gak punya kendali, cuma dikasih konten sampah biar terus scroll.",
+            challenge: "Medsos sekarang cuma mau nyuri perhatian kita. Akibatnya user gak punya kendali, cuma dikasih konten sampah biar terus scroll.",
             approach: "Kita sadar user itu mood-nya berubah-ubah. Jadi kita pindahin kontrolnya langsung ke Feed, pake cara yang halus (Stealth UX)."
         },
+        stack: ["UX Research", "Behavioral Psych", "Figma"],
+        links: { demo: "#", repo: "#" },
+        iconName: 'Brain',
+        type: 'Case Study',
+        date: "March 2026",
+        coverImage: "/about-portrait-new.jpg",
         modules_id: [
             {
                 title: "Protagonis: Berkencan dengan Sarah",
