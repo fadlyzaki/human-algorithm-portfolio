@@ -380,8 +380,8 @@ export const WORK_CLUSTERS = [
             items: ["Blue Collar Users", "Android-First Market", "Offline-Ready UX"]
         },
         subtitle_id: 'Memanusiakan Operasional',
-        hook_id: 'Merevolusi rekrutmen kerah biru lewat platform komunitas kerja yang menghubungkan ratusan ribu pekerja dengan UMKM.',
-        miniDesc_id: 'Platform komunitas kerja pertama untuk kelas pekerja. Membantu puluhan ribu UMKM menemukan pekerja yang tepat dengan cepat dan mudah.',
+        hook_id: 'Memberi martabat pada pencarian kerja. Platform komunitas yang memastikan pekerja kerah biru tidak merasa seperti sedang mengemis pekerjaan.',
+        miniDesc_id: 'Membangun "LinkedIn" untuk mereka yang bekerja dengan tangan. Membantu ribuan sopir, pelayan, dan pekerja gudang menemukan pekerjaan yang layak tanpa perantara.',
         companyFocus_id: {
             title: "Konteks Unik",
             items: ["Pengguna Kerah Biru", "Pasar Android-First", "UX Siap Offline"]
@@ -389,8 +389,8 @@ export const WORK_CLUSTERS = [
         brandColor: '#1AA8B4', // Lumina Teal
         linkedinUrl: 'https://www.linkedin.com/company/luminatechnologies/about/',
         heroImage: '/workforce_hero.png',
-        hook: 'Revolutionizing blue-collar recruitment through a highly engaged job community platform connecting hundreds of thousands of workers with SMEs.',
-        miniDesc: 'First-of-its-kind job community platform for the working class. Helping tens of thousands of SMEs find suitable workers fast and easily.',
+        hook: 'Giving dignity to the blue-collar job hunt. Because finding honest work shouldn\'t feel like begging.',
+        miniDesc: 'Building "LinkedIn" for those who work with their hands. Helping thousands of drivers, servers, and warehouse workers find decent jobs without middlemen.',
         stats: [
             { label: 'Role', value: 'Lead Product Designer' },
             { label: 'Timeline', value: 'May 2022 - Nov 2022' },
@@ -409,14 +409,14 @@ export const WORK_CLUSTERS = [
                 previewImage: '/workforce_hero.png',
                 iconName: 'MessageSquare',
                 details: {
-                    problem: 'Recruiters struggled to track 200+ candidate conversations per day.',
-                    system: 'Built a low-friction, latency-friendly chat architecture.',
-                    outcome: 'Reduced drop-off by 37%.'
+                    problem: 'Candidates felt ignored by a silent, cold system.',
+                    system: 'A fast, informal chat interface that feels safe.',
+                    outcome: 'Turned "Applicants" into "Conversations".'
                 },
                 details_id: {
-                    problem: 'Perekrut kesulitan melacak 200+ percakapan kandidat per hari.',
-                    system: 'Membangun arsitektur obrolan rendah gesekan dan ramah latensi.',
-                    outcome: 'Mengurangi drop-off sebesar 37%.'
+                    problem: 'Kandidat merasa dicuekin sistem yang dingin.',
+                    system: 'Antarmuka chat santai yang terasa aman.',
+                    outcome: 'Mengubah "Pelamar" jadi "Percakapan".'
                 },
                 title_id: 'In-App Chat & Pelacak Kandidat',
                 tag_id: 'Komunikasi',
@@ -510,14 +510,14 @@ export const WORK_CLUSTERS = [
                 previewImage: '/workforce_hero.png',
                 iconName: 'Users',
                 details: {
-                    problem: 'Data fragmentation across spreadsheets.',
-                    system: 'Unified dashboard with drag-and-drop pipelines.',
-                    outcome: 'Hiring speed improved by 20%.'
+                    problem: 'HR lost the human story in the spreadsheet grid.',
+                    system: 'Visual pipelines that respect the candidate.',
+                    outcome: 'Hiring became 20% faster & more humane.'
                 },
                 details_id: {
-                    problem: 'Data HR berantakan di mana-mana (banyak spreadsheet).',
-                    system: 'Satu dashboard pusat, tinggal drag-and-drop.',
-                    outcome: 'Hiring jadi 20% lebih ngebut.'
+                    problem: 'Cerita manusia hilang tertelan grid Excel.',
+                    system: 'Pipeline visual yang menghargai kandidat.',
+                    outcome: 'Rekrutmen jadi 20% lebih cepat & manusiawi.'
                 },
                 title_id: 'Dashboard ATS untuk HR',
                 tag_id: 'Manajemen',
@@ -607,14 +607,14 @@ export const WORK_CLUSTERS = [
                 previewImage: '/workforce_hero.png',
                 iconName: 'MessageCircle',
                 details: {
-                    problem: 'Candidates intimidated by formal applications.',
-                    system: 'WhatsApp-like interface for formal requests.',
-                    outcome: 'Application starts increased by 45%.'
+                    problem: 'Asking a driver for a CV creates panic, not data.',
+                    system: 'One-tap "Hello" instead of a 10-page form.',
+                    outcome: '45% more people dared to apply.'
                 },
                 details_id: {
-                    problem: 'Pelamar takut duluan liat formulir panjang.',
-                    system: 'Lamar kerja kayak chattingan di WhatsApp.',
-                    outcome: 'Yang mulai melamar naik 45%.'
+                    problem: 'Minta CV ke supir bikin panik, bukan dapet data.',
+                    system: 'Cukup "Halo" sekali tap, bukan formulir 10 hal.',
+                    outcome: '45% lebih banyak orang berani melamar.'
                 },
                 title_id: 'Chat Your Employer',
                 tag_id: 'Akses Langsung',
@@ -704,14 +704,14 @@ export const WORK_CLUSTERS = [
                 previewImage: '/workforce_hero.png',
                 iconName: 'Layout',
                 details: {
-                    problem: 'Users getting lost in complex job filters.',
-                    system: 'Simplified faceted search.',
-                    outcome: 'Retention D1 increased by 15%'
+                    problem: 'Getting lost in filters when you need a job today.',
+                    system: 'Visual-first discovery for rapid scanning.',
+                    outcome: 'Users found hope (jobs) 15% faster.'
                 },
                 details_id: {
-                    problem: 'Pengguna tersesat dalam filter pekerjaan yang rumit.',
-                    system: 'Pencarian berjenjang yang disederhanakan.',
-                    outcome: 'Retensi D1 meningkat 15%.'
+                    problem: 'Tersesat di filter saat butuh kerja hari ini juga.',
+                    system: 'Penemuan berbasis visual buat scanning cepat.',
+                    outcome: 'User nemu harapan (kerjaan) 15% lebih cepat.'
                 },
                 title_id: 'App Utama (Navigasi & Penemuan)',
                 tag_id: 'UX Inti',
@@ -807,12 +807,12 @@ export const WORK_CLUSTERS = [
             title: "Faktor Skala",
             items: ["Pasar B2B $100M", "Rantai Pasokan FMCG", "Logistik Terfragmentasi"]
         },
-        hook_id: 'Mentransformasi rantai distribusi B2B Indonesia melalui solusi digital end-to-end yang menghubungkan prinsipal, distributor, grosir, dan pengecer.',
+        hook_id: 'Membangun rasa aman di pasar low-trust. Memastikan pemilik warung merasa setenang belanja stok 5 juta seperti saat jajan 5 ribu.',
         brandColor: '#00D1C7', // GudangAda Cyan
         linkedinUrl: 'https://www.linkedin.com/company/gudangada/about/',
         heroImage: '/commerce_hero.png',
-        hook: 'Transforming Indonesia\'s B2B distribution chain through end-to-end digital solutions connecting principals, distributors, wholesalers, and retailers.',
-        miniDesc: 'Building a B2B ecosystem to digitalize Indonesia\'s distribution chain with marketplace, logistics, merchant solutions, and financial services. Series B: $135M from Sequoia, Alpha JWC, and others.',
+        hook: 'Building trust in a low-trust market. Ensuring a warung owner feels as safe buying $500 of stock as they do buying a $1 snack.',
+        miniDesc: 'Digitizing the $100B supply chain not by disrupting it, but by respecting the handshake deals that have worked for decades.',
         stats: [
             { label: 'Role', value: 'Product Designer' },
             { label: 'Timeline', value: 'April 2020 - April 2022' },
@@ -830,8 +830,8 @@ export const WORK_CLUSTERS = [
                 route: '/case-study/marketplace-checkout',
                 previewImage: '/commerce_hero.png',
                 iconName: 'ShoppingBag',
-                details: { problem: 'Inefficient ordering process.', system: 'Streamlined checkout flow.', outcome: 'Cart abandonment -12%.' },
-                details_id: { problem: 'Proses pemesanan tidak efisien.', system: 'Alur checkout yang disederhanakan.', outcome: 'Cart abandonment -12%.' },
+                details: { problem: 'Fear of sending money into the void.', system: 'The "Money Back" Shield.', outcome: 'Trust increased, Abandonment -12%.' },
+                details_id: { problem: 'Takut kirim uang ke tempat antah berantah.', system: 'Perisai "Uang Kembali".', outcome: 'Kepercayaan naik, Abandonment -12%.' },
                 title_id: 'Marketplace',
                 tag_id: 'Transaksi',
                 caseStudy: {
@@ -919,8 +919,8 @@ export const WORK_CLUSTERS = [
                 route: '/case-study/brand-official-store',
                 previewImage: '/commerce_hero.png',
                 iconName: 'ShieldCheck',
-                details: { problem: 'Brands lacked identity.', system: 'Store builder engine.', outcome: 'Onboarded 50+ brands.' },
-                details_id: { problem: 'Brand kurang identitas.', system: 'Mesin pembuat toko.', outcome: 'Onboarded 50+ brand.' },
+                details: { problem: 'Big brands felt homeless in a messy market.', system: 'Digital Real Estate for Unilever.', outcome: 'Premiums felt Premium again.' },
+                details_id: { problem: 'Brand besar merasa "gelandangan" di pasar becek.', system: 'Real Estate Digital buat Unilever.', outcome: 'Premium terasa Premium lagi.' },
                 title_id: 'Official Store',
                 tag_id: 'Branding',
                 caseStudy: {
@@ -1008,8 +1008,8 @@ export const WORK_CLUSTERS = [
                 route: '/case-study/promo-engine',
                 previewImage: '/commerce_hero.png',
                 iconName: 'Tag',
-                details: { problem: 'Complex discount logic.', system: 'Automated promo engine.', outcome: 'Utilization +25%.' },
-                details_id: { problem: 'Logika diskon rumit.', system: 'Mesin promo otomatis.', outcome: 'Utilisasi +25%.' },
+                details: { problem: 'The anxiety of a math error costing a month\'s profit.', system: 'Conflict-Free Promo Engine.', outcome: 'Zero accidental giveaways.' },
+                details_id: { problem: 'Cemas salah hitung yang bikin rugi sebulan.', system: 'Mesin Promo Anti-Konflik.', outcome: 'Nol sedekah tak sengaja.' },
                 title_id: 'Promo Center',
                 tag_id: 'Pemasaran',
                 caseStudy: {
@@ -1097,8 +1097,8 @@ export const WORK_CLUSTERS = [
                 route: '/case-study/design-system-gudangada',
                 previewImage: '/commerce_hero.png',
                 iconName: 'Box',
-                details: { problem: 'Inconsistent UI.', system: 'Unified React library.', outcome: 'Dev velocity +30%.' },
-                details_id: { problem: 'UI tidak konsisten.', system: 'Perpustakaan React terpadu.', outcome: 'Kecepatan Dev +30%.' },
+                details: { problem: '50 shades of grey buttons created chaos.', system: 'A shared language for devs.', outcome: 'Peace due to consistency.' },
+                details_id: { problem: '50 warna tombol abu-abu bikin kacau.', system: 'Bahasa bersama buat developer.', outcome: 'Damai karena konsistensi.' },
                 title_id: 'GudangAda Design System',
                 tag_id: 'Arsitektur',
                 caseStudy: {
@@ -1197,10 +1197,10 @@ export const WORK_CLUSTERS = [
         brandColor: '#FA6130', // Stoqo Orange
         linkedinUrl: 'https://www.linkedin.com/company/stoqo-technologies/about/',
         heroImage: '/efficiency_hero.png',
-        hook: 'Streamlining the F&B supply chain to empower micro & small businesses with easy access to competitively-priced, quality ingredients.',
-        miniDesc: 'B2B platform founded in 2017 to transform the F&B supply chain. Serving thousands of culinary businesses daily with reliable, competitively-priced ingredient deliveries so business owners can focus on growing their business.',
-        hook_id: 'Merampingkan rantai pasok F&B demi memberdayakan UMKM lewat akses mudah ke bahan baku berkualitas dengan harga bersaing.',
-        miniDesc_id: 'Platform B2B yang mentransformasi logistik F&B sejak 2017. Melayani ribuan bisnis kuliner tiap hari dengan pengiriman bahan baku andal, jadi pemilik usaha bisa fokus membesarkan bisnis mereka.',
+        hook: 'Designing for the invisible hours. Ensuring the people who feed Jakarta can sleep until the truck arrives.',
+        miniDesc: 'Logistics isn\'t just about moving boxes. It is about the anxiety of the restaurant owner waiting at 4 AM, wondering if their ingredients will show up.',
+        hook_id: 'Mendesain untuk jam-jam tak terlihat. Memastikan mereka yang memberi makan Jakarta bisa tidur nyenyak sampai truk datang.',
+        miniDesc_id: 'Logistik bukan cuma soal mindahin kardus. Ini soal kecemasan pemilik restoran yang nunggu jam 4 pagi, bertanya-tanya apakah bahan masakannya bakal nyampe.',
         stats: [
             { label: 'Role', value: 'Early Product Designer' },
             { label: 'Timeline', value: 'Mar 2018 - April 2020' },
@@ -1232,8 +1232,8 @@ export const WORK_CLUSTERS = [
                 route: '/case-study/stoqo-logistics',
                 previewImage: '/case-studies/delivery-methods/delivery-status-cover.png',
                 iconName: 'Truck',
-                details: { problem: 'Anxiety over unknown arrival.', system: 'Real-time Driver Tracking.', outcome: 'Support tickets -60%.' },
-                details_id: { problem: 'Kecemasan menunggu ketidakpastian.', system: 'Pelacakan Driver Real-time.', outcome: 'Tiket Bantuan -60%.' },
+                details: { problem: 'Waking up at 3 AM just to stare at an empty road.', system: 'Peace-of-Mind Tracking.', outcome: 'They finally slept in.' },
+                details_id: { problem: 'Bangun jam 3 pagi cuma buat melototin jalan kosong.', system: 'Pelacakan Penenang Hati.', outcome: 'Akhirnya mereka bisa tidur.' },
                 title_id: 'Transformasi Pengiriman Logistik',
                 tag_id: 'Logistik',
                 caseStudy: {
@@ -1335,8 +1335,8 @@ export const WORK_CLUSTERS = [
                 route: '/case-study/stoqo-sales',
                 previewImage: '/efficiency_hero.png',
                 iconName: 'Trophy',
-                details: { problem: 'Low adoption of sales tools.', system: 'Gamified Streak System.', outcome: 'Daily Usage +40%.' },
-                details_id: { problem: 'Adopsi aplikasi sales rendah.', system: 'Sistem Streak Gamifikasi.', outcome: 'Penggunaan Harian +40%.' },
+                details: { problem: 'The lonely road of a solo sales agent.', system: 'Gamified Team Structure.', outcome: 'Work felt like a sport.' },
+                details_id: { problem: 'Jalan sepi seorang agen sales sendirian.', system: 'Struktur Tim Tergamifikasi.', outcome: 'Kerja rasa olahraga.' },
                 title_id: 'Agen Penjualan Insentif',
                 tag_id: 'Gamifikasi',
                 caseStudy: {
@@ -1424,8 +1424,8 @@ export const WORK_CLUSTERS = [
                 route: '/case-study/p11',
                 previewImage: '/efficiency_hero.png',
                 iconName: 'Scan',
-                details: { problem: 'Lost invoices.', system: 'OCR-assisted filing.', outcome: '90% paper reduction.' },
-                details_id: { problem: 'Faktur sering hilang.', system: 'Pengarsipan berbantuan OCR.', outcome: 'Reduksi kertas 90%.' },
+                details: { problem: 'The panic of a lost invoice in a chaotic kitchen.', system: 'Camera-as-Keyboard.', outcome: 'No more "lost money".' },
+                details_id: { problem: 'Paniknya bon hilang di dapur yang chaos.', system: 'Kamera-jadi-Keyboard.', outcome: 'Gak ada lagi "uang hilang".' },
                 title_id: 'Paper-to-Paperless (Konsep)',
                 tag_id: 'Keberlanjutan',
                 caseStudy: {
