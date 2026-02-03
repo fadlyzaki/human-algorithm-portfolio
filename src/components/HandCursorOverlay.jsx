@@ -57,8 +57,8 @@ const HandCursorOverlay = () => {
             // Async update to avoid lint warning about sync state updates in effect
             setTimeout(() => {
                 setIsModelLoading(true);
+                setLoadError(null);
             }, 0);
-            setLoadError(null);
 
             // Set timeout for loading (15 seconds)
             loadingTimeoutRef.current = setTimeout(() => {

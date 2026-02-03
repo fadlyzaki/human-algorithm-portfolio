@@ -24,6 +24,12 @@ const FigLabel = ({ index = "1.0", type = "SCHEMATIC" }) => (
     </div>
 );
 
+const DotGrid = () => (
+    <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '16px 16px' }}>
+    </div>
+);
+
 const Container = ({ children, figIndex = "1.0", schematicType = "SYSTEM_ARCHITECTURE", expanded = false, showChrome = false }) => (
     <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-4'} relative group transition-colors duration-300`}>
         <div className={`w-full ${expanded ? 'h-full border-none' : 'max-w-sm aspect-[16/10] border border-slate-100 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]'} bg-white overflow-hidden flex flex-col group-hover:border-[var(--brand)]/20 transition-all duration-700`}>
