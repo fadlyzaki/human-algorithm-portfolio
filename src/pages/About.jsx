@@ -118,17 +118,7 @@ const AboutPage = () => {
     { label: "Substack", frequency: "Weekly", icon: PenLine, color: "text-purple-400", note: t('about.habit_noise'), url: "https://substack.com/@fadlyzaki?" }
   ];
 
-  // --- DATA: INSTALLED DRIVERS (Tools Mapped to Icons) ---
-  const toolsData = [
-    { name: "Figma", icon: Layout },
-    { name: "React / Vite", icon: Cpu },
-    { name: "Tailwind CSS", icon: PenTool },
-    { name: "Node.js", icon: Server },
-    { name: "PostgreSQL", icon: Database },
-    { name: "Notion", icon: BookOpen },
-    { name: "Obsidian", icon: PenLine },
-    { name: "Physical Ops", icon: Activity }
-  ];
+
 
   // --- DATA: CREATIVE PROCESSES (Habits) ---
   const creativeProcesses = [

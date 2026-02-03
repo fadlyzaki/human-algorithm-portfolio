@@ -12,7 +12,7 @@ export const LanguageProvider = ({ children }) => {
     useEffect(() => {
         const savedLang = localStorage.getItem('portfolio-lang-v1');
         if (savedLang) {
-            setLanguage(savedLang);
+            setTimeout(() => setLanguage(savedLang), 0);
         }
     }, []);
 

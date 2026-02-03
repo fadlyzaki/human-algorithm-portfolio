@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Filter, Sun, Moon, Globe, ScanEye } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
@@ -91,7 +91,7 @@ const SideProjectsIndex = () => {
             const mx = mouseRef.current.x;
             const my = mouseRef.current.y;
 
-            cardsRef.current.forEach((card, index) => {
+            cardsRef.current.forEach((card) => {
                 if (!card) return;
 
                 const rect = card.getBoundingClientRect();

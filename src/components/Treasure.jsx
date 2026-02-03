@@ -5,7 +5,6 @@ import { Gem, Coins, Crown, Anchor, MapPin, Plus, Check } from 'lucide-react';
 const Treasure = ({
     id, // Unique ID for tracking
     children,
-    hint = "TREASURE DETECTED",
     className = "",
     type = "gem" // gem, coins, crown, anchor
 }) => {
@@ -24,7 +23,11 @@ const Treasure = ({
             const top = Math.random() * 60 + 10; // 10% to 70% from top
             const left = Math.random() * 60 + 10; // 10% to 70% from left
 
-            setRandomPosition({ top, left });
+            // Use setTimeout to avoid synchronous state update warning
+            const timer = setTimeout(() => {
+                setRandomPosition({ top, left });
+            }, 0);
+            return () => clearTimeout(timer);
         }
     }, [isGestureMode, id, resetTrigger]); // Re-randomize when gesture mode changes OR reset triggered
 
