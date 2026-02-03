@@ -7,7 +7,6 @@ const SEO = ({
     description,
     image = '/og-id-card.png',
     type = 'website',
-    articleTime,
     children
 }) => {
     const { pathname } = useLocation();
