@@ -21,7 +21,7 @@ const ProtectedCaseStudy = () => {
   const { id } = useParams();
   const [isLocked, setIsLocked] = useState(true);
   const { isDark, setIsDark } = useTheme();
-  const { toggleLanguage, language } = useLanguage();
+  const { t, toggleLanguage, language } = useLanguage();
   const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
