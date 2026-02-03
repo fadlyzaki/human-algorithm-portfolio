@@ -1,4 +1,4 @@
-# Product Requirements Document (PRD): Human Algorithm Portfolio v2.1
+# Product Requirements Document (PRD): Human Algorithm Portfolio v2.2
 
 ## 1. Executive Summary
 The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity. 
@@ -15,7 +15,7 @@ The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal
 ### 3.1 Homepage Information Architecture (IA)
 The homepage follows a "Priority-First" narrative flow:
 1.  **Level 0 (Hero/Header)**: Identity and "Contain Chaos" positioning.
-2.  **Level 1 (Side Projects)**: High-creativity, rapid-iteration experiments ("Wild Creativity").
+2.  **Level 1 (Side Projects)**: High-creativity, rapid-iteration experiments ("Wild Creativity"). Includes "The Archive" as a consolidated repository.
 3.  **Level 2 (Work)**: Validated, large-scale industrial excellence (The Workforce/Commerce/Efficiency Ecosystems).
 4.  **Level 3 (About Me)**: The human backend—personality synthesis and "System History."
 5.  **Level 4 (Notes)**: Professional logs and intellectual pattern recognition.
@@ -36,26 +36,35 @@ The homepage follows a "Priority-First" narrative flow:
 *   **SEO/Crawler Resilience**: Implemented static HTML fallbacks in `index.html` to ensure SEO indexing for SPA (Single Page Application) content.
 *   **Theme Management**: Dark Mode (The Void) by default, with persistent user-mode selection via `ThemeContext`.
 *   **Visual Language (Airy Technical Diagrams)**:
-    *   **Primary Visual**: All Case Study headers must use the interactive "Airy Technical Diagram" (`ProjectCard.jsx`) instead of static hero images.
-    *   **Consistency Rule**: The header diagram must be a **1:1 visual match** with the project card (same schema, same geometry).
-    *   **Technical Details**: Header diagrams must render with `expanded={true}` and `showChrome={true}` to ensure labels, grids, and technical metrics are visible, distinct from the blurred background style.
+    *   **Primary Visual**: All Case Study headers use the interactive "Airy Technical Diagram" (`ProjectCard.jsx`) instead of images.
+    *   **Consistency Rule**: 1:1 visual match with the project card schema.
+    *   **Implementation**: `expanded={true}` and `showChrome={true}` for maximum technical detail.
+
+### 3.5 Core Features (v2.2 Additions)
+*   **Adaptive Summaries**: A polymorphic text engine that rewrites case study summaries based on viewer persona:
+    *   `ELI5` (Simple analogies)
+    *   `Recruiter` (Metrics-focused)
+    *   `System` (Technical architecture)
+*   **Localization Strategy**: Full `en`/`id` (English/Indonesian) duality toggle, enabling infinite reach across local and global markets.
+*   **Hand Gesture Control**: Experimental "Decryption Lens" allowing users to navigate and decrypt content using MediaPipe-based hand tracking.
 
 ## 4. Functional Specifications
 
 ### 4.1 Case Study Security
-*   **Simulated Encryption**: All detailed case studies reside behind a "Confidential File" layer, using client-side password validation to maintain the "Classified" narrative without blocking legitimate user access.
+*   **Simulated Encryption**: All detailed case studies reside behind a "Confidential File" layer, using client-side password validation (or localized keys) to maintain the "Classified" narrative without blocking legitimate user access.
 
 ### 4.2 Interactive Physics
-*   **Draggable Interface**: High-fidelity tactile interactions using Framer Motion. Elements must respect "Friction" and "Elasticity" constraints to reflect a physical machine.
+*   **Draggable Interface**: High-fidelity tactile interactions using Framer Motion. Elements must respect "Friction" and "Elasticity" constraints.
 
 ## 5. Non-Functional Requirements (NFRs)
-*   **Heuristic Compliance**: Strict adherence to Nielsen's 10 Heuristics, specifically **Recognition vs. Recall** (Visible navigation) and **Consistency** (Rounded-8px radius across all components).
-*   **Print Fidelity**: The System Manifest (CV) must support native browser printing with CSS `@media print` overrides for zero-margin A4 layouts.
+*   **Heuristic Compliance**: Strict adherence to Nielsen's 10 Heuristics (Recognition vs. Recall, Consistency).
+*   **Print Fidelity**: Zero-margin A4 layouts for CV printing.
 
 ## 6. Roadmap & Future Iterations
-*   **[NEXT] Interactive CLI**: A secondary navigation layer for power users via a global terminal overlay.
-*   **[Q2] AI Agent (Semantic Memory)**: Implementation of a client-side RAG module to answer recruiter queries about the designer's workflow.
-*   **[Q3] CMS Integration**: Migrating "Notes" to a lightweight markdown CMS (Contentlayer/MDX) for rapid publishing.
+*   **[COMPLETED] Adaptive Content Engine**: Implemented via Adaptive Summaries.
+*   **[COMPLETED] Hand Tracking**: Implemented via HandCursorOverlay.
+*   **[Q2] AI Agent (Semantic Memory)**: RAG module for recruiter Q&A.
+*   **[Q3] CMS Integration**: Migrating "Notes" to MDX.
 
 ---
 **Document Status**: *ACTIVE*  
