@@ -41,6 +41,32 @@ export const SIDE_PROJECTS = [
                 title: "Roadmap",
                 content: "• V1.0: First stable release with Firestore integration (Completed).\n• V1.5: Permanent student login system via Firebase Auth.\n• V2.0: Automatic PDF certificate generation after 8 units.\n• V2.5: Push notifications for study streaks."
             }
+        ],
+        modules_id: [
+            {
+                title: "Pengantar & Visi Produk",
+                content: "Interactive Workbook adalah aplikasi web edukasi dwibahasa (Indonesia-Inggris) yang dirancang untuk membantu siswa SMP & SMA meningkatkan kemampuan percakapan bahasa Inggris. Menggabungkan pembelajaran mandiri, gamifikasi (terinspirasi Duolingo), dan supervisi langsung guru dalam satu platform interaktif.\n\nVisi: Mengubah pengalaman belajar konvensional dari buku cetak statis menjadi platform digital yang dinamis, menyenangkan, dan mudah dilacak."
+            },
+            {
+                title: "Masalah & Solusi",
+                content: "Masalah:\n• Kurang Motivasi: Siswa bosan dengan buku kerja tradisional yang cuma teks statis.\n• Sulit Melacak: Guru kesulitan memantau PR puluhan siswa secara real-time.\n• Takut Bicara: Siswa butuh panduan percakapan yang lebih interaktif daripada sekadar baca naskah.\n\nSolusi:\n• Multimedia Terintegrasi: Fitur Sing Along dengan video YouTube dan dialog interaktif gaya chat.\n• Integrasi Firestore: Pakai database cloud (Firebase) buat simpan data instan tanpa refresh halaman.\n• Dashboard Guru: Akses khusus buat guru untuk menilai, memberi komentar, dan memantau XP/Streak siswa secara terpusat."
+            },
+            {
+                title: "Target Pengguna",
+                content: "• Siswa (SMP & SMA): Pengguna utama yang menyelesaikan unit belajar dan pantau ranking di leaderboard.\n• Guru/Tutor: Pengelola konten yang tanggung jawab menilai manual dan kasih feedback."
+            },
+            {
+                title: "Kebutuhan Fungsional",
+                content: "F1: Antarmuka & Lokalisasi\n• Sistem Dwibahasa: Tombol toggle buat ganti bahasa Indo-Inggris di semua elemen UI.\n• Desain Responsif: UI mobile-first yang dioptimalkan buat semua perangkat pakai Tailwind CSS.\n\nF2: Alur Siswa\n• Identitas Sesi: Siswa pilih nama dan kelas buat mulai (Sesi sementara buat privasi bareng).\n• Unit Belajar (8 Unit): Tiap unit ada Sing Along, Kosakata Baru, Contoh Dialog, Latihan Bicara, Duolingo Play (Input XP), dan Refleksi Diri.\n• Leaderboard: Nampilin Top 10 Streak, Pembicara Terbaik, dan Master Vocab.\n\nF3: Alur Guru\n• Akses Terproteksi: Login pakai kode akses khusus.\n• Dashboard Tracker: Tambah nilai baru, duplikasi baris buat cepet, dan sinkron langsung ke Firestore."
+            },
+            {
+                title: "Spesifikasi Teknis",
+                content: "• Frontend: HTML5, Tailwind CSS (Styling), JavaScript ES6+ (Logic).\n• Database: Firebase Firestore (NoSQL) buat simpan jawaban real-time.\n• Visualisasi: Chart.js buat grafik progres XP.\n• Aset: YouTube API, Inline SVG & Emojis.\n• Hosting: Firebase Hosting."
+            },
+            {
+                title: "Peta Jalan (Roadmap)",
+                content: "• V1.0: Rilis stabil pertama dengan integrasi Firestore (Selesai).\n• V1.5: Sistem login siswa permanen via Firebase Auth.\n• V2.0: Generasi sertifikat PDF otomatis setelah 8 unit.\n• V2.5: Notifikasi push biar streak gak putus."
+            }
         ]
     },
     {
@@ -75,6 +101,24 @@ export const SIDE_PROJECTS = [
             {
                 title: "Success Metrics",
                 content: "• Technical Debt: Reduction in App.tsx lines of code (Target: < 200 LOC).\n• Performance: Lighthouse Performance Score > 95.\n• Share Rate: % of users who activate \"Screenshot Mode\"."
+            }
+        ],
+        modules_id: [
+            {
+                title: "Ringkasan Eksekutif",
+                content: "Visi: Memberdayakan pengguna untuk mengubah data tahunan mentah mereka menjadi cerita visual yang menarik dan layak dibagikan.\n\nPeluang: Pengguna melacak data di banyak platform tapi tidak punya cara yang estetik untuk memvisualisasikan \"data kehidupan\" ini. Generator Year in Review menjembatani ini lewat desain \"Story-first\" (rasio 9:16).\n\nObjektif Strategis:\n• Maksimalkan Shareability: Alur tanpa hambatan dari input ke share sosmed via \"Screenshot Mode\".\n• Keunggulan Visual: 12 tema beragam untuk berbagai persona pengguna.\n• Skalabilitas Engineering: Transisi ke Domain-Driven Design untuk mendukung integrasi aplikasi mobile."
+            },
+            {
+                title: "Fitur & Roadmap",
+                content: "A. Fitur Inti\n• Ringkasan Cerdas: Algoritma deterministik yang bikin ringkasan personal berdasarkan penggunaan ikon.\n• Persistensi Data: Simpan otomatis ke localStorage.\n\nB. Tema Visual (12 Terimplementasi)\n• Retro (8-Bit), Swiss (Tipografi), Neon (Cyberpunk), Brutal (Neo-Brutalism), Blueprint (Teknis), dll.\n\nC. Peningkatan Rilis 2.1\n• Screenshot Mode: Sembunyikan semua UI chrome biar bersih saat dishare.\n• Onboarding: Panduan 3 langkah buat pengguna baru."
+            },
+            {
+                title: "Arsitektur 2.0",
+                content: "Kami melakukan refactoring prototipe monolitik menjadi struktur berbasis komponen untuk memastikan maintainability dan type safety yang ketat.\n\nTech Stack:\n• React 18+ (Vite)\n• TypeScript (Strict)\n• Tailwind CSS\n• html2canvas\n\nPerubahan Kunci:\n• Domain-Driven Design: Memisahkan komponen, hooks, dan logika bisnis.\n• Strict Typing: Mendefinisikan kontrak untuk `StatItem`, `HighlightItem`, dan `ThemeConfig`."
+            },
+            {
+                title: "Metrik Sukses",
+                content: "• Utang Teknis: Pengurangan baris kode App.tsx (Target: < 200 LOC).\n• Performa: Skor Lighthouse Performance > 95.\n• Share Rate: % pengguna yang mengaktifkan \"Screenshot Mode\"."
             }
         ]
     },
@@ -123,6 +167,32 @@ export const SIDE_PROJECTS = [
                 title: "Business Impact & Roadmap",
                 content: "Projections:\n• CVR +15%: Users who pay a lock fee have a 3x higher commitment to complete the transaction.\n• Ancillary Revenue: 100% profit margin from expired locks.\n• Customer Loyalty: Increased NPS as users perceive the OTA as helpful and transparent.\n\nRoadmap:\n• Auto-Conversion: Automatically issuing tickets if market price drops below locked price.\n• Group Lock: Enabling one user to lock prices for family/group coordination."
             }
+        ],
+        modules_id: [
+            {
+                title: "Ringkasan Eksekutif",
+                content: "Tantangan: Cart abandonment adalah masalah besar di pasar OTA Indonesia. User merasa 'terjebak' oleh harga dinamis dan nunggu konfirmasi eksternal sebelum booking. Kalau harga naik pas lagi nunggu, kepercayaan hilang dan user pindah ke kompetitor.\n\nSolusi: 'Price Lock' — Fitur yang memungkinan user mengunci harga tiket selama 24-48 jam dengan biaya nominal. Ini mengurangi kecemasan keputusan dan mengamankan user dalam ekosistem.\n\nDampak Bisnis:\n• Kenaikan CVR: Memberi jendela waktu aman mengurangi friksi.\n• Pendapatan Tambahan: Monetisasi fase 'browsing' lewat biaya non-refundable."
+            },
+            {
+                title: "Pernyataan Masalah: Celah Kecemasan",
+                content: "Pola Perilaku User:\n1. Penemuan: User nemu harga bagus (misal: Jakarta - Bali $100).\n2. Friksi: Gak bisa bayar langsung (nunggu gaji, visa, atau persetujuan istri).\n3. Ketakutan: Cemas tinggi soal volatilitas harga.\n4. Pain Point: Kalau harga lompat ke $130 besoknya, user merasa dicurangi dan ninggalin platform.\n\nMasalah Bisnis: 'Nol Monetisasi pada Browser' — Jutaan pencarian membebani server dan biaya API tanpa menghasilkan pendapatan jika transaksi akhir tidak terjadi. Price Lock memonetisasi niat bahkan jika booking tidak jadi."
+            },
+            {
+                title: "Solusi & Alur User",
+                content: "Fitur ini mengubah inventaris tiket menjadi komoditas yang aman dari dampak.\n\n1. Hasil Pencarian: User lihat opsi 'Amankan Harga Ini selama 24 Jam' di kartu penerbangan.\n2. Kunci Pembelian: User bayar biaya kecil ($2 - $5) pakai metode pembayaran instan.\n3. Periode Tahan: Inventaris diamankan. Harga tetap statis buat user, gak peduli pasar gejolak.\n4. Waktu Keputusan:\n• Skenario A (Book): User bayar harga tiket yang dikunci.\n• Skenario B (Batal): Waktu habis. Kunci dilepas. OTA simpan biaya kunci sebagai profit murni."
+            },
+            {
+                title: "Kelayakan Teknis & Logika",
+                content: "Untuk memastikan profitabilitas, Biaya Kunci dihitung menggunakan Algoritma Risiko Dinamis, bukan statis. Di bawah ini konsep logika backend (Python) untuk menentukan biaya berdasarkan risiko volatilitas:\n\n```python\ndef calculate_lock_fee(ticket_price, days_to_flight, seat_scarcity_index):\n    \"\"\"\n    Menghitung biaya Price Lock berdasarkan risiko volatilitas harga.\n    \"\"\"\n    base_fee = 15000  # Biaya operasional dasar (sekitar $1)\n\n    # Faktor 1: Urgensi Waktu (Makin dekat terbang = makin tinggi risiko)\n    if days_to_flight < 3:\n        time_multiplier = 3.0  # Risiko tinggi\n    elif days_to_flight < 7:\n        time_multiplier = 1.5\n    else:\n        time_multiplier = 1.0\n\n    # Faktor 2: Kelangkaan Kursi\n    if seat_scarcity_index > 0.8: # Ketersediaan rendah\n        scarcity_markup = 25000\n    else:\n        scarcity_markup = 0\n\n    # Total biaya terhitung\n    total_fee = (base_fee * time_multiplier) + scarcity_markup\n\n    # Pembulatan Harga Psikologis\n    return round(total_fee, -3)\n```"
+            },
+            {
+                title: "Keputusan Desain UX",
+                content: "A. Ikonografi & Psikologi Warna:\n• Ikon Perisai: Penggunaan konsisten perisai biru melambangkan perlindungan dan keamanan dari fluktuasi pasar.\n• Biru Tenang vs. Oranye Aksi: Biru untuk status 'Terkunci/Aman' (menenangkan) dan Oranye untuk 'Pesan Sekarang' (aksi transaksional).\n\nB. Timer 'Sunk Cost':\nMenampilkan hitung mundur di 'My Trips'. Dengan memanfaatkan bias Loss Aversion, timer mengingatkan user akan biaya yang sudah dibayar (sunk cost), mendorong mereka menyelesaikan pembelian.\n\nC. Transparansi AI:\nMicro-copy seperti 'Prediksi AI: 85% peluang harga naik besok' memberikan validasi rasional untuk biaya tersebut, mengubah persepsi dari 'dijuali' menjadi 'dibantu berhemat'."
+            },
+            {
+                title: "Dampak Bisnis & Roadmap",
+                content: "Proyeksi:\n• CVR +15%: User yang bayar biaya kunci punya komitmen 3x lebih tinggi buat selesaikan transaksi.\n• Pendapatan Tambahan: 100% margin profit dari kunci yang kadaluwarsa.\n• Loyalitas Pelanggan: NPS meningkat karena user merasa OTA membantu dan transparan.\n\nRoadmap:\n• Konversi Otomatis: Otomatis terbitkan tiket jika harga pasar turun di bawah harga terkunci.\n• Kunci Grup: Memungkinkan satu user mengunci harga buat koordinasi keluarga/grup."
+            }
         ]
     },
     {
@@ -170,6 +240,32 @@ export const SIDE_PROJECTS = [
                 title: "Metrics of Success (KPIs)",
                 content: "• Incremental GTV: Volume of transactions where sender is >50km from merchant.\n• Web-to-App Conversion: Recipients installing the app after a seamless web-tracking experience.\n• Retention Rate: Increased LTV of senders due to emotional stickiness of the platform."
             }
+        ],
+        modules_id: [
+            {
+                title: "Ringkasan Eksekutif",
+                content: "Project Kinship mengubah Pengiriman On-Demand menjadi platform hubungan. Meskipun miliaran mengalir melalui remitansi tradisional setiap tahun, tidak ada konteks emosional. Kinship memungkinkan pengiriman 'Perhatian' (Makanan/Barang) untuk menjembatani kesenjangan antara perantau dan keluarga mereka di kampung.\n\nTujuan Inti:\n• Mengambil bagian dari pasar remitansi global $800M.\n• Mengubah transfer tunai menjadi GTV (Gross Transaction Value) platform.\n• Menjembatani kesenjangan digital bagi penerima yang tidak melek teknologi."
+            },
+            {
+                title: "Ruang Masalah: Asimetri Digital",
+                content: "1. Paradoks Remitansi: Uang tunai itu dingin. Pengirim ingin memberikan perhatian langsung tapi kesulitan logistik.\n2. Friksi Inti: Pengirim adalah orang kota berteknologi tinggi; Penerima adalah orang desa berteknologi rendah. Super app seringkali terlalu rumit bagi penerima untuk mengoordinasikan pengiriman last-mile.\n3. Hasil: Friksi tinggi menyebabkan niat yang ditinggalkan. Pengirim tidak bisa memesan makanan untuk keluarga karena koordinasi pengiriman membebani penerima."
+            },
+            {
+                title: "Solusi: Lapisan Logistik Sosial",
+                content: "Fitur 1: Mode Teleport (Penemuan)\nOverride lokasi yang memungkinkan Pengirim menjelajahi inventaris pedagang lokal di kota Penerima tanpa mengubah pengaturan GPS global.\n\nFitur 2: Mesin AI Kontekstual (Kurasi)\nSistem rekomendasi LLM. Contoh: 'Carikan menu makan malam rendah natrium buat ayah di kampung halamannya.'\n\nFitur 3: Jembatan Universal (Inklusi)\nPenerima TIDAK PERLU aplikasi. Tampilan Web tokenized (PWA) dikirim via SMS/WhatsApp memungkinkan pelacakan real-time dan komunikasi driver tanpa hambatan login."
+            },
+            {
+                title: "Analisis Strategis & Manajemen Risiko",
+                content: "Monetisasi:\n• Margin FX Lintas Batas: Markup kecil pada konversi mata uang.\n• Biaya Prioritas: Biaya 'Gifting' premium untuk pengiriman bersih terjamin dan kartu personal.\n\nTeknologi & Risiko:\n• RAG (Retrieval-Augmented Generation): Untuk saran makanan AI hiperlokal.\n• SSR (Server-Side Rendering): Untuk pelacak web ringan (kompatibilitas 3G).\n• Jembatan IVR: Panggilan otomatis untuk penerima yang tidak mengecek ponsel/data mereka."
+            },
+            {
+                title: "Perjalanan Pengguna: The Happy Path",
+                content: "1. User perantau mengaktifkan 'Mode Gifting' dan memilih anggota keluarga.\n2. AI menyarankan 'Comfort Food' berdasarkan cuaca real-time di kampung halaman.\n3. User membayar via dompet digital; Penerima menerima link SMS.\n4. Penerima membuka pelacak ringan; menerima makanan + pesan video digital dari pengirim."
+            },
+            {
+                title: "Metrik Sukses (KPI)",
+                content: "• GTV Inkremental: Volume transaksi di mana pengirim >50km dari pedagang.\n• Konversi Web-ke-App: Penerima menginstal aplikasi setelah pengalaman web-tracking yang mulus.\n• Tingkat Retensi: Peningkatan LTV pengirim karena keterikatan emosional platform."
+            }
         ]
     },
     {
@@ -211,6 +307,29 @@ export const SIDE_PROJECTS = [
                 title: "Validation & Learnings",
                 content: "We prototyped the experience using Sketch and Principle (simulating facial tracking). Usability testing with 4 participants revealed:\n\n• High Engagement: Users found the 'fun factor' significantly higher than standard browsing.\n• The Trust Issue: While fun, users remained skeptical about color accuracy. \"It looks good as a filter, but will the real pigment match?\"\n\nVerdict: AR drives engagement and reduces hesitation, but it cannot fully replace the physical need for trust in color fidelity."
             }
+        ],
+        modules_id: [
+            {
+                title: "Tantangan Desain",
+                content: "Proyek ini dimulai sebagai entri untuk CHIuXID 2018 Design Challenge dengan tema 'Designing for Intelligences'. Tim kami (SUX Team: Ifa, Kevin, Zaki) punya sprint 3 minggu untuk memecahkan masalah dalam pengalaman belanja online.\n\nMetodologi: Google Design Sprint (Understand -> Diverge -> Decide -> Prototype -> Validate)."
+            },
+            {
+                title: "Definisi: Celah Realitas",
+                content: "Lewat survei pengguna, kami mengidentifikasi satu pain point terbesar di e-commerce: Ketidakmampuan memvalidasi realitas fisik produk.\n\n• \"Lipstick ini beneran warna merah gitu?\"\n• \"Kacamata ini bakal pas gak di muka gue?\"\n\nKami menyebut ini 'Realness Gap'—friksi yang disebabkan oleh ketiadaan sentuhan dan uji coba di ruang digital."
+            },
+            {
+                title: "Ideasi: Belanja sebagai 'Cerita'",
+                content: "Kami mengamati demografis target kami (Milenial) adalah pengguna berat Snapchat dan Instagram Stories. Mereka nyaman dengan filter AR dan interaksi 'selfie'.\n\n**Hipotesis:** Gimana kalau kita bisa menjembatani Celah Realitas dengan menggunakan mental model familiar 'Social Stories' untuk uji coba produk?"
+            },
+            {
+                title: "Solusi: FilterMe",
+                image: "/filterme-prototype.gif",
+                content: "FilterMe adalah konsep fitur di mana produk wajah (makeup, kacamata, anting) berfungsi sebagai filter AR. Alih-alih melihat foto statis, pengguna membuka kamera dan 'memakai' produk secara instan.\n\nInteraksi Kunci:\n1. Jelajahi produk di feed.\n2. Tap 'Try Filter' buat buka kamera.\n3. Swipe kiri/kanan buat ganti varian produk (warna/gaya).\n4. Beli langsung dari tampilan AR."
+            },
+            {
+                title: "Validasi & Pembelajaran",
+                content: "Kami memprototipe pengalaman ini pakai Sketch dan Principle (simulasi tracking wajah). User testing dengan 4 partisipan mengungkapkan:\n\n• Keterlibatan Tinggi: User merasa 'fun factor' jauh lebih tinggi daripada browsing standar.\n• Masalah Kepercayaan: Walau seru, user tetap skeptis soal akurasi warna. \"Kelihatannya bagus sebagai filter, tapi pigmen aslinya bakal sama gak?\"\n\nVerdict: AR mendorong engagement dan mengurangi keraguan, tapi belum bisa sepenuhnya menggantikan kebutuhan fisik akan kepercayaan fidelitas warna."
+            }
         ]
     },
     {
@@ -218,10 +337,16 @@ export const SIDE_PROJECTS = [
         title: 'Grab Merantau',
         subtitle: 'Cross-City Emotional Commerce',
         desc: 'Cross-city emotional wiring for the diaspora.',
+        desc_id: 'Koneksi emosional antar-kota bagi para perantau.',
         tldr: "Empowering the diaspora to care for family remotely via contextual food delivery.",
+        tldr_id: "Memberdayakan perantau untuk merawat keluarga dari jauh lewat pengiriman makanan kontekstual.",
         sections: {
             challenge: "Sending food to parents in another city feels transactional. It lacks warmth and context.",
             approach: "Designed 'Merantau Mode' with an AI Concierge to recommend food based on texture (e.g., 'Soft meat for mom') and attach voice notes."
+        },
+        sections_id: {
+            challenge: "Kirim makanan ke orang tua di luar kota rasanya transaksional banget. Kurang hangat dan konteks.",
+            approach: "Mendesain 'Mode Merantau' dengan AI Concierge buat rekomendasi makanan berdasarkan tekstur (misal: 'Daging empuk buat Ibu') dan lampirkan voice note."
         },
         stack: ["UX Research", "Figma", "AI Concept"],
         links: { demo: "#", repo: "#" },
@@ -235,10 +360,16 @@ export const SIDE_PROJECTS = [
         title: 'Flood Alert',
         subtitle: 'Geospatial Disaster Response',
         desc: 'Zero-blindspot alerting for Jakarta floods.',
+        desc_id: 'Peringatan tanpa blindspot untuk banjir Jakarta.',
         tldr: "A real-time geospatial platform for monsoon season safety.",
+        tldr_id: "Platform geospasial real-time untuk keselamatan musim hujan.",
         sections: {
             challenge: "Citizens often get flood alerts *after* water enters their homes. Standard routes often lead through other flooded areas.",
             approach: "Integrates BMKG/PetaBencana data for zero-blindspot alerting and safety-aware evacuation routing using PostGIS queries."
+        },
+        sections_id: {
+            challenge: "Warga sering dapet info banjir *setelah* air masuk rumah. Rute standar sering malah ngarahin ke jalan banjir.",
+            approach: "Integrasi data BMKG/PetaBencana buat peringatan tanpa blindspot dan rute evakuasi aman pakai query PostGIS."
         },
         stack: ["Node.js", "PostGIS", "Flutter"],
         links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
@@ -252,10 +383,16 @@ export const SIDE_PROJECTS = [
         title: 'Procurement Reform',
         subtitle: 'Civic Tech Action Plan',
         desc: 'A technical framework for government transparency.',
+        desc_id: 'Kerangka kerja teknis untuk transparansi pemerintah.',
         tldr: "Empowering IT professionals to reform Indonesian government procurement.",
+        tldr_id: "Memberdayakan profesional IT untuk mereformasi pengadaan pemerintah Indonesia.",
         sections: {
             challenge: "Government procurement is plagued by opacity. Jakarta-centric apps fail in rural Papua due to the 'Archipelago Effect'.",
             approach: "Combines 'Red Flag' data scraping with Offline-First PWA architectures to ensure accessibility in remote areas."
+        },
+        sections_id: {
+            challenge: "Pengadaan pemerintah penuh ketertutupan. Aplikasi yang Jakarta-sentris gagal di pelosok Papua karena 'Efek Kepulauan'.",
+            approach: "Gabungin scraping data 'Red Flag' dengan arsitektur PWA Offline-First biar bisa diakses di daerah terpencil."
         },
         stack: ["Python", "Pandas", "PWA"],
         links: { demo: "medium.com/procurement", repo: "github.com/fadlyzaki/procurement" },
