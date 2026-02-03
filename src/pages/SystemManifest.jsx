@@ -19,6 +19,7 @@ import { useTheme } from '../context/ThemeContext';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
+import CoverLetterModal from '../components/CoverLetterModal';
 
 /* --- THEME CONFIGURATION ---
    A 'High Contrast' mode designed for readability and printing.
@@ -28,6 +29,7 @@ import { WORK_CLUSTERS } from '../data/portfolioData';
 const SystemManifest = () => {
   const { isDark, setIsDark } = useTheme();
   const { t, language, toggleLanguage } = useLanguage();
+  const [showCoverLetter, setShowCoverLetter] = useState(true);
 
   // --- DATA: RAW SPECS ---
   const header = {
@@ -109,6 +111,12 @@ const SystemManifest = () => {
             className="px-4 py-2 border border-[var(--border-color)] hover:border-[var(--accent-mono)] font-mono text-sm uppercase transition-colors flex items-center gap-2"
           >
             <Globe size={14} /> {language}
+          </button>
+          <button
+            onClick={() => setShowCoverLetter(true)}
+            className="px-4 py-2 border border-[var(--border-color)] hover:border-[var(--accent-mono)] font-mono text-sm uppercase transition-colors flex items-center gap-2"
+          >
+            <Mail size={14} /> CL
           </button>
           <button
             onClick={() => setIsDark(!isDark)}
@@ -262,6 +270,7 @@ const SystemManifest = () => {
       </div>
 
 
+      <CoverLetterModal isOpen={showCoverLetter} onClose={() => setShowCoverLetter(false)} />
     </div>
   );
 };
