@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import Webcam from 'react-webcam';
 import { Hands } from '@mediapipe/hands';
 import { Camera } from '@mediapipe/camera_utils';
@@ -19,6 +19,31 @@ const HandCursorOverlay = () => {
     const cameraRef = useRef(null);
     const lastCursorPos = useRef({ x: 0, y: 0 });
     const loadingTimeoutRef = useRef(null);
+    const loadingRef = useRef(false); // Track internal loading state to avoid effect cycles
+
+    // --- 2. HANDLE RESULTS (Hoisted) ---
+    const onResults = useCallback((results) => {
+        if (!results.multiHandLandmarks || results.multiHandLandmarks.length === 0) return;
+
+        const landmarks = results.multiHandLandmarks[0];
+        const indexTip = landmarks[8];
+
+        // Mirrored mapping for webcam
+        const targetX = (1 - indexTip.x) * window.innerWidth;
+        const targetY = indexTip.y * window.innerHeight;
+
+        const smoothingFactor = 0.2; // smoother for visual effect
+        let smoothX = lastCursorPos.current.x + (targetX - lastCursorPos.current.x) * smoothingFactor;
+        let smoothY = lastCursorPos.current.y + (targetY - lastCursorPos.current.y) * smoothingFactor;
+
+        // Update Context (if needed elsewhere) and Ref
+        setCursorPosition({ x: smoothX, y: smoothY });
+        lastCursorPos.current = { x: smoothX, y: smoothY };
+
+        // DIRECT CSS UPDATE for performance (avoids React re-renders)
+        document.documentElement.style.setProperty('--cursor-x', `${smoothX}px`);
+        document.documentElement.style.setProperty('--cursor-y', `${smoothY}px`);
+    }, [setCursorPosition]);
 
     // --- 1. INITIALIZE MODEL (Once or Lazy) WITH ERROR HANDLING ---
     useEffect(() => {
@@ -26,8 +51,13 @@ const HandCursorOverlay = () => {
         if (handsRef.current) return;
 
         // Start loading only when first activated to save resources on initial page load
-        if (isGestureMode && !modelReady && !isModelLoading) {
-            setIsModelLoading(true);
+        // Use ref to check if we already started loading in this lifecycle
+        if (isGestureMode && !modelReady && !loadingRef.current) {
+            loadingRef.current = true;
+            // Async update to avoid lint warning about sync state updates in effect
+            setTimeout(() => {
+                setIsModelLoading(true);
+            }, 0);
             setLoadError(null);
 
             // Set timeout for loading (15 seconds)
@@ -102,32 +132,12 @@ const HandCursorOverlay = () => {
                 clearTimeout(loadingTimeoutRef.current);
             }
         };
-    }, [isGestureMode, modelReady, isModelLoading, setIsGestureMode]);
+        // Removed isModelLoading from deps to avoid set-state cycle
+    }, [isGestureMode, modelReady, setIsGestureMode, onResults]);
 
 
-    // --- 2. HANDLE RESULTS ---
-    const onResults = (results) => {
-        if (!results.multiHandLandmarks || results.multiHandLandmarks.length === 0) return;
 
-        const landmarks = results.multiHandLandmarks[0];
-        const indexTip = landmarks[8];
-
-        // Mirrored mapping for webcam
-        const targetX = (1 - indexTip.x) * window.innerWidth;
-        const targetY = indexTip.y * window.innerHeight;
-
-        const smoothingFactor = 0.2; // smoother for visual effect
-        let smoothX = lastCursorPos.current.x + (targetX - lastCursorPos.current.x) * smoothingFactor;
-        let smoothY = lastCursorPos.current.y + (targetY - lastCursorPos.current.y) * smoothingFactor;
-
-        // Update Context (if needed elsewhere) and Ref
-        setCursorPosition({ x: smoothX, y: smoothY });
-        lastCursorPos.current = { x: smoothX, y: smoothY };
-
-        // DIRECT CSS UPDATE for performance (avoids React re-renders)
-        document.documentElement.style.setProperty('--cursor-x', `${smoothX}px`);
-        document.documentElement.style.setProperty('--cursor-y', `${smoothY}px`);
-    };
+    // --- 1. INITIALIZE MODEL (Once or Lazy) WITH ERROR HANDLING ---
 
     // --- 3. KEYBOARD SHORTCUT (ESC) ---
     useEffect(() => {

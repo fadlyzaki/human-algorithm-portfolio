@@ -552,6 +552,23 @@ export const WORK_CLUSTERS = [
                 tag_id: 'Komunikasi',
                 caseStudy: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Like WhatsApp, but Organized",
+                            text: "Imagine if your text messages were mixed up with work emails. It's messy. We built a special inbox that keeps them separate so no message gets lost."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Impact: +45% Response Rate",
+                            text: "Led the redesign of the candidate communication module. Solved a critical bottleneck where recruiters were overwhelmed by unstructured data. Result: Reduced time-to-hire by 3 days and improved candidate NPS by 78 points."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "The Async/Sync Gap",
+                            text: "Recruiters work in batches (Async), while candidates expect real-time responses (Sync). The challenge was bridging these two mental models without forcing behavior change."
+                        }
+                    },
                     snapshot: {
                         tagline: "Why do we treat recruitment like email when candidates live on WhatsApp?",
                         heroImage: "/workforce_hero.png"
@@ -591,6 +608,23 @@ export const WORK_CLUSTERS = [
                 },
                 caseStudy_id: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Mirip WhatsApp, Tapi Rapi",
+                            text: "Bayangkan kalau SMS pribadi campur sama email kerjaan. Pusing kan? Kita bikin inbox khusus biar pesan kerjaan gak ketimbun."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Dampak: +45% Respon Rate",
+                            text: "Memimpin redesign modul komunikasi kandidat. Menyelesaikan bottleneck di mana rekruter kewalahan data tidak terstruktur. Hasil: Waktu rekrutmen turun 3 hari & NPS kandidat naik 78 poin."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "Celah Async/Sync",
+                            text: "Rekruter kerja per-batch (Async), tapi kandidat mau respon real-time (Sync). Tantangannya: menjembatani dua model mental ini tanpa maksa ubah kebiasaan."
+                        }
+                    },
                     snapshot: {
                         tagline: "Kenapa rekrutmen kaku kayak email, padahal kandidat hidup di WhatsApp?",
                         heroImage: "/workforce_hero.png"

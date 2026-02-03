@@ -20,6 +20,7 @@ import ProjectCard from '../components/ProjectCard';
 const ProtectedCaseStudy = () => {
   const { id } = useParams();
   const [isLocked, setIsLocked] = useState(true);
+  const [activeSummary, setActiveSummary] = useState('technical'); // New State
   const { isDark, setIsDark } = useTheme();
   const { t, toggleLanguage, language } = useLanguage();
   const { isGestureMode, toggleGestureMode } = useHandCursor();
@@ -181,22 +182,69 @@ const ProtectedCaseStudy = () => {
 
         <div className="max-w-md w-full relative z-10">
           {/* Header Status */}
-          <div className="flex justify-between items-center mb-12 text-xs text-[var(--accent-red)] uppercase tracking-widest border-b border-[var(--accent-red)] pb-2 opacity-80">
+          <div className="flex justify-between items-center mb-8 text-xs text-[var(--accent-red)] uppercase tracking-widest border-b border-[var(--accent-red)] pb-2 opacity-80">
             <span className="flex items-center gap-2"><ShieldAlert size={14} /> {t('protected.system_locked') || "SYSTEM_LOCKED"}</span>
             <span>{t('protected.auth_required') || "AUTH_REQUIRED"}</span>
           </div>
 
           {!decrypting ? (
             <div className="space-y-8 animate-in fade-in zoom-in duration-500">
-              <div className="text-center space-y-4">
-                <div className="w-20 h-20 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(239,68,68,0.2)]">
-                  <Lock size={32} className="text-[var(--text-secondary)]" />
+
+              {/* --- NEW: CONTEXT SWITCHER --- */}
+              {caseData.summaries ? (
+                <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl overflow-hidden shadow-2xl">
+                  {/* Tab Header */}
+                  <div className="flex border-b border-[var(--border-color)] bg-[var(--bg-surface)]">
+                    {Object.keys(caseData.summaries).map((mode) => (
+                      <button
+                        key={mode}
+                        onClick={() => setActiveSummary(mode)}
+                        className={`flex-1 py-3 text-[10px] md:text-xs uppercase tracking-widest font-mono transition-colors
+                          ${activeSummary === mode
+                            ? 'bg-[var(--bg-card)] text-[var(--brand)] font-bold border-b-2 border-b-[var(--brand)]'
+                            : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
+                          }`}
+                      >
+                        {caseData.summaries[mode].label}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Tab Content */}
+                  <div className="p-6 md:p-8 text-left">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className={`p-2 rounded-lg 
+                          ${activeSummary === 'eli5' ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400' : ''}
+                          ${activeSummary === 'recruiter' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400' : ''}
+                          ${activeSummary === 'technical' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' : ''}
+                        `}>
+                        {activeSummary === 'eli5' && <Sun size={20} />}
+                        {activeSummary === 'recruiter' && <Activity size={20} />}
+                        {activeSummary === 'technical' && <Database size={20} />}
+                      </div>
+                      <div>
+                        <h3 className="font-serif italic text-xl md:text-2xl mb-2 text-[var(--text-primary)]">
+                          "{caseData.summaries[activeSummary].title}"
+                        </h3>
+                      </div>
+                    </div>
+                    <p className="text-sm md:text-base text-[var(--text-secondary)] leading-relaxed pl-14 border-l-2 border-[var(--border-color)]">
+                      {caseData.summaries[activeSummary].text}
+                    </p>
+                  </div>
                 </div>
-                <h1 className="text-2xl font-bold tracking-tight">{t('protected.restricted_file') || "RESTRICTED CASE FILE"}: {projectData.id.toUpperCase()}</h1>
-                <p className="text-[var(--text-secondary)] text-sm">
-                  {t('protected.enter_credentials') || "Enter credentials to view the messy reality behind"} "{isId ? (projectData.title_id || projectData.title) : projectData.title}".
-                </p>
-              </div>
+              ) : (
+                /* Fallback for projects without summaries */
+                <div className="text-center space-y-4">
+                  <div className="w-20 h-20 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(239,68,68,0.2)]">
+                    <Lock size={32} className="text-[var(--text-secondary)]" />
+                  </div>
+                  <h1 className="text-2xl font-bold tracking-tight">{t('protected.restricted_file') || "RESTRICTED CASE FILE"}: {projectData.id.toUpperCase()}</h1>
+                  <p className="text-[var(--text-secondary)] text-sm">
+                    {t('protected.enter_credentials') || "Enter credentials to view the messy reality behind"} "{isId ? (projectData.title_id || projectData.title) : projectData.title}".
+                  </p>
+                </div>
+              )}
 
               <form id="lock-form" onSubmit={handleUnlock} className="space-y-4">
                 <div className="relative group">

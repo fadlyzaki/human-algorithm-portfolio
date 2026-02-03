@@ -24,31 +24,24 @@ const FigLabel = ({ index = "1.0", type = "SCHEMATIC" }) => (
     </div>
 );
 
-const DotGrid = () => (
-    <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '16px 16px' }}>
+const Container = ({ children, figIndex = "1.0", schematicType = "SYSTEM_ARCHITECTURE", expanded = false, showChrome = false }) => (
+    <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-4'} relative group transition-colors duration-300`}>
+        <div className={`w-full ${expanded ? 'h-full border-none' : 'max-w-sm aspect-[16/10] border border-slate-100 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]'} bg-white overflow-hidden flex flex-col group-hover:border-[var(--brand)]/20 transition-all duration-700`}>
+            {(!expanded || showChrome) && <DotGrid />}
+            <div className="flex-1 relative overflow-hidden flex flex-col">
+                {children}
+                {(!expanded || showChrome) && <FigLabel index={figIndex} type={schematicType} />}
+            </div>
+        </div>
+        {/* Ambient Base Glow (Very Subtle) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[var(--brand)] opacity-[0.02] blur-3xl -z-10 group-hover:opacity-[0.05] transition-opacity"></div>
     </div>
 );
 
+// IF IMAGE IS PROVIDED, RENDER IT AS A FLOATING DOCUMENT
 const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, showChrome = false }) => {
-    const t = type.toLowerCase();
+    // const t = type.toLowerCase(); // Unused
 
-    // THE CONTAINER (White Diagram Sheet)
-    const Container = ({ children, figIndex = "1.0", schematicType = "SYSTEM_ARCHITECTURE" }) => (
-        <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-4'} relative group transition-colors duration-300`}>
-            <div className={`w-full ${expanded ? 'h-full border-none' : 'max-w-sm aspect-[16/10] border border-slate-100 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]'} bg-white overflow-hidden flex flex-col group-hover:border-[var(--brand)]/20 transition-all duration-700`}>
-                {(!expanded || showChrome) && <DotGrid />}
-                <div className="flex-1 relative overflow-hidden flex flex-col">
-                    {children}
-                    {(!expanded || showChrome) && <FigLabel index={figIndex} type={schematicType} />}
-                </div>
-            </div>
-            {/* Ambient Base Glow (Very Subtle) */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[var(--brand)] opacity-[0.02] blur-3xl -z-10 group-hover:opacity-[0.05] transition-opacity"></div>
-        </div>
-    );
-
-    // IF IMAGE IS PROVIDED, RENDER IT AS A FLOATING DOCUMENT
     if (image) {
         return (
             <Container figIndex="2.1" schematicType={`${type.toUpperCase()}_DOCUMENTATION`}>
@@ -78,7 +71,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 0. HUMAN ALGORITHM (Meta/Recursive)
     if (id === 'human-algorithm') {
         return (
-            <Container figIndex="0.0" schematicType="RECURSIVE_AGENT_LOOP">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="0.0" schematicType="RECURSIVE_AGENT_LOOP">
                 <div className="w-full h-full p-8 flex items-center justify-center relative">
                     {/* Central Processing Unit */}
                     <div className="relative z-10 w-16 h-16 bg-white border border-[var(--brand)]/30 rounded-lg flex items-center justify-center shadow-lg group-hover:border-[var(--brand)] transition-colors duration-500">
@@ -124,7 +117,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 1. INTERACTIVE WORKBOOK (Education)
     if (id === 'interactive-workbook') {
         return (
-            <Container figIndex="4.0" schematicType="PEDAGOGICAL_STRUCTURE">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="4.0" schematicType="PEDAGOGICAL_STRUCTURE">
                 <div className="w-full h-full p-10 grid grid-cols-2 gap-4">
                     {[1, 2, 3, 4].map(i => (
                         <div key={i} className={`p-4 bg-white border ${i % 2 === 0 ? 'border-[var(--brand)]/30 shadow-md' : 'border-slate-100'} rounded-xl flex flex-col gap-3 group/item`}>
@@ -143,7 +136,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 2. YEAR IN REVIEW (DataViz)
     if (id === 'year-in-review') {
         return (
-            <Container figIndex="6.2" schematicType="TIMELINE_SPIRAL">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="6.2" schematicType="TIMELINE_SPIRAL">
                 <div className="w-full h-full p-8 flex items-center justify-center relative overflow-hidden">
                     {/* Vertical Timeline */}
                     <div className="absolute top-0 bottom-0 left-1/2 w-px bg-gradient-to-b from-transparent via-[var(--brand)]/30 to-transparent"></div>
@@ -178,7 +171,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 3. PRICE LOCK (Fintech)
     if (id === 'price-lock') {
         return (
-            <Container figIndex="5.5" schematicType="FINANCIAL_ESCROW_WRAPPER">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="5.5" schematicType="FINANCIAL_ESCROW_WRAPPER">
                 <div className="w-full h-full p-12 flex items-center justify-center">
                     <div className="w-full bg-white border-2 border-slate-100 rounded-2xl p-6 shadow-xl relative overflow-hidden group-hover:border-[var(--brand)]/20 transition-all">
                         <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/5 -mr-12 -mt-12 rounded-full"></div>
@@ -208,7 +201,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 4. PROJECT KINSHIP / STOQO LOGISTICS (Logistics)
     if (id === 'project-kinship' || id === 'stoqo-logistics') {
         return (
-            <Container figIndex="1.2" schematicType="SOCIAL_LOGISTICS_PATH">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="1.2" schematicType="SOCIAL_LOGISTICS_PATH">
                 <div className="w-full h-full p-12">
                     <svg className="w-full h-full" viewBox="0 0 100 60">
                         {/* Dashed Path */}
@@ -244,7 +237,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 5. FILTER ME (AR)
     if (id === 'filter-me') {
         return (
-            <Container figIndex="7.1" schematicType="COMPUTER_VISION_NODE_MESH">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="7.1" schematicType="COMPUTER_VISION_NODE_MESH">
                 <div className="w-full h-full flex items-center justify-center p-8">
                     <div className="relative w-48 h-48">
                         {/* Face Mesh Topology */}
@@ -279,7 +272,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 6. WORKFORCE CHAT / DIRECT APPLY (Messaging)
     if (id === 'workforce-chat' || id === 'direct-apply') {
         return (
-            <Container figIndex="3.2" schematicType="UNIFIED_STREAM_TOPOLOGY">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="3.2" schematicType="UNIFIED_STREAM_TOPOLOGY">
                 <div className="w-full h-full p-8 flex items-center justify-center">
                     <div className="relative w-full h-full flex flex-col items-center justify-center">
                         {/* Incoming fragmented sources */}
@@ -319,7 +312,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 7. ATS DASHBOARD (Kanban)
     if (id === 'ats-dashboard') {
         return (
-            <Container figIndex="1.4" schematicType="RECRUITMENT_PIPELINE">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="1.4" schematicType="RECRUITMENT_PIPELINE">
                 <div className="w-full h-full p-12 flex flex-col">
                     <div className="flex justify-between items-center mb-10">
                         {[1, 2, 3, 4].map(i => (
@@ -346,7 +339,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 8. APP NAVIGATION (Sitemap)
     if (id === 'app-navigation') {
         return (
-            <Container figIndex="8.8" schematicType="INFORMATION_ARCHITECTURE">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="8.8" schematicType="INFORMATION_ARCHITECTURE">
                 <div className="w-full h-full p-12 flex flex-col items-center justify-center">
                     <div className="flex flex-col items-center gap-6">
                         <div className="w-24 h-12 border border-[var(--brand)] bg-[var(--brand)]/5 rounded-lg flex items-center justify-center">
@@ -370,7 +363,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 9. MARKETPLACE CHECKOUT (Cart)
     if (id === 'marketplace-checkout') {
         return (
-            <Container figIndex="8.0" schematicType="SUPPLY_CHAIN_HUB">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="8.0" schematicType="SUPPLY_CHAIN_HUB">
                 <div className="w-full h-full p-8 flex items-center justify-center relative">
                     {/* Center Hub (Warehouse) */}
                     <div className="relative z-10">
@@ -413,7 +406,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 10. OFFICIAL STORE (Storefront)
     if (id === 'brand-official-store') {
         return (
-            <Container figIndex="9.9" schematicType="BRAND_MICROSERVICE">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="9.9" schematicType="BRAND_MICROSERVICE">
                 <div className="w-full h-full p-12 flex flex-col gap-4">
                     <div className="w-full h-24 border border-[var(--brand)]/30 rounded-lg relative overflow-hidden bg-[var(--brand)]/5">
                         <div className="absolute inset-0 grid grid-cols-12 gap-1 p-1 opacity-20">
@@ -435,7 +428,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 11. PROMO ENGINE (Logic Gate)
     if (id === 'promo-engine') {
         return (
-            <Container figIndex="10.4" schematicType="DECISION_TREE_LOGIC">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="10.4" schematicType="DECISION_TREE_LOGIC">
                 <div className="w-full h-full p-8 flex flex-col items-center justify-start pt-12">
                     {/* Root Node */}
                     <div className="w-24 h-8 border border-slate-200 bg-white rounded flex items-center justify-center text-[8px] font-mono text-slate-400 mb-2">
@@ -478,7 +471,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 12. DESIGN SYSTEM (Atomic)
     if (id === 'design-system-gudangada') {
         return (
-            <Container figIndex="9.1" schematicType="ATOMIC_COMPONENT_LIBRARY">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="9.1" schematicType="ATOMIC_COMPONENT_LIBRARY">
                 <div className="w-full h-full p-12 flex items-center justify-center">
                     <div className="grid grid-cols-2 gap-4 w-full max-w-[200px]">
                         <div className="p-3 border border-slate-100 rounded-lg flex flex-col gap-2 bg-white shadow-sm">
@@ -500,7 +493,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 14. INCENTIVE SALES AGENT (Gamification)
     if (id === 'stoqo-sales') {
         return (
-            <Container figIndex="5.5" schematicType="GAMIFIED_LEADERBOARD">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="5.5" schematicType="GAMIFIED_LEADERBOARD">
                 <div className="w-full h-full p-10 flex flex-col items-center justify-end pb-8">
                     {/* Podium */}
                     <div className="flex items-end gap-1">
@@ -532,7 +525,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 15. PAPER TO PAPERLESS (OCR/Scanning)
     if (id === 'p11') {
         return (
-            <Container figIndex="3.0" schematicType="OPTICAL_CHAR_RECOGNITION">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="3.0" schematicType="OPTICAL_CHAR_RECOGNITION">
                 <div className="w-full h-full p-10 flex flex-col items-center justify-center">
                     <div className="relative w-24 h-32 bg-white border border-slate-200 shadow-sm flex flex-col p-2 gap-2">
                         {/* Document Lines */}
@@ -558,7 +551,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 16. GRAB MERANTAU (Emotional Bridge)
     if (id === 'grab-merantau') {
         return (
-            <Container figIndex="2.4" schematicType="EMOTIONAL_BRIDGE">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="2.4" schematicType="EMOTIONAL_BRIDGE">
                 <div className="w-full h-full p-12 flex items-center justify-center relative">
                     {/* City A (Origin) */}
                     <div className="absolute left-8 bottom-8 flex flex-col items-center gap-2">
@@ -594,7 +587,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 17. FLOOD ALERT (Geospatial Radar)
     if (id === 'flood-alert') {
         return (
-            <Container figIndex="6.0" schematicType="GEOSPATIAL_RADAR">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="6.0" schematicType="GEOSPATIAL_RADAR">
                 <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
                     {/* Radar Rings */}
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -629,7 +622,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 18. PROCUREMENT REFORM (Transparency Filter)
     if (id === 'procurement') {
         return (
-            <Container figIndex="1.1" schematicType="TRANSPARENCY_FILTER">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="1.1" schematicType="TRANSPARENCY_FILTER">
                 <div className="w-full h-full p-8 flex flex-col items-center justify-center gap-4">
                     {/* Chaos Input (Top) */}
                     <div className="flex gap-1 opacity-40">
@@ -668,7 +661,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 19. AGENCY PIVOT (A/B Toggle)
     if (id === 'agency-pivot') {
         return (
-            <Container figIndex="4.2" schematicType="AGENCY_CONTROL_DIAL">
+            <Container expanded={expanded} showChrome={showChrome} figIndex="4.2" schematicType="AGENCY_CONTROL_DIAL">
                 <div className="w-full h-full p-10 flex flex-col items-center justify-center gap-4">
                     {/* Toggle Switch */}
                     <div className="relative w-32 h-12 bg-slate-100 rounded-full border border-slate-200 p-1 shadow-inner flex items-center">
@@ -696,7 +689,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
 
     // DEFAULT FALLBACK
     return (
-        <Container figIndex="0.1" schematicType="ABSTRACT_COMPOSITION">
+        <Container expanded={expanded} showChrome={showChrome} figIndex="0.1" schematicType="ABSTRACT_COMPOSITION">
             <div className="w-full h-full p-12 flex flex-col gap-4">
                 <div className="flex-1 border border-dashed border-slate-200 rounded-2xl flex items-center justify-center">
                     <div className="flex flex-col items-center gap-3">
