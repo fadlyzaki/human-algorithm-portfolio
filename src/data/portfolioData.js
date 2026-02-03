@@ -456,6 +456,20 @@ export const WORK_CLUSTERS = [
             { label: 'Impact', value: 'Scale & Reliability' },
             { label: 'Platform', value: 'Mobile app (android) & Websites' }
         ],
+        culture: {
+            title: "The Arena",
+            description: "We built a culture of 'Radical Honesty'. We weren't just building an app; we were building a livelihood for thousands. Every design decision was tested in the field, not just in Figma.",
+            images: [
+                { src: "/workforce_hero.png", caption: "Field Research", span: "col-span-1 md:col-span-2 row-span-2" },
+                { src: "/workforce_hero.png", caption: "Driver Onboarding", span: "col-span-1 row-span-1" },
+                { src: "/workforce_hero.png", caption: "Design Sprint", span: "col-span-1 row-span-1" },
+                { src: "/workforce_hero.png", caption: "Townhall", span: "col-span-1 md:col-span-2 row-span-1" }
+            ]
+        },
+        culture_id: {
+            title: "Medan Juang",
+            description: "Kami membangun budaya 'Kejujuran Radikal'. Kami bukan cuma bikin aplikasi; kami bikin mata pencaharian buat ribuan orang. Setiap keputusan desain diuji di lapangan, bukan cuma di Figma."
+        },
         projects: [
             {
                 id: 'workforce-chat',
@@ -878,6 +892,20 @@ export const WORK_CLUSTERS = [
             { label: 'Impact', value: 'Marketplace Liquidity' },
             { label: 'Platform', value: 'Web Dashboard & PWA' }
         ],
+        culture: {
+            title: "The Arena",
+            description: "Building a digital layer on top of a chaotic, traditional supply chain wasn't easy. We spent days in hot warehouses and crowded markets to understand the real users.",
+            images: [
+                { src: "/commerce_hero.png", caption: "Warehouse Audit", span: "col-span-1 md:col-span-2 row-span-2" },
+                { src: "/commerce_hero.png", caption: "Market Visit", span: "col-span-1 row-span-1" },
+                { src: "/commerce_hero.png", caption: "Team Briefing", span: "col-span-1 row-span-1" },
+                { src: "/commerce_hero.png", caption: "Strategy Session", span: "col-span-1 md:col-span-2 row-span-1" }
+            ]
+        },
+        culture_id: {
+            title: "Medan Juang",
+            description: "Membangun lapisan digital di atas rantai pasokan tradisional yang kacau bukanlah hal mudah. Kami menghabiskan hari-hari di gudang panas dan pasar padat untuk memahami pengguna sebenarnya."
+        },
         projects: [
             {
                 id: 'marketplace-checkout',

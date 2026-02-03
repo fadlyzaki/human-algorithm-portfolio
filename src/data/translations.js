@@ -147,6 +147,16 @@ export const translations = {
             view_case: "View Case",
             problem: "The Problem",
         },
+        id_card: {
+            access_level: "ACCESS_LEVEL_4",
+            human: "HUMAN BY DESIGN",
+            role: "Product Designer // SysOp",
+            id_no: "ID_NO",
+            exp: "EXP",
+            indefinite: "INDEFINITE",
+            identity: "IDENTITY",
+            online: "ONLINE"
+        },
         protected: {
             access_denied: "Access Denied",
             return_base: "Return to Base",
