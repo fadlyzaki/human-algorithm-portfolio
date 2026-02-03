@@ -212,7 +212,6 @@ const HandCursorOverlay = () => {
         <div className="fixed inset-0 z-[9999] pointer-events-none overflow-hidden">
 
 
-
             {/* LOADING STATE */}
             {isModelLoading && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm z-[10001]">
