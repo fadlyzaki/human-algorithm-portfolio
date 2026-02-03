@@ -316,9 +316,9 @@ const CompanyDetail = () => {
                         <div className="max-w-7xl mx-auto px-6">
                             <ScrollReveal>
                                 <div className="mb-12 max-w-2xl">
-                                    <h3 className="font-serif italic text-4xl mb-4">{cluster.culture.title}</h3>
+                                    <h3 className="font-serif italic text-4xl mb-4">{isId ? (cluster.culture_id?.title || cluster.culture.title) : cluster.culture.title}</h3>
                                     <p className="text-[var(--text-secondary)] leading-relaxed">
-                                        {cluster.culture.description}
+                                        {isId ? (cluster.culture_id?.description || cluster.culture.description) : cluster.culture.description}
                                     </p>
                                 </div>
                             </ScrollReveal>

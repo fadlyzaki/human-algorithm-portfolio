@@ -1189,11 +1189,18 @@ export const WORK_CLUSTERS = [
             icon: "Truck",
             items: ["Perishable Goods", "Just-In-Time Delivery", "High-Churn Workforce"]
         },
+        subtitle_id: 'Digitalisasi Kebiasaan',
+        companyFocus_id: {
+            title: "Realita Operasional",
+            items: ["Bahan Baku Segar", "Pengiriman Just-In-Time", "Turnover Pekerja Tinggi"]
+        },
         brandColor: '#FA6130', // Stoqo Orange
         linkedinUrl: 'https://www.linkedin.com/company/stoqo-technologies/about/',
         heroImage: '/efficiency_hero.png',
         hook: 'Streamlining the F&B supply chain to empower micro & small businesses with easy access to competitively-priced, quality ingredients.',
         miniDesc: 'B2B platform founded in 2017 to transform the F&B supply chain. Serving thousands of culinary businesses daily with reliable, competitively-priced ingredient deliveries so business owners can focus on growing their business.',
+        hook_id: 'Merampingkan rantai pasok F&B demi memberdayakan UMKM lewat akses mudah ke bahan baku berkualitas dengan harga bersaing.',
+        miniDesc_id: 'Platform B2B yang mentransformasi logistik F&B sejak 2017. Melayani ribuan bisnis kuliner tiap hari dengan pengiriman bahan baku andal, jadi pemilik usaha bisa fokus membesarkan bisnis mereka.',
         stats: [
             { label: 'Role', value: 'Early Product Designer' },
             { label: 'Timeline', value: 'Mar 2018 - April 2020' },
@@ -1210,6 +1217,10 @@ export const WORK_CLUSTERS = [
                 { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80", caption: "Townhall", span: "col-span-1 md:col-span-2 row-span-1" }
             ]
         },
+        culture_id: {
+            title: "Garis Depan",
+            description: "Sebagai salah satu desainer awal, saya menyentuh hampir semua lini produk—mulai dari aplikasi pelanggan hingga logistik gudang yang kompleks. Kami membangun budaya untuk berani 'Turun Tangan' (Get Your Hands Dirty)."
+        },
         projects: [
             {
                 id: 'stoqo-logistics',
@@ -1222,6 +1233,9 @@ export const WORK_CLUSTERS = [
                 previewImage: '/case-studies/delivery-methods/delivery-status-cover.png',
                 iconName: 'Truck',
                 details: { problem: 'Anxiety over unknown arrival.', system: 'Real-time Driver Tracking.', outcome: 'Support tickets -60%.' },
+                details_id: { problem: 'Kecemasan menunggu ketidakpastian.', system: 'Pelacakan Driver Real-time.', outcome: 'Tiket Bantuan -60%.' },
+                title_id: 'Transformasi Pengiriman Logistik',
+                tag_id: 'Logistik',
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -1322,6 +1336,9 @@ export const WORK_CLUSTERS = [
                 previewImage: '/efficiency_hero.png',
                 iconName: 'Trophy',
                 details: { problem: 'Low adoption of sales tools.', system: 'Gamified Streak System.', outcome: 'Daily Usage +40%.' },
+                details_id: { problem: 'Adopsi aplikasi sales rendah.', system: 'Sistem Streak Gamifikasi.', outcome: 'Penggunaan Harian +40%.' },
+                title_id: 'Agen Penjualan Insentif',
+                tag_id: 'Gamifikasi',
                 caseStudy: {
                     locked: true,
                     snapshot: {
@@ -1408,6 +1425,9 @@ export const WORK_CLUSTERS = [
                 previewImage: '/efficiency_hero.png',
                 iconName: 'Scan',
                 details: { problem: 'Lost invoices.', system: 'OCR-assisted filing.', outcome: '90% paper reduction.' },
+                details_id: { problem: 'Faktur sering hilang.', system: 'Pengarsipan berbantuan OCR.', outcome: 'Reduksi kertas 90%.' },
+                title_id: 'Paper-to-Paperless (Konsep)',
+                tag_id: 'Keberlanjutan',
                 caseStudy: {
                     locked: true,
                     snapshot: {
