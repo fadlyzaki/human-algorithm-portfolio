@@ -1,5 +1,25 @@
 export const SIDE_PROJECTS = [
     {
+        id: 'human-algorithm',
+        title: 'The Human Algorithm',
+        subtitle: 'Recursive Portfolio',
+        desc: 'The very site you are scrolling. Built with an Agentic workflow.',
+        tldr: "A recursive portfolio built by an AI agent.",
+        tldr_id: "Portofolio rekursif yang dibangun oleh agen AI.",
+        desc_id: "Situs yang sedang Anda scroll ini. Dibangun dengan workflow Agentic.",
+        title_id: 'The Human Algorithm',
+        subtitle_id: 'Portofolio Rekursif',
+        stack: ["React", "Gemini", "Cortex"],
+        links: { demo: "#", repo: "https://github.com/fadlyzaki/human-algorithm-portfolio" },
+        iconName: 'Cpu',
+        featured: true,
+        type: 'Meta-Project',
+        date: "February 2026",
+        coverImage: "/human-algorithm-cover.png",
+        modules: [],
+        modules_id: []
+    },
+    {
         id: 'interactive-workbook',
         title: 'Interactive Workbook',
         subtitle: 'Bimbel Geera Platform',
@@ -114,6 +134,79 @@ export const SIDE_PROJECTS = [
             }
         ]
     },
+
+    {
+        id: 'grab-merantau',
+        title: 'Grab Merantau',
+        subtitle: 'Cross-City Emotional Commerce',
+        desc: 'Cross-city emotional wiring for the diaspora.',
+        desc_id: 'Koneksi emosional antar-kota bagi para perantau.',
+        tldr: "Empowering the diaspora to care for family remotely via contextual food delivery.",
+        tldr_id: "Memberdayakan perantau untuk merawat keluarga dari jauh lewat pengiriman makanan kontekstual.",
+        sections: {
+            challenge: "Sending food to parents in another city feels transactional. It lacks warmth and context.",
+            approach: "Designed 'Merantau Mode' with an AI Concierge to recommend food based on texture (e.g., 'Soft meat for mom') and attach voice notes."
+        },
+        sections_id: {
+            challenge: "Kirim makanan ke orang tua di luar kota rasanya transaksional banget. Kurang hangat dan konteks.",
+            approach: "Mendesain 'Mode Merantau' dengan AI Concierge buat rekomendasi makanan berdasarkan tekstur (misal: 'Daging empuk buat Ibu') dan lampirkan voice note."
+        },
+        stack: ["UX Research", "Figma", "AI Concept"],
+        links: { demo: "#", repo: "#" },
+        iconName: 'Heart',
+        type: 'Service Delivery',
+        hidden: true,
+        featured: false
+    },
+    {
+        id: 'flood-alert',
+        title: 'Flood Alert',
+        subtitle: 'Geospatial Disaster Response',
+        desc: 'Zero-blindspot alerting for Jakarta floods.',
+        desc_id: 'Peringatan tanpa blindspot untuk banjir Jakarta.',
+        tldr: "A real-time geospatial platform for monsoon season safety.",
+        tldr_id: "Platform geospasial real-time untuk keselamatan musim hujan.",
+        sections: {
+            challenge: "Citizens often get flood alerts *after* water enters their homes. Standard routes often lead through other flooded areas.",
+            approach: "Integrates BMKG/PetaBencana data for zero-blindspot alerting and safety-aware evacuation routing using PostGIS queries."
+        },
+        sections_id: {
+            challenge: "Warga sering dapet info banjir *setelah* air masuk rumah. Rute standar sering malah ngarahin ke jalan banjir.",
+            approach: "Integrasi data BMKG/PetaBencana buat peringatan tanpa blindspot dan rute evakuasi aman pakai query PostGIS."
+        },
+        stack: ["Node.js", "PostGIS", "Flutter"],
+        links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
+        iconName: 'AlertTriangle',
+        type: 'Service Map',
+        hidden: true,
+        featured: false
+    },
+    {
+        id: 'procurement',
+        title: 'Procurement Reform',
+        subtitle: 'Civic Tech Action Plan',
+        desc: 'A technical framework for government transparency.',
+        desc_id: 'Kerangka kerja teknis untuk transparansi pemerintah.',
+        tldr: "Empowering IT professionals to reform Indonesian government procurement.",
+        tldr_id: "Memberdayakan profesional IT untuk mereformasi pengadaan pemerintah Indonesia.",
+        sections: {
+            challenge: "Government procurement is plagued by opacity. Jakarta-centric apps fail in rural Papua due to the 'Archipelago Effect'.",
+            approach: "Combines 'Red Flag' data scraping with Offline-First PWA architectures to ensure accessibility in remote areas."
+        },
+        sections_id: {
+            challenge: "Pengadaan pemerintah penuh ketertutupan. Aplikasi yang Jakarta-sentris gagal di pelosok Papua karena 'Efek Kepulauan'.",
+            approach: "Gabungin scraping data 'Red Flag' dengan arsitektur PWA Offline-First biar bisa diakses di daerah terpencil."
+        },
+        stack: ["Python", "Pandas", "PWA"],
+        links: { demo: "medium.com/procurement", repo: "github.com/fadlyzaki/procurement" },
+        iconName: 'FileText',
+        type: 'Dashboard Platform',
+        hidden: true,
+        featured: false
+    }
+];
+
+export const NOTES = [
     {
         id: 'price-lock',
         title: 'Price Lock',
@@ -229,129 +322,6 @@ export const SIDE_PROJECTS = [
         ]
     },
     {
-        id: 'filter-me',
-        title: 'FilterMe',
-        subtitle: 'AR Commerce Experiment',
-        desc: 'The moment of hesitation before clicking "Buy"—"Will this actually look good on me?"',
-        tldr: "Using AR to kill the 'Trust Gap' in online cosmetics shopping.",
-        tldr_id: "Menggunakan AR untuk membunuh 'Celah Kepercayaan' dalam belanja kosmetik online.",
-        desc_id: "Momen keraguan sebelum klik 'Beli'—'Ini beneran bagus gak ya di muka gue?'",
-        title_id: 'FilterMe',
-        subtitle_id: 'Eksperimen AR Commerce',
-        stack: ["Sketch", "Principle", "AR Design"],
-        links: { demo: "https://uxdesign.cc/enhancing-online-shopping-experience-fbdbd76438e8", repo: "#" },
-        iconName: 'Camera',
-        featured: false,
-        type: 'AR Camera',
-        date: "January 2018",
-        coverImage: "/filterme-cover.png",
-        modules: [
-            {
-                title: "The Mirror Test",
-                content: "We've all been there: You see sunglasses online. They look cool on the model. You buy them. They arrive. You put them on. You look ridiculous.\n\nThis gap between 'Pixel Perfection' and 'Physical Reality' is why 40% of fashion e-commerce is returned. It's a trust deficit."
-            },
-            {
-                title: "Trying It On (Digitally)",
-                content: "We asked: Why do we trust a mirror? Because it moves with us.\n\nFilterMe isn't a catalog; it's a mirror. using AR, we let users 'wear' the product before they buy it. It changes the question from \"Is this product good?\" to \"Is this product good *on me*?\""
-            },
-            {
-                title: "The Social Proof",
-                content: "Shopping is inherently social. \"Does this look good?\" is a question we ask friends, not algorithms.\n\nWe integrated 'Share to Story'. Users could snap a selfie wearing the AR lipstick, post it to Instagram, and get real-time validation from their friends before spending a dime."
-            },
-            {
-                title: "The Limits of Tech",
-                content: "We learned a hard lesson: Fun does not equal Trust.\n\nUsers loved playing with the filters (Engagement), but they still hesitated to buy (Conversion). Why? Because they didn't trust the color accuracy of their phone screen.\n\nConclusion: AR can solve for 'Shape' and 'Vibe', but it struggles to solve for 'Texture' and 'Shade'."
-            }
-        ],
-        modules_id: [
-            {
-                title: "Ujian Cermin",
-                content: "Kita semua pernah mengalaminya: Lihat kacamata online. Keren di model. Beli. Sampai rumah. Pakai. Kelihatan konyol.\n\nJarak antara 'Kesempurnaan Piksel' dan 'Realitas Fisik' inilah alasan kenapa 40% barang fashion dikembalikan. Ini adalah defisit kepercayaan."
-            },
-            {
-                title: "Mencoba Secara Digital",
-                content: "Kami bertanya: Kenapa kita percaya cermin? Karena dia bergerak mengikuti kita.\n\nFilterMe bukan katalog; ini cermin. Pakai AR, kami biarkan user 'memakai' produk sebelum beli. Ini mengubah pertanyaan dari \"Produk ini bagus gak?\" jadi \"Produk ini bagus gak *di gue*?\""
-            },
-            {
-                title: "Bukti Sosial",
-                content: "Belanja itu kegiatan sosial. \"Ini cocok gak?\" adalah pertanyaan buat teman, bukan algoritma.\n\nKami integrasikan 'Share to Story'. User bisa selfie pakai lipstik AR, post ke Instagram, dan dapat validasi real-time dari teman sebelum keluar uang."
-            },
-            {
-                title: "Batas Teknologi",
-                content: "Kami belajar hal sulit: Seru bukan berarti Percaya.\n\nUser suka main filter (Engagement), tapi masih ragu beli (Konversi). Kenapa? Karena mereka gak percaya akurasi warna layar HP mereka.\n\nKesimpulan: AR bisa selesaikan masalah 'Bentuk' dan 'Vibe', tapi kesulitan selesaikan 'Tekstur' dan 'Warna Asli'."
-            }
-        ]
-    },
-    {
-        id: 'grab-merantau',
-        title: 'Grab Merantau',
-        subtitle: 'Cross-City Emotional Commerce',
-        desc: 'Cross-city emotional wiring for the diaspora.',
-        desc_id: 'Koneksi emosional antar-kota bagi para perantau.',
-        tldr: "Empowering the diaspora to care for family remotely via contextual food delivery.",
-        tldr_id: "Memberdayakan perantau untuk merawat keluarga dari jauh lewat pengiriman makanan kontekstual.",
-        sections: {
-            challenge: "Sending food to parents in another city feels transactional. It lacks warmth and context.",
-            approach: "Designed 'Merantau Mode' with an AI Concierge to recommend food based on texture (e.g., 'Soft meat for mom') and attach voice notes."
-        },
-        sections_id: {
-            challenge: "Kirim makanan ke orang tua di luar kota rasanya transaksional banget. Kurang hangat dan konteks.",
-            approach: "Mendesain 'Mode Merantau' dengan AI Concierge buat rekomendasi makanan berdasarkan tekstur (misal: 'Daging empuk buat Ibu') dan lampirkan voice note."
-        },
-        stack: ["UX Research", "Figma", "AI Concept"],
-        links: { demo: "#", repo: "#" },
-        iconName: 'Heart',
-        type: 'Service Delivery',
-        hidden: true,
-        featured: false
-    },
-    {
-        id: 'flood-alert',
-        title: 'Flood Alert',
-        subtitle: 'Geospatial Disaster Response',
-        desc: 'Zero-blindspot alerting for Jakarta floods.',
-        desc_id: 'Peringatan tanpa blindspot untuk banjir Jakarta.',
-        tldr: "A real-time geospatial platform for monsoon season safety.",
-        tldr_id: "Platform geospasial real-time untuk keselamatan musim hujan.",
-        sections: {
-            challenge: "Citizens often get flood alerts *after* water enters their homes. Standard routes often lead through other flooded areas.",
-            approach: "Integrates BMKG/PetaBencana data for zero-blindspot alerting and safety-aware evacuation routing using PostGIS queries."
-        },
-        sections_id: {
-            challenge: "Warga sering dapet info banjir *setelah* air masuk rumah. Rute standar sering malah ngarahin ke jalan banjir.",
-            approach: "Integrasi data BMKG/PetaBencana buat peringatan tanpa blindspot dan rute evakuasi aman pakai query PostGIS."
-        },
-        stack: ["Node.js", "PostGIS", "Flutter"],
-        links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
-        iconName: 'AlertTriangle',
-        type: 'Service Map',
-        hidden: true,
-        featured: false
-    },
-    {
-        id: 'procurement',
-        title: 'Procurement Reform',
-        subtitle: 'Civic Tech Action Plan',
-        desc: 'A technical framework for government transparency.',
-        desc_id: 'Kerangka kerja teknis untuk transparansi pemerintah.',
-        tldr: "Empowering IT professionals to reform Indonesian government procurement.",
-        tldr_id: "Memberdayakan profesional IT untuk mereformasi pengadaan pemerintah Indonesia.",
-        sections: {
-            challenge: "Government procurement is plagued by opacity. Jakarta-centric apps fail in rural Papua due to the 'Archipelago Effect'.",
-            approach: "Combines 'Red Flag' data scraping with Offline-First PWA architectures to ensure accessibility in remote areas."
-        },
-        sections_id: {
-            challenge: "Pengadaan pemerintah penuh ketertutupan. Aplikasi yang Jakarta-sentris gagal di pelosok Papua karena 'Efek Kepulauan'.",
-            approach: "Gabungin scraping data 'Red Flag' dengan arsitektur PWA Offline-First biar bisa diakses di daerah terpencil."
-        },
-        stack: ["Python", "Pandas", "PWA"],
-        links: { demo: "medium.com/procurement", repo: "github.com/fadlyzaki/procurement" },
-        iconName: 'FileText',
-        type: 'Dashboard Platform',
-        hidden: true,
-        featured: false
-    },
-    {
         id: 'agency-pivot',
         title: 'The "Agency" Pivot',
         subtitle: 'Redesigning Algorithms',
@@ -421,6 +391,60 @@ export const SIDE_PROJECTS = [
             {
                 title: "Conclusion",
                 content: "The future of social media isn't about better AI predicting what you want. It's about AI listening to what you say.\n\nSarah didn't need a new app. She just needed the current app to respect her enough to hand over the steering wheel.\n\n\"Technology should be a bicycle for the mind, not a conveyor belt for the eyes.\""
+            }
+        ]
+    },
+    {
+        id: 'filter-me',
+        title: 'FilterMe',
+        subtitle: 'AR Commerce Experiment',
+        desc: 'The moment of hesitation before clicking "Buy"—"Will this actually look good on me?"',
+        tldr: "Using AR to kill the 'Trust Gap' in online cosmetics shopping.",
+        tldr_id: "Menggunakan AR untuk membunuh 'Celah Kepercayaan' dalam belanja kosmetik online.",
+        desc_id: "Momen keraguan sebelum klik 'Beli'—'Ini beneran bagus gak ya di muka gue?'",
+        title_id: 'FilterMe',
+        subtitle_id: 'Eksperimen AR Commerce',
+        stack: ["Sketch", "Principle", "AR Design"],
+        links: { demo: "https://uxdesign.cc/enhancing-online-shopping-experience-fbdbd76438e8", repo: "#" },
+        iconName: 'Camera',
+        featured: false,
+        type: 'AR Camera',
+        date: "January 2018",
+        coverImage: "/filterme-cover.png",
+        modules: [
+            {
+                title: "The Mirror Test",
+                content: "We've all been there: You see sunglasses online. They look cool on the model. You buy them. They arrive. You put them on. You look ridiculous.\n\nThis gap between 'Pixel Perfection' and 'Physical Reality' is why 40% of fashion e-commerce is returned. It's a trust deficit."
+            },
+            {
+                title: "Trying It On (Digitally)",
+                content: "We asked: Why do we trust a mirror? Because it moves with us.\n\nFilterMe isn't a catalog; it's a mirror. using AR, we let users 'wear' the product before they buy it. It changes the question from \"Is this product good?\" to \"Is this product good *on me*?\""
+            },
+            {
+                title: "The Social Proof",
+                content: "Shopping is inherently social. \"Does this look good?\" is a question we ask friends, not algorithms.\n\nWe integrated 'Share to Story'. Users could snap a selfie wearing the AR lipstick, post it to Instagram, and get real-time validation from their friends before spending a dime."
+            },
+            {
+                title: "The Limits of Tech",
+                content: "We learned a hard lesson: Fun does not equal Trust.\n\nUsers loved playing with the filters (Engagement), but they still hesitated to buy (Conversion). Why? Because they didn't trust the color accuracy of their phone screen.\n\nConclusion: AR can solve for 'Shape' and 'Vibe', but it struggles to solve for 'Texture' and 'Shade'."
+            }
+        ],
+        modules_id: [
+            {
+                title: "Ujian Cermin",
+                content: "Kita semua pernah mengalaminya: Lihat kacamata online. Keren di model. Beli. Sampai rumah. Pakai. Kelihatan konyol.\n\nJarak antara 'Kesempurnaan Piksel' dan 'Realitas Fisik' inilah alasan kenapa 40% barang fashion dikembalikan. Ini adalah defisit kepercayaan."
+            },
+            {
+                title: "Mencoba Secara Digital",
+                content: "Kami bertanya: Kenapa kita percaya cermin? Karena dia bergerak mengikuti kita.\n\nFilterMe bukan katalog; ini cermin. Pakai AR, kami biarkan user 'memakai' produk sebelum beli. Ini mengubah pertanyaan dari \"Produk ini bagus gak?\" jadi \"Produk ini bagus gak *di gue*?\""
+            },
+            {
+                title: "Bukti Sosial",
+                content: "Belanja itu kegiatan sosial. \"Ini cocok gak?\" adalah pertanyaan buat teman, bukan algoritma.\n\nKami integrasikan 'Share to Story'. User bisa selfie pakai lipstik AR, post ke Instagram, dan dapat validasi real-time dari teman sebelum keluar uang."
+            },
+            {
+                title: "Batas Teknologi",
+                content: "Kami belajar hal sulit: Seru bukan berarti Percaya.\n\nUser suka main filter (Engagement), tapi masih ragu beli (Konversi). Kenapa? Karena mereka gak percaya akurasi warna layar HP mereka.\n\nKesimpulan: AR bisa selesaikan masalah 'Bentuk' dan 'Vibe', tapi kesulitan selesaikan 'Tekstur' dan 'Warna Asli'."
             }
         ]
     }
