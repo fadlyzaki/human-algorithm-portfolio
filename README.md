@@ -169,3 +169,5 @@ dist
 ---
 
 **Note**: Hand tracking requires camera access and works best in good lighting conditions. Supported on modern browsers (Chrome, Edge, Firefox). Safari support is limited.
+
+<!-- Deployed: 2026-02-03 Standardized Human Algorithm Card & Integrated Habits -->
