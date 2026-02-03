@@ -168,12 +168,12 @@ const DraggablePhoto = () => {
           </div>
           <div className="grid grid-cols-2 gap-4 pt-4">
             <div>
-              <label className="font-bold text-xs block mb-1">{t('id_card.id_no') || 'ID NO'}</label>
-              <span className="font-mono text-sm">1407-1995</span>
+              <label className="font-bold text-xs block mb-1 text-black">{t('id_card.id_no') || 'ID NO'}</label>
+              <span className="font-mono text-sm text-black">1407-1995</span>
             </div>
             <div>
-              <label className="font-bold text-xs block mb-1">{t('company.role') || 'Role'}</label>
-              <span className="font-mono text-sm leading-tight block">{t('id_card.role') || 'Product Designer // SysOp'}</span>
+              <label className="font-bold text-xs block mb-1 text-black">{t('company.role') || 'Role'}</label>
+              <span className="font-mono text-sm leading-tight block text-black">{t('id_card.role') || 'Product Designer // SysOp'}</span>
             </div>
           </div>
         </div>

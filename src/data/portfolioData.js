@@ -16,8 +16,42 @@ export const SIDE_PROJECTS = [
         type: 'Meta-Project',
         date: "February 2026",
         coverImage: "/human-algorithm-cover.png",
-        modules: [],
-        modules_id: []
+        modules: [
+            {
+                title: "The Architect is an Agent",
+                content: "This portfolio wasn't just 'coded'; it was negotiated. I acted as the Senior Engineer, and my AI agents (Gemini & Cortex) acted as the implementation team. We pair-programmed through complex routing logic, debated design system tokens, and refactored legacy code—all in natural language."
+            },
+            {
+                title: "Recursive Design",
+                content: "The site is self-aware. It lists itself as a project. It uses a 'Chaos System' design language—glitch effects, scanlines, and raw data—to represent the 'ghost in the machine'. It's not just a showcase of work; it's a showcase of *how* we will work in the future."
+            },
+            {
+                title: "Under the Hood",
+                content: "Built with React, Vite, and Tailwind, but the real stack is the 'Context Window'. We utilized a massive token context to maintain the entire codebase in memory, allowing for holistic refactors that would usually take days to complete in minutes."
+            },
+            {
+                title: "Open Source by Default",
+                content: "The entire conversation history, the prompts, and the mistakes are public. We didn't hide the hallucinations or the bugs. This is a transparent look at the messy, beautiful reality of AI-assisted engineering."
+            }
+        ],
+        modules_id: [
+            {
+                title: "Arsiteknya adalah Agen",
+                content: "Portofolio ini tidak hanya 'dikoding'; ini dinegosiasikan. Saya berperan sebagai Senior Engineer, dan agen AI saya (Gemini & Cortex) bertindak sebagai tim implementasi. Kami melakukan pair-programming melewati logika routing yang rumit, mendebatkan token sistem desain, dan merefaktor kode lama—semuanya dalam bahasa manusia."
+            },
+            {
+                title: "Desain Rekursif",
+                content: "Situs ini sadar diri. Ia mencantumkan dirinya sendiri sebagai proyek. Menggunakan bahasa desain 'Chaos System'—efek glitch, scanlines, dan data mentah—untuk merepresentasikan 'hantu di dalam mesin'. Ini bukan sekadar pameran karya; ini pameran tentang *bagaimana* kita akan bekerja di masa depan."
+            },
+            {
+                title: "Di Balik Layar",
+                content: "Dibangun dengan React, Vite, dan Tailwind, tapi stack utamanya adalah 'Context Window'. Kami memanfaatkan konteks token masif untuk menyimpan seluruh basis kode dalam memori, memungkinkan refaktor holistik yang biasanya memakan waktu berhari-hari selesai dalam hitungan menit."
+            },
+            {
+                title: "Open Source Sejak Awal",
+                content: "Seluruh riwayat percakapan, prompt, dan kesalahannya bersifat publik. Kami tidak menyembunyikan halusinasi atau bug. Ini adalah pandangan transparan pada realitas yang berantakan namun indah dari rekayasa berbantuan AI."
+            }
+        ]
     },
     {
         id: 'interactive-workbook',
