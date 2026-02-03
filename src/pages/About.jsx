@@ -248,43 +248,53 @@ const AboutPage = () => {
         <section className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-12 mb-24 fade-in items-start">
 
           {/* Avatar Area */}
-          <div className="relative group" style={getChaosStyle()}>
-            <div className="w-full aspect-[3/4] bg-[var(--bg-card)] border border-[var(--border-color)] relative group-hover:border-[var(--accent-blue)] transition-all duration-700 overflow-hidden rounded-lg shadow-2xl">
-              {/* Treasure Hunt */}
-              <Treasure
-                id="about-photo"
-                className="top-4 right-4"
-                type="coins"
-              >
-                PIRATE'S GOLD!
-              </Treasure>
+          <div className="flex flex-col gap-6">
+            <div className="relative group" style={getChaosStyle()}>
+              <div className="w-full aspect-[3/4] bg-[var(--bg-card)] border border-[var(--border-color)] relative group-hover:border-[var(--accent-blue)] transition-all duration-700 overflow-hidden rounded-lg shadow-2xl">
+                {/* Treasure Hunt */}
+                <Treasure
+                  id="about-photo"
+                  className="top-4 right-4"
+                  type="coins"
+                >
+                  PIRATE'S GOLD!
+                </Treasure>
 
-              {/* Profile Image */}
-              <img
-                src="/about-portrait-new.jpg"
-                alt="Fadly Uzzaki"
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
-              />
+                {/* Profile Image */}
+                <img
+                  src="/about-portrait-new.jpg"
+                  alt="Fadly Uzzaki"
+                  className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
+                />
 
-              {/* Tint Overlays */}
-              <div className="absolute inset-0 bg-[var(--accent-blue)]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)]/80 via-transparent to-transparent opacity-60 z-10"></div>
+                {/* Tint Overlays */}
+                <div className="absolute inset-0 bg-[var(--accent-blue)]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)]/80 via-transparent to-transparent opacity-60 z-10"></div>
 
-              {/* Scanline Effect */}
-              <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] opacity-10 pointer-events-none z-20"></div>
+                {/* Scanline Effect */}
+                <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] opacity-10 pointer-events-none z-20"></div>
 
-              {/* Corner Glitch Marker */}
-              <div className="absolute top-2 right-2 w-8 h-8 border-t border-r border-white/20 z-30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="absolute bottom-2 left-2 w-8 h-8 border-b border-l border-white/20 z-30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                {/* Corner Glitch Marker */}
+                <div className="absolute top-2 right-2 w-8 h-8 border-t border-r border-white/20 z-30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute bottom-2 left-2 w-8 h-8 border-b border-l border-white/20 z-30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+
+              {/* Status Badge */}
+              <div className="absolute -bottom-3 -right-3 bg-[var(--bg-surface)] border border-[var(--border-color)] px-3 py-1 flex items-center gap-2 shadow-lg rounded-full">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
+                </span>
+                <span className="font-mono text-[10px] text-[var(--text-secondary)]">OPEN TO WORK</span>
+              </div>
             </div>
 
-            {/* Status Badge */}
-            <div className="absolute -bottom-3 -right-3 bg-[var(--bg-surface)] border border-[var(--border-color)] px-3 py-1 flex items-center gap-2 shadow-lg rounded-full">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
-              </span>
-              <span className="font-mono text-[10px] text-[var(--text-secondary)]">OPEN TO WORK</span>
+            {/* Download CV Button - Moved here */}
+            <div className="mt-6 flex justify-center">
+              <Link to="/cv" className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)] text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-all font-mono text-sm uppercase rounded-lg shadow-sm hover:shadow-md group">
+                <Download size={16} className="group-hover:-translate-y-0.5 transition-transform" />
+                <span>{t('about.download_cv')}</span>
+              </Link>
             </div>
           </div>
 
@@ -329,14 +339,9 @@ const AboutPage = () => {
               <ChaosSlider value={chaosStrength} onChange={setChaosStrength} />
             </div>
 
-            <div className="mt-8">
-              <Link to="/cv" className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)] text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors font-mono text-xs uppercase rounded-lg">
-                <Download size={14} />
-                {t('about.download_cv')}
-              </Link>
-            </div>
           </div>
-        </section>
+
+        </section >
 
 
         {/* SYSTEM MAINTENANCE (Habits) */}
@@ -366,10 +371,10 @@ const AboutPage = () => {
               ))}
             </div>
           </ScrollReveal>
-        </section>
+        </section >
 
         {/* UNIFIED SYSTEM RUNTIME LOG (Bio + Work) */}
-        <section className="mb-32 relative">
+        < section className="mb-32 relative" >
           <ScrollReveal>
             <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
               <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">{t('about.section_log')}</span>
@@ -438,10 +443,10 @@ const AboutPage = () => {
               </ScrollReveal>
             ))}
           </div>
-        </section>
+        </section >
 
         {/* SEMANTIC MEMORY (Interactive RAG) */}
-        <section className="mb-12">
+        < section className="mb-12" >
           <ScrollReveal>
             <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 rounded-xl shadow-lg relative overflow-hidden">
               {/* Background Decoration */}
@@ -457,15 +462,15 @@ const AboutPage = () => {
               <SemanticMemory />
             </div>
           </ScrollReveal>
-        </section>
+        </section >
 
         {/* FOOTER */}
-        <section>
+        < section >
           <Footer />
-        </section>
+        </section >
 
-      </main>
-    </div>
+      </main >
+    </div >
   );
 };
 

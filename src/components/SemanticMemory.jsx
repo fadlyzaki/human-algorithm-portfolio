@@ -70,6 +70,13 @@ const SemanticMemory = () => {
         }, 1200);
     };
 
+    const handleReset = () => {
+        setQuery('');
+        setStatus('idle');
+        setResponse('');
+        setActiveResult(null);
+    };
+
     // Streaming Effect
     useEffect(() => {
         if (status === 'streaming' && activeResult) {
@@ -141,14 +148,24 @@ const SemanticMemory = () => {
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                                 onKeyDown={(e) => e.key === 'Enter' && handleSearch(query)}
-                                className="w-full bg-[var(--bg-panel)] border border-[var(--border-panel)] rounded-full py-3 pl-12 pr-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-color)] transition-all placeholder:opacity-50"
+                                className="w-full bg-[var(--bg-panel)] border border-[var(--border-panel)] rounded-full py-3 pl-12 pr-12 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-color)] transition-all placeholder:opacity-50"
                             />
-                            <button
-                                onClick={() => handleSearch(query)}
-                                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[var(--border-panel)] rounded-full text-[var(--text-primary)] hover:bg-[var(--accent-color)] hover:text-white transition-colors"
-                            >
-                                <Command size={14} />
-                            </button>
+                            {status === 'idle' ? (
+                                <button
+                                    onClick={() => handleSearch(query)}
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[var(--border-panel)] rounded-full text-[var(--text-primary)] hover:bg-[var(--accent-color)] hover:text-white transition-colors"
+                                >
+                                    <Command size={14} />
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={handleReset}
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[var(--border-panel)] rounded-full text-[var(--text-secondary)] hover:bg-red-500 hover:text-white transition-colors"
+                                    title="Reset Search"
+                                >
+                                    <Activity size={14} className="rotate-45" />
+                                </button>
+                            )}
                         </div>
 
                         {/* SUGGESTED CHIPS */}
@@ -183,18 +200,26 @@ const SemanticMemory = () => {
 
                                 {/* METADATA FOOTER */}
                                 {status === 'done' && (
-                                    <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--border-panel)] mt-4">
-                                        <div className="flex items-center gap-2 text-xs text-[var(--accent-color)] bg-[var(--accent-color)]/10 px-2 py-1 rounded">
-                                            <Activity size={12} />
-                                            Context Score: {(activeResult?.confidence * 100).toFixed(1)}%
+                                    <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[var(--border-panel)] mt-4">
+                                        <div className="flex items-center gap-4">
+                                            <div className="flex items-center gap-2 text-xs text-[var(--accent-color)] bg-[var(--accent-color)]/10 px-2 py-1 rounded">
+                                                <Activity size={12} />
+                                                Context Score: {(activeResult?.confidence * 100).toFixed(1)}%
+                                            </div>
+                                            <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
+                                                <FileText size={12} />
+                                                Sources:
+                                                {activeResult?.sources.map(s => (
+                                                    <span key={s} className="underline decoration-dotted hover:text-[var(--text-primary)] cursor-help" title="Mock source reference">{s}</span>
+                                                ))}
+                                            </div>
                                         </div>
-                                        <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
-                                            <FileText size={12} />
-                                            Sources:
-                                            {activeResult?.sources.map(s => (
-                                                <span key={s} className="underline decoration-dotted hover:text-[var(--text-primary)] cursor-help" title="Mock source reference">{s}</span>
-                                            ))}
-                                        </div>
+                                        <button
+                                            onClick={handleReset}
+                                            className="text-xs text-[var(--text-primary)] hover:text-[var(--accent-color)] underline decoration-dotted transition-colors"
+                                        >
+                                            Back to Topics
+                                        </button>
                                     </div>
                                 )}
                             </div>

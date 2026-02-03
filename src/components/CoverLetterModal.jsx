@@ -13,7 +13,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+                        className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
                     />
 
                     {/* Modal */}
@@ -22,7 +22,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         transition={{ type: "spring", duration: 0.5 }}
-                        className="fixed z-50 w-full max-w-2xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-gray-800 shadow-2xl rounded-sm overflow-hidden"
+                        className="fixed z-[100] w-full max-w-2xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-gray-800 shadow-2xl rounded-sm overflow-hidden"
                     >
                         {/* Header */}
                         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
