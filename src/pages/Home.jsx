@@ -556,15 +556,15 @@ const Portfolio = () => {
 
               {/* Call to Action Block */}
               <ScrollReveal delay={300} className="flex flex-col justify-center items-start border-l border-[var(--border-color)] pl-12">
-                <div className="mb-8 p-6 bg-[var(--bg-card)] border border-[var(--border-color)] shadow-sm rotate-1 rounded-lg">
-                  <Archive size={32} className="text-[var(--text-primary)] mb-4" />
-                  <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2">{t('home.archive_title')}</h3>
+                <Link to="/side-projects" className="group block mb-8 p-6 bg-[var(--bg-card)] border border-[var(--border-color)] shadow-sm rotate-1 rounded-lg hover:border-[var(--accent-blue)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer hover:rotate-0">
+                  <div className="flex justify-between items-start">
+                    <Archive size={32} className="text-[var(--text-primary)] mb-4 group-hover:text-[var(--accent-blue)] transition-colors" />
+                    <ArrowRight size={20} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                  </div>
+                  <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-blue)] transition-colors">{t('home.archive_title')}</h3>
                   <p className="text-[var(--text-secondary)] text-sm max-w-xs font-light">
                     {t('home.archive_desc')}
                   </p>
-                </div>
-                <Link to="/side-projects" className="group flex items-center gap-3 px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-xs uppercase tracking-widest hover:bg-[var(--accent-blue)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 rounded-lg">
-                  {t('home.open_archive')} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </ScrollReveal>
             </div>
