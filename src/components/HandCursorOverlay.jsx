@@ -117,9 +117,14 @@ const HandCursorOverlay = () => {
             } catch (error) {
                 clearTimeout(loadingTimeoutRef.current);
                 console.error('Hand tracker creation error:', error);
-                setLoadError('Hand tracking unavailable. Using regular cursor.');
-                setIsModelLoading(false);
-                setShowFallbackNotice(true);
+
+                // Async update to avoid lint warning
+                setTimeout(() => {
+                    setLoadError('Hand tracking unavailable. Using regular cursor.');
+                    setIsModelLoading(false);
+                    setShowFallbackNotice(true);
+                }, 0);
+
                 setTimeout(() => {
                     setShowFallbackNotice(false);
                     setIsGestureMode(false);

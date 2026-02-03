@@ -687,6 +687,23 @@ export const WORK_CLUSTERS = [
                 tag_id: 'Manajemen',
                 caseStudy: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Moving Cards, Not Cells",
+                            text: "Big spreadsheets are hard to read. I made a board where you can drag and drop candidates like cards, so it's easy to see who is hired and who needs a follow-up."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Workflow Optimization",
+                            text: "Redesigned the internal ATS to replace Excel-based tracking. Introduced a Kanban-style pipeline that improved data accuracy by 99% and achieved 100% adoption among the HR team."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "Centralized Data View",
+                            text: "Replaced fragmented data sources with a centralized dashboard. Optimized information density for high-volume scanning and implemented bulk actions to reduce click-fatigue."
+                        }
+                    },
                     snapshot: {
                         tagline: "Replacing the 'Excel Comfort Blanket' with something better.",
                         heroImage: "/workforce_hero.png"
@@ -724,6 +741,23 @@ export const WORK_CLUSTERS = [
                 },
                 caseStudy_id: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Geser Kartu, Bukan Sel",
+                            text: "Spreadsheet raksasa itu susah dibaca. Saya bikin papan di mana HR bisa geser kandidat kayak kartu, jadi gampang lihat siapa yang udah direkrut."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Optimasi Alur Kerja",
+                            text: "Merancang ulang ATS internal untuk menggantikan tracking berbasis Excel. Memperkenalkan pipeline gaya Kanban yang meningkatkan akurasi data hingga 99% dan mencapai adopsi 100%."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "Sentralisasi Data",
+                            text: "Mengganti sumber data yang terfragmentasi dengan dashboard terpusat. Mengoptimalkan kepadatan informasi untuk scanning cepat dan mengimplementasikan aksi massal."
+                        }
+                    },
                     snapshot: {
                         tagline: "Ganti 'Selimut Nyaman' Excel dengan sesuatu yang lebih baik, tanpa bikin kaget.",
                         heroImage: "/workforce_hero.png"
@@ -784,6 +818,23 @@ export const WORK_CLUSTERS = [
                 tag_id: 'Akses Langsung',
                 caseStudy: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Applying by Voice",
+                            text: "Filling out forms on a phone is annoying. I changed it so you can just send a voice note to apply for a job. It's as easy as saying 'Hello'."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Removing Friction",
+                            text: "Addressed high drop-off rates by replacing long forms with a chat-first application flow. This reduced friction significantly and increased application completion rates by 60%."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "Audio-First Interface",
+                            text: "Implemented an audio-first interface utilizing native media capabilities. Focused on reducing input latency and creating a conversational conversational UI pattern to replace static forms."
+                        }
+                    },
                     snapshot: {
                         tagline: "What if applying for a job was as easy as saying 'Hi'?",
                         heroImage: "/workforce_hero.png"
@@ -821,6 +872,23 @@ export const WORK_CLUSTERS = [
                 },
                 caseStudy_id: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Melamar Pakai Suara",
+                            text: "Isi formulir di HP itu ribet. Saya ubah jadi cukup kirim voice note buat melamar kerja. Segampang bilang 'Halo'."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Menghapus Hambatan",
+                            text: "Mengatasi drop-off tinggi dengan mengganti formulir panjang jadi alur berbasis chat. Ini mengurangi friksi dan menaikkan tingkat penyelesaian lamaran sebesar 60%."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "Antarmuka Audio-First",
+                            text: "Mengimplementasikan antarmuka audio-first menggunakan kapabilitas media native. Fokus pada pengurangan latensi input dan membuat pola UI percakapan."
+                        }
+                    },
                     snapshot: {
                         tagline: "Gimana kalau ngelamar kerja itu segampang bilang 'Halo'?",
                         heroImage: "/workforce_hero.png"
@@ -881,6 +949,23 @@ export const WORK_CLUSTERS = [
                 tag_id: 'UX Inti',
                 caseStudy: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "No More Getting Lost",
+                            text: "The app was like a maze. I knocked down the walls so you can find a job in just two clicks. I made everything use pictures instead of confusing words."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Navigation Redesign",
+                            text: "Revamped core navigation based on card-sorting research. Flattened the hierarchy from 4 levels to 2, improving Day-1 retention by 15%."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "Shallow Routing",
+                            text: "Restructured the routing architecture to be shallow and icon-driven. Removed deep nesting to align with the 'visual-first' mental model of the user base."
+                        }
+                    },
                     snapshot: {
                         tagline: "Helping users find their way without a map.",
                         heroImage: "/workforce_hero.png"
@@ -918,6 +1003,23 @@ export const WORK_CLUSTERS = [
                 },
                 caseStudy_id: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Gak Nyasar Lagi",
+                            text: "Aplikasinya kayak labirin. Saya rubuhkan temboknya jadi kamu bisa nemu kerjaan cuma dalam 2 klik. Saya ganti kata-kata rumit dengan gambar."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Redesain Navigasi",
+                            text: "Merombak navigasi inti berdasarkan riset card-sorting. Mendatarkan hirarki dari 4 level jadi 2, meningkatkan retensi Hari-1 sebesar 15%."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "Routing Dangkal",
+                            text: "Merenstrukturisasi arsitektur routing jadi dangkal dan berbasis ikon. Menghapus nesting dalam untuk menyesuaikan dengan mental model 'visual-first' pengguna."
+                        }
+                    },
                     snapshot: {
                         tagline: "Bantu user temukan jalan tanpa peta.",
                         heroImage: "/workforce_hero.png"
@@ -1014,6 +1116,23 @@ export const WORK_CLUSTERS = [
                 tag_id: 'Transaksi',
                 caseStudy: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Safe Shopping",
+                            text: "Buying stuff for a shop was too scary. I made it simple like buying a pizza, and promised money back if things go wrong, so shop owners feel safe."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Trust Engineering",
+                            text: "Simplified a complex B2B checkout from 7 steps to 3. Added trust signals like an escrow badge, reducing cart abandonment by 12%."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "Checkout State Machine",
+                            text: "Refactored the checkout flow to be less rigid. Integrated real-time validation and localized error handling to prevent user frustration during high-value transactions."
+                        }
+                    },
                     snapshot: {
                         tagline: "7 steps to buy a box of noodles? We had to fix the trust gap.",
                         heroImage: "/commerce_hero.png"
@@ -1051,6 +1170,23 @@ export const WORK_CLUSTERS = [
                 },
                 caseStudy_id: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Belanja Aman",
+                            text: "Belanja stok toko itu nyeremin. Saya bikin simpel kayak beli pizza, dan janji uang kembali kalau ada masalah, biar pemilik warung tenang."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Rekayasa Kepercayaan",
+                            text: "Menyederhanakan checkout B2B kompleks dari 7 langkah jadi 3. Menambah sinyal kepercayaan seperti badge escrow, mengurangi cart abandonment 12%."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "State Machine Checkout",
+                            text: "Merefaktor alur checkout agar tidak kaku. Integrasi validasi real-time dan penanganan error yang terlokalisasi untuk mencegah frustrasi saat transaksi nilai tinggi."
+                        }
+                    },
                     snapshot: {
                         tagline: "7 langkah buat beli semardus mie? Kami harus perbaiki gap kepercayaan.",
                         heroImage: "/commerce_hero.png"
@@ -1103,6 +1239,23 @@ export const WORK_CLUSTERS = [
                 tag_id: 'Branding',
                 caseStudy: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Digital Shop Window",
+                            text: "Big brands wanted their own fancy space. I built a tool so they can decorate their own little shops inside our app, just like they do in a real mall."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "B2B Branding",
+                            text: "Created a 'Shop-in-Shop' CMS for major FMCG partners. Allowed brands to manage their own assets, resulting in 50+ onboarded partners."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "Modular CMS",
+                            text: "Built a modular CMS with JSON-schema based templates. Enabled dynamic rendering of brand assets while maintaining platform performance guardrails."
+                        }
+                    },
                     snapshot: {
                         tagline: "Giving Unilever and P&G their own real estate in a chaotic marketplace.",
                         heroImage: "/commerce_hero.png"
@@ -1140,6 +1293,23 @@ export const WORK_CLUSTERS = [
                 },
                 caseStudy_id: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Etalase Digital",
+                            text: "Brand besar mau tempat mewah. Saya bikin alat biar mereka bisa hias toko kecil mereka sendiri di dalam aplikasi kami, persis kayak di mall beneran."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Branding B2B",
+                            text: "Membuat CMS 'Shop-in-Shop' untuk mitra FMCG besar. Memungkinkan brand mengelola aset mereka sendiri, menghasilkan 50+ mitra onboard."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "CMS Modular",
+                            text: "Membangun CMS modular dengan template berbasis skema JSON. Memungkinkan rendering dinamis aset brand sambil menjaga performa platform."
+                        }
+                    },
                     snapshot: {
                         tagline: "Memberi Unilever dan P&G 'lahan real estate' di pasar yang chaotic.",
                         heroImage: "/commerce_hero.png"
@@ -1192,6 +1362,23 @@ export const WORK_CLUSTERS = [
                 tag_id: 'Pemasaran',
                 caseStudy: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "No More Bad Math",
+                            text: "Giving discounts is hard math. I built a calculator that stops you from accidentally giving away too much money or stacking coupons that shouldn't be together."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Operational Safeguards",
+                            text: "Designed a conflict-free promotion engine for internal teams. Eliminated pricing errors and increased promo utilization by 25%."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "Dependency Logic",
+                            text: "Mapped complex dependency trees to a visual UI. Implemented a logic layer that prevents overlapping rules, ensuring data integrity for pricing."
+                        }
+                    },
                     snapshot: {
                         tagline: "Turning a math headache into a 1-click discount engine.",
                         heroImage: "/commerce_hero.png"
@@ -1229,6 +1416,23 @@ export const WORK_CLUSTERS = [
                 },
                 caseStudy_id: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Anti Salah Hitung",
+                            text: "Ngasih diskon itu itungan susah. Saya bikin kalkulator yang nyegah kamu sedekah kebanyakan atau numpuk kupon yang gak seharusnya bareng."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Pengaman Operasional",
+                            text: "Mendesain mesin promo anti-konflik untuk tim internal. Menghilangkan error harga dan menaikkan penggunaan promo sebesar 25%."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "Logika Dependensi",
+                            text: "Memetakan pohon dependensi kompleks ke UI visual. Implementasi layer logika yang mencegah aturan tumpang tindih, menjaga integritas harga."
+                        }
+                    },
                     snapshot: {
                         tagline: "Mengubah sakit kepala matematika jadi mesin diskon 1-klik.",
                         heroImage: "/commerce_hero.png"
@@ -1281,6 +1485,23 @@ export const WORK_CLUSTERS = [
                 tag_id: 'Arsitektur',
                 caseStudy: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Button Rulebook",
+                            text: "We had too many different buttons. I made a rulebook so all buttons look the same and work perfectly, anywhere in the app."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Scalable Design System",
+                            text: "Established a comprehensive Design System to unify UI across products. Accelerated developer velocity by 30% and reduced technical debt."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "Tokenized UI Library",
+                            text: "Created a React component library synced with Figma tokens. Enforced atomic design principles to ensure consistency and maintainability across the codebase."
+                        }
+                    },
                     snapshot: {
                         tagline: "Ending the '50 Shades of Grey' button chaos.",
                         heroImage: "/commerce_hero.png"
@@ -1318,6 +1539,23 @@ export const WORK_CLUSTERS = [
                 },
                 caseStudy_id: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Buku Aturan Tombol",
+                            text: "Tombol kita kebanyakan gaya. Saya bikin buku aturan biar semua tombol kelihatannya sama dan kerjanya bener, di mana aja."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Design System Berskala",
+                            text: "Membangun Design System komprehensif untuk menyatukan UI. Mempercepat kerja developer 30% dan mengurangi hutang teknis."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "Library UI Ter-tokenisasi",
+                            text: "Membuat library komponen React yang sinkron dengan token Figma. Menegakkan prinsip desain atomik untuk konsistensi dan kemudahan maintenance."
+                        }
+                    },
                     snapshot: {
                         tagline: "Mengakhiri kekacauan tombol '50 Shades of Grey'.",
                         heroImage: "/commerce_hero.png"
@@ -1416,6 +1654,23 @@ export const WORK_CLUSTERS = [
                 tag_id: 'Logistik',
                 caseStudy: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Where's My Truck?",
+                            text: "Waiting for a truck in the dark is scary. I made an app that tells you exactly where the truck is, so you can stop worrying and go to sleep."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Service Reliability",
+                            text: "Solved a critical anxiety point by implementing real-time logistics tracking. Reduced support tickets by 60% and increased customer reliance."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "Telemetry & Push",
+                            text: "Integrated GPS telemetry for real-time status updates. Designed a push-notification system to proactively inform users, reducing server polling."
+                        }
+                    },
                     snapshot: {
                         tagline: "Solving the 'Where is my truck?' anxiety loop.",
                         heroImage: null
@@ -1460,6 +1715,23 @@ export const WORK_CLUSTERS = [
                 },
                 caseStudy_id: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Truk Saya Dimana?",
+                            text: "Nunggu truk pas gelap itu nyeremin. Saya bikin aplikasi yang kasih tau posisi truk, jadi kamu bisa tenang dan tidur."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Keandalan Layanan",
+                            text: "Menyelesaikan masalah kecemasan kritis dengan pelacakan logistik real-time. Mengurangi tiket support 60% dan menaikkan kepercayaan."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "Telemetri & Push",
+                            text: "Integrasi telemetri GPS untuk update status real-time. Mendesain sistem push-notification untuk info proaktif, mengurangi polling server."
+                        }
+                    },
                     snapshot: {
                         tagline: "Mengakhiri siklus cemas 'Truk saya di mana?'",
                         heroImage: null
@@ -1519,6 +1791,23 @@ export const WORK_CLUSTERS = [
                 tag_id: 'Gamifikasi',
                 caseStudy: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Work as a Game",
+                            text: "Sales work is boring. I turned it into a game with flames and high scores, so it feels fun to try harder."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Behavior Modification",
+                            text: "Gamified the sales agent experience to boost motivation. Introduced streaks and leaderboards, increasing Daily Active Users (DAU) by 40%."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "Gamification Engine",
+                            text: "Implemented gamification mechanics (streaks, badges) within the sales app. Used local storage and backend sync to maintain real-time engagement data."
+                        }
+                    },
                     snapshot: {
                         tagline: "Using video game mechanics to drive real-world sales.",
                         heroImage: "/efficiency_hero.png"
@@ -1556,6 +1845,23 @@ export const WORK_CLUSTERS = [
                 },
                 caseStudy_id: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Kerja Rasa Main",
+                            text: "Kerja sales itu bosenin. Saya ubah jadi game dengan api dan skor tinggi, jadi rasanya seru buat kerja lebih keras."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Modifikasi Perilaku",
+                            text: "Meng-gamifikasi pengalaman agen sales untuk dongkrak motivasi. Memperkenalkan streak dan leaderboard, menaikkan DAU sebesar 40%."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "Mesin Gamifikasi",
+                            text: "Implementasi mekanika game (streak, badges) di aplikasi sales. Menggunakan local storage dan sync backend untuk data engagement real-time."
+                        }
+                    },
                     snapshot: {
                         tagline: "Pakai mekanika video game buat genjot penjualan nyata.",
                         heroImage: "/efficiency_hero.png"
