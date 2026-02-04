@@ -414,7 +414,7 @@ const Portfolio = () => {
               <SectionTitle number="1" title={t('home.section_work')} />
             </ScrollReveal>
 
-            <div className="flex flex-col gap-24">
+            <div className="flex flex-col gap-16">
               {WORK_CLUSTERS.map((cluster, idx) => (
                 <ScrollReveal key={idx} delay={idx * 150}>
                   <WorkHoloDeck cluster={cluster} />

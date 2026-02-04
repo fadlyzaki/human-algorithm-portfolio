@@ -81,14 +81,14 @@ const WorkHoloDeck = ({ cluster }) => {
                     <div className="flex justify-between items-start">
                         <div>
                             <div className="mb-4 inline-block">
-                                <div className="w-24 h-24 flex items-center justify-start">
+                                <div className="w-32 h-32 flex items-center justify-start">
                                     <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-lg" />
                                 </div>
                             </div>
                             <h2 className="text-4xl md:text-6xl font-serif italic text-white drop-shadow-lg mb-2">
                                 {isId ? (cluster.title_id || cluster.title) : cluster.title}
                             </h2>
-                            <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-relaxed drop-shadow-sm">
+                            <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-relaxed drop-shadow-sm mb-12">
                                 {isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
                             </p>
                         </div>
