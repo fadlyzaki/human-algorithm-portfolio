@@ -41,7 +41,7 @@ const WorkHoloDeck = ({ cluster }) => {
     };
 
     return (
-        <div className="perspective-1000 mb-32 last:mb-0">
+        <div className="perspective-1000 w-full">
             <div
                 ref={cardRef}
                 onMouseMove={handleMouseMove}
