@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Lock, Image as ImageIcon } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import ProjectCard from './ProjectCard';
 
 const WorkHoloDeck = ({ cluster }) => {
     const navigate = useNavigate();
@@ -50,22 +51,24 @@ const WorkHoloDeck = ({ cluster }) => {
                 className="group relative w-full aspect-[4/5] md:aspect-[21/9] rounded-2xl transition-all duration-300 transform-gpu hover:shadow-2xl cursor-pointer"
             >
                 {/* 1. KEY VISUAL LAYER (Background) */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[var(--bg-card)] border border-[var(--border-color)]">
-                    {/* Base Image with Overlay */}
+                <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#0A0A0A] border border-[var(--border-color)]">
+                    {/* Airy Diagram Background */}
                     <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-200 ease-out scale-110"
+                        className="absolute inset-0 transition-transform duration-200 ease-out scale-110 opacity-40 group-hover:opacity-60 transition-opacity"
                         style={{
-                            backgroundImage: `url(${cluster.heroImage || '/placeholder-bg.jpg'})`,
                             transform: 'translate(var(--t-x), var(--t-y)) scale(1.1)' // Moves slightly
                         }}
-                    />
-                    <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-500"></div>
+                    >
+                        <ProjectCard id={cluster.id} expanded={true} showChrome={false} backgroundOnly={true} />
+                    </div>
 
                     {/* Brand Gradient Wash */}
                     <div
-                        className="absolute inset-0 opacity-40 mix-blend-overlay transition-opacity duration-500"
+                        className="absolute inset-0 opacity-20 mix-blend-overlay transition-opacity duration-500"
                         style={{ background: `linear-gradient(135deg, ${brandColor}, transparent)` }}
                     ></div>
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 </div>
 
                 {/* 2. GLASS UI LAYER (Foreground) */}

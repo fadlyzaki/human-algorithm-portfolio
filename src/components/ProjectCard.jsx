@@ -30,22 +30,33 @@ const DotGrid = () => (
     </div>
 );
 
-const Container = ({ children, figIndex = "1.0", schematicType = "SYSTEM_ARCHITECTURE", expanded = false, showChrome = false }) => (
-    <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-4'} relative group transition-colors duration-300`}>
-        <div className={`w-full ${expanded ? 'h-full border-none' : 'max-w-sm aspect-[16/10] border border-slate-100 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]'} bg-white overflow-hidden flex flex-col group-hover:border-[var(--brand)]/20 transition-all duration-700`}>
-            {(!expanded || showChrome) && <DotGrid />}
-            <div className="flex-1 relative overflow-hidden flex flex-col">
+const Container = ({ children, figIndex = "1.0", schematicType = "SYSTEM_ARCHITECTURE", expanded = false, showChrome = false, backgroundOnly = false }) => {
+    if (backgroundOnly) {
+        return (
+            <div className="w-full h-full relative overflow-hidden">
                 {children}
-                {(!expanded || showChrome) && <FigLabel index={figIndex} type={schematicType} />}
+                {/* Optional: Add very subtle dot grid if desired, but keep it minimal */}
+                {/* <DotGrid /> */}
             </div>
+        );
+    }
+    return (
+        <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-4'} relative group transition-colors duration-300`}>
+            <div className={`w-full ${expanded ? 'h-full border-none' : 'max-w-sm aspect-[16/10] border border-slate-100 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]'} bg-white overflow-hidden flex flex-col group-hover:border-[var(--brand)]/20 transition-all duration-700`}>
+                {(!expanded || showChrome) && <DotGrid />}
+                <div className="flex-1 relative overflow-hidden flex flex-col">
+                    {children}
+                    {(!expanded || showChrome) && <FigLabel index={figIndex} type={schematicType} />}
+                </div>
+            </div>
+            {/* Ambient Base Glow (Very Subtle) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[var(--brand)] opacity-[0.02] blur-3xl -z-10 group-hover:opacity-[0.05] transition-opacity"></div>
         </div>
-        {/* Ambient Base Glow (Very Subtle) */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[var(--brand)] opacity-[0.02] blur-3xl -z-10 group-hover:opacity-[0.05] transition-opacity"></div>
-    </div>
-);
+    );
+};
 
 // IF IMAGE IS PROVIDED, RENDER IT AS A FLOATING DOCUMENT
-const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, showChrome = false }) => {
+const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, showChrome = false, backgroundOnly = false }) => {
     // const t = type.toLowerCase(); // Unused
 
     if (image) {
@@ -77,7 +88,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // 0. HUMAN ALGORITHM (Meta/Recursive)
     if (id === 'human-algorithm') {
         return (
-            <Container expanded={expanded} showChrome={showChrome} figIndex="0.0" schematicType="RECURSIVE_AGENT_LOOP">
+            <Container expanded={expanded} showChrome={showChrome} backgroundOnly={backgroundOnly} figIndex="0.0" schematicType="RECURSIVE_AGENT_LOOP">
                 <div className="w-full h-full p-8 flex items-center justify-center relative">
                     {/* Central Processing Unit */}
                     <div className="relative z-10 w-16 h-16 bg-white border border-[var(--brand)]/30 rounded-lg flex items-center justify-center shadow-lg group-hover:border-[var(--brand)] transition-colors duration-500">
@@ -112,8 +123,122 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                     </svg>
 
                     {/* Meta Label */}
-                    <div className="absolute bottom-6 px-2 py-0.5 border border-slate-100 bg-slate-50 rounded text-[6px] font-mono text-slate-400">
-                        SELF_REFERENCE
+                    {!backgroundOnly && (
+                        <div className="absolute bottom-6 px-2 py-0.5 border border-slate-100 bg-slate-50 rounded text-[6px] font-mono text-slate-400">
+                            SELF_REFERENCE
+                        </div>
+                    )}
+                </div>
+            </Container>
+        );
+    }
+
+    // --- WORK CLUSTERS (New Airy Diagrams) ---
+
+    // CLUSTER 1: WORKFORCE (Lumina)
+    if (id === 'workforce') {
+        return (
+            <Container expanded={expanded} showChrome={showChrome} backgroundOnly={backgroundOnly} figIndex="C.1" schematicType="WORKFORCE_ECOSYSTEM">
+                <div className="w-full h-full relative flex items-center justify-center opacity-80">
+                    {/* Central Node */}
+                    <div className="absolute w-20 h-20 rounded-full border border-white/20 flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.1)]">
+                        <div className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center animate-pulse">
+                            <Users size={20} className="text-white opacity-80" />
+                        </div>
+                    </div>
+
+                    {/* Orbital Rings */}
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 200">
+                        <ellipse cx="200" cy="100" rx="120" ry="60" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 8" className="text-white/20 animate-[spin_10s_linear_infinite]" />
+                        <ellipse cx="200" cy="100" rx="80" ry="40" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 4" className="text-white/20 animate-[spin_15s_linear_infinite_reverse]" />
+                    </svg>
+
+                    {/* Satellites */}
+                    <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-8">
+                        <div className="px-3 py-1 bg-white/10 backdrop-blur rounded border border-white/20 text-white text-[10px] font-mono">SEEKERS</div>
+                        <div className="w-px h-8 bg-gradient-to-b from-transparent to-white/20 mx-auto"></div>
+                    </div>
+                    <div className="absolute top-1/2 right-1/4 -translate-y-1/2 translate-x-8">
+                        <div className="px-3 py-1 bg-white/10 backdrop-blur rounded border border-white/20 text-white text-[10px] font-mono">EMPLOYERS</div>
+                        <div className="w-px h-8 bg-gradient-to-b from-transparent to-white/20 mx-auto"></div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // CLUSTER 2: COMMERCE (GudangAda)
+    if (id === 'commerce') {
+        return (
+            <Container expanded={expanded} showChrome={showChrome} backgroundOnly={backgroundOnly} figIndex="C.2" schematicType="B2B_SUPPLY_CHAIN">
+                <div className="w-full h-full relative flex items-center justify-center">
+                    {/* Grid Background */}
+                    <div className="absolute inset-0 opacity-10"
+                        style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+                    </div>
+
+                    {/* Flow Chart */}
+                    <div className="relative z-10 flex items-center gap-12 opacity-80">
+                        {/* Brand */}
+                        <div className="flex flex-col items-center gap-2">
+                            <div className="w-10 h-10 border border-white/30 rounded flex items-center justify-center bg-white/5 backdrop-blur">
+                                <div className="w-4 h-4 bg-white/40 rounded-sm"></div>
+                            </div>
+                            <span className="text-[8px] font-mono text-white/50 tracking-widest">BRAND</span>
+                        </div>
+
+                        {/* Arrow 1 */}
+                        <div className="w-16 h-px bg-gradient-to-r from-white/10 via-white/40 to-white/10"></div>
+
+                        {/* Hub */}
+                        <div className="flex flex-col items-center gap-2">
+                            <div className="w-14 h-14 border border-white/50 rounded-full flex items-center justify-center bg-white/10 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+                                <Truck size={20} className="text-white" />
+                            </div>
+                            <span className="text-[8px] font-mono text-white tracking-widest">MARKETPLACE</span>
+                        </div>
+
+                        {/* Arrow 2 */}
+                        <div className="w-16 h-px bg-gradient-to-r from-white/10 via-white/40 to-white/10"></div>
+
+                        {/* Retail */}
+                        <div className="flex flex-col items-center gap-2">
+                            <div className="w-10 h-10 border border-white/30 rounded flex items-center justify-center bg-white/5 backdrop-blur">
+                                <div className="w-4 h-4 bg-white/40 rounded-full"></div>
+                            </div>
+                            <span className="text-[8px] font-mono text-white/50 tracking-widest">SME</span>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // CLUSTER 3: EFFICIENCY (Stoqo)
+    if (id === 'efficiency') {
+        return (
+            <Container expanded={expanded} showChrome={showChrome} backgroundOnly={backgroundOnly} figIndex="C.3" schematicType="LOGISTICS_OPS">
+                <div className="w-full h-full relative" style={{ perspective: '1000px' }}>
+                    {/* 3D Plane */}
+                    <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'rotateX(60deg) scale(1.5)' }}>
+                        <div className="w-64 h-64 border border-white/10 rounded-full flex items-center justify-center animate-[spin_20s_linear_infinite]">
+                            <div className="absolute top-0 w-2 h-2 bg-white/60 rounded-full shadow-[0_0_10px_white]"></div>
+                            <div className="w-full h-px bg-white/10"></div>
+                            <div className="h-full w-px bg-white/10"></div>
+                        </div>
+                    </div>
+
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="relative">
+                            <Clock size={40} className="text-white opacity-80 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
+                            <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-400 rounded-full animate-pulse"></div>
+                        </div>
+                    </div>
+
+                    <div className="absolute bottom-10 w-full text-center">
+                        <div className="inline-block px-2 py-1 bg-black/20 backdrop-blur rounded border border-white/10 text-[8px] font-mono text-white/70">
+                            JUST-IN-TIME DELIVERY
+                        </div>
                     </div>
                 </div>
             </Container>
