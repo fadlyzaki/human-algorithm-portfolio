@@ -73,7 +73,7 @@ const WorkHoloDeck = ({ cluster }) => {
 
                 {/* 2. GLASS UI LAYER (Foreground) */}
                 <div
-                    className="relative z-10 p-8 md:p-12 flex flex-col h-full"
+                    className="relative z-10 p-8 md:p-12 flex flex-col"
                     style={{ transform: 'translate(calc(var(--t-x) * -1), calc(var(--t-y) * -1))' }} // Moves opposite to bg
                 >
 
@@ -88,7 +88,7 @@ const WorkHoloDeck = ({ cluster }) => {
                             <h2 className="text-4xl md:text-6xl font-serif italic text-white drop-shadow-lg mb-2">
                                 {isId ? (cluster.title_id || cluster.title) : cluster.title}
                             </h2>
-                            <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-relaxed drop-shadow-sm mb-4">
+                            <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-snug drop-shadow-sm mb-2">
                                 {isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
                             </p>
                         </div>
