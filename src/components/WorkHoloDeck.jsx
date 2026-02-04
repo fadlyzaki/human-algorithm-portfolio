@@ -81,8 +81,8 @@ const WorkHoloDeck = ({ cluster }) => {
                     <div className="flex justify-between items-start">
                         <div>
                             <div className="mb-8 inline-block">
-                                <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center p-2 shadow-lg group-hover:bg-white/20 transition-colors">
-                                    <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-sm" />
+                                <div className="w-20 h-20 flex items-center justify-start">
+                                    <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-lg" />
                                 </div>
                             </div>
                             <h2 className="text-4xl md:text-6xl font-serif italic text-white drop-shadow-lg mb-2">
