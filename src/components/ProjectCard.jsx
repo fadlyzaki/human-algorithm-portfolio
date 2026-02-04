@@ -42,7 +42,7 @@ const Container = ({ children, figIndex = "1.0", schematicType = "SYSTEM_ARCHITE
     }
     return (
         <div className={`w-full h-full flex items-center justify-center ${expanded ? 'p-0' : 'p-4'} relative group transition-colors duration-300`}>
-            <div className={`w-full ${expanded ? 'h-full border-none' : 'max-w-sm aspect-[16/10] border border-slate-100 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]'} bg-white overflow-hidden flex flex-col group-hover:border-[var(--brand)]/20 transition-all duration-700`}>
+            <div className={`w-full ${expanded ? 'h-full border-none' : 'max-w-sm aspect-[16/10] border border-slate-100 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]'} bg-white dark:bg-transparent overflow-hidden flex flex-col group-hover:border-[var(--brand)]/20 transition-all duration-700`}>
                 {(!expanded || showChrome) && <DotGrid />}
                 <div className="flex-1 relative overflow-hidden flex flex-col">
                     {children}
@@ -251,7 +251,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
             <Container expanded={expanded} showChrome={showChrome} figIndex="4.0" schematicType="PEDAGOGICAL_STRUCTURE">
                 <div className="w-full h-full p-10 grid grid-cols-2 gap-4">
                     {[1, 2, 3, 4].map(i => (
-                        <div key={i} className={`p-4 bg-white border ${i % 2 === 0 ? 'border-[var(--brand)]/30 shadow-md' : 'border-slate-100'} rounded-xl flex flex-col gap-3 group/item`}>
+                        <div key={i} className={`p-4 bg-white dark:bg-white/5 border ${i % 2 === 0 ? 'border-[var(--brand)]/30 shadow-md' : 'border-slate-100 dark:border-white/10'} rounded-xl flex flex-col gap-3 group/item`}>
                             <div className="flex justify-between items-center">
                                 <BookOpen size={14} className={i % 2 === 0 ? 'text-[var(--brand)]' : 'text-slate-200'} />
                                 <div className={`w-3 h-3 rounded-full ${i % 2 === 0 ? 'bg-[var(--brand)]' : 'bg-slate-100'}`}></div>
@@ -304,7 +304,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
         return (
             <Container expanded={expanded} showChrome={showChrome} figIndex="5.5" schematicType="FINANCIAL_ESCROW_WRAPPER">
                 <div className="w-full h-full p-12 flex items-center justify-center">
-                    <div className="w-full bg-white border-2 border-slate-100 rounded-2xl p-6 shadow-xl relative overflow-hidden group-hover:border-[var(--brand)]/20 transition-all">
+                    <div className="w-full bg-white dark:bg-white/5 border-2 border-slate-100 dark:border-white/10 rounded-2xl p-6 shadow-xl relative overflow-hidden group-hover:border-[var(--brand)]/20 transition-all">
                         <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/5 -mr-12 -mt-12 rounded-full"></div>
                         <div className="flex justify-between items-center mb-8">
                             <div className="flex flex-col gap-2">
@@ -448,7 +448,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                     <div className="flex justify-between items-center mb-10">
                         {[1, 2, 3, 4].map(i => (
                             <React.Fragment key={i}>
-                                <div className={`w-8 h-8 rounded-full border-2 ${i === 1 ? 'border-[var(--brand)] bg-[var(--brand)]/5' : 'border-slate-100 bg-white'} flex items-center justify-center`}>
+                                <div className={`w-8 h-8 rounded-full border-2 ${i === 1 ? 'border-[var(--brand)] bg-[var(--brand)]/5' : 'border-slate-100 dark:border-white/10 bg-white dark:bg-white/5'} flex items-center justify-center`}>
                                     <Users size={12} className={i === 1 ? 'text-[var(--brand)]' : 'text-slate-300'} />
                                 </div>
                                 {i < 4 && <div className="flex-1 h-px bg-slate-100 mx-2 border-t-2 border-dashed border-slate-100"></div>}
@@ -456,7 +456,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                         ))}
                     </div>
                     <div className="flex-1 flex gap-4 pr-12">
-                        <div className="w-full h-24 bg-white border border-slate-100 rounded-xl shadow-sm p-4 flex flex-col gap-3">
+                        <div className="w-full h-24 bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-xl shadow-sm p-4 flex flex-col gap-3">
                             <div className="mt-auto flex justify-end">
                                 <div className="h-5 w-16 bg-[var(--brand)]/10 rounded-full"></div>
                             </div>
@@ -481,7 +481,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                             {[1, 2, 3].map(i => (
                                 <div key={i} className="flex flex-col items-center gap-4">
                                     <div className="w-px h-4 bg-slate-200"></div>
-                                    <div className="w-16 h-10 border border-slate-100 bg-white rounded-lg"></div>
+                                    <div className="w-16 h-10 border border-slate-100 dark:border-white/10 bg-white dark:bg-white/5 rounded-lg"></div>
                                 </div>
                             ))}
                         </div>
@@ -498,7 +498,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                 <div className="w-full h-full p-8 flex items-center justify-center relative">
                     {/* Center Hub (Warehouse) */}
                     <div className="relative z-10">
-                        <div className="w-16 h-16 bg-white border border-[var(--brand)]/30 rounded-full flex items-center justify-center shadow-[0_0_30px_var(--brand)_inset] shadow-[var(--brand)]/5">
+                        <div className="w-16 h-16 bg-white dark:bg-white/5 border border-[var(--brand)]/30 rounded-full flex items-center justify-center shadow-[0_0_30px_var(--brand)_inset] shadow-[var(--brand)]/5">
                             <div className="w-8 h-8 bg-[var(--brand)] rounded-full flex items-center justify-center">
                                 <Truck size={14} className="text-white" />
                             </div>
@@ -562,7 +562,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
             <Container expanded={expanded} showChrome={showChrome} figIndex="10.4" schematicType="DECISION_TREE_LOGIC">
                 <div className="w-full h-full p-8 flex flex-col items-center justify-start pt-12">
                     {/* Root Node */}
-                    <div className="w-24 h-8 border border-slate-200 bg-white rounded flex items-center justify-center text-[8px] font-mono text-slate-400 mb-2">
+                    <div className="w-24 h-8 border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 rounded flex items-center justify-center text-[8px] font-mono text-slate-400 mb-2">
                         CART_TOTAL &gt; 50k
                     </div>
                     <div className="h-4 w-px bg-slate-300"></div>
@@ -605,7 +605,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
             <Container expanded={expanded} showChrome={showChrome} figIndex="9.1" schematicType="ATOMIC_COMPONENT_LIBRARY">
                 <div className="w-full h-full p-12 flex items-center justify-center">
                     <div className="grid grid-cols-2 gap-4 w-full max-w-[200px]">
-                        <div className="p-3 border border-slate-100 rounded-lg flex flex-col gap-2 bg-white shadow-sm">
+                        <div className="p-3 border border-slate-100 dark:border-white/10 rounded-lg flex flex-col gap-2 bg-white dark:bg-white/5 shadow-sm">
                             <span className="text-[6px] font-mono text-slate-300 uppercase">ATOM_BTN</span>
                             <div className="h-6 w-full rounded bg-[var(--brand)] flex items-center justify-center"></div>
                         </div>
@@ -658,7 +658,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
         return (
             <Container expanded={expanded} showChrome={showChrome} figIndex="3.0" schematicType="OPTICAL_CHAR_RECOGNITION">
                 <div className="w-full h-full p-10 flex flex-col items-center justify-center">
-                    <div className="relative w-24 h-32 bg-white border border-slate-200 shadow-sm flex flex-col p-2 gap-2">
+                    <div className="relative w-24 h-32 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm flex flex-col p-2 gap-2">
                         {/* Document Lines */}
                         <div className="w-full h-1 bg-slate-100 mb-1"></div>
                         <div className="w-2/3 h-1 bg-slate-100 mb-4"></div>
@@ -686,7 +686,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                 <div className="w-full h-full p-12 flex items-center justify-center relative">
                     {/* City A (Origin) */}
                     <div className="absolute left-8 bottom-8 flex flex-col items-center gap-2">
-                        <div className="w-8 h-8 rounded-full border border-slate-200 bg-white flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 flex items-center justify-center">
                             <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
                         </div>
                         <span className="text-[6px] font-mono text-slate-300">ORIGIN</span>
@@ -707,7 +707,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                     </svg>
 
                     {/* Traveling Gift */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 py-1 border border-[var(--brand)] rounded-full shadow-sm text-[8px] text-[var(--brand)] font-mono flex items-center gap-1">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-white/10 px-2 py-1 border border-[var(--brand)] rounded-full shadow-sm text-[8px] text-[var(--brand)] font-mono flex items-center gap-1">
                         <Truck size={8} /> SENDING_LOVE
                     </div>
                 </div>
