@@ -51,10 +51,10 @@ const WorkHoloDeck = ({ cluster }) => {
                 className="group relative w-full rounded-2xl transition-all duration-300 transform-gpu hover:shadow-2xl cursor-pointer"
             >
                 {/* 1. KEY VISUAL LAYER (Background) */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden bg-black dark:bg-white border border-[var(--border-color)] dark:border-black/5">
+                <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#0A0A0A] border border-[var(--border-color)]">
                     {/* Airy Diagram Background */}
                     <div
-                        className="absolute inset-0 transition-transform duration-200 ease-out scale-110 opacity-60 group-hover:opacity-80 transition-opacity invert hue-rotate-180"
+                        className="absolute inset-0 transition-transform duration-200 ease-out scale-110 opacity-60 group-hover:opacity-80 transition-opacity"
                         style={{
                             transform: 'translate(var(--t-x), var(--t-y)) scale(1.1)' // Moves slightly
                         }}
@@ -68,7 +68,7 @@ const WorkHoloDeck = ({ cluster }) => {
                         style={{ background: `linear-gradient(135deg, ${brandColor}, transparent)` }}
                     ></div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent dark:opacity-0"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 </div>
 
                 {/* 2. GLASS UI LAYER (Foreground) */}
@@ -84,10 +84,10 @@ const WorkHoloDeck = ({ cluster }) => {
                         </div>
 
                         <div className="space-y-4">
-                            <h2 className="text-3xl md:text-6xl font-serif italic text-white dark:text-black drop-shadow-lg leading-none whitespace-nowrap tracking-tighter">
+                            <h2 className="text-3xl md:text-6xl font-serif italic text-white drop-shadow-lg leading-none whitespace-nowrap tracking-tighter">
                                 {isId ? (cluster.title_id || cluster.title) : cluster.title}
                             </h2>
-                            <p className="text-white/80 dark:text-black/70 max-w-xl text-lg md:text-xl font-light leading-snug drop-shadow-sm">
+                            <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-snug drop-shadow-sm">
                                 {isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
                             </p>
                         </div>
@@ -104,25 +104,25 @@ const WorkHoloDeck = ({ cluster }) => {
                                         e.stopPropagation();
                                         navigate(project.route);
                                     }}
-                                    className="w-full p-4 rounded-xl bg-black/40 dark:bg-slate-100 backdrop-blur-md border border-white/10 dark:border-black/5 hover:bg-black/60 dark:hover:bg-slate-200 transition-colors group/card cursor-pointer"
+                                    className="w-full p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 transition-colors group/card cursor-pointer"
                                 >
-                                    <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-black/20 dark:bg-white">
+                                    <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-black/20">
                                         {/* Airy Diagram Preview */}
-                                        <div className="absolute inset-0 opacity-80 hover:opacity-100 transition-opacity invert hue-rotate-180">
+                                        <div className="absolute inset-0 opacity-80 hover:opacity-100 transition-opacity">
                                             <ProjectCard id={project.id} expanded={true} showChrome={false} backgroundOnly={true} />
                                         </div>
 
                                         {/* Lock Icon Overlay */}
                                         {project.caseStudy?.locked && (
-                                            <div className="absolute top-2 right-2 p-1 bg-black/50 dark:bg-white/50 rounded-full z-10">
-                                                <Lock size={10} className="text-white/70 dark:text-black/70" />
+                                            <div className="absolute top-2 right-2 p-1 bg-black/50 rounded-full z-10">
+                                                <Lock size={10} className="text-white/70" />
                                             </div>
                                         )}
                                     </div>
-                                    <h4 className="text-white dark:text-black font-bold text-sm mb-1 truncate">
+                                    <h4 className="text-white font-bold text-sm mb-1 truncate">
                                         {isId ? (project.title_id || project.title) : project.title}
                                     </h4>
-                                    <p className="text-white/50 dark:text-black/50 text-xs truncate">
+                                    <p className="text-white/50 text-xs truncate">
                                         {isId ? project.tag_id : project.tag}
                                     </p>
                                 </div>

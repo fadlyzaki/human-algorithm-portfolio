@@ -443,19 +443,19 @@ const Portfolio = () => {
                 {homeSideProjects.map((item, i) => (
                   <ScrollReveal key={i} delay={i * 100}>
                     <div
-                      className="group relative bg-black dark:bg-white border border-[var(--border-color)] dark:border-black/5 hover:border-[var(--accent-blue)]/50 transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-2xl overflow-hidden rounded-xl text-white dark:text-black"
+                      className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 transition-all duration-500 cursor-pointer hover:-translate-y-1 hover:shadow-2xl overflow-hidden rounded-xl"
                       onClick={() => navigate(`/side-project/${item.id}`)}
                     >
                       {/* Technical Illustration Container (Replaces Banner Image) */}
-                      <div className="aspect-[21/9] overflow-hidden relative bg-white/5 dark:bg-black/5 border-b border-white/10 dark:border-black/5">
-                        <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 invert hue-rotate-180">
+                      <div className="aspect-[21/9] overflow-hidden relative bg-[var(--bg-surface)] border-b border-[var(--border-color)]">
+                        <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
                           <ProjectCard type={item.type || 'Web'} expanded={true} id={item.id} />
                         </div>
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
 
                         {/* Status Badge */}
                         <div className="absolute top-4 left-4 flex items-center gap-2">
-                          <span className="font-mono text-[10px] text-white/70 dark:text-black/60 border border-white/10 dark:border-black/10 px-2 py-0.5 rounded-full bg-white/10 dark:bg-white/80 backdrop-blur-md uppercase tracking-wider">
+                          <span className="font-mono text-[10px] text-[var(--text-secondary)] border border-[var(--border-color)] px-2 py-0.5 rounded-full bg-[var(--bg-card)]/80 backdrop-blur-md uppercase tracking-wider">
                             EXP_0{i + 1}
                           </span>
                         </div>
@@ -465,20 +465,20 @@ const Portfolio = () => {
                         <div className="flex justify-between items-start mb-4">
                           <div className="flex items-center gap-3">
                             <IconMapper iconName={item.iconName} size={18} className="text-[var(--accent-blue)]" />
-                            <h3 className="text-2xl font-serif italic text-white dark:text-black group-hover:text-[var(--accent-blue)] transition-colors">
+                            <h3 className="text-2xl font-serif italic text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
                               {isId ? (item.title_id || item.title) : item.title}
                             </h3>
                           </div>
                           <ArrowUpRight size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
                         </div>
 
-                        <p className="text-white/70 dark:text-black/70 font-light leading-relaxed mb-6 text-sm line-clamp-2">
+                        <p className="text-[var(--text-secondary)] font-light leading-relaxed mb-6 text-sm line-clamp-2">
                           {isId ? (item.desc_id || item.desc) : item.desc}
                         </p>
 
                         <div className="flex gap-2 flex-wrap">
                           {item.stack.map((tech, tIdx) => (
-                            <span key={tIdx} className="text-[9px] font-mono border border-white/10 dark:border-black/10 px-2 py-0.5 rounded-md text-white/50 dark:text-black/60 uppercase tracking-wider bg-white/5 dark:bg-black/5">
+                            <span key={tIdx} className="text-[9px] font-mono border border-[var(--border-color)] px-2 py-0.5 rounded-md text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)]/50">
                               {tech}
                             </span>
                           ))}
