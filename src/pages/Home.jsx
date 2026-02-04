@@ -16,6 +16,7 @@ import Treasure from '../components/Treasure';
 import DraggablePhoto from '../components/DraggablePhoto';
 import ProjectCard from '../components/ProjectCard';
 import ScrollReveal from '../components/ScrollReveal';
+import WorkHoloDeck from '../components/WorkHoloDeck';
 import { useTheme } from '../context/ThemeContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import { useLanguage } from '../context/LanguageContext';
@@ -57,92 +58,7 @@ const SectionTitle = ({ number, title, id, link, linkText }) => (
   </div>
 );
 
-const WorkClusterCard = ({ cluster }) => {
-  const navigate = useNavigate();
-  const { language } = useLanguage();
-  const isId = language === 'id';
-
-  // Top 3 Projects Teaser
-  const topProjects = cluster.projects.slice(0, 3);
-
-  // Dynamic Brand Style
-  const brandStyle = {
-    '--brand': cluster.brandColor || 'var(--accent-blue)'
-  };
-
-  return (
-    <div
-      style={brandStyle}
-      className="group relative border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--brand)] transition-all duration-300 cursor-pointer overflow-hidden hover:-translate-y-1 hover:shadow-2xl rounded-lg"
-      onClick={() => navigate(`/work/${cluster.id}`)}
-    >
-      {/* Dynamic Background Hover Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--brand)] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"></div>
-
-
-
-      <div className="p-6 md:p-10 relative z-10">
-        <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-6 md:gap-8 mb-6 md:mb-10">
-          <div className="max-w-md w-full">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif italic text-[var(--text-primary)] mb-3 group-hover:text-[var(--brand)] transition-colors leading-tight">
-              {isId ? (cluster.title_id || cluster.title) : cluster.title}
-            </h3>
-            <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[var(--brand)]"></span>
-              {isId ? (cluster.subtitle_id || cluster.subtitle) : cluster.subtitle}
-            </p>
-          </div>
-
-          {/* Logo / Hero Image */}
-          {cluster.logo ? (
-            <div className="h-10 md:h-16 w-full md:w-auto shrink-0 flex items-center justify-start md:justify-end mb-2 md:mb-0">
-              <img
-                src={cluster.logo}
-                alt={cluster.title}
-                className="h-full w-auto object-contain"
-              />
-            </div>
-          ) : (
-            <div className="w-16 h-16 md:w-24 md:h-24 shrink-0 rounded-lg overflow-hidden border border-[var(--border-color)] shadow-sm group-hover:shadow-md transition-all duration-300 bg-[var(--bg-surface)] mb-2 md:mb-0">
-              <ProjectCard type={cluster.subtitle || 'System'} expanded={true} id={cluster.id} />
-            </div>
-          )}
-        </div>
-
-        <p className="text-[var(--text-primary)] text-lg font-light max-w-2xl mb-10 leading-relaxed border-l-2 border-[var(--border-color)] pl-6 group-hover:border-[var(--brand)] transition-colors">
-          {isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
-        </p>
-
-        {/* Project List Teaser */}
-        <div className="bg-[var(--bg-surface)]/50 border border-[var(--border-color)] rounded-lg p-6 backdrop-blur-sm group-hover:border-[var(--brand)]/30 transition-colors">
-          <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4 opacity-70">Selected Works</div>
-          <div className="space-y-4">
-            {topProjects.map((p, i) => (
-              <div key={i} className="flex items-center justify-between text-sm group/item border-b border-[var(--border-color)] last:border-0 pb-3 last:pb-0 border-dashed">
-                <div className="flex items-center gap-3">
-                  <IconMapper iconName={p.iconName} size={14} className="text-[var(--text-secondary)] group-hover/item:text-[var(--brand)] transition-colors" />
-                  <span className="text-[var(--text-primary)] font-medium group-hover/item:text-[var(--text-primary)]">
-                    {isId ? (p.title_id || p.title) : p.title}
-                  </span>
-                </div>
-                <span className="font-mono text-[10px] text-[var(--text-secondary)] bg-[var(--bg-tag)] px-2 py-1 rounded">
-                  {p.type}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {cluster.projects.length > 3 && (
-            <div className="mt-4 pt-3 border-t border-[var(--border-color)] flex items-center gap-2 text-[10px] font-mono text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors">
-              <LayoutGrid size={12} />
-              + {cluster.projects.length - 3} more modules inside
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
+// WorkClusterCard has been replaced by WorkBento in separate file
 
 // --- NAVIGATION COMPONENTS ---
 const NavigationMenu = ({ isOpen, onClose }) => {
@@ -485,10 +401,32 @@ const Portfolio = () => {
             </ScrollReveal>
           </section>
 
-          {/* SECTION 1: SIDE PROJECTS */}
+          {/* SECTION 1: WORK */}
+          <section id="work" className="mb-40 scroll-mt-24 relative">
+            <Treasure
+              id="home-work"
+              className="top-0 left-0"
+              type="crown"
+            >
+              ROYAL TREASURE!
+            </Treasure>
+            <ScrollReveal>
+              <SectionTitle number="1" title={t('home.section_work')} />
+            </ScrollReveal>
+
+            <div className="space-y-32">
+              {WORK_CLUSTERS.map((cluster, idx) => (
+                <ScrollReveal key={idx} delay={idx * 150}>
+                  <WorkHoloDeck cluster={cluster} />
+                </ScrollReveal>
+              ))}
+            </div>
+          </section>
+
+          {/* SECTION 2: SIDE PROJECTS */}
           <section id="side-projects" className="mb-40 scroll-mt-24">
             <ScrollReveal>
-              <SectionTitle number="1" title={t('home.section_side_projects')} link="/side-projects" linkText={t('home.view_experiments')} />
+              <SectionTitle number="2" title={t('home.section_side_projects')} link="/side-projects" linkText={t('home.view_experiments')} />
             </ScrollReveal>
 
             {/* Creative Description */}
@@ -570,27 +508,7 @@ const Portfolio = () => {
             </div>
           </section>
 
-          {/* SECTION 2: WORK */}
-          <section id="work" className="mb-40 scroll-mt-24 relative">
-            <Treasure
-              id="home-work"
-              className="top-0 left-0"
-              type="crown"
-            >
-              ROYAL TREASURE!
-            </Treasure>
-            <ScrollReveal>
-              <SectionTitle number="2" title={t('home.section_work')} />
-            </ScrollReveal>
 
-            <div className="space-y-16">
-              {WORK_CLUSTERS.map((cluster, idx) => (
-                <ScrollReveal key={idx} delay={idx * 150}>
-                  <WorkClusterCard cluster={cluster} />
-                </ScrollReveal>
-              ))}
-            </div>
-          </section>
 
           {/* SECTION 3: ABOUT ME */}
           <section id="about" className="mb-40 scroll-mt-24">
