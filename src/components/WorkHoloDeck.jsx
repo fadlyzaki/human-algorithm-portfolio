@@ -48,7 +48,7 @@ const WorkHoloDeck = ({ cluster }) => {
                 onMouseLeave={handleMouseLeave}
                 onClick={() => navigate(`/work/${cluster.id}`)}
                 style={transformStyle}
-                className="group relative w-full min-h-[600px] rounded-2xl transition-all duration-300 transform-gpu hover:shadow-2xl cursor-pointer"
+                className="group relative w-full min-h-[600px] pb-12 rounded-2xl transition-all duration-300 transform-gpu hover:shadow-2xl cursor-pointer"
             >
                 {/* 1. KEY VISUAL LAYER (Background) */}
                 <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#0A0A0A] border border-[var(--border-color)]">
