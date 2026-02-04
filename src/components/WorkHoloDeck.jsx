@@ -73,27 +73,24 @@ const WorkHoloDeck = ({ cluster }) => {
 
                 {/* 2. GLASS UI LAYER (Foreground) */}
                 <div
-                    className="relative z-10 p-8 md:p-12 flex flex-col"
+                    className="relative z-10 p-8 md:p-12 flex flex-col justify-between gap-10"
                     style={{ transform: 'translate(calc(var(--t-x) * -1), calc(var(--t-y) * -1))' }} // Moves opposite to bg
                 >
 
-                    {/* Header */}
-                    <div className="flex justify-between items-start">
-                        <div>
-                            <div className="mb-4 inline-block">
-                                <div className="w-32 h-32 flex items-center justify-start">
-                                    <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-lg" />
-                                </div>
-                            </div>
-                            <h2 className="text-4xl md:text-6xl font-serif italic text-white drop-shadow-lg mb-2">
+                    {/* Header Group */}
+                    <div className="flex flex-col gap-6">
+                        <div className="w-32 h-32 flex items-center justify-start">
+                            <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-lg" />
+                        </div>
+
+                        <div className="space-y-4">
+                            <h2 className="text-4xl md:text-6xl font-serif italic text-white drop-shadow-lg leading-none">
                                 {isId ? (cluster.title_id || cluster.title) : cluster.title}
                             </h2>
-                            <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-snug drop-shadow-sm mb-2">
+                            <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-snug drop-shadow-sm">
                                 {isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
                             </p>
                         </div>
-
-                        {/* Removed Stats Block */}
                     </div>
 
                     {/* Bottom Deck */}
