@@ -80,8 +80,8 @@ const WorkHoloDeck = ({ cluster }) => {
                     {/* Header */}
                     <div className="flex justify-between items-start">
                         <div>
-                            <div className="mb-6 inline-block">
-                                <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center p-2 shadow-lg group-hover:bg-white/20 transition-colors">
+                            <div className="mb-8 inline-block">
+                                <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center p-2 shadow-lg group-hover:bg-white/20 transition-colors">
                                     <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-sm" />
                                 </div>
                             </div>
@@ -100,9 +100,9 @@ const WorkHoloDeck = ({ cluster }) => {
                     <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
 
                         {/* Feature Cards Preview */}
-                        <div className="flex gap-4 overflow-x-auto pb-2 w-full md:w-auto mask-linear-fade">
-                            {cluster.projects.slice(0, 2).map((project, i) => (
-                                <div key={i} className="flex-shrink-0 w-64 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 transition-colors group/card">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mask-linear-fade">
+                            {cluster.projects.slice(0, 3).map((project, i) => (
+                                <div key={i} className="w-full p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 transition-colors group/card">
                                     <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-black/20">
                                         {/* Airy Diagram Preview */}
                                         <div className="absolute inset-0 opacity-80 hover:opacity-100 transition-opacity">
@@ -125,9 +125,6 @@ const WorkHoloDeck = ({ cluster }) => {
                                 </div>
                             ))}
                         </div>
-
-                        {/* CTA Button */}
-                        {/* CTA Button Removed */}
 
                     </div>
                 </div>
