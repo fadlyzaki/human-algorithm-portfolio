@@ -106,7 +106,7 @@ const WorkHoloDeck = ({ cluster }) => {
                                     }}
                                     className="w-full p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 transition-colors group/card cursor-pointer"
                                 >
-                                    <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-black/20">
+                                    <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-black/60">
                                         {/* Airy Diagram Preview */}
                                         <div className="absolute inset-0 opacity-80 hover:opacity-100 transition-opacity">
                                             <ProjectCard id={project.id} expanded={true} showChrome={false} backgroundOnly={true} />
