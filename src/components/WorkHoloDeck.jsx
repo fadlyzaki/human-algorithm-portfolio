@@ -53,7 +53,14 @@ const WorkHoloDeck = ({ cluster }) => {
                 {/* 1. KEY VISUAL LAYER (Background) */}
                 <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#0A0A0A] border border-[var(--border-color)]">
                     {/* Airy Diagram Background */}
-                    {/* Airy Diagram Background - REMOVED */}
+                    <div
+                        className="absolute inset-0 transition-transform duration-200 ease-out scale-110 opacity-60 group-hover:opacity-80 transition-opacity"
+                        style={{
+                            transform: 'translate(var(--t-x), var(--t-y)) scale(1.1)' // Moves slightly
+                        }}
+                    >
+                        <ProjectCard id={cluster.id} expanded={true} showChrome={false} backgroundOnly={true} />
+                    </div>
 
                     {/* Brand Gradient Wash */}
                     <div
@@ -71,33 +78,18 @@ const WorkHoloDeck = ({ cluster }) => {
                 >
 
                     {/* Header Group */}
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-8 items-center">
-                        {/* Left: Content */}
-                        <div className="flex flex-col gap-4 z-10">
-                            <div className="w-32 h-32 flex items-end justify-start">
-                                <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-lg" />
-                            </div>
-
-                            <div className="space-y-4">
-                                <h2 className="text-3xl md:text-6xl font-serif italic text-white drop-shadow-lg leading-none whitespace-nowrap tracking-tighter">
-                                    {isId ? (cluster.title_id || cluster.title) : cluster.title}
-                                </h2>
-                                <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-snug drop-shadow-sm mb-2">
-                                    {isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
-                                </p>
-                            </div>
+                    <div className="flex flex-col gap-4">
+                        <div className="w-32 h-32 flex items-end justify-start">
+                            <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-lg" />
                         </div>
 
-                        {/* Right: Technical Diagram View (Desktop Only) */}
-                        <div className="hidden lg:block h-64 w-full relative">
-                            <div className="absolute inset-0 rounded-xl overflow-hidden border border-white/10 bg-black/20 backdrop-blur-sm shadow-inner group/diagram">
-                                <div className="absolute top-2 left-3 z-10 font-mono text-[10px] text-white/40 uppercase tracking-widest">
-                                    SYS_ARCH.VIEW
-                                </div>
-                                <div className="w-full h-full opacity-60 grayscale group-hover/diagram:grayscale-0 group-hover/diagram:opacity-100 transition-all duration-500">
-                                    <ProjectCard id={cluster.id} expanded={true} showChrome={false} backgroundOnly={true} />
-                                </div>
-                            </div>
+                        <div className="space-y-4">
+                            <h2 className="text-3xl md:text-6xl font-serif italic text-white drop-shadow-lg leading-none whitespace-nowrap tracking-tighter">
+                                {isId ? (cluster.title_id || cluster.title) : cluster.title}
+                            </h2>
+                            <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-snug drop-shadow-sm">
+                                {isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
+                            </p>
                         </div>
                     </div>
 
