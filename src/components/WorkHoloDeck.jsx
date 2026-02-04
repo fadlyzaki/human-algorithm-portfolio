@@ -108,9 +108,12 @@ const WorkHoloDeck = ({ cluster }) => {
                                 >
                                     <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-black/60">
                                         {/* Airy Diagram Preview */}
-                                        <div className="absolute inset-0 opacity-80 hover:opacity-100 transition-opacity">
+                                        <div className="absolute inset-0 opacity-20">
                                             <ProjectCard id={project.id} expanded={true} showChrome={false} backgroundOnly={true} />
                                         </div>
+
+                                        {/* Dark Overlay for Contrast */}
+                                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60 group-hover/card:opacity-50 transition-opacity"></div>
 
                                         {/* Lock Icon Overlay */}
                                         {project.caseStudy?.locked && (
