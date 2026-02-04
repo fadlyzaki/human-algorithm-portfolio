@@ -97,7 +97,7 @@ const WorkHoloDeck = ({ cluster }) => {
                     </div>
 
                     {/* Bottom Deck */}
-                    <div className="w-full">
+                    <div className="w-full mt-16">
                         {/* Feature Cards Preview */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                             {cluster.projects.slice(0, 3).map((project, i) => (
