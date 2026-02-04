@@ -101,7 +101,14 @@ const WorkHoloDeck = ({ cluster }) => {
                         {/* Feature Cards Preview */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                             {cluster.projects.slice(0, 3).map((project, i) => (
-                                <div key={i} className="w-full p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 transition-colors group/card">
+                                <div
+                                    key={i}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        navigate(project.route);
+                                    }}
+                                    className="w-full p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 transition-colors group/card cursor-pointer"
+                                >
                                     <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-black/20">
                                         {/* Airy Diagram Preview */}
                                         <div className="absolute inset-0 opacity-80 hover:opacity-100 transition-opacity">
