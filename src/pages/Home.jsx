@@ -414,7 +414,7 @@ const Portfolio = () => {
               <SectionTitle number="1" title={t('home.section_work')} />
             </ScrollReveal>
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-7">
               {WORK_CLUSTERS.map((cluster, idx) => (
                 <ScrollReveal key={idx} delay={idx * 150}>
                   <WorkHoloDeck cluster={cluster} />
@@ -437,7 +437,7 @@ const Portfolio = () => {
             </ScrollReveal>
 
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
               {/* Editorial Column */}
               <div className="space-y-10">
                 {homeSideProjects.map((item, i) => (
@@ -514,7 +514,7 @@ const Portfolio = () => {
           <section id="about" className="mb-40 scroll-mt-24">
             <SectionTitle number="3" title={t('home.section_about')} />
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-12 lg:gap-20">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-7 lg:gap-7">
               <div className="space-y-16">
                 <div>
                   <div className="prose prose-invert max-w-none">
@@ -607,7 +607,7 @@ const Portfolio = () => {
           < section id="notes" className="mb-40 scroll-mt-24" >
             <SectionTitle number="4" title={t('home.section_notes')} />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
               {/* Note 1 */}
               <div onClick={() => navigate('/blog/log-001')} className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer h-80 flex flex-col justify-between overflow-hidden rounded-lg">
                 {/* Gradient Hover */}
