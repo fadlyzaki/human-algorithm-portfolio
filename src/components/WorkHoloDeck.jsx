@@ -54,7 +54,7 @@ const WorkHoloDeck = ({ cluster }) => {
                 <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#0A0A0A] border border-[var(--border-color)]">
                     {/* Airy Diagram Background */}
                     <div
-                        className="absolute inset-0 transition-transform duration-200 ease-out scale-110 opacity-40 group-hover:opacity-60 transition-opacity"
+                        className="absolute inset-0 transition-transform duration-200 ease-out scale-110 opacity-60 group-hover:opacity-80 transition-opacity"
                         style={{
                             transform: 'translate(var(--t-x), var(--t-y)) scale(1.1)' // Moves slightly
                         }}
@@ -80,13 +80,10 @@ const WorkHoloDeck = ({ cluster }) => {
                     {/* Header */}
                     <div className="flex justify-between items-start">
                         <div>
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="w-10 h-10 rounded-lg bg-black/20 backdrop-blur-md border border-white/10 flex items-center justify-center p-2 shadow-inner">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-16 h-16 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center p-3 shadow-lg">
                                     <img src={cluster.logo} alt="logo" className="w-full h-full object-contain" />
                                 </div>
-                                <span className="px-3 py-1 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 text-white/80 text-[10px] font-mono uppercase tracking-widest">
-                                    {cluster.company}
-                                </span>
                             </div>
                             <h2 className="text-4xl md:text-6xl font-serif italic text-white drop-shadow-lg mb-2">
                                 {isId ? (cluster.title_id || cluster.title) : cluster.title}

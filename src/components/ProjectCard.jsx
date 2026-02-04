@@ -139,18 +139,18 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     if (id === 'workforce') {
         return (
             <Container expanded={expanded} showChrome={showChrome} backgroundOnly={backgroundOnly} figIndex="C.1" schematicType="WORKFORCE_ECOSYSTEM">
-                <div className="w-full h-full relative flex items-center justify-center opacity-80">
+                <div className="w-full h-full relative flex items-center justify-center opacity-100">
                     {/* Central Node */}
                     <div className="absolute w-20 h-20 rounded-full border border-white/20 flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.1)]">
                         <div className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center animate-pulse">
-                            <Users size={20} className="text-white opacity-80" />
+                            <Users size={20} className="text-white opacity-100" />
                         </div>
                     </div>
 
                     {/* Orbital Rings */}
                     <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 200">
-                        <ellipse cx="200" cy="100" rx="120" ry="60" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 8" className="text-white/20 animate-[spin_10s_linear_infinite]" />
-                        <ellipse cx="200" cy="100" rx="80" ry="40" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 4" className="text-white/20 animate-[spin_15s_linear_infinite_reverse]" />
+                        <ellipse cx="200" cy="100" rx="120" ry="60" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 8" className="text-white/40 animate-[spin_10s_linear_infinite]" />
+                        <ellipse cx="200" cy="100" rx="80" ry="40" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 4" className="text-white/40 animate-[spin_15s_linear_infinite_reverse]" />
                     </svg>
 
                     {/* Satellites */}
@@ -173,12 +173,12 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
             <Container expanded={expanded} showChrome={showChrome} backgroundOnly={backgroundOnly} figIndex="C.2" schematicType="B2B_SUPPLY_CHAIN">
                 <div className="w-full h-full relative flex items-center justify-center">
                     {/* Grid Background */}
-                    <div className="absolute inset-0 opacity-10"
+                    <div className="absolute inset-0 opacity-20"
                         style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
                     </div>
 
                     {/* Flow Chart */}
-                    <div className="relative z-10 flex items-center gap-12 opacity-80">
+                    <div className="relative z-10 flex items-center gap-12 opacity-100">
                         {/* Brand */}
                         <div className="flex flex-col items-center gap-2">
                             <div className="w-10 h-10 border border-white/30 rounded flex items-center justify-center bg-white/5 backdrop-blur">
@@ -230,7 +230,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
 
                     <div className="absolute inset-0 flex items-center justify-center">
                         <div className="relative">
-                            <Clock size={40} className="text-white opacity-80 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
+                            <Clock size={40} className="text-white opacity-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
                             <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-400 rounded-full animate-pulse"></div>
                         </div>
                     </div>
