@@ -88,7 +88,7 @@ const WorkHoloDeck = ({ cluster }) => {
                             <h2 className="text-4xl md:text-6xl font-serif italic text-white drop-shadow-lg mb-2">
                                 {isId ? (cluster.title_id || cluster.title) : cluster.title}
                             </h2>
-                            <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-relaxed drop-shadow-sm mb-12">
+                            <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-relaxed drop-shadow-sm mb-4">
                                 {isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
                             </p>
                         </div>
@@ -97,7 +97,7 @@ const WorkHoloDeck = ({ cluster }) => {
                     </div>
 
                     {/* Bottom Deck */}
-                    <div className="w-full mt-16">
+                    <div className="w-full">
                         {/* Feature Cards Preview */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                             {cluster.projects.slice(0, 3).map((project, i) => (
