@@ -48,7 +48,7 @@ const WorkHoloDeck = ({ cluster }) => {
                 onMouseLeave={handleMouseLeave}
                 onClick={() => navigate(`/work/${cluster.id}`)}
                 style={transformStyle}
-                className="group relative w-full aspect-[4/5] md:aspect-[21/9] rounded-2xl transition-all duration-300 transform-gpu hover:shadow-2xl cursor-pointer"
+                className="group relative w-full min-h-[600px] rounded-2xl transition-all duration-300 transform-gpu hover:shadow-2xl cursor-pointer"
             >
                 {/* 1. KEY VISUAL LAYER (Background) */}
                 <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#0A0A0A] border border-[var(--border-color)]">
@@ -73,7 +73,7 @@ const WorkHoloDeck = ({ cluster }) => {
 
                 {/* 2. GLASS UI LAYER (Foreground) */}
                 <div
-                    className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between"
+                    className="relative z-10 p-8 md:p-12 flex flex-col justify-between h-full"
                     style={{ transform: 'translate(calc(var(--t-x) * -1), calc(var(--t-y) * -1))' }} // Moves opposite to bg
                 >
 
