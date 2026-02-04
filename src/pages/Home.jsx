@@ -448,7 +448,7 @@ const Portfolio = () => {
                     >
                       {/* Technical Illustration Container (Replaces Banner Image) */}
                       <div className="aspect-[21/9] overflow-hidden relative bg-white/5 dark:bg-black/5 border-b border-white/10 dark:border-black/5">
-                        <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 invert hue-rotate-180">
                           <ProjectCard type={item.type || 'Web'} expanded={true} id={item.id} />
                         </div>
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>

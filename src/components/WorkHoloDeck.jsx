@@ -54,7 +54,7 @@ const WorkHoloDeck = ({ cluster }) => {
                 <div className="absolute inset-0 rounded-2xl overflow-hidden bg-black dark:bg-white border border-[var(--border-color)] dark:border-black/5">
                     {/* Airy Diagram Background */}
                     <div
-                        className="absolute inset-0 transition-transform duration-200 ease-out scale-110 opacity-60 group-hover:opacity-80 transition-opacity"
+                        className="absolute inset-0 transition-transform duration-200 ease-out scale-110 opacity-60 group-hover:opacity-80 transition-opacity invert hue-rotate-180"
                         style={{
                             transform: 'translate(var(--t-x), var(--t-y)) scale(1.1)' // Moves slightly
                         }}
@@ -108,7 +108,7 @@ const WorkHoloDeck = ({ cluster }) => {
                                 >
                                     <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-black/20 dark:bg-white">
                                         {/* Airy Diagram Preview */}
-                                        <div className="absolute inset-0 opacity-80 hover:opacity-100 transition-opacity">
+                                        <div className="absolute inset-0 opacity-80 hover:opacity-100 transition-opacity invert hue-rotate-180">
                                             <ProjectCard id={project.id} expanded={true} showChrome={false} backgroundOnly={true} />
                                         </div>
 
