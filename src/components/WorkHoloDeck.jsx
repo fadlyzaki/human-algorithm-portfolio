@@ -96,10 +96,7 @@ const WorkHoloDeck = ({ cluster }) => {
                             </p>
                         </div>
 
-                        <div className="hidden md:flex flex-col items-end gap-2 text-white/60 font-mono text-xs uppercase tracking-wider">
-                            <span>{cluster.stats?.[1]?.value}</span>
-                            <span>{cluster.stats?.[0]?.value}</span>
-                        </div>
+                        {/* Removed Stats Block */}
                     </div>
 
                     {/* Bottom Deck */}
@@ -110,11 +107,14 @@ const WorkHoloDeck = ({ cluster }) => {
                             {cluster.projects.slice(0, 2).map((project, i) => (
                                 <div key={i} className="flex-shrink-0 w-64 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 transition-colors group/card">
                                     <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-black/20">
-                                        {project.previewImage && (
-                                            <img src={project.previewImage} className="w-full h-full object-cover opacity-60 group-hover/card:opacity-90 transition-opacity" alt="" />
-                                        )}
+                                        {/* Airy Diagram Preview */}
+                                        <div className="absolute inset-0 opacity-80 hover:opacity-100 transition-opacity">
+                                            <ProjectCard id={project.id} expanded={true} showChrome={false} backgroundOnly={true} />
+                                        </div>
+
+                                        {/* Lock Icon Overlay */}
                                         {project.caseStudy?.locked && (
-                                            <div className="absolute top-2 right-2 p-1 bg-black/50 rounded-full">
+                                            <div className="absolute top-2 right-2 p-1 bg-black/50 rounded-full z-10">
                                                 <Lock size={10} className="text-white/70" />
                                             </div>
                                         )}
@@ -130,14 +130,7 @@ const WorkHoloDeck = ({ cluster }) => {
                         </div>
 
                         {/* CTA Button */}
-                        <div className="group/btn flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 rounded-full hover:bg-white/20 hover:scale-105 transition-all cursor-pointer shadow-xl">
-                            <span className="text-white font-mono font-bold uppercase tracking-widest text-sm">
-                                {isId ? "Buka Studi Kasus" : "Open Case Study"}
-                            </span>
-                            <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center group-hover/btn:rotate-[-45deg] transition-transform duration-300">
-                                <ArrowRight size={16} />
-                            </div>
-                        </div>
+                        {/* CTA Button Removed */}
 
                     </div>
                 </div>
