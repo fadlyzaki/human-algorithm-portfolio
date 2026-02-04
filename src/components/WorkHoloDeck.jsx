@@ -78,8 +78,8 @@ const WorkHoloDeck = ({ cluster }) => {
                 >
 
                     {/* Header Group */}
-                    <div className="flex flex-col gap-6">
-                        <div className="w-32 h-32 flex items-center justify-start">
+                    <div className="flex flex-col gap-4">
+                        <div className="w-32 h-32 flex items-end justify-start">
                             <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-lg" />
                         </div>
 
