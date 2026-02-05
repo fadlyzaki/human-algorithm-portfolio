@@ -452,7 +452,7 @@ const AboutPage = () => {
                       <div className="p-2 bg-[var(--bg-void)] rounded-lg text-[var(--accent-blue)]">
                         <cert.icon size={20} />
                       </div>
-                      <span className="font-mono text-[10px] text-[var(--text-card-secondary)] bg-[var(--bg-void)] px-2 py-1 rounded">
+                      <span className="font-mono text-[10px] text-[var(--text-primary)] bg-[var(--bg-void)] px-2 py-1 rounded">
                         {cert.date}
                       </span>
                     </div>
@@ -467,7 +467,7 @@ const AboutPage = () => {
                     {cert.skills && (
                       <div className="flex flex-wrap gap-1 mb-4">
                         {cert.skills.map(skill => (
-                          <span key={skill} className="text-[9px] font-mono text-[var(--text-card-secondary)] bg-[var(--bg-void)] px-1.5 py-0.5 rounded border border-[var(--border-color)]">
+                          <span key={skill} className="text-[9px] font-mono text-[var(--text-primary)] bg-[var(--bg-void)] px-1.5 py-0.5 rounded border border-[var(--border-color)]">
                             {skill}
                           </span>
                         ))}
