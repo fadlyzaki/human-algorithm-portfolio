@@ -235,7 +235,7 @@ const SideProjectsIndex = () => {
                                         <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} />
                                     </div>
                                     <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
-                                    <div className="absolute bottom-4 left-4 font-mono text-xs text-white dark:text-black bg-black/50 dark:bg-white/50 px-2 py-1 backdrop-blur-sm rounded">
+                                    <div className="absolute bottom-4 left-4 font-mono text-[11px] text-black dark:text-white bg-white/90 dark:bg-black/90 px-2 py-1 backdrop-blur-sm rounded border border-black/10 dark:border-white/10">
                                         0{idx + 1}
                                     </div>
                                     <ArrowUpRight className="absolute top-4 right-4 text-white dark:text-black opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={20} />

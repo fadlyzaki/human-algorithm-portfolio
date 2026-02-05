@@ -455,7 +455,7 @@ const Portfolio = () => {
 
                         {/* Status Badge */}
                         <div className="absolute top-4 left-4 flex items-center gap-2">
-                          <span className="font-mono text-[10px] text-[var(--text-secondary)] border border-[var(--border-color)] px-2 py-0.5 rounded-full bg-[var(--bg-card)]/80 backdrop-blur-md uppercase tracking-wider">
+                          <span className="font-mono text-[11px] text-black dark:text-white border border-black/10 dark:border-white/10 px-2 py-0.5 rounded-full bg-white dark:bg-black backdrop-blur-md uppercase tracking-wider">
                             EXP_0{i + 1}
                           </span>
                         </div>

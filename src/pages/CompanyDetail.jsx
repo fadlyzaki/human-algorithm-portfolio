@@ -315,7 +315,7 @@ const CompanyDetail = () => {
 
                                         {/* Floating Badge */}
                                         <div className="absolute top-4 right-4 z-20">
-                                            <div className="flex items-center gap-2 bg-[var(--bg-card)]/90 backdrop-blur px-3 py-1.5 rounded-full border border-[var(--border-color)] text-[11px] font-mono uppercase tracking-widest shadow-lg">
+                                            <div className="flex items-center gap-2 bg-white dark:bg-black text-black dark:text-white px-3 py-1.5 rounded-full border border-black/10 dark:border-white/10 text-[11px] font-mono uppercase tracking-widest shadow-lg">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] animate-pulse"></div>
                                                 {project.type}
                                             </div>
