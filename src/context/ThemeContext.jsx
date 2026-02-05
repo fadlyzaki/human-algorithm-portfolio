@@ -42,6 +42,15 @@ export const ThemeProvider = ({ children }) => {
         };
     }, []);
 
+    // Apply dark class to document element for Tailwind dark: variants
+    useEffect(() => {
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [isDark]);
+
     // Toggle and SAVE to localStorage
     const toggleTheme = () => {
         setIsDark(prev => {
