@@ -447,7 +447,7 @@ const Portfolio = () => {
                       onClick={() => navigate(`/side-project/${item.id}`)}
                     >
                       {/* Technical Illustration Container (Replaces Banner Image) */}
-                      <div className="aspect-[21/9] overflow-hidden relative bg-[var(--bg-surface)] border-b border-[var(--border-color)]">
+                      <div className="aspect-[21/9] overflow-hidden relative bg-black dark:bg-white border-b border-[var(--border-color)]">
                         <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
                           <ProjectCard type={item.type || 'Web'} expanded={true} id={item.id} />
                         </div>

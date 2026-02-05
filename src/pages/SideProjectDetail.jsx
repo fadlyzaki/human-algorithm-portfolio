@@ -150,11 +150,11 @@ const SideProjectDetail = () => {
                      </span>
                   </div>
 
-                  <h1 className="text-4xl md:text-8xl lg:text-9xl font-serif italic leading-[0.9] tracking-tighter text-[var(--text-primary)]">
+                  <h1 className="text-4xl md:text-8xl lg:text-9xl font-serif italic leading-[0.9] tracking-tighter text-white dark:text-black">
                      {activeTitle}
                   </h1>
 
-                  <p className="text-xl md:text-2xl font-light text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-xl md:text-2xl font-light text-white/80 dark:text-black/80 max-w-2xl mx-auto leading-relaxed">
                      {activeTldr}
                   </p>
                </div>
