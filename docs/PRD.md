@@ -1,4 +1,4 @@
-# Product Requirements Document (PRD): Human Algorithm Portfolio v2.2
+# Product Requirements Document (PRD): Human Algorithm Portfolio v2.3
 
 ## 1. Executive Summary
 The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity. 
@@ -48,6 +48,11 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Localization Strategy**: Full `en`/`id` (English/Indonesian) duality toggle, enabling infinite reach across local and global markets.
 *   **Hand Gesture Control**: Experimental "Decryption Lens" allowing users to navigate and decrypt content using MediaPipe-based hand tracking.
 
+### 3.6 UI/UX Refinements (v2.3 Additions)
+*   **Mobile-Responsive Work Cards**: Title text wraps naturally on mobile with optimized font sizing (`text-2xl` mobile, `text-6xl` desktop) and proper line-height for multi-line readability.
+*   **Theme-Aware ID Card**: Industrial ID card design uses proper contrast colors—black text on light mode, white text on dark mode—for all labels and data fields.
+*   **Work Card Dark Mode Fix**: Ensured white backgrounds for work cards and case study preview cards in dark mode to maintain visibility of airy diagrams.
+
 ## 4. Functional Specifications
 
 ### 4.1 Case Study Security
@@ -59,10 +64,12 @@ The homepage follows a "Priority-First" narrative flow:
 ## 5. Non-Functional Requirements (NFRs)
 *   **Heuristic Compliance**: Strict adherence to Nielsen's 10 Heuristics (Recognition vs. Recall, Consistency).
 *   **Print Fidelity**: Zero-margin A4 layouts for CV printing.
+*   **Mobile-First Responsive**: All components optimized for touch and narrow viewports.
 
 ## 6. Roadmap & Future Iterations
 *   **[COMPLETED] Adaptive Content Engine**: Implemented via Adaptive Summaries.
 *   **[COMPLETED] Hand Tracking**: Implemented via HandCursorOverlay.
+*   **[COMPLETED] Mobile Responsiveness**: Work cards and ID card fully responsive.
 *   **[Q2] AI Agent (Semantic Memory)**: RAG module for recruiter Q&A.
 *   **[Q3] CMS Integration**: Migrating "Notes" to MDX.
 
