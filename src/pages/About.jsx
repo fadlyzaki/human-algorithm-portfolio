@@ -135,71 +135,47 @@ const AboutPage = () => {
       issuer: "Udemy",
       date: "Jul 2023",
       skills: ["Product Design", "Product Management", "Product Development"],
-      icon: Briefcase
+      icon: Briefcase,
+      url: "https://www.udemy.com/certificate/UC-b40694fa-a656-48f3-b8e9-3dd6c9b70acb/"
     },
     {
       title: "Digital Marketing Workshop",
       issuer: "RevoU",
       date: "Oct 2021",
-      icon: Globe
+      icon: Globe,
+      url: "https://certificates.revou.co/fadly-uzzaki-certificate-attendance-gadmw21.pdf"
     },
     {
       title: "Input and Interaction",
       issuer: "Coursera",
       date: "Aug 2019",
       id: "GE4JFF2ZZHYK",
-      icon: Layout
-    },
-    {
-      title: "UX Research Methods: Interviewing",
-      issuer: "LinkedIn",
-      date: "Aug 2019",
-      icon: Search
-    },
-    {
-      title: "UX Foundations: Information Architecture",
-      issuer: "LinkedIn",
-      date: "Aug 2019",
-      icon: Database
-    },
-    {
-      title: "UX Design: 2 Analyzing User Data",
-      issuer: "LinkedIn",
-      date: "Aug 2019",
-      icon: Activity
-    },
-    {
-      title: "Design Thinking: Customer Experience",
-      issuer: "LinkedIn",
-      date: "Aug 2019",
-      icon: Zap
+      icon: Layout,
+      url: "https://www.coursera.org/account/accomplishments/verify/GE4JFF2ZZHYK"
     },
     {
       title: "Information Design",
       issuer: "Coursera",
       date: "Jul 2019",
       id: "VLX7M5BE5TFF",
-      icon: Layers
-    },
-    {
-      title: "UX Research Methods: Card Sorting",
-      issuer: "LinkedIn",
-      date: "Jun 2018",
-      icon: Layout
+      icon: Layers,
+      url: "https://www.coursera.org/account/accomplishments/verify/VLX7M5BE5TFF"
     },
     {
       title: "Design Kit: Human-Centered Design",
       issuer: "+Acumen / IDEO.org",
       date: "May 2018",
       id: "3385-1632464",
-      icon: User
+      icon: User,
+      url: "https://plusacumen.novoed.com/#!/courses/design-kit-2018-2/statements/1632464"
     },
     {
       title: "Conducting Usability Testing",
       issuer: "IxDF",
       date: "Oct 2018",
       id: "35436",
-      icon: Shield
+      icon: Shield,
+      url: "https://www.interaction-design.org/members/muhammad-fadly-uzzaki/certificate/course/PjL4tmJSJ"
     }
   ];
 
@@ -495,9 +471,14 @@ const AboutPage = () => {
                       <span className="font-mono text-[9px] text-[var(--text-secondary)] opacity-50">
                         {cert.id ? `ID: ${cert.id}` : 'MODULE_LOADED'}
                       </span>
-                      <button className="text-[9px] font-mono text-[var(--accent-blue)] hover:underline flex items-center gap-1">
+                      <a
+                        href={cert.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[9px] font-mono text-[var(--accent-blue)] hover:underline flex items-center gap-1"
+                      >
                         {t('about.show_credential')} <Zap size={10} />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
