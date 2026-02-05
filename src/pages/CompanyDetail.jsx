@@ -45,6 +45,8 @@ const CompanyDetail = () => {
         'efficiency': EfficiencyAI
     }[cluster.id] || WorkforceAI; // Fallback
 
+    const [showNarrative, setShowNarrative] = React.useState(false);
+
     const themeStyles = {
         '--bg-void': isDark ? '#0a0a0a' : '#FFFFFF',
         '--text-primary': isDark ? '#F3F4F6' : '#111827',
@@ -149,13 +151,44 @@ const CompanyDetail = () => {
                             </Treasure>
                             <div className="absolute -inset-4 bg-[var(--brand)] opacity-10 blur-3xl rounded-full"></div>
                             <div className="relative h-full w-full rounded-2xl overflow-hidden border border-[var(--border-color)] shadow-2xl bg-black dark:bg-white">
-                                <div className="absolute top-4 left-4 z-10 flex gap-2">
+                                <div className="absolute top-4 left-4 z-40 flex gap-2">
                                     <div className="w-2 h-2 rounded-full bg-red-500"></div>
                                     <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
                                     <div className="w-2 h-2 rounded-full bg-green-500"></div>
                                 </div>
+
+                                <div className="absolute top-4 right-4 z-40">
+                                    <button
+                                        onClick={() => setShowNarrative(!showNarrative)}
+                                        className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 font-mono text-[10px] uppercase tracking-widest ${showNarrative ? 'bg-[var(--brand)] text-white border-[var(--brand)]' : 'bg-black/50 text-white/70 border-white/20 hover:border-white/40'}`}
+                                    >
+                                        {showNarrative ? <Cpu size={12} /> : <Scan size={12} />}
+                                        {showNarrative ? 'System_View' : 'Human_Narrative'}
+                                    </button>
+                                </div>
+
                                 <Suspense fallback={<div className="flex items-center justify-center h-full text-[var(--brand)] animate-pulse">LOADING_SIMULATION...</div>}>
-                                    <InteractionComponent color={brandColor} />
+                                    <div className={`relative h-full w-full transition-all duration-700 ${showNarrative ? 'blur-xl scale-110 opacity-30 px-12' : 'blur-0 scale-100 opacity-100'}`}>
+                                        <InteractionComponent color={brandColor} />
+                                    </div>
+
+                                    {showNarrative && (
+                                        <div className="absolute inset-0 z-30 flex items-center justify-center p-8 md:p-12 animate-in fade-in zoom-in duration-500 overflow-y-auto">
+                                            <div className="max-w-md bg-black/40 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-3xl">
+                                                <div className="flex items-center gap-3 mb-6">
+                                                    <div className="w-8 h-px bg-[var(--brand)]"></div>
+                                                    <span className="font-mono text-[10px] text-[var(--brand)] uppercase tracking-[0.3em]">The_Motivation</span>
+                                                </div>
+                                                <p className="text-lg md:text-xl font-serif italic text-white leading-relaxed mb-6">
+                                                    "{isId ? (cluster.motivation_id || cluster.motivation) : cluster.motivation}"
+                                                </p>
+                                                <div className="flex items-center gap-4 text-[10px] font-mono text-white/40 uppercase tracking-widest">
+                                                    <span>LOG_SOURCE: INTERNAL_MEMO</span>
+                                                    <span>STATUS: DECLASSIFIED</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
                                 </Suspense>
                             </div>
                         </ScrollReveal>
@@ -218,6 +251,30 @@ const CompanyDetail = () => {
                                         </li>
                                     ))}
                                 </ul>
+                            </div>
+
+                            {/* Designer's Log / Motivation */}
+                            <div className="relative p-6 pt-10 border border-[var(--border-color)] rounded-lg bg-[var(--bg-card)] overflow-hidden group">
+                                <div className="absolute top-0 left-0 right-0 h-1 bg-[var(--brand)] opacity-50 group-hover:h-full group-hover:opacity-[0.03] transition-all duration-500"></div>
+                                <div className="absolute top-3 left-4 font-mono text-[8px] uppercase tracking-[0.2em] text-[var(--text-secondary)] flex items-center gap-2">
+                                    <Scan size={10} className="text-[var(--brand)]" /> Designer's_Log // {id}
+                                </div>
+
+                                <blockquote className="relative">
+                                    <span className="absolute -top-4 -left-2 text-4xl text-[var(--brand)] opacity-20 font-serif">"</span>
+                                    <p className="text-sm font-serif italic leading-relaxed text-[var(--text-primary)] relative z-10">
+                                        {isId ? (cluster.motivation_id || cluster.motivation) : cluster.motivation}
+                                    </p>
+                                    <footer className="mt-4 flex items-center justify-between">
+                                        <div className="flex flex-col">
+                                            <span className="text-[9px] font-mono text-[var(--brand)] uppercase tracking-wider">FADLY_ZAKI</span>
+                                            <span className="text-[8px] font-mono text-[var(--text-secondary)] opacity-60">LEAD_PRODUCT_DESIGNER</span>
+                                        </div>
+                                        <div className="w-8 h-8 rounded-full border border-[var(--border-color)] p-1 bg-[var(--bg-void)]">
+                                            <img src="/about-portrait-new.jpg" alt="Author" className="w-full h-full object-cover rounded-full grayscale" />
+                                        </div>
+                                    </footer>
+                                </blockquote>
                             </div>
 
                             {/* LinkedIn Link */}
