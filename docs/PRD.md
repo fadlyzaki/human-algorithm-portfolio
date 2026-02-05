@@ -57,12 +57,14 @@ The homepage follows a "Priority-First" narrative flow:
 *   **WorkforceAI Demo** (`interactions/WorkforceAI.jsx`): Interactive demo for Lumina ecosystem features.
 *   **CommerceAI Demo** (`interactions/CommerceAI.jsx`): Interactive demo for GudangAda B2B marketplace features.
 *   **EfficiencyAI Demo** (`interactions/EfficiencyAI.jsx`): Interactive demo for Stoqo logistics features.
+*   **NexusAI Interaction** (`interactions/NexusAI.jsx`): Generative "Synthesis" visual for side projects and recursive experiments, mapped dynamically based on project theme.
 
 ### 3.6 UI/UX Refinements (v2.3–2.4)
 *   **Mobile-Responsive Work Cards**: Title text wraps naturally on mobile with optimized font sizing (`text-2xl` mobile, `text-6xl` desktop).
 *   **Theme-Aware ID Card**: Industrial ID card design uses proper contrast colors—black text in light mode, white text in dark mode.
 *   **Work Card Dark Mode Fix**: White backgrounds for work cards and case study preview cards in dark mode for diagram visibility.
 *   **Draggable Photo Stack**: Multi-variant ID card designs (Industrial, Cyberpunk, Swiss) with Framer Motion physics.
+*   **Tag & Pill Accessibility**: Standardized label legibility (`11px` min) and enforced contrast ratios for badges sitting on inverted card headers.
 
 ## 4. Functional Specifications
 

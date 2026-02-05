@@ -29,6 +29,12 @@ Activate hand tracking mode to discover **8 hidden treasures** scattered across 
 4. Collect all 8 to unlock the achievement!
 5. Click "Reset Hunt" to re-randomize and play again
 
+### 🤖 Side Project AI Visuals
+Dynamic, generative AI interactions integrated into side project indices and detail pages:
+- **NexusAI**: A generative particle field representing "Synthesis" and "Ideation."
+- **Thematic Mapping**: Unique AI visuals (`NexusAI`, `WorkforceAI`, `EfficiencyAI`, `CommerceAI`) assigned to projects based on their functional theme.
+- **Brand Inversion**: Visuals automatically adapt to project-specific brand colors.
+
 ### 📜 Running Ticker
 Interactive status ticker at the top of the homepage with clickable links:
 - 📍 **Location**: Jakarta, Indonesia
