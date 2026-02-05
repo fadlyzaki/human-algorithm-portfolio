@@ -11,6 +11,7 @@ import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import Treasure from '../components/Treasure';
+import SignalAI from '../components/interactions/SignalAI';
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Communication Uplink"
@@ -161,8 +162,13 @@ const ContactPage = () => {
         description="Get in touch for collaborations, freelance inquiries, or just to say hello."
       />
 
-      {/* BACKGROUND GRID */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]"
+      {/* GENERATIVE AI BACKGROUND */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.4]">
+        <SignalAI color={isDark ? '#3B82F6' : '#2563EB'} />
+      </div>
+
+      {/* STATIC BACKGROUND GRID (Subtle layer) */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.02]"
         style={{ backgroundImage: `linear-gradient(${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px)`, backgroundSize: '40px 40px' }}>
       </div>
 
