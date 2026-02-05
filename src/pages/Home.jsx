@@ -149,6 +149,27 @@ const Portfolio = () => {
   const [showNav, setShowNav] = useState(true);
   const navigate = useNavigate();
   const lastScrollY = React.useRef(0);
+  const [substackPosts, setSubstackPosts] = useState([]);
+  const [isSubstackLoading, setIsSubstackLoading] = useState(true);
+
+  // Fetch Substack Posts
+  useEffect(() => {
+    const fetchSubstack = async () => {
+      try {
+        const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://fadlyzaki.substack.com/feed');
+        const data = await response.json();
+        if (data.status === 'ok') {
+          // Take the first 3 posts
+          setSubstackPosts(data.items.slice(0, 3));
+        }
+      } catch (error) {
+        console.error("Error fetching Substack feed:", error);
+      } finally {
+        setIsSubstackLoading(false);
+      }
+    };
+    fetchSubstack();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -608,38 +629,73 @@ const Portfolio = () => {
             <SectionTitle number="4" title={t('home.section_notes')} />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Note 1 */}
-              <div onClick={() => navigate('/blog/log-001')} className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)]/50 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer h-80 flex flex-col justify-between overflow-hidden rounded-lg">
-                {/* Gradient Hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--accent-blue)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
-                <div className="relative z-10">
-                  <div className="flex justify-between items-start mb-8">
-                    <span className="font-mono text-[10px] text-[var(--accent-blue)] border border-[var(--accent-blue)]/30 px-2 py-1 rounded bg-[var(--accent-blue)]/5">
-                      LOG_001
-                    </span>
-                    <ArrowUpRight size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              {isSubstackLoading ? (
+                // Loading Skeletons
+                Array(3).fill(0).map((_, i) => (
+                  <div key={i} className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 h-80 rounded-lg animate-pulse flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="w-16 h-6 bg-[var(--border-color)] rounded"></div>
+                      <div className="w-full h-12 bg-[var(--border-color)] rounded"></div>
+                      <div className="w-3/4 h-4 bg-[var(--border-color)] rounded"></div>
+                    </div>
+                    <div className="w-24 h-4 bg-[var(--border-color)] rounded"></div>
                   </div>
-                  <h4 className="font-serif italic text-2xl text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors leading-tight mb-4">
-                    Why Reducing Steps Is Better Than Adding Delight
-                  </h4>
-                  <p className="text-sm text-[var(--text-secondary)] line-clamp-3 leading-relaxed">
-                    Delight is often a mask for poor usability. In this log, I explore why removing friction is the highest form of respect for the user.
+                ))
+              ) : substackPosts.length > 0 ? (
+                substackPosts.map((post, i) => (
+                  <a
+                    key={i}
+                    href={post.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent)] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer h-80 flex flex-col justify-between overflow-hidden rounded-lg"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--accent)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                    <div className="relative z-10">
+                      <div className="flex justify-between items-start mb-8">
+                        <span className="font-mono text-[10px] text-[var(--accent)] border border-[var(--accent)]/30 px-2 py-1 rounded bg-[var(--accent)]/5">
+                          LOG_00{i + 1}
+                        </span>
+                        <ArrowUpRight size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--accent)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                      </div>
+                      <h4 className="font-serif italic text-2xl text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors leading-tight mb-4 line-clamp-2">
+                        {post.title}
+                      </h4>
+                      <p className="text-sm text-[var(--text-secondary)] line-clamp-3 leading-relaxed">
+                        {post.description.replace(/<[^>]*>/g, '').slice(0, 150)}...
+                      </p>
+                    </div>
+
+                    <div className="relative z-10 flex items-center gap-2 text-xs font-mono text-[var(--text-secondary)] opacity-60 group-hover:opacity-100 transition-opacity">
+                      <span>{new Date(post.pubDate).toLocaleDateString()}</span>
+                      <span>•</span>
+                      <span>Substack</span>
+                    </div>
+                  </a>
+                ))
+              ) : (
+                // Error/Empty State
+                <div className="bg-[var(--bg-surface)]/30 border border-[var(--border-color)] border-dashed p-8 flex flex-col justify-center items-center text-center h-80 opacity-60 rounded-lg col-span-1 md:col-span-3">
+                  <PenTool size={32} className="text-[var(--text-secondary)] mb-4" />
+                  <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">Feed connection interrupted. Please try again later.</p>
+                </div>
+              )}
+
+              {/* View More Card */}
+              {!isSubstackLoading && substackPosts.length > 0 && (
+                <a
+                  href="https://fadlyzaki.substack.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[var(--bg-surface)]/30 border border-[var(--border-color)] border-dashed p-8 flex flex-col justify-center items-center text-center h-80 opacity-60 hover:opacity-100 transition-all hover:bg-[var(--bg-card)] hover:border-[var(--accent)]/50 group rounded-lg"
+                >
+                  <ExternalLink size={32} className="text-[var(--text-secondary)] mb-4 group-hover:text-[var(--accent)] transition-colors" />
+                  <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest group-hover:text-[var(--text-primary)] transition-colors">
+                    {t('home.more_logs')}
                   </p>
-                </div>
-
-                <div className="relative z-10 flex items-center gap-2 text-xs font-mono text-[var(--text-secondary)] opacity-60 group-hover:opacity-100 transition-opacity">
-                  <span>Jan 28, 2026</span>
-                  <span>•</span>
-                  <span>5 min read</span>
-                </div>
-              </div>
-
-              {/* Placeholder for future notes */}
-              <div className="bg-[var(--bg-surface)]/30 border border-[var(--border-color)] border-dashed p-8 flex flex-col justify-center items-center text-center h-80 opacity-60 hover:opacity-100 transition-opacity rounded-lg">
-                <PenTool size={32} className="text-[var(--text-secondary)] mb-4" />
-                <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('home.more_logs')}</p>
-              </div>
+                </a>
+              )}
             </div>
           </section >
 
