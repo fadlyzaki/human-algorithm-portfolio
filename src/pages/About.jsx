@@ -33,23 +33,33 @@ const AboutPage = () => {
   // --- MERGED DATA: SYSTEM RUNTIME LOG (Chronological) ---
   const runtimeLog = [
     {
-      year: '2015 - 2018',
-      type: 'BOOT_SEQUENCE',
-      title: t('about.log_1_title'),
-      desc: t('about.log_1_desc'),
-      icon: Terminal,
-      color: 'text-[var(--accent-blue)]',
+      year: '2025 - Present',
+      type: 'ACTIVE_DEPLOYMENT',
+      title: t('about.log_7_title'),
+      desc: t('about.log_7_desc'),
+      icon: Zap,
+      color: 'text-[var(--accent-green)]',
       category: 'bio'
     },
     {
-      year: 'Mar 2018 - Apr 2020',
+      year: '2022 - 2025',
+      type: 'SYSTEM_UPGRADE',
+      title: t('about.log_6_title'),
+      desc: t('about.log_6_desc'),
+      icon: AlertTriangle,
+      color: 'text-[var(--accent-red)]',
+      highlight: true,
+      category: 'bio'
+    },
+    {
+      year: 'May 2022 - Nov 2022',
       type: 'EXECUTION_LOG',
-      title: t('about.log_2_title'),
-      company: 'STOQO',
-      link: 'efficiency',
-      desc: t('about.log_2_desc'),
-      tags: ["F&B Supply Chain", "Operations", "Sourcing"],
-      icon: Layers,
+      title: t('about.log_5_title'),
+      company: 'Lumina',
+      link: 'workforce',
+      desc: t('about.log_5_desc'),
+      tags: ["Community Platform", "Blue Collar", "Accessibility"],
+      icon: Activity,
       color: 'text-[var(--text-primary)]',
       category: 'work'
     },
@@ -78,34 +88,24 @@ const AboutPage = () => {
       category: 'work'
     },
     {
-      year: 'May 2022 - Nov 2022',
+      year: 'Mar 2018 - Apr 2020',
       type: 'EXECUTION_LOG',
-      title: t('about.log_5_title'),
-      company: 'Lumina',
-      link: 'workforce',
-      desc: t('about.log_5_desc'),
-      tags: ["Community Platform", "Blue Collar", "Accessibility"],
-      icon: Activity,
+      title: t('about.log_2_title'),
+      company: 'STOQO',
+      link: 'efficiency',
+      desc: t('about.log_2_desc'),
+      tags: ["F&B Supply Chain", "Operations", "Sourcing"],
+      icon: Layers,
       color: 'text-[var(--text-primary)]',
       category: 'work'
     },
     {
-      year: '2022 - 2025',
-      type: 'SYSTEM_UPGRADE',
-      title: t('about.log_6_title'),
-      desc: t('about.log_6_desc'),
-      icon: AlertTriangle,
-      color: 'text-[var(--accent-red)]',
-      highlight: true,
-      category: 'bio'
-    },
-    {
-      year: '2025 - Present',
-      type: 'ACTIVE_DEPLOYMENT',
-      title: t('about.log_7_title'),
-      desc: t('about.log_7_desc'),
-      icon: Zap,
-      color: 'text-[var(--accent-green)]',
+      year: '2015 - 2018',
+      type: 'BOOT_SEQUENCE',
+      title: t('about.log_1_title'),
+      desc: t('about.log_1_desc'),
+      icon: Terminal,
+      color: 'text-[var(--accent-blue)]',
       category: 'bio'
     }
   ];
