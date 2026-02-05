@@ -1,19 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const SignalAI = ({ color = '#3B82F6' }) => {
+const SignalAI = ({ color = '#3B82F6', manualPing = 0 }) => {
     const containerRef = useRef(null);
     const [waves, setWaves] = useState([]);
     const [packets, setPackets] = useState([]);
+
+    // Respond to manual pings
+    useEffect(() => {
+        if (manualPing > 0) {
+            setWaves(prev => [
+                ...prev.slice(-4),
+                { id: `manual-${Date.now()}`, scale: 0, opacity: 0.8 }
+            ]);
+        }
+    }, [manualPing]);
 
     // Generate signal waves periodically
     useEffect(() => {
         const interval = setInterval(() => {
             setWaves(prev => [
                 ...prev.slice(-4), // Keep last 5 waves
-                { id: Date.now(), scale: 0, opacity: 0.5 }
+                { id: Date.now(), scale: 0, opacity: 0.3 }
             ]);
-        }, 3000);
+        }, 4000);
         return () => clearInterval(interval);
     }, []);
 

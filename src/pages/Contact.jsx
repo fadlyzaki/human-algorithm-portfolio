@@ -12,6 +12,7 @@ import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import Treasure from '../components/Treasure';
 import SignalAI from '../components/interactions/SignalAI';
+import NeuralDecryption from '../components/interactions/NeuralDecryption';
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Communication Uplink"
@@ -24,6 +25,12 @@ const ContactPage = () => {
   const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [copied, setCopied] = useState(false);
   const [formStatus, setFormStatus] = useState('idle'); // idle, sending, success, error
+  const [pingCount, setPingCount] = useState(0);
+  const [analysis, setAnalysis] = useState({
+    intent: 'WAITING_FOR_DATA',
+    entropy: 0.12,
+    payload: '0B'
+  });
 
   // --- DATA ---
   const contactInfo = {
@@ -99,7 +106,24 @@ const ContactPage = () => {
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQSNBdHW4C6kX20Cc9cvQMCrTsmtBDCgJ5a4mUfWrAyopux072Zw4rzwaQt0jJpSen/exec";
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    // Trigger AI Interaction
+    setPingCount(prev => prev + 1);
+
+    // Simulated Intent Analysis
+    if (name === 'message') {
+      let detectedIntent = 'NEUTRAL';
+      if (value.toLowerCase().includes('hire') || value.toLowerCase().includes('project')) detectedIntent = 'HIGH_PRIORITY_OP';
+      if (value.toLowerCase().includes('hello') || value.toLowerCase().includes('hi')) detectedIntent = 'HANDSHAKE_GREETING';
+
+      setAnalysis({
+        intent: value.length > 5 ? detectedIntent : 'BUFFERING...',
+        entropy: (Math.random() * 0.5 + 0.1).toFixed(2),
+        payload: `${Math.round(value.length * 1.5)}B`
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -164,7 +188,10 @@ const ContactPage = () => {
 
       {/* GENERATIVE AI BACKGROUND */}
       <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.4]">
-        <SignalAI color={isDark ? '#3B82F6' : '#2563EB'} />
+        <SignalAI
+          color={isDark ? '#3B82F6' : '#2563EB'}
+          manualPing={pingCount}
+        />
       </div>
 
       {/* STATIC BACKGROUND GRID (Subtle layer) */}
@@ -304,7 +331,9 @@ const ContactPage = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
 
             <div className="space-y-2">
-              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">{t('contact.label_name')}</label>
+              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">
+                <NeuralDecryption text={t('contact.label_name')} />
+              </label>
               <input
                 type="text"
                 name="name"
@@ -317,7 +346,9 @@ const ContactPage = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">{t('contact.label_email')}</label>
+              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">
+                <NeuralDecryption text={t('contact.label_email')} />
+              </label>
               <input
                 type="email"
                 name="email"
@@ -330,7 +361,9 @@ const ContactPage = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">{t('contact.label_message')}</label>
+              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">
+                <NeuralDecryption text={t('contact.label_message')} />
+              </label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -386,6 +419,39 @@ const ContactPage = () => {
             )}
 
           </form>
+
+          {/* NEURAL ANALYZER OVERLAY */}
+          <div className="mt-8 pt-8 border-t border-[var(--border-color)]">
+            <div className="flex items-center gap-2 mb-4 opacity-50">
+              <Activity size={14} />
+              <span className="text-[10px] font-mono tracking-widest uppercase">Neural_Packet_Analysis</span>
+            </div>
+            <div className="grid grid-cols-2 gap-4 font-mono text-[10px]">
+              <div className="p-3 bg-[var(--bg-void)] border border-[var(--border-color)] space-y-1">
+                <div className="opacity-40 uppercase">INTENT_CLASS</div>
+                <div className="text-[var(--accent-blue)] truncate">{analysis.intent}</div>
+              </div>
+              <div className="p-3 bg-[var(--bg-void)] border border-[var(--border-color)] space-y-1">
+                <div className="opacity-40 uppercase">DATA_ENTROPY</div>
+                <div className="text-[var(--accent-amber)]">{analysis.entropy}</div>
+              </div>
+            </div>
+
+            {/* Handshake Progress */}
+            <div className="mt-4 space-y-1.5">
+              <div className="flex justify-between text-[9px] uppercase tracking-tighter opacity-40">
+                <span>Protocol_Handshake</span>
+                <span>{Math.round((Object.values(formData).filter(v => v.length > 0).length / 3) * 100)}%</span>
+              </div>
+              <div className="h-1 bg-[var(--bg-void)] rounded-full overflow-hidden border border-[var(--border-color)]">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${(Object.values(formData).filter(v => v.length > 0).length / 3) * 100}%` }}
+                  className="h-full bg-[var(--accent-blue)] shadow-[0_0_8px_var(--accent-blue)]"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
       </main>
