@@ -51,9 +51,15 @@ const SectionTitle = ({ number, title, id, link, linkText }) => (
     </h2>
     <div className="h-px bg-gradient-to-r from-[var(--border-color)] to-transparent flex-grow ml-4"></div>
     {link && (
-      <Link to={link} className="hidden md:flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors whitespace-nowrap">
-        {linkText || 'VIEW ALL'} <ArrowRight size={12} />
-      </Link>
+      link.startsWith('http') ? (
+        <a href={link} target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors whitespace-nowrap">
+          {linkText || 'VIEW ALL'} <ArrowRight size={12} />
+        </a>
+      ) : (
+        <Link to={link} className="hidden md:flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors whitespace-nowrap">
+          {linkText || 'VIEW ALL'} <ArrowRight size={12} />
+        </Link>
+      )
     )}
   </div>
 );
@@ -634,7 +640,12 @@ const Portfolio = () => {
 
           {/* SECTION 4: NOTES */}
           < section id="notes" className="mb-40 scroll-mt-24" >
-            <SectionTitle number="4" title={t('home.section_notes')} />
+            <SectionTitle
+              number="4"
+              title={t('home.section_notes')}
+              link="https://fadlyzaki.substack.com"
+              linkText={t('home.more_logs')}
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {isSubstackLoading ? (
@@ -650,7 +661,7 @@ const Portfolio = () => {
                   </div>
                 ))
               ) : substackPosts.length > 0 ? (
-                substackPosts.map((post, i) => (
+                substackPosts.slice(0, 3).map((post, i) => (
                   <a
                     key={i}
                     href={post.link}
@@ -688,21 +699,6 @@ const Portfolio = () => {
                   <PenTool size={32} className="text-[var(--text-secondary)] mb-4" />
                   <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">Feed connection interrupted. Please try again later.</p>
                 </div>
-              )}
-
-              {/* View More Card */}
-              {!isSubstackLoading && substackPosts.length > 0 && (
-                <a
-                  href="https://fadlyzaki.substack.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[var(--bg-surface)]/30 border border-[var(--border-color)] border-dashed p-8 flex flex-col justify-center items-center text-center h-80 opacity-60 hover:opacity-100 transition-all hover:bg-[var(--bg-card)] hover:border-[var(--accent)]/50 group rounded-lg"
-                >
-                  <ExternalLink size={32} className="text-[var(--text-secondary)] mb-4 group-hover:text-[var(--accent)] transition-colors" />
-                  <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest group-hover:text-[var(--text-primary)] transition-colors">
-                    {t('home.more_logs')}
-                  </p>
-                </a>
               )}
             </div>
           </section >
