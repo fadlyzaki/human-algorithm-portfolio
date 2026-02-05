@@ -142,6 +142,7 @@ const AboutPage = () => {
       title: "Digital Marketing Workshop",
       issuer: "RevoU",
       date: "Oct 2021",
+      skills: ["Digital Marketing", "SEO", "Content Strategy"],
       icon: Globe,
       url: "https://certificates.revou.co/fadly-uzzaki-certificate-attendance-gadmw21.pdf"
     },
@@ -149,6 +150,7 @@ const AboutPage = () => {
       title: "Input and Interaction",
       issuer: "Coursera",
       date: "Aug 2019",
+      skills: ["Interaction Design", "UI Design", "HCI"],
       id: "GE4JFF2ZZHYK",
       icon: Layout,
       url: "https://www.coursera.org/account/accomplishments/verify/GE4JFF2ZZHYK"
@@ -157,6 +159,7 @@ const AboutPage = () => {
       title: "Information Design",
       issuer: "Coursera",
       date: "Jul 2019",
+      skills: ["Data Visualization", "Information Architecture", "Visual Design"],
       id: "VLX7M5BE5TFF",
       icon: Layers,
       url: "https://www.coursera.org/account/accomplishments/verify/VLX7M5BE5TFF"
@@ -165,6 +168,7 @@ const AboutPage = () => {
       title: "Design Kit: Human-Centered Design",
       issuer: "+Acumen / IDEO.org",
       date: "May 2018",
+      skills: ["HCD", "Prototyping", "Design Research"],
       id: "3385-1632464",
       icon: User,
       url: "https://plusacumen.novoed.com/#!/courses/design-kit-2018-2/statements/1632464"
@@ -173,6 +177,7 @@ const AboutPage = () => {
       title: "Conducting Usability Testing",
       issuer: "IxDF",
       date: "Oct 2018",
+      skills: ["Usability Testing", "User Research", "Test Facilitation"],
       id: "35436",
       icon: Shield,
       url: "https://www.interaction-design.org/members/muhammad-fadly-uzzaki/certificate/course/PjL4tmJSJ"
