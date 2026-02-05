@@ -154,21 +154,29 @@ const Portfolio = () => {
 
   // Fetch Substack Posts
   useEffect(() => {
-    const fetchSubstack = async () => {
-      try {
-        const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://fadlyzaki.substack.com/feed');
-        const data = await response.json();
-        if (data.status === 'ok') {
-          // Take the first 3 posts
-          setSubstackPosts(data.items.slice(0, 3));
-        }
-      } catch (error) {
-        console.error("Error fetching Substack feed:", error);
-      } finally {
-        setIsSubstackLoading(false);
+    // Temporary Mock Data for Substack
+    const mockPosts = [
+      {
+        title: "Why Reducing Steps Is Better Than Adding Delight",
+        description: "Delight is often a mask for poor usability. In this log, I explore why removing friction is the highest form of respect for the user.",
+        pubDate: "2026-01-28",
+        link: "https://fadlyzaki.substack.com"
+      },
+      {
+        title: "The Human Algorithm: Designing for Resilience",
+        description: "Resilient systems aren't the ones that never break—they're the ones designed to hold you when you do. A deep dive into my design philosophy.",
+        pubDate: "2026-01-15",
+        link: "https://fadlyzaki.substack.com"
+      },
+      {
+        title: "Cognitive Load and the Paradox of Choice",
+        description: "Every unnecessary feature is a tax on the user's attention. How we can build more focused, purposeful tools.",
+        pubDate: "2026-01-05",
+        link: "https://fadlyzaki.substack.com"
       }
-    };
-    fetchSubstack();
+    ];
+    setSubstackPosts(mockPosts);
+    setIsSubstackLoading(false);
   }, []);
 
   useEffect(() => {
