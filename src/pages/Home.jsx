@@ -478,7 +478,7 @@ const Portfolio = () => {
 
                         <div className="flex gap-2 flex-wrap">
                           {item.stack.map((tech, tIdx) => (
-                            <span key={tIdx} className="text-[9px] font-mono border border-[var(--border-color)] px-2 py-0.5 rounded-md text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)]/50">
+                            <span key={tIdx} className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-0.5 rounded-md text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)]/50">
                               {tech}
                             </span>
                           ))}

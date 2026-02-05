@@ -249,7 +249,7 @@ const SideProjectsIndex = () => {
                                 </p>
                                 <div className="flex gap-2 flex-wrap">
                                     {project.stack.map((tech, tIdx) => (
-                                        <span key={tIdx} className="text-[10px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider">
+                                        <span key={tIdx} className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider">
                                             {tech}
                                         </span>
                                     ))}
@@ -278,7 +278,7 @@ const SideProjectsIndex = () => {
                                     <div className="absolute inset-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
                                         <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} />
                                     </div>
-                                    <div className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] bg-[var(--bg-void)] border border-[var(--border-color)] px-2 py-1 rounded">
+                                    <div className="absolute top-4 left-4 font-mono text-[11px] uppercase tracking-wider text-[var(--text-secondary)] bg-[var(--bg-void)] border border-[var(--border-color)] px-2 py-1 rounded">
                                         NOTE
                                     </div>
                                 </div>
@@ -291,7 +291,7 @@ const SideProjectsIndex = () => {
                                 </p>
                                 <div className="flex gap-2 flex-wrap opacity-60">
                                     {project.stack.map((tech, tIdx) => (
-                                        <span key={tIdx} className="text-[10px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider">
+                                        <span key={tIdx} className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider">
                                             {tech}
                                         </span>
                                     ))}

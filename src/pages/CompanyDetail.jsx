@@ -315,7 +315,7 @@ const CompanyDetail = () => {
 
                                         {/* Floating Badge */}
                                         <div className="absolute top-4 right-4 z-20">
-                                            <div className="flex items-center gap-2 bg-[var(--bg-card)]/90 backdrop-blur px-3 py-1.5 rounded-full border border-[var(--border-color)] text-[10px] font-mono uppercase tracking-widest shadow-lg">
+                                            <div className="flex items-center gap-2 bg-[var(--bg-card)]/90 backdrop-blur px-3 py-1.5 rounded-full border border-[var(--border-color)] text-[11px] font-mono uppercase tracking-widest shadow-lg">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] animate-pulse"></div>
                                                 {project.type}
                                             </div>
@@ -341,7 +341,7 @@ const CompanyDetail = () => {
 
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-[var(--border-color)] pt-6">
                                             <div className="space-y-2">
-                                                <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
+                                                <span className="font-mono text-[11px] text-[var(--text-primary)] uppercase tracking-widest flex items-center gap-2">
                                                     <span className="w-1 h-1 bg-red-400 rounded-full"></span> {t('company.problem')}
                                                 </span>
                                                 <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
@@ -349,7 +349,7 @@ const CompanyDetail = () => {
                                                 </p>
                                             </div>
                                             <div className="space-y-2">
-                                                <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
+                                                <span className="font-mono text-[11px] text-[var(--text-primary)] uppercase tracking-widest flex items-center gap-2">
                                                     <span className="w-1 h-1 bg-[var(--brand)] rounded-full"></span> {t('company.fix')}
                                                 </span>
                                                 <p className="text-sm font-medium text-[var(--text-primary)]">

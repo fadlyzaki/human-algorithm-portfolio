@@ -122,7 +122,7 @@ const WorkHoloDeck = ({ cluster }) => {
                                     <h4 className="text-black dark:text-white font-bold text-sm mb-1 truncate">
                                         {isId ? (project.title_id || project.title) : project.title}
                                     </h4>
-                                    <p className="text-black/50 dark:text-white/50 text-xs truncate">
+                                    <p className="text-black/70 dark:text-white/70 text-[13px] truncate">
                                         {isId ? project.tag_id : project.tag}
                                     </p>
                                 </div>
