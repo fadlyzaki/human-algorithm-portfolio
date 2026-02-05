@@ -55,3 +55,71 @@ html {
 .pause-on-hover:hover {
   animation-play-state: paused;
 }
+
+/* --- HUMANIZING TEXTURES & FONTS --- */
+.font-handwritten {
+  font-family: 'Caveat', cursive;
+}
+
+.font-signature {
+  font-family: 'La Belle Aurore', cursive;
+}
+
+.font-serif-human {
+  font-family: 'EB Garamond', serif;
+}
+
+.paper-texture {
+  background-color: #f8f5f2;
+  background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+  /* Subtle paper grain */
+}
+
+.dark .paper-texture {
+  background-color: #1a1a1a;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+}
+
+.hand-drawn-underline {
+  position: relative;
+  white-space: nowrap;
+}
+
+.hand-drawn-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--brand);
+  opacity: 0.4;
+  clip-path: polygon(0% 20%, 100% 0%, 98% 80%, 2% 100%);
+  transform: rotate(-1deg);
+}
+
+.tape-effect {
+  position: relative;
+}
+
+.tape-effect::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 60px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  border-left: 2px dashed rgba(255, 255, 255, 0.1);
+  border-right: 2px dashed rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.ink-bleed {
+  filter: url(#ink-bleed-filter);
+}
+
+/* Custom SVG Filter for "Human" feel (can be added in index.html or as a hidden component) */

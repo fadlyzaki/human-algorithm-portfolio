@@ -11,6 +11,13 @@
   <!-- Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=La+Belle+Aurore&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
+
   <!-- Primary Meta Tags -->
   <title>Fadlyzaki Portfolio</title>
   <meta name="title" content="Fadlyzaki Portfolio" />
@@ -64,6 +71,14 @@
     </div>
   </div>
   <script type="module" src="/src/main.jsx"></script>
+
+  <!-- Tactile Filters -->
+  <svg style="display: none;">
+    <filter id="ink-bleed-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1" />
+    </filter>
+  </svg>
 </body>
 
 </html>

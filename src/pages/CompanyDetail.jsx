@@ -151,40 +151,57 @@ const CompanyDetail = () => {
                             </Treasure>
                             <div className="absolute -inset-4 bg-[var(--brand)] opacity-10 blur-3xl rounded-full"></div>
                             <div className="relative h-full w-full rounded-2xl overflow-hidden border border-[var(--border-color)] shadow-2xl bg-black dark:bg-white">
-                                <div className="absolute top-4 left-4 z-40 flex gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                                    <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                                </div>
-
                                 <div className="absolute top-4 right-4 z-40">
                                     <button
                                         onClick={() => setShowNarrative(!showNarrative)}
-                                        className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 font-mono text-[10px] uppercase tracking-widest ${showNarrative ? 'bg-[var(--brand)] text-white border-[var(--brand)]' : 'bg-black/50 text-white/70 border-white/20 hover:border-white/40'}`}
+                                        className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-500 font-mono text-[10px] uppercase tracking-widest shadow-xl overflow-hidden group ${showNarrative ? 'bg-white text-black border-white' : 'bg-black/50 text-white/70 border-white/20 hover:border-white/40'}`}
                                     >
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] pointer-events-none"></div>
                                         {showNarrative ? <Cpu size={12} /> : <Scan size={12} />}
-                                        {showNarrative ? 'System_View' : 'Human_Narrative'}
+                                        {showNarrative ? 'Reveal_System' : 'Human_Artifact'}
                                     </button>
                                 </div>
 
                                 <Suspense fallback={<div className="flex items-center justify-center h-full text-[var(--brand)] animate-pulse">LOADING_SIMULATION...</div>}>
-                                    <div className={`relative h-full w-full transition-all duration-700 ${showNarrative ? 'blur-xl scale-110 opacity-30 px-12' : 'blur-0 scale-100 opacity-100'}`}>
+                                    <div className={`relative h-full w-full transition-all duration-1000 ease-in-out ${showNarrative ? 'blur-2xl scale-110 opacity-20 grayscale' : 'blur-0 scale-100 opacity-100'}`}>
                                         <InteractionComponent color={brandColor} />
                                     </div>
 
                                     {showNarrative && (
-                                        <div className="absolute inset-0 z-30 flex items-center justify-center p-8 md:p-12 animate-in fade-in zoom-in duration-500 overflow-y-auto">
-                                            <div className="max-w-md bg-black/40 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-3xl">
-                                                <div className="flex items-center gap-3 mb-6">
-                                                    <div className="w-8 h-px bg-[var(--brand)]"></div>
-                                                    <span className="font-mono text-[10px] text-[var(--brand)] uppercase tracking-[0.3em]">The_Motivation</span>
+                                        <div className="absolute inset-0 z-30 flex items-center justify-center p-4 md:p-12 animate-in fade-in zoom-in duration-700">
+                                            <div className="relative w-full max-w-4xl h-full max-h-[600px] flex flex-col md:flex-row bg-[#fdfaf6] dark:bg-[#1a1a1a] rounded-lg border border-black/10 dark:border-white/10 shadow-2xl overflow-hidden paper-texture">
+                                                {/* Visual Artifact */}
+                                                <div className="w-full md:w-1/2 h-48 md:h-full relative overflow-hidden border-b md:border-b-0 md:border-r border-black/5 dark:border-white/5">
+                                                    <img
+                                                        src={cluster.motivationImage}
+                                                        alt="Personal Context"
+                                                        className="w-full h-full object-cover opacity-80 mix-blend-multiply dark:mix-blend-screen grayscale hover:grayscale-0 transition-all duration-700"
+                                                    />
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-[#fdfaf6]/50 dark:from-[#1a1a1a]/50 to-transparent"></div>
+                                                    <div className="absolute top-4 left-4 font-mono text-[8px] uppercase tracking-widest opacity-40">
+                                                        FILE_REF: {id}_ORIGIN
+                                                    </div>
                                                 </div>
-                                                <p className="text-lg md:text-xl font-serif italic text-white leading-relaxed mb-6">
-                                                    "{isId ? (cluster.motivation_id || cluster.motivation) : cluster.motivation}"
-                                                </p>
-                                                <div className="flex items-center gap-4 text-[10px] font-mono text-white/40 uppercase tracking-widest">
-                                                    <span>LOG_SOURCE: INTERNAL_MEMO</span>
-                                                    <span>STATUS: DECLASSIFIED</span>
+
+                                                {/* Textual Artifact */}
+                                                <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative">
+                                                    <div className="absolute top-8 left-8 w-12 h-px bg-[var(--brand)] opacity-30"></div>
+                                                    <div className="mb-6">
+                                                        <span className="font-mono text-[10px] text-[var(--brand)] uppercase tracking-[0.3em] opacity-60">The_Motivation</span>
+                                                    </div>
+                                                    <p className="text-xl md:text-2xl font-serif-human italic text-black/80 dark:text-white/80 leading-relaxed mb-8 ink-bleed">
+                                                        "{isId ? (cluster.motivation_id || cluster.motivation) : cluster.motivation}"
+                                                    </p>
+
+                                                    <div className="mt-auto flex items-center justify-between border-t border-black/5 dark:border-white/5 pt-6">
+                                                        <div className="flex flex-col">
+                                                            <span className="font-signature text-xl text-black/60 dark:text-white/60">Fadly Zaki</span>
+                                                            <span className="font-mono text-[8px] uppercase tracking-[0.2em] opacity-40">Designer // {cluster.company}</span>
+                                                        </div>
+                                                        <div className="flex items-center gap-4 text-[9px] font-mono text-black/30 dark:text-white/30 uppercase tracking-widest">
+                                                            <span>100%_HUMAN_LOGIC</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -254,24 +271,25 @@ const CompanyDetail = () => {
                             </div>
 
                             {/* Designer's Log / Motivation */}
-                            <div className="relative p-6 pt-10 border border-[var(--border-color)] rounded-lg bg-[var(--bg-card)] overflow-hidden group">
-                                <div className="absolute top-0 left-0 right-0 h-1 bg-[var(--brand)] opacity-50 group-hover:h-full group-hover:opacity-[0.03] transition-all duration-500"></div>
-                                <div className="absolute top-3 left-4 font-mono text-[8px] uppercase tracking-[0.2em] text-[var(--text-secondary)] flex items-center gap-2">
-                                    <Scan size={10} className="text-[var(--brand)]" /> Designer's_Log // {id}
+                            <div className="relative p-8 pt-12 border border-black/5 dark:border-white/5 rounded-sm bg-[#faf8f6] dark:bg-[#161616] overflow-hidden shadow-inner paper-texture tape-effect group">
+                                <div className="absolute top-0 left-0 right-0 h-1 bg-[var(--brand)] opacity-20"></div>
+                                <div className="absolute top-4 left-6 font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--text-secondary)] flex items-center gap-2 opacity-60">
+                                    <Scan size={12} className="text-[var(--brand)]" /> DESIGNER_LOG // {id}
                                 </div>
 
                                 <blockquote className="relative">
-                                    <span className="absolute -top-4 -left-2 text-4xl text-[var(--brand)] opacity-20 font-serif">"</span>
-                                    <p className="text-sm font-serif italic leading-relaxed text-[var(--text-primary)] relative z-10">
-                                        {isId ? (cluster.motivation_id || cluster.motivation) : cluster.motivation}
+                                    <p className="text-xl font-handwritten leading-relaxed text-black/70 dark:text-white/70 relative z-10 transition-colors duration-500 group-hover:text-black dark:group-hover:text-white">
+                                        <span className="hand-drawn-underline">
+                                            {isId ? (cluster.motivation_id || cluster.motivation) : cluster.motivation}
+                                        </span>
                                     </p>
-                                    <footer className="mt-4 flex items-center justify-between">
+                                    <footer className="mt-8 flex items-center justify-between opacity-80 transition-opacity group-hover:opacity-100">
                                         <div className="flex flex-col">
-                                            <span className="text-[9px] font-mono text-[var(--brand)] uppercase tracking-wider">FADLY_ZAKI</span>
-                                            <span className="text-[8px] font-mono text-[var(--text-secondary)] opacity-60">LEAD_PRODUCT_DESIGNER</span>
+                                            <span className="font-signature text-2xl text-[var(--brand)] leading-none mb-1">Fadly Zaki</span>
+                                            <span className="font-mono text-[8px] uppercase tracking-widest text-[var(--text-secondary)]">The Human Algorithm</span>
                                         </div>
-                                        <div className="w-8 h-8 rounded-full border border-[var(--border-color)] p-1 bg-[var(--bg-void)]">
-                                            <img src="/about-portrait-new.jpg" alt="Author" className="w-full h-full object-cover rounded-full grayscale" />
+                                        <div className="w-10 h-10 rounded-full border-2 border-white dark:border-black shadow-lg overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-110">
+                                            <img src="/about-portrait-new.jpg" alt="Author" className="w-full h-full object-cover" />
                                         </div>
                                     </footer>
                                 </blockquote>
