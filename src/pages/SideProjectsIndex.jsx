@@ -220,15 +220,15 @@ const SideProjectsIndex = () => {
                                 onClick={() => navigate(`/side-project/${project.id}`)}
                                 className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform"
                             >
-                                <div className="aspect-[4/3] bg-[var(--text-secondary)]/10 border border-[var(--border-color)] mb-6 overflow-hidden relative">
+                                <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] mb-6 overflow-hidden relative">
                                     <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
                                         <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} />
                                     </div>
                                     <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
-                                    <div className="absolute bottom-4 left-4 font-mono text-xs text-white/80 bg-black/50 px-2 py-1 backdrop-blur-sm rounded">
+                                    <div className="absolute bottom-4 left-4 font-mono text-xs text-white dark:text-black bg-black/50 dark:bg-white/50 px-2 py-1 backdrop-blur-sm rounded">
                                         0{idx + 1}
                                     </div>
-                                    <ArrowUpRight className="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={20} />
+                                    <ArrowUpRight className="absolute top-4 right-4 text-white dark:text-black opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={20} />
                                 </div>
 
                                 <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4">
@@ -264,7 +264,7 @@ const SideProjectsIndex = () => {
                                 onClick={() => navigate(`/side-project/${project.id}`)}
                                 className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform opacity-80 hover:opacity-100"
                             >
-                                <div className="aspect-[4/3] bg-[var(--text-secondary)]/5 border border-[var(--border-color)] border-dashed mb-6 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+                                <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] border-dashed mb-6 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
                                     <div className="absolute inset-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
                                         <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} />
                                     </div>

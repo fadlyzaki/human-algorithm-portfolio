@@ -124,7 +124,7 @@ const SideProjectDetail = () => {
             {/* --- 2. CINEMATIC HERO --- */}
             <header className="min-h-[90vh] flex flex-col justify-center items-center px-6 pt-24 md:pt-32 text-center relative overflow-hidden">
                {/* Technical Illustration Background */}
-               <div className="absolute inset-0 z-0">
+               <div className="absolute inset-0 z-0 bg-black dark:bg-white">
                   <div className="w-full h-full opacity-30 grayscale blur-[2px] transition-all duration-1000 group-hover:blur-0">
                      <ProjectCard type={project.type || 'Web'} expanded={true} id={project.id} />
                   </div>
@@ -167,7 +167,7 @@ const SideProjectDetail = () => {
             </header>
 
             {/* --- 3. CONTEXT STRIP (METADATA) --- */}
-            <section className="border-y border-[var(--border-color)] bg-[var(--bg-surface)] relative z-20">
+            <section className="border-y border-[var(--border-color)] bg-white dark:bg-black relative z-20">
                <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
 
                   {/* Stack */}
@@ -177,7 +177,7 @@ const SideProjectDetail = () => {
                      </h3>
                      <div className="flex flex-wrap gap-2">
                         {project.stack.map(tech => (
-                           <span key={tech} className="text-sm font-medium border-b border-[var(--border-color)] pb-0.5">{tech}</span>
+                           <span key={tech} className="text-sm font-medium text-black dark:text-white border-b border-[var(--border-color)] pb-0.5">{tech}</span>
                         ))}
                      </div>
                   </div>
@@ -207,7 +207,7 @@ const SideProjectDetail = () => {
                      <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
                         <Terminal size={12} /> Year
                      </h3>
-                     <div className="text-sm font-medium">{project.date || '2023 — Present'}</div>
+                     <div className="text-sm font-medium text-black dark:text-white">{project.date || '2023 — Present'}</div>
                   </div>
 
                   {/* Context */}
@@ -215,7 +215,7 @@ const SideProjectDetail = () => {
                      <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
                         <Layers size={12} /> Context
                      </h3>
-                     <div className="text-sm font-medium">{activeSubtitle}</div>
+                     <div className="text-sm font-medium text-black dark:text-white">{activeSubtitle}</div>
                   </div>
                </div>
             </section>
