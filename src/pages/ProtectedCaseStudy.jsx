@@ -20,7 +20,7 @@ import ProjectCard from '../components/ProjectCard';
 const ProtectedCaseStudy = () => {
   const { id } = useParams();
   const [isLocked, setIsLocked] = useState(true);
-  const [activeSummary, setActiveSummary] = useState('technical'); // New State
+  const [activeSummary, setActiveSummary] = useState('recruiter'); // Default to recruiter view
   const { isDark, setIsDark } = useTheme();
   const { t, toggleLanguage, language } = useLanguage();
   const { isGestureMode, toggleGestureMode } = useHandCursor();

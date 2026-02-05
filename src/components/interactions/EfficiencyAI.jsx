@@ -56,24 +56,19 @@ const EfficiencyAI = ({ color = '#FA6130' }) => {
     };
 
     return (
-        <div className="w-full h-full min-h-[400px] relative bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] overflow-hidden flex flex-col items-center justify-center shadow-2xl">
-
+        <div className="w-full h-full min-h-[400px] relative overflow-hidden bg-black/5 rounded-xl border border-white/10 backdrop-blur-sm p-8 flex flex-col items-center justify-center font-mono">
             {/* Background Grid */}
-            <div className="absolute inset-0 opacity-5 pointer-events-none"
-                style={{
-                    backgroundImage: `linear-gradient(${color} 1px, transparent 1px), linear-gradient(90deg, ${color} 1px, transparent 1px)`,
-                    backgroundSize: '40px 40px'
-                }}
-            />
+            <div className="absolute inset-0 opacity-10" style={{
+                backgroundImage: `radial-gradient(${color} 1px, transparent 1px)`,
+                backgroundSize: '20px 20px'
+            }}></div>
 
-            {/* Main Viz Area */}
-            <div className="relative w-full max-w-lg aspect-video mb-8 select-none">
+            {/* Network Visualization */}
+            <div className="relative w-full max-w-lg aspect-video mb-8">
                 <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
-
                     {/* 1. Connections (Paths) */}
                     {connections.map((conn, i) => (
                         <g key={`${conn.from}-${conn.to}`}>
-                            {/* The Line Itself */}
                             <motion.path
                                 d={getPath(conn, optimized)}
                                 stroke={color}
@@ -91,13 +86,12 @@ const EfficiencyAI = ({ color = '#FA6130' }) => {
                                 transition={{ duration: 1.2, ease: "easeInOut" }}
                             />
 
-                            {/* Moving Particles (Simulating Goods/Data) */}
+                            {/* Moving Particles */}
                             <circle r="1" fill={color}>
                                 <animateMotion
                                     dur={optimized ? "2s" : `${4 + i}s`}
                                     repeatCount="indefinite"
                                     path={getPath(conn, optimized)}
-                                    // Key to force restart anim on path change:
                                     key={optimized ? 'opt' : 'chaos'}
                                 />
                             </circle>
@@ -115,13 +109,8 @@ const EfficiencyAI = ({ color = '#FA6130' }) => {
                             }}
                             transition={{ duration: 1.2, ease: "easeInOut" }}
                         >
-                            {/* Node Glow */}
                             <circle r={node.isHub ? 8 : 4} fill={color} fillOpacity={0.1} />
-
-                            {/* Core Node */}
                             <circle r={node.isHub ? 2.5 : 1.5} fill={color} stroke="none" />
-
-                            {/* Label (Only visible when optimized) */}
                             <motion.text
                                 y={node.isHub ? 6 : 4}
                                 textAnchor="middle"
@@ -138,34 +127,34 @@ const EfficiencyAI = ({ color = '#FA6130' }) => {
                 </svg>
             </div>
 
-            {/* Control Interface */}
-            <div className="flex flex-col items-center gap-4 z-10">
-                <button
-                    onClick={() => setOptimized(!optimized)}
-                    className="group relative px-8 py-3 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--brand)] transition-all overflow-hidden shadow-lg hover:shadow-[var(--brand)]/20"
-                >
-                    <div className={`absolute inset-0 bg-[var(--brand)] transition-opacity duration-500 ${optimized ? 'opacity-10' : 'opacity-0'}`} />
-
-                    <div className="flex items-center gap-3 font-mono text-xs font-bold text-[var(--text-primary)] uppercase tracking-widest relative">
-                        {optimized ? (
-                            <>
-                                <Network size={16} className="text-[var(--brand)]" />
-                                <span>Network_Optimized</span>
-                            </>
-                        ) : (
-                            <>
-                                <Zap size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors" />
-                                <span>Optimize_Supply_Chain</span>
-                            </>
-                        )}
+            {/* Control Panel */}
+            <div className="w-full max-w-xs bg-[var(--bg-card)]/50 p-4 rounded-lg border border-white/10 backdrop-blur-md z-10">
+                <div className="flex justify-between items-center">
+                    <div className="flex flex-col">
+                        <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">Operational Heuristics</span>
+                        <span className="text-[9px] text-[var(--brand)] opacity-80 font-mono">{optimized ? 'ALGORITHM_ACTIVE' : 'SYSTEM_IDLE'}</span>
                     </div>
-                </button>
-
-                <div className="font-mono text-[10px] text-[var(--text-secondary)] flex gap-4 opacity-70">
-                    <span>NODES: {nodes.length}</span>
-                    <span>ROUTES: {connections.length}</span>
-                    <span>EFFICIENCY: {optimized ? '98.4%' : '32.1%'}</span>
+                    <button
+                        onClick={() => setOptimized(!optimized)}
+                        className={`relative w-10 h-5 rounded-full transition-colors duration-300 ${optimized ? 'bg-[var(--brand)]' : 'bg-gray-700/50'}`}
+                    >
+                        <motion.div
+                            animate={{ x: optimized ? 22 : 2 }}
+                            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                            className="absolute top-1 w-3 h-3 bg-white rounded-full shadow-sm"
+                        />
+                    </button>
                 </div>
+            </div>
+
+            {/* Technical Metadata */}
+            <div className="absolute bottom-4 left-4 text-[10px] text-gray-500 font-mono flex flex-col gap-0.5 pointer-events-none opacity-60">
+                <div className="flex items-center gap-2">
+                    <span className={`w-1 h-1 rounded-full ${optimized ? 'bg-green-500 animate-pulse' : 'bg-gray-500'}`}></span>
+                    <span>LOGISTICS_ENGINE: V3.4.1</span>
+                </div>
+                <div>NODES: {nodes.length} // ROUTES: {connections.length}</div>
+                <div>EFFICIENCY: {optimized ? '98.4%' : '32.1%'}</div>
             </div>
         </div>
     );
