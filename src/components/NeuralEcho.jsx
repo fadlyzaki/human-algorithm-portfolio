@@ -40,88 +40,96 @@ const NeuralEcho = () => {
     };
 
     return (
-        <div className="relative group min-h-[160px] flex flex-col justify-between p-6 bg-[var(--bg-void)]/30 rounded-xl border border-[var(--border-color)]/20 hover:border-[var(--accent-blue)]/50 transition-all duration-700 overflow-hidden">
+        <div className="relative group min-h-[180px] flex flex-col justify-between p-8 bg-[var(--bg-void)]/40 rounded-2xl border border-[var(--border-color)]/20 hover:border-[var(--accent-blue)]/40 transition-all duration-700 overflow-hidden shadow-2xl shadow-black/20">
             {/* Neural Pattern Background Overlay */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue)]/20 to-transparent"></div>
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue)]/30 to-transparent"></div>
 
             {/* Header / Subtitle */}
-            <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
+            <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
                     <div className="relative">
-                        <Cpu size={14} className="text-[var(--accent-blue)]" />
+                        <Cpu size={16} className="text-[var(--accent-blue)]" />
                         <motion.div
-                            animate={{ opacity: [1, 0.4, 1] }}
-                            transition={{ duration: 2, repeat: Infinity }}
+                            animate={{ opacity: [1, 0.4, 1], scale: [1, 1.2, 1] }}
+                            transition={{ duration: 3, repeat: Infinity }}
                             className="absolute -top-1 -right-1 w-2 h-2 bg-[var(--accent-blue)] rounded-full blur-[2px]"
                         ></motion.div>
                     </div>
-                    <span className="font-mono text-[10px] text-[var(--text-card-secondary)] uppercase tracking-[0.3em] font-bold">
+                    <span className="font-mono text-[10px] text-[var(--text-card-secondary)] uppercase tracking-[0.4em] font-bold">
                         {t('about.neural_echo.subtitle')}
                     </span>
                 </div>
 
-                <div className="flex items-center gap-1.5 px-2 py-0.5 bg-[var(--accent-blue)]/10 rounded-full border border-[var(--accent-blue)]/20">
-                    <div className="flex gap-0.5">
+                <div className="flex items-center gap-2 px-3 py-1 bg-[var(--accent-blue)]/5 rounded-full border border-[var(--accent-blue)]/10">
+                    <div className="flex gap-1 items-end h-2">
                         {[1, 2, 3].map(i => (
                             <motion.div
                                 key={i}
-                                animate={{ height: [4, 8, 4] }}
-                                transition={{ duration: 0.5, repeat: Infinity, delay: i * 0.1 }}
-                                className="w-0.5 bg-[var(--accent-blue)] rounded-full"
+                                animate={{ height: [2, 8, 4, 6, 2] }}
+                                transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
+                                className="w-0.5 bg-[var(--accent-blue)]/60 rounded-full"
                             />
                         ))}
                     </div>
-                    <span className="font-mono text-[8px] text-[var(--accent-blue)] uppercase tracking-tighter">Live Signal</span>
+                    <span className="font-mono text-[8px] text-[var(--accent-blue)]/80 uppercase tracking-widest font-bold">Signal_Active</span>
                 </div>
             </div>
 
             {/* Main Echo Display */}
-            <div className="relative flex-grow flex items-center py-4">
+            <div className="relative flex-grow flex items-start py-2">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentIndex}
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.02 }}
-                        transition={{ duration: 0.3 }}
-                        className="font-mono text-base md:text-lg text-[var(--text-card)] leading-relaxed max-w-2xl border-l border-[var(--accent-blue)]/30 pl-4 py-1"
+                        initial={{ opacity: 0, y: 4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -4 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="font-mono text-base md:text-[1.1rem] text-[var(--text-card)] leading-relaxed max-w-2xl border-l-2 border-[var(--accent-blue)]/20 pl-6 py-1"
                     >
-                        <span className="text-[var(--accent-blue)]/50 mr-2 opacity-50 select-none">DEBUG_LOG_0{currentIndex + 1}:</span>
-                        {displayText}
-                        {isTyping && (
-                            <motion.span
-                                animate={{ opacity: [1, 0] }}
-                                transition={{ duration: 0.8, repeat: Infinity }}
-                                className="inline-block w-1.5 h-4 bg-[var(--accent-blue)] ml-1 align-middle shadow-[0_0_8px_var(--accent-blue)]"
-                            />
-                        )}
+                        <div className="text-[10px] text-[var(--accent-blue)]/40 mb-2 uppercase tracking-tighter opacity-60 select-none flex items-center gap-2">
+                            <span className="w-4 h-[1px] bg-[var(--accent-blue)]/20"></span>
+                            PROTOCOL_0x{currentIndex.toString(16).padStart(2, '0').toUpperCase()}
+                        </div>
+                        <div className="relative inline">
+                            {displayText}
+                            {isTyping && (
+                                <motion.span
+                                    animate={{ opacity: [1, 0] }}
+                                    transition={{ duration: 0.8, repeat: Infinity }}
+                                    className="inline-block w-2 h-5 bg-[var(--accent-blue)] ml-2 align-middle shadow-[0_0_12px_var(--accent-blue)]"
+                                />
+                            )}
+                        </div>
                     </motion.div>
                 </AnimatePresence>
             </div>
 
             {/* Controls */}
-            <div className="mt-8 flex items-center justify-between pt-4 border-t border-[var(--border-color)]/10">
+            <div className="mt-10 flex items-center justify-between pt-6 border-t border-[var(--border-color)]/5">
                 <button
                     onClick={handleRefresh}
                     disabled={isTyping}
-                    className={`flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest transition-all px-4 py-2 rounded-lg border border-transparent
-                        ${isTyping ? 'opacity-20 cursor-not-allowed' : 'text-[var(--text-card-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--accent-blue)]/5 hover:border-[var(--accent-blue)]/20'}`}
+                    className={`flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] transition-all px-5 py-2.5 rounded-xl border
+                        ${isTyping
+                            ? 'opacity-20 cursor-not-allowed border-transparent'
+                            : 'text-[var(--text-card-secondary)] hover:text-[var(--accent-blue)] bg-[var(--bg-void)]/20 border-[var(--border-color)]/10 hover:border-[var(--accent-blue)]/30 hover:bg-[var(--accent-blue)]/5 hover:shadow-lg hover:shadow-[var(--accent-blue)]/5'}`}
                 >
-                    <RefreshCw size={12} className={isTyping ? '' : 'group-hover:rotate-180 transition-transform duration-700'} />
+                    <RefreshCw size={14} className={isTyping ? '' : 'group-hover:rotate-180 transition-transform duration-1000'} />
                     {t('about.neural_echo.refresh')}
                 </button>
 
-                <div className="flex items-center gap-4 opacity-30 group-hover:opacity-60 transition-opacity duration-700">
-                    <div className="flex items-center gap-2">
-                        <div className={`h-1.5 w-1.5 rounded-full ${isTyping ? 'bg-[var(--accent-blue)] animate-pulse' : 'bg-green-500 shadow-[0_0_5px_rgba(34,197,94,0.5)]'}`}></div>
-                        <span className="font-mono text-[8px] tracking-[0.1em]">SYSTEM_READY</span>
+                <div className="flex items-center gap-6 opacity-40 group-hover:opacity-80 transition-opacity duration-700">
+                    <div className="flex items-center gap-2.5">
+                        <div className={`h-1.5 w-1.5 rounded-full ${isTyping ? 'bg-[var(--accent-blue)] animate-pulse' : 'bg-[var(--accent-green)] shadow-[0_0_8px_var(--accent-green)]'}`}></div>
+                        <span className="font-mono text-[9px] tracking-[0.15em] font-medium uppercase">Neural_Synapse_OK</span>
                     </div>
-                    <span className="font-mono text-[8px] border-l border-[var(--border-color)] pl-4">HASH_0x{currentIndex.toString(16).toUpperCase()}</span>
+                    <div className="hidden sm:block h-4 w-[1px] bg-[var(--border-color)]/10"></div>
+                    <span className="hidden sm:block font-mono text-[9px] tracking-widest text-[var(--accent-blue)] opacity-60 uppercase">Kernel_v2.5.0</span>
                 </div>
             </div>
 
             {/* Ambient Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-radial-gradient from-[var(--accent-blue)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-radial-gradient from-[var(--accent-blue)]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-[1500ms] -z-10 pointer-events-none"></div>
         </div>
     );
 };

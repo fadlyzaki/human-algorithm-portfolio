@@ -27,6 +27,8 @@ const AboutPage = () => {
   const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [scrolled, setScrolled] = useState(0);
   const [chaosStrength, setChaosStrength] = useState(0);
+  const [showNav, setShowNav] = useState(true);
+  const lastScrollY = React.useRef(0);
 
   // JSON Config State
 
@@ -189,12 +191,23 @@ const AboutPage = () => {
     const handleScroll = () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      setScrolled(scrolled);
+      const currentScrollY = window.scrollY;
+
+      setScrolled((winScroll / height) * 100);
+
+      // Smart Navbar Logic
+      if (Math.abs(currentScrollY - lastScrollY.current) > 10) {
+        if (currentScrollY > lastScrollY.current && currentScrollY > 50 && !isGestureMode) {
+          setShowNav(false); // Scrolling DOWN -> HIDE
+        } else {
+          setShowNav(true);  // Scrolling UP -> SHOW
+        }
+        lastScrollY.current = currentScrollY;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isGestureMode]);
 
   // Chaos Style Generator
   const chaosStyle = useMemo(() => {
@@ -265,37 +278,39 @@ const AboutPage = () => {
       <main className="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-20 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-void)]/80 backdrop-blur-sm shadow-2xl">
 
         {/* HEADER */}
-        <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)] transition-all duration-300">
-          <Link to="/" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider group transition-colors">
-            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            <span>{t('about.main_terminal')}</span>
-          </Link>
+        <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${showNav ? 'translate-y-0' : '-translate-y-full'}`}>
+          <header className="flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)]">
+            <Link to="/" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider group transition-colors">
+              <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+              <span>{t('about.main_terminal')}</span>
+            </Link>
 
-          <div className="flex items-center gap-4">
-            <button
-              onClick={toggleGestureMode}
-              className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}
-              title="Toggle Hand Tracking"
-            >
-              <ScanEye size={18} />
-            </button>
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors"
-              aria-label="Toggle Theme"
-            >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-              title="Switch Language"
-            >
-              <Globe size={18} />
-              <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
-            </button>
-          </div>
-        </header>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={toggleGestureMode}
+                className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}
+                title="Toggle Hand Tracking"
+              >
+                <ScanEye size={18} />
+              </button>
+              <button
+                onClick={() => setIsDark(!isDark)}
+                className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors"
+                aria-label="Toggle Theme"
+              >
+                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                title="Switch Language"
+              >
+                <Globe size={18} />
+                <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
+              </button>
+            </div>
+          </header>
+        </div>
 
         {/* Padding for fixed header */}
         <div className="h-24 md:h-32"></div>
