@@ -220,9 +220,11 @@ const AboutPage = () => {
   const themeStyles = {
     '--bg-void': isDark ? '#111111' : '#F0F0F3',
     '--bg-surface': isDark ? '#1F1F1F' : '#FFFFFF',
-    '--bg-card': isDark ? '#181818' : '#FFFFFF',
+    '--bg-card': isDark ? '#FFFFFF' : '#181818',
     '--text-primary': isDark ? '#F4F4F5' : '#18181B',
     '--text-secondary': isDark ? '#A1A1AA' : '#52525B',
+    '--text-card': isDark ? '#18181B' : '#F4F4F5',
+    '--text-card-secondary': isDark ? '#52525B' : '#A1A1AA',
     '--border-color': isDark ? '#262626' : '#E4E4E7',
     '--accent-amber': isDark ? '#F59E0B' : '#D97706',
     '--accent-blue': isDark ? '#3B82F6' : '#2563EB',
@@ -416,9 +418,9 @@ const AboutPage = () => {
                   className="bg-[var(--bg-card)] border border-[var(--border-color)] p-6 text-center group hover:border-[var(--accent-green)] hover:bg-[var(--accent-green)]/5 transition-all rounded-lg cursor-pointer"
                 >
                   <habit.icon size={28} className={`mx-auto mb-3 ${habit.color} opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all`} />
-                  <div className="font-mono text-sm text-[var(--text-primary)] font-bold mb-1">{habit.label}</div>
-                  <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-3 opacity-60">{habit.frequency}</div>
-                  <div className="font-serif italic text-xs text-[var(--text-secondary)] border-t border-[var(--border-color)] pt-3 mt-2 opacity-60 group-hover:opacity-100 transition-opacity">
+                  <div className="font-mono text-sm text-[var(--text-card)] font-bold mb-1">{habit.label}</div>
+                  <div className="font-mono text-[10px] text-[var(--text-card-secondary)] uppercase tracking-widest mb-3 opacity-60">{habit.frequency}</div>
+                  <div className="font-serif italic text-xs text-[var(--text-card-secondary)] border-t border-[var(--border-color)]/20 pt-3 mt-2 opacity-60 group-hover:opacity-100 transition-opacity">
                     "{habit.note}"
                   </div>
                 </a>
@@ -450,22 +452,22 @@ const AboutPage = () => {
                       <div className="p-2 bg-[var(--bg-void)] rounded-lg text-[var(--accent-blue)]">
                         <cert.icon size={20} />
                       </div>
-                      <span className="font-mono text-[10px] text-[var(--text-secondary)] bg-[var(--bg-void)] px-2 py-1 rounded">
+                      <span className="font-mono text-[10px] text-[var(--text-card-secondary)] bg-[var(--bg-void)] px-2 py-1 rounded">
                         {cert.date}
                       </span>
                     </div>
 
-                    <h3 className="font-mono text-sm text-[var(--text-primary)] font-bold mb-1 leading-tight group-hover:text-[var(--accent-blue)] transition-colors">
+                    <h3 className="font-mono text-sm text-[var(--text-card)] font-bold mb-1 leading-tight group-hover:text-[var(--accent-blue)] transition-colors">
                       {cert.title}
                     </h3>
-                    <div className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-widest mb-3">
+                    <div className="text-[10px] font-mono text-[var(--text-card-secondary)] uppercase tracking-widest mb-3">
                       {cert.issuer}
                     </div>
 
                     {cert.skills && (
                       <div className="flex flex-wrap gap-1 mb-4">
                         {cert.skills.map(skill => (
-                          <span key={skill} className="text-[9px] font-mono text-[var(--text-secondary)] bg-[var(--bg-void)] px-1.5 py-0.5 rounded border border-[var(--border-color)]">
+                          <span key={skill} className="text-[9px] font-mono text-[var(--text-card-secondary)] bg-[var(--bg-void)] px-1.5 py-0.5 rounded border border-[var(--border-color)]">
                             {skill}
                           </span>
                         ))}
@@ -473,7 +475,7 @@ const AboutPage = () => {
                     )}
 
                     <div className="flex justify-between items-center mt-2 pt-3 border-t border-[var(--border-color)]/30">
-                      <span className="font-mono text-[9px] text-[var(--text-secondary)] opacity-50">
+                      <span className="font-mono text-[9px] text-[var(--text-card-secondary)] opacity-50">
                         {cert.id ? `ID: ${cert.id}` : 'MODULE_LOADED'}
                       </span>
                       <a

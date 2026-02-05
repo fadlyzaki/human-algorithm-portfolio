@@ -98,20 +98,20 @@ const SemanticMemory = () => {
         <div style={themeStyles} className="w-full font-mono text-sm bg-[var(--bg-panel)] border border-[var(--border-panel)] rounded-xl overflow-hidden shadow-2xl relative">
 
             {/* HEADER */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-panel)] bg-[var(--bg-panel)] z-10 relative">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-panel)] bg-[var(--bg-card)] z-10 relative">
                 <div className="flex items-center gap-3">
-                    <div className={`p - 2 rounded - md transition - colors ${status === 'searching' ? 'bg-[var(--accent-color)] text-white animate-pulse' : 'bg-[var(--border-panel)] text-[var(--text-secondary)]'} `}>
+                    <div className={`p-2 rounded-md transition-colors ${status === 'searching' ? 'bg-[var(--accent-color)] text-white animate-pulse' : 'bg-[var(--bg-void)] text-[var(--text-card-secondary)]'} `}>
                         <Database size={16} />
                     </div>
                     <div>
-                        <h3 className="text-[var(--text-primary)] font-bold tracking-tight flex items-center gap-2">
+                        <h3 className="text-[var(--text-card)] font-bold tracking-tight flex items-center gap-2">
                             SEMANTIC_MEMORY_CORE
                             {status === 'searching' && <span className="text-[10px] text-[var(--accent-color)] animate-ping">●</span>}
                         </h3>
-                        <span className="text-[var(--text-secondary)] text-[10px] uppercase tracking-wider">RAG_Index_v4.2 // Vector_Embeddings</span>
+                        <span className="text-[var(--text-card-secondary)] text-[10px] uppercase tracking-wider">RAG_Index_v4.2 // Vector_Embeddings</span>
                     </div>
                 </div>
-                <div className="flex gap-4 text-[10px] text-[var(--text-secondary)]">
+                <div className="flex gap-4 text-[10px] text-[var(--text-card-secondary)]">
                     <span className="flex items-center gap-1"><Cpu size={12} /> IDLE_USAGE: 2%</span>
                     <span className="flex items-center gap-1"><Zap size={12} /> MEM: 128MB</span>
                 </div>
@@ -148,19 +148,19 @@ const SemanticMemory = () => {
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                                 onKeyDown={(e) => e.key === 'Enter' && handleSearch(query)}
-                                className="w-full bg-[var(--bg-panel)] border border-[var(--border-panel)] rounded-full py-3 pl-12 pr-12 text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-color)] transition-all placeholder:opacity-50"
+                                className="w-full bg-[var(--bg-card)] border border-[var(--border-panel)] rounded-full py-3 pl-12 pr-12 text-[var(--text-card)] focus:outline-none focus:border-[var(--accent-color)] transition-all placeholder:opacity-50"
                             />
                             {status === 'idle' ? (
                                 <button
                                     onClick={() => handleSearch(query)}
-                                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[var(--border-panel)] rounded-full text-[var(--text-primary)] hover:bg-[var(--accent-color)] hover:text-white transition-colors"
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[var(--bg-void)] rounded-full text-[var(--text-card)] hover:bg-[var(--accent-color)] hover:text-white transition-colors"
                                 >
                                     <Command size={14} />
                                 </button>
                             ) : (
                                 <button
                                     onClick={handleReset}
-                                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[var(--border-panel)] rounded-full text-[var(--text-secondary)] hover:bg-red-500 hover:text-white transition-colors"
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[var(--bg-void)] rounded-full text-[var(--text-card-secondary)] hover:bg-red-500 hover:text-white transition-colors"
                                     title="Reset Search"
                                 >
                                     <Activity size={14} className="rotate-45" />
@@ -175,7 +175,7 @@ const SemanticMemory = () => {
                                     <button
                                         key={q}
                                         onClick={() => { setQuery(q); handleSearch(q); }}
-                                        className="text-xs px-3 py-1.5 border border-[var(--border-panel)] rounded-full text-[var(--text-secondary)] hover:border-[var(--accent-color)] hover:text-[var(--accent-color)] transition-all hover:bg-[var(--accent-color)]/5"
+                                        className="text-xs px-3 py-1.5 border border-[var(--border-panel)] rounded-full text-[var(--text-card-secondary)] hover:border-[var(--accent-color)] hover:text-[var(--accent-color)] transition-all hover:bg-[var(--accent-color)]/5"
                                     >
                                         "{q}"
                                     </button>
@@ -193,7 +193,7 @@ const SemanticMemory = () => {
                                 </div>
                             </div>
                             <div className="space-y-4 w-full">
-                                <div className="prose prose-invert max-w-none text-[var(--text-primary)] leading-relaxed text-sm md:text-base">
+                                <div className="prose prose-invert max-w-none text-[var(--text-card)] leading-relaxed text-sm md:text-base">
                                     {response}
                                     {status === 'streaming' && <span className="inline-block w-2 h-4 bg-[var(--accent-color)] ml-1 animate-pulse"></span>}
                                 </div>
@@ -206,17 +206,17 @@ const SemanticMemory = () => {
                                                 <Activity size={12} />
                                                 Context Score: {(activeResult?.confidence * 100).toFixed(1)}%
                                             </div>
-                                            <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
+                                            <div className="flex items-center gap-2 text-xs text-[var(--text-card-secondary)]">
                                                 <FileText size={12} />
                                                 Sources:
                                                 {activeResult?.sources.map(s => (
-                                                    <span key={s} className="underline decoration-dotted hover:text-[var(--text-primary)] cursor-help" title="Mock source reference">{s}</span>
+                                                    <span key={s} className="underline decoration-dotted hover:text-[var(--text-card)] cursor-help" title="Mock source reference">{s}</span>
                                                 ))}
                                             </div>
                                         </div>
                                         <button
                                             onClick={handleReset}
-                                            className="text-xs text-[var(--text-primary)] hover:text-[var(--accent-color)] underline decoration-dotted transition-colors"
+                                            className="text-xs text-[var(--text-card)] hover:text-[var(--accent-color)] underline decoration-dotted transition-colors"
                                         >
                                             Back to Topics
                                         </button>
