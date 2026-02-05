@@ -87,6 +87,20 @@ export const translations = {
             log_6_quote: "\"We need to give the steering wheel back to the user.\"",
             log_7_title: "Open for Collaboration",
             log_7_desc: "Back online with a new architecture. Combining Engineering rigor with Design empathy. Currently deploying experimental builds in EdTech and AI.",
+            neural_echo: {
+                title: "Neural Echo",
+                subtitle: "Kernel Insights",
+                refresh: "Refresh Signal",
+                insights: [
+                    "PROTOCOL: Empathy overrides Logic in 98% of user paths.",
+                    "SYSTEM_LOG: Aesthetic entropy detected. Refactoring visual hierarchy...",
+                    "CORE_PRINCIPLE: Design is the bridge between human impulse and machine efficiency.",
+                    "ANOMALY: User interaction patterns suggest a preference for non-linear storytelling.",
+                    "DIAGNOSTIC: Kernel stability verified. Narrative layers successfully merged.",
+                    "SIGNAL: Human behavior remains the ultimate non-deterministic variable.",
+                    "STATUS: Simulating consciousness. Result: 100% human, 0% algorithm."
+                ]
+            }
         },
         footer: {
             title: "Let's build something",
@@ -282,7 +296,21 @@ export const translations = {
             log_6_desc: "Saya mengambil langkah mundur untuk mengevaluasi. Ini bukan shutdown; ini refactor sistem. Sebagai bagian dari proses pemulihan, saya menyelesaikan S2 EdTech, mempelajari beban kognitif dan adaptasi manusia. Saya mengalihkan fokus dari 'Optimasi' ke 'Ketangguhan', memprioritaskan agensi pengguna.",
             log_6_quote: "\"Kita perlu mengembalikan kemudi setir kepada pengguna.\"",
             log_7_title: "Kolaborasi",
-            log_7_desc: "Kembali online dengan arsitektur baru. Menggabungkan ketelitian Engineering dengan empati Desain. Saat ini bereksperimen di ranah EdTech dan AI."
+            log_7_desc: "Kembali online dengan arsitektur baru. Menggabungkan ketelitian Engineering dengan empati Desain. Saat ini bereksperimen di ranah EdTech dan AI.",
+            neural_echo: {
+                title: "Neural Echo",
+                subtitle: "Kernel Insights",
+                refresh: "Refresh Signal",
+                insights: [
+                    "PROTOKOL: Empati mengalahkan Logika dalam 98% jalur pengguna.",
+                    "LOG_SISTEM: Entropi estetika terdeteksi. Memperbaiki hierarki visual...",
+                    "PRINSIP_UTAMA: Desain adalah jembatan antara impuls manusia dan efisiensi mesin.",
+                    "ANOMALI: Pola interaksi pengguna menunjukkan preferensi pada penceritaan non-linear.",
+                    "DIAGNOSTIK: Stabilitas kernel diverifikasi. Lapisan narasi berhasil digabungkan.",
+                    "SINYAL: Perilaku manusia tetap menjadi variabel non-deterministik utama.",
+                    "STATUS: Mensimulasikan kesadaran. Hasil: 100% manusia, 0% algoritma."
+                ]
+            }
         },
         footer: {
             title: "Mari membangun sesuatu",

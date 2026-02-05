@@ -14,7 +14,7 @@ import ScrollReveal from '../components/ScrollReveal';
 import Treasure from '../components/Treasure';
 import SystemMonitor from '../components/SystemMonitor';
 import ChaosSlider from '../components/ChaosSlider';
-import SemanticMemory from '../components/SemanticMemory';
+import NeuralEcho from '../components/NeuralEcho';
 import Footer from '../components/Footer';
 
 /* --- THEME CONFIGURATION ---
@@ -397,7 +397,7 @@ const AboutPage = () => {
 
           </div>
 
-        </section >
+        </section>
 
 
         {/* SYSTEM MAINTENANCE (Habits) */}
@@ -427,7 +427,7 @@ const AboutPage = () => {
               ))}
             </div>
           </ScrollReveal>
-        </section >
+        </section>
         {/* KNOWLEDGE UPGRADES (Certifications) */}
         <section className="mb-32">
           <ScrollReveal>
@@ -516,7 +516,7 @@ const AboutPage = () => {
         </section>
 
         {/* UNIFIED SYSTEM RUNTIME LOG (Bio + Work) */}
-        < section className="mb-32 relative" >
+        <section className="mb-32 relative">
           <ScrollReveal>
             <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
               <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">{t('about.section_log')}</span>
@@ -585,34 +585,34 @@ const AboutPage = () => {
               </ScrollReveal>
             ))}
           </div>
-        </section >
+        </section>
 
         {/* SEMANTIC MEMORY (Interactive RAG) */}
-        < section className="mb-12" >
+        <section className="mb-12">
           <ScrollReveal>
             <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 rounded-xl shadow-lg relative overflow-hidden">
               {/* Background Decoration */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-green)] opacity-[0.03] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
               <div className="mb-8">
-                <h2 className="text-2xl font-mono text-[var(--text-primary)] mb-2">System Consciousness</h2>
+                <h2 className="text-2xl font-mono text-[var(--text-primary)] mb-2">{t('about.neural_echo.title')}</h2>
                 <p className="text-[var(--text-secondary)] text-sm max-w-2xl">
-                  Interact with the system directly. Query the database for insights on my philosophy, protocols, and history.
+                  {t('about.neural_echo.subtitle')}
                 </p>
               </div>
 
-              <SemanticMemory />
+              <NeuralEcho />
             </div>
           </ScrollReveal>
-        </section >
+        </section>
 
         {/* FOOTER */}
-        < section >
+        <section>
           <Footer />
-        </section >
+        </section>
 
-      </main >
-    </div >
+      </main>
+    </div>
   );
 };
 
