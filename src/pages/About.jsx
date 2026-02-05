@@ -4,7 +4,8 @@ import {
   ArrowLeft, Terminal, Cpu, BookOpen, Coffee, MapPin, Headphones,
   Activity, AlertTriangle, GitCommit, Download, Sun, Moon,
   PenTool, Zap, Flame, PenLine, Layers, Briefcase, User,
-  Database, Server, Wifi, Layout, Shield, Globe, ScanEye, Award, Search
+  Database, Server, Wifi, Layout, Shield, Globe, ScanEye, Award, Search,
+  ArrowUpRight
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
@@ -451,57 +452,77 @@ const AboutPage = () => {
               <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">{t('about.section_knowledge_upgrades')}</h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {certifications.map((cert, idx) => (
                 <div
                   key={idx}
-                  className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] p-5 hover:border-[var(--accent-blue)] transition-all duration-300 rounded-lg overflow-hidden"
+                  className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] p-0 hover:border-[var(--accent-blue)] transition-all duration-500 rounded-xl overflow-hidden flex flex-col md:flex-row shadow-sm hover:shadow-xl hover:shadow-[var(--accent-blue)]/5 origin-center"
                 >
-                  {/* Background Decoration */}
-                  <div className="absolute -right-4 -bottom-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
-                    <cert.icon size={100} />
+                  {/* Visual ID / Side Bar */}
+                  <div className="md:w-16 bg-[var(--bg-void)]/50 md:border-r border-[var(--border-color)] flex md:flex-col items-center justify-center p-3 gap-3">
+                    <div className="p-2 bg-[var(--bg-card)] rounded-lg text-[var(--accent-blue)] shadow-inner border border-[var(--border-color)]/20">
+                      <cert.icon size={20} />
+                    </div>
+                    <div className="font-mono text-[8px] text-[var(--text-card-secondary)] opacity-40 uppercase tracking-tighter md:rotate-180 md:[writing-mode:vertical-lr]">
+                      REF_{2048 + idx}
+                    </div>
                   </div>
 
-                  <div className="relative z-10">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className="p-2 bg-[var(--bg-void)] rounded-lg text-[var(--accent-blue)]">
-                        <cert.icon size={20} />
-                      </div>
-                      <span className="font-mono text-[10px] text-[var(--text-primary)] bg-[var(--bg-void)] px-2 py-1 rounded">
-                        {cert.date}
-                      </span>
+                  {/* Main Content Area */}
+                  <div className="flex-grow p-6 relative">
+                    {/* Background ID Watermark */}
+                    <div className="absolute top-4 right-4 font-mono text-[40px] font-black text-[var(--text-card)] opacity-[0.02] select-none pointer-events-none group-hover:opacity-[0.05] transition-opacity">
+                      0{idx + 1}
                     </div>
 
-                    <h3 className="font-mono text-sm text-[var(--text-card)] font-bold mb-1 leading-tight group-hover:text-[var(--accent-blue)] transition-colors">
-                      {cert.title}
-                    </h3>
-                    <div className="text-[10px] font-mono text-[var(--text-card-secondary)] uppercase tracking-widest mb-3">
-                      {cert.issuer}
-                    </div>
-
-                    {cert.skills && (
-                      <div className="flex flex-wrap gap-1 mb-4">
-                        {cert.skills.map(skill => (
-                          <span key={skill} className="text-[9px] font-mono text-[var(--text-primary)] bg-[var(--bg-void)] px-1.5 py-0.5 rounded border border-[var(--border-color)]">
-                            {skill}
+                    <div className="flex flex-col h-full">
+                      <div className="mb-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="font-mono text-[9px] px-2 py-0.5 bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] rounded-full font-bold uppercase tracking-widest border border-[var(--accent-blue)]/20">
+                            {cert.issuer}
                           </span>
-                        ))}
+                          <span className="font-mono text-[10px] text-[var(--text-card-secondary)] opacity-60">
+                            {cert.date}
+                          </span>
+                        </div>
+                        <h3 className="font-mono text-base md:text-lg text-[var(--text-card)] font-bold leading-tight group-hover:text-[var(--accent-blue)] transition-colors">
+                          {cert.title}
+                        </h3>
                       </div>
-                    )}
 
-                    <div className="flex justify-between items-center mt-2 pt-3 border-t border-[var(--border-color)]/30">
-                      <span className="font-mono text-[9px] text-[var(--text-card-secondary)] opacity-50">
-                        {cert.id ? `ID: ${cert.id}` : 'MODULE_LOADED'}
-                      </span>
-                      <a
-                        href={cert.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[9px] font-mono text-[var(--accent-blue)] hover:underline flex items-center gap-1"
-                      >
-                        {t('about.show_credential')} <Zap size={10} />
-                      </a>
+                      {cert.skills && (
+                        <div className="flex flex-wrap gap-1.5 mb-6">
+                          {cert.skills.map(skill => (
+                            <span key={skill} className="text-[9px] font-mono text-[var(--text-card-secondary)] py-0.5 px-2 rounded-md bg-[var(--bg-void)]/30 border border-[var(--border-color)]/20 whitespace-nowrap">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="mt-auto flex justify-between items-center pt-4 border-t border-[var(--border-color)]/10">
+                        <div className="flex flex-col gap-0.5">
+                          <span className="font-mono text-[8px] text-[var(--text-card-secondary)] opacity-40 uppercase">Certificate_ID</span>
+                          <span className="font-mono text-[9px] text-[var(--text-card-secondary)] opacity-80 select-all">
+                            {cert.id || 'N/A'}
+                          </span>
+                        </div>
+                        <a
+                          href={cert.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-[var(--bg-void)]/20 border border-[var(--border-color)] hover:border-[var(--accent-blue)] hover:bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] rounded-lg transition-all font-mono text-[10px] uppercase tracking-widest font-bold"
+                        >
+                          {t('about.show_credential')}
+                          <ArrowUpRight size={12} />
+                        </a>
+                      </div>
                     </div>
+                  </div>
+
+                  {/* Corner Accent */}
+                  <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none">
+                    <div className="absolute top-0 right-0 border-t-2 border-r-2 border-[var(--accent-blue)] w-2 h-2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </div>
                 </div>
               ))}
