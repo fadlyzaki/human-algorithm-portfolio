@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft, Mail, Linkedin, Twitter, Send, Copy, Check, Sun, Moon,
