@@ -4,7 +4,7 @@ import {
   ArrowLeft, Terminal, Cpu, BookOpen, Coffee, MapPin, Headphones,
   Activity, AlertTriangle, GitCommit, Download, Sun, Moon,
   PenTool, Zap, Flame, PenLine, Layers, Briefcase, User,
-  Database, Server, Wifi, Layout, Shield, Globe, ScanEye
+  Database, Server, Wifi, Layout, Shield, Globe, ScanEye, Award, Search
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
@@ -126,6 +126,81 @@ const AboutPage = () => {
     { name: "ANALOG_SKETCH", icon: PenLine, url: "https://www.instagram.com/stories/highlights/18100704214828888/" },
     { name: "DIGITAL_CANVAS", icon: PenTool, url: "https://www.instagram.com/stories/highlights/18140818381062819/" },
     { name: "SYSTEM_IDLE", icon: Coffee } // Filler process
+  ];
+
+  // --- DATA: KNOWLEDGE UPGRADES (Certifications) ---
+  const certifications = [
+    {
+      title: "Become Product Manager",
+      issuer: "Udemy",
+      date: "Jul 2023",
+      skills: ["Product Design", "Product Management", "Product Development"],
+      icon: Briefcase
+    },
+    {
+      title: "Digital Marketing Workshop",
+      issuer: "RevoU",
+      date: "Oct 2021",
+      icon: Globe
+    },
+    {
+      title: "Input and Interaction",
+      issuer: "Coursera",
+      date: "Aug 2019",
+      id: "GE4JFF2ZZHYK",
+      icon: Layout
+    },
+    {
+      title: "UX Research Methods: Interviewing",
+      issuer: "LinkedIn",
+      date: "Aug 2019",
+      icon: Search
+    },
+    {
+      title: "UX Foundations: Information Architecture",
+      issuer: "LinkedIn",
+      date: "Aug 2019",
+      icon: Database
+    },
+    {
+      title: "UX Design: 2 Analyzing User Data",
+      issuer: "LinkedIn",
+      date: "Aug 2019",
+      icon: Activity
+    },
+    {
+      title: "Design Thinking: Customer Experience",
+      issuer: "LinkedIn",
+      date: "Aug 2019",
+      icon: Zap
+    },
+    {
+      title: "Information Design",
+      issuer: "Coursera",
+      date: "Jul 2019",
+      id: "VLX7M5BE5TFF",
+      icon: Layers
+    },
+    {
+      title: "UX Research Methods: Card Sorting",
+      issuer: "LinkedIn",
+      date: "Jun 2018",
+      icon: Layout
+    },
+    {
+      title: "Design Kit: Human-Centered Design",
+      issuer: "+Acumen / IDEO.org",
+      date: "May 2018",
+      id: "3385-1632464",
+      icon: User
+    },
+    {
+      title: "Conducting Usability Testing",
+      issuer: "IxDF",
+      date: "Oct 2018",
+      id: "35436",
+      icon: Shield
+    }
   ];
 
   // --- EFFECT: SCROLL PROGRESS ---
@@ -370,6 +445,66 @@ const AboutPage = () => {
             </div>
           </ScrollReveal>
         </section >
+        {/* KNOWLEDGE UPGRADES (Certifications) */}
+        <section className="mb-32">
+          <ScrollReveal>
+            <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
+              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">{t('about.section_knowledge_upgrades_id') || '0xAF'}</span>
+              <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">{t('about.section_knowledge_upgrades')}</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {certifications.map((cert, idx) => (
+                <div
+                  key={idx}
+                  className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] p-5 hover:border-[var(--accent-blue)] transition-all duration-300 rounded-lg overflow-hidden"
+                >
+                  {/* Background Decoration */}
+                  <div className="absolute -right-4 -bottom-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+                    <cert.icon size={100} />
+                  </div>
+
+                  <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="p-2 bg-[var(--bg-void)] rounded-lg text-[var(--accent-blue)]">
+                        <cert.icon size={20} />
+                      </div>
+                      <span className="font-mono text-[10px] text-[var(--text-secondary)] bg-[var(--bg-void)] px-2 py-1 rounded">
+                        {cert.date}
+                      </span>
+                    </div>
+
+                    <h3 className="font-mono text-sm text-[var(--text-primary)] font-bold mb-1 leading-tight group-hover:text-[var(--accent-blue)] transition-colors">
+                      {cert.title}
+                    </h3>
+                    <div className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-widest mb-3">
+                      {cert.issuer}
+                    </div>
+
+                    {cert.skills && (
+                      <div className="flex flex-wrap gap-1 mb-4">
+                        {cert.skills.map(skill => (
+                          <span key={skill} className="text-[9px] font-mono text-[var(--text-secondary)] bg-[var(--bg-void)] px-1.5 py-0.5 rounded border border-[var(--border-color)]">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="flex justify-between items-center mt-2 pt-3 border-t border-[var(--border-color)]/30">
+                      <span className="font-mono text-[9px] text-[var(--text-secondary)] opacity-50">
+                        {cert.id ? `ID: ${cert.id}` : 'MODULE_LOADED'}
+                      </span>
+                      <button className="text-[9px] font-mono text-[var(--accent-blue)] hover:underline flex items-center gap-1">
+                        {t('about.show_credential')} <Zap size={10} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+        </section>
 
         {/* BACKGROUND PROCESSES (Creative Habits) */}
         <section className="mb-32">

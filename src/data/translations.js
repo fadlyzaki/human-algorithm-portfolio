@@ -66,6 +66,9 @@ export const translations = {
             section_log: "LOG",
             section_runtime: "System Runtime Log",
             log_explore: "Explore Case Study ↗",
+            section_knowledge_upgrades: "Knowledge Upgrades",
+            section_cert_module: "CERTIFICATION_MODULE",
+            show_credential: "Show Credential",
 
             // Runtime Log Data
             log_1_title: "University of Indonesia + Internships",
@@ -258,6 +261,9 @@ export const translations = {
             section_log: "LOG KARIR",
             section_runtime: "Log Berjalan Sistem",
             log_explore: "Lihat Studi Kasus ↗",
+            section_knowledge_upgrades: "Peningkatan Pengetahuan",
+            section_cert_module: "MODUL_SERTIFIKASI",
+            show_credential: "Lihat Kredensial",
 
             // Runtime Log Data (ID) - Professional Tone
             log_1_title: "Universitas Indonesia + Magang",
