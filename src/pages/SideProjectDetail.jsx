@@ -13,6 +13,12 @@ import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
 import Treasure from '../components/Treasure';
 
+// Interaction Components
+import WorkforceAI from '../components/interactions/WorkforceAI';
+import CommerceAI from '../components/interactions/CommerceAI';
+import EfficiencyAI from '../components/interactions/EfficiencyAI';
+import NexusAI from '../components/interactions/NexusAI';
+
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
    Focus: High-fidelity visual storytelling, schematic layouts, rich typography.
@@ -66,6 +72,18 @@ const SideProjectDetail = () => {
    const activeTldr = (isIndonesian && project.tldr_id) ? project.tldr_id : project.tldr;
    const activeModules = (isIndonesian && project.modules_id) ? project.modules_id : project.modules;
    const activeSections = (isIndonesian && project.sections_id) ? project.sections_id : project.sections;
+
+   // Interaction Mapping
+   const InteractionComponent = {
+      'human-algorithm': NexusAI,
+      'interactive-workbook': WorkforceAI,
+      'year-in-review': NexusAI,
+      'price-lock': EfficiencyAI,
+      'project-kinship': CommerceAI,
+      'agency-pivot': NexusAI
+   }[project.id] || NexusAI;
+
+   const brandColor = project.brandColor || (isDark ? '#60A5FA' : '#2563EB');
 
 
    return (
@@ -124,9 +142,9 @@ const SideProjectDetail = () => {
             {/* --- 2. CINEMATIC HERO --- */}
             <header className="min-h-[90vh] flex flex-col justify-center items-center px-6 pt-24 md:pt-32 text-center relative overflow-hidden">
                {/* Technical Illustration Background */}
-               <div className="absolute inset-0 z-0 bg-black dark:bg-white">
-                  <div className="w-full h-full opacity-30 grayscale blur-[2px] transition-all duration-1000 group-hover:blur-0">
-                     <ProjectCard type={project.type || 'Web'} expanded={true} id={project.id} />
+               <div className="absolute inset-0 z-0 bg-black dark:bg-white overflow-hidden">
+                  <div className="w-full h-full opacity-40 grayscale blur-[1px] transition-all duration-1000">
+                     <InteractionComponent color={brandColor} />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-void)] via-transparent to-[var(--bg-void)]"></div>
                </div>

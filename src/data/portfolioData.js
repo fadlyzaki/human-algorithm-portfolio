@@ -16,6 +16,7 @@ export const SIDE_PROJECTS = [
         type: 'Meta-Project',
         date: "February 2026",
         coverImage: "/human-algorithm-cover.png",
+        brandColor: "#5865F2", // Agentic Blur
         modules: [
             {
                 title: "The Architect is an Agent",
@@ -70,6 +71,7 @@ export const SIDE_PROJECTS = [
         type: 'Education',
         date: "August 2025",
         coverImage: "/interactive-workbook-cover.png",
+        brandColor: "#FFC229", // Geera Yellow
         modules: [
             {
                 title: "The Silent Crisis",
@@ -131,6 +133,7 @@ export const SIDE_PROJECTS = [
         type: 'DataViz',
         date: "December 2025",
         coverImage: "/year-in-review-cover.png",
+        brandColor: "#FF3E00", // Review Red
         modules: [
             {
                 title: "The Algorithm is Not Your Diarist",
@@ -261,6 +264,7 @@ export const NOTES = [
         type: 'Fintech Lock',
         date: "February 2026",
         coverImage: "/price-lock-cover.png",
+        brandColor: "#10B981", // Fintech Green
         modules: [
             {
                 title: "The $50 Heartbeat Skip",
@@ -318,6 +322,7 @@ export const NOTES = [
         type: 'Logistics Kinship',
         date: "February 2026",
         coverImage: "/project-kinship-cover.png",
+        brandColor: "#EC4899", // Kinship Pink
         modules: [
             {
                 title: "Why Cash Feels Cold",
@@ -372,6 +377,7 @@ export const NOTES = [
         iconName: 'Brain',
         type: 'Case Study',
         date: "March 2026",
+        brandColor: "#8B5CF6", // Pivot Purple
         coverImage: "/about-portrait-new.jpg",
         modules_id: [
             {

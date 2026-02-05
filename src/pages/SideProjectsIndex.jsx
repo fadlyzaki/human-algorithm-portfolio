@@ -11,6 +11,9 @@ import BackButton from '../components/BackButton';
 import ProjectCard from '../components/ProjectCard';
 import Treasure from '../components/Treasure';
 
+// Interaction Components
+import NexusAI from '../components/interactions/NexusAI';
+
 const SideProjectsIndex = () => {
     const { isDark, setIsDark } = useTheme();
     const { language, toggleLanguage, isIndonesian } = useLanguage();
@@ -192,18 +195,25 @@ const SideProjectsIndex = () => {
             </nav>
 
             <main className="max-w-6xl mx-auto px-6 pt-32 pb-24" ref={containerRef}>
-                <header className="mb-24 relative">
-                    <Treasure
-                        id="projects-index"
-                        className="top-0 right-0"
-                        type="gem"
-                    >
-                        RARE RUBY FOUND!
-                    </Treasure>
-                    <h1 className="text-4xl md:text-6xl font-serif italic mb-6">Side Projects</h1>
-                    <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl font-light">
-                        Full log of side projects, prototypes, and daemons.
-                    </p>
+                <header className="mb-32 relative min-h-[50vh] flex flex-col justify-center">
+                    {/* Background Visual */}
+                    <div className="absolute inset-0 z-0 opacity-40 grayscale blur-[1px]">
+                        <NexusAI color={isDark ? '#60A5FA' : '#2563EB'} />
+                    </div>
+
+                    <div className="relative z-10">
+                        <Treasure
+                            id="projects-index"
+                            className="top-0 right-0"
+                            type="gem"
+                        >
+                            RARE RUBY FOUND!
+                        </Treasure>
+                        <h1 className="text-5xl md:text-8xl font-serif italic mb-8 tracking-tighter">Side Projects</h1>
+                        <p className="text-xl md:text-3xl text-[var(--text-secondary)] max-w-2xl font-light leading-relaxed">
+                            A curated log of prototypes, daemons, and recursive experiments built to push the boundaries of human-AI collaboration.
+                        </p>
+                    </div>
                 </header>
 
                 <div className="mb-32">
