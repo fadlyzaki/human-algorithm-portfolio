@@ -392,9 +392,9 @@ const ProtectedCaseStudy = () => {
             </p>
 
             {/* Hero Visual Hook */}
-            <div className="w-full max-w-6xl aspect-[21/9] bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-2xl relative overflow-hidden group">
+            <div className="w-full max-w-6xl aspect-[21/9] bg-black dark:bg-white rounded-2xl border border-[var(--border-color)] shadow-2xl relative overflow-hidden group">
               <ProjectCard type={projectData.type} expanded={true} id={projectData.id} showChrome={true} image={null} />
-              <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-[var(--text-secondary)] bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-2 rounded shadow-xl">Fig. 1.0 — System Architecture</div>
+              <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-white dark:text-black bg-black/80 dark:bg-white/80 border border-[var(--border-color)] px-3 py-2 rounded shadow-xl">Fig. 1.0 — System Architecture</div>
             </div>
           </div>
 

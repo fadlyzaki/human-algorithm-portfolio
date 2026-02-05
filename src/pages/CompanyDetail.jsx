@@ -245,7 +245,7 @@ const CompanyDetail = () => {
                                     className="group bg-[var(--bg-card)] border border-[var(--border-color)] cursor-pointer hover:border-[var(--brand)] transition-all duration-300 relative overflow-hidden shadow-sm hover:shadow-2xl rounded-2xl flex flex-col"
                                 >
                                     {/* 1. UI PREVIEW (Top, Full Bleed) */}
-                                    <div className="h-64 w-full overflow-hidden relative border-b border-[var(--border-color)] bg-[var(--bg-void)]/50">
+                                    <div className="h-64 w-full overflow-hidden relative border-b border-[var(--border-color)] bg-black dark:bg-white">
                                         <div className="absolute inset-0 bg-[var(--brand)] mix-blend-overlay opacity-0 group-hover:opacity-10 transition-opacity z-10 pointer-events-none"></div>
 
                                         {/* Abstract UI Component */}

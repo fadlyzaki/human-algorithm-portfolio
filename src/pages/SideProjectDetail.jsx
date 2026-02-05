@@ -172,7 +172,7 @@ const SideProjectDetail = () => {
 
                   {/* Stack */}
                   <div className="space-y-2">
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-black/60 dark:text-white/60 flex items-center gap-2">
                         <Cpu size={12} /> Technology
                      </h3>
                      <div className="flex flex-wrap gap-2">
@@ -184,18 +184,18 @@ const SideProjectDetail = () => {
 
                   {/* Links */}
                   <div className="space-y-2">
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-black/60 dark:text-white/60 flex items-center gap-2">
                         <LinkIcon size={12} /> Coordinates
                      </h3>
                      <div className="flex flex-col gap-1 text-sm">
                         {project.links.demo && project.links.demo !== '#' ? (
-                           <a href={project.links.demo} target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-[var(--accent)] transition-colors">
+                           <a href={project.links.demo} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-black dark:text-white hover:text-[var(--accent)] transition-colors">
                               Live Demo <ArrowUpRight size={12} />
                            </a>
-                        ) : <span className="text-[var(--text-secondary)] italic">Demo Offline</span>}
+                        ) : <span className="text-black/50 dark:text-white/50 italic">Demo Offline</span>}
 
                         {project.links.repo && project.links.repo !== '#' && (
-                           <a href={`https://${project.links.repo}`} target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-[var(--accent)] transition-colors">
+                           <a href={`https://${project.links.repo}`} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-black dark:text-white hover:text-[var(--accent)] transition-colors">
                               Source Code <Code size={12} />
                            </a>
                         )}
@@ -204,7 +204,7 @@ const SideProjectDetail = () => {
 
                   {/* Date/Year (Mocked for now) */}
                   <div className="space-y-2">
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-black/60 dark:text-white/60 flex items-center gap-2">
                         <Terminal size={12} /> Year
                      </h3>
                      <div className="text-sm font-medium text-black dark:text-white">{project.date || '2023 — Present'}</div>
@@ -212,7 +212,7 @@ const SideProjectDetail = () => {
 
                   {/* Context */}
                   <div className="space-y-2">
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-black/60 dark:text-white/60 flex items-center gap-2">
                         <Layers size={12} /> Context
                      </h3>
                      <div className="text-sm font-medium text-black dark:text-white">{activeSubtitle}</div>
@@ -293,7 +293,7 @@ const SideProjectDetail = () => {
             </footer>
 
          </main>
-      </div>
+      </div >
    );
 };
 
