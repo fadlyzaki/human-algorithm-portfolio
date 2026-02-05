@@ -449,7 +449,7 @@ const AboutPage = () => {
         <section className="mb-32">
           <ScrollReveal>
             <div className="flex items-baseline gap-4 mb-12 border-b border-[var(--border-color)] pb-4">
-              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">{t('about.section_knowledge_upgrades_id') || '0xAF'}</span>
+              <span className="font-mono text-4xl text-[var(--text-primary)] opacity-20 font-bold">{t('about.section_edu')}</span>
               <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight">{t('about.section_knowledge_upgrades')}</h2>
             </div>
 
