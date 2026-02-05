@@ -148,7 +148,7 @@ const CompanyDetail = () => {
                                 KING'S TREASURE!
                             </Treasure>
                             <div className="absolute -inset-4 bg-[var(--brand)] opacity-10 blur-3xl rounded-full"></div>
-                            <div className="relative h-full w-full rounded-2xl overflow-hidden border border-[var(--border-color)] shadow-2xl bg-[var(--bg-card)]">
+                            <div className="relative h-full w-full rounded-2xl overflow-hidden border border-[var(--border-color)] shadow-2xl bg-black dark:bg-white">
                                 <div className="absolute top-4 left-4 z-10 flex gap-2">
                                     <div className="w-2 h-2 rounded-full bg-red-500"></div>
                                     <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
