@@ -40,7 +40,7 @@ const NeuralEcho = () => {
     };
 
     return (
-        <div className="relative group min-h-[180px] flex flex-col justify-between p-8 bg-[var(--bg-void)]/40 rounded-2xl border border-[var(--border-color)]/20 hover:border-[var(--accent-blue)]/40 transition-all duration-700 overflow-hidden shadow-2xl shadow-black/20">
+        <div className="relative group min-h-[180px] flex flex-col justify-between p-8 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] transition-all duration-700 overflow-hidden shadow-2xl">
             {/* Neural Pattern Background Overlay */}
             <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue)]/30 to-transparent"></div>
 
@@ -60,18 +60,18 @@ const NeuralEcho = () => {
                     </span>
                 </div>
 
-                <div className="flex items-center gap-2 px-3 py-1 bg-[var(--accent-blue)]/5 rounded-full border border-[var(--accent-blue)]/10">
+                <div className="flex items-center gap-2 px-3 py-1 bg-[var(--accent-blue)]/10 rounded-full border border-[var(--accent-blue)]/20">
                     <div className="flex gap-1 items-end h-2">
                         {[1, 2, 3].map(i => (
                             <motion.div
                                 key={i}
                                 animate={{ height: [2, 8, 4, 6, 2] }}
                                 transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
-                                className="w-0.5 bg-[var(--accent-blue)]/60 rounded-full"
+                                className="w-0.5 bg-[var(--accent-blue)] rounded-full"
                             />
                         ))}
                     </div>
-                    <span className="font-mono text-[8px] text-[var(--accent-blue)]/80 uppercase tracking-widest font-bold">Signal_Active</span>
+                    <span className="font-mono text-[8px] text-[var(--accent-blue)] uppercase tracking-widest font-bold">Signal_Active</span>
                 </div>
             </div>
 
@@ -86,8 +86,8 @@ const NeuralEcho = () => {
                         transition={{ duration: 0.4, ease: "easeOut" }}
                         className="font-mono text-base md:text-[1.1rem] text-[var(--text-card)] leading-relaxed max-w-2xl border-l-2 border-[var(--accent-blue)]/20 pl-6 py-1"
                     >
-                        <div className="text-[10px] text-[var(--accent-blue)]/40 mb-2 uppercase tracking-tighter opacity-60 select-none flex items-center gap-2">
-                            <span className="w-4 h-[1px] bg-[var(--accent-blue)]/20"></span>
+                        <div className="text-[10px] text-[var(--accent-blue)] mb-2 uppercase tracking-tighter opacity-70 select-none flex items-center gap-2 font-bold">
+                            <span className="w-4 h-[1px] bg-[var(--accent-blue)]/40"></span>
                             PROTOCOL_0x{currentIndex.toString(16).padStart(2, '0').toUpperCase()}
                         </div>
                         <div className="relative inline">
@@ -112,19 +112,19 @@ const NeuralEcho = () => {
                     className={`flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] transition-all px-5 py-2.5 rounded-xl border
                         ${isTyping
                             ? 'opacity-20 cursor-not-allowed border-transparent'
-                            : 'text-[var(--text-card-secondary)] hover:text-[var(--accent-blue)] bg-[var(--bg-void)]/20 border-[var(--border-color)]/10 hover:border-[var(--accent-blue)]/30 hover:bg-[var(--accent-blue)]/5 hover:shadow-lg hover:shadow-[var(--accent-blue)]/5'}`}
+                            : 'text-[var(--text-card-secondary)] hover:text-[var(--accent-blue)] bg-[var(--bg-void)]/10 border-[var(--border-color)]/20 hover:border-[var(--accent-blue)]/50 hover:bg-[var(--accent-blue)]/5 hover:shadow-lg hover:shadow-[var(--accent-blue)]/5'}`}
                 >
                     <RefreshCw size={14} className={isTyping ? '' : 'group-hover:rotate-180 transition-transform duration-1000'} />
                     {t('about.neural_echo.refresh')}
                 </button>
 
-                <div className="flex items-center gap-6 opacity-40 group-hover:opacity-80 transition-opacity duration-700">
+                <div className="flex items-center gap-6 group-hover:opacity-100 transition-opacity duration-700">
                     <div className="flex items-center gap-2.5">
                         <div className={`h-1.5 w-1.5 rounded-full ${isTyping ? 'bg-[var(--accent-blue)] animate-pulse' : 'bg-[var(--accent-green)] shadow-[0_0_8px_var(--accent-green)]'}`}></div>
-                        <span className="font-mono text-[9px] tracking-[0.15em] font-medium uppercase">Neural_Synapse_OK</span>
+                        <span className="font-mono text-[9px] tracking-[0.15em] font-bold uppercase text-[var(--text-card-secondary)]">Neural_Synapse_OK</span>
                     </div>
-                    <div className="hidden sm:block h-4 w-[1px] bg-[var(--border-color)]/10"></div>
-                    <span className="hidden sm:block font-mono text-[9px] tracking-widest text-[var(--accent-blue)] opacity-60 uppercase">Kernel_v2.5.0</span>
+                    <div className="hidden sm:block h-4 w-[1px] bg-[var(--border-color)]/20"></div>
+                    <span className="hidden sm:block font-mono text-[9px] tracking-widest text-[var(--accent-blue)] font-bold uppercase">Kernel_v2.5.0</span>
                 </div>
             </div>
 
