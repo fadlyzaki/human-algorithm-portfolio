@@ -84,7 +84,7 @@ const WorkHoloDeck = ({ cluster }) => {
                         </div>
 
                         <div className="space-y-4">
-                            <h2 className="text-3xl md:text-6xl font-serif italic text-white drop-shadow-lg leading-none whitespace-nowrap tracking-tighter">
+                            <h2 className="text-2xl md:text-6xl font-serif italic text-white drop-shadow-lg leading-tight tracking-tighter">
                                 {isId ? (cluster.title_id || cluster.title) : cluster.title}
                             </h2>
                             <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-snug drop-shadow-sm">

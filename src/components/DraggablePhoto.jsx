@@ -65,17 +65,17 @@ const DraggablePhoto = () => {
         </div>
         <div className="space-y-3">
           <div className="flex flex-col">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white leading-none uppercase tracking-tight">UZZAKI, FADLY 🧢</h2>
-            <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mt-1">{t('id_card.role') || 'Product Designer // SysOp'}</span>
+            <h2 className="text-xl font-bold text-black dark:text-white leading-none uppercase tracking-tight">UZZAKI, FADLY 🧢</h2>
+            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-400 uppercase tracking-widest mt-1">{t('id_card.role') || 'Product Designer // SysOp'}</span>
           </div>
           <div className="grid grid-cols-2 gap-4 mt-2">
             <div>
-              <label className="text-[8px] font-mono text-gray-400 uppercase block">{t('id_card.id_no') || 'ID_NO'}</label>
-              <span className="text-xs font-mono font-medium text-gray-800 dark:text-gray-200">1407-1995</span>
+              <label className="text-[8px] font-mono text-gray-400 dark:text-gray-500 uppercase block">{t('id_card.id_no') || 'ID_NO'}</label>
+              <span className="text-xs font-mono font-medium text-black dark:text-white">1407-1995</span>
             </div>
             <div>
-              <label className="text-[8px] font-mono text-gray-400 uppercase block">{t('id_card.exp') || 'EXP'}</label>
-              <span className="text-xs font-mono font-medium text-gray-800 dark:text-gray-200">{t('id_card.indefinite') || 'INDEFINITE'}</span>
+              <label className="text-[8px] font-mono text-gray-400 dark:text-gray-500 uppercase block">{t('id_card.exp') || 'EXP'}</label>
+              <span className="text-xs font-mono font-medium text-black dark:text-white">{t('id_card.indefinite') || 'INDEFINITE'}</span>
             </div>
           </div>
         </div>
