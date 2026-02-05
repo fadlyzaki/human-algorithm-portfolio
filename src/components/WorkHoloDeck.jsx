@@ -51,7 +51,7 @@ const WorkHoloDeck = ({ cluster }) => {
                 className="group relative w-full rounded-2xl transition-all duration-300 transform-gpu hover:shadow-2xl cursor-pointer"
             >
                 {/* 1. KEY VISUAL LAYER (Background) */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#0A0A0A] border border-[var(--border-color)]">
+                <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#0A0A0A] dark:bg-white border border-[var(--border-color)]">
                     {/* Airy Diagram Background */}
                     <div
                         className="absolute inset-0 transition-transform duration-200 ease-out scale-110 opacity-60 group-hover:opacity-80 transition-opacity"
@@ -104,11 +104,11 @@ const WorkHoloDeck = ({ cluster }) => {
                                         e.stopPropagation();
                                         navigate(project.route);
                                     }}
-                                    className="w-full p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 transition-colors group/card cursor-pointer"
+                                    className="w-full p-4 rounded-xl bg-white/90 dark:bg-white/90 backdrop-blur-md border border-black/10 dark:border-black/10 hover:bg-white transition-colors group/card cursor-pointer"
                                 >
-                                    <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-white/10">
-                                        {/* Airy Diagram Preview - Always Inverted for Contrast with Main Diagram */}
-                                        <div className="absolute inset-0 opacity-80 invert">
+                                    <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-white">
+                                        {/* Airy Diagram Preview */}
+                                        <div className="absolute inset-0 opacity-80">
                                             <ProjectCard id={project.id} expanded={true} showChrome={false} backgroundOnly={true} />
                                         </div>
 
@@ -119,10 +119,10 @@ const WorkHoloDeck = ({ cluster }) => {
                                             </div>
                                         )}
                                     </div>
-                                    <h4 className="text-white font-bold text-sm mb-1 truncate">
+                                    <h4 className="text-black font-bold text-sm mb-1 truncate">
                                         {isId ? (project.title_id || project.title) : project.title}
                                     </h4>
-                                    <p className="text-white/50 text-xs truncate">
+                                    <p className="text-black/50 text-xs truncate">
                                         {isId ? project.tag_id : project.tag}
                                     </p>
                                 </div>
