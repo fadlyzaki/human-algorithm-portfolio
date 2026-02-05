@@ -574,7 +574,7 @@ const AboutPage = () => {
                       {/* BIO ITEM SPECIFIC EXTRAS */}
                       {item.highlight && (
                         <div className="mt-4 p-4 bg-[var(--bg-card)] border-l-2 border-[var(--accent-red)] inline-block max-w-xl shadow-lg transform -rotate-1 hover:rotate-0 transition-transform rounded-e-lg">
-                          <p className="font-serif italic text-sm text-[var(--text-card)] opacity-90">
+                          <p className="font-serif italic text-sm text-[var(--text-card)]">
                             {t('about.log_6_quote')}
                           </p>
                         </div>
@@ -596,9 +596,6 @@ const AboutPage = () => {
 
               <div className="mb-8">
                 <h2 className="text-2xl font-mono text-[var(--text-card)] mb-2">{t('about.neural_echo.title')}</h2>
-                <p className="text-[var(--text-card-secondary)] text-sm max-w-2xl">
-                  {t('about.neural_echo.subtitle')}
-                </p>
               </div>
 
               <NeuralEcho />

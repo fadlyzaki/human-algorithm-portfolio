@@ -42,9 +42,9 @@ const NeuralEcho = () => {
     return (
         <div className="relative group min-h-[160px] flex flex-col justify-center">
             {/* Header / Subtitle */}
-            <div className="flex items-center gap-2 mb-4 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
+            <div className="flex items-center gap-2 mb-4 group-hover:text-[var(--accent-blue)] transition-colors duration-500">
                 <Cpu size={14} className="text-[var(--accent-blue)]" />
-                <span className="font-mono text-[10px] text-[var(--text-card-secondary)] uppercase tracking-[0.2em]">
+                <span className="font-mono text-[10px] text-[var(--text-card-secondary)] uppercase tracking-[0.2em] font-bold">
                     {t('about.neural_echo.subtitle')}
                 </span>
             </div>

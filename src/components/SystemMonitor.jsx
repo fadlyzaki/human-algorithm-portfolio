@@ -62,13 +62,12 @@ const SystemMonitor = ({ skills }) => {
                         {skill.url && <div className="absolute right-0 top-0 w-2 h-2 bg-[var(--accent-blue)] rounded-full animate-pulse opacity-50"></div>}
 
                         {/* Bar Graph */}
-                        <div className="h-2 bg-[var(--bg-void)] rounded-full overflow-hidden border border-[var(--border-color)] relative">
-
+                        <div className="h-1.5 bg-[var(--bg-void)] rounded-full overflow-hidden relative border border-[var(--border-color)]/20 shadow-inner">
                             <div
-                                className="h-full bg-[var(--text-card)] transition-all duration-1000 ease-out relative"
+                                className="h-full bg-[var(--accent-blue)] transition-all duration-1000 ease-out relative shadow-[0_0_8px_var(--accent-blue)]"
                                 style={{ width: `${metrics[skill.name]}%` }}
                             >
-                                <div className="absolute inset-0 bg-white/20 animate-[shimmer_2s_infinite]"></div>
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_2s_infinite]"></div>
                             </div>
                         </div>
 

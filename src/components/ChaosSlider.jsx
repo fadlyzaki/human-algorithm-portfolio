@@ -11,11 +11,11 @@ const ChaosSlider = ({ value, onChange }) => {
                     ) : (
                         <ShieldCheck className="text-[var(--accent-green)]" size={18} />
                     )}
-                    <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-card)]">
+                    <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-card)] font-bold">
                         Entropy Control
                     </span>
                 </div>
-                <span className="font-mono text-xs text-[var(--text-card-secondary)]">
+                <span className="font-mono text-xs text-[var(--text-card)] font-bold">
                     {value}% SPLIT
                 </span>
             </div>
@@ -46,9 +46,9 @@ const ChaosSlider = ({ value, onChange }) => {
                 ></div>
             </div>
 
-            <div className="flex justify-between text-[10px] uppercase font-mono text-[var(--text-card-secondary)] mt-2">
-                <span>Order</span>
-                <span>Chaos</span>
+            <div className="flex justify-between text-[10px] uppercase font-mono text-[var(--text-card)] mt-2">
+                <span className="opacity-70">Order</span>
+                <span className="opacity-70">Chaos</span>
             </div>
         </div>
     );
