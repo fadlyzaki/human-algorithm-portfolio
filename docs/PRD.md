@@ -1,4 +1,4 @@
-# Product Requirements Document (PRD): Human Algorithm Portfolio v2.3
+# Product Requirements Document (PRD): Human Algorithm Portfolio v2.4
 
 ## 1. Executive Summary
 The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity. 
@@ -14,17 +14,18 @@ The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal
 
 ### 3.1 Homepage Information Architecture (IA)
 The homepage follows a "Priority-First" narrative flow:
-1.  **Level 0 (Hero/Header)**: Identity and "Contain Chaos" positioning.
+1.  **Level 0 (Hero/Header)**: Identity and "Contain Chaos" positioning with draggable ID card.
 2.  **Level 1 (Side Projects)**: High-creativity, rapid-iteration experiments ("Wild Creativity"). Includes "The Archive" as a consolidated repository.
-3.  **Level 2 (Work)**: Validated, large-scale industrial excellence (The Workforce/Commerce/Efficiency Ecosystems).
-4.  **Level 3 (About Me)**: The human backend—personality synthesis and "System History."
-5.  **Level 4 (Notes)**: Professional logs and intellectual pattern recognition.
+3.  **Level 2 (Work)**: Validated, large-scale industrial excellence (The Workforce/Commerce/Efficiency Ecosystems) via `WorkHoloDeck` cards.
+4.  **Level 3 (About Me)**: The human backend—personality synthesis, ChaosSlider, and "System History."
+5.  **Level 4 (Notes)**: Professional logs and intellectual pattern recognition via `BlogPost`.
 
 ### 3.2 System Manifest v2.0 (The CV Strategy)
 *   **Single Source of Truth (SSOT)**: The CV dynamically mirrors `portfolioData.js`. No manual duplication permitted.
 *   **ATS Optimization**: Uses standard terminology (Professional Experience, Skills, Education) and pipe-separated job titles to maximize parsing scores in HRD systems.
 *   **Compact Header**: Aggregates Location, LinkedIn, Portfolio, and Email into a high-density, horizontal contact block to minimize vertical scroll.
 *   **Dynamic Outcomes**: Experience bullets are automatically generated from project-level metrics (e.g., "+37% Conversion," "Latency Reduced").
+*   **Cover Letter Modal**: Quick-access modal (`CoverLetterModal.jsx`) for generating contextual cover letter content.
 
 ### 3.3 The "Contain Chaos" Messaging Layer
 *   **Consistency**: Unified messaging across `index.html` (SEO Meta), Home, and About pages.
@@ -32,48 +33,75 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Status Indicators**: "OPEN TO WORK" badges synced with local deployment states to drive conversion.
 
 ### 3.4 Technical Foundations
-*   **Performance**: Vite-powered React engine for near-instant transitions.
-*   **SEO/Crawler Resilience**: Implemented static HTML fallbacks in `index.html` to ensure SEO indexing for SPA (Single Page Application) content.
+*   **Performance**: Vite-powered React engine with lazy loading via `React.lazy()` and `Suspense` for near-instant transitions.
+*   **SEO/Crawler Resilience**: Implemented static HTML fallbacks in `index.html` to ensure SEO indexing for SPA content. SEO component (`SEO.jsx`) for dynamic meta tags.
 *   **Theme Management**: Dark Mode (The Void) by default, with persistent user-mode selection via `ThemeContext`.
+*   **Error Handling**: Custom `ErrorBoundary` component with themed 404 page (`NotFound.jsx`) for graceful failure states.
+*   **Analytics**: Page view tracking via `AnalyticsTracker.jsx`.
 *   **Visual Language (Airy Technical Diagrams)**:
     *   **Primary Visual**: All Case Study headers use the interactive "Airy Technical Diagram" (`ProjectCard.jsx`) instead of images.
     *   **Consistency Rule**: 1:1 visual match with the project card schema.
     *   **Implementation**: `expanded={true}` and `showChrome={true}` for maximum technical detail.
 
-### 3.5 Core Features (v2.2 Additions)
-*   **Adaptive Summaries**: A polymorphic text engine that rewrites case study summaries based on viewer persona:
-    *   `ELI5` (Simple analogies)
-    *   `Recruiter` (Metrics-focused)
-    *   `System` (Technical architecture)
-*   **Localization Strategy**: Full `en`/`id` (English/Indonesian) duality toggle, enabling infinite reach across local and global markets.
-*   **Hand Gesture Control**: Experimental "Decryption Lens" allowing users to navigate and decrypt content using MediaPipe-based hand tracking.
+### 3.5 Core Features
 
-### 3.6 UI/UX Refinements (v2.3 Additions)
-*   **Mobile-Responsive Work Cards**: Title text wraps naturally on mobile with optimized font sizing (`text-2xl` mobile, `text-6xl` desktop) and proper line-height for multi-line readability.
-*   **Theme-Aware ID Card**: Industrial ID card design uses proper contrast colors—black text on light mode, white text on dark mode—for all labels and data fields.
-*   **Work Card Dark Mode Fix**: Ensured white backgrounds for work cards and case study preview cards in dark mode to maintain visibility of airy diagrams.
+#### Interactive Experiences
+*   **Adaptive Summaries**: Polymorphic text engine that rewrites case study summaries based on viewer persona (`ELI5`, `Recruiter`, `System`).
+*   **Localization Strategy**: Full `en`/`id` (English/Indonesian) duality toggle via `LanguageContext`, enabling global reach.
+*   **Hand Gesture Control**: Experimental "Decryption Lens" (`HandCursorOverlay.jsx`) using MediaPipe-based hand tracking with welcome modal (`HandTrackerWelcome.jsx`).
+*   **Treasure Hunt Gamification**: Hidden collectibles (`Treasure.jsx`) that appear during gesture mode. Progress tracked via `TreasureProgress.jsx` with completion celebration (`TreasureCongrats.jsx`).
+*   **Semantic Memory AI**: RAG-styled Q&A module (`SemanticMemory.jsx`) with typewriter streaming effect for recruiter-friendly self-interrogation.
+*   **ChaosSlider**: Interactive personality dial on About page for dynamic content revelation.
+
+#### Work Cluster Interactions
+*   **WorkforceAI Demo** (`interactions/WorkforceAI.jsx`): Interactive demo for Lumina ecosystem features.
+*   **CommerceAI Demo** (`interactions/CommerceAI.jsx`): Interactive demo for GudangAda B2B marketplace features.
+*   **EfficiencyAI Demo** (`interactions/EfficiencyAI.jsx`): Interactive demo for Stoqo logistics features.
+
+### 3.6 UI/UX Refinements (v2.3–2.4)
+*   **Mobile-Responsive Work Cards**: Title text wraps naturally on mobile with optimized font sizing (`text-2xl` mobile, `text-6xl` desktop).
+*   **Theme-Aware ID Card**: Industrial ID card design uses proper contrast colors—black text in light mode, white text in dark mode.
+*   **Work Card Dark Mode Fix**: White backgrounds for work cards and case study preview cards in dark mode for diagram visibility.
+*   **Draggable Photo Stack**: Multi-variant ID card designs (Industrial, Cyberpunk, Swiss) with Framer Motion physics.
 
 ## 4. Functional Specifications
 
 ### 4.1 Case Study Security
-*   **Simulated Encryption**: All detailed case studies reside behind a "Confidential File" layer, using client-side password validation (or localized keys) to maintain the "Classified" narrative without blocking legitimate user access.
+*   **Simulated Encryption**: All detailed case studies reside behind a "Confidential File" layer (`ProtectedCaseStudy.jsx`), using client-side password validation to maintain the "Classified" narrative.
 
 ### 4.2 Interactive Physics
-*   **Draggable Interface**: High-fidelity tactile interactions using Framer Motion. Elements must respect "Friction" and "Elasticity" constraints.
+*   **Draggable Interface**: High-fidelity tactile interactions using Framer Motion. Elements respect "Friction" and "Elasticity" constraints.
+*   **Parallax Holodeck**: Work cards feature mouse-tracking parallax with depth layers and dynamic lighting reflections.
+
+### 4.3 Page Structure
+| Route | Component | Description |
+|-------|-----------|-------------|
+| `/` | `Home.jsx` | Main landing with all portfolio sections |
+| `/about` | `About.jsx` | Personality synthesis and ChaosSlider |
+| `/contact` | `Contact.jsx` | Contact form and information |
+| `/cv` | `SystemManifest.jsx` | ATS-optimized printable CV |
+| `/work/:id` | `CompanyDetail.jsx` | Company cluster detail with brand theming |
+| `/case-study/:id` | `ProtectedCaseStudy.jsx` | Password-protected case studies |
+| `/side-projects` | `SideProjectsIndex.jsx` | Archive of all side projects |
+| `/side-project/:id` | `SideProjectDetail.jsx` | Individual side project detail |
+| `/blog/:id` | `BlogPost.jsx` | Individual note/blog post |
 
 ## 5. Non-Functional Requirements (NFRs)
 *   **Heuristic Compliance**: Strict adherence to Nielsen's 10 Heuristics (Recognition vs. Recall, Consistency).
 *   **Print Fidelity**: Zero-margin A4 layouts for CV printing.
 *   **Mobile-First Responsive**: All components optimized for touch and narrow viewports.
+*   **Lazy Loading**: All pages use `React.lazy()` with Suspense fallback for performance.
 
 ## 6. Roadmap & Future Iterations
-*   **[COMPLETED] Adaptive Content Engine**: Implemented via Adaptive Summaries.
-*   **[COMPLETED] Hand Tracking**: Implemented via HandCursorOverlay.
-*   **[COMPLETED] Mobile Responsiveness**: Work cards and ID card fully responsive.
-*   **[Q2] AI Agent (Semantic Memory)**: RAG module for recruiter Q&A.
-*   **[Q3] CMS Integration**: Migrating "Notes" to MDX.
+*   **[COMPLETED]** Adaptive Content Engine (Adaptive Summaries)
+*   **[COMPLETED]** Hand Tracking (HandCursorOverlay + Treasure Hunt)
+*   **[COMPLETED]** Mobile Responsiveness (Work cards, ID card)
+*   **[COMPLETED]** Semantic Memory AI (SemanticMemory.jsx)
+*   **[Q2]** Enhanced AI Agent: Expand semantic memory with real RAG backend
+*   **[Q3]** CMS Integration: Migrating "Notes" to MDX
 
 ---
 **Document Status**: *ACTIVE*  
 **Product Owner**: Fadly Uzzaki  
 **Maintainer**: Human Algorithm Agent (Antigravity)
+
