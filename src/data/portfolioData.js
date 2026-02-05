@@ -504,7 +504,6 @@ export const WORK_CLUSTERS = [
         },
         motivation: "I saw my father, a middle-manager in a factory, struggle to find reliable people while thousands were looking for work. The gap wasn't skill; it was trust. I wanted to build a bridge made of pixels that felt like a handshake.",
         motivation_id: "Saya melihat ayah saya, seorang manajer pabrik, kesulitan mencari pekerja jujur padahal ribuan orang butuh kerja. Celahnya bukan skill, tapi kepercayaan. Saya ingin membangun jembatan digital yang rasanya seperti jabat tangan.",
-        motivationImage: "/Users/fadly.zaki/.gemini/antigravity/brain/96176441-155a-4be3-9617-a0d50823e2a6/workforce_narrative_sketch_1770309389978.png",
         brandColor: '#1AA8B4', // Lumina Teal
         linkedinUrl: 'https://www.linkedin.com/company/luminatechnologies/about/',
         heroImage: '/workforce_hero.png',
@@ -1078,7 +1077,6 @@ export const WORK_CLUSTERS = [
         },
         motivation: "My grandmother ran a small warung in the village. Every week, she'd travel hours to the city just to restock. I watched technology disrupt big malls while she was left behind. I built this to give her—and millions like her—the same power as the giants.",
         motivation_id: "Nenek saya punya warung kecil di desa. Tiap minggu dia harus ke kota berjam-jam cuma buat stok barang. Saya lihat teknologi cuma bantu mal besar sementara dia ditinggal. Saya bangun ini supaya dia punya kekuatan yang sama dengan raksasa retail.",
-        motivationImage: "/Users/fadly.zaki/.gemini/antigravity/brain/96176441-155a-4be3-9617-a0d50823e2a6/commerce_narrative_photo_1770309408501.png",
         hook_id: 'Membangun rasa aman di pasar low-trust. Memastikan pemilik warung merasa setenang belanja stok 5 juta seperti saat jajan 5 ribu.',
         brandColor: '#00D1C7', // GudangAda Cyan
         linkedinUrl: 'https://www.linkedin.com/company/gudangada/about/',
@@ -1618,7 +1616,6 @@ export const WORK_CLUSTERS = [
         },
         motivation: "Food waste is a logistics failure, not a production one. I spent nights in damp markets watching tons of fresh chili go to rot because the supply chain was a black hole. I wanted to turn that chaos into a symphony of data.",
         motivation_id: "Limbah makanan itu kegagalan logistik, bukan produksi. Saya habiskan malam di pasar lembap melihat berton-ton cabai busuk cuma karena rantai pasoknya gelap gulita. Saya ingin mengubah kekacauan itu jadi simfoni data.",
-        motivationImage: "/Users/fadly.zaki/.gemini/antigravity/brain/96176441-155a-4be3-9617-a0d50823e2a6/efficiency_narrative_sketch_retry_1770309443371.png",
         brandColor: '#FA6130', // Stoqo Orange
         linkedinUrl: 'https://www.linkedin.com/company/stoqo-technologies/about/',
         heroImage: '/efficiency_hero.png',
