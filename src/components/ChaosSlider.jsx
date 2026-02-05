@@ -11,11 +11,11 @@ const ChaosSlider = ({ value, onChange }) => {
                     ) : (
                         <ShieldCheck className="text-[var(--accent-green)]" size={18} />
                     )}
-                    <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-primary)]">
+                    <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-card)]">
                         Entropy Control
                     </span>
                 </div>
-                <span className="font-mono text-xs text-[var(--text-secondary)]">
+                <span className="font-mono text-xs text-[var(--text-card-secondary)]">
                     {value}% SPLIT
                 </span>
             </div>
@@ -35,18 +35,18 @@ const ChaosSlider = ({ value, onChange }) => {
 
                 {/* Custom Thumb */}
                 <div
-                    className="absolute top-1/2 -mt-2 w-4 h-4 bg-[var(--bg-surface)] border-2 border-[var(--text-primary)] rounded-full shadow-lg pointer-events-none transition-all duration-75 z-10"
+                    className="absolute top-1/2 -mt-2 w-4 h-4 bg-[var(--bg-surface)] border-2 border-[var(--text-card)] rounded-full shadow-lg pointer-events-none transition-all duration-75 z-10"
                     style={{ left: `calc(${value}% - 8px)` }}
                 ></div>
 
                 {/* Fill */}
                 <div
-                    className="absolute top-0 bottom-0 left-0 bg-[var(--text-primary)] rounded-l-full opacity-50 pointer-events-none text-[var(--bg-void)]"
+                    className="absolute top-0 bottom-0 left-0 bg-[var(--text-card)] rounded-l-full opacity-50 pointer-events-none text-[var(--bg-void)]"
                     style={{ width: `${value}%` }}
                 ></div>
             </div>
 
-            <div className="flex justify-between text-[10px] uppercase font-mono text-[var(--text-secondary)] mt-2">
+            <div className="flex justify-between text-[10px] uppercase font-mono text-[var(--text-card-secondary)] mt-2">
                 <span>Order</span>
                 <span>Chaos</span>
             </div>

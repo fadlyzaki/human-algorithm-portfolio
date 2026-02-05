@@ -347,7 +347,7 @@ const AboutPage = () => {
 
             {/* Download CV Button - Moved here */}
             <div className="mt-6 flex justify-center">
-              <Link to="/cv" className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)] text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-all font-mono text-sm uppercase rounded-lg shadow-sm hover:shadow-md group">
+              <Link to="/cv" className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-blue)] text-[var(--text-card-secondary)] hover:text-[var(--accent-blue)] transition-all font-mono text-sm uppercase rounded-lg shadow-sm hover:shadow-md group">
                 <Download size={16} className="group-hover:-translate-y-0.5 transition-transform" />
                 <span>{t('about.download_cv')}</span>
               </Link>
@@ -574,7 +574,7 @@ const AboutPage = () => {
                       {/* BIO ITEM SPECIFIC EXTRAS */}
                       {item.highlight && (
                         <div className="mt-4 p-4 bg-[var(--bg-card)] border-l-2 border-[var(--accent-red)] inline-block max-w-xl shadow-lg transform -rotate-1 hover:rotate-0 transition-transform rounded-e-lg">
-                          <p className="font-serif italic text-sm text-[var(--text-primary)] opacity-90">
+                          <p className="font-serif italic text-sm text-[var(--text-card)] opacity-90">
                             {t('about.log_6_quote')}
                           </p>
                         </div>
@@ -595,8 +595,8 @@ const AboutPage = () => {
               <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-green)] opacity-[0.03] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
               <div className="mb-8">
-                <h2 className="text-2xl font-mono text-[var(--text-primary)] mb-2">{t('about.neural_echo.title')}</h2>
-                <p className="text-[var(--text-secondary)] text-sm max-w-2xl">
+                <h2 className="text-2xl font-mono text-[var(--text-card)] mb-2">{t('about.neural_echo.title')}</h2>
+                <p className="text-[var(--text-card-secondary)] text-sm max-w-2xl">
                   {t('about.neural_echo.subtitle')}
                 </p>
               </div>

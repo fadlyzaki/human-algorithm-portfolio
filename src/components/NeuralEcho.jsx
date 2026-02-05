@@ -44,7 +44,7 @@ const NeuralEcho = () => {
             {/* Header / Subtitle */}
             <div className="flex items-center gap-2 mb-4 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
                 <Cpu size={14} className="text-[var(--accent-blue)]" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em]">
+                <span className="font-mono text-[10px] text-[var(--text-card-secondary)] uppercase tracking-[0.2em]">
                     {t('about.neural_echo.subtitle')}
                 </span>
             </div>
@@ -57,7 +57,7 @@ const NeuralEcho = () => {
                         initial={{ opacity: 0, x: -5 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 5 }}
-                        className="font-mono text-lg md:text-xl text-[var(--text-primary)] leading-tight max-w-3xl"
+                        className="font-mono text-lg md:text-xl text-[var(--text-card)] leading-tight max-w-3xl"
                     >
                         <span className="text-[var(--accent-blue)] mr-2">{'>'}</span>
                         {displayText}
@@ -78,7 +78,7 @@ const NeuralEcho = () => {
                     onClick={handleRefresh}
                     disabled={isTyping}
                     className={`flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest transition-all
-                        ${isTyping ? 'opacity-20 cursor-not-allowed' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}
+                        ${isTyping ? 'opacity-20 cursor-not-allowed' : 'text-[var(--text-card-secondary)] hover:text-[var(--accent-blue)]'}`}
                 >
                     <RefreshCw size={12} className={isTyping ? '' : 'group-hover:rotate-180 transition-transform duration-500'} />
                     {t('about.neural_echo.refresh')}
