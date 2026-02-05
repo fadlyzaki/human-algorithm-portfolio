@@ -31,7 +31,7 @@ const DraggablePhoto = () => {
   // --- VARIANTS RENDERERS ---
 
   const RenderIndustrial = () => (
-    <div className="w-full h-full bg-[#f0f0f4] dark:bg-[#1a1a1c] border-[1px] border-white/20 relative group overflow-hidden rounded-xl flex flex-col shadow-xl">
+    <div className="w-full h-full bg-black dark:bg-white border-[1px] border-white/20 dark:border-black/20 relative group overflow-hidden rounded-xl flex flex-col shadow-xl">
       {/* Punch Hole */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-[#222] rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)] z-30 flex items-center justify-center">
         <div className="w-6 h-0.5 bg-black/50 rounded-full"></div>
@@ -42,18 +42,18 @@ const DraggablePhoto = () => {
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-color-burn z-10"></div>
 
       {/* Header */}
-      <div className="h-24 bg-[#0a0a0a] relative flex items-center justify-between px-4 pt-4 border-b-2 border-[var(--accent)]">
+      <div className="h-24 bg-white dark:bg-black relative flex items-center justify-between px-4 pt-4 border-b-2 border-[var(--accent)]">
         <div className="flex flex-col">
           <span className="text-[var(--accent)] font-mono text-[10px] font-bold tracking-[0.2em]">{t('id_card.access_level') || 'ACCESS_LEVEL_4'}</span>
-          <span className="text-white font-sans text-xs font-bold tracking-wide mt-1">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+          <span className="text-black dark:text-white font-sans text-xs font-bold tracking-wide mt-1">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
         </div>
-        <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
-          <User size={14} className="text-white/60" />
+        <div className="w-8 h-8 rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center">
+          <User size={14} className="text-black/60 dark:text-white/60" />
         </div>
       </div>
 
       {/* Content */}
-      <div className="flex-grow p-4 bg-[#f0f0f4] dark:bg-[#1C1C1E] relative">
+      <div className="flex-grow p-4 bg-black dark:bg-white relative">
         <div className="absolute top-4 right-4 w-10 h-8 bg-gradient-to-br from-yellow-200 to-yellow-600 rounded-md border border-yellow-700 shadow-sm flex flex-wrap gap-[1px] content-center justify-center p-[2px] opacity-90">
           <div className="w-2.5 h-3 border border-yellow-800/20 rounded-tl-sm"></div>
           <div className="w-2.5 h-3 border border-yellow-800/20 rounded-tr-sm"></div>
@@ -65,17 +65,17 @@ const DraggablePhoto = () => {
         </div>
         <div className="space-y-3">
           <div className="flex flex-col">
-            <h2 className="text-xl font-bold text-black dark:text-white leading-none uppercase tracking-tight">UZZAKI, FADLY 🧢</h2>
-            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-400 uppercase tracking-widest mt-1">{t('id_card.role') || 'Product Designer // SysOp'}</span>
+            <h2 className="text-xl font-bold text-white dark:text-black leading-none uppercase tracking-tight">UZZAKI, FADLY 🧢</h2>
+            <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600 uppercase tracking-widest mt-1">{t('id_card.role') || 'Product Designer // SysOp'}</span>
           </div>
           <div className="grid grid-cols-2 gap-4 mt-2">
             <div>
-              <label className="text-[8px] font-mono text-gray-400 dark:text-gray-500 uppercase block">{t('id_card.id_no') || 'ID_NO'}</label>
-              <span className="text-xs font-mono font-medium text-black dark:text-white">1407-1995</span>
+              <label className="text-[8px] font-mono text-gray-500 dark:text-gray-400 uppercase block">{t('id_card.id_no') || 'ID_NO'}</label>
+              <span className="text-xs font-mono font-medium text-white dark:text-black">1407-1995</span>
             </div>
             <div>
-              <label className="text-[8px] font-mono text-gray-400 dark:text-gray-500 uppercase block">{t('id_card.exp') || 'EXP'}</label>
-              <span className="text-xs font-mono font-medium text-black dark:text-white">{t('id_card.indefinite') || 'INDEFINITE'}</span>
+              <label className="text-[8px] font-mono text-gray-500 dark:text-gray-400 uppercase block">{t('id_card.exp') || 'EXP'}</label>
+              <span className="text-xs font-mono font-medium text-white dark:text-black">{t('id_card.indefinite') || 'INDEFINITE'}</span>
             </div>
           </div>
         </div>
