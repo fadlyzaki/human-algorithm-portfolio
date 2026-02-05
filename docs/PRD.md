@@ -58,6 +58,12 @@ The homepage follows a "Priority-First" narrative flow:
 *   **CommerceAI Demo** (`interactions/CommerceAI.jsx`): Interactive demo for GudangAda B2B marketplace features.
 *   **EfficiencyAI Demo** (`interactions/EfficiencyAI.jsx`): Interactive demo for Stoqo logistics features.
 *   **NexusAI Interaction** (`interactions/NexusAI.jsx`): Generative "Synthesis" visual for side projects and recursive experiments, mapped dynamically based on project theme.
+*   **SignalAI Interaction** (`interactions/SignalAI.jsx`): Generative communication frequency background for Contact page, responsive to user keystrokes.
+*   **AI Interactive Protocol** (`pages/Contact.jsx`): Real-time intent analysis engine and "Neural Handshake" progress tracker that reacts to form input data.
+
+#### Content Systems
+*   **Substack Intel-Matrix**: Automated (or mock-fallback) professional logs integrated into the homepage using RSS-to-JSON protocols.
+*   **Knowledge Upgrades (Certifications)**: Technical "System Upgrade" modules on the About page documenting professional growth via verifiable external credentials.
 
 ### 3.6 UI/UX Refinements (v2.3–2.4)
 *   **Mobile-Responsive Work Cards**: Title text wraps naturally on mobile with optimized font sizing (`text-2xl` mobile, `text-6xl` desktop).
@@ -99,6 +105,8 @@ The homepage follows a "Priority-First" narrative flow:
 *   **[COMPLETED]** Hand Tracking (HandCursorOverlay + Treasure Hunt)
 *   **[COMPLETED]** Mobile Responsiveness (Work cards, ID card)
 *   **[COMPLETED]** Semantic Memory AI (SemanticMemory.jsx)
+*   **[COMPLETED]** AI Interactive Protocol (Contact page analysis + pings)
+*   **[COMPLETED]** Knowledge Upgrades (Certification system)
 *   **[Q2]** Enhanced AI Agent: Expand semantic memory with real RAG backend
 *   **[Q3]** CMS Integration: Migrating "Notes" to MDX
 
