@@ -51,7 +51,7 @@ const WorkHoloDeck = ({ cluster }) => {
                 className="group relative w-full rounded-2xl transition-all duration-300 transform-gpu hover:shadow-2xl cursor-pointer"
             >
                 {/* 1. KEY VISUAL LAYER (Background) */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#0A0A0A] dark:bg-white border border-[var(--border-color)]">
+                <div className="absolute inset-0 rounded-2xl overflow-hidden bg-black dark:bg-white border border-[var(--border-color)]">
                     {/* Airy Diagram Background */}
                     <div
                         className="absolute inset-0 transition-transform duration-200 ease-out scale-110 opacity-60 group-hover:opacity-80 transition-opacity"
@@ -68,7 +68,7 @@ const WorkHoloDeck = ({ cluster }) => {
                         style={{ background: `linear-gradient(135deg, ${brandColor}, transparent)` }}
                     ></div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent dark:from-white/80 dark:via-white/40 dark:to-transparent"></div>
                 </div>
 
                 {/* 2. GLASS UI LAYER (Foreground) */}
@@ -84,10 +84,10 @@ const WorkHoloDeck = ({ cluster }) => {
                         </div>
 
                         <div className="space-y-4">
-                            <h2 className="text-2xl md:text-6xl font-serif italic text-white drop-shadow-lg leading-tight tracking-tighter">
+                            <h2 className="text-2xl md:text-6xl font-serif italic text-white dark:text-black drop-shadow-lg leading-tight tracking-tighter">
                                 {isId ? (cluster.title_id || cluster.title) : cluster.title}
                             </h2>
-                            <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-snug drop-shadow-sm">
+                            <p className="text-white/80 dark:text-black/80 max-w-xl text-lg md:text-xl font-light leading-snug drop-shadow-sm">
                                 {isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
                             </p>
                         </div>
@@ -104,9 +104,9 @@ const WorkHoloDeck = ({ cluster }) => {
                                         e.stopPropagation();
                                         navigate(project.route);
                                     }}
-                                    className="w-full p-4 rounded-xl bg-white/90 dark:bg-white/90 backdrop-blur-md border border-black/10 dark:border-black/10 hover:bg-white transition-colors group/card cursor-pointer"
+                                    className="w-full p-4 rounded-xl bg-white dark:bg-black backdrop-blur-md border border-black/10 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors group/card cursor-pointer"
                                 >
-                                    <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-white">
+                                    <div className="aspect-video rounded-lg overflow-hidden mb-3 relative bg-white dark:bg-black">
                                         {/* Airy Diagram Preview */}
                                         <div className="absolute inset-0 opacity-80">
                                             <ProjectCard id={project.id} expanded={true} showChrome={false} backgroundOnly={true} />
@@ -119,10 +119,10 @@ const WorkHoloDeck = ({ cluster }) => {
                                             </div>
                                         )}
                                     </div>
-                                    <h4 className="text-black font-bold text-sm mb-1 truncate">
+                                    <h4 className="text-black dark:text-white font-bold text-sm mb-1 truncate">
                                         {isId ? (project.title_id || project.title) : project.title}
                                     </h4>
-                                    <p className="text-black/50 text-xs truncate">
+                                    <p className="text-black/50 dark:text-white/50 text-xs truncate">
                                         {isId ? project.tag_id : project.tag}
                                     </p>
                                 </div>
