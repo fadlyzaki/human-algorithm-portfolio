@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft, Terminal, Cpu, BookOpen, Coffee, MapPin, Headphones,
@@ -16,7 +16,7 @@ import ScrollReveal from '../components/ScrollReveal';
 import Treasure from '../components/Treasure';
 import SystemMonitor from '../components/SystemMonitor';
 import ChaosSlider from '../components/ChaosSlider';
-import NeuralEcho from '../components/NeuralEcho';
+const NeuralEcho = lazy(() => import('../components/NeuralEcho'));
 import Footer from '../components/Footer';
 import RichText from '../components/RichText';
 import ProfileScanner from '../components/ProfileScanner';
@@ -563,7 +563,9 @@ const AboutPage = () => {
                 <h2 className="text-2xl font-mono text-[var(--text-card)] mb-2">{t('about.neural_echo.title')}</h2>
               </div>
 
-              <NeuralEcho />
+              <Suspense fallback={<div className="h-64 flex items-center justify-center text-[var(--accent-blue)] animate-pulse">Initializing Semantic Core...</div>}>
+                <NeuralEcho />
+              </Suspense>
             </div>
           </ScrollReveal>
         </section>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Download,
@@ -49,7 +49,7 @@ const SystemManifest = () => {
   const summary = t('manifest.summary_text');
 
   // Transform WORK_CLUSTERS data to CV format
-  const experience = WORK_CLUSTERS.map(cluster => {
+  const experience = useMemo(() => WORK_CLUSTERS.map(cluster => {
     const rolestat = cluster.stats?.find(s => s.label === 'Role');
     const timelineStat = cluster.stats?.find(s => s.label === 'Timeline');
     const isId = language === 'id';
@@ -74,7 +74,7 @@ const SystemManifest = () => {
       summary: isId ? (cluster.miniDesc_id || cluster.miniDesc || cluster.hook_id || cluster.hook) : (cluster.miniDesc || cluster.hook),
       metrics: metrics.length > 0 ? metrics : [isId ? (cluster.hook_id || cluster.hook) : cluster.hook]
     };
-  });
+  }), [language]);
 
   const education = [
     {
