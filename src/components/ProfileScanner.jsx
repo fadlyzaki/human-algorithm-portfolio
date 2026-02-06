@@ -104,8 +104,7 @@ const ProfileScanner = ({
                     {/* 2. REVEAL LAYER (CLEAR) - Wipes vertically */}
                     <motion.div
                         initial={{ clipPath: 'inset(0 0 100% 0)' }}
-                        whileInView={{ clipPath: 'inset(0 0 0% 0)' }}
-                        viewport={{ once: true, amount: 0.3 }}
+                        animate={isInView ? { clipPath: 'inset(0 0 0% 0)' } : { clipPath: 'inset(0 0 100% 0)' }}
                         transition={{ duration: 2.5, ease: 'easeInOut', delay: 0.5 }}
                         className="absolute inset-0 z-10"
                     >
@@ -126,27 +125,24 @@ const ProfileScanner = ({
                 {/* 1. Scanning Light Beam (Synchronized with Reveal) */}
                 <motion.div
                     initial={{ top: '0%', opacity: 0 }}
-                    whileInView={{
+                    animate={isInView ? {
                         top: ['0%', '100%'],
                         opacity: [0, 1, 1, 0]
-                    }}
-                    viewport={{ once: true, amount: 0.3 }}
+                    } : { top: '0%', opacity: 0 }}
                     transition={{
                         duration: 2.5,
                         ease: 'easeInOut',
                         delay: 0.5,
                         times: [0, 0.1, 0.9, 1]
                     }}
-                    onAnimationComplete={() => setIsHovered(true)}
                     className="absolute left-0 w-full h-[2px] bg-[var(--accent-blue)] shadow-[0_0_20px_var(--accent-blue)] z-20"
                 />
 
                 {/* 2. Continuous Monitoring Beam (Subtle, loops after main scan) */}
                 <motion.div
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 0.3, top: ['0%', '100%', '0%'] }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 5, repeat: Infinity, ease: 'linear', delay: 3.5 }}
+                    animate={hasScanned ? { opacity: 0.3, top: ['0%', '100%', '0%'] } : { opacity: 0 }}
+                    transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
                     className="absolute left-0 w-full h-px bg-[var(--accent-blue)] z-20"
                 />
 
