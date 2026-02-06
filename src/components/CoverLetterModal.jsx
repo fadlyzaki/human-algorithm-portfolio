@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AnimatePresence } from 'framer-motion';
+// eslint-disable-next-line no-unused-vars
+import { AnimatePresence, motion } from 'framer-motion';
 import { X, ArrowRight, FileText } from 'lucide-react';
 
 const CoverLetterModal = ({ isOpen, onClose }) => {
