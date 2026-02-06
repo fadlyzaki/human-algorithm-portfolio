@@ -405,7 +405,7 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              <div className="hidden md:block">
+              <div className="mt-12 md:mt-0 w-full max-w-[280px] mx-auto md:w-auto md:block">
                 <DraggablePhoto />
                 <div className="space-y-4 font-mono text-xs text-[var(--text-secondary)]"></div>
               </div>
