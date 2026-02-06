@@ -12,6 +12,7 @@ import { SIDE_PROJECTS } from '../data/portfolioData';
 import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
 import Treasure from '../components/Treasure';
+import ZoomableImage from '../components/ZoomableImage';
 
 // Interaction Components
 import WorkforceAI from '../components/interactions/WorkforceAI';
@@ -255,10 +256,9 @@ const SideProjectDetail = () => {
                         </div>
 
                         {/* Module Content */}
-                        {/* Module Image (Optional) */}
                         {module.image && (
                            <div className="mb-8 rounded-lg overflow-hidden border border-[var(--border-color)]">
-                              <img
+                              <ZoomableImage
                                  src={module.image}
                                  alt={module.title}
                                  className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
