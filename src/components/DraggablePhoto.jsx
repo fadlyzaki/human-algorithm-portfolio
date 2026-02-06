@@ -205,6 +205,21 @@ const DraggablePhoto = () => {
         onClick={handleNext}
         className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4.2] select-none group"
       >
+        {/* Lanyard Clip Construction */}
+        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-4 h-20 z-0 pointer-events-none">
+          {/* Strap Loop */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-64 border-2 border-[var(--text-secondary)]/30 rounded-[50%] -z-10 bg-transparent"></div>
+
+          {/* Metal Clip Body */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-6 h-8 bg-gradient-to-b from-zinc-300 to-zinc-500 rounded-sm shadow-md flex flex-col items-center justify-end pb-1 border border-zinc-600">
+            {/* Clip Spring */}
+            <div className="w-4 h-3 bg-zinc-700 rounded-sm mb-1 opacity-80"></div>
+          </div>
+
+          {/* Connection to Card */}
+          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2 h-4 bg-zinc-800/80 rounded-full z-20"></div>
+        </div>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={designVariant + index} // Key includes design to trigger transition on switch
