@@ -411,7 +411,7 @@ const Portfolio = () => {
               </div>
             </div>
             <ScrollReveal delay={500}>
-              <div className="flex flex-wrap gap-4">
+              <div className="hidden md:flex flex-wrap gap-4">
                 <StickyNote text={t('home.sticky_note')} className="text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
                 <StickyNote text={t('home.sticky_note_2')} className="text-[var(--accent-amber)]" rotate="lg:rotate-1" />
               </div>
