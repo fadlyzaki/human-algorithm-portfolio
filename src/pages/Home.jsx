@@ -309,65 +309,7 @@ const Portfolio = () => {
       <main className="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-24 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-backdrop)] backdrop-blur-sm transition-colors duration-500 overflow-x-hidden">
         <div className="fade-in pt-12">
 
-          {/* Running Ticker - Top of Page */}
-          <div className="border-b border-[var(--border-color)] mb-12 overflow-hidden relative z-20 group cursor-default">
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[var(--bg-backdrop)] to-transparent z-10"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[var(--bg-backdrop)] to-transparent z-10"></div>
 
-            <div className="flex whitespace-nowrap animate-marquee pause-on-hover py-3">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="flex items-center gap-12 text-xs font-mono text-[var(--text-secondary)] uppercase tracking-widest px-6">
-                  <span className="flex items-center gap-3">
-                    <MapPin size={14} className="text-[var(--accent-red)]" />
-                    {t('home.status_location')}
-                  </span>
-                  <a
-                    href="https://www.goodreads.com/fadlyzaki"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-[var(--accent-amber)] transition-colors cursor-pointer"
-                  >
-                    <BookOpen size={14} className="text-[var(--accent-amber)]" />
-                    {t('home.status_reading')}
-                  </a>
-                  <a
-                    href="https://music.youtube.com/watch?v=S02l82H9yks&si=9yoJMKDyzHDW8vgZ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-[var(--accent-blue)] transition-colors cursor-pointer"
-                  >
-                    <Headphones size={14} className="text-[var(--accent-blue)]" />
-                    {t('home.status_listening')}
-                  </a>
-                  <a
-                    href="https://www.strava.com/athletes/129304799"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-orange-500 transition-colors cursor-pointer"
-                  >
-                    <Activity size={14} className="text-orange-500" />
-                    {t('home.status_training')}
-                  </a>
-                  <a
-                    href="https://substack.com/@fadlyzaki?"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-purple-400 transition-colors cursor-pointer"
-                  >
-                    <PenLine size={14} className="text-purple-400" />
-                    {t('home.status_reflecting')}
-                  </a>
-                  <span className="flex items-center gap-2 text-[var(--accent-green)]">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
-                    </span>
-                    {t('home.status_collab')}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* HERO */}
           <section className="relative mb-16">
@@ -410,6 +352,67 @@ const Portfolio = () => {
                 <div className="space-y-4 font-mono text-xs text-[var(--text-secondary)]"></div>
               </div>
             </div>
+
+            {/* Relocated Running Ticker */}
+            <div className="border-y border-[var(--border-color)] my-12 overflow-hidden relative z-20 group cursor-default">
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[var(--bg-backdrop)] to-transparent z-10"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[var(--bg-backdrop)] to-transparent z-10"></div>
+
+              <div className="flex whitespace-nowrap animate-marquee pause-on-hover py-3">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="flex items-center gap-12 text-xs font-mono text-[var(--text-secondary)] uppercase tracking-widest px-6">
+                    <span className="flex items-center gap-3">
+                      <MapPin size={14} className="text-[var(--accent-red)]" />
+                      {t('home.status_location')}
+                    </span>
+                    <a
+                      href="https://www.goodreads.com/fadlyzaki"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 hover:text-[var(--accent-amber)] transition-colors cursor-pointer"
+                    >
+                      <BookOpen size={14} className="text-[var(--accent-amber)]" />
+                      {t('home.status_reading')}
+                    </a>
+                    <a
+                      href="https://music.youtube.com/watch?v=S02l82H9yks&si=9yoJMKDyzHDW8vgZ"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 hover:text-[var(--accent-blue)] transition-colors cursor-pointer"
+                    >
+                      <Headphones size={14} className="text-[var(--accent-blue)]" />
+                      {t('home.status_listening')}
+                    </a>
+                    <a
+                      href="https://www.strava.com/athletes/129304799"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 hover:text-orange-500 transition-colors cursor-pointer"
+                    >
+                      <Activity size={14} className="text-orange-500" />
+                      {t('home.status_training')}
+                    </a>
+                    <a
+                      href="https://substack.com/@fadlyzaki?"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 hover:text-purple-400 transition-colors cursor-pointer"
+                    >
+                      <PenLine size={14} className="text-purple-400" />
+                      {t('home.status_reflecting')}
+                    </a>
+                    <span className="flex items-center gap-2 text-[var(--accent-green)]">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
+                      </span>
+                      {t('home.status_collab')}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <ScrollReveal delay={500}>
               <div className="hidden md:flex flex-wrap gap-4">
                 <StickyNote text={t('home.sticky_note')} className="text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
