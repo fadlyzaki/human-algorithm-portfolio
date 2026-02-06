@@ -37,6 +37,10 @@ The homepage follows a "Priority-First" narrative flow:
 *   **SEO/Crawler Resilience**: Implemented static HTML fallbacks in `index.html` to ensure SEO indexing for SPA content. SEO component (`SEO.jsx`) for dynamic meta tags.
 *   **Theme Management**: Dark Mode (The Void) by default, with persistent user-mode selection via `ThemeContext`.
 *   **Error Handling**: Custom `ErrorBoundary` component with themed 404 page (`NotFound.jsx`) for graceful failure states.
+*   **Error Handling**: Custom `ErrorBoundary` component with themed 404 page (`NotFound.jsx`) for graceful failure states.
+*   **Security & Sanitization**:
+    *   **Environment Management**: Sensitive keys managed via `.env` (git-ignored) with `vite-env` integration.
+    *   **Content Safety**: Replaced unsafe `dangerouslySetInnerHTML` with `RichText` component for sanitized rendering.
 *   **Analytics**: Page view tracking via `AnalyticsTracker.jsx`.
 *   **Visual Language (Airy Technical Diagrams)**:
     *   **Primary Visual**: All Case Study headers use the interactive "Airy Technical Diagram" (`ProjectCard.jsx`) instead of images.
@@ -52,6 +56,7 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Treasure Hunt Gamification**: Hidden collectibles (`Treasure.jsx`) that appear during gesture mode. Progress tracked via `TreasureProgress.jsx` with completion celebration (`TreasureCongrats.jsx`).
 *   **Semantic Memory AI**: RAG-styled Q&A module (`SemanticMemory.jsx`) with typewriter streaming effect for recruiter-friendly self-interrogation.
 *   **ChaosSlider**: Interactive personality dial on About page for dynamic content revelation.
+*   **ProfileScanner (Identity Scan)**: High-fidelity hero component (`ProfileScanner.jsx`) featuring a blur-to-clear "boot-up" scan animation, 3D tilt physics, and data-rich HUD overlay.
 
 #### Work Cluster Interactions
 *   **WorkforceAI Demo** (`interactions/WorkforceAI.jsx`): Interactive demo for Lumina ecosystem features.
@@ -66,6 +71,8 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Knowledge Upgrades (Certifications)**: Technical "System Upgrade" modules on the About page documenting professional growth via verifiable external credentials.
 
 ### 3.6 UI/UX Refinements (v2.3–2.4)
+*   **Profile Scanner (v2.4)**: Replaced static About page photo with interactive 3D scanner. Features "Blur-to-Clear" reveal animation on load.
+*   **Navbar Standardization**: Unified navigation interaction across all pages (Introduction of `BackButton` in About page and fixed scroll positioning).
 *   **Mobile-Responsive Work Cards**: Title text wraps naturally on mobile with optimized font sizing (`text-2xl` mobile, `text-6xl` desktop).
 *   **Theme-Aware ID Card**: Industrial ID card design uses proper contrast colors—black text in light mode, white text in dark mode.
 *   **Work Card Dark Mode Fix**: White backgrounds for work cards and case study preview cards in dark mode for diagram visibility.

@@ -51,6 +51,12 @@ Draggable identity card with:
 - Flip animation to reveal other photos
 - Custom ID number: 1407-1995
 
+### 📡 Profile Identity Scan
+Interactive "About Me" hero component (`ProfileScanner`) featuring:
+- **Cinematic Reveal**: "Blur-to-Clear" cleaning animation on page load.
+- **3D Tilt Physics**: Card responds to mouse movement with parallax depth.
+- **HUD Overlay**: Technical data readout and scanning beam effects.
+
 ### 📌 Sticky Notes
 Dual motivational sticky notes in the hero section:
 - 💙 "Antidote to digital fatigue."
@@ -110,6 +116,7 @@ src/
 │   ├── TreasureCongrats.jsx    # Completion modal
 │   ├── HandCursorOverlay.jsx   # Hand tracking engine
 │   ├── DraggablePhoto.jsx      # Interactive ID card
+│   ├── ProfileScanner.jsx      # Identity scan hero
 │   └── ...
 ├── context/            # React Context providers
 │   ├── HandCursorContext.jsx   # Hand tracking state
