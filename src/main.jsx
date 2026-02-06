@@ -6,12 +6,15 @@ import { ThemeProvider } from './context/ThemeContext';
 import { HelmetProvider } from 'react-helmet-async';
 import ErrorBoundary from './components/ErrorBoundary';
 
+import { SpeedInsights } from '@vercel/speed-insights/react';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider>
       <ErrorBoundary>
         <HelmetProvider>
           <App />
+          <SpeedInsights />
         </HelmetProvider>
       </ErrorBoundary>
     </ThemeProvider>
