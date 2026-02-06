@@ -12,6 +12,7 @@ import { useHandCursor } from '../context/HandCursorContext';
 import BackButton from '../components/BackButton';
 import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
+import ZoomableImage from '../components/ZoomableImage';
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Classified Archives" meets "Human Reality"
@@ -445,7 +446,11 @@ const ProtectedCaseStudy = () => {
                     {/* Image Container */}
                     <div className="aspect-[16/10] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50">
                       {step.image ? (
-                        <img src={step.image} alt={step.title} className="w-full h-full object-contain p-2" />
+                        <ZoomableImage
+                          src={step.image}
+                          alt={step.title}
+                          className="w-full h-full object-contain p-2"
+                        />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center opacity-20 bg-[var(--bg-card)]">
                           <Activity size={48} />
@@ -521,7 +526,7 @@ const ProtectedCaseStudy = () => {
                 <div className="w-full md:w-2/3 aspect-video bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] relative shadow-2xl overflow-hidden group">
                   {/* Real Image or Abstract Fallback */}
                   {sol.image ? (
-                    <img
+                    <ZoomableImage
                       src={sol.image}
                       alt={sol.title}
                       className="absolute inset-0 w-full h-full object-contain bg-black/5 dark:bg-black/50"
