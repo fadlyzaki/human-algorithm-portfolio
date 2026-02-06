@@ -147,7 +147,7 @@ const ProtectedCaseStudy = () => {
 
         {/* Home Navigation (Abort) */}
         <div className="absolute top-6 left-6 z-20">
-          <BackButton to={`/work/${parentCluster.id}`} label="Abort" className="text-[var(--text-secondary)] hover:text-[var(--accent-red)]" />
+          <BackButton to={`/work/${parentCluster.id}`} label={t('protected.back') || "Run: Return_to_Base"} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)]" />
         </div>
 
         <div className="absolute top-6 right-6 z-20 flex items-center gap-4">
