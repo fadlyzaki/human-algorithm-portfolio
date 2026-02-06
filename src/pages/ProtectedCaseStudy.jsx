@@ -199,23 +199,7 @@ const AIBrainstorm = ({ hypotheses, t }) => {
                 </div>
 
                 {/* Action Row */}
-                <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                  {/* Pagination Dots */}
-                  {hypotheses.length > 1 && (
-                    <div className="flex items-center gap-2">
-                      {hypotheses.map((_, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => !isThinking && setCurrentIndex(idx)}
-                          className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex
-                            ? 'bg-emerald-400 w-6'
-                            : 'bg-white/20 hover:bg-white/40 w-2'
-                            }`}
-                        />
-                      ))}
-                    </div>
-                  )}
-
+                <div className="flex items-center justify-end pt-4 border-t border-white/5">
                   {/* Explore Another Button */}
                   {hypotheses.length > 1 && (
                     <button
