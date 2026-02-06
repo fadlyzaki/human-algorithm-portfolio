@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Lock, Unlock, AlertTriangle, ArrowRight, ShieldAlert, Database, Truck,
-  ShoppingCart, FileText, Thermometer, Activity, PenTool, Sun, Moon, X, ArrowLeft, Monitor, Globe, ScanEye
+  ShoppingCart, FileText, Thermometer, Activity, PenTool, Sun, Moon, X, ArrowLeft, Monitor, Globe, ScanEye, Sparkles, RotateCcw
 } from 'lucide-react';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
@@ -13,6 +14,146 @@ import BackButton from '../components/BackButton';
 import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
 import ZoomableImage from '../components/ZoomableImage';
+
+/* --- AI SLOT MACHINE COMPONENT --- */
+const AISlotMachine = ({ hypotheses, t }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isSpinning, setIsSpinning] = useState(false);
+  const [spinCount, setSpinCount] = useState(0);
+
+  const spin = () => {
+    if (isSpinning || hypotheses.length <= 1) return;
+
+    setIsSpinning(true);
+    setSpinCount(s => s + 1);
+
+    // Rapid cycling animation
+    let cycles = 0;
+    const maxCycles = 8 + Math.floor(Math.random() * 4);
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % hypotheses.length);
+      cycles++;
+      if (cycles >= maxCycles) {
+        clearInterval(interval);
+        setIsSpinning(false);
+      }
+    }, 100);
+  };
+
+  const current = hypotheses[currentIndex];
+
+  return (
+    <section className="bg-black text-white py-32 relative overflow-hidden">
+      {/* Grid Background */}
+      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+        <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center gap-4 text-emerald-400 font-mono text-xs uppercase tracking-widest">
+            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+            {t('protected.system_update') || "System Update // 2025 Vision"}
+          </div>
+
+          {/* Spin Counter */}
+          {hypotheses.length > 1 && (
+            <div className="font-mono text-xs text-gray-500">
+              {currentIndex + 1} / {hypotheses.length}
+            </div>
+          )}
+        </div>
+
+        <div className="flex items-center gap-6 mb-8">
+          <h2 className="text-4xl md:text-5xl font-serif italic">
+            {t('protected.if_built_today') || "\"If I built this today...\""}
+          </h2>
+
+          {/* Spin Button */}
+          {hypotheses.length > 1 && (
+            <button
+              onClick={spin}
+              disabled={isSpinning}
+              className={`group flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${isSpinning
+                  ? 'border-emerald-500/50 bg-emerald-500/10 cursor-wait'
+                  : 'border-white/20 hover:border-emerald-400 hover:bg-emerald-500/10'
+                }`}
+            >
+              <RotateCcw
+                size={16}
+                className={`transition-transform ${isSpinning ? 'animate-spin' : 'group-hover:rotate-180'}`}
+              />
+              <span className="font-mono text-xs uppercase tracking-wider">
+                {isSpinning ? 'Thinking...' : 'Try Another'}
+              </span>
+            </button>
+          )}
+        </div>
+
+        {/* Slot Machine Display */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`${currentIndex}-${spinCount}`}
+            initial={{ opacity: 0, y: isSpinning ? -20 : 0, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: isSpinning ? 20 : 0, scale: 0.98 }}
+            transition={{ duration: isSpinning ? 0.1 : 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-16"
+          >
+            <div>
+              <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                {t('protected.back_then') || "Back then, we solved this with logic and loops. Today, I would solve it with"}{' '}
+                <span className="text-white font-bold inline-flex items-center gap-2">
+                  <Sparkles size={16} className="text-emerald-400" />
+                  {current.tech}
+                </span>.
+              </p>
+              <div className="p-6 border border-white/10 bg-white/5 rounded-lg backdrop-blur-sm">
+                <h3 className="font-mono text-xs text-emerald-400 uppercase tracking-widest mb-2">
+                  {t('protected.new_concept') || "The New Concept"}
+                </h3>
+                <p className="text-xl font-bold">{current.title}</p>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div>
+                <h4 className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-2">
+                  {t('protected.retrofit') || "Retro-Fit Logic"}
+                </h4>
+                <p className="text-gray-300 leading-relaxed border-l-2 border-emerald-500/50 pl-4">
+                  {current.desc}
+                </p>
+              </div>
+              <div>
+                <h4 className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-2">
+                  {t('protected.potential_impact') || "Potential Impact"}
+                </h4>
+                <div className="text-3xl font-mono font-bold text-emerald-400">
+                  {current.impact}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Pagination Dots */}
+        {hypotheses.length > 1 && (
+          <div className="flex items-center justify-center gap-2 mt-12">
+            {hypotheses.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => !isSpinning && setCurrentIndex(idx)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === currentIndex
+                    ? 'bg-emerald-400 w-6'
+                    : 'bg-white/20 hover:bg-white/40'
+                  }`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Classified Archives" meets "Human Reality"
@@ -588,46 +729,12 @@ const ProtectedCaseStudy = () => {
           </div>
         </section>
 
-        {/* 7. AI RETRO-FIT (NEW SECTION) */}
-        {caseData.aiHypothesis && (
-          <section className="bg-black text-white py-32 relative overflow-hidden">
-            {/* Grid Background */}
-            <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-
-            <div className="max-w-4xl mx-auto px-6 relative z-10">
-              <div className="flex items-center gap-4 mb-12 text-emerald-400 font-mono text-xs uppercase tracking-widest">
-                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                {t('protected.system_update') || "System Update // 2025 Vision"}
-              </div>
-
-              <h2 className="text-4xl md:text-5xl font-serif italic mb-8">
-                {t('protected.if_built_today') || "\"If I built this today...\""}
-              </h2>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div>
-                  <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                    {t('protected.back_then') || "Back then, we solved this with logic and loops. Today, I would solve it with"} <span className="text-white font-bold">{caseData.aiHypothesis.tech}</span>.
-                  </p>
-                  <div className="p-6 border border-white/10 bg-white/5 rounded-lg backdrop-blur-sm">
-                    <h3 className="font-mono text-xs text-emerald-400 uppercase tracking-widest mb-2">{t('protected.new_concept') || "The New Concept"}</h3>
-                    <p className="text-xl font-bold">{caseData.aiHypothesis.title}</p>
-                  </div>
-                </div>
-
-                <div className="space-y-8">
-                  <div>
-                    <h4 className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-2">{t('protected.retrofit') || "Retro-Fit Logic"}</h4>
-                    <p className="text-gray-300 leading-relaxed border-l-2 border-emerald-500/50 pl-4">{caseData.aiHypothesis.desc}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-2">{t('protected.potential_impact') || "Potential Impact"}</h4>
-                    <div className="text-3xl font-mono font-bold text-emerald-400">{caseData.aiHypothesis.impact}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+        {/* 7. AI RETRO-FIT (SLOT MACHINE INTERACTION) */}
+        {(caseData.aiHypotheses || caseData.aiHypothesis) && (
+          <AISlotMachine
+            hypotheses={caseData.aiHypotheses || [caseData.aiHypothesis]}
+            t={t}
+          />
         )}
 
         {/* 8. TAKEAWAYS (ARCHITECT'S NOTE) */}

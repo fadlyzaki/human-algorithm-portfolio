@@ -1718,12 +1718,26 @@ export const WORK_CLUSTERS = [
                         { label: "Repeat Order", value: "+10%" }
                     ],
                     learnings: "Transparency is cheaper than speed. Users will wait if they know why. This project wasn't about UI; it was about selling 'peace of mind' as a feature.",
-                    aiHypothesis: {
-                        tech: "Computer Vision & IoT",
-                        title: "Smart Loading Docks",
-                        desc: "Cameras at the warehouse scan the volume of goods being loaded. The AI predicts the exact truck fill-rate and notifies the customer: 'Your order consumes 40% of the truck, arriving in 2 hours.'",
-                        impact: "Capacity Usage +20%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Computer Vision & IoT",
+                            title: "Smart Loading Docks",
+                            desc: "Cameras at the warehouse scan the volume of goods being loaded. The AI predicts the exact truck fill-rate and notifies the customer: 'Your order consumes 40% of the truck, arriving in 2 hours.'",
+                            impact: "Capacity Usage +20%"
+                        },
+                        {
+                            tech: "Predictive ML & Weather API",
+                            title: "Traffic-Aware ETAs",
+                            desc: "Machine learning model trained on historical delivery data, real-time traffic, and weather patterns. Auto-adjusts ETAs and proactively notifies users before delays happen.",
+                            impact: "ETA Accuracy +35%"
+                        },
+                        {
+                            tech: "LLM & Voice Interface",
+                            title: "WhatsApp AI Concierge",
+                            desc: "An AI assistant that users can text naturally: 'Where's my order?' It understands context, checks the system, and replies in Bahasa Indonesia with real-time updates.",
+                            impact: "Support Load -70%"
+                        }
+                    ]
                 },
                 caseStudy_id: {
                     locked: true,
@@ -1779,12 +1793,26 @@ export const WORK_CLUSTERS = [
                         { label: "Repeat Order", value: "+10%" }
                     ],
                     learnings: "Transparansi itu lebih murah daripada kecepatan. User mau nunggu kalau mereka tau alasannya. Proyek ini bukan soal UI; ini soal menjual 'ketenangan pikiran' sebagai fitur.",
-                    aiHypothesis: {
-                        tech: "Computer Vision & IoT",
-                        title: "Loading Dock Pintar",
-                        desc: "Kamera di gudang men-scan volume barang yang dimuat. AI memprediksi seberapa penuh truk dan memberi notifikasi ke user: 'Pesanan Anda memakan 40% kapasitas truk, tiba dalam 2 jam.'",
-                        impact: "Kapasitas Terpakai +20%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Computer Vision & IoT",
+                            title: "Loading Dock Pintar",
+                            desc: "Kamera di gudang men-scan volume barang yang dimuat. AI memprediksi seberapa penuh truk dan memberi notifikasi ke user: 'Pesanan Anda memakan 40% kapasitas truk, tiba dalam 2 jam.'",
+                            impact: "Kapasitas Terpakai +20%"
+                        },
+                        {
+                            tech: "Predictive ML & Weather API",
+                            title: "ETA Sadar-Lalu Lintas",
+                            desc: "Model machine learning yang dilatih dari data historis pengiriman, lalu lintas real-time, dan pola cuaca. Auto-adjust ETA dan proaktif notifikasi user sebelum keterlambatan terjadi.",
+                            impact: "Akurasi ETA +35%"
+                        },
+                        {
+                            tech: "LLM & Voice Interface",
+                            title: "Concierge AI WhatsApp",
+                            desc: "Asisten AI yang bisa diajak chat natural: 'Pesanan saya dimana?' Dia paham konteks, cek sistem, dan balas dalam Bahasa Indonesia dengan update real-time.",
+                            impact: "Beban Support -70%"
+                        }
+                    ]
                 }
             },
             {
