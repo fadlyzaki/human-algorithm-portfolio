@@ -12,19 +12,28 @@ const ProfileScanner = ({ isDark }) => {
     const x = useSpring(0, { stiffness: 100, damping: 30 });
     const y = useSpring(0, { stiffness: 100, damping: 30 });
 
+    const ticking = useRef(false);
+
     const handleMouseMove = (e) => {
-        if (!containerRef.current) return;
-        const rect = containerRef.current.getBoundingClientRect();
-        const width = rect.width;
-        const height = rect.height;
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
+        if (!ticking.current) {
+            requestAnimationFrame(() => {
+                if (!containerRef.current) return;
+                const rect = containerRef.current.getBoundingClientRect();
+                const width = rect.width;
+                const height = rect.height;
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
 
-        const xPct = mouseX / width - 0.5;
-        const yPct = mouseY / height - 0.5;
+                const xPct = mouseX / width - 0.5;
+                const yPct = mouseY / height - 0.5;
 
-        x.set(xPct * 20); // rotateY
-        y.set(yPct * -20); // rotateX
+                x.set(xPct * 20); // rotateY
+                y.set(yPct * -20); // rotateX
+
+                ticking.current = false;
+            });
+            ticking.current = true;
+        }
     };
 
     const handleMouseLeave = () => {

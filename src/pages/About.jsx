@@ -21,6 +21,7 @@ import Footer from '../components/Footer';
 import RichText from '../components/RichText';
 import ProfileScanner from '../components/ProfileScanner';
 import BackButton from '../components/BackButton';
+import ScrollProgressBar from '../components/ScrollProgressBar';
 
 /* --- THEME CONFIGURATION ---
    Consistent with Human By Design System v2.0
@@ -31,7 +32,6 @@ const AboutPage = () => {
   const themeStyles = useThemeStyles();
   const { t, language, toggleLanguage } = useLanguage();
   const { isGestureMode, toggleGestureMode } = useHandCursor();
-  const [scrolled, setScrolled] = useState(0);
   const [chaosStrength, setChaosStrength] = useState(0);
 
 
@@ -191,20 +191,7 @@ const AboutPage = () => {
     }
   ];
 
-  // --- EFFECT: SCROLL PROGRESS ---
-  useEffect(() => {
-    const handleScroll = () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const currentScrollY = window.scrollY;
 
-      setScrolled((winScroll / height) * 100);
-
-
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isGestureMode]);
 
   // Chaos Style Generator
   const chaosStyle = useMemo(() => {
@@ -253,10 +240,8 @@ const AboutPage = () => {
         }}>
       </div>
 
-      {/* Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 z-50 bg-[var(--bg-surface)]">
-        <div className="h-full bg-[var(--accent-green)] shadow-[0_0_10px_var(--accent-green)]" style={{ width: `${scrolled}%` }}></div>
-      </div>
+      {/* Progress Bar (Isolated Component) */}
+      <ScrollProgressBar />
 
       {/* HEADER */}
       <div className="fixed top-0 left-0 w-full z-50">

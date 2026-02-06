@@ -12,14 +12,16 @@ const HandCursorOverlay = () => {
     const [isModelLoading, setIsModelLoading] = useState(false);
     const [modelReady, setModelReady] = useState(false);
     const [loadError, setLoadError] = useState(null);
-    const [showFallbackNotice, setShowFallbackNotice] = useState(false);
-
     // Refs for persistence
     const handsRef = useRef(null);
     const cameraRef = useRef(null);
     const lastCursorPos = useRef({ x: 0, y: 0 });
     const loadingTimeoutRef = useRef(null);
     const loadingRef = useRef(false); // Track internal loading state to avoid effect cycles
+
+    // New refs for optimization
+    const lensRef = useRef(null);
+    const lastStateUpdate = useRef(0);
 
     // --- 2. HANDLE RESULTS (Hoisted) ---
     const onResults = useCallback((results) => {
@@ -36,13 +38,25 @@ const HandCursorOverlay = () => {
         let smoothX = lastCursorPos.current.x + (targetX - lastCursorPos.current.x) * smoothingFactor;
         let smoothY = lastCursorPos.current.y + (targetY - lastCursorPos.current.y) * smoothingFactor;
 
-        // Update Context (if needed elsewhere) and Ref
-        setCursorPosition({ x: smoothX, y: smoothY });
         lastCursorPos.current = { x: smoothX, y: smoothY };
 
-        // DIRECT CSS UPDATE for performance (avoids React re-renders)
+        // 1. VISUAL UPDATE (60fps - No React Render)
+        if (lensRef.current) {
+            lensRef.current.style.left = `${smoothX}px`;
+            lensRef.current.style.top = `${smoothY}px`;
+        }
+
+        // Also update CSS variables for other consumers (ProfileScanner physics etc might use it if they switch to CSS vars)
         document.documentElement.style.setProperty('--cursor-x', `${smoothX}px`);
         document.documentElement.style.setProperty('--cursor-y', `${smoothY}px`);
+
+        // 2. STATE UPDATE (Throttled - 10fps)
+        // Only trigger React Context updates for game logic (collisions) occasionally
+        const now = Date.now();
+        if (now - lastStateUpdate.current > 100) {
+            setCursorPosition({ x: smoothX, y: smoothY });
+            lastStateUpdate.current = now;
+        }
     }, [setCursorPosition]);
 
     // --- 1. INITIALIZE MODEL (Once or Lazy) WITH ERROR HANDLING ---
@@ -242,9 +256,10 @@ const HandCursorOverlay = () => {
             {/* 1. VISUAL LENS RETICLE (Only show when ready) */}
             {modelReady && (
                 <div
+                    ref={lensRef}
                     className="fixed w-32 h-32 border border-emerald-500/50 rounded-full flex items-center justify-center -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 mix-blend-screen"
                     style={{
-                        left: cursorPosition.x,
+                        left: cursorPosition.x, // Initial placement / Fallback
                         top: cursorPosition.y,
                         boxShadow: '0 0 40px rgba(16, 185, 129, 0.2)'
                     }}

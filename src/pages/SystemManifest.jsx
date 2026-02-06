@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  ArrowLeft,
   Download,
   Printer,
   Mail,
@@ -13,13 +12,16 @@ import {
   Hash,
   Terminal,
   BookOpen,
-  User
+  User,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import CoverLetterModal from '../components/CoverLetterModal';
+import BackButton from '../components/BackButton';
 
 /* --- THEME CONFIGURATION ---
    A 'High Contrast' mode designed for readability and printing.
@@ -100,41 +102,51 @@ const SystemManifest = () => {
         description="System Manifest: Professional experience validation and skill inventory."
       />
 
-      {/* UI CONTROLS - HIDDEN IN PRINT */}
-      <div className="max-w-[210mm] mx-auto mb-8 flex justify-between items-center print:hidden">
-        <Link to="/about" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-sm uppercase group">
-          <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> {t('manifest.back')}
-        </Link>
-        <div className="flex gap-4">
-          <button
-            onClick={toggleLanguage}
-            className="px-4 py-2 border border-[var(--border-color)] hover:border-[var(--accent-mono)] font-mono text-sm uppercase transition-colors flex items-center gap-2"
-          >
-            <Globe size={14} /> {language}
-          </button>
-          <button
-            onClick={() => setShowCoverLetter(true)}
-            className="px-4 py-2 border border-[var(--border-color)] hover:border-[var(--accent-mono)] font-mono text-sm uppercase transition-colors flex items-center gap-2"
-          >
-            <Mail size={14} /> CL
-          </button>
-          <button
-            onClick={() => setIsDark(!isDark)}
-            className="px-4 py-2 border border-[var(--border-color)] hover:border-[var(--accent-mono)] font-mono text-sm uppercase transition-colors"
-          >
-            {isDark ? "Light Mode" : "Dark Mode"}
-          </button>
-          <button
-            onClick={() => window.print()}
-            className="flex items-center gap-2 px-4 py-2 bg-[var(--text-primary)] text-[var(--bg-void)] font-mono text-sm uppercase font-bold hover:opacity-90"
-          >
-            <Printer size={16} /> {t('manifest.print')}
-          </button>
-        </div>
+      {/* FIXED NAVBAR - HIDDEN IN PRINT */}
+      <div className="fixed top-0 left-0 w-full z-50 print:hidden">
+        <header className="flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)]">
+          <BackButton to="/about" label={t('manifest.back')} />
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              title="Switch Language"
+            >
+              <Globe size={18} />
+              <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
+            </button>
+
+            <button
+              onClick={() => setShowCoverLetter(true)}
+              className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              title="View Cover Letter"
+            >
+              <Mail size={18} />
+            </button>
+
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className="text-[var(--text-secondary)] hover:text-[var(--accent-mono)] transition-colors"
+              aria-label="Toggle Theme"
+            >
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+
+            <button
+              onClick={() => window.print()}
+              className="px-4 py-2 bg-[var(--text-primary)] text-[var(--bg-void)] font-mono text-xs uppercase font-bold rounded-lg hover:opacity-90 flex items-center gap-2 transition-opacity"
+            >
+              <Printer size={14} />
+              <span className="hidden md:inline">{t('manifest.print')}</span>
+            </button>
+          </div>
+        </header>
       </div>
 
-      {/* DOCUMENT SHEET (A4 Width Capable) */}
-      <div className="max-w-[210mm] mx-auto bg-[var(--bg-void)] md:bg-[var(--bg-panel)] md:p-12 md:shadow-2xl md:border border-[var(--border-color)] print:border-none print:shadow-none print:p-0">
+      {/* SPACER FOR FIXED HEADER & DOCUMENT SHEET */}
+      <div className="h-24 md:h-32 print:hidden"></div>
+      <div className="max-w-[210mm] mx-auto bg-[var(--bg-void)] md:bg-[var(--bg-panel)] md:p-12 md:shadow-2xl md:border border-[var(--border-color)] print:border-none print:shadow-none print:p-0 relative z-10">
 
 
         {/* HEADER */}

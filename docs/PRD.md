@@ -33,10 +33,11 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Status Indicators**: "OPEN TO WORK" badges synced with local deployment states to drive conversion.
 
 ### 3.4 Technical Foundations
+### 3.4 Technical Foundations
 *   **Performance**: Vite-powered React engine with lazy loading via `React.lazy()` and `Suspense` for near-instant transitions.
+*   **Performance Monitoring**: integrated `@vercel/speed-insights` for real-time Core Web Vitals tracking.
 *   **SEO/Crawler Resilience**: Implemented static HTML fallbacks in `index.html` to ensure SEO indexing for SPA content. SEO component (`SEO.jsx`) for dynamic meta tags.
 *   **Theme Management**: Dark Mode (The Void) by default, with persistent user-mode selection via `ThemeContext`.
-*   **Error Handling**: Custom `ErrorBoundary` component with themed 404 page (`NotFound.jsx`) for graceful failure states.
 *   **Error Handling**: Custom `ErrorBoundary` component with themed 404 page (`NotFound.jsx`) for graceful failure states.
 *   **Security & Sanitization**:
     *   **Environment Management**: Sensitive keys managed via `.env` (git-ignored) with `vite-env` integration.
@@ -56,7 +57,7 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Treasure Hunt Gamification**: Hidden collectibles (`Treasure.jsx`) that appear during gesture mode. Progress tracked via `TreasureProgress.jsx` with completion celebration (`TreasureCongrats.jsx`).
 *   **Semantic Memory AI**: RAG-styled Q&A module (`SemanticMemory.jsx`) with typewriter streaming effect for recruiter-friendly self-interrogation.
 *   **ChaosSlider**: Interactive personality dial on About page for dynamic content revelation.
-*   **ProfileScanner (Identity Scan)**: High-fidelity hero component (`ProfileScanner.jsx`) featuring a blur-to-clear "boot-up" scan animation, 3D tilt physics, and data-rich HUD overlay.
+*   **ProfileScanner (Identity Scan)**: High-fidelity hero component (`ProfileScanner.jsx`) featuring a blur-to-clear "boot-up" scan animation, interactive 3D tilt physics (following mouse position), and real-time "Target_ID" HUD overlay.
 
 #### Work Cluster Interactions
 *   **WorkforceAI Demo** (`interactions/WorkforceAI.jsx`): Interactive demo for Lumina ecosystem features.
@@ -67,8 +68,10 @@ The homepage follows a "Priority-First" narrative flow:
 *   **AI Interactive Protocol** (`pages/Contact.jsx`): Real-time intent analysis engine and "Neural Handshake" progress tracker that reacts to form input data.
 
 #### Content Systems
+*   **Meta-Project**: "The Human Algorithm" is now listed as a self-referential "Meta-Project" within the portfolio, documenting its own creation.
+*   **Project Categorization**: `FilterMe` (AR Experiment) moves to "Notes" to reflect its status as a conceptual study rather than a production ship.
 *   **Substack Intel-Matrix**: Automated (or mock-fallback) professional logs integrated into the homepage using RSS-to-JSON protocols.
-*   **Knowledge Upgrades (Certifications)**: Technical "System Upgrade" modules on the About page documenting professional growth via verifiable external credentials.
+*   **Knowledge Upgrades (Certifications)**: Technical "System Upgrade" modules on the About page documenting professional growth via verifiable external credentials. Implements a "Visual ID" card system with verifiable links.
 
 ### 3.6 UI/UX Refinements (v2.3–2.4)
 *   **Profile Scanner (v2.4)**: Replaced static About page photo with interactive 3D scanner. Features "Blur-to-Clear" reveal animation on load.
@@ -82,7 +85,7 @@ The homepage follows a "Priority-First" narrative flow:
 ## 4. Functional Specifications
 
 ### 4.1 Case Study Security
-*   **Simulated Encryption**: All detailed case studies reside behind a "Confidential File" layer (`ProtectedCaseStudy.jsx`), using client-side password validation to maintain the "Classified" narrative.
+*   **Simulated Encryption & Localization**: All detailed case studies reside behind a "Confidential File" layer (`ProtectedCaseStudy.jsx`), using client-side password validation. The entire "Classified" narrative (lock screens, decryption sequences, error messages) is fully localized (`en`/`id`) to maintain immersion across languages.
 
 ### 4.2 Interactive Physics
 *   **Draggable Interface**: High-fidelity tactile interactions using Framer Motion. Elements respect "Friction" and "Elasticity" constraints.
@@ -92,7 +95,7 @@ The homepage follows a "Priority-First" narrative flow:
 | Route | Component | Description |
 |-------|-----------|-------------|
 | `/` | `Home.jsx` | Main landing with all portfolio sections |
-| `/about` | `About.jsx` | Personality synthesis and ChaosSlider |
+| `/about` | `About.jsx` | Personality synthesis, Certifications, and ChaosSlider |
 | `/contact` | `Contact.jsx` | Contact form and information |
 | `/cv` | `SystemManifest.jsx` | ATS-optimized printable CV |
 | `/work/:id` | `CompanyDetail.jsx` | Company cluster detail with brand theming |
@@ -113,7 +116,7 @@ The homepage follows a "Priority-First" narrative flow:
 *   **[COMPLETED]** Mobile Responsiveness (Work cards, ID card)
 *   **[COMPLETED]** Semantic Memory AI (SemanticMemory.jsx)
 *   **[COMPLETED]** AI Interactive Protocol (Contact page analysis + pings)
-*   **[COMPLETED]** Knowledge Upgrades (Certification system)
+*   **[COMPLETED]** Knowledge Upgrades (Certification system in About page)
 *   **[Q2]** Enhanced AI Agent: Expand semantic memory with real RAG backend
 *   **[Q3]** CMS Integration: Migrating "Notes" to MDX
 
