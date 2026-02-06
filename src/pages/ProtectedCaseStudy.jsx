@@ -81,7 +81,7 @@ const AIBrainstorm = ({ hypotheses, t }) => {
           </div>
           {hypotheses.length > 1 && (
             <span className="font-mono text-xs text-gray-600">
-              Idea {currentIndex + 1} of {hypotheses.length}
+              {t('protected.idea') || "Idea"} {currentIndex + 1} {t('protected.of') || "of"} {hypotheses.length}
             </span>
           )}
         </div>
@@ -96,7 +96,7 @@ const AIBrainstorm = ({ hypotheses, t }) => {
           >
             <div className="max-w-md">
               <div className="flex items-center justify-end gap-2 mb-2">
-                <span className="font-mono text-xs text-amber-400/70 uppercase tracking-wider">You</span>
+                <span className="font-mono text-xs text-amber-400/70 uppercase tracking-wider">{t('protected.human_label') || "You"}</span>
                 <div className="w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
                   <span className="text-xs font-bold text-black">F</span>
                 </div>
@@ -121,13 +121,13 @@ const AIBrainstorm = ({ hypotheses, t }) => {
                 <div className="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center">
                   <Sparkles size={12} className="text-black" />
                 </div>
-                <span className="font-mono text-xs text-emerald-400/70 uppercase tracking-wider">AI Collaborator</span>
+                <span className="font-mono text-xs text-emerald-400/70 uppercase tracking-wider">{t('protected.ai_label') || "AI Collaborator"}</span>
               </div>
               <div className="bg-gradient-to-br from-emerald-500/10 to-cyan-500/5 border border-emerald-500/20 rounded-2xl rounded-tl-sm p-4">
                 {isThinking ? (
                   <div className="py-2">
                     <TypingDots />
-                    <p className="text-gray-500 text-xs mt-2 font-mono">Exploring alternatives...</p>
+                    <p className="text-gray-500 text-xs mt-2 font-mono">{t('protected.exploring') || "Exploring alternatives..."}</p>
                   </div>
                 ) : (
                   <p className="text-gray-300 text-sm leading-relaxed">
@@ -184,7 +184,7 @@ const AIBrainstorm = ({ hypotheses, t }) => {
                     <div className="relative">
                       <div className="absolute inset-0 bg-emerald-400 rounded-xl blur-lg opacity-30 animate-pulse" />
                       <div className="relative bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-xl px-4 py-3 text-center">
-                        <div className="text-xs font-mono text-black/70 uppercase tracking-wider mb-1">Impact</div>
+                        <div className="text-xs font-mono text-black/70 uppercase tracking-wider mb-1">{t('protected.impact_label') || "Impact"}</div>
                         <div className="text-lg md:text-xl font-bold text-black">{current.impact}</div>
                       </div>
                     </div>
@@ -227,7 +227,7 @@ const AIBrainstorm = ({ hypotheses, t }) => {
                         }`}
                     >
                       <span className="font-mono text-xs uppercase tracking-wider">
-                        {isThinking ? 'Thinking...' : 'Explore Another Idea'}
+                        {isThinking ? (t('protected.exploring') || 'Thinking...') : (t('protected.explore_another') || 'Explore Another Idea')}
                       </span>
                       <ArrowRight
                         size={14}
@@ -255,7 +255,7 @@ const AIBrainstorm = ({ hypotheses, t }) => {
               >
                 <Sparkles size={20} className="text-emerald-400" />
               </motion.div>
-              <span className="font-mono text-sm">Generating alternative approach...</span>
+              <span className="font-mono text-sm">{t('protected.generating') || "Generating alternative approach..."}</span>
             </div>
           </motion.div>
         )}

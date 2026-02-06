@@ -233,7 +233,19 @@ export const translations = {
             new_concept: "The New Concept",
             retrofit: "Retro-Fit Logic",
             potential_impact: "Potential Impact",
-            architect_debrief: "// Architect's Debrief"
+            architect_debrief: "// Architect's Debrief",
+            brainstorm_session: "Brainstorm Session",
+            human_prompt: "What if we rebuilt this feature with modern AI capabilities? What would that look like?",
+            ai_response: "Analyzing the original problem space... Here's an approach using",
+            proposed_solution: "Proposed Solution",
+            idea: "Idea",
+            of: "of",
+            human_label: "You",
+            ai_label: "AI Collaborator",
+            exploring: "Exploring alternatives...",
+            generating: "Generating alternative approach...",
+            explore_another: "Explore Another Idea",
+            impact_label: "Impact"
         }
     },
     id: {
@@ -471,7 +483,19 @@ export const translations = {
             new_concept: "Konsep Baru",
             retrofit: "Logika Retro-Fit",
             potential_impact: "Potensi Dampak",
-            architect_debrief: "// Catatan Arsitek"
+            architect_debrief: "// Catatan Arsitek",
+            brainstorm_session: "Sesi Brainstorm",
+            human_prompt: "Bagaimana jika kita bangun ulang fitur ini dengan kapabilitas AI modern? Seperti apa jadinya?",
+            ai_response: "Menganalisis ruang lingkup masalah... Ini pendekatan menggunakan",
+            proposed_solution: "Solusi yang Diusulkan",
+            idea: "Ide",
+            of: "dari",
+            human_label: "Anda",
+            ai_label: "Kolaborator AI",
+            exploring: "Mengeksplorasi alternatif...",
+            generating: "Menghasilkan pendekatan alternatif...",
+            explore_another: "Eksplorasi Ide Lain",
+            impact_label: "Dampak"
         }
     }
 };
