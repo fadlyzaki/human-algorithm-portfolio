@@ -155,7 +155,7 @@ const SystemManifest = () => {
             <h1 className="text-4xl md:text-5xl font-mono uppercase tracking-tight mb-2">{header.name}</h1>
             <h2 className="text-lg text-[var(--text-secondary)] font-mono mb-3">{header.role}</h2>
             <div className="flex items-center gap-2 text-sm font-mono text-[var(--accent-mono)]">
-              <div className="w-2 h-2 bg-current rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-current rounded-full animate-pulse print:hidden"></div>
               {header.status}
             </div>
           </div>
@@ -182,8 +182,8 @@ const SystemManifest = () => {
         {/* PROFILE SUMMARY */}
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-4">
-            <User size={18} />
-            <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">{t('manifest.summary_title')}</h3>
+            <User size={18} className="print:hidden" />
+            <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1 print:border-black">{t('manifest.summary_title')}</h3>
           </div>
           <p className="text-[var(--text-secondary)] leading-relaxed text-sm md:text-base font-light">
             {summary}
@@ -191,13 +191,13 @@ const SystemManifest = () => {
         </section>
 
         {/* CONTENT GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_250px] print:grid-cols-1 gap-12 print:gap-8">
 
           {/* MAIN COLUMN (Experience) */}
           <section>
             <div className="flex items-center gap-3 mb-6">
-              <Terminal size={18} />
-              <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">{t('manifest.exp_title')}</h3>
+              <Terminal size={18} className="print:hidden" />
+              <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1 print:border-black">{t('manifest.exp_title')}</h3>
             </div>
 
             <div className="space-y-10">
@@ -229,24 +229,24 @@ const SystemManifest = () => {
             {/* SKILLS */}
             <section>
               <div className="flex items-center gap-3 mb-6">
-                <Hash size={18} />
-                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">{t('manifest.skills_title')}</h3>
+                <Hash size={18} className="print:hidden" />
+                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1 print:border-black">{t('manifest.skills_title')}</h3>
               </div>
 
               <div className="space-y-6">
                 <div>
-                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">{t('manifest.skills_design')}</h5>
-                  <div className="flex flex-wrap gap-2">
-                    {['Product Design', 'UI/UX Design', 'User Research', 'Design Systems', 'Prototyping', 'Wireframing', 'User Testing', 'Information Architecture'].map(s => (
-                      <span key={s} className="bg-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm">{s}</span>
+                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2 print:text-black print:font-bold">{t('manifest.skills_design')}</h5>
+                  <div className="flex flex-wrap gap-2 print:gap-0">
+                    {['Product Design', 'UI/UX Design', 'User Research', 'Design Systems', 'Prototyping', 'Wireframing', 'User Testing', 'Information Architecture'].map((s, i, arr) => (
+                      <span key={s} className="bg-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm print:bg-transparent print:px-0 print:py-0 print:text-black">{s}{i < arr.length - 1 ? <span className="hidden print:inline">, </span> : ''}</span>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">{t('manifest.skills_tools')}</h5>
-                  <div className="flex flex-wrap gap-2">
-                    {['Figma', 'Sketch', 'Adobe XD', 'HTML/CSS', 'JavaScript', 'React', 'Git', 'Jira', 'Linear', 'Mixpanel', 'Agile', 'Scrum', 'Design Thinking'].map(s => (
-                      <span key={s} className="border border-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm text-[var(--text-secondary)]">{s}</span>
+                  <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2 print:text-black print:font-bold">{t('manifest.skills_tools')}</h5>
+                  <div className="flex flex-wrap gap-2 print:gap-0">
+                    {['Figma', 'Sketch', 'Adobe XD', 'HTML/CSS', 'JavaScript', 'React', 'Git', 'Jira', 'Linear', 'Mixpanel', 'Agile', 'Scrum', 'Design Thinking'].map((s, i, arr) => (
+                      <span key={s} className="border border-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm text-[var(--text-secondary)] print:border-none print:px-0 print:py-0 print:text-black">{s}{i < arr.length - 1 ? <span className="hidden print:inline">, </span> : ''}</span>
                     ))}
                   </div>
                 </div>
@@ -256,8 +256,8 @@ const SystemManifest = () => {
             {/* EDUCATION */}
             <section>
               <div className="flex items-center gap-3 mb-6">
-                <BookOpen size={18} />
-                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1">{t('manifest.edu_title')}</h3>
+                <BookOpen size={18} className="print:hidden" />
+                <h3 className="font-mono text-lg uppercase font-bold border-b border-[var(--border-color)] w-full pb-1 print:border-black">{t('manifest.edu_title')}</h3>
               </div>
 
               {education.map((edu, idx) => (
