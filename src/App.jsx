@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Activity } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 // Lazy Import Pages
 const Home = React.lazy(() => import('./pages/Home'));
@@ -65,6 +66,7 @@ function App() {
             </Routes>
           </Suspense>
         </Router>
+        <Analytics />
       </HandCursorProvider>
     </LanguageProvider>
   );
