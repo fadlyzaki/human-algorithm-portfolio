@@ -1,4 +1,4 @@
-# Product Requirements Document (PRD): Human Algorithm Portfolio v2.4
+# Product Requirements Document (PRD): Human Algorithm Portfolio v2.5
 
 ## 1. Executive Summary
 The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity. 
@@ -17,12 +17,19 @@ The homepage follows a "Priority-First" narrative flow:
 1.  **Level 0 (Hero/Header)**: Identity and "Contain Chaos" positioning with draggable ID card.
 2.  **Level 1 (Side Projects)**: High-creativity, rapid-iteration experiments ("Wild Creativity"). Includes "The Archive" as a consolidated repository.
 3.  **Level 2 (Work)**: Validated, large-scale industrial excellence (The Workforce/Commerce/Efficiency Ecosystems) via `WorkHoloDeck` cards.
-4.  **Level 3 (About Me)**: The human backend—personality synthesis, ChaosSlider, and "System History."
+4.  **Level 3 (About Me)**: Bento Grid layout with Bio Narrative, ProfileScanner, Philosophy, Current Focus, and Runtime Metrics cards. ChaosSlider and "System History" on dedicated About page.
 5.  **Level 4 (Notes)**: Professional logs and intellectual pattern recognition via `BlogPost`.
 
 ### 3.2 System Manifest v2.0 (The CV Strategy)
 *   **Single Source of Truth (SSOT)**: The CV dynamically mirrors `portfolioData.js`. No manual duplication permitted.
 *   **ATS Optimization**: Uses standard terminology (Professional Experience, Skills, Education) and pipe-separated job titles to maximize parsing scores in HRD systems.
+*   **Print Stylesheet (v2.5)**: Comprehensive `@media print` CSS for ATS/HRD readability:
+    *   Standard fonts (Georgia body, Arial headings) instead of monospace
+    *   Black text on white background
+    *   Hidden decorative icons and animations
+    *   Single-column layout for better parsing
+    *   Skill tags as comma-separated plain text
+    *   A4 page size with 0.75in margins
 *   **Compact Header**: Aggregates Location, LinkedIn, Portfolio, and Email into a high-density, horizontal contact block to minimize vertical scroll.
 *   **Dynamic Outcomes**: Experience bullets are automatically generated from project-level metrics (e.g., "+37% Conversion," "Latency Reduced").
 *   **Cover Letter Modal**: Quick-access modal (`CoverLetterModal.jsx`) for generating contextual cover letter content.
@@ -57,7 +64,8 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Treasure Hunt Gamification**: Hidden collectibles (`Treasure.jsx`) that appear during gesture mode. Progress tracked via `TreasureProgress.jsx` with completion celebration (`TreasureCongrats.jsx`).
 *   **Semantic Memory AI**: RAG-styled Q&A module (`SemanticMemory.jsx`) with typewriter streaming effect for recruiter-friendly self-interrogation.
 *   **ChaosSlider**: Interactive personality dial on About page for dynamic content revelation.
-*   **ProfileScanner (Identity Scan)**: High-fidelity hero component (`ProfileScanner.jsx`) featuring a blur-to-clear "boot-up" scan animation, interactive 3D tilt physics (following mouse position), and real-time "Target_ID" HUD overlay.
+*   **ProfileScanner (Identity Scan)**: High-fidelity component (`ProfileScanner.jsx`) featuring blur-to-clear "boot-up" scan animation with `useInView` viewport detection, interactive 3D tilt physics, and real-time HUD overlay. Animation triggers only when scrolled into view.
+*   **Sticky Notes Cluster (v2.5)**: 4 unique insight notes in Hero section with varied rotations and accent colors (Blue, Amber, Green, Purple) in single-row `flex-nowrap` layout.
 
 #### Work Cluster Interactions
 *   **WorkforceAI Demo** (`interactions/WorkforceAI.jsx`): Interactive demo for Lumina ecosystem features.
@@ -81,6 +89,7 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Work Card Dark Mode Fix**: White backgrounds for work cards and case study preview cards in dark mode for diagram visibility.
 *   **Draggable Photo Stack**: Multi-variant ID card designs (Industrial, Cyberpunk, Swiss) with Framer Motion physics.
 *   **Tag & Pill Accessibility**: Standardized label legibility (`11px` min) and enforced contrast ratios for badges sitting on inverted card headers.
+*   **Bento Grid About Section (v2.5)**: Reorganized homepage About section into 3-column grid with 5 modular cards (Bio Narrative, ProfileScanner, Philosophy, Current Focus, Runtime Metrics) for cleaner visual hierarchy.
 
 ## 4. Functional Specifications
 
@@ -106,7 +115,7 @@ The homepage follows a "Priority-First" narrative flow:
 
 ## 5. Non-Functional Requirements (NFRs)
 *   **Heuristic Compliance**: Strict adherence to Nielsen's 10 Heuristics (Recognition vs. Recall, Consistency).
-*   **Print Fidelity**: Zero-margin A4 layouts for CV printing.
+*   **Print Fidelity**: ATS-optimized A4 layouts with standard fonts (Georgia/Arial) and comma-separated skills for CV printing.
 *   **Mobile-First Responsive**: All components optimized for touch and narrow viewports.
 *   **Lazy Loading**: All pages use `React.lazy()` with Suspense fallback for performance.
 
