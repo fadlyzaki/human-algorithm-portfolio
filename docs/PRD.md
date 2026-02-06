@@ -1,4 +1,4 @@
-# Product Requirements Document (PRD): Human Algorithm Portfolio v2.5
+# Product Requirements Document (PRD): Human Algorithm Portfolio v2.6
 
 ## 1. Executive Summary
 The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity. 
@@ -66,6 +66,14 @@ The homepage follows a "Priority-First" narrative flow:
 *   **ChaosSlider**: Interactive personality dial on About page for dynamic content revelation.
 *   **ProfileScanner (Identity Scan)**: High-fidelity component (`ProfileScanner.jsx`) featuring blur-to-clear "boot-up" scan animation with `useInView` viewport detection, interactive 3D tilt physics, and real-time HUD overlay. Animation triggers only when scrolled into view.
 *   **Sticky Notes Cluster (v2.5)**: 4 unique insight notes in Hero section with varied rotations and accent colors (Blue, Amber, Green, Purple) in single-row `flex-nowrap` layout.
+*   **AI Brainstorm Dialogue (v2.7)**: Redesigned "If I built this today..." section as Human + AI collaborative conversation (`AIBrainstorm` component). Features:
+    *   **Chat Bubble Interface**: Visual dialogue between "You" (human, amber accent) and "AI Collaborator" (emerald accent).
+    *   **Typing Indicators**: Animated dots when AI is "thinking" about alternatives.
+    *   **Neural Network Background**: Subtle SVG pattern reinforcing AI collaboration theme.
+    *   **Glowing Solution Card**: Highlighted output with gradient border and pulsing impact badge.
+    *   **Multi-Hypothesis Support**: Each case study offers 3 AI-powered solution alternatives in `aiHypotheses` array.
+    *   **Smooth Transitions**: Framer Motion animations for solution cycling with "Explore Another Idea" button.
+*   **Zoomable Images (v2.6)**: Click-to-zoom modal for case study evidence images (`ZoomableImage.jsx`) using React Portal for proper z-index stacking.
 
 #### Work Cluster Interactions
 *   **WorkforceAI Demo** (`interactions/WorkforceAI.jsx`): Interactive demo for Lumina ecosystem features.

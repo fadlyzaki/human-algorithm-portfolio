@@ -62,6 +62,14 @@ Dual motivational sticky notes in the hero section:
 - 💙 "Antidote to digital fatigue."
 - 🧡 "Built for humans at their limit."
 
+### 🧠 AI Brainstorm Dialogue
+Interactive "If I built this today..." section visualized as Human + AI collaboration:
+- **Chat Interface**: Visual conversation between you and an AI collaborator
+- **Typing Animation**: AI "thinks" before suggesting alternatives
+- **3 AI Solutions**: Each case study offers multiple AI-powered approaches
+- **Glowing Solution Card**: Highlighted output with impact metrics
+- **Explore Ideas**: Cycle through alternatives with smooth transitions
+
 ### Core Portfolio Features
 - **Responsive Design**: Optimized for desktop and mobile
 - **Dark/Light Theme**: Toggle between themes

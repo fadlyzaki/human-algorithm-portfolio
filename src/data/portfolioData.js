@@ -607,12 +607,26 @@ export const WORK_CLUSTERS = [
                         { label: "NPS", value: "78" }
                     ],
                     learnings: "This project taught me that 'features' don't solve problems; 'workflows' do. By mimicking the tool they already used (WhatsApp) but adding structure, I won adoption without training.",
-                    aiHypothesis: {
-                        tech: "LLM Agents & Sentiment Analysis",
-                        title: "Auto-Negotiation Bot",
-                        desc: "Instead of recruiters manually typing replies, an Agent would draft responses based on the candidate's sentiment and availability. It could schedule interviews automatically by syncing with calendar APIs.",
-                        impact: "Response Time < 5 mins"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "LLM Agents & Sentiment Analysis",
+                            title: "Auto-Negotiation Bot",
+                            desc: "Instead of recruiters manually typing replies, an Agent would draft responses based on the candidate's sentiment and availability. It could schedule interviews automatically by syncing with calendar APIs.",
+                            impact: "Response Time < 5 mins"
+                        },
+                        {
+                            tech: "Voice AI & Speech-to-Text",
+                            title: "Voice-First Screening",
+                            desc: "Candidates record voice answers to screening questions. AI transcribes, analyzes tone and confidence, and auto-generates a candidate summary score for recruiters.",
+                            impact: "Screening Time -80%"
+                        },
+                        {
+                            tech: "Predictive Analytics & ML",
+                            title: "Candidate Fit Predictor",
+                            desc: "ML model trained on historical hiring data predicts which candidates are most likely to accept offers and stay long-term, helping recruiters prioritize high-value leads.",
+                            impact: "Offer Acceptance +25%"
+                        }
+                    ]
                 },
                 caseStudy_id: {
                     locked: true,
@@ -663,12 +677,26 @@ export const WORK_CLUSTERS = [
                         { label: "NPS", value: "78" }
                     ],
                     learnings: "Proyek ini ngajarin saya kalo fitur gak nyelesain masalah; alur kerja (workflow) yang nyelesain. Dengan niru alat yang udah biasa mereka pake (WhatsApp) tapi dikasih struktur, saya dapet adopsi tanpa perlu training ribet.",
-                    aiHypothesis: {
-                        tech: "Agen LLM & Analisa Sentimen",
-                        title: "Bot Negosiasi Otomatis",
-                        desc: "Daripada rekruter ngetik manual, Agen bakal nulis draft jawaban berdasarkan mood kandidat dan ketersediaan waktu. Bisa jadwalin interview otomatis lho.",
-                        impact: "Waktu Respon < 5 menit"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Agen LLM & Analisa Sentimen",
+                            title: "Bot Negosiasi Otomatis",
+                            desc: "Daripada rekruter ngetik manual, Agen bakal nulis draft jawaban berdasarkan mood kandidat dan ketersediaan waktu. Bisa jadwalin interview otomatis lho.",
+                            impact: "Waktu Respon < 5 menit"
+                        },
+                        {
+                            tech: "Voice AI & Speech-to-Text",
+                            title: "Screening Berbasis Suara",
+                            desc: "Kandidat rekam jawaban suara untuk pertanyaan screening. AI transkripsi, analisa nada dan kepercayaan diri, dan auto-generate skor ringkasan kandidat untuk rekruter.",
+                            impact: "Waktu Screening -80%"
+                        },
+                        {
+                            tech: "Predictive Analytics & ML",
+                            title: "Prediktor Kecocokan Kandidat",
+                            desc: "Model ML yang dilatih dari data rekrutmen historis memprediksi kandidat mana yang kemungkinan besar terima offer dan bertahan lama, bantu rekruter prioritaskan lead bernilai tinggi.",
+                            impact: "Penerimaan Offer +25%"
+                        }
+                    ]
                 },
             },
             {
@@ -740,12 +768,26 @@ export const WORK_CLUSTERS = [
                         { label: "Adoption", value: "100%" }
                     ],
                     learnings: "Replacing a spreadsheet is the hardest design challenge. You can't just be prettier; you have to be faster. I learned to respect the utility of a grid.",
-                    aiHypothesis: {
-                        tech: "RAG (Retrieval-Augmented Generation)",
-                        title: "The 'Chief of Staff' Sidebar",
-                        desc: "A natural language sidebar where HR can ask: 'Who are the top 3 drivers for East Jakarta?' The AI retrieves data from the pipeline and summarizes it, eliminating the need for complex filters.",
-                        impact: "Data Retrieval Speed 10x"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "RAG (Retrieval-Augmented Generation)",
+                            title: "The 'Chief of Staff' Sidebar",
+                            desc: "A natural language sidebar where HR can ask: 'Who are the top 3 drivers for East Jakarta?' The AI retrieves data from the pipeline and summarizes it, eliminating the need for complex filters.",
+                            impact: "Data Retrieval Speed 10x"
+                        },
+                        {
+                            tech: "Computer Vision & Document AI",
+                            title: "Auto-Resume Parsing",
+                            desc: "AI extracts structured data from uploaded resumes (PDFs, images) automatically, populating candidate profiles without manual data entry. Handles Indonesian and English resumes.",
+                            impact: "Data Entry Time -90%"
+                        },
+                        {
+                            tech: "Anomaly Detection & ML",
+                            title: "Pipeline Health Monitor",
+                            desc: "Real-time ML model detects unusual patterns like sudden drop-offs at specific stages, alerting HR to process bottlenecks before they impact hiring goals.",
+                            impact: "Issue Detection +3 days earlier"
+                        }
+                    ]
                 },
                 caseStudy_id: {
                     locked: true,
@@ -794,12 +836,26 @@ export const WORK_CLUSTERS = [
                         { label: "Adopsi", value: "100%" }
                     ],
                     learnings: "Gantiin Excel itu tantangan desain paling susah. Gak bisa cuma main cantik; harus lebih cepet. Saya belajar buat menghargai fungsi grid.",
-                    aiHypothesis: {
-                        tech: "RAG (Retrieval-Augmented Generation)",
-                        title: "Sidebar 'Chief of Staff'",
-                        desc: "Sidebar chat di mana HR bisa tanya: 'Siapa 3 driver terbaik di Jakarta Timur?' AI bakal ambil data dari pipeline dan ngerangkum, gak perlu filter ribet lagi.",
-                        impact: "Kecepatan Data 10x"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "RAG (Retrieval-Augmented Generation)",
+                            title: "Sidebar 'Chief of Staff'",
+                            desc: "Sidebar chat di mana HR bisa tanya: 'Siapa 3 driver terbaik di Jakarta Timur?' AI bakal ambil data dari pipeline dan ngerangkum, gak perlu filter ribet lagi.",
+                            impact: "Kecepatan Data 10x"
+                        },
+                        {
+                            tech: "Computer Vision & Document AI",
+                            title: "Parsing CV Otomatis",
+                            desc: "AI mengekstrak data terstruktur dari CV yang diupload (PDF, gambar) secara otomatis, mengisi profil kandidat tanpa input manual. Support CV Indonesia dan Inggris.",
+                            impact: "Waktu Input Data -90%"
+                        },
+                        {
+                            tech: "Anomaly Detection & ML",
+                            title: "Monitor Kesehatan Pipeline",
+                            desc: "Model ML real-time mendeteksi pola tidak biasa seperti drop-off mendadak di tahap tertentu, alert HR tentang bottleneck proses sebelum impact hiring goals.",
+                            impact: "Deteksi Masalah +3 hari lebih cepat"
+                        }
+                    ]
                 },
             },
             {
@@ -871,12 +927,26 @@ export const WORK_CLUSTERS = [
                         { label: "Trust", value: "High" }
                     ],
                     learnings: "Lowering the barrier to entry increases volume, but you need checks for quality. Voice notes were the perfect middle ground—easy to send, but rich in signal.",
-                    aiHypothesis: {
-                        tech: "Audio-to-Structured-Data (Whisper)",
-                        title: "Instant Resume Generator",
-                        desc: "Candidates simply talk about their experience for 1 minute. The AI transcribes the audio, extracts skills/dates, and builds a formatted tabular resume automatically.",
-                        impact: "Completion Rate +90%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Audio-to-Structured-Data (Whisper)",
+                            title: "Instant Resume Generator",
+                            desc: "Candidates simply talk about their experience for 1 minute. The AI transcribes the audio, extracts skills/dates, and builds a formatted tabular resume automatically.",
+                            impact: "Completion Rate +90%"
+                        },
+                        {
+                            tech: "NLP & Intent Classification",
+                            title: "Smart Job Matching",
+                            desc: "AI analyzes voice note content to understand candidate skills and preferences, then auto-suggests relevant job openings instead of requiring manual search.",
+                            impact: "Job Match Accuracy +40%"
+                        },
+                        {
+                            tech: "Emotion AI & Tone Analysis",
+                            title: "Candidate Confidence Scorer",
+                            desc: "AI analyzes voice recordings for confidence, enthusiasm, and communication clarity, providing recruiters with soft-skill insights before interviews.",
+                            impact: "Interview Quality +30%"
+                        }
+                    ]
                 },
                 caseStudy_id: {
                     locked: true,
@@ -925,12 +995,26 @@ export const WORK_CLUSTERS = [
                         { label: "Trust", value: "Tinggi" }
                     ],
                     learnings: "Nurunin hambatan masuk ningkatin volume, tapi butuh filter kualitas. Voice note itu jalan tengah sempurna—gampang dikirim, tapi kaya info.",
-                    aiHypothesis: {
-                        tech: "Audio-ke-Data-Terstruktur (Whisper)",
-                        title: "Generator CV Instan",
-                        desc: "Kandidat cukup ngomong soal pengalaman mereka selama 1 menit. AI bakal transkrip audio, ekstrak skill/tanggal, dan bikin CV rapi secara otomatis.",
-                        impact: "Tingkat Penyelesaian +90%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Audio-ke-Data-Terstruktur (Whisper)",
+                            title: "Generator CV Instan",
+                            desc: "Kandidat cukup ngomong soal pengalaman mereka selama 1 menit. AI bakal transkrip audio, ekstrak skill/tanggal, dan bikin CV rapi secara otomatis.",
+                            impact: "Tingkat Penyelesaian +90%"
+                        },
+                        {
+                            tech: "NLP & Klasifikasi Intent",
+                            title: "Pencocokan Kerja Pintar",
+                            desc: "AI menganalisa konten voice note untuk memahami skill dan preferensi kandidat, lalu auto-suggest lowongan relevan tanpa perlu cari manual.",
+                            impact: "Akurasi Match Kerja +40%"
+                        },
+                        {
+                            tech: "Emotion AI & Analisis Nada",
+                            title: "Skor Kepercayaan Diri Kandidat",
+                            desc: "AI menganalisa rekaman suara untuk kepercayaan diri, antusiasme, dan kejelasan komunikasi, memberikan insight soft-skill ke rekruter sebelum interview.",
+                            impact: "Kualitas Interview +30%"
+                        }
+                    ]
                 }
             },
             {
@@ -1002,12 +1086,26 @@ export const WORK_CLUSTERS = [
                         { label: "Bounce Rate", value: "-10%" }
                     ],
                     learnings: "Navigation is not just about structure; it's about confidence. If a user feels lost for 1 second, they are gone. I learned to count clicks like currency.",
-                    aiHypothesis: {
-                        tech: "Predictive UI",
-                        title: "Zero-Click Discovery",
-                        desc: "The app anticipates user intent based on time-of-day and location. If a user opens the app at 8 AM in a warehouse district, the 'Forklift Driver' jobs appear instantly on the home screen.",
-                        impact: "Time-to-Apply -40%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Predictive UI",
+                            title: "Zero-Click Discovery",
+                            desc: "The app anticipates user intent based on time-of-day and location. If a user opens the app at 8 AM in a warehouse district, the 'Forklift Driver' jobs appear instantly on the home screen.",
+                            impact: "Time-to-Apply -40%"
+                        },
+                        {
+                            tech: "Conversational AI & NLP",
+                            title: "Voice-Driven Navigation",
+                            desc: "Users can say 'Find me cleaning jobs near Tangerang' and the app instantly filters and displays results, eliminating the need for manual filter selection.",
+                            impact: "Navigation Speed +60%"
+                        },
+                        {
+                            tech: "Behavioral Analytics & Personalization",
+                            title: "Learning Home Screen",
+                            desc: "The home screen dynamically reorganizes based on user behavior patterns, surfacing the most relevant categories and jobs without requiring any user input.",
+                            impact: "Engagement +35%"
+                        }
+                    ]
                 },
                 caseStudy_id: {
                     locked: true,
@@ -1056,12 +1154,26 @@ export const WORK_CLUSTERS = [
                         { label: "Bounce Rate", value: "-10%" }
                     ],
                     learnings: "Navigasi bukan cuma soal struktur; ini soal kepercayaan diri. Kalau user merasa tersesat 1 detik saja, mereka pergi. Saya belajar menghargai setiap klik.",
-                    aiHypothesis: {
-                        tech: "Predictive UI",
-                        title: "Penemuan Tanpa-Klik",
-                        desc: "Aplikasi mengantisipasi niat user berdasarkan waktu dan lokasi. Jika user buka aplikasi jam 8 pagi di area pergudangan, lowongan 'Supir Forklift' langsung muncul di layar utama.",
-                        impact: "Waktu-Lamar -40%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Predictive UI",
+                            title: "Penemuan Tanpa-Klik",
+                            desc: "Aplikasi mengantisipasi niat user berdasarkan waktu dan lokasi. Jika user buka aplikasi jam 8 pagi di area pergudangan, lowongan 'Supir Forklift' langsung muncul di layar utama.",
+                            impact: "Waktu-Lamar -40%"
+                        },
+                        {
+                            tech: "Conversational AI & NLP",
+                            title: "Navigasi Berbasis Suara",
+                            desc: "User bisa bilang 'Carikan kerja cleaning di Tangerang' dan aplikasi langsung filter dan tampilkan hasilnya, tanpa perlu pilih filter manual.",
+                            impact: "Kecepatan Navigasi +60%"
+                        },
+                        {
+                            tech: "Behavioral Analytics & Personalization",
+                            title: "Home Screen yang Belajar",
+                            desc: "Home screen secara dinamis mereorganisasi berdasarkan pola perilaku user, memunculkan kategori dan lowongan paling relevan tanpa perlu input user.",
+                            impact: "Engagement +35%"
+                        }
+                    ]
                 }
             },
         ]
@@ -1171,12 +1283,26 @@ export const WORK_CLUSTERS = [
                         { label: "AOV", value: "+15%" }
                     ],
                     learnings: "Trust is built in milliseconds. You can't ask for money if you look messy. A clean UI is a trustworthy UI.",
-                    aiHypothesis: {
-                        tech: "Predictive Fraud Detection",
-                        title: "The 'Green Light' Checkout",
-                        desc: "An AI analyzes the buyer's purchase history and creditworthiness in real-time. If they are trusted, they skip the 'Payment Proof' step entirely. Instant credit approval.",
-                        impact: "Friction Reduced 100%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Predictive Fraud Detection",
+                            title: "The 'Green Light' Checkout",
+                            desc: "An AI analyzes the buyer's purchase history and creditworthiness in real-time. If they are trusted, they skip the 'Payment Proof' step entirely. Instant credit approval.",
+                            impact: "Friction Reduced 100%"
+                        },
+                        {
+                            tech: "Dynamic Pricing & ML",
+                            title: "Smart Bundle Suggestions",
+                            desc: "AI analyzes cart contents and suggests complementary products with optimized bundle pricing, increasing average order value while providing genuine value to buyers.",
+                            impact: "AOV +25%"
+                        },
+                        {
+                            tech: "Computer Vision & OCR",
+                            title: "Scan-to-Reorder",
+                            desc: "Store owners photograph their empty shelves. AI identifies products and auto-fills a reorder cart based on previous purchase patterns and current stock levels.",
+                            impact: "Reorder Time -70%"
+                        }
+                    ]
                 },
                 caseStudy_id: {
                     locked: true,
@@ -1225,12 +1351,26 @@ export const WORK_CLUSTERS = [
                         { label: "AOV", value: "+15%" }
                     ],
                     learnings: "Kepercayaan dibangun dalam milidetik. Anda nggak bisa minta uang kalau tampilan berantakan. UI yang rapi adalah UI yang bisa dipercaya.",
-                    aiHypothesis: {
-                        tech: "Predictive Fraud Detection",
-                        title: "Checkout 'Lampu Hijau'",
-                        desc: "AI menganalisis riwayat belanja dan kredit pembeli secara real-time. Jika terpercaya, mereka bisa skip tahap 'Bukti Bayar' sepenuhnya. Persetujuan kredit instan.",
-                        impact: "Friksi Berkurang 100%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Predictive Fraud Detection",
+                            title: "Checkout 'Lampu Hijau'",
+                            desc: "AI menganalisis riwayat belanja dan kredit pembeli secara real-time. Jika terpercaya, mereka bisa skip tahap 'Bukti Bayar' sepenuhnya. Persetujuan kredit instan.",
+                            impact: "Friksi Berkurang 100%"
+                        },
+                        {
+                            tech: "Dynamic Pricing & ML",
+                            title: "Saran Bundle Pintar",
+                            desc: "AI menganalisis isi keranjang dan menyarankan produk pelengkap dengan harga bundle yang optimal, meningkatkan nilai order rata-rata sambil memberikan nilai nyata ke pembeli.",
+                            impact: "AOV +25%"
+                        },
+                        {
+                            tech: "Computer Vision & OCR",
+                            title: "Scan-untuk-Pesan Ulang",
+                            desc: "Pemilik toko memfoto rak kosong mereka. AI mengidentifikasi produk dan auto-fill keranjang reorder berdasarkan pola pembelian sebelumnya dan level stok saat ini.",
+                            impact: "Waktu Reorder -70%"
+                        }
+                    ]
                 }
             },
             {
@@ -1294,12 +1434,26 @@ export const WORK_CLUSTERS = [
                         { label: "Brand NPS", value: "65" }
                     ],
                     learnings: "B2B buyers are still human. They gravitate towards 'polished' content because it signals reliability.",
-                    aiHypothesis: {
-                        tech: "Generative Design (StyleGAN)",
-                        title: "Brand Asset Autopilot",
-                        desc: "Brands upload 1 logo and 1 product image. The AI automatically generates 50 variations of banners, social posts, and store themes that adhere to their brand guidelines.",
-                        impact: "Onboarding Time -90%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Generative Design (StyleGAN)",
+                            title: "Brand Asset Autopilot",
+                            desc: "Brands upload 1 logo and 1 product image. The AI automatically generates 50 variations of banners, social posts, and store themes that adhere to their brand guidelines.",
+                            impact: "Onboarding Time -90%"
+                        },
+                        {
+                            tech: "Multimodal LLM & Product Data",
+                            title: "AI Product Copywriter",
+                            desc: "AI analyzes product images and specs to auto-generate compelling product descriptions, SEO tags, and promotional copy in multiple languages.",
+                            impact: "Catalog Setup -80%"
+                        },
+                        {
+                            tech: "Real-time Analytics & Personalization",
+                            title: "Dynamic Store Personalization",
+                            desc: "Store layout auto-adjusts based on visitor behavior—showing trending products to browsers and reorder suggestions to returning buyers.",
+                            impact: "Store Conversion +30%"
+                        }
+                    ]
                 },
                 caseStudy_id: {
                     locked: true,
@@ -1348,12 +1502,26 @@ export const WORK_CLUSTERS = [
                         { label: "NPS Brand", value: "65" }
                     ],
                     learnings: "Pembeli B2B juga manusia. Mereka tertarik pada konten yang 'poles' karena itu sinyal keandalan.",
-                    aiHypothesis: {
-                        tech: "Generative Design (StyleGAN)",
-                        title: "Autopilot Aset Brand",
-                        desc: "Brand upload 1 logo dan 1 gambar produk. AI otomatis generate 50 variasi banner, posting sosial, dan tema toko yang sesuai panduan brand mereka.",
-                        impact: "Waktu Onboarding -90%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Generative Design (StyleGAN)",
+                            title: "Autopilot Aset Brand",
+                            desc: "Brand upload 1 logo dan 1 gambar produk. AI otomatis generate 50 variasi banner, posting sosial, dan tema toko yang sesuai panduan brand mereka.",
+                            impact: "Waktu Onboarding -90%"
+                        },
+                        {
+                            tech: "Multimodal LLM & Data Produk",
+                            title: "AI Copywriter Produk",
+                            desc: "AI menganalisis gambar dan spesifikasi produk untuk auto-generate deskripsi produk yang menarik, tag SEO, dan copy promosi dalam berbagai bahasa.",
+                            impact: "Setup Katalog -80%"
+                        },
+                        {
+                            tech: "Real-time Analytics & Personalization",
+                            title: "Personalisasi Toko Dinamis",
+                            desc: "Layout toko auto-adjust berdasarkan perilaku pengunjung—menampilkan produk trending ke browser dan saran reorder ke pembeli langganan.",
+                            impact: "Konversi Toko +30%"
+                        }
+                    ]
                 }
             },
             {
@@ -1417,12 +1585,26 @@ export const WORK_CLUSTERS = [
                         { label: "Sales Spikes", value: "High" }
                     ],
                     learnings: "In complex systems, clarity is the best feature. If the user can't predict the outcome, the system is broken.",
-                    aiHypothesis: {
-                        tech: "Reinforcement Learning",
-                        title: "Dynamic Discount Optimization",
-                        desc: "Instead of fixed rules, the AI simulates 10,000 potential cart combinations to find the 'Sweet Spot' discount that maximizes volume without eroding margin. It accepts or rejects the promo for the user.",
-                        impact: "Margin Protected +15%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Reinforcement Learning",
+                            title: "Dynamic Discount Optimization",
+                            desc: "Instead of fixed rules, the AI simulates 10,000 potential cart combinations to find the 'Sweet Spot' discount that maximizes volume without eroding margin. It accepts or rejects the promo for the user.",
+                            impact: "Margin Protected +15%"
+                        },
+                        {
+                            tech: "Demand Forecasting & Time Series ML",
+                            title: "Optimal Timing Predictor",
+                            desc: "AI analyzes historical sales patterns and external factors (holidays, weather) to recommend when to launch promos for maximum impact.",
+                            impact: "Promo ROI +40%"
+                        },
+                        {
+                            tech: "Causal Inference & A/B Testing AI",
+                            title: "Cannibalization Detector",
+                            desc: "Before approving promos, AI predicts if the discount will genuinely drive new sales or just cannibalize organic purchases, saving budget for true growth.",
+                            impact: "Wasted Promo Spend -50%"
+                        }
+                    ]
                 },
                 caseStudy_id: {
                     locked: true,
@@ -1471,12 +1653,26 @@ export const WORK_CLUSTERS = [
                         { label: "Lonjakan Sales", value: "Tinggi" }
                     ],
                     learnings: "Di sistem kompleks, kejelasan adalah fitur terbaik. Kalau user nggak bisa prediksi hasilnya, sistemnya rusak.",
-                    aiHypothesis: {
-                        tech: "Reinforcement Learning",
-                        title: "Optimasi Diskon Dinamis",
-                        desc: "Alih-alih aturan kaku, AI mensimulasikan 10.000 kombinasi keranjang untuk cari 'Sweet Spot' diskon yang maksimalkan volume tanpa menggerus margin. AI yang accept/reject promo user.",
-                        impact: "Margin Terlindungi +15%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Reinforcement Learning",
+                            title: "Optimasi Diskon Dinamis",
+                            desc: "Alih-alih aturan kaku, AI mensimulasikan 10.000 kombinasi keranjang untuk cari 'Sweet Spot' diskon yang maksimalkan volume tanpa menggerus margin. AI yang accept/reject promo user.",
+                            impact: "Margin Terlindungi +15%"
+                        },
+                        {
+                            tech: "Demand Forecasting & Time Series ML",
+                            title: "Prediktor Waktu Optimal",
+                            desc: "AI menganalisis pola penjualan historis dan faktor eksternal (libur, cuaca) untuk merekomendasikan kapan meluncurkan promo untuk dampak maksimal.",
+                            impact: "ROI Promo +40%"
+                        },
+                        {
+                            tech: "Causal Inference & A/B Testing AI",
+                            title: "Detektor Kanibalisasi",
+                            desc: "Sebelum menyetujui promo, AI memprediksi apakah diskon akan benar-benar mendorong penjualan baru atau hanya kanibalisasi pembelian organik, menghemat budget untuk pertumbuhan nyata.",
+                            impact: "Pemborosan Promo -50%"
+                        }
+                    ]
                 }
             },
             {
@@ -1540,12 +1736,26 @@ export const WORK_CLUSTERS = [
                         { label: "Consistency", value: "100%" }
                     ],
                     learnings: "A design system is a product, not a project. It needs maintenance, versioning, and a roadmap.",
-                    aiHypothesis: {
-                        tech: "Multimodal LLM (Vision-to-Code)",
-                        title: "Screenshot-to-Component",
-                        desc: "Designers upload a screenshot of a new UI pattern. The AI scans it against our existing component library and outputs the exact React code using our Design System tokens.",
-                        impact: "Design Handoff 0m"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Multimodal LLM (Vision-to-Code)",
+                            title: "Screenshot-to-Component",
+                            desc: "Designers upload a screenshot of a new UI pattern. The AI scans it against our existing component library and outputs the exact React code using our Design System tokens.",
+                            impact: "Design Handoff 0m"
+                        },
+                        {
+                            tech: "Automated Accessibility Testing",
+                            title: "A11y Guardian",
+                            desc: "AI continuously scans all components for WCAG violations, color contrast issues, and screen reader compatibility, auto-generating fix suggestions.",
+                            impact: "Accessibility Score 100%"
+                        },
+                        {
+                            tech: "Change Impact Analysis",
+                            title: "Token Change Predictor",
+                            desc: "Before updating a design token, AI simulates the visual impact across all screens and apps, showing previews of affected components to prevent breaking changes.",
+                            impact: "Breaking Changes -95%"
+                        }
+                    ]
                 },
                 caseStudy_id: {
                     locked: true,
@@ -1594,12 +1804,26 @@ export const WORK_CLUSTERS = [
                         { label: "Konsistensi", value: "100%" }
                     ],
                     learnings: "Design system itu produk, bukan proyek. Butuh maintenance, versioning, dan roadmap.",
-                    aiHypothesis: {
-                        tech: "Multimodal LLM (Vision-to-Code)",
-                        title: "Screenshot-to-Component",
-                        desc: "Desainer upload screenshot pola UI baru. AI scan komponen itu lawan library yang ada dan output kode React persis pakai token Design System kami.",
-                        impact: "Handoff Desain 0m"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Multimodal LLM (Vision-to-Code)",
+                            title: "Screenshot-to-Component",
+                            desc: "Desainer upload screenshot pola UI baru. AI scan komponen itu lawan library yang ada dan output kode React persis pakai token Design System kami.",
+                            impact: "Handoff Desain 0m"
+                        },
+                        {
+                            tech: "Automated Accessibility Testing",
+                            title: "A11y Guardian",
+                            desc: "AI terus-menerus scan semua komponen untuk pelanggaran WCAG, masalah kontras warna, dan kompatibilitas screen reader, auto-generate saran perbaikan.",
+                            impact: "Skor Aksesibilitas 100%"
+                        },
+                        {
+                            tech: "Change Impact Analysis",
+                            title: "Prediktor Perubahan Token",
+                            desc: "Sebelum update design token, AI simulasikan dampak visual di semua layar dan aplikasi, menampilkan preview komponen yang terpengaruh untuk mencegah breaking changes.",
+                            impact: "Breaking Changes -95%"
+                        }
+                    ]
                 }
             },
         ]
@@ -1876,12 +2100,26 @@ export const WORK_CLUSTERS = [
                         { label: "Engagement", value: "High" }
                     ],
                     learnings: "Gamification isn't just badges. It's about tapping into intrinsic human drives: mastery, status, and fear of missing out.",
-                    aiHypothesis: {
-                        tech: "Personalized Coaching Agents",
-                        title: "The 'Jarvis' for Sales",
-                        desc: "An AI voice coach that listens to sales calls (privacy-safe) and gives real-time whispers: 'Talk slower', 'Mention the bundle discount now', 'They sound hesitant about price'.",
-                        impact: "Conversion Rate +25%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Personalized Coaching Agents",
+                            title: "The 'Jarvis' for Sales",
+                            desc: "An AI voice coach that listens to sales calls (privacy-safe) and gives real-time whispers: 'Talk slower', 'Mention the bundle discount now', 'They sound hesitant about price'.",
+                            impact: "Conversion Rate +25%"
+                        },
+                        {
+                            tech: "ML & Performance Analytics",
+                            title: "Challenge Generator",
+                            desc: "AI analyzes individual agent performance and dynamically creates personalized daily challenges calibrated to push them just outside their comfort zone.",
+                            impact: "Target Achievement +40%"
+                        },
+                        {
+                            tech: "Social AI & Network Analysis",
+                            title: "Peer Mentor Matching",
+                            desc: "AI identifies top performers and struggling agents, then creates mentor-mentee pairings with suggested talking points and success pattern transfers.",
+                            impact: "Team Performance +20%"
+                        }
+                    ]
                 },
                 caseStudy_id: {
                     locked: true,
@@ -1930,12 +2168,26 @@ export const WORK_CLUSTERS = [
                         { label: "Engagement", value: "Tinggi" }
                     ],
                     learnings: "Gamifikasi bukan cuma tempel lencana. Ini soal memanfaatkan dorongan alami manusia: penguasaan skill, status sosial, dan FOMO.",
-                    aiHypothesis: {
-                        tech: "Personalized Coaching Agents",
-                        title: "'Jarvis' untuk Sales",
-                        desc: "AI voice coach yang dengerin panggilan sales (privacy-safe) dan kasih bisikan real-time: 'Ngomongnya pelan dikit', 'Tawarin diskon bundle sekarang', 'Mereka kedengeran ragu soal harga tuh'.",
-                        impact: "Konversi +25%"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Personalized Coaching Agents",
+                            title: "'Jarvis' untuk Sales",
+                            desc: "AI voice coach yang dengerin panggilan sales (privacy-safe) dan kasih bisikan real-time: 'Ngomongnya pelan dikit', 'Tawarin diskon bundle sekarang', 'Mereka kedengeran ragu soal harga tuh'.",
+                            impact: "Konversi +25%"
+                        },
+                        {
+                            tech: "ML & Performance Analytics",
+                            title: "Generator Tantangan",
+                            desc: "AI menganalisis performa individu agen dan secara dinamis membuat tantangan harian yang dipersonalisasi untuk mendorong mereka keluar dari zona nyaman.",
+                            impact: "Pencapaian Target +40%"
+                        },
+                        {
+                            tech: "Social AI & Network Analysis",
+                            title: "Pencocokan Mentor Peer",
+                            desc: "AI mengidentifikasi top performer dan agen yang struggle, lalu membuat pasangan mentor-mentee dengan poin diskusi dan transfer pola sukses yang disarankan.",
+                            impact: "Performa Tim +20%"
+                        }
+                    ]
                 }
             },
             {
@@ -1982,12 +2234,26 @@ export const WORK_CLUSTERS = [
                         { label: "Cost Save", value: "High" }
                     ],
                     learnings: "The future is inevitable, but it needs a bridge. The 'Confidence Score' was the bridge that let users trust the AI.",
-                    aiHypothesis: {
-                        tech: "Visual Document Understanding (VDU)",
-                        title: "Semantic Search for Paper",
-                        desc: "You can ask the system: 'Find me the invoice for the red chair we bought last May.' The AI visualizes the document and highlights the exact line item.",
-                        impact: "Audit Speed 100x"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Visual Document Understanding (VDU)",
+                            title: "Semantic Search for Paper",
+                            desc: "You can ask the system: 'Find me the invoice for the red chair we bought last May.' The AI visualizes the document and highlights the exact line item.",
+                            impact: "Audit Speed 100x"
+                        },
+                        {
+                            tech: "Anomaly Detection & Pattern Recognition",
+                            title: "Expense Fraud Spotter",
+                            desc: "AI analyzes scanned receipts for anomalies like duplicate submissions, unusual vendors, or out-of-policy amounts, flagging suspicious claims before approval.",
+                            impact: "Fraud Detection +85%"
+                        },
+                        {
+                            tech: "Multi-Document Intelligence",
+                            title: "Contract Auto-Reconciler",
+                            desc: "Upload a contract and its related invoices. AI automatically matches line items, flags discrepancies, and generates a reconciliation report.",
+                            impact: "Reconciliation Time -90%"
+                        }
+                    ]
                 },
                 caseStudy_id: {
                     locked: true,
@@ -2019,12 +2285,26 @@ export const WORK_CLUSTERS = [
                         { label: "Hemat Biaya", value: "Tinggi" }
                     ],
                     learnings: "Masa depan itu pasti, tapi butuh jembatan. 'Confidence Score' adalah jembatan yang bikin user berani percaya sama AI.",
-                    aiHypothesis: {
-                        tech: "Visual Document Understanding (VDU)",
-                        title: "Pencarian Semantik Kertas",
-                        desc: "Anda bisa tanya sistem: 'Cariin faktur kursi merah yang kita beli Mei lalu.' AI bakal visualisasikan dokumen dan highlight baris item yang dimaksud.",
-                        impact: "Kecepatan Audit 100x"
-                    }
+                    aiHypotheses: [
+                        {
+                            tech: "Visual Document Understanding (VDU)",
+                            title: "Pencarian Semantik Kertas",
+                            desc: "Anda bisa tanya sistem: 'Cariin faktur kursi merah yang kita beli Mei lalu.' AI bakal visualisasikan dokumen dan highlight baris item yang dimaksud.",
+                            impact: "Kecepatan Audit 100x"
+                        },
+                        {
+                            tech: "Anomaly Detection & Pattern Recognition",
+                            title: "Pendeteksi Fraud Pengeluaran",
+                            desc: "AI menganalisis bon yang di-scan untuk anomali seperti pengajuan ganda, vendor tidak biasa, atau jumlah di luar kebijakan, menandai klaim mencurigakan sebelum disetujui.",
+                            impact: "Deteksi Fraud +85%"
+                        },
+                        {
+                            tech: "Multi-Document Intelligence",
+                            title: "Auto-Rekonsiliasi Kontrak",
+                            desc: "Upload kontrak dan faktur terkait. AI otomatis mencocokkan item baris, menandai perbedaan, dan menghasilkan laporan rekonsiliasi.",
+                            impact: "Waktu Rekonsiliasi -90%"
+                        }
+                    ]
                 }
             }
         ]
