@@ -56,7 +56,7 @@ const Container = ({ children, figIndex = "1.0", schematicType = "SYSTEM_ARCHITE
 };
 
 // IF IMAGE IS PROVIDED, RENDER IT AS A FLOATING DOCUMENT
-const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, showChrome = false, backgroundOnly = false }) => {
+const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, showChrome = false, backgroundOnly = false, priority = false }) => {
     // const t = type.toLowerCase(); // Unused
 
     if (image) {
@@ -67,6 +67,8 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                         <img
                             src={image}
                             alt={type}
+                            fetchPriority={priority ? "high" : "auto"}
+                            loading={priority ? "eager" : "lazy"}
                             className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
                         />
                         {/* Technical Overlay on Image */}

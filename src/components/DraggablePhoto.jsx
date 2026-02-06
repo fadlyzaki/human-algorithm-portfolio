@@ -62,7 +62,7 @@ const DraggablePhoto = () => {
           <div className="w-2.5 h-3 border border-yellow-800/20 rounded-br-sm"></div>
         </div>
         <div className="w-28 h-36 bg-gray-300 border border-black/10 shadow-inner mb-4 relative overflow-hidden grayscale contrast-125 brightness-110">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover" />
+          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover" fetchPriority="high" loading="eager" />
         </div>
         <div className="space-y-3">
           <div className="flex flex-col">
@@ -112,7 +112,7 @@ const DraggablePhoto = () => {
       <div className="flex-grow p-4 relative z-10">
         <div className="flex gap-4">
           <div className="w-24 h-32 border border-cyan-500/50 relative overflow-hidden">
-            <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale contrast-150 mix-blend-luminosity" />
+            <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale contrast-150 mix-blend-luminosity" fetchPriority="high" loading="eager" />
             <div className="absolute inset-0 bg-cyan-500/20 mix-blend-overlay"></div>
           </div>
           <div className="flex-1 space-y-2">
@@ -159,7 +159,7 @@ const DraggablePhoto = () => {
       {/* Content */}
       <div className="flex-grow p-4 bg-white relative">
         <div className="absolute -top-12 right-4 w-24 h-32 bg-gray-200 border-4 border-white shadow-lg z-10">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale" />
+          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale" fetchPriority="high" loading="eager" />
         </div>
 
         <div className="mt-8 space-y-4">
@@ -208,10 +208,10 @@ const DraggablePhoto = () => {
         {/* Lanyard Clip Construction */}
         <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-4 h-20 z-0 pointer-events-none">
           {/* Strap Loop */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-64 border-2 border-[var(--text-secondary)]/30 rounded-[50%] -z-10 bg-transparent"></div>
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-48 h-[300px] border-[12px] border-[#1a1a1a] dark:border-zinc-400 rounded-[50%] -z-10 shadow-xl"></div>
 
           {/* Metal Clip Body */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-6 h-8 bg-gradient-to-b from-zinc-300 to-zinc-500 rounded-sm shadow-md flex flex-col items-center justify-end pb-1 border border-zinc-600">
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-10 bg-gradient-to-b from-zinc-300 to-zinc-500 rounded-md shadow-md flex flex-col items-center justify-end pb-1 border border-zinc-600 z-10">
             {/* Clip Spring */}
             <div className="w-4 h-3 bg-zinc-700 rounded-sm mb-1 opacity-80"></div>
           </div>
@@ -237,6 +237,8 @@ const DraggablePhoto = () => {
                 <img
                   src={currentItem.src}
                   alt={currentItem.alt}
+                  fetchPriority="high"
+                  loading="eager"
                   className="w-full h-full object-cover opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10"></div>
