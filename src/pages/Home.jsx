@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   Terminal, Cpu, BookOpen, ArrowRight, ArrowUp, GitCommit,
@@ -159,35 +159,27 @@ const Portfolio = () => {
   const [showNav, setShowNav] = useState(true);
   const navigate = useNavigate();
   const lastScrollY = useRef(0);
-  const [substackPosts, setSubstackPosts] = useState([]);
-  const [isSubstackLoading, setIsSubstackLoading] = useState(true);
-
-  // Fetch Substack Posts
-  useEffect(() => {
-    // Temporary Mock Data for Substack
-    const mockPosts = [
-      {
-        title: "Why Reducing Steps Is Better Than Adding Delight",
-        description: "Delight is often a mask for poor usability. In this log, I explore why removing friction is the highest form of respect for the user.",
-        pubDate: "2026-01-28",
-        link: "https://fadlyzaki.substack.com"
-      },
-      {
-        title: "The Human Algorithm: Designing for Resilience",
-        description: "Resilient systems aren't the ones that never break—they're the ones designed to hold you when you do. A deep dive into my design philosophy.",
-        pubDate: "2026-01-15",
-        link: "https://fadlyzaki.substack.com"
-      },
-      {
-        title: "Cognitive Load and the Paradox of Choice",
-        description: "Every unnecessary feature is a tax on the user's attention. How we can build more focused, purposeful tools.",
-        pubDate: "2026-01-05",
-        link: "https://fadlyzaki.substack.com"
-      }
-    ];
-    setSubstackPosts(mockPosts);
-    setIsSubstackLoading(false);
-  }, []);
+  const [substackPosts] = useState(() => [
+    {
+      title: "Why Reducing Steps Is Better Than Adding Delight",
+      description: "Delight is often a mask for poor usability. In this log, I explore why removing friction is the highest form of respect for the user.",
+      pubDate: "2026-01-28",
+      link: "https://fadlyzaki.substack.com"
+    },
+    {
+      title: "The Human Algorithm: Designing for Resilience",
+      description: "Resilient systems aren't the ones that never break—they're the ones designed to hold you when you do. A deep dive into my design philosophy.",
+      pubDate: "2026-01-15",
+      link: "https://fadlyzaki.substack.com"
+    },
+    {
+      title: "Cognitive Load and the Paradox of Choice",
+      description: "Every unnecessary feature is a tax on the user's attention. How we can build more focused, purposeful tools.",
+      pubDate: "2026-01-05",
+      link: "https://fadlyzaki.substack.com"
+    }
+  ]);
+  const [isSubstackLoading] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -211,7 +203,7 @@ const Portfolio = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isGestureMode]); // Add isGestureMode dependency
+  }, [isGestureMode]);
 
   // REC-02: Handle Hash Scrolling on Mount
   useEffect(() => {
@@ -223,6 +215,7 @@ const Portfolio = () => {
         }
       }, 100); // Small delay to ensure rendering
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   const scrollToTop = () => {
@@ -266,7 +259,7 @@ const Portfolio = () => {
 
       {/* 1. Desktop Top Bar */}
       {/* REC-03: Ensure Navbar stays visible if Gesture Mode is active */}
-      <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 translate-y-0`}>
+      <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${showNav ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="bg-[var(--bg-backdrop)] backdrop-blur-md border-b border-[var(--border-color)] px-6 py-3 flex justify-between items-center max-w-5xl mx-auto">
           <Link to="/" className="font-mono text-[var(--text-primary)] font-bold text-lg hover:text-[var(--accent-blue)] transition-colors tracking-tight">
             Fadlyzaki

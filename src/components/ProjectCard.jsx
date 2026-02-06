@@ -831,24 +831,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
             </div>
         </Container>
     );
-    // GENERIC FALLBACK (Default Airy Diagram)
-    return (
-        <Container expanded={expanded} showChrome={showChrome} backgroundOnly={backgroundOnly} figIndex="0.0" schematicType="GENERIC_SYSTEM">
-            <div className="w-full h-full p-8 flex items-center justify-center relative opacity-60">
-                <div className="w-16 h-16 border border-white/20 rounded-lg flex items-center justify-center relative">
-                    <div className="absolute inset-0 border border-white/10 rounded-lg transform rotate-3"></div>
-                    <div className="absolute inset-0 border border-white/10 rounded-lg transform -rotate-3"></div>
-                    <Activity size={24} className="text-white opacity-50" />
-                </div>
-                <div className="absolute inset-0">
-                    <svg className="w-full h-full" viewBox="0 0 100 60">
-                        <line x1="0" y1="30" x2="100" y2="30" stroke="currentColor" className="text-white/10" strokeWidth="0.5" strokeDasharray="2 2" />
-                        <circle cx="50" cy="30" r="20" fill="none" stroke="currentColor" className="text-white/10" strokeWidth="0.5" />
-                    </svg>
-                </div>
-            </div>
-        </Container>
-    );
+
 };
 
 

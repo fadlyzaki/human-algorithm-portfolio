@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft, Mail, Linkedin, Twitter, Send, Copy, Check, Sun, Moon,
@@ -89,7 +88,7 @@ const ContactPage = () => {
         // Fallback for older browsers
         throw new Error('Clipboard API unavailable');
       }
-    } catch (err) {
+    } catch {
       // Fallback: execCommand
       try {
         const textArea = document.createElement("textarea");
@@ -152,15 +151,13 @@ const ContactPage = () => {
     try {
       // For Google Apps Script, we typically use 'no-cors' if using fetch directly from browser
       // to avoid CORS errors, but this makes the response opaque.
-      // Alternatively, if the script is set up correctly to return JSONP or CORS headers.
-      // Given the simple setup, we'll assume a standard POST.
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
+      await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
-          // "Content-Type": "text/plain;charset=utf-8", // Usually needed for Apps Script to avoid preflight
+          // "Content-Type": "text/plain;charset=utf-8", 
         },
-        mode: 'no-cors' // Often required for GAS
+        mode: 'no-cors'
       });
 
       // With no-cors, we can't check response.ok. We assume success if no error thrown.

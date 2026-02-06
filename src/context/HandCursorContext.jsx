@@ -99,6 +99,7 @@ export const HandCursorProvider = ({ children }) => {
     );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useHandCursor = () => {
     const context = useContext(HandCursorContext);
     if (!context) {

@@ -5,11 +5,12 @@ const ScrollReveal = ({ children, className = "", threshold = 0.1, delay = 0 }) 
     const ref = useRef(null);
 
     useEffect(() => {
+        const el = ref.current;
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.unobserve(entry.target);
+                    if (entry.target) observer.unobserve(entry.target);
                 }
             },
             {
@@ -18,13 +19,13 @@ const ScrollReveal = ({ children, className = "", threshold = 0.1, delay = 0 }) 
             }
         );
 
-        if (ref.current) {
-            observer.observe(ref.current);
+        if (el) {
+            observer.observe(el);
         }
 
         return () => {
-            if (ref.current) {
-                observer.unobserve(ref.current);
+            if (el) {
+                observer.unobserve(el);
             }
         };
     }, [threshold]);
@@ -36,8 +37,8 @@ const ScrollReveal = ({ children, className = "", threshold = 0.1, delay = 0 }) 
             ref={ref}
             style={delayStyle}
             className={`transition-all duration-1000 ease-out transform ${isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-20"
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-20"
                 } ${className}`}
         >
             {children}

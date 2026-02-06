@@ -61,10 +61,11 @@ export const ThemeProvider = ({ children }) => {
     };
 
     return (
-        <ThemeContext.Provider value={{ isDark, setIsDark }}>
+        <ThemeContext.Provider value={{ isDark, setIsDark, toggleTheme }}>
             {children}
         </ThemeContext.Provider>
     );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => useContext(ThemeContext);

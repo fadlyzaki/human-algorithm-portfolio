@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
+
+// Hubs (Static nodes)
+const hubs = [
+    { id: 'h1', x: 20, y: 50, size: 24 }, // Supplier
+    { id: 'h2', x: 50, y: 30, size: 32 }, // Warehouse
+    { id: 'h3', x: 50, y: 70, size: 32 }, // Dist Center
+    { id: 'h4', x: 80, y: 50, size: 20 }, // Retailer
+];
+
+const connections = [
+    { from: 'h1', to: 'h2' },
+    { from: 'h1', to: 'h3' },
+    { from: 'h2', to: 'h4' },
+    { from: 'h3', to: 'h4' },
+];
 
 const CommerceAI = ({ color = '#00D1C7' }) => {
     const [pulses, setPulses] = useState([]);
     const [demand, setDemand] = useState(50); // 0-100
-
-    // Hubs (Static nodes)
-    const hubs = [
-        { id: 'h1', x: 20, y: 50, size: 24 }, // Supplier
-        { id: 'h2', x: 50, y: 30, size: 32 }, // Warehouse
-        { id: 'h3', x: 50, y: 70, size: 32 }, // Dist Center
-        { id: 'h4', x: 80, y: 50, size: 20 }, // Retailer
-    ];
-
-    const connections = [
-        { from: 'h1', to: 'h2' },
-        { from: 'h1', to: 'h3' },
-        { from: 'h2', to: 'h4' },
-        { from: 'h3', to: 'h4' },
-    ];
 
     useEffect(() => {
         // Generate traffic based on "Demand" slider

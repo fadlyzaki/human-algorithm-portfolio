@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { User } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';

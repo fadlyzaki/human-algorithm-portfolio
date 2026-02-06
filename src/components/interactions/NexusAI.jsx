@@ -1,25 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
 const NexusAI = ({ color = '#3B82F6' }) => {
     const containerRef = useRef(null);
-    const [points, setPoints] = useState([]);
-    const [connections, setConnections] = useState([]);
+    const [points, setPoints] = useState(() => Array.from({ length: 12 }).map((_, i) => ({
+        id: i,
+        x: Math.random() * 80 + 10,
+        y: Math.random() * 80 + 10,
+        size: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        type: Math.random() > 0.5 ? 'core' : 'node'
+    })));
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-    // Initialize random points
-    useEffect(() => {
-        const initialPoints = Array.from({ length: 12 }).map((_, i) => ({
-            id: i,
-            x: Math.random() * 80 + 10,
-            y: Math.random() * 80 + 10,
-            size: Math.random() * 2 + 1,
-            vx: (Math.random() - 0.5) * 0.2,
-            vy: (Math.random() - 0.5) * 0.2,
-            type: Math.random() > 0.5 ? 'core' : 'node'
-        }));
-        setPoints(initialPoints);
-    }, []);
 
     // Animation loop for movement
     useEffect(() => {
@@ -37,20 +31,6 @@ const NexusAI = ({ color = '#3B82F6' }) => {
 
                 return { ...p, x: nextX, y: nextY, vx: nextVx, vy: nextVy };
             }));
-
-            // Generate connections trial
-            setConnections(() => {
-                const newConns = [];
-                // Only a few active connections at a time
-                if (Math.random() > 0.95) {
-                    const p1 = Math.floor(Math.random() * 12);
-                    const p2 = Math.floor(Math.random() * 12);
-                    if (p1 !== p2) {
-                        newConns.push({ id: Date.now(), from: p1, to: p2 });
-                    }
-                }
-                return newConns;
-            });
 
             frame = requestAnimationFrame(move);
         };

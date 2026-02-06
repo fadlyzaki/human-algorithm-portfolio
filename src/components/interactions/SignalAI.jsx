@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
 
 const SignalAI = ({ color = '#3B82F6', manualPing = 0 }) => {
     const containerRef = useRef(null);
@@ -9,10 +10,13 @@ const SignalAI = ({ color = '#3B82F6', manualPing = 0 }) => {
     // Respond to manual pings
     useEffect(() => {
         if (manualPing > 0) {
-            setWaves(prev => [
-                ...prev.slice(-4),
-                { id: `manual-${Date.now()}`, scale: 0, opacity: 0.8 }
-            ]);
+            const timeout = setTimeout(() => {
+                setWaves(prev => [
+                    ...prev.slice(-4),
+                    { id: `manual-${Date.now()}`, scale: 0, opacity: 0.8 }
+                ]);
+            }, 0);
+            return () => clearTimeout(timeout);
         }
     }, [manualPing]);
 

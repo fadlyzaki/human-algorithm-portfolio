@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 const WorkforceAI = ({ color = '#1AA8B4' }) => {
     const [nodes] = useState(() => {

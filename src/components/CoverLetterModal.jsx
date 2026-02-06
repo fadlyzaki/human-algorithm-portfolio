@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { X, ArrowRight, FileText } from 'lucide-react';
 
 const CoverLetterModal = ({ isOpen, onClose }) => {

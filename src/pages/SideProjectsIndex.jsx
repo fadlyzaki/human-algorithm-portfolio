@@ -14,6 +14,14 @@ import Treasure from '../components/Treasure';
 // Interaction Components
 import NexusAI from '../components/interactions/NexusAI';
 
+// Configuration
+const CONFIG = {
+    proximity: 400, // Distance to trigger effect
+    lineOpacity: 0.15,
+    magneticForce: 0.5, // Strength of tilt
+    scaleForce: 1.02 // Max scale
+};
+
 const SideProjectsIndex = () => {
     const { isDark, setIsDark } = useTheme();
     const { language, toggleLanguage, isIndonesian } = useLanguage();
@@ -28,12 +36,8 @@ const SideProjectsIndex = () => {
     const mouseRef = useRef({ x: -1000, y: -1000 }); // Start off-screen
 
     // Configuration
-    const CONFIG = {
-        proximity: 400, // Distance to trigger effect
-        lineOpacity: 0.15,
-        magneticForce: 0.5, // Strength of tilt
-        scaleForce: 1.02 // Max scale
-    };
+    // Moved to outside component to avoid re-creation
+
 
     const themeStyles = {
         '--bg-void': isDark ? '#111111' : '#FFFFFF',
