@@ -166,7 +166,7 @@ export const translations = {
             role: "Product Designer | UI/UX Designer | Systems Specialist",
             status: "Available for Hire",
             summary_title: "Professional Summary",
-            summary_text: "AI-native Product Designer specializing in building resilient systems that hold up under pressure. I bridge the gap between technical logic and human vulnerability, designing for people at their limit, not just their peak. Expert in design systems, B2B marketplaces, and complex operational workflows.",
+            summary_text: "Product Designer specializing in resilient systems for complex operational environments. I combine technical logic with human-centered design to build tools that hold up under pressure. Experienced in Design Systems, B2B Marketplaces, and scalable workflows.",
             exp_title: "Professional Experience",
             skills_title: "Skills & Expertise",
             skills_design: "Design",
