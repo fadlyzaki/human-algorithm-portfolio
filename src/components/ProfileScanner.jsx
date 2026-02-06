@@ -4,7 +4,12 @@ import { motion, useSpring, useTransform } from 'framer-motion';
 import { Scan, Shield, Fingerprint, Activity, Zap } from 'lucide-react';
 import Treasure from './Treasure';
 
-const ProfileScanner = ({ isDark }) => {
+const ProfileScanner = ({
+    imageSrc = "/about-portrait-new.jpg",
+    aspectRatio = "aspect-[3/4]",
+    showBadge = true,
+    className = ""
+}) => {
     const containerRef = useRef(null);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -61,7 +66,7 @@ const ProfileScanner = ({ isDark }) => {
                 rotateY,
                 transformStyle: 'preserve-3d',
             }}
-            className="relative w-full aspect-[3/4] rounded-lg perspective-1000 group cursor-crosshair"
+            className={`relative w-full ${aspectRatio} rounded-lg perspective-1000 group cursor-crosshair ${className}`}
         >
             {/* CARD CONTAINER */}
             <div className={`relative w-full h-full rounded-lg overflow-hidden border border-[var(--border-color)] group-hover:border-[var(--accent-blue)] transition-colors duration-500 shadow-2xl bg-[var(--bg-card)]`}>
@@ -77,8 +82,8 @@ const ProfileScanner = ({ isDark }) => {
                     {/* 1. BASE LAYER (BLURRED & GRAYSCALE) - Always visible underneath */}
                     <div className="absolute inset-0">
                         <img
-                            src="/about-portrait-new.jpg"
-                            alt="Fadly Uzzaki (Scan)"
+                            src={imageSrc}
+                            alt="Scan Target"
                             className="w-full h-full object-cover grayscale opacity-50 blur-[4px] scale-105"
                         />
                         <div className="absolute inset-0 bg-black/20"></div>
@@ -92,8 +97,8 @@ const ProfileScanner = ({ isDark }) => {
                         className="absolute inset-0 z-10"
                     >
                         <img
-                            src="/about-portrait-new.jpg"
-                            alt="Fadly Uzzaki"
+                            src={imageSrc}
+                            alt="Target Revealed"
                             className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                         />
                         {/* Tints inside the clear layer so they appear with it */}
@@ -191,16 +196,18 @@ const ProfileScanner = ({ isDark }) => {
             </motion.div>
 
             {/* Status Badge (Moved outside for 3D depth) */}
-            <motion.div
-                style={{ z: 50, x: useTransform(x, val => val * -0.5), y: useTransform(y, val => val * -0.5) }}
-                className="absolute -bottom-4 -right-4 bg-[var(--bg-surface)] border border-[var(--border-color)] px-4 py-2 flex items-center gap-2 shadow-xl rounded-full z-50"
-            >
-                <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
-                </span>
-                <span className="font-mono text-[10px] text-[var(--text-secondary)] font-bold tracking-widest">OPEN TO WORK</span>
-            </motion.div>
+            {showBadge && (
+                <motion.div
+                    style={{ z: 50, x: useTransform(x, val => val * -0.5), y: useTransform(y, val => val * -0.5) }}
+                    className="absolute -bottom-4 -right-4 bg-[var(--bg-surface)] border border-[var(--border-color)] px-4 py-2 flex items-center gap-2 shadow-xl rounded-full z-50"
+                >
+                    <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
+                    </span>
+                    <span className="font-mono text-[10px] text-[var(--text-secondary)] font-bold tracking-widest">OPEN TO WORK</span>
+                </motion.div>
+            )}
 
         </motion.div>
     );

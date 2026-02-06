@@ -14,6 +14,7 @@ import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import Treasure from '../components/Treasure';
 import DraggablePhoto from '../components/DraggablePhoto';
+import ProfileScanner from '../components/ProfileScanner';
 import ProjectCard from '../components/ProjectCard';
 import ScrollReveal from '../components/ScrollReveal';
 import WorkHoloDeck from '../components/WorkHoloDeck';
@@ -572,17 +573,12 @@ const Portfolio = () => {
               {/* Right Col */}
               <div className="space-y-10">
                 {/* High-Fidelity Bio Photo */}
-                <div className="w-full aspect-[16/9] bg-[var(--bg-card)] border border-[var(--border-color)] relative flex items-center justify-center overflow-hidden group rounded-lg shadow-xl">
-                  <img
-                    src="/about-fadly.jpg"
-                    alt="Fadly Uzzaki"
-                    className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-void)]/60 to-transparent opacity-40"></div>
-                  <span className="absolute bottom-4 right-4 font-mono text-[10px] text-white/70 uppercase tracking-widest border border-white/20 px-2 py-1 rounded backdrop-blur-sm z-10">
-                    BIO_MODULE.IMG
-                  </span>
-                </div>
+                <ProfileScanner
+                  imageSrc="/about-fadly.jpg"
+                  aspectRatio="aspect-[16/9]"
+                  showBadge={true}
+                  className="shadow-xl"
+                />
 
                 {/* Current Focus Card... same as before */}
                 <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] relative overflow-hidden group rounded-lg">
