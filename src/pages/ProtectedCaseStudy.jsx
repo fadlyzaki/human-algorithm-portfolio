@@ -444,12 +444,12 @@ const ProtectedCaseStudy = () => {
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-red-500/80 shadow-lg border-2 border-white/20 z-20"></div>
 
                     {/* Image Container */}
-                    <div className="aspect-[16/10] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50">
+                    <div className="aspect-[4/3] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50">
                       {step.image ? (
                         <ZoomableImage
                           src={step.image}
                           alt={step.title}
-                          className="w-full h-full object-contain p-2"
+                          className="w-full h-full object-cover"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center opacity-20 bg-[var(--bg-card)]">
