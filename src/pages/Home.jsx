@@ -569,7 +569,7 @@ const Portfolio = () => {
               <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex flex-col justify-between group hover:border-[var(--accent-amber)] transition-colors">
                 <div>
                   <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                    <Heart size={14} /> {t('home.philosophy_title')}
+                    <Heart size={14} className="text-[var(--accent-amber)]" /> {t('home.philosophy_title')}
                   </h4>
                   <blockquote className="text-lg text-[var(--text-primary)] font-light leading-relaxed mb-6">
                     <RichText text={t('home.philosophy_quote')} />
@@ -586,7 +586,7 @@ const Portfolio = () => {
                   <Cpu size={64} strokeWidth={1} />
                 </div>
                 <h4 className="font-mono text-[var(--accent-blue)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-[var(--accent-blue)] rounded-full animate-pulse"></span>
+                  <Cpu size={14} className="text-[var(--accent-blue)]" />
                   {t('home.current_focus')}
                 </h4>
                 <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
@@ -597,7 +597,7 @@ const Portfolio = () => {
               {/* 5. RUNTIME METRICS (Span 1 col) */}
               <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-[var(--text-primary)] transition-colors">
                 <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                  <Activity size={14} /> {t('home.personal_interests')}
+                  <Activity size={14} className="text-[var(--text-secondary)]" /> {t('home.personal_interests')}
                 </h4>
                 <div className="grid grid-cols-2 gap-3">
                   {[
