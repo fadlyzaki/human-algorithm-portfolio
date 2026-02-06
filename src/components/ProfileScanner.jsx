@@ -100,10 +100,10 @@ const ProfileScanner = ({
                         <img
                             src={imageSrc}
                             alt="Target Revealed"
-                            className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                            className={`w-full h-full object-cover transition-all duration-700 ease-out ${isHovered ? 'grayscale-0 opacity-100 scale-105' : 'grayscale opacity-80'}`}
                         />
                         {/* Tints inside the clear layer so they appear with it */}
-                        <div className="absolute inset-0 bg-[var(--accent-blue)]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500"></div>
+                        <div className={`absolute inset-0 bg-[var(--accent-blue)]/10 mix-blend-overlay transition-opacity duration-500 ${isHovered ? 'opacity-0' : ''}`}></div>
                         <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)]/80 via-transparent to-transparent opacity-60 z-10"></div>
                     </motion.div>
                 </div>
