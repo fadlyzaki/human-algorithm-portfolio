@@ -443,16 +443,16 @@ const ProtectedCaseStudy = () => {
                     {/* Tape/Pin */}
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-red-500/80 shadow-lg border-2 border-white/20 z-20"></div>
 
-                    {/* Image Container */}
-                    <div className="aspect-[4/3] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50">
+                    {/* Image Container - Flexible height for varying aspect ratios */}
+                    <div className="min-h-[200px] max-h-[400px] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50 flex items-center justify-center">
                       {step.image ? (
                         <ZoomableImage
                           src={step.image}
                           alt={step.title}
-                          className="w-full h-full object-cover"
+                          className="max-w-full max-h-[380px] object-contain"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center opacity-20 bg-[var(--bg-card)]">
+                        <div className="w-full h-[200px] flex items-center justify-center opacity-20 bg-[var(--bg-card)]">
                           <Activity size={48} />
                         </div>
                       )}
