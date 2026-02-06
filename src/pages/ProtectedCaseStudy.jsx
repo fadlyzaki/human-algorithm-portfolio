@@ -91,7 +91,9 @@ const AIBrainstorm = ({ hypotheses, t }) => {
           {/* Human Message */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="flex justify-end"
           >
             <div className="max-w-md">
@@ -112,8 +114,9 @@ const AIBrainstorm = ({ hypotheses, t }) => {
           {/* AI Response */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.6 }}
             className="flex justify-start"
           >
             <div className="max-w-lg">
@@ -145,10 +148,11 @@ const AIBrainstorm = ({ hypotheses, t }) => {
           {showSolution && (
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, y: 20, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 30, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
               exit={{ opacity: 0, y: -10, scale: 0.98 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
               className="relative"
             >
               {/* Glowing border effect */}
