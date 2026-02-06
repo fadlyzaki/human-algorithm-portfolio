@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
+import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import BackButton from '../components/BackButton';
@@ -19,6 +20,7 @@ import ProjectCard from '../components/ProjectCard';
 
 const ProtectedCaseStudy = () => {
   const { id } = useParams();
+  const baseThemeStyles = useThemeStyles();
   const [isLocked, setIsLocked] = useState(true);
   const [activeSummary, setActiveSummary] = useState('recruiter'); // Default to recruiter view
   const { isDark, setIsDark } = useTheme();
@@ -81,7 +83,7 @@ const ProtectedCaseStudy = () => {
   // --- HANDLER: UNLOCK ---
   const handleUnlock = (e) => {
     e.preventDefault();
-    if (password.trim().toLowerCase() === 'desainzaki') {
+    if (password.trim().toLowerCase() === import.meta.env.VITE_PROTECTED_PASSWORD) {
       setDecrypting(true);
       setError(false);
 
@@ -108,16 +110,9 @@ const ProtectedCaseStudy = () => {
   };
 
   // --- STYLES ---
+  // --- STYLES ---
   const themeStyles = {
-    '--bg-void': isDark ? '#050505' : '#F0F0F3',
-    '--bg-surface': isDark ? '#111111' : '#FFFFFF',
-    '--bg-card': isDark ? '#181818' : '#FFFFFF',
-    '--text-primary': isDark ? '#F4F4F5' : '#18181B',
-    '--text-secondary': isDark ? '#A1A1AA' : '#52525B',
-    '--accent-red': isDark ? '#EF4444' : '#DC2626',
-    '--accent-amber': isDark ? '#F59E0B' : '#D97706',
-    '--accent-green': isDark ? '#10B981' : '#059669',
-    '--border-color': isDark ? '#333' : '#E4E4E7',
+    ...baseThemeStyles,
     '--brand': parentCluster.brandColor || 'var(--accent-amber)'
   };
 

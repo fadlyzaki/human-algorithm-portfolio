@@ -61,16 +61,10 @@ export const ThemeProvider = ({ children }) => {
     };
 
     return (
-        <ThemeContext.Provider value={{ isDark, setIsDark, toggleTheme }}>
+        <ThemeContext.Provider value={{ isDark, setIsDark }}>
             {children}
         </ThemeContext.Provider>
     );
 };
 
-export const useTheme = () => {
-    const context = useContext(ThemeContext);
-    if (!context) {
-        throw new Error('useTheme must be used within a ThemeProvider');
-    }
-    return context;
-};
+export const useTheme = () => useContext(ThemeContext);

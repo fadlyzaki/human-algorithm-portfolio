@@ -18,9 +18,11 @@ import ProjectCard from '../components/ProjectCard';
 import ScrollReveal from '../components/ScrollReveal';
 import WorkHoloDeck from '../components/WorkHoloDeck';
 import { useTheme } from '../context/ThemeContext';
+import useThemeStyles from '../hooks/useThemeStyles';
 import { useHandCursor } from '../context/HandCursorContext';
 import { useLanguage } from '../context/LanguageContext';
 import { SIDE_PROJECTS, WORK_CLUSTERS } from '../data/portfolioData';
+import RichText from '../components/RichText';
 
 // --- HELPERS ---
 const IconMapper = ({ iconName, ...props }) => {
@@ -147,14 +149,16 @@ const NavigationMenu = ({ isOpen, onClose }) => {
 // --- MAIN APP ---
 
 const Portfolio = () => {
+  /* --- STATE & HOOKS --- */
   const [scrolled, setScrolled] = useState(0);
   const { isDark, setIsDark } = useTheme();
+  const themeStyles = useThemeStyles();
   const { isGestureMode, toggleGestureMode } = useHandCursor();
   const { t, language, toggleLanguage } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const navigate = useNavigate();
-  const lastScrollY = React.useRef(0);
+  const lastScrollY = useRef(0);
   const [substackPosts, setSubstackPosts] = useState([]);
   const [isSubstackLoading, setIsSubstackLoading] = useState(true);
 
@@ -227,23 +231,6 @@ const Portfolio = () => {
 
   const homeSideProjects = SIDE_PROJECTS.filter(p => !p.hidden).slice(0, 2);
   const isId = language === 'id';
-
-  const themeStyles = {
-    '--bg-void': isDark ? '#0a0a0a' : '#FFFFFF',
-    '--bg-surface': isDark ? '#1C1C1C' : '#F9FAFB',
-    '--bg-card': isDark ? '#111' : '#F9FAFB',
-    '--bg-backdrop': isDark ? 'rgba(10, 10, 10, 0.8)' : 'rgba(255, 255, 255, 0.8)',
-    '--text-primary': isDark ? '#F3F4F6' : '#111827',
-    '--text-secondary': isDark ? '#A1A1AA' : '#6B7280',
-    '--text-inverse': isDark ? '#111827' : '#FFFFFF',
-    '--border-color': isDark ? '#262626' : '#E5E7EB',
-    '--border-tag': isDark ? '#262626' : '#E5E7EB',
-    '--bg-tag': isDark ? '#1C1C1C' : '#F3F4F6',
-    '--accent-blue': '#3B82F6',
-    '--accent-amber': '#F59E0B',
-    '--accent-red': '#EF4444',
-    '--accent-green': '#10B981',
-  };
 
   return (
     <div
@@ -411,7 +398,9 @@ const Portfolio = () => {
                 </h2>
                 <div className="text-[var(--text-secondary)] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
                   {/* Render helper for markdown-like bolding if needed, or just insert text */}
-                  <p dangerouslySetInnerHTML={{ __html: t('home.intro_desc').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)] font-medium">$1</strong>') }} />
+                  <p className="inline-block">
+                    <RichText text={t('home.intro_desc')} />
+                  </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a href="#work" className="px-8 py-4 bg-[var(--text-primary)] text-[var(--text-inverse)] font-mono text-sm font-bold uppercase tracking-wider hover:bg-[var(--text-secondary)] transition-all flex items-center justify-center gap-3 shadow-[4px_4px_0px_var(--accent-blue)] hover:shadow-[2px_2px_0px_var(--accent-blue)] hover:translate-x-[2px] hover:translate-y-[2px] rounded-lg">
@@ -557,8 +546,8 @@ const Portfolio = () => {
                       {t('home.about_quote')}
                     </p>
                     <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
-                      <p dangerouslySetInnerHTML={{ __html: t('home.about_p1').replace(/\*\*(.*?)\*\*/g, '<span class="text-[var(--text-primary)] font-medium">$1</span>') }} />
-                      <p dangerouslySetInnerHTML={{ __html: t('home.about_p2').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)]">$1</strong>') }} />
+                      <p><RichText text={t('home.about_p1')} /></p>
+                      <p><RichText text={t('home.about_p2')} /></p>
                     </div>
                   </div>
                 </div>
@@ -571,7 +560,9 @@ const Portfolio = () => {
                   </div>
 
                   <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mb-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
-                    <span dangerouslySetInnerHTML={{ __html: t('home.philosophy_quote').replace(/\*\*(.*?)\*\*/g, '<span class="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">$1</span>') }} />
+                    <span>
+                      <RichText text={t('home.philosophy_quote')} />
+                    </span>
                   </blockquote>
 
                   <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-1">
@@ -606,7 +597,9 @@ const Portfolio = () => {
                     <span className="w-2 h-2 bg-[var(--accent-amber)] rounded-full animate-pulse"></span>
                     {t('home.current_focus')}
                   </h4>
-                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10" dangerouslySetInnerHTML={{ __html: t('home.current_focus_desc').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)]">$1</strong>') }} />
+                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
+                    <RichText text={t('home.current_focus_desc')} />
+                  </p>
                 </div>
 
                 {/* Personal Interests / Runtime Modules */}

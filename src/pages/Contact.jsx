@@ -7,6 +7,7 @@ import {
   Activity, BookOpen, PenTool, Terminal, ScanEye
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
@@ -22,6 +23,7 @@ import NeuralDecryption from '../components/interactions/NeuralDecryption';
 
 const ContactPage = () => {
   const { isDark, setIsDark } = useTheme();
+  const themeStyles = useThemeStyles();
   const { t, language, toggleLanguage } = useLanguage();
   const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [copied, setCopied] = useState(false);
@@ -76,39 +78,54 @@ const ContactPage = () => {
 
   // --- HANDLERS ---
 
-  // FIX: Using execCommand for better compatibility in restricted environments (WebViews/iFrames)
-  const handleCopy = () => {
+  // --- HANDLERS ---
+  const handleCopy = async () => {
     try {
-      const textArea = document.createElement("textarea");
-      textArea.value = contactInfo.email;
-
-      // Ensure it's not visible but part of the DOM
-      textArea.style.position = "fixed";
-      textArea.style.left = "-9999px";
-      textArea.style.top = "0";
-      document.body.appendChild(textArea);
-
-      textArea.focus();
-      textArea.select();
-
-      const successful = document.execCommand('copy');
-      document.body.removeChild(textArea);
-
-      if (successful) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(contactInfo.email);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
+      } else {
+        // Fallback for older browsers
+        throw new Error('Clipboard API unavailable');
       }
     } catch (err) {
-      console.error('Fallback copy failed', err);
+      // Fallback: execCommand
+      try {
+        const textArea = document.createElement("textarea");
+        textArea.value = contactInfo.email;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (fallbackErr) {
+        console.error('Copy failed', fallbackErr);
+      }
     }
   };
 
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQSNBdHW4C6kX20Cc9cvQMCrTsmtBDCgJ5a4mUfWrAyopux072Zw4rzwaQt0jJpSen/exec";
+  const [emailError, setEmailError] = useState('');
+  const GOOGLE_SCRIPT_URL = import.meta.env.VITE_CONTACT_FORM_URL;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    // Validation
+    if (name === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (value && !emailRegex.test(value)) {
+        setEmailError('INVALID_EMAIL_PROTOCOL');
+      } else {
+        setEmailError('');
+      }
+    }
 
     // Trigger AI Interaction
     setPingCount(prev => prev + 1);
@@ -129,56 +146,36 @@ const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (emailError) return;
     setFormStatus('sending');
 
     try {
+      // For Google Apps Script, we typically use 'no-cors' if using fetch directly from browser
+      // to avoid CORS errors, but this makes the response opaque.
+      // Alternatively, if the script is set up correctly to return JSONP or CORS headers.
+      // Given the simple setup, we'll assume a standard POST.
       const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         body: JSON.stringify(formData),
-        // text/plain prevents CORS preflight issues with simple requests in some cases, 
-        // but for Apps Script 'no-cors' mode is often needed if you want it simple, 
-        // though that makes the response opaque. 
-        // Standard approach for Apps Script Web App:
         headers: {
-          "Content-Type": "text/plain;charset=utf-8",
+          // "Content-Type": "text/plain;charset=utf-8", // Usually needed for Apps Script to avoid preflight
         },
+        mode: 'no-cors' // Often required for GAS
       });
 
-      // Google Apps Script redirect behavior can sometimes be tricky with CORS.
-      // If the script returns strict JSON, we can check response.ok or await json.
-      // However, typical robust "no-cors" usage might be needed if strictly cross-origin without proper headers.
-      // Given the setup instructions, we assume standard fetching.
+      // With no-cors, we can't check response.ok. We assume success if no error thrown.
+      setFormStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setFormStatus('idle'), 3000);
 
-      if (response.ok) {
-        setFormStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setFormStatus('idle'), 3000);
-      } else {
-        throw new Error('Network response was not ok');
-      }
     } catch (error) {
       console.error('Error:', error);
-      // Fallback: If CORS blocks the response reading but the request actually succeeded (common in Apps Script),
-      // we might want to assume success or show a generic error.
-      // For now, let's treat it as an error to be safe, or just show a "Sent" state if we trust it.
-      // Simulating success for the user if URL is valid structure but local dev environment issues:
       setFormStatus('error');
       setTimeout(() => setFormStatus('idle'), 3000);
     }
   };
 
-  // --- DYNAMIC STYLES ---
-  const themeStyles = {
-    '--bg-void': isDark ? '#111111' : '#F0F0F3',
-    '--bg-surface': isDark ? '#1F1F1F' : '#FFFFFF',
-    '--bg-card': isDark ? '#181818' : '#FFFFFF',
-    '--text-primary': isDark ? '#F4F4F5' : '#18181B',
-    '--text-secondary': isDark ? '#A1A1AA' : '#52525B',
-    '--border-color': isDark ? '#262626' : '#E4E4E7',
-    '--accent-amber': isDark ? '#F59E0B' : '#D97706',
-    '--accent-blue': isDark ? '#3B82F6' : '#2563EB',
-    '--accent-green': isDark ? '#10B981' : '#059669',
-  };
+
 
   return (
     <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-mono selection:bg-[var(--text-primary)] selection:text-[var(--bg-void)] transition-colors duration-500 flex flex-col items-center justify-center p-6 relative overflow-hidden">
@@ -347,8 +344,9 @@ const ContactPage = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase">
+              <label className="font-mono text-xs text-[var(--text-secondary)] uppercase flex justify-between">
                 <NeuralDecryption text={t('contact.label_email')} />
+                {emailError && <span className="text-red-500 animate-pulse">{emailError}</span>}
               </label>
               <input
                 type="email"

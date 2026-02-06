@@ -4,7 +4,7 @@ import ReactGA from "react-ga4";
 
 // Initialize Google Analytics with your Measurement ID
 // TODO: Replace 'G-XXXXXXXXXX' with your actual Measurement ID
-const MEASUREMENT_ID = "G-DH91KQGJ51";
+const MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
 ReactGA.initialize(MEASUREMENT_ID);
 

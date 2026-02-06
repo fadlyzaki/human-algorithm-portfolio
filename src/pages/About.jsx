@@ -8,6 +8,7 @@ import {
   ArrowUpRight
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
@@ -17,6 +18,7 @@ import SystemMonitor from '../components/SystemMonitor';
 import ChaosSlider from '../components/ChaosSlider';
 import NeuralEcho from '../components/NeuralEcho';
 import Footer from '../components/Footer';
+import RichText from '../components/RichText';
 
 /* --- THEME CONFIGURATION ---
    Consistent with Human By Design System v2.0
@@ -24,6 +26,7 @@ import Footer from '../components/Footer';
 
 const AboutPage = () => {
   const { isDark, setIsDark } = useTheme();
+  const themeStyles = useThemeStyles();
   const { t, language, toggleLanguage } = useLanguage();
   const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [scrolled, setScrolled] = useState(0);
@@ -231,20 +234,7 @@ const AboutPage = () => {
 
   const getChaosStyle = () => chaosStyle;
 
-  const themeStyles = {
-    '--bg-void': isDark ? '#111111' : '#F0F0F3',
-    '--bg-surface': isDark ? '#1F1F1F' : '#FFFFFF',
-    '--bg-card': isDark ? '#FFFFFF' : '#181818',
-    '--text-primary': isDark ? '#F4F4F5' : '#18181B',
-    '--text-secondary': isDark ? '#A1A1AA' : '#52525B',
-    '--text-card': isDark ? '#18181B' : '#F4F4F5',
-    '--text-card-secondary': isDark ? '#52525B' : '#A1A1AA',
-    '--border-color': isDark ? '#262626' : '#E4E4E7',
-    '--accent-amber': isDark ? '#F59E0B' : '#D97706',
-    '--accent-blue': isDark ? '#3B82F6' : '#2563EB',
-    '--accent-green': isDark ? '#10B981' : '#059669',
-    '--accent-red': isDark ? '#EF4444' : '#DC2626',
-  };
+
 
   return (
     <div
@@ -386,14 +376,14 @@ const AboutPage = () => {
                   {t('home.about_quote')}
                 </p>
                 <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
-                  <p dangerouslySetInnerHTML={{ __html: t('about.intro_p1').replace(/\*\*(.*?)\*\*/g, '<span class="text-[var(--text-primary)] font-medium">$1</span>') }} />
-                  <p dangerouslySetInnerHTML={{ __html: t('about.intro_p2').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)]">$1</strong>') }} />
-                  <p dangerouslySetInnerHTML={{ __html: t('about.intro_p3').replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text-primary)]">$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>') }} />
-                  <p dangerouslySetInnerHTML={{ __html: t('about.intro_p4').replace(/\*\*(.*?)\*\*/g, '<span class="text-[var(--text-primary)] font-medium">$1</span>') }} />
+                  <p><RichText text={t('about.intro_p1')} /></p>
+                  <p><RichText text={t('about.intro_p2')} /></p>
+                  <p><RichText text={t('about.intro_p3')} /></p>
+                  <p><RichText text={t('about.intro_p4')} /></p>
                 </div>
                 <ScrollReveal>
                   <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mt-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
-                    <span dangerouslySetInnerHTML={{ __html: t('about.quote_full').replace(/\*\*(.*?)\*\*/g, '<span class="text-[var(--text-primary)] font-medium bg-[var(--accent-amber)]/20 px-1">$1</span>') }} />
+                    <RichText text={t('about.quote_full')} />
                   </blockquote>
                 </ScrollReveal>
               </div>

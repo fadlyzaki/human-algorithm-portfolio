@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Box, Maximize2, Cpu, Activity, Share2, MessageSquare, Users, MessageCircle, Layout, ShoppingBag, ShieldCheck, Tag, Truck, Trophy, Scan, GitCommit, Mail, Globe, MapPin, Code, Monitor, Smartphone, Video, Linkedin, BookOpen, Calendar, Shield, Gift, Camera, Heart, AlertTriangle, FileText, ToggleRight, TrendingUp, ScanEye, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
@@ -47,12 +48,9 @@ const CompanyDetail = () => {
 
     const [showNarrative, setShowNarrative] = React.useState(false);
 
+    const baseThemeStyles = useThemeStyles();
     const themeStyles = {
-        '--bg-void': isDark ? '#0a0a0a' : '#FFFFFF',
-        '--text-primary': isDark ? '#F3F4F6' : '#111827',
-        '--text-secondary': isDark ? '#A1A1AA' : '#6B7280',
-        '--border-color': isDark ? '#262626' : '#E5E7EB',
-        '--bg-card': isDark ? '#111' : '#F9FAFB',
+        ...baseThemeStyles,
         '--brand': brandColor,
     };
 
