@@ -258,40 +258,40 @@ const AboutPage = () => {
         <div className="h-full bg-[var(--accent-green)] shadow-[0_0_10px_var(--accent-green)]" style={{ width: `${scrolled}%` }}></div>
       </div>
 
+      {/* HEADER */}
+      <div className="fixed top-0 left-0 w-full z-50">
+        <header className="flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)]">
+          <BackButton to="/" label={t('about.main_terminal')} />
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleGestureMode}
+              className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}
+              title="Toggle Hand Tracking"
+            >
+              <ScanEye size={18} />
+            </button>
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors"
+              aria-label="Toggle Theme"
+            >
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              title="Switch Language"
+            >
+              <Globe size={18} />
+              <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
+            </button>
+          </div>
+        </header>
+      </div>
+
       {/* --- CONTENT --- */}
       <main className="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-20 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-void)]/80 backdrop-blur-sm shadow-2xl">
-
-        {/* HEADER */}
-        <div className="fixed top-0 left-0 w-full z-50">
-          <header className="flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)]">
-            <BackButton to="/" label={t('about.main_terminal')} />
-
-            <div className="flex items-center gap-4">
-              <button
-                onClick={toggleGestureMode}
-                className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}
-                title="Toggle Hand Tracking"
-              >
-                <ScanEye size={18} />
-              </button>
-              <button
-                onClick={() => setIsDark(!isDark)}
-                className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors"
-                aria-label="Toggle Theme"
-              >
-                {isDark ? <Sun size={18} /> : <Moon size={18} />}
-              </button>
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-                title="Switch Language"
-              >
-                <Globe size={18} />
-                <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
-              </button>
-            </div>
-          </header>
-        </div>
 
         {/* Padding for fixed header */}
         <div className="h-24 md:h-32"></div>
