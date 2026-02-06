@@ -62,26 +62,63 @@ const ProfileScanner = ({ isDark }) => {
                     <Treasure id="about-photo" type="coins">PIRATE'S GOLD!</Treasure>
                 </div>
 
-                {/* IMAGE LAYER */}
+                {/* LAYERS CONTAINER */}
                 <div className="absolute inset-0 z-0">
-                    <img
-                        src="/about-portrait-new.jpg"
-                        alt="Fadly Uzzaki"
-                        className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-                    />
-                    {/* Default Tint */}
-                    <div className="absolute inset-0 bg-[var(--accent-blue)]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500"></div>
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)]/80 via-transparent to-transparent opacity-60 z-10"></div>
+
+                    {/* 1. BASE LAYER (BLURRED & GRAYSCALE) - Always visible underneath */}
+                    <div className="absolute inset-0">
+                        <img
+                            src="/about-portrait-new.jpg"
+                            alt="Fadly Uzzaki (Scan)"
+                            className="w-full h-full object-cover grayscale opacity-50 blur-[4px] scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/20"></div>
+                    </div>
+
+                    {/* 2. REVEAL LAYER (CLEAR) - Wipes vertically */}
+                    <motion.div
+                        initial={{ clipPath: 'inset(0 0 100% 0)' }}
+                        animate={{ clipPath: 'inset(0 0 0% 0)' }}
+                        transition={{ duration: 2.5, ease: 'easeInOut', delay: 0.5 }}
+                        className="absolute inset-0 z-10"
+                    >
+                        <img
+                            src="/about-portrait-new.jpg"
+                            alt="Fadly Uzzaki"
+                            className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                        />
+                        {/* Tints inside the clear layer so they appear with it */}
+                        <div className="absolute inset-0 bg-[var(--accent-blue)]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500"></div>
+                        <div className="absolute inset-0 bg-gradient-to-tr from-[var(--bg-void)]/80 via-transparent to-transparent opacity-60 z-10"></div>
+                    </motion.div>
                 </div>
+
 
                 {/* --- IDENTITY SCAN LAYER (The "Algorithm" Part) --- */}
 
-                {/* 1. Scanning Light Beam */}
+                {/* 1. Scanning Light Beam (Synchronized with Reveal) */}
                 <motion.div
-                    animate={{ top: ['0%', '100%', '0%'] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-                    className="absolute left-0 w-full h-1 bg-[var(--accent-blue)] opacity-50 z-20 shadow-[0_0_15px_var(--accent-blue)] group-hover:opacity-80"
+                    initial={{ top: '0%', opacity: 0 }}
+                    animate={{
+                        top: ['0%', '100%'],
+                        opacity: [0, 1, 1, 0]
+                    }}
+                    transition={{
+                        duration: 2.5,
+                        ease: 'easeInOut',
+                        delay: 0.5,
+                        times: [0, 0.1, 0.9, 1]
+                    }}
+                    onAnimationComplete={() => setIsHovered(true)} // Auto-trigger HUD after scan
+                    className="absolute left-0 w-full h-[2px] bg-[var(--accent-blue)] shadow-[0_0_20px_var(--accent-blue)] z-20"
+                />
+
+                {/* 2. Continuous Monitoring Beam (Subtle, loops after main scan) */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.3, top: ['0%', '100%', '0%'] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: 'linear', delay: 3.5 }}
+                    className="absolute left-0 w-full h-px bg-[var(--accent-blue)] z-20"
                 />
 
                 {/* 2. SVG Data Overlay (HUD) */}
