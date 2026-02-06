@@ -33,8 +33,7 @@ const AboutPage = () => {
   const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [scrolled, setScrolled] = useState(0);
   const [chaosStrength, setChaosStrength] = useState(0);
-  const [showNav, setShowNav] = useState(true);
-  const lastScrollY = React.useRef(0);
+
 
   // JSON Config State
 
@@ -201,15 +200,7 @@ const AboutPage = () => {
 
       setScrolled((winScroll / height) * 100);
 
-      // Smart Navbar Logic
-      if (Math.abs(currentScrollY - lastScrollY.current) > 10) {
-        if (currentScrollY > lastScrollY.current && currentScrollY > 50 && !isGestureMode) {
-          setShowNav(false); // Scrolling DOWN -> HIDE
-        } else {
-          setShowNav(true);  // Scrolling UP -> SHOW
-        }
-        lastScrollY.current = currentScrollY;
-      }
+
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -271,7 +262,7 @@ const AboutPage = () => {
       <main className="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-20 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-void)]/80 backdrop-blur-sm shadow-2xl">
 
         {/* HEADER */}
-        <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${showNav ? 'translate-y-0' : '-translate-y-full'}`}>
+        <div className="fixed top-0 left-0 w-full z-50">
           <header className="flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)]">
             <BackButton to="/" label={t('about.main_terminal')} />
 
