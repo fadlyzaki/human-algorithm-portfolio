@@ -191,7 +191,7 @@ const DraggablePhoto = () => {
   };
 
   return (
-    <div className="relative inline-block w-full"> {/* Wrapper to hold button outside */}
+    <div className="relative inline-block w-full mb-10"> {/* Wrapper with extra bottom space */}
       <motion.div
         drag
         dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
@@ -203,7 +203,7 @@ const DraggablePhoto = () => {
         animate={{ rotate: 0 }}
         whileDrag={{ scale: 1.05, rotate: 0, zIndex: 10 }}
         onClick={handleNext}
-        className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4.2] mb-6 select-none group"
+        className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4.2] select-none group"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -241,8 +241,8 @@ const DraggablePhoto = () => {
         </AnimatePresence>
       </motion.div>
 
-      {/* DESIGN SWITCHER CONTROL */}
-      <div className="absolute -right-12 top-0 flex flex-col gap-2">
+      {/* DESIGN SWITCHER CONTROL - Repositioned to bottom right */}
+      <div className="absolute right-0 -bottom-10 flex flex-col gap-2">
         <button
           onClick={toggleVariant}
           className="w-8 h-8 rounded-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 shadow-lg flex items-center justify-center text-[10px] font-bold hover:scale-110 active:scale-95 transition-transform z-10"
