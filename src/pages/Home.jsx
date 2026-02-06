@@ -415,9 +415,11 @@ const Portfolio = () => {
             </div>
 
             <ScrollReveal delay={500}>
-              <div className="hidden md:flex flex-wrap gap-4">
+              <div className="hidden md:flex flex-wrap gap-4 mt-8">
                 <StickyNote text={t('home.sticky_note')} className="text-[var(--accent-blue)]" rotate="lg:-rotate-2" />
                 <StickyNote text={t('home.sticky_note_2')} className="text-[var(--accent-amber)]" rotate="lg:rotate-1" />
+                <StickyNote text={t('home.sticky_note_3')} className="text-[var(--accent-green)]" rotate="lg:-rotate-1" />
+                <StickyNote text={t('home.sticky_note_4')} className="text-[var(--accent-purple)]" rotate="lg:rotate-2" />
               </div>
             </ScrollReveal>
           </section>
@@ -535,91 +537,84 @@ const Portfolio = () => {
           <section id="about" className="mb-40 scroll-mt-24">
             <SectionTitle number="3" title={t('home.section_about')} />
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-6 lg:gap-6">
-              <div className="space-y-16">
-                <div>
-                  <div className="prose prose-invert max-w-none">
-                    <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
-                      {t('home.about_quote')}
-                    </p>
-                    <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
-                      <p><RichText text={t('home.about_p1')} /></p>
-                      <p><RichText text={t('home.about_p2')} /></p>
-                    </div>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+              {/* 1. MAIN BIO (Span 2 cols) */}
+              <div className="md:col-span-2 p-8 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <User size={120} strokeWidth={0.5} />
                 </div>
-
-                <div id="philosophy" className="scroll-mt-24">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="h-px flex-grow bg-[var(--border-color)]"></div>
-                    <span className="font-mono text-xs uppercase text-[var(--accent-amber)] tracking-widest">{t('home.philosophy_title')}</span>
-                    <div className="h-px flex-grow bg-[var(--border-color)]"></div>
+                <div className="prose prose-invert max-w-none relative z-10">
+                  <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
+                    {t('home.about_quote')}
+                  </p>
+                  <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
+                    <p><RichText text={t('home.about_p1')} /></p>
+                    <p><RichText text={t('home.about_p2')} /></p>
                   </div>
-
-                  <blockquote className="border-l-2 border-[var(--accent-amber)] pl-6 py-2 mb-8 text-xl md:text-2xl text-[var(--text-primary)] font-light">
-                    <span>
-                      <RichText text={t('home.philosophy_quote')} />
-                    </span>
-                  </blockquote>
-
-                  <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-1">
-                    {t('home.read_philosophy')} <ArrowRight size={14} />
-                  </Link>
-
-                  {/* Principles... reduced for brevity in this response, but would exist */}
                 </div>
               </div>
 
-              {/* Right Col */}
-              <div className="space-y-10">
-                {/* High-Fidelity Bio Photo */}
+              {/* 2. VISUAL MODULE (Span 1 col) */}
+              <div className="md:col-span-1 h-full min-h-[300px]">
                 <ProfileScanner
                   imageSrc="/about-fadly.jpg"
-                  aspectRatio="aspect-[16/9]"
+                  aspectRatio="h-full"
                   showBadge={true}
-                  className="shadow-xl"
+                  className="shadow-xl h-full"
                 />
+              </div>
 
-                {/* Current Focus Card... same as before */}
-                <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] relative overflow-hidden group rounded-lg">
-                  <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-50 transition-opacity">
-                    <Cpu size={48} strokeWidth={1} />
-                  </div>
+              {/* 3. PHILOSOPHY (Span 1 col) */}
+              <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex flex-col justify-between group hover:border-[var(--accent-amber)] transition-colors">
+                <div>
                   <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[var(--accent-amber)] rounded-full animate-pulse"></span>
-                    {t('home.current_focus')}
+                    <Heart size={14} /> {t('home.philosophy_title')}
                   </h4>
-                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
-                    <RichText text={t('home.current_focus_desc')} />
-                  </p>
+                  <blockquote className="text-lg text-[var(--text-primary)] font-light leading-relaxed mb-6">
+                    <RichText text={t('home.philosophy_quote')} />
+                  </blockquote>
                 </div>
+                <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--accent-amber)] transition-colors">
+                  {t('home.read_philosophy')} <ArrowRight size={14} />
+                </Link>
+              </div>
 
-                {/* Personal Interests / Runtime Modules */}
-                <div className="space-y-6">
-                  <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest flex items-center gap-2">
-                    <Activity size={14} /> {t('home.personal_interests')}
-                  </h4>
+              {/* 4. CURRENT FOCUS (Span 1 col) */}
+              <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl relative overflow-hidden group hover:border-[var(--accent-blue)] transition-colors">
+                <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-30 transition-opacity">
+                  <Cpu size={64} strokeWidth={1} />
+                </div>
+                <h4 className="font-mono text-[var(--accent-blue)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-[var(--accent-blue)] rounded-full animate-pulse"></span>
+                  {t('home.current_focus')}
+                </h4>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
+                  <RichText text={t('home.current_focus_desc')} />
+                </p>
+              </div>
 
-                  <div className="space-y-4">
-                    {[
-                      { label: "Duolingo", val: "Daily", icon: Flame },
-                      { label: "Strava", val: "Daily", icon: Activity },
-                      { label: "Goodreads", val: "Daily 10m", icon: BookOpen },
-                      { label: "Substack", val: "Weekly", icon: PenLine }
-                    ].map((interest, i) => (
-                      <div key={i} className="flex items-center justify-between p-3 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-colors group rounded-lg">
-                        <div className="flex items-center gap-3">
-                          <interest.icon size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--accent-blue)] transition-colors" />
-                          <span className="text-sm text-[var(--text-primary)]">{interest.label}</span>
-                        </div>
-                        <span className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-void)] px-2 py-1 rounded">
-                          {interest.val}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+              {/* 5. RUNTIME METRICS (Span 1 col) */}
+              <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-[var(--text-primary)] transition-colors">
+                <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <Activity size={14} /> {t('home.personal_interests')}
+                </h4>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { label: "Duolingo", val: "Daily", icon: Flame, color: "text-orange-500" },
+                    { label: "Strava", val: "5K/Wk", icon: Activity, color: "text-orange-600" },
+                    { label: "Goodreads", val: "Daily", icon: BookOpen, color: "text-amber-200" },
+                    { label: "Substack", val: "Weekly", icon: PenLine, color: "text-purple-400" }
+                  ].map((interest, i) => (
+                    <div key={i} className="flex flex-col p-2 bg-[var(--bg-surface)] rounded border border-[var(--border-color)]">
+                      <interest.icon size={16} className={`mb-2 ${interest.color}`} />
+                      <span className="text-xs font-bold text-[var(--text-primary)]">{interest.label}</span>
+                      <span className="text-[10px] font-mono text-[var(--text-secondary)] opacity-70">{interest.val}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
+
             </div>
           </section >
 
