@@ -551,6 +551,8 @@ const Portfolio = () => {
                   <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
                     <p><RichText text={t('home.about_p1')} /></p>
                     <p><RichText text={t('home.about_p2')} /></p>
+                    <p><RichText text={t('home.about_p3')} /></p>
+                    <p><RichText text={t('home.about_p4')} /></p>
                   </div>
                 </div>
               </div>
