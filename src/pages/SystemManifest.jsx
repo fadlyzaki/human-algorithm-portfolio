@@ -273,7 +273,7 @@ const SystemManifest = () => {
             <div className="pt-12 mt-12 border-t border-[var(--border-color)] print:block hidden">
               <p className="font-mono text-[10px] text-[var(--text-secondary)]">
                 {t('manifest.footer_gen')}<br />
-                  // Fadly Uzzaki 🧢 © 2025
+                  // Fadly Uzzaki 🧢 © 2025-2026
               </p>
             </div>
 

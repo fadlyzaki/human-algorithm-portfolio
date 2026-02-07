@@ -647,7 +647,7 @@ const Portfolio = () => {
                     href={post.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent)] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer h-80 flex flex-col justify-between overflow-hidden rounded-lg"
+                    className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent)] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer min-h-[20rem] h-full flex flex-col justify-between overflow-hidden rounded-lg"
                   >
                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--accent)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
@@ -658,7 +658,7 @@ const Portfolio = () => {
                         </span>
                         <ArrowUpRight size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--accent)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                       </div>
-                      <h4 className="font-serif italic text-2xl text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors leading-tight mb-4 line-clamp-2">
+                      <h4 className="font-serif italic text-2xl text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors leading-tight mb-4">
                         {post.title}
                       </h4>
                       <p className="text-sm text-[var(--text-secondary)] line-clamp-3 leading-relaxed">

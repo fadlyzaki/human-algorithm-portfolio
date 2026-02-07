@@ -127,6 +127,11 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Mobile-First Responsive**: All components optimized for touch and narrow viewports.
 *   **Lazy Loading**: All pages use `React.lazy()` with Suspense fallback for performance.
 
+*   **Airy Animations & Expansion (v2.8)**:
+    *   **Live Schematics**: Technical diagrams (`ProjectCard`) now feature `framer-motion` path animations and data pulses to simulate active system monitoring.
+    *   **Hypothesis Scale-up**: Expanded "If I built this today" section to 5 AI-native hypotheses per case study, covering Agentic Workflows and Multi-modal reasoning.
+    *   **Visual Polish**: Removed legacy "Fig 1.0" artifacts for a cleaner, immersive display.
+
 ## 6. Roadmap & Future Iterations
 *   **[COMPLETED]** Adaptive Content Engine (Adaptive Summaries)
 *   **[COMPLETED]** Hand Tracking (HandCursorOverlay + Treasure Hunt)
@@ -134,8 +139,11 @@ The homepage follows a "Priority-First" narrative flow:
 *   **[COMPLETED]** Semantic Memory AI (SemanticMemory.jsx)
 *   **[COMPLETED]** AI Interactive Protocol (Contact page analysis + pings)
 *   **[COMPLETED]** Knowledge Upgrades (Certification system in About page)
+*   **[COMPLETED]** Airy Technical Diagrams (Animated Schematics)
+*   **[COMPLETED]** Modern AI Hypotheses Expansion (Agentic/Reasoning)
 *   **[Q2]** Enhanced AI Agent: Expand semantic memory with real RAG backend
 *   **[Q3]** CMS Integration: Migrating "Notes" to MDX
+*   **[Q4]** 3D WebGL Experiments: Evaluating Three.js for hero section
 
 ---
 **Document Status**: *ACTIVE*  

@@ -847,7 +847,7 @@ const ProtectedCaseStudy = () => {
         {/* FOOTER */}
         <footer className="border-t border-[var(--border-color)] py-12 text-center opacity-40 hover:opacity-100 transition-opacity">
           <p className="font-mono text-[10px] uppercase tracking-widest">
-            Human By Design Portfolio · Fadly Uzzaki 🧢 © 2025
+            Human By Design Portfolio · Fadly Uzzaki 🧢 © 2025-2026
           </p>
         </footer>
 

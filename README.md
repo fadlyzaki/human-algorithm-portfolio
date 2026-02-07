@@ -1,100 +1,77 @@
-# Fadlyzaki Portfolio 🧢
+# FADLYZAKI_SYSTEM_MANIFEST v2.8 🧢
 
-A cyberpunk-themed portfolio showcasing product design and engineering work, built with React and featuring experimental AI-powered hand tracking interactions.
+> "The portfolio as a living organism. Chaos contained within a grid."
 
-## 🎮 Features
+A Cyberpunk-Industrial personal platform architected with React 18 and Vite. It serves as a bridge between rigor (Computer Science) and empathy (Product Design), featuring experimental AI-powered hand tracking and generative physics.
 
-### 🏴‍☠️ Treasure Hunt Game
-Activate hand tracking mode to discover **8 hidden treasures** scattered across the portfolio using AI-powered gesture recognition.
+[![Status](https://img.shields.io/badge/SYSTEM-ONLINE-green?style=for-the-badge&logo=react)](https://fadlyzaki.com)
+[![Node](https://img.shields.io/badge/NODE-JAKARTA-blue?style=for-the-badge&logo=google-maps)](https://maps.google.com)
+[![Protocol](https://img.shields.io/badge/PROTOCOL-EN_ID-orange?style=for-the-badge&logo=google-translate)](https://fadlyzaki.com)
 
-- **Hand Tracking**: MediaPipe-based gesture control (point with index finger)
-- **Random Positions**: Treasure locations randomize on activation and reset
-- **Progress Tracking**: Real-time counter and collection system
-- **Achievement System**: Trophy modal when all 8 treasures are discovered
-- **Manual Reset**: "Reset Hunt" button to re-randomize and start fresh
-- **Privacy First**: All video processing happens locally in your browser
+---
 
-**Treasure Types:**
-| Type | Icon | Color |
-|------|------|-------|
-| 💎 Gem | Diamond | Purple |
-| 🪙 Coins | Circle Stack | Gold |
-| 👑 Crown | Crown | Yellow |
-| ⚓ Relic | Anchor | Teal |
+## 📜 Patch Notes (v2.8)
+*Latest system upgrades deployed to production.*
 
-**How to Play:**
-1. Click the ScanEye 👁️ icon in navigation
-2. Grant camera permission
-3. Move your hand to discover glowing orbs
-4. Collect all 8 to unlock the achievement!
-5. Click "Reset Hunt" to re-randomize and play again
+*   **Airy Technical Diagrams**: Static schematics replaced with live-animated `framer-motion` visualizations. Data packets pulse through logistics networks (`Stoqo`) and matching algorithms (`Lumina`).
+*   **Hypothesis Scale-Up**: "If I Built This Today" module expanded to 5 AI-native hypotheses per case study, covering Agentic Workflows, Multi-modal Reasoning, and Generative UI.
+*   **Visual Purge**: Legacy "Fig 1.0" artifacts removed for cleaner immersion.
+*   **Resiliency Hardening**: Added error boundaries and fallback UIs for broken assets.
 
-### 🤖 Side Project AI Visuals
-Dynamic, generative AI interactions integrated into side project indices and detail pages:
-- **NexusAI**: A generative particle field representing "Synthesis" and "Ideation."
-- **Thematic Mapping**: Unique AI visuals (`NexusAI`, `WorkforceAI`, `EfficiencyAI`, `CommerceAI`) assigned to projects based on their functional theme.
-- **Brand Inversion**: Visuals automatically adapt to project-specific brand colors.
+---
 
-### 📜 Running Ticker
-Interactive status ticker at the top of the homepage with clickable links:
-- 📍 **Location**: Jakarta, Indonesia
-- 📖 **Reading**: "Daring Greatly" → [Goodreads](https://www.goodreads.com/fadlyzaki)
-- 🎧 **Listening**: "Let's get things done — together" → [YouTube Music](https://music.youtube.com/watch?v=S02l82H9yks)
-- 🏃 **Training**: Running 5K & Swimming 1K Weekly → [Strava](https://www.strava.com/athletes/129304799)
-- ✍️ **Reflecting**: Reflecting on Life Weekly → [Substack](https://substack.com/@fadlyzaki)
-- 🟢 **Status**: Open to Collaboration
+## 🧩 System Modules (Features)
 
-### 🪪 Interactive ID Card
-Draggable identity card with:
-- Realistic smart chip design
-- Holographic sheen effect on hover
-- Flip animation to reveal other photos
-- Custom ID number: 1407-1995
+### 🏴‍☠️ Module: Treasure_Hunt
+**Status**: `ACTIVE`  
+Activate **Decryption Lens** (Hand Tracking) to discover **8 hidden artifacts** scattered across the network.
+*   **Engine**: MediaPipe Hands (Gesture Recognition).
+*   **Interaction**: Point index finger to reveal hidden DOM elements.
+*   **Reward**: Unlock the "Completionist" trophy.
 
-### 📡 Profile Identity Scan
-Interactive "About Me" hero component (`ProfileScanner`) featuring:
-- **Cinematic Reveal**: "Blur-to-Clear" cleaning animation on page load.
-- **3D Tilt Physics**: Card responds to mouse movement with parallax depth.
-- **HUD Overlay**: Technical data readout and scanning beam effects.
+### 🤖 Module: AI_Synthesis
+**Status**: `GENERATING...`  
+Generative visualizations that adapt to the semantic theme of each project:
+*   **NexusAI**: Particle field representing ideation.
+*   **WorkforceAI**: Bipartite matching graph (Candidates <-> Jobs).
+*   **CommerceAI**: Supply chain flow optimization.
+*   **EfficiencyAI**: Chaos-to-Order entropy visualization.
 
-### 📌 Sticky Notes
-Dual motivational sticky notes in the hero section:
-- 💙 "Antidote to digital fatigue."
-- 🧡 "Built for humans at their limit."
+### 📡 Module: Identity_Scan
+**Status**: `ONLINE`  
+Interactive "About Me" hero component (`ProfileScanner`):
+*   **Blur-to-Clear**: Cinematic boot-up sequence.
+*   **Physics**: 3D Tilt response to cursor velocity.
+*   **HUD**: Real-time data overlay.
 
-### 🧠 AI Brainstorm Dialogue
-Interactive "If I built this today..." section visualized as Human + AI collaboration:
-- **Chat Interface**: Visual conversation between you and an AI collaborator
-- **Typing Animation**: AI "thinks" before suggesting alternatives
-- **3 AI Solutions**: Each case study offers multiple AI-powered approaches
-- **Glowing Solution Card**: Highlighted output with impact metrics
-- **Explore Ideas**: Cycle through alternatives with smooth transitions
+### 🧠 Module: Neural_Dialogue
+**Status**: `LISTENING`  
+"If I built this today..." re-imagined as a collaborative brainstorm between Human and AI.
+*   **Agentic Proposals**: AI suggests modern stack alternatives (e.g., "Use RAG for Context").
+*   **Typing Simulation**: Realistic latency and thought processing.
 
-### Core Portfolio Features
-- **Responsive Design**: Optimized for desktop and mobile
-- **Dark/Light Theme**: Toggle between themes
-- **Bilingual Support**: English and Indonesian
-- **Interactive Projects**: Featuring case studies from Gojek, PayPal, and more
-- **Semantic SEO**: Optimized meta tags and structure
-- **Performance**: Lazy loading and code splitting
+---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Architecture
 
-- **Framework**: React 18 + Vite
-- **AI/ML**: MediaPipe Hands (hand tracking)
-- **Styling**: Tailwind CSS + Custom CSS
-- **Icons**: Lucide React
-- **Routing**: React Router v6
-- **Analytics**: Google Analytics 4
-- **Deployment**: Vercel
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| **Core** | React 18 + Vite | High-performance rendering engine |
+| **Logic** | Custom Hooks | State management (`useHandCursor`, `useTheme`) |
+| **Physics** | Framer Motion | Smooth, spring-based animations |
+| **Vision** | MediaPipe | Client-side hand tracking |
+| **Style** | Tailwind CSS | Utility-first styling with custom design tokens |
+| **Deploy** | Vercel | Edge network distribution |
 
-## 🚀 Getting Started
+---
+
+## 🚀 Initialization Protocol
 
 ### Prerequisites
-- Node.js 16+
-- npm or yarn
+*   Node.js 16+
+*   npm / yarn
 
-### Installation
+### Boot Sequence
 
 ```bash
 # Clone the repository
@@ -104,91 +81,40 @@ cd human-algorithm-portfolio
 # Install dependencies
 npm install
 
-# Start development server
+# Initialize Development Server
 npm run dev
 
-# Build for production
+# Compile for Production
 npm run build
-
-# Preview production build
-npm run preview
 ```
 
-## 📁 Project Structure
-
-```
-src/
-├── components/          # Reusable UI components
-│   ├── Treasure.jsx            # Treasure hunt collectible
-│   ├── TreasureProgress.jsx    # Progress counter + reset button
-│   ├── TreasureCongrats.jsx    # Completion modal
-│   ├── HandCursorOverlay.jsx   # Hand tracking engine
-│   ├── DraggablePhoto.jsx      # Interactive ID card
-│   ├── ProfileScanner.jsx      # Identity scan hero
-│   └── ...
-├── context/            # React Context providers
-│   ├── HandCursorContext.jsx   # Hand tracking state
-│   ├── ThemeContext.jsx        # Theme management
-│   └── LanguageContext.jsx     # i18n
-├── pages/              # Route pages
-│   ├── Home.jsx
-│   ├── About.jsx
-│   └── ...
-├── data/               # Portfolio content
-│   ├── portfolioData.js
-│   └── translations.js
-└── App.jsx             # Main app component
-```
-
-## 🎯 Treasure Locations
-
-Find all 8 hidden treasures:
-- 🏠 **Home** (2 treasures): Hero section (gem), Work section
-- 👤 **About** (1 treasure): Photo area (coins)
-- 📁 **Side Projects** (2 treasures): Index page (gem), Detail page (coins)
-- 💼 **Company Detail** (1 treasure): Hero area (crown)
-- 📬 **Contact** (1 treasure): Network matrix (anchor/relic)
-
-## 🔧 Configuration
-
-### Environment Variables
-Create `.env` file in root:
-```env
-VITE_GA_MEASUREMENT_ID=your_ga_id
-```
-
-### Hand Tracker Settings
-Edit `src/components/HandCursorOverlay.jsx`:
-```javascript
-modelComplexity: 0,  // 0=Lite, 1=Full (faster vs more accurate)
-minDetectionConfidence: 0.5,
-minTrackingConfidence: 0.5,
-```
-
-## 🌐 Deployment
-
-Deployed on Vercel with automatic deployments from `main` branch.
+## 📁 File System Structure
 
 ```bash
-# Build command
-npm run build
-
-# Output directory
-dist
+src/
+├── components/          # UI Atoms & Molecules
+│   ├── interactions/    # Airy Diagrams (WorkforceAI, CommerceAI...)
+│   ├── ProfileScanner/  # Identity Module
+│   └── HandTracker/     # Vision Engine
+├── context/             # Global State (Theme, Language, HandCursor)
+├── pages/               # Route Views (Home, CaseStudy, Manifesto)
+├── data/                # Static Content (portfolioData.js)
+└── App.jsx              # Root Component
 ```
 
-## 📄 License
+## 🔐 Security Protocols
 
-© 2024-2025 Fadly Zaki. All rights reserved.
-
-## 🤝 Contact
-
-- Portfolio: [fadlyzaki.com](https://fadlyzaki.com)
-- Email: fadly.zaki96@gmail.com
-- LinkedIn: [fadlyzaki](https://linkedin.com/in/fadlyzaki)
+*   **Case Studies**: Protected by client-side "Confidentiality Layer" (Password Gate).
+*   **Environment**: API keys managed via `.env`.
+*   **Sanitization**: `RichText` component for safe HTML rendering.
 
 ---
 
-**Note**: Hand tracking requires camera access and works best in good lighting conditions. Supported on modern browsers (Chrome, Edge, Firefox). Safari support is limited.
+## 📡 Transmission
+*   **Portfolio**: [fadlyzaki.com](https://fadlyzaki.com)
+*   **Frequency**: [fadly.uzzaki@gmail.com](mailto:fadly.uzzaki@gmail.com)
+*   **Neural Link**: [linkedin.com/in/fadlyzaki](https://linkedin.com/in/fadlyzaki)
 
-<!-- Deployed: 2026-02-03 Standardized Human Algorithm Card & Integrated Habits -->
+> *"We shape our tools and thereafter our tools shape us."*
+
+© 2025-2026 Fadly Uzzaki. All systems nominal.
