@@ -1,14 +1,15 @@
 # Product Requirements Document (PRD): Human Algorithm Portfolio v2.6
 
 ## 1. Executive Summary
-The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity. 
+The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity.
 
-**Strategic Goal**: Establish the user as an "AI-native, human-centered thinker" who doesn't just manage systems, but "contains chaos" for peak resilience.
+**Strategic Goal**: Establish the user as a "Scientific Design Engineer"—a hybrid professional who combines "Engineering Logic" with "Cognitive Science" to build resilient systems.
 
 ## 2. Market Positioning & Personas
 *   **The Technical Recruiter (High Frequency)**: Requires sub-2-second access to core credentials and an ATS-optimized, printable "System Manifest" (CV).
-*   **The Head of Design (High Depth)**: Demands a structured narrative ("The Why") through case studies, focusing on "Design for Recovery" and "Resilience-First" UX.
+*   **The Head of Product/Design (High Depth)**: Demands a structured narrative ("The Why") focusing on "Cognitive Load Optimization" and "Resilience-First" UX.
 *   **The Creative Peer (Viral/Engagement)**: Values the technical "Easter eggs," draggable physics, and the cyberpunk-industrial aesthetic ("The Void").
+*   **The Global Hiring Manager**: Needs clear context on local achievements (GudangAda, etc.) framed through universal problems (B2B scale, friction reduction).
 
 ## 3. Product Architecture
 
@@ -141,6 +142,8 @@ The homepage follows a "Priority-First" narrative flow:
 *   **[COMPLETED]** Knowledge Upgrades (Certification system in About page)
 *   **[COMPLETED]** Airy Technical Diagrams (Animated Schematics)
 *   **[COMPLETED]** Modern AI Hypotheses Expansion (Agentic/Reasoning)
+*   **[COMPLETED]** Narrative Refinement: "Resilience" Story & "Scientific Design Engineer" Positioning
+*   **[COMPLETED]** Master's Degree Integration: `KNOWLEDGE_INSTALL` in System Runtime Log
 *   **[Q2]** Enhanced AI Agent: Expand semantic memory with real RAG backend
 *   **[Q3]** CMS Integration: Migrating "Notes" to MDX
 *   **[Q4]** 3D WebGL Experiments: Evaluating Three.js for hero section
