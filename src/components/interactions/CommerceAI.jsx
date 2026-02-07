@@ -52,11 +52,25 @@ const CommerceAI = ({ color = '#00D1C7' }) => {
             {/* Network Visualization */}
             <div className="relative w-full max-w-lg aspect-video mb-8">
                 {/* Connections (Static Lines) */}
+                {/* Connections (Static Lines) */}
                 {connections.map((c, i) => {
                     const from = hubs.find(h => h.id === c.from);
                     const to = hubs.find(h => h.id === c.to);
                     return (
-                        <line key={i} x1={`${from.x}% `} y1={`${from.y}% `} x2={`${to.x}% `} y2={`${to.y}% `} stroke="white" strokeOpacity="0.1" strokeWidth="2" className="absolute top-0 left-0 w-full h-full" /> // SVG needed here really, using div approximation below
+                        <svg key={i} className="absolute inset-0 w-full h-full pointer-events-none">
+                            <motion.line
+                                x1={`${from.x}%`}
+                                y1={`${from.y}%`}
+                                x2={`${to.x}%`}
+                                y2={`${to.y}%`}
+                                stroke="white"
+                                strokeOpacity="0.1"
+                                strokeWidth="2"
+                                initial={{ pathLength: 0, opacity: 0 }}
+                                animate={{ pathLength: 1, opacity: 1 }}
+                                transition={{ duration: 1.5, delay: i * 0.2 }}
+                            />
+                        </svg>
                     );
                 })}
 
@@ -87,12 +101,21 @@ const CommerceAI = ({ color = '#00D1C7' }) => {
                     <motion.div
                         key={hub.id}
                         className="absolute rounded-full border-2 bg-[var(--bg-card)] flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.2)]"
+                        initial={{ scale: 0 }}
+                        animate={{
+                            scale: 1,
+                            boxShadow: [`0 0 0px ${color}00`, `0 0 20px ${color}40`, `0 0 0px ${color}00`]
+                        }}
+                        transition={{
+                            scale: { duration: 0.5, delay: 1 },
+                            boxShadow: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                        }}
                         style={{
                             borderColor: color,
                             width: hub.size,
                             height: hub.size,
-                            left: `${hub.x}% `,
-                            top: `${hub.y}% `,
+                            left: `${hub.x}%`,
+                            top: `${hub.y}%`,
                             transform: 'translate(-50%, -50%)' // Center anchor
                         }}
                     >

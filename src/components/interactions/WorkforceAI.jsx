@@ -63,7 +63,14 @@ const WorkforceAI = ({ color = '#1AA8B4' }) => {
                     <motion.div
                         key={node.id}
                         initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
+                        animate={{
+                            scale: 1,
+                            y: ["0%", "-5%", "0%"]
+                        }}
+                        transition={{
+                            scale: { duration: 0.5 },
+                            y: { duration: 3 + Math.random(), repeat: Infinity, ease: "easeInOut", delay: Math.random() }
+                        }}
                         className="absolute w-3 h-3 rounded-full border-2 bg-[var(--bg-card)]"
                         style={{
                             borderColor: color,

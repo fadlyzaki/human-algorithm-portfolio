@@ -18,10 +18,12 @@ const ZoomableImage = ({
     containerClassName = ''
 }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [hasError, setHasError] = useState(false);
 
     if (!src) return null;
 
     const handleClick = (e) => {
+        if (hasError) return;
         e.stopPropagation();
         setIsOpen(true);
     };
@@ -30,6 +32,20 @@ const ZoomableImage = ({
         e.stopPropagation();
         setIsOpen(false);
     };
+
+    if (hasError) {
+        return (
+            <div className={`flex flex-col items-center justify-center bg-[var(--bg-card)] border border-[var(--border-color)] p-8 rounded-lg opacity-50 ${containerClassName} ${className}`} style={{ minHeight: '200px' }}>
+                <div className="w-12 h-12 rounded-full bg-[var(--bg-surface)] flex items-center justify-center mb-3">
+                    <X size={20} className="text-[var(--text-secondary)]" />
+                </div>
+                <p className="text-xs font-mono text-[var(--text-secondary)] uppercase tracking-widest text-center">
+                    Image Unavailable
+                </p>
+                <p className="text-[10px] text-[var(--text-secondary)] opacity-50 mt-1 font-mono">{alt}</p>
+            </div>
+        );
+    }
 
     return (
         <>
@@ -42,6 +58,7 @@ const ZoomableImage = ({
                     src={src}
                     alt={alt}
                     className={className}
+                    onError={() => setHasError(true)}
                 />
                 {/* Zoom indicator on hover */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
