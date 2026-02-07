@@ -7,6 +7,7 @@ A Cyberpunk-Industrial personal platform architected with React 18 and Vite. It 
 [![Status](https://img.shields.io/badge/SYSTEM-ONLINE-green?style=for-the-badge&logo=react)](https://fadlyzaki.com)
 [![Node](https://img.shields.io/badge/NODE-JAKARTA-blue?style=for-the-badge&logo=google-maps)](https://maps.google.com)
 [![Protocol](https://img.shields.io/badge/PROTOCOL-EN_ID-orange?style=for-the-badge&logo=google-translate)](https://fadlyzaki.com)
+[![License](https://img.shields.io/badge/LICENSE-MIT-red?style=for-the-badge&logo=open-source-initiative)](https://github.com/fadlyzaki/human-algorithm-portfolio/blob/main/LICENSE)
 
 ---
 
