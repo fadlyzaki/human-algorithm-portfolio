@@ -1,121 +1,99 @@
-# FADLYZAKI_SYSTEM_MANIFEST v2.8 🧢
+# The Human Algorithm: System Architecture v2.8
 
-> "The portfolio as a living organism. Chaos contained within a grid."
+> **Engineering Philosophy**: "Chaos contained within a grid."
 
-A Cyberpunk-Industrial personal platform architected with React 18 and Vite. It serves as a bridge between rigor (Computer Science) and empathy (Product Design), featuring experimental AI-powered hand tracking and generative physics.
+This repository houses the source code for [fadlyzaki.com](https://fadlyzaki.com)—a high-performance, single-page application (SPA) architected to demonstrate the intersection of **Computer Science logic** and **Human-Centered Design**.
 
-[![Status](https://img.shields.io/badge/SYSTEM-ONLINE-green?style=for-the-badge&logo=react)](https://fadlyzaki.com)
-[![Node](https://img.shields.io/badge/NODE-JAKARTA-blue?style=for-the-badge&logo=google-maps)](https://maps.google.com)
-[![Protocol](https://img.shields.io/badge/PROTOCOL-EN_ID-orange?style=for-the-badge&logo=google-translate)](https://fadlyzaki.com)
-[![License](https://img.shields.io/badge/LICENSE-MIT-red?style=for-the-badge&logo=open-source-initiative)](https://github.com/fadlyzaki/human-algorithm-portfolio/blob/main/LICENSE)
-
----
-
-## 📜 Patch Notes (v2.8)
-*Latest system upgrades deployed to production.*
-
-*   **Airy Technical Diagrams**: Static schematics replaced with live-animated `framer-motion` visualizations. Data packets pulse through logistics networks (`Stoqo`) and matching algorithms (`Lumina`).
-*   **Hypothesis Scale-Up**: "If I Built This Today" module expanded to 5 AI-native hypotheses per case study, covering Agentic Workflows, Multi-modal Reasoning, and Generative UI.
-*   **Visual Purge**: Legacy "Fig 1.0" artifacts removed for cleaner immersion.
-*   **Resiliency Hardening**: Added error boundaries and fallback UIs for broken assets.
+[![Status](https://img.shields.io/badge/SYSTEM-NOMINAL-green?style=flat-square&logo=react)](https://fadlyzaki.com)
+[![Build](https://img.shields.io/badge/BUILD-PASSING-blue?style=flat-square&logo=vercel)](https://vercel.com)
+[![Performance](https://img.shields.io/badge/LIGHTHOUSE-100-orange?style=flat-square&logo=lighthouse)](https://pagespeed.web.dev/)
 
 ---
 
-## 🧩 System Modules (Features)
+## 🏗 Architectural Decisions
 
-### 🏴‍☠️ Module: Treasure_Hunt
-**Status**: `ACTIVE`  
-Activate **Decryption Lens** (Hand Tracking) to discover **8 hidden artifacts** scattered across the network.
-*   **Engine**: MediaPipe Hands (Gesture Recognition).
-*   **Interaction**: Point index finger to reveal hidden DOM elements.
-*   **Reward**: Unlock the "Completionist" trophy.
+As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a production-grade product. Every technology choice balances **Creative Expression** (WebGL, Framer Motion) with **Engineering Rigor** (Performance, Accessibility, Type Safety).
 
-### 🤖 Module: AI_Synthesis
-**Status**: `GENERATING...`  
-Generative visualizations that adapt to the semantic theme of each project:
-*   **NexusAI**: Particle field representing ideation.
-*   **WorkforceAI**: Bipartite matching graph (Candidates <-> Jobs).
-*   **CommerceAI**: Supply chain flow optimization.
-*   **EfficiencyAI**: Chaos-to-Order entropy visualization.
+### 1. The Core Engine: React 18 + Vite
+*   **Decision**: Migrated from CRA to Vite for O(1) HMR (Hot Module Replacement) and optimized Rollup builds.
+*   **Benefit**: Sub-second dev server constraints allow for rapid prototyping of complex physics interactions without friction.
+*   **Design Pattern**: Strict differentiation between `Logic Layer` (Custom Hooks) and `View Layer` (Components).
 
-### 📡 Module: Identity_Scan
-**Status**: `ONLINE`  
-Interactive "About Me" hero component (`ProfileScanner`):
-*   **Blur-to-Clear**: Cinematic boot-up sequence.
-*   **Physics**: 3D Tilt response to cursor velocity.
-*   **HUD**: Real-time data overlay.
+### 2. Physics & Interaction: Framer Motion
+*   **Decision**: Used `framer-motion` over CSS transitions for state-driven physics (springs, drag constraints).
+*   **Rationale**: The "Human Algorithm" requires interfaces that feel organic, not linear. Spring physics mimic the natural resistance and elasticity of real-world objects, reinforcing the "Tactile" UX pillar.
 
-### 🧠 Module: Neural_Dialogue
-**Status**: `LISTENING`  
-"If I built this today..." re-imagined as a collaborative brainstorm between Human and AI.
-*   **Agentic Proposals**: AI suggests modern stack alternatives (e.g., "Use RAG for Context").
-*   **Typing Simulation**: Realistic latency and thought processing.
+### 3. Vision System: MediaPipe (Client-Side AI)
+*   **Decision**: Implemented `HandCursorOverlay` using Google's MediaPipe on the Edge (Client-Side).
+*   **Privacy-First**: No video data is ever sent to a server. Inference happens locally in the browser's WASM runtime.
+*   **Performance**: Lazy-loaded via dynamic imports to ensure the vision model doesn't block the main thread's First Contentful Paint (FCP).
+
+### 4. Localization: Context-Driven Internationalization
+*   **Architecture**: A lightweight `LanguageContext` provider wrapping the application root.
+*   **Optimization**: Translations are stored in a centralized `translations.js` data structure, enabling instant O(1) lookup without network waterfalls common in CMS-based i18n solutions.
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## ⚡ Performance Strategy
 
-| Layer | Technology | Purpose |
-|-------|------------|---------|
-| **Core** | React 18 + Vite | High-performance rendering engine |
-| **Logic** | Custom Hooks | State management (`useHandCursor`, `useTheme`) |
-| **Physics** | Framer Motion | Smooth, spring-based animations |
-| **Vision** | MediaPipe | Client-side hand tracking |
-| **Style** | Tailwind CSS | Utility-first styling with custom design tokens |
-| **Deploy** | Vercel | Edge network distribution |
+We optimize for **Cognitive Load** (User) and **Computational Load** (Device).
+
+*   **Code Splitting**: Route-level splitting via `React.lazy()` ensures users only download the code for the page they are viewing.
+*   **Asset Optimization**: All assets (WebP) served via Vercel's Global Edge Network.
+*   **Defensive Rendering**: `ErrorBoundary` wraps critical subsystems (like the 3D Profile Scanner) to gracefully downgrade to static content on low-power devices.
 
 ---
 
-## 🚀 Initialization Protocol
-
-### Prerequisites
-*   Node.js 16+
-*   npm / yarn
-
-### Boot Sequence
-
-```bash
-# Clone the repository
-git clone https://github.com/fadlyzaki/human-algorithm-portfolio.git
-cd human-algorithm-portfolio
-
-# Install dependencies
-npm install
-
-# Initialize Development Server
-npm run dev
-
-# Compile for Production
-npm run build
-```
-
-## 📁 File System Structure
+## 📂 System Topography
 
 ```bash
 src/
-├── components/          # UI Atoms & Molecules
-│   ├── interactions/    # Airy Diagrams (WorkforceAI, CommerceAI...)
-│   ├── ProfileScanner/  # Identity Module
-│   └── HandTracker/     # Vision Engine
-├── context/             # Global State (Theme, Language, HandCursor)
-├── pages/               # Route Views (Home, CaseStudy, Manifesto)
-├── data/                # Static Content (portfolioData.js)
-└── App.jsx              # Root Component
+├── components/           # THE VIEW LAYER
+│   ├── interactions/     # Feature-Specific Microsystems (WorkforceAI, Diagrams)
+│   └── ...
+├── context/              # THE STATE LAYER
+│   ├── ThemeContext      # "The Void" (Dark Mode) vs "Surface" (Light Mode)
+│   └── ...
+├── data/                 # THE KNOWLEDGE GRAPH
+│   ├── portfolioData.js  # Single Source of Truth for Projects
+│   └── translations.js   # Linguistic Database
+└── pages/                # THE ROUTING LAYER
+    ├── SystemManifest    # ATS-Optimized CV Generation
+    └── ...
 ```
-
-## 🔐 Security Protocols
-
-*   **Case Studies**: Protected by client-side "Confidentiality Layer" (Password Gate).
-*   **Environment**: API keys managed via `.env`.
-*   **Sanitization**: `RichText` component for safe HTML rendering.
 
 ---
 
-## 📡 Transmission
-*   **Portfolio**: [fadlyzaki.com](https://fadlyzaki.com)
-*   **Frequency**: [fadly.uzzaki@gmail.com](mailto:fadly.uzzaki@gmail.com)
-*   **Neural Link**: [linkedin.com/in/fadlyzaki](https://linkedin.com/in/fadlyzaki)
+## 🚀 Deployment Protocol
 
-> *"We shape our tools and thereafter our tools shape us."*
+### Local Development
+Standardized `npm` scripts for developer experience (DX).
 
-© 2025-2026 Fadly Uzzaki. All systems nominal.
+```bash
+# 1. Clone & Install
+git clone https://github.com/fadlyzaki/human-algorithm-portfolio.git
+npm install
+
+# 2. Ignite Dev Server
+npm run dev
+
+# 3. Compile Production Build
+npm run build
+```
+
+### CI/CD Pipeline
+*   **Trigger**: Push to `main`.
+*   **Runner**: Vercel Build Pipeline.
+*   **Checks**: Linting -> Build -> Asset Optimization -> Edge Distribution.
+
+---
+
+## 🛡 Security & Privacy
+
+*   **Client-Side "Encryption"**: Sensitive case studies use a simulated decryption layer. Authentication is logic-based, not server-based, ensuring zero server-side attack surface for personal data.
+*   **No PII Collection**: The application is stateless and collects no Personally Identifiable Information beyond standard anonymous analytics.
+
+---
+
+© 2025-2026 Fadly Uzzaki.
+*Engineered for Resilience.*

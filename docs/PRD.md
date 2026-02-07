@@ -3,13 +3,24 @@
 ## 1. Executive Summary
 The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity.
 
-**Strategic Goal**: Establish the user as a "Scientific Design Engineer"—a hybrid professional who combines "Engineering Logic" with "Cognitive Science" to build resilient systems.
+**Strategic Goal**: Establish the user as a "Scientific Design Engineer"—a hybrid professional who combines "Engineering Logic" with "Cognitive Science" to build resilient systems. This platform must demonstrate this duality through both its *content* (case studies) and its *code* (interactive physics, efficient rendering).
 
-## 2. Market Positioning & Personas
+## 2. Success Metrics (KPIs)
+*   **Performance**: Core Web Vitals (LCP < 2.5s, FID < 100ms) on mobile networks.
+*   **Conversion**: >15% click-through rate from Home to "System Manifest" (CV).
+*   **Retention**: >45s average session duration on Case Study pages (indicating deep reading).
+*   **ATS Compliance**: 100% parse rate for the printable CV generated from `SystemManifest`.
+
+## 3. Market Positioning & Personas
 *   **The Technical Recruiter (High Frequency)**: Requires sub-2-second access to core credentials and an ATS-optimized, printable "System Manifest" (CV).
 *   **The Head of Product/Design (High Depth)**: Demands a structured narrative ("The Why") focusing on "Cognitive Load Optimization" and "Resilience-First" UX.
 *   **The Creative Peer (Viral/Engagement)**: Values the technical "Easter eggs," draggable physics, and the cyberpunk-industrial aesthetic ("The Void").
 *   **The Global Hiring Manager**: Needs clear context on local achievements (GudangAda, etc.) framed through universal problems (B2B scale, friction reduction).
+
+## 4. Risk Management
+*   **Accessibility (a11y)**: High-concept interactions (hand tracking, custom cursors) must fail gracefully to standard pointer events for screen readers/keyboard users.
+*   **Performance Overhead**: Large libraries (MediaPipe, Framer Motion) must be lazy-loaded to prevent main-thread blocking on initial load.
+*   **Data Privacy**: Case study decryption occurs entirely client-side; no sensitive data is ever transmitted to a server.
 
 ## 3. Product Architecture
 
