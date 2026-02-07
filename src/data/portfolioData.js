@@ -20,7 +20,7 @@ export const SIDE_PROJECTS = [
         modules: [
             {
                 title: "The Architect is an Agent",
-                content: "This portfolio wasn't just 'coded'; it was negotiated. I acted as the Senior Engineer, and my AI agents (Gemini & Cortex) acted as the implementation team. We pair-programmed through complex routing logic, debated design system tokens, and refactored legacy code—all in natural language."
+                content: "This portfolio wasn't just 'coded'; it was negotiated. I acted as the Product Designer // Design Engineer, and my AI agents (Gemini & Cortex) acted as the implementation team. We pair-programmed through complex routing logic, debated design system tokens, and refactored legacy code—all in natural language."
             },
             {
                 title: "Recursive Design",
@@ -38,7 +38,7 @@ export const SIDE_PROJECTS = [
         modules_id: [
             {
                 title: "Arsiteknya adalah Agen",
-                content: "Portofolio ini tidak hanya 'dikoding'; ini dinegosiasikan. Saya berperan sebagai Senior Engineer, dan agen AI saya (Gemini & Cortex) bertindak sebagai tim implementasi. Kami melakukan pair-programming melewati logika routing yang rumit, mendebatkan token sistem desain, dan merefaktor kode lama—semuanya dalam bahasa manusia."
+                content: "Portofolio ini tidak hanya 'dikoding'; ini dinegosiasikan. Saya berperan sebagai Product Designer // Design Engineer, dan agen AI saya (Gemini & Cortex) bertindak sebagai tim implementasi. Kami melakukan pair-programming melewati logika routing yang rumit, mendebatkan token sistem desain, dan merefaktor kode lama—semuanya dalam bahasa manusia."
             },
             {
                 title: "Desain Rekursif",
@@ -58,8 +58,8 @@ export const SIDE_PROJECTS = [
         id: 'interactive-workbook',
         title: 'Interactive Workbook',
         subtitle: 'Bimbel Geera Platform',
-        desc: 'When a student feels lost, they stop raising their hand. This tool makes their struggle visible before they quit.',
-        tldr: "Turning the silence of a struggling student into real-time data for teachers.",
+        desc: 'When a student feels lost, their cognitive load spikes. This tool reduces the "Fear of Failure" friction, making the struggle visible before they quit.',
+        tldr: "Scaffolding the learning process to turn 'Silence' into 'Signal' for teachers.",
         tldr_id: "Mengubah kebisuan siswa yang tertinggal menjadi data real-time bagi guru.",
         desc_id: "Saat siswa merasa tertinggal, mereka diam. Tool ini membuat kesulitan mereka terlihat sebelum mereka menyerah.",
         title_id: 'Buku Kerja Interaktif',
@@ -214,7 +214,7 @@ export const SIDE_PROJECTS = [
         stack: ["Node.js", "PostGIS", "Flutter"],
         links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
         iconName: 'AlertTriangle',
-        type: 'Engineering',
+        type: 'IoT Prototype',
         hidden: false,
         featured: false
     },
@@ -513,8 +513,8 @@ export const WORK_CLUSTERS = [
         brandColor: '#1AA8B4', // Lumina Teal
         linkedinUrl: 'https://www.linkedin.com/company/luminatechnologies/about/',
         heroImage: '/workforce_hero.png',
-        hook: 'Giving dignity to the blue-collar job hunt. Because finding honest work shouldn\'t feel like begging.',
-        miniDesc: 'Building "LinkedIn" for those who work with their hands. Helping thousands of drivers, servers, and warehouse workers find decent jobs without middlemen.',
+        hook: 'Engineering dignity into the blue-collar job hunt. Reducing the cognitive load of application forms for millions of workers.',
+        miniDesc: 'Building a "Trust Layer" for the blue-collar economy. We didn\'t just digitize resumes; we architected a reputation system that bridges the gap between informal skills and formal employment.',
         stats: [
             { label: 'Role', value: 'Lead Product Designer' },
             { label: 'Timeline', value: 'May 2022 - Nov 2022' },
@@ -1127,7 +1127,7 @@ export const WORK_CLUSTERS = [
                         technical: {
                             label: "🤖 System",
                             title: "Shallow Routing",
-                            text: "Restructured the routing architecture to be shallow and icon-driven. Removed deep nesting to align with the 'visual-first' mental model of the user base."
+                            text: "Redesigned the navigation structure to be shallow and icon-driven. Removed deep nesting to align with the 'visual-first' mental model of the user base."
                         }
                     },
                     snapshot: {
@@ -1295,8 +1295,8 @@ export const WORK_CLUSTERS = [
         brandColor: '#00D1C7', // GudangAda Cyan
         linkedinUrl: 'https://www.linkedin.com/company/gudangada/about/',
         heroImage: '/commerce_hero.png',
-        hook: 'Building trust in a low-trust market. Ensuring a warung owner feels as safe buying $500 of stock as they do buying a $1 snack.',
-        miniDesc: 'Digitizing the $100B supply chain not by disrupting it, but by respecting the handshake deals that have worked for decades.',
+        hook: 'Systematizing trust in a chaotic market. Designing fail-safe transaction flows for the $100B B2B supply chain.',
+        miniDesc: 'Digitizing the supply chain not by disrupting it, but by scaffolding the existing relationships. We built a "Digital Handshake" protocol that respects the informal nature of traditional trade.',
         stats: [
             { label: 'Role', value: 'Product Designer' },
             { label: 'Timeline', value: 'April 2020 - April 2022' },
@@ -1873,7 +1873,7 @@ export const WORK_CLUSTERS = [
                         technical: {
                             label: "🤖 System",
                             title: "Tokenized UI Library",
-                            text: "Created a React component library synced with Figma tokens. Enforced atomic design principles to ensure consistency and maintainability across the codebase."
+                            text: "Designed a tokenized UI kit synced with Figma tokens. Enforced atomic design principles to ensure consistency and maintainability across the codebase."
                         }
                     },
                     snapshot: {
@@ -1896,11 +1896,11 @@ export const WORK_CLUSTERS = [
                     ],
                     solution: [
                         { title: "UI Kit", desc: "A comprehensive Figma library with auto-layout components." },
-                        { title: "React Library", desc: "A perfectly synced npm package. Design once, import everywhere." }
+                        { title: "Synced Components", desc: "A design-to-code workflow. Update Figma, sync to production." }
                     ],
                     metrics: [
                         { label: "Dev Velocity", value: "+30%" },
-                        { label: "Code Size", value: "-15%" },
+                        { label: "Design Debt", value: "0%" },
                         { label: "Consistency", value: "100%" }
                     ],
                     learnings: "A design system is a product, not a project. It needs maintenance, versioning, and a roadmap.",
@@ -2041,8 +2041,8 @@ export const WORK_CLUSTERS = [
         brandColor: '#FA6130', // Stoqo Orange
         linkedinUrl: 'https://www.linkedin.com/company/stoqo-technologies/about/',
         heroImage: '/efficiency_hero.png',
-        hook: 'Designing for the invisible hours. Ensuring the people who feed Jakarta can sleep until the truck arrives.',
-        miniDesc: 'Logistics isn\'t just about moving boxes. It is about the anxiety of the restaurant owner waiting at 4 AM, wondering if their ingredients will show up.',
+        hook: 'Designing for Operational Resilience. Ensuring the people who feed Jakarta have the information bandwidth to sleep until the truck arrives.',
+        miniDesc: 'Logistics isn\'t just about moving boxes; it\'s about managing entropy. We built information systems that turn "Unknown Chaos" into "Predictable Data", reducing the cognitive toll on business owners.',
         hook_id: 'Mendesain untuk jam-jam tak terlihat. Memastikan mereka yang memberi makan Jakarta bisa tidur nyenyak sampai truk datang.',
         miniDesc_id: 'Logistik bukan cuma soal mindahin kardus. Ini soal kecemasan pemilik restoran yang nunggu jam 4 pagi, bertanya-tanya apakah bahan masakannya bakal nyampe.',
         stats: [
@@ -2096,7 +2096,7 @@ export const WORK_CLUSTERS = [
                         technical: {
                             label: "🤖 System",
                             title: "Telemetry & Push",
-                            text: "Integrated GPS telemetry for real-time status updates. Designed a push-notification system to proactively inform users, reducing server polling."
+                            text: "Designed a real-time tracking interface. Replaced anxiety with visibility using live status updates."
                         }
                     },
                     snapshot: {
@@ -2285,7 +2285,7 @@ export const WORK_CLUSTERS = [
                         technical: {
                             label: "🤖 System",
                             title: "Gamification Engine",
-                            text: "Implemented gamification mechanics (streaks, badges) within the sales app. Used local storage and backend sync to maintain real-time engagement data."
+                            text: "Designed gamification mechanics (streaks, badges) to drive user engagement. Used local storage and backend sync to maintain real-time engagement data."
                         }
                     },
                     snapshot: {

@@ -80,7 +80,7 @@ const SystemManifest = () => {
     {
       school: t('manifest.edu_master_school'),
       degree: t('manifest.edu_master_degree'),
-      year: "2023 - 2025",
+      year: "July 2024 - Jan 2026",
       note: t('manifest.edu_master_note')
     },
     {
