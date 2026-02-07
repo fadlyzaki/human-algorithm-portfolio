@@ -49,7 +49,7 @@ const AboutPage = () => {
       category: 'bio'
     },
     {
-      year: '2023 - 2025',
+      year: 'July 2024 - Jan 2026',
       type: 'KNOWLEDGE_INSTALL',
       title: t('about.log_master_title'),
       desc: t('about.log_master_desc'),
