@@ -87,6 +87,8 @@ export const translations = {
             log_6_title: "System Recalibration (Health Crisis)",
             log_6_desc: "A severe health crisis forced a system shutdown. This wasn't just a break; it was a survival necessity. As part of my recovery, I completed a Master's in EdTech, studying cognitive load and human adaptation. I shifted my focus from 'Optimization' to 'Resilience', rebuilding my philosophy to prioritize user agency.",
             log_6_quote: "\"I learned that resilient systems aren't the ones that never break, but the ones that hold you when you do.\"",
+            log_master_title: "Master's in Educational Technology",
+            log_master_desc: "Specializing in Cognitive Load Theory. Thesis: 'The Impact of Duolingo Usage Intensity on Vocabulary Mastery and English Motivation'. This was a deep dive into how humans learn and how interfaces can scaffold that process.",
             log_7_title: "Open for Collaboration",
             log_7_desc: "Back online with a new architecture. Combining Engineering rigor with Design empathy. Currently deploying experimental builds in EdTech and AI.",
             neural_echo: {
@@ -339,6 +341,8 @@ export const translations = {
             log_6_title: "Kalibrasi Ulang Sistem (Krisis Kesehatan)",
             log_6_desc: "Krisis kesehatan serius memaksa sistem berhenti total. Ini bukan sekadar istirahat; ini adalah keharusan untuk bertahan hidup. Sebagai bagian dari pemulihan, saya menyelesaikan S2 EdTech. Saya mengalihkan fokus dari 'Optimasi' ke 'Ketangguhan', membangun kembali filosofi saya untuk memprioritaskan manusia.",
             log_6_quote: "\"Sistem yang tangguh bukan yang anti-gagal, tapi yang menopang saat kegagalan terjadi.\"",
+            log_master_title: "Magister Teknologi Pendidikan",
+            log_master_desc: "Spesialisasi dalam Teori Beban Kognitif. Tesis: 'Pengaruh Intensitas Penggunaan Duolingo terhadap Penguasaan Kosakata dan Motivasi Belajar Bahasa Inggris'. Ini adalah pendalaman tentang bagaimana manusia belajar dan bagaimana antarmuka dapat menopang proses tersebut.",
             log_7_title: "Kolaborasi",
             log_7_desc: "Kembali online dengan arsitektur baru. Menggabungkan ketelitian Engineering dengan empati Desain. Saat ini bereksperimen di ranah EdTech dan AI.",
             neural_echo: {

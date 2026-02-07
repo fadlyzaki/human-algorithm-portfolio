@@ -49,6 +49,15 @@ const AboutPage = () => {
       category: 'bio'
     },
     {
+      year: '2023 - 2025',
+      type: 'KNOWLEDGE_INSTALL',
+      title: t('about.log_master_title'),
+      desc: t('about.log_master_desc'),
+      icon: BookOpen,
+      color: 'text-[var(--accent-blue)]',
+      category: 'bio'
+    },
+    {
       year: '2022 - 2025',
       type: 'SYSTEM_UPGRADE',
       title: t('about.log_6_title'),
