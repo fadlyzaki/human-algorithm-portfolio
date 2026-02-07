@@ -175,47 +175,47 @@ export const SIDE_PROJECTS = [
     {
         id: 'grab-merantau',
         title: 'Grab Merantau',
-        subtitle: 'Cross-City Emotional Commerce',
-        desc: 'Cross-city emotional wiring for the diaspora.',
-        desc_id: 'Koneksi emosional antar-kota bagi para perantau.',
-        tldr: "Empowering the diaspora to care for family remotely via contextual food delivery.",
-        tldr_id: "Memberdayakan perantau untuk merawat keluarga dari jauh lewat pengiriman makanan kontekstual.",
+        subtitle: 'Emotional Remittance',
+        desc: 'Redefining the "Remittance" flow for the Southeast Asian diaspora. Sending care, not just cash.',
+        desc_id: 'Mendefinisikan ulang arus "Remitansi" bagi diaspora Asia Tenggara. Mengirim perhatian, bukan cuma uang.',
+        tldr: "Bridging the emotional gap for 5M+ migrant workers who support families back home.",
+        tldr_id: "Menjembatani jarak emosional bagi 5 juta+ pekerja migran yang menafkahi keluarga di kampung.",
         sections: {
-            challenge: "Sending food to parents in another city feels transactional. It lacks warmth and context.",
-            approach: "Designed 'Merantau Mode' with an AI Concierge to recommend food based on texture (e.g., 'Soft meat for mom') and attach voice notes."
+            challenge: "Migrant workers (TKW/TKI) send billions in remittance, but the process is transactional and cold. They often feel disconnected from the daily impact of their support.",
+            approach: "Designed 'Merantau Mode'—a contextual layer on the Superapp that allows cross-border food delivery with voice-notes, turning a financial transaction into a care package."
         },
         sections_id: {
-            challenge: "Kirim makanan ke orang tua di luar kota rasanya transaksional banget. Kurang hangat dan konteks.",
-            approach: "Mendesain 'Mode Merantau' dengan AI Concierge buat rekomendasi makanan berdasarkan tekstur (misal: 'Daging empuk buat Ibu') dan lampirkan voice note."
+            challenge: "Pekerja migran (TKW/TKI) kirim miliaran remitansi, tapi prosesnya transaksional dan dingin. Mereka sering merasa terputus dari dampak harian nafkah mereka.",
+            approach: "Mendesain 'Mode Merantau'—layer kontekstual di Superapp yang memungkinkan pengiriman makanan lintas-negara dengan voice-note, mengubah transaksi keuangan jadi paket perhatian."
         },
-        stack: ["UX Research", "Figma", "AI Concept"],
+        stack: ["UX Research", "Service Design", "Fintech"],
         links: { demo: "#", repo: "#" },
         iconName: 'Heart',
-        type: 'Service Delivery',
-        hidden: true,
+        type: 'Service Design',
+        hidden: false,
         featured: false
     },
     {
         id: 'flood-alert',
         title: 'Flood Alert',
-        subtitle: 'Geospatial Disaster Response',
-        desc: 'Zero-blindspot alerting for Jakarta floods.',
-        desc_id: 'Peringatan tanpa blindspot untuk banjir Jakarta.',
-        tldr: "A real-time geospatial platform for monsoon season safety.",
-        tldr_id: "Platform geospasial real-time untuk keselamatan musim hujan.",
+        subtitle: 'Civic Resilience System',
+        desc: 'A hyper-local disaster response system for Jakarta\'s monsoon season.',
+        desc_id: 'Sistem respon bencana hyper-local untuk musim hujan Jakarta.',
+        tldr: "Zero-blindspot geospatial alerting during critical flood events.",
+        tldr_id: "Peringatan geospasial tanpa blindspot selama kejadian banjir kritis.",
         sections: {
-            challenge: "Citizens often get flood alerts *after* water enters their homes. Standard routes often lead through other flooded areas.",
-            approach: "Integrates BMKG/PetaBencana data for zero-blindspot alerting and safety-aware evacuation routing using PostGIS queries."
+            challenge: "Jakarta sinks 10cm/year. Traditional alerts are city-wide and vague, leaving citizens trapped in 'blindspot' neighborhoods during flash floods.",
+            approach: "Built a 'Waze for Disasters' using PostGIS & Node.js. It aggregates government sensor data and crowdsouces reports to generate safe evacuation routes in real-time."
         },
         sections_id: {
-            challenge: "Warga sering dapet info banjir *setelah* air masuk rumah. Rute standar sering malah ngarahin ke jalan banjir.",
-            approach: "Integrasi data BMKG/PetaBencana buat peringatan tanpa blindspot dan rute evakuasi aman pakai query PostGIS."
+            challenge: "Jakarta tenggelam 10cm/tahun. Peringatan tradisional terlalu umum, membuat warga terjebak di area 'blindspot' saat banjir bandang.",
+            approach: "Bangun 'Waze untuk Bencana' pakai PostGIS & Node.js. Agregasi data sensor pemerintah dan laporan warga untuk generate rute evakuasi aman secara real-time."
         },
         stack: ["Node.js", "PostGIS", "Flutter"],
         links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
         iconName: 'AlertTriangle',
-        type: 'Service Map',
-        hidden: true,
+        type: 'Engineering',
+        hidden: false,
         featured: false
     },
     {

@@ -13,10 +13,10 @@ export const translations = {
             archives: "Archives"
         },
         home: {
-            role: "Product Designer",
-            role_sub: "systems thinker",
+            role: "Product Designer // Design Engineer",
+            role_sub: "Systems Thinker",
             intro_title: "FADLY UZZAKI.",
-            intro_desc: "Bridging the gap between **Computer Science logic** and **human behavior**. I design systems that feel inevitable, not forced.",
+            intro_desc: "Bridging the gap between **Computer Science logic** and **human behavior**. I prototype, build, and design systems that feel inevitable.",
             cta_work: "View Case Studies",
             cta_cv: "CV",
             sticky_note: "Antidote to digital fatigue.",
@@ -51,7 +51,7 @@ export const translations = {
         },
         about: {
             main_terminal: "Main Terminal",
-            intro_title: "Human By Design",
+            intro_title: "Designer who Codes",
             intro_p1: "I started as a **Computer Science student**. I loved the certainty. The if-then clarity. Systems made sense when people didn't.",
             intro_p2: "This obsession with 'efficiency' creates brittle systems. We stopped treating users like pilots and started treating them like data points. We optimized for 'Time on Site' instead of 'Time Well Spent'. I saw users struggling with interfaces built by people who never had to use them in a crisis. Bad UX isn't just annoying; it's an erasure of human agency.",
             intro_p3: "That pause taught me more about **human-centered design** than any degree. When you're exhausted, scared, or in pain—you don't have bandwidth for clever UX. You need tools that just *work*. Quietly. Reliably. Without asking for applause.",
@@ -84,9 +84,9 @@ export const translations = {
             log_4_desc: "A study in social impact. I consulted for a social enterprise empowering rural women through wicker crafts. The interface had to connect rural skills with modern markets.",
             log_5_title: "Product Designer @ Lumina (YC W22)",
             log_5_desc: "Designing for the blue-collar economy requires radical honesty. Lumina revolutionizes recruitment through a highly engaged job community platform. I wasn't just building features; I was building a trust layer connecting hundreds of thousands of workers with SMEs.",
-            log_6_title: "The Agency Pivot (Sabbatical)",
-            log_6_desc: "I took a step back to re-evaluate. This wasn't a shutdown; it was a system refactor. As part of my healing process, I completed a Master's in EdTech, studying cognitive load and human adaptation. I shifted my focus from 'Optimization' to 'Resilience', rebuilding my philosophy to prioritize user agency.",
-            log_6_quote: "\"We need to give the steering wheel back to the user.\"",
+            log_6_title: "System Recalibration (Health Crisis)",
+            log_6_desc: "A severe health crisis forced a system shutdown. This wasn't just a break; it was a survival necessity. As part of my recovery, I completed a Master's in EdTech, studying cognitive load and human adaptation. I shifted my focus from 'Optimization' to 'Resilience', rebuilding my philosophy to prioritize user agency.",
+            log_6_quote: "\"I learned that resilient systems aren't the ones that never break, but the ones that hold you when you do.\"",
             log_7_title: "Open for Collaboration",
             log_7_desc: "Back online with a new architecture. Combining Engineering rigor with Design empathy. Currently deploying experimental builds in EdTech and AI.",
             neural_echo: {
@@ -333,9 +333,9 @@ export const translations = {
             log_4_desc: "Studi dampak sosial. Konsultasi untuk wirausaha sosial yang memberdayakan perempuan pedesaan. Antarmuka harus menjembatani keterampilan tradisional dengan pasar modern.",
             log_5_title: "Product Designer @ Lumina (YC W22)",
             log_5_desc: "Desain untuk 'Blue Collar Economy' butuh kejujuran radikal. Kami membangun platform komunitas kerja. Bukan sekadar fitur, tapi lapisan kepercayaan (trust layer) yang menghubungkan ratusan ribu pekerja dengan pemberi kerja.",
-            log_6_title: "The Agency Pivot (Sabbatical)",
-            log_6_desc: "Saya mengambil langkah mundur untuk mengevaluasi. Ini bukan shutdown; ini refactor sistem. Sebagai bagian dari proses pemulihan, saya menyelesaikan S2 EdTech, mempelajari beban kognitif dan adaptasi manusia. Saya mengalihkan fokus dari 'Optimasi' ke 'Ketangguhan', memprioritaskan agensi pengguna.",
-            log_6_quote: "\"Kita perlu mengembalikan kemudi setir kepada pengguna.\"",
+            log_6_title: "Kalibrasi Ulang Sistem (Krisis Kesehatan)",
+            log_6_desc: "Krisis kesehatan serius memaksa sistem berhenti total. Ini bukan sekadar istirahat; ini adalah keharusan untuk bertahan hidup. Sebagai bagian dari pemulihan, saya menyelesaikan S2 EdTech. Saya mengalihkan fokus dari 'Optimasi' ke 'Ketangguhan', membangun kembali filosofi saya untuk memprioritaskan manusia.",
+            log_6_quote: "\"Sistem yang tangguh bukan yang anti-gagal, tapi yang menopang saat kegagalan terjadi.\"",
             log_7_title: "Kolaborasi",
             log_7_desc: "Kembali online dengan arsitektur baru. Menggabungkan ketelitian Engineering dengan empati Desain. Saat ini bereksperimen di ranah EdTech dan AI.",
             neural_echo: {
