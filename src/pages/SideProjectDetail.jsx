@@ -8,7 +8,7 @@ import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import BackButton from '../components/BackButton';
-import { SIDE_PROJECTS } from '../data/portfolioData';
+import { SIDE_PROJECTS, NOTES } from '../data/portfolioData';
 import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
 import Treasure from '../components/Treasure';
@@ -32,7 +32,7 @@ const SideProjectDetail = () => {
    const { id } = useParams();
 
    // Fetch Data
-   const project = SIDE_PROJECTS.find(p => p.id === id);
+   const project = SIDE_PROJECTS.find(p => p.id === id) || NOTES.find(p => p.id === id);
 
    if (!project) {
       return (

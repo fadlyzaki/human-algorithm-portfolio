@@ -461,42 +461,65 @@ export const NOTES = [
         date: "February 2026",
         coverImage: "/price-lock-cover.png",
         brandColor: "#10B981", // Fintech Green
-        modules: [
+        snapshot: {
+            tagline: "Fintech Feature for OTA",
+            heroImage: "/price-lock-cover.png"
+        },
+        context: {
+            role: "Product Designer",
+            timeline: "February 2026",
+            team: "Growth Team",
+            client: "Internal Product"
+        },
+        challenge: "The specific anxiety of watching a flight price jump $50 while you wait for your boss\'s approval. In a world of dynamic pricing, the user is always the loser.",
+        process: [
             {
                 title: "The $50 Heartbeat Skip",
-                content: "You find the perfect flight to Bali. It's $100. You text your friends. They take 3 hours to reply. You refresh the page. It's now $150.\n\nThat physical feeling of regret? That's what we are designing against. In a world of dynamic pricing, the user is always the loser. We wanted to give them a weapon."
-            },
-            {
-                title: "The Pause Button",
-                content: "Price Lock is not a fintech product; it's an anxiety medication.\n\n• The Promise: \"Pause the world for 24 hours.\"\n• The Mechanism: A small fee ($2) to freeze the algorithm.\n• The Psychology: It shifts the user from a state of Panic (\"I must buy now!\") to a state of Control (\"I have time to decide.\")."
+                desc: "You find the perfect flight. You text friends. They take 3 hours. You refresh. Price went up. That regret is what we designed against."
             },
             {
                 title: "Buying Time, Not Tickets",
-                content: "We discovered that users weren't paying for the ticket; they were paying for the *option* to buy the ticket.\n\nThey were buying the ability to wait for their paycheck. They were buying the ability to ask their boss for leave without risking a price hike. They were buying peace of mind."
-            },
-            {
-                title: "The Honest Algorithm",
-                content: "To build trust, we couldn't just guess the fee. We showed our work.\n\n\"AI Prediction: 85% chance this price rises tomorrow.\"\n\nBy being transparent about the volatility, the fee stopped feeling like an extra cost and started feeling like insurance. We turned a 'Hidden Fee' into a 'Hero Feature'."
+                desc: "Users weren't paying for the ticket; they were paying for the *option* to wait. The ability to ask their boss for leave without risking a price hike."
             }
         ],
-        modules_id: [
+        insights: [
+            {
+                title: "The Honest Algorithm",
+                desc: "To build trust, we showed our work: 'AI Prediction: 85% chance this price rises tomorrow.' This turned a 'Hidden Fee' into 'Insurance'."
+            }
+        ],
+        solution: [
+            {
+                title: "The Pause Button",
+                desc: "A small fee ($2) to freeze the algorithm for 24 hours. Shifts user state from Panic to Control."
+            }
+        ],
+        metrics: [],
+        learnings: "Price Lock is not a fintech product; it's an anxiety medication.",
+        challenge_id: "Kecemasan spesifik saat melihat tiket naik 500rb sambil menunggu izin cuti bos. Di dunia 'dynamic pricing', user selalu kalah.",
+        process_id: [
             {
                 title: "Jantung Copot Karena 500 Ribu",
-                content: "Kamu nemu tiket ke Bali harga 1 juta. Kamu chat temen-temen di grup. Mereka balesnya 3 jam kemudian. Kamu refresh halamannya. Harganya sekarang 1,5 juta.\n\nPerasaan nyesek di dada itu? Itu yang kami desain solusinya. Di dunia 'dynamic pricing', user selalu jadi pihak yang kalah. Kami ingin memberi mereka senjata."
-            },
-            {
-                title: "Tombol Pause",
-                content: "Price Lock bukan produk fintech; ini obat anti-cemas.\n\n• Janjinya: \"Pause dunia selama 24 jam.\"\n• Mekanismenya: Bayar receh (20rb) buat bekukan algoritma.\n• Psikologinya: Mengubah user dari mode Panik (\"Harus beli sekarang!\") ke mode Kontrol (\"Gue punya waktu buat mikir.\")."
+                desc: "Nemu tiket pas. Chat temen. Lama bales. Refresh. Harga naik. Rasa nyesek itu musuh desain kami."
             },
             {
                 title: "Beli Waktu, Bukan Tiket",
-                content: "Kami menemukan bahwa user itu sebenarnya bukan bayar buat tiketnya; mereka bayar buat *opsi* untuk membeli tiketnya.\n\nMereka membeli kemampuan buat nunggu gajian. Mereka membeli kemampuan buat minta izin cuti ke bos tanpa takut harga naik. Mereka membeli ketenangan pikiran."
-            },
-            {
-                title: "Algoritma yang Jujur",
-                content: "Untuk membangun trust, kami gak bisa asal nembak harga. Kami buka dapur kami.\n\n\"Prediksi AI: 85% peluang harga naik besok.\"\n\nDengan transparan soal volatilitas, biaya lock ini berhenti terasa sebagai 'biaya tambahan' dan mulai terasa sebagai 'asuransi'. Kami mengubah 'Hidden Fee' jadi 'Hero Feature'."
+                desc: "User bayar bukan buat tiket, tapi buat *opsi* nunggu. Kemampuan minta izin bos tanpa takut harga naik."
             }
-        ]
+        ],
+        insights_id: [
+            {
+                title: "Algoritma Jujur",
+                desc: "Kami buka dapur: 'Prediksi AI: 85% peluang naik besok.' Ini ubah 'Biaya Admin' jadi 'Asuransi'."
+            }
+        ],
+        solution_id: [
+            {
+                title: "Tombol Pause",
+                desc: "Bayar receh buat bekukan algoritma 24 jam. Ubah user dari Panik ke Kontrol."
+            }
+        ],
+        learnings_id: "Price Lock bukan produk fintech; ini obat anti-cemas."
     },
     {
         id: 'project-kinship',
@@ -519,42 +542,65 @@ export const NOTES = [
         date: "February 2026",
         coverImage: "/project-kinship-cover.png",
         brandColor: "#EC4899", // Kinship Pink
-        modules: [
+        snapshot: {
+            tagline: "Social Logistics & Gifting",
+            heroImage: "/project-kinship-cover.png"
+        },
+        context: {
+            role: "Product Designer",
+            timeline: "February 2026",
+            team: "Logistics Team",
+            client: "Internal Product"
+        },
+        challenge: "Transferring money is easy; showing care is hard. Money says 'I support you,' but it doesn't say 'I miss you.' We wanted to build a remittance tool that carried warmth.",
+        process: [
             {
                 title: "Why Cash Feels Cold",
-                content: "Every month, millions of migrant workers send money home. It's a transaction of love, but the interface is cold, sterile, and purely numeric.\n\nMoney says \"I support you,\" but it doesn't say \"I miss you.\"\n\nWe wanted to build a remittance tool that carried the warmth of the hand that sent it."
-            },
-            {
-                title: "Delivering Warmth, Not Just Funds",
-                content: "Kinship isn't about sending Rupiah; it's about sending 'Care Packages'.\n\n• The Context: Instead of just wiring $50, the user sends a 'Sunday Dinner' (a curated basket of groceries).\n• The Bridge: The sender (in the city) navigates the village map remotely. They become present in their family's daily life, even from 500km away."
+                desc: "Every month, millions of migrant workers send money home. It's a transaction of love, but the interface is cold, sterile, and purely numeric."
             },
             {
                 title: "The Zero-UI Receiver",
-                content: "The harsh reality: The people who need care the most often have the oldest phones.\n\nWe built a 'Zero-UI' receiver experience.\n• No App Install: The receiver gets a WhatsApp link.\n• SMS Fallback: If data fails, the updates arrive via SMS.\n• Empathy-First: The driver is trained not just to drop off a package, but to deliver a greeting."
-            },
-            {
-                title: "Closing the Loop",
-                content: "A transaction ends when money arrives. A relationship continues.\n\nWe added a 'Video Receipt' feature. When the package arrives, the driver records the family's reaction (with consent). The sender doesn't just see a 'delivered' checkmark; they see their mother smiling."
+                desc: "The harsh reality: The people who need care the most often have the oldest phones. We built a WhatsApp-based receiver flow with SMS fallback."
             }
         ],
-        modules_id: [
+        insights: [
             {
-                title: "Kenapa Uang Tunai Terasa Dingin",
-                content: "Setiap bulan, jutaan perantau kirim uang ke kampung. Itu transaksi penuh cinta, tapi antarmukanya dingin, steril, dan cuma angka.\n\nUang bilang \"Aku support kamu,\" tapi dia gak bilang \"Aku kangen kamu.\"\n\nKami ingin bangun alat remitansi yang membawa kehangatan tangan yang mengirimnya."
-            },
+                title: "Delivering Warmth",
+                desc: "Kinship isn't about sending Rupiah; it's about sending 'Care Packages' (e.g., a Sunday Dinner basket). It lets the sender be present in family life remotely."
+            }
+        ],
+        solution: [
             {
-                title: "Mengirim Kehangatan, Bukan Cuma Dana",
-                content: "Kinship bukan soal kirim Rupiah; ini soal kirim 'Paket Perhatian'.\n\n• Konteks: Daripada cuma transfer 500rb, user kirim 'Makan Malam Minggu' (paket sembako terkurasi).\n• Jembatan: Pengirim (di kota) menavigasi peta kampung dari jauh. Mereka hadir di keseharian keluarga, walau jarak 500km."
+                title: "Video Receipt",
+                desc: "A transaction ends when money arrives. A relationship continues. Drivers record the family's reaction (with consent) so the sender sees their mother smiling."
+            }
+        ],
+        metrics: [],
+        learnings: "Closing the loop with emotion, not just a transaction status.",
+        challenge_id: "Transfer uang itu gampang; menunjukkan kepedulian itu susah. Uang bilang 'Aku support kamu,' tapi gak bilang 'Aku kangen kamu.'",
+        process_id: [
+            {
+                title: "Kenapa Uang Terasa Dingin",
+                desc: "Tiap bulan perantau kirim uang. Itu transaksi cinta, tapi antarmukanya dingin dan cuma angka."
             },
             {
                 title: "Penerima Tanpa-UI",
-                content: "Realita pahit: Orang yang paling butuh perhatian seringkali punya HP paling jadul.\n\nKami bangun pengalaman penerima 'Zero-UI'.\n• Tanpa Install App: Penerima dapat link WhatsApp.\n• Fallback SMS: Kalau data mati, update masuk lewat SMS.\n• Empati-Dulu: Driver dilatih bukan cuma lempar paket, tapi sampaikan salam."
-            },
-            {
-                title: "Menutup Lingkaran",
-                content: "Transaksi berakhir saat uang sampai. Hubungan berlanjut.\n\nKami tambah fitur 'Resi Video'. Saat paket sampai, driver rekam reaksi keluarga (dengan izin). Pengirim gak cuma lihat centang 'delivered'; mereka lihat Ibu mereka tersenyum."
+                desc: "Orang tua sering gaptek. Kami buat alur penerimaan via WhatsApp dengan fallback SMS."
             }
-        ]
+        ],
+        insights_id: [
+            {
+                title: "Mengirim Kehangatan",
+                desc: "Bukan kirim Rupiah, tapi 'Paket Perhatian' (misal: Sembako Makan Malam). Biar pengirim merasa hadir di rumah."
+            }
+        ],
+        solution_id: [
+            {
+                title: "Resi Video",
+                desc: "Transaksi selesai saat uang sampai. Hubungan berlanjut. Driver rekam reaksi keluarga biar pengirim lihat senyum Ibu."
+            }
+        ],
+        learnings_id: "Menutup lingkaran dengan emosi, bukan sekadar status transaksi."
     },
     {
         id: 'agency-pivot',
@@ -575,59 +621,84 @@ export const NOTES = [
         date: "March 2026",
         brandColor: "#8B5CF6", // Pivot Purple
         coverImage: "/about-portrait-new.jpg",
-        modules_id: [
+        snapshot: {
+            tagline: "Redesigning Algorithms",
+            heroImage: "/about-portrait-new.jpg"
+        },
+        context: {
+            role: "UX Researcher",
+            timeline: "March 2026",
+            team: "Social Media Giant",
+            client: "Internal Research"
+        },
+        challenge: "Social media transitioned from Connecting People to Retaining Attention. This stripped users of agency, creating a 'Feed of Slop' that prioritizes cheap dopamine. Users feel manipulated and anxious.",
+        process: [
             {
-                title: "Protagonis: Berkencan dengan Sarah",
-                content: "Sarah adalah Desainer Grafis berusia 24 tahun. Dia tumbuh besar dengan Instagram. Dia ingat ketika feed masih kronologis dan isinya hanya teman-temannya.\n\nSituasi (2025):\nSarah membuka aplikasi sosial favoritnya. Dia langsung disambut dengan:\n• Iklan pemutih gigi dropship.\n• Video viral orang asing berteriak tentang politik.\n• Gambar kucing di luar angkasa buatan AI yang agak meresahkan.\n\nKonflik:\nDia menggulir selama 10 menit. Dia merasa cemas sekaligus bosan. Tiba-tiba, dia mendapat pesan dari sahabatnya, Mike: \"Kamu lihat foto tunanganku? Aku posting kemarin!\"\nSarah belum melihatnya. Algoritma memutuskan dia lebih suka \"Kucing Angkasa\" daripada Mike. Dia menutup aplikasi, merasakan kesepian digital.\n\nMasalah:\nMedia sosial telah beralih dari Menghubungkan Orang menjadi Retensi Perhatian. Ini menghilangkan agensi pengguna, menciptakan \"Feed Sampah\" yang memprioritaskan dopamin murah."
+                title: "The Protagonist: Sarah",
+                desc: "Sarah wants updates from friends but gets ads and viral screamers. She feels 'digital loneliness' even while scrolling. Our goal: Give her back the steering wheel."
             },
             {
-                title: "Percobaan Pertama: Solusi \"Kokpit\"",
-                content: "Hipotesis: Jika pengguna membenci algoritma, biarkan mereka membangunnya kembali secara manual.\n\nKami merancang \"Panel Kontrol Algoritma.\" Itu adalah layar pengaturan yang penuh dengan slider, persentase, dan tombol beralih. Kami memberi Sarah kunci kerajaan. Dia bisa mengatur \"Politik\" ke 0% dan \"Teman\" ke 100%.\n\nUji Pengguna:\nSarah membuka menu Pengaturan. Dia menatap 12 slider yang berbeda. Dia mengerutkan kening.\n\"Ini terlihat seperti pekerjaan rumah,\" katanya. \"Saya tidak ingin mengkalibrasi feed saya seperti insinyur suara. Saya hanya ingin isinya bagus.\"\n\nKegagalan:\nKami jatuh ke dalam Perangkap Rekayasa. Kami menyamakan \"Kontrol\" dengan \"Kompleksitas.\" Pengguna menginginkan agensi, tetapi mereka tidak menginginkan friksi. Panel Kontrol itu kuat, tetapi terlalu tersembunyi dan berat untuk digunakan setiap hari."
-            },
-            {
-                title: "Pivot: Dari \"Pengaturan\" ke \"Vibe\"",
-                content: "Wawasan:\nKami menyadari bahwa pengguna tidak memiliki preferensi statis (misalnya, \"Saya selalu benci video\"). Mereka memiliki Mood Kontekstual.\n• Kadang Sarah ingin merusak otaknya dengan video viral (\"Doom Scroll\").\n• Kadang dia hanya ingin melihat apa yang dilakukan Mike (\"Update\").\n\nKami perlu memindahkan kontrol dari Menu Pengaturan ke Feed itu sendiri, tetapi tanpa membuat antarmuka berantakan."
-            },
-            {
-                title: "Solusi: Stealth UX & Desain \"Mode\"",
-                content: "Kami membangun Antarmuka SocialFlux Kompak.\n\nA. Mode Switcher \"Stealth\"\nAlih-alih deretan tombol yang memakan ruang layar, kami memanfaatkan model mental UI yang ada.\nDesain: Kami mengubah teks \"Untuk Anda\" di kiri atas menjadi menu dropdown.\nCerita: Sarah membuka aplikasi. Defaultnya ke \"Untuk Anda\" (campuran standar). Dia merasa kewalahan. Dia mengetuk header dan memilih \"Hanya Teman.\"\nHasilnya: Seketika, kebisingan lenyap. Tidak ada iklan, tidak ada AI, tidak ada orang asing. Hanya foto tunangan Mike.\n\nB. \"Mode Santai\"\nSarah ingin menjelajah, tapi dia lelah dengan video berteriak energi tinggi.\nDesain: Dia memilih \"Mode Santai\" dari dropdown.\nLogika: Mode ini menyaring audio BPM tinggi, potongan cepat, dan tag \"viral/hype\" di backend. Ini memprioritaskan foto, alam, dan seni.\nHasilnya: Feed menjadi majalah digital, bukan mesin slot.\n\nC. \"Micro-Blocking\" Kontekstual\nSarah melihat gambar selebriti buatan AI yang terasa palsu.\nDesain: Kami menambahkan tag kecil berbentuk pil abu-abu di bagian bawah posting: #AI, #Celebrity.\nInteraksi: Sarah tidak perlu mencari tombol \"Laporkan\". Dia cukup mengetuk tag #AI. Aplikasi bertanya: \"Sembunyikan konten seperti ini?\" Dia mengklik Ya.\nHasilnya: Dia telah melatih algoritmanya dalam 2 detik tanpa meninggalkan feed."
-            },
-            {
-                title: "Hasil: Mengapa Ini Berhasil",
-                content: "Dengan beralih dari \"Panel Kontrol\" (Prototipe 1) ke \"Feed Terpadu\" (Prototipe 3), kami mencapai hal berikut:\n\nSkor Kepercayaan ⬆️ Peningkatatn Tinggi\nPengguna berhenti merasa \"dimanipulasi\" karena kontrol terlihat dan responsif.\n\nDurasi Sesi ↔️ Stabil\nPengguna menghabiskan waktu yang sama, tetapi melaporkan merasa 50% lebih sedikit \"bersalah\" setelahnya.\n\nInteraksi Teman ⬆️ 300% Peningkatan\nMode \"Hanya Teman\" menghilangkan hambatan untuk menemukan orang-orang terkasih."
-            },
-            {
-                title: "Kesimpulan",
-                content: "Masa depan media sosial bukan tentang AI yang lebih baik memprediksi apa yang Anda inginkan. Ini tentang AI yang mendengarkan apa yang Anda katakan.\n\nSarah tidak butuh aplikasi baru. Dia hanya butuh aplikasi saat ini untuk cukup menghormatinya untuk menyerahkan kemudi.\n\n\"Teknologi seharusnya menjadi sepeda untuk pikiran, bukan ban berjalan untuk mata.\""
+                title: "Failed Attempt: The Cockpit",
+                desc: "We tried a complex settings panel with sliders. Users hated it. 'This looks like work. I don't want to calibrate my feed like a sound engineer.'"
             }
         ],
-
-        modules: [
+        insights: [
             {
-                title: "The Protagonist: Meet Sarah",
-                content: "Sarah is a 24-year-old Graphic Designer. She grew up on Instagram. She remembers when the feed was chronological and just her friends.\n\nThe Situation (2025):\nSarah opens her favorite social app. She is immediately hit with:\n• An ad for drop-shipped teeth whitener.\n• A viral video of a stranger screaming about politics.\n• An AI-generated image of a cat in space that looks vaguely unsettling.\n\nThe Conflict:\nShe scrolls for 10 minutes. She feels anxious and bored simultaneously. Suddenly, she gets a text from her best friend, Mike: \"Did you see my engagement photos? I posted them yesterday!\"\nSarah hadn't seen them. The algorithm decided she liked \"Space Cats\" more than Mike. She closes the app, feeling a distinct sense of digital loneliness.\n\nThe Problem Statement:\nSocial media has transitioned from Connecting People to Retaining Attention. In doing so, it has stripped the user of agency, creating a \"Feed of Slop\" that prioritizes cheap dopamine over meaningful connection."
-            },
-            {
-                title: "The First Attempt: The \"Cockpit\" Solution",
-                content: "The Hypothesis: If users hate the algorithm, let them rebuild it manually.\n\nWe designed the \"Algorithm Control Panel.\" It was a settings screen filled with sliders, percentages, and toggles. We gave Sarah the keys to the kingdom. She could set \"Politics\" to 0% and \"Friends\" to 100%.\n\nThe User Test:\nSarah opened the Settings menu. She stared at the 12 different sliders. She frowned.\n\"This looks like work,\" she said. \"I don't want to calibrate my feed like a sound engineer. I just want it to be good.\"\n\nThe Failure:\nWe fell into the Engineering Trap. We confused \"Control\" with \"Complexity.\" Users want agency, but they don't want friction. The Control Panel was powerful, but it was too buried and too heavy to use daily."
-            },
-            {
-                title: "The Pivot: From \"Settings\" to \"Vibes\"",
-                content: "The Insight:\nWe realized that users don't have static preferences (e.g., \"I always hate video\"). They have Contextual Moods.\n• Sometimes Sarah wants to rot her brain with viral videos (The \"Doom Scroll\").\n• Sometimes she just wants to see what Mike is doing (The \"Update\").\n\nWe needed to move the controls out of the Settings Menu and onto the Feed itself, but without cluttering the interface."
-            },
-            {
-                title: "The Solution: Stealth UX & The \"Modes\" Design",
-                content: "We built the Compact SocialFlux Interface.\n\nA. The \"Stealth\" Mode Switcher\nInstead of a row of buttons taking up screen space, we utilized the existing UI mental model.\nThe Design: We turned the \"For You\" text at the top left into a dropdown menu.\nThe Story: Sarah opens the app. It defaults to \"For You\" (the standard mix). She feels overwhelmed. She taps the header and selects \"Friends Only.\"\nThe Result: Instantly, the noise vanishes. No ads, no AI, no strangers. Just Mike’s engagement photos.\n\nB. The \"Chill Mode\"\nSarah wants to browse, but she's tired of high-energy screaming videos.\nThe Design: She selects \"Chill Mode\" from the dropdown.\nThe Logic: This mode filters out high-BPM audio, rapid cuts, and \"viral/hype\" tags in the backend. It prioritizes photos, nature, and art.\nThe Result: The feed becomes a digital magazine, not a slot machine.\n\nC. Contextual \"Micro-Blocking\"\nSarah sees an AI-generated image of a celebrity that feels fake.\nThe Design: We added tiny, grey, pill-shaped tags at the bottom of the post: #AI, #Celebrity.\nThe Interaction: Sarah doesn't need to find a \"Report\" button. She just taps the #AI tag. The app asks: \"Hide content like this?\" She clicks Yes.\nThe Result: She has trained her algorithm in 2 seconds without leaving the feed."
-            },
-            {
-                title: "The Outcome: Why It Worked",
-                content: "By moving from a \"Control Panel\" (Prototype 1) to a \"Streamlined Feed\" (Prototype 3), we achieved the following:\n\nTrust Score ⬆️ High Increase\nUsers stopped feeling \"manipulated\" because the controls were visible and responsive.\n\nSession Length ↔️ Stable\nUsers spent the same amount of time, but reported feeling 50% less \"guilty\" afterwards.\n\nFriend Interaction ⬆️ 300% Increase\nThe \"Friends Only\" mode removed the friction of finding loved ones."
-            },
-            {
-                title: "Conclusion",
-                content: "The future of social media isn't about better AI predicting what you want. It's about AI listening to what you say.\n\nSarah didn't need a new app. She just needed the current app to respect her enough to hand over the steering wheel.\n\n\"Technology should be a bicycle for the mind, not a conveyor belt for the eyes.\""
+                title: "From Settings to Vibes",
+                desc: "Users don't have static preferences; they have Contextual Moods. Sometimes they want 'Doom Scroll', sometimes 'Friends Only'."
             }
-        ]
+        ],
+        solution: [
+            {
+                title: "Stealth Mode Switcher",
+                desc: "Turned the 'For You' header into a dropdown. Sarah can switch to 'Friends Only' instantly. Noise vanishes."
+            },
+            {
+                title: "Chill Mode",
+                desc: "Filters out high-BPM audio and rapid cuts. The feed becomes a digital magazine, not a slot machine."
+            },
+            {
+                title: "Micro-Blocking",
+                desc: "One-tap removal of AI/spam content via tags, training the algorithm without leaving the feed."
+            }
+        ],
+        metrics: [
+            { label: "Trust Score", value: "High Increase" },
+            { label: "Friend Interaction", value: "+300%" }
+        ],
+        learnings: "Technology should be a bicycle for the mind, not a conveyor belt for the eyes.",
+        challenge_id: "Medsos beralih dari Koneksi ke Retensi Atensi. Ini mencuri agensi user, menciptakan 'Feed Sampah' demi dopamin murah. User merasa dimanipulasi.",
+        process_id: [
+            {
+                title: "Protagonis: Sarah",
+                desc: "Sarah mau update teman tapi dapet iklan dan video teriak. Dia merasa kesepian digital. Goal kami: Kembalikan kemudi ke dia."
+            },
+            {
+                title: "Gagal: Kokpit",
+                desc: "Kami coba panel setting rumit. User benci. 'Ini kayak kerjaan. Gue gak mau kalibrasi feed kayak sound engineer.'"
+            }
+        ],
+        insights_id: [
+            {
+                title: "Dari Setting ke Vibe",
+                desc: "User gak punya preferensi statis; mereka punya Mood Kontekstual. Kadang mau 'Doom Scroll', kadang 'Hanya Teman'."
+            }
+        ],
+        solution_id: [
+            {
+                title: "Stealth Mode Switcher",
+                desc: "Ubah header 'For You' jadi dropdown. Bisa switch ke 'Hanya Teman' instan. Bising hilang."
+            },
+            {
+                title: "Mode Santai",
+                desc: "Filter audio cepat dan potongan kasar. Feed jadi majalah digital, bukan mesin slot."
+            },
+            {
+                title: "Micro-Blocking",
+                desc: "Hapus konten AI/spam sekali tap lewat tag, melatih algoritma tanpa keluar feed."
+            }
+        ],
+        learnings_id: "Teknologi harusnya jadi sepeda buat pikiran, bukan ban berjalan buat mata."
     },
     {
         id: 'filter-me',

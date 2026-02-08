@@ -267,7 +267,7 @@ const SideProjectsIndex = () => {
                 <div className="mb-12">
                     <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
                         <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
-                        Notes / Prototypes
+                        Prototypes
                         <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
