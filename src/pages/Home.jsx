@@ -24,6 +24,7 @@ import { useHandCursor } from '../context/HandCursorContext';
 import { useLanguage } from '../context/LanguageContext';
 import { SIDE_PROJECTS, WORK_CLUSTERS } from '../data/portfolioData';
 import RichText from '../components/RichText';
+import ProgressBar from '../components/ProgressBar';
 
 // --- HELPERS ---
 const IconMapper = ({ iconName, ...props }) => {
@@ -151,7 +152,6 @@ const NavigationMenu = ({ isOpen, onClose }) => {
 
 const Portfolio = () => {
   /* --- STATE & HOOKS --- */
-  const [scrolled, setScrolled] = useState(0);
   const { isDark, setIsDark } = useTheme();
   const themeStyles = useThemeStyles();
   const { isGestureMode, toggleGestureMode } = useHandCursor();
@@ -184,11 +184,8 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const currentScrollY = window.scrollY;
 
-      setScrolled((winScroll / height) * 100);
 
       // Smart Navbar Logic
       // Only trigger if difference is substantial to avoid flicker
@@ -252,9 +249,7 @@ const Portfolio = () => {
       </div>
 
       {/* Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 z-[60] bg-[var(--bg-surface)]">
-        <div className="h-full bg-[var(--accent-amber)] shadow-[0_0_10px_var(--accent-amber)]" style={{ width: `${scrolled}%` }}></div>
-      </div>
+      <ProgressBar />
 
       {/* --- NAVIGATION SYSTEM --- */}
 
