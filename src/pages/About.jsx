@@ -254,8 +254,12 @@ const AboutPage = () => {
 
       {/* HEADER */}
       <div className="fixed top-0 left-0 w-full z-50">
-        <header className="flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)]">
+        <header className="relative flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)]">
           <BackButton to="/" label={t('about.main_terminal')} />
+
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] hidden md:block">
+            ABOUT
+          </div>
 
           <div className="flex items-center gap-4">
             <button
