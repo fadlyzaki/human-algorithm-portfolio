@@ -71,8 +71,28 @@ const SideProjectDetail = () => {
    const activeTitle = (isIndonesian && project.title_id) ? project.title_id : project.title;
    const activeSubtitle = (isIndonesian && project.subtitle_id) ? project.subtitle_id : project.subtitle;
    const activeTldr = (isIndonesian && project.tldr_id) ? project.tldr_id : project.tldr;
-   const activeModules = (isIndonesian && project.modules_id) ? project.modules_id : project.modules;
-   const activeSections = (isIndonesian && project.sections_id) ? project.sections_id : project.sections;
+
+   // Framework Data
+   const rawSnapshot = project.snapshot || {};
+   const activeSnapshot = {
+      tagline: (isIndonesian && project.snapshot_id?.tagline) || rawSnapshot.tagline || activeSubtitle,
+      heroImage: rawSnapshot.heroImage || project.coverImage
+   };
+
+   const rawContext = project.context || {};
+   const activeContext = {
+      client: (isIndonesian && project.context_id?.client) || rawContext.client || "Personal",
+      role: (isIndonesian && project.context_id?.role) || rawContext.role || "Creator",
+      timeline: (isIndonesian && project.context_id?.timeline) || rawContext.timeline || project.date,
+      team: (isIndonesian && project.context_id?.team) || rawContext.team || "Solo"
+   };
+
+   const activeChallenge = (isIndonesian && project.challenge_id) ? project.challenge_id : (project.challenge || project.desc);
+   const activeProcess = (isIndonesian && project.process_id) ? project.process_id : project.process;
+   const activeInsights = (isIndonesian && project.insights_id) ? project.insights_id : project.insights;
+   const activeSolution = (isIndonesian && project.solution_id) ? project.solution_id : project.solution;
+   const activeMetrics = (isIndonesian && project.metrics_id) ? project.metrics_id : project.metrics;
+   const activeLearnings = (isIndonesian && project.learnings_id) ? project.learnings_id : project.learnings;
 
    // Interaction Mapping
    const InteractionComponent = {
@@ -165,7 +185,7 @@ const SideProjectDetail = () => {
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)]">
                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></div>
                      <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
-                        Experimental Build
+                        {activeSnapshot.tagline}
                      </span>
                   </div>
 
@@ -221,85 +241,131 @@ const SideProjectDetail = () => {
                      </div>
                   </div>
 
-                  {/* Date/Year (Mocked for now) */}
-                  <div className="space-y-2">
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-black/60 dark:text-white/60 flex items-center gap-2">
-                        <Terminal size={12} /> Year
-                     </h3>
-                     <div className="text-sm font-medium text-black dark:text-white">{project.date || '2023 — Present'}</div>
-                  </div>
-
                   {/* Context */}
                   <div className="space-y-2">
                      <h3 className="font-mono text-[10px] uppercase tracking-widest text-black/60 dark:text-white/60 flex items-center gap-2">
                         <Layers size={12} /> Context
                      </h3>
-                     <div className="text-sm font-medium text-black dark:text-white">{activeSubtitle}</div>
+                     <div className="text-sm font-medium text-black dark:text-white">{activeContext.role}</div>
+                  </div>
+
+                  {/* Timeline */}
+                  <div className="space-y-2">
+                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-black/60 dark:text-white/60 flex items-center gap-2">
+                        <Terminal size={12} /> Timeline
+                     </h3>
+                     <div className="text-sm font-medium text-black dark:text-white">{activeContext.timeline}</div>
                   </div>
                </div>
             </section>
 
             {/* --- 4. THE FILE (Content Modules) --- */}
-            <section className="max-w-4xl mx-auto px-6 py-24 space-y-24">
+            <section className="max-w-4xl mx-auto px-6 py-24 space-y-32">
 
-               {activeModules ? (
-                  activeModules.map((module, idx) => (
-                     <article key={idx} className="group">
-                        {/* Module Header */}
-                        <div className="flex items-baseline gap-4 mb-8 border-b border-[var(--border-color)] pb-4">
-                           <span className="font-mono text-4xl font-bold text-[var(--border-color)] group-hover:text-[var(--accent)] transition-colors duration-300">
-                              0{idx + 1}
-                           </span>
-                           <h2 className="text-2xl md:text-3xl font-serif italic">
-                              {module.title}
-                           </h2>
+               {/* A. CHALLENGE */}
+               <article>
+                  <div className="flex items-center gap-4 mb-8">
+                     <span className="w-12 h-[1px] bg-[var(--accent)]"></span>
+                     <span className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">01 // The Challenge</span>
+                  </div>
+                  <h2 className="text-3xl md:text-5xl font-serif italic mb-8 leading-tight">
+                     "{activeChallenge}"
+                  </h2>
+               </article>
+
+               {/* B. PROCESS */}
+               {activeProcess && activeProcess.map((step, idx) => (
+                  <article key={idx} className="group grid md:grid-cols-2 gap-12 items-center">
+                     <div className={`order-2 ${idx % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
+                        <div className="mb-4 font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
+                           Process 0{idx + 1}
                         </div>
-
-                        {/* Module Content */}
-                        {module.image && (
-                           <div className="mb-8 rounded-lg overflow-hidden border border-[var(--border-color)]">
-                              <ZoomableImage
-                                 src={module.image}
-                                 alt={module.title}
-                                 className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
-                              />
+                        <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
+                        <p className="text-lg text-[var(--text-secondary)] leading-relaxed">{step.desc}</p>
+                     </div>
+                     <div className={`order-1 ${idx % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
+                        {step.image ? (
+                           <div className="rounded-lg overflow-hidden border border-[var(--border-color)] shadow-lg rotate-1 group-hover:rotate-0 transition-transform duration-500">
+                              <ZoomableImage src={step.image} alt={step.title} className="w-full h-auto" />
+                           </div>
+                        ) : (
+                           <div className="aspect-video bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center opacity-50">
+                              <Box size={48} strokeWidth={1} />
                            </div>
                         )}
+                     </div>
+                  </article>
+               ))}
 
-                        {/* Module Content */}
-                        <div className="prose prose-lg dark:prose-invert max-w-none text-[var(--text-secondary)] leading-relaxed whitespace-pre-line font-light">
-                           {module.content.split('\n').map((line, i) => {
-                              if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
-                                 return <li key={i} className="list-inside pl-4 marker:text-[var(--accent)]">{line.replace(/^[•-]\s*/, '')}</li>;
-                              }
-                              return <p key={i}>{line}</p>;
-                           })}
+               {/* C. INSIGHTS */}
+               {activeInsights && (
+                  <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] p-8 md:p-12 rounded-2xl relative overflow-hidden">
+                     <div className="absolute top-0 right-0 p-32 bg-[var(--brand)] opacity-5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+                     <div className="relative z-10">
+                        <div className="flex items-center gap-4 mb-12">
+                           <span className="w-12 h-[1px] bg-[var(--accent)]"></span>
+                           <span className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">02 // Key Insights</span>
                         </div>
-                     </article>
-                  ))
-               ) : (
-                  // LEGACY CONTENT FALLBACK
-                  <>
-                     <article>
-                        <div className="flex items-baseline gap-4 mb-8 border-b border-[var(--border-color)] pb-4">
-                           <span className="font-mono text-4xl font-bold text-[var(--border-color)]">01</span>
-                           <h2 className="text-2xl md:text-3xl font-serif italic">The Challenge</h2>
+                        <div className="grid md:grid-cols-2 gap-12">
+                           {activeInsights.map((insight, idx) => (
+                              <div key={idx} className="space-y-4">
+                                 <h3 className="font-serif italic text-2xl text-[var(--text-primary)]">{insight.title}</h3>
+                                 <p className="text-[var(--text-secondary)] leading-relaxed">{insight.desc}</p>
+                              </div>
+                           ))}
                         </div>
-                        <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light">
-                           {activeSections?.challenge || project.sections?.challenge || "Challenge content not available."}
-                        </p>
-                     </article>
+                     </div>
+                  </div>
+               )}
 
-                     <article>
-                        <div className="flex items-baseline gap-4 mb-8 border-b border-[var(--border-color)] pb-4">
-                           <span className="font-mono text-4xl font-bold text-[var(--border-color)]">02</span>
-                           <h2 className="text-2xl md:text-3xl font-serif italic">The Approach</h2>
+               {/* D. SOLUTION */}
+               {activeSolution && (
+                  <div className="space-y-16">
+                     <div className="flex items-center gap-4">
+                        <span className="w-12 h-[1px] bg-[var(--accent)]"></span>
+                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">03 // The Solution</span>
+                     </div>
+                     {activeSolution.map((sol, idx) => (
+                        <div key={idx} className="space-y-6">
+                           {sol.image && (
+                              <div className="w-full rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl">
+                                 <ZoomableImage src={sol.image} alt={sol.title} className="w-full h-auto" />
+                              </div>
+                           )}
+                           <div className="max-w-2xl mx-auto text-center">
+                              <h3 className="text-xl font-bold mb-2">{sol.title}</h3>
+                              <p className="text-[var(--text-secondary)]">{sol.desc}</p>
+                           </div>
                         </div>
-                        <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light">
-                           {activeSections?.approach || project.sections?.approach || "Approach content not available."}
-                        </p>
-                     </article>
-                  </>
+                     ))}
+                  </div>
+               )}
+
+               {/* E. METRICS & LEARNINGS */}
+               {(activeMetrics || activeLearnings) && (
+                  <div className="grid md:grid-cols-2 gap-12 pt-12 border-t border-[var(--border-color)]">
+                     {activeMetrics && (
+                        <div>
+                           <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-6">Impact</h4>
+                           <div className="space-y-6">
+                              {activeMetrics.map((m, i) => (
+                                 <div key={i} className="flex items-baseline justify-between border-b border-[var(--border-color)] pb-2">
+                                    <span className="text-lg">{m.label}</span>
+                                    <span className="text-2xl font-bold text-[var(--accent)]">{m.value}</span>
+                                 </div>
+                              ))}
+                           </div>
+                        </div>
+                     )}
+                     {activeLearnings && (
+                        <div>
+                           <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-6">Takeaways</h4>
+                           <p className="text-xl font-serif italic text-[var(--text-primary)] leading-relaxed">
+                              "{activeLearnings}"
+                           </p>
+                        </div>
+                     )}
+                  </div>
                )}
 
             </section>

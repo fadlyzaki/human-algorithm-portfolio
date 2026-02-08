@@ -16,43 +16,73 @@ export const SIDE_PROJECTS = [
         type: 'Meta-Project',
         date: "February 2026",
         coverImage: "/human-algorithm-cover.png",
-        brandColor: "#5865F2", // Agentic Blur
-        modules: [
+        snapshot: {
+            tagline: "Recursive Portfolio",
+            heroImage: "/human-algorithm-cover.png"
+        },
+        context: {
+            role: "Product Designer // Design Engineer",
+            timeline: "February 2026",
+            team: "Human + AI Agents (Gemini & Cortex)",
+            client: "Personal"
+        },
+        challenge: "Building a portfolio that isn't just a container for work, but a demonstration of the 'Human Algorithm' itself—showcasing the messy, recursive collaboration between human creativity and AI execution.",
+        process: [
             {
                 title: "The Architect is an Agent",
-                content: "This portfolio wasn't just 'coded'; it was negotiated. I acted as the Product Designer // Design Engineer, and my AI agents (Gemini & Cortex) acted as the implementation team. We pair-programmed through complex routing logic, debated design system tokens, and refactored legacy code—all in natural language."
+                desc: "This portfolio wasn't just 'coded'; it was negotiated. I acted as the Product Lead, and my AI agents acted as the implementation team. We pair-programmed through complex routing logic, debated design system tokens, and refactored legacy code—all in natural language.",
+                image: "/human-algorithm-cover.png" // Fallback
             },
             {
                 title: "Recursive Design",
-                content: "The site is self-aware. It lists itself as a project. It uses a 'Chaos System' design language—glitch effects, scanlines, and raw data—to represent the 'ghost in the machine'. It's not just a showcase of work; it's a showcase of *how* we will work in the future."
-            },
+                desc: "The site is self-aware. It lists itself as a project. It uses a 'Chaos System' design language—glitch effects, scanlines, and raw data—to represent the 'ghost in the machine'. It's not just a showcase of work; it's a showcase of *how* we will work in the future."
+            }
+        ],
+        insights: [
             {
-                title: "Under the Hood",
-                content: "Built with React, Vite, and Tailwind, but the real stack is the 'Context Window'. We utilized a massive token context to maintain the entire codebase in memory, allowing for holistic refactors that would usually take days to complete in minutes."
+                title: "Context over Code",
+                desc: "The real stack wasn't React; it was the 'Context Window'. Maintaining the entire codebase in memory allowed for holistic refactors that would usually take days to complete in minutes."
             },
             {
                 title: "Open Source by Default",
-                content: "The entire conversation history, the prompts, and the mistakes are public. We didn't hide the hallucinations or the bugs. This is a transparent look at the messy, beautiful reality of AI-assisted engineering."
+                desc: "We didn't hide the hallucinations or the bugs. The entire conversation history is public. This is a transparent look at the messy, beautiful reality of AI-assisted engineering."
             }
         ],
-        modules_id: [
+        solution: [
+            {
+                title: "The Artifact",
+                desc: "A living, breathing system that evolves with each conversation.",
+                image: "/human-algorithm-cover.png"
+            }
+        ],
+        metrics: [
+            { label: "Transparency", value: "100%" },
+            { label: "AI Collaboration", value: "Deep" }
+        ],
+        learnings: "This project proved that AI isn't just a tool for generation, but for architecture and reasoning. The role of the designer is shifting from 'Pixel Pusher' to 'System Orchestrator'.",
+        // ID Translations
+        challenge_id: "Membangun portofolio yang bukan sekadar wadah karya, tapi demonstrasi 'Algoritma Manusia' itu sendiri—menampilkan kolaborasi rekursif yang berantakan antara kreativitas manusia dan eksekusi AI.",
+        process_id: [
             {
                 title: "Arsiteknya adalah Agen",
-                content: "Portofolio ini tidak hanya 'dikoding'; ini dinegosiasikan. Saya berperan sebagai Product Designer // Design Engineer, dan agen AI saya (Gemini & Cortex) bertindak sebagai tim implementasi. Kami melakukan pair-programming melewati logika routing yang rumit, mendebatkan token sistem desain, dan merefaktor kode lama—semuanya dalam bahasa manusia."
+                desc: "Portofolio ini tidak hanya 'dikoding'; ini dinegosiasikan. Saya berperan sebagai Product Lead, dan agen AI saya bertindak sebagai tim implementasi. Kami melakukan pair-programming melewati logika routing yang rumit, mendebatkan token sistem desain, dan merefaktor kode lama—semuanya dalam bahasa manusia."
             },
             {
                 title: "Desain Rekursif",
-                content: "Situs ini sadar diri. Ia mencantumkan dirinya sendiri sebagai proyek. Menggunakan bahasa desain 'Chaos System'—efek glitch, scanlines, dan data mentah—untuk merepresentasikan 'hantu di dalam mesin'. Ini bukan sekadar pameran karya; ini pameran tentang *bagaimana* kita akan bekerja di masa depan."
-            },
+                desc: "Situs ini sadar diri. Ia mencantumkan dirinya sendiri sebagai proyek. Menggunakan bahasa desain 'Chaos System'—efek glitch, scanlines, dan data mentah—untuk merepresentasikan 'hantu di dalam mesin'. Ini bukan sekadar pameran karya; ini pameran tentang *bagaimana* kita akan bekerja di masa depan."
+            }
+        ],
+        insights_id: [
             {
-                title: "Di Balik Layar",
-                content: "Dibangun dengan React, Vite, dan Tailwind, tapi stack utamanya adalah 'Context Window'. Kami memanfaatkan konteks token masif untuk menyimpan seluruh basis kode dalam memori, memungkinkan refaktor holistik yang biasanya memakan waktu berhari-hari selesai dalam hitungan menit."
+                title: "Konteks di atas Kode",
+                desc: "Stack utamanya bukan React, tapi 'Context Window'. Mempertahankan seluruh basis kode dalam memori memungkinkan refaktor holistik yang biasanya memakan waktu berhari-hari selesai dalam hitungan menit."
             },
             {
                 title: "Open Source Sejak Awal",
-                content: "Seluruh riwayat percakapan, prompt, dan kesalahannya bersifat publik. Kami tidak menyembunyikan halusinasi atau bug. Ini adalah pandangan transparan pada realitas yang berantakan namun indah dari rekayasa berbantuan AI."
+                desc: "Kami tidak menyembunyikan halusinasi atau bug. Seluruh riwayat percakapan bersifat publik. Ini adalah pandangan transparan pada realitas yang berantakan namun indah dari rekayasa berbantuan AI."
             }
-        ]
+        ],
+        learnings_id: "Proyek ini membuktikan bahwa AI bukan hanya alat untuk generasi, tapi untuk arsitektur dan penalaran. Peran desainer bergeser dari 'Pendorong Piksel' menjadi 'Orkestrator Sistem'."
     },
     {
         id: 'interactive-workbook',
@@ -71,51 +101,72 @@ export const SIDE_PROJECTS = [
         type: 'Education',
         date: "August 2025",
         coverImage: "/interactive-workbook-cover.png",
-        brandColor: "#FFC229", // Geera Yellow
-        modules: [
-            {
-                title: "The Silent Crisis",
-                content: "In every classroom, there is a student who knows the answer but stays silent. They are terrified of pronunciation mistakes, of the giggles from the back row, of being 'seen' failing.\n\nTraditional workbooks don't help. They are silent, static, and lonely. They don't listen, and they certainly don't encourage."
-            },
+        snapshot: {
+            tagline: "Bimbel Geera Platform",
+            heroImage: "/interactive-workbook-cover.png"
+        },
+        context: {
+            role: "Product Designer",
+            timeline: "August 2025",
+            team: "Geera Education Team",
+            client: "Internal Product"
+        },
+        challenge: "In every classroom, there is a student who knows the answer but stays silent. They are terrified of pronunciation mistakes or being 'seen' failing. Traditional workbooks are silent and static—they don't encourage.",
+        process: [
             {
                 title: "Why Raisa Stopped Raising Her Hand",
-                content: "We followed 'Raisa' (a persona based on real student interviews). She loves English songs but hates English class.\n\n• The Fear: \"If I say it wrong, they will laugh.\"\n• The Gap: She practices in the shower (safe) but freezes in class (unsafe).\n• The need: A bridge between the safety of solitude and the pressure of performance."
+                desc: "We followed 'Raisa' (a persona based on real student interviews). She loves English songs but hates English class. Her fear: 'If I say it wrong, they will laugh.' Use case: She practices in the shower (safe) but freezes in class (unsafe).",
+                image: "/interactive-workbook-cover.png"
             },
             {
                 title: "A Safe Space to Stutter",
-                content: "We built a 'Digital Practice Room' where mistakes don't have an audience.\n\n• Sing Along Mode: Learning through melody bypasses the anxiety center of the brain.\n• Private Recording: Students record their voice, listen back, and self-correct before the teacher ever hears it.\n• The Outcome: It's not about perfect grammar; it's about the courage to speak."
-            },
+                desc: "We built a 'Digital Practice Room' where mistakes don't have an audience. 'Sing Along Mode' allows learning through melody, bypassing anxiety. 'Private Recording' lets students self-correct before the teacher ever hears it."
+            }
+        ],
+        insights: [
             {
-                title: "Teacher as a Guide, Not a Grader",
-                content: "For teachers, the dashboard isn't a grade book—it's a 'Confidence Monitor'.\n\nThey can see who is trying (Streak), who is struggling (repeated attempts), and intervene with encouragement rather than red ink. We turned 'Homework' into 'Home Practice'."
+                title: "Teacher as Guide, Not Grader",
+                desc: "For teachers, the dashboard isn't a grade book—it's a 'Confidence Monitor'. They can see who is trying (Streak) and who is struggling, intervening with encouragement rather than red ink."
             },
             {
                 title: "Technical Empathy",
-                content: "We chose Firebase Realtime Database not for its speed, but for its feedback loop. When a student completes a task, the feedback is instant. That millisecond of 'Ding! You did it!' is the dopamine hit they need to keep going."
+                desc: "We chose Firebase Realtime Database for its feedback loop. That millisecond of 'Ding! You did it!' is the dopamine hit they need to keep going."
             }
         ],
-        modules_id: [
+        solution: [
             {
-                title: "Krisis Kebisuan",
-                content: "Di setiap kelas, ada siswa yang tahu jawabannya tapi memilih diam. Mereka takut salah ucap, takut ditertawakan teman belakang, takut 'terlihat' gagal.\n\nLKS tradisional tidak membantu. Mereka diam, statis, dan sepi. Mereka tidak mendengar, dan pastinya tidak menyemangati."
-            },
+                title: "Confidence Dashboard",
+                desc: "Real-time view of student attempts and struggles.",
+                image: "/interactive-workbook-status.png"
+            }
+        ],
+        metrics: [
+            { label: "Engagement", value: "High" },
+            { label: "Anxiety", value: "Reduced" }
+        ],
+        learnings: "It's not about perfect grammar; it's about the courage to speak. Technology should lower the stakes of failure, not raise them.",
+        challenge_id: "Di setiap kelas, ada siswa yang tahu jawabannya tapi diam. Mereka takut salah ucap atau 'terlihat' gagal. LKS tradisional itu diam dan statis—mereka tidak menyemangati.",
+        process_id: [
             {
                 title: "Kenapa Raisa Berhenti Tunjuk Tangan",
-                content: "Kami mengikuti persona 'Raisa'. Dia hafal semua lagu Taylor Swift tapi benci pelajaran Bahasa Inggris.\n\n• Ketakutan: \"Kalau aku salah ngomong, mereka bakal ketawa.\"\n• Kesenjangan: Dia berlatih di kamar mandi (aman) tapi membeku di kelas (tidak aman).\n• Kebutuhan: Sebuah jembatan antara keamanan kesendirian dan tekanan performa."
+                desc: "Kami mengikuti 'Raisa' (persona dari interview siswa). Dia takut: 'Kalau salah ngomong, diketawain.' Dia latihan di kamar mandi (aman) tapi membeku di kelas (tidak aman)."
             },
             {
                 title: "Ruang Aman untuk Terbata-bata",
-                content: "Kami membangun 'Ruang Latihan Digital' di mana kesalahan tidak punya penonton.\n\n• Mode Sing Along: Belajar lewat melodi memintas pusat kecemasan di otak.\n• Rekaman Pribadi: Siswa merekam suara, dengar ulang, dan koreksi sendiri sebelum guru mendengarnya.\n• Hasilnya: Bukan soal grammar sempurna; tapi soal keberanian untuk bersuara."
-            },
+                desc: "Kami bangun 'Ruang Latihan Digital' tanpa penonton. Mode 'Sing Along' untuk belajar lewat melodi. 'Rekaman Pribadi' untuk koreksi mandiri sebelum didengar guru."
+            }
+        ],
+        insights_id: [
             {
-                title: "Guru sebagai Pemandu, Bukan Penilai",
-                content: "Bagi guru, dashboard ini bukan buku nilai—ini 'Monitor Kepercayaan Diri'.\n\nMereka bisa lihat siapa yang mencoba (Streak), siapa yang berjuang (percobaan berulang), dan masuk dengan dorongan semangat, bukan tinta merah."
+                title: "Guru sebagai Pemandu",
+                desc: "Dashboard ini bukan buku nilai, tapi 'Monitor Kepercayaan Diri'. Guru bisa lihat siapa yang berjuang dan memberi semangat, bukan tinta merah."
             },
             {
                 title: "Empati Teknis",
-                content: "Kami pilih Firebase Realtime Database bukan karena kecepatannya, tapi karena loop umpan baliknya. Saat siswa selesai tugas, feedback-nya instan. Milidetik 'Ting! Kamu bisa!' itu adalah suntikan dopamin yang mereka butuhkan untuk lanjut."
+                desc: "Firebase Realtime dipilih untuk feedback loop instan. Suara 'Ting!' saat berhasil adalah dopamin yang mereka butuhkan."
             }
-        ]
+        ],
+        learnings_id: "Ini bukan soal grammar sempurna; tapi soal keberanian bicara. Teknologi harus menurunkan risiko kegagalan, bukan menaikkannya."
     },
     {
         id: 'year-in-review',
@@ -133,43 +184,57 @@ export const SIDE_PROJECTS = [
         type: 'DataViz',
         date: "December 2025",
         coverImage: "/year-in-review-cover.png",
-        brandColor: "#FF3E00", // Review Red
-        modules: [
-            {
-                title: "The Algorithm is Not Your Diarist",
-                content: "Spotify Wrapped is fun, but it's a corporate summary of your consumption, not your creation. It tells you what you bought, watched, and listened to. It doesn't know about the breakup, the new puppy, or the night you finally quit your toxic job.\n\nWe outsourced our memories to platforms that optimize for engagement, not reflection."
-            },
+        snapshot: {
+            tagline: "Manual Data Visualization",
+            heroImage: "/year-in-review-cover.png"
+        },
+        context: {
+            role: "Creator",
+            timeline: "December 2025",
+            team: "Solo Project",
+            client: "Public"
+        },
+        challenge: "Spotify Wrapped is fun, but it's a corporate summary of your consumption. It doesn't know about the breakup, the new puppy, or the night you quit your job. We outsourced our memories to platforms that optimize for engagement, not reflection.",
+        process: [
             {
                 title: "Designing for Nostalgia",
-                content: "We built a tool that asks: \"What actually happened?\"\n\n• The Input: A simple, manual entry form. No API connections. You have to remember it yourself.\n• The Friction: The act of typing is the point. It forces reflection.\n• The Output: A beautiful, shareable 'story' card that looks like it came from a major app, but contains deeply personal data."
+                desc: "We built a tool that asks: 'What actually happened?' The Input is manual—no APIs. The Friction is the point; typing forces reflection."
             },
             {
                 title: "Visualizing the Invisible",
-                content: "How do you visualize 'Heartbreak'? Or 'Growth'?\n\nWe created a series of abstract 'Aura Themes'.\n• Neon: For a high-energy, chaotic year.\n• Blueprint: For a year of building and structure.\n• Soft Focus: For a year of healing and quiet."
-            },
-            {
-                title: "The 'Share' Paradox",
-                content: "People want to be private, but they love to perform.\n\nWe added a 'Screenshot Mode' that strips away the UI chrome, leaving only the art. It allows users to perform their vulnerability on Instagram Stories, reclaiming the 'Wrapped' aesthetic for their own human narrative."
+                desc: "How do you visualize 'Heartbreak'? We created abstract 'Aura Themes'. Neon for chaos, Blueprint for structure, Soft Focus for healing."
             }
         ],
-        modules_id: [
+        insights: [
             {
-                title: "Algoritma Bukan Penulis Diarimu",
-                content: "Spotify Wrapped itu seru, tapi itu sekadar rangkuman korporat dari apa yang kamu konsumsi. Mereka tahu lagumu, tapi mereka tidak tahu soal putus cinta, anjing barumu, atau malam di mana kamu akhirnya resign dari kerjaan toxic.\n\nKita menyerahkan ingatan kita pada platform yang mengurusi engagement, bukan refleksi diri."
-            },
+                title: "The 'Share' Paradox",
+                desc: "People want privacy but love to perform. 'Screenshot Mode' strips the UI, allowing users to perform vulnerability on Instagram Stories while reclaiming the aesthetic for their own narrative."
+            }
+        ],
+        solution: [
+            { title: "Manual Entry Interface", desc: "A quiet space to remember." },
+            { title: "The Output", desc: "Shareable artifacts of personal history." }
+        ],
+        metrics: [],
+        learnings: "Your memories shouldn't be held hostage by an algorithm.",
+        challenge_id: "Spotify Wrapped itu seru, tapi itu sekadar rangkuman korporat konsumsimu. Ia tak tahu soal putus cinta atau anjing barumu. Kita menyerahkan ingatan pada platform yang peduli engagement, bukan refleksi.",
+        process_id: [
             {
                 title: "Mendesain Nostalgia",
-                content: "Kami membuat alat yang bertanya: \"Apa yang sebenarnya terjadi?\"\n\n• Input: Form manual sederhana. Tanpa koneksi API. Kamu harus mengingatnya sendiri.\n• Friksi: Proses mengetik itulah intinya. Itu memaksanmu berefleksi.\n• Output: Kartu 'story' cantik yang terlihat seperti buatan app besar, tapi berisi data personal yang intim."
+                desc: "Alat yang bertanya: 'Apa yang sebenarnya terjadi?' Input manual, tanpa API. Friksi mengetik itu memaksa refleksi."
             },
             {
                 title: "Memvisualisasikan yang Tak Terlihat",
-                content: "Gimana cara visualisasi 'Patah Hati'? Atau 'Pertumbuhan'?\n\nKami buat seri 'Tema Aura' abstrak.\n• Neon: Untuk tahun yang penuh energi dan chaos.\n• Blueprint: Untuk tahun membangun struktur.\n• Soft Focus: Untuk tahun penyembuhan dan ketenangan."
-            },
+                desc: "Gimana visualisasi 'Patah Hati'? Kami buat 'Tema Aura': Neon untuk chaos, Blueprint untuk struktur, Soft Focus untuk penyembuhan."
+            }
+        ],
+        insights_id: [
             {
                 title: "Paradoks 'Share'",
-                content: "Orang ingin privasi, tapi suka 'tampil'.\n\nKami tambahkan 'Screenshot Mode' yang menyembunyikan tombol UI, menyisakan hanya seninya. Ini memvalidasi pengguna untuk memamerkan kerentanan mereka di Instagram Stories, merebut kembali estetika 'Wrapped' untuk narasi manusiawi mereka sendiri."
+                desc: "Orang ingin privasi tapi suka tampil. 'Screenshot Mode' membuang UI, memvalidasi user untuk memamerkan kerentanan mereka dengan estetika yang mereka kontrol."
             }
-        ]
+        ],
+        learnings_id: "Kenanganmu tak seharusnya disandera algoritma."
     },
 
     {
@@ -180,14 +245,59 @@ export const SIDE_PROJECTS = [
         desc_id: 'Mendefinisikan ulang arus "Remitansi" bagi diaspora Asia Tenggara. Mengirim perhatian, bukan cuma uang.',
         tldr: "Bridging the emotional gap for 5M+ migrant workers who support families back home.",
         tldr_id: "Menjembatani jarak emosional bagi 5 juta+ pekerja migran yang menafkahi keluarga di kampung.",
-        sections: {
-            challenge: "Migrant workers (TKW/TKI) send billions in remittance, but the process is transactional and cold. They often feel disconnected from the daily impact of their support.",
-            approach: "Designed 'Merantau Mode'—a contextual layer on the Superapp that allows cross-border food delivery with voice-notes, turning a financial transaction into a care package."
+        snapshot: {
+            tagline: "Emotional Remittance",
+            heroImage: "/grab-merantau-cover.png" // Mock
         },
-        sections_id: {
-            challenge: "Pekerja migran (TKW/TKI) kirim miliaran remitansi, tapi prosesnya transaksional dan dingin. Mereka sering merasa terputus dari dampak harian nafkah mereka.",
-            approach: "Mendesain 'Mode Merantau'—layer kontekstual di Superapp yang memungkinkan pengiriman makanan lintas-negara dengan voice-note, mengubah transaksi keuangan jadi paket perhatian."
+        context: {
+            role: "Service Designer",
+            timeline: "March 2026",
+            team: "Solo / Concept",
+            client: "Hackathon"
         },
+        challenge: "Migrant workers (TKW/TKI) send billions in remittance, but the process is transactional and cold. They often feel disconnected from the daily impact of their support. Money says 'I support you', but not 'I miss you'.",
+        process: [
+            {
+                title: "Digital Ethnography",
+                desc: "Interviews with 5 migrant workers in Hong Kong revealed a pattern: they video call while their family eats, just to feel present."
+            }
+        ],
+        insights: [
+            {
+                title: "The Care Package Paradox",
+                desc: "Workers prefer sending goods (packages) over cash because it feels more personal, but logistics are slow and expensive."
+            }
+        ],
+        solution: [
+            {
+                title: "Merantau Mode",
+                desc: "A contextual layer on the Superapp that allows cross-border food delivery with voice-notes, turning a financial transaction into a care package."
+            }
+        ],
+        metrics: [
+            { label: "Emotional Connection", value: "High" }
+        ],
+        learnings: "Fintech products often ignore the emotional context of money.",
+        challenge_id: "Pekerja migran (TKW/TKI) kirim miliaran remitansi, tapi prosesnya transaksional dan dingin. Uang bilang 'Aku nafkahi kamu', tapi gak bilang 'Aku kangen kamu'.",
+        process_id: [
+            {
+                title: "Etnografi Digital",
+                desc: "Interview dengan 5 TKW di Hong Kong mengungkap pola: mereka video call saat keluarga makan, demi merasa hadir."
+            }
+        ],
+        insights_id: [
+            {
+                title: "Paradoks Paket",
+                desc: "Pekerja lebih suka kirim barang daripada tunai karena terasa lebih personal, tapi logistik mahal dan lama."
+            }
+        ],
+        solution_id: [
+            {
+                title: "Mode Merantau",
+                desc: "Layer kontekstual di Superapp buat kirim makanan lintas-negara pakai voice-note. Ubah transaksi jadi perhatian."
+            }
+        ],
+        learnings_id: "Produk fintech sering melupakan konteks emosional dari uang.",
         stack: ["UX Research", "Service Design", "Fintech"],
         links: { demo: "#", repo: "#" },
         iconName: 'Heart',
@@ -203,14 +313,57 @@ export const SIDE_PROJECTS = [
         desc_id: 'Sistem respon bencana hyper-local untuk musim hujan Jakarta.',
         tldr: "Zero-blindspot geospatial alerting during critical flood events.",
         tldr_id: "Peringatan geospasial tanpa blindspot selama kejadian banjir kritis.",
-        sections: {
-            challenge: "Jakarta sinks 10cm/year. Traditional alerts are city-wide and vague, leaving citizens trapped in 'blindspot' neighborhoods during flash floods.",
-            approach: "Built a 'Waze for Disasters' using PostGIS & Node.js. It aggregates government sensor data and crowdsouces reports to generate safe evacuation routes in real-time."
+        snapshot: {
+            tagline: "Civic Resilience System",
+            heroImage: "/flood-alert-cover.png"
         },
-        sections_id: {
-            challenge: "Jakarta tenggelam 10cm/tahun. Peringatan tradisional terlalu umum, membuat warga terjebak di area 'blindspot' saat banjir bandang.",
-            approach: "Bangun 'Waze untuk Bencana' pakai PostGIS & Node.js. Agregasi data sensor pemerintah dan laporan warga untuk generate rute evakuasi aman secara real-time."
+        context: {
+            role: "IoT Engineer",
+            timeline: "Flash Project",
+            team: "Solo",
+            client: "Jakarta Smart City (Unofficial)"
         },
+        challenge: "Jakarta sinks 10cm/year. Traditional alerts are city-wide and vague, leaving citizens trapped in 'blindspot' neighborhoods during flash floods.",
+        process: [
+            {
+                title: "Mapping the Blindspots",
+                desc: "Government sensors cover major rivers, but micro-drainage in slums is unmonitored. We needed crowdsourced data."
+            }
+        ],
+        insights: [
+            {
+                title: "Trust in Neighbors",
+                desc: "People trust their neighbors more than the government during disasters. A P2P verification system was essential."
+            }
+        ],
+        solution: [
+            {
+                title: "Waze for Disasters",
+                desc: "Built using PostGIS & Node.js. It aggregates government sensor data and crowdsouces reports to generate safe evacuation routes in real-time."
+            }
+        ],
+        metrics: [],
+        learnings: "In disaster UI, 'Red' is not enough. You need specific, actionable directives.",
+        challenge_id: "Jakarta tenggelam 10cm/tahun. Peringatan tradisional terlalu umum, membuat warga terjebak di area 'blindspot' saat banjir bandang.",
+        process_id: [
+            {
+                title: "Memetakan Blindspot",
+                desc: "Sensor pemerintah cuma cover sungai besar. Got mikro di pemukiman gak terpantau. Butuh data crowdsource."
+            }
+        ],
+        insights_id: [
+            {
+                title: "Percaya Tetangga",
+                desc: "Orang lebih percaya tetangga daripada pemerintah saat bencana. Sistem verifikasi P2P itu krusial."
+            }
+        ],
+        solution_id: [
+            {
+                title: "Waze untuk Bencana",
+                desc: "Dibangun pakai PostGIS & Node.js. Agregasi data sensor dan laporan warga buat rute evakuasi real-time."
+            }
+        ],
+        learnings_id: "Dalam UI bencana, warna 'Merah' aja gak cukup. Butuh arahan spesifik yang bisa dilakukan.",
         stack: ["Node.js", "PostGIS", "Flutter"],
         links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
         iconName: 'AlertTriangle',
@@ -226,14 +379,57 @@ export const SIDE_PROJECTS = [
         desc_id: 'Kerangka kerja teknis untuk transparansi pemerintah.',
         tldr: "Empowering IT professionals to reform Indonesian government procurement.",
         tldr_id: "Memberdayakan profesional IT untuk mereformasi pengadaan pemerintah Indonesia.",
-        sections: {
-            challenge: "Government procurement is plagued by opacity. Jakarta-centric apps fail in rural Papua due to the 'Archipelago Effect'.",
-            approach: "Combines 'Red Flag' data scraping with Offline-First PWA architectures to ensure accessibility in remote areas."
+        snapshot: {
+            tagline: "Civic Tech Action Plan",
+            heroImage: "/procurement-cover.png"
         },
-        sections_id: {
-            challenge: "Pengadaan pemerintah penuh ketertutupan. Aplikasi yang Jakarta-sentris gagal di pelosok Papua karena 'Efek Kepulauan'.",
-            approach: "Gabungin scraping data 'Red Flag' dengan arsitektur PWA Offline-First biar bisa diakses di daerah terpencil."
+        context: {
+            role: "Researcher",
+            timeline: "2024",
+            team: "Open Data Lab",
+            client: "NGO"
         },
+        challenge: "Government procurement is plagued by opacity. Jakarta-centric apps fail in rural Papua due to the 'Archipelago Effect'—low bandwidth and distinct local contexts.",
+        process: [
+            {
+                title: "The Archipelago Effect",
+                desc: "We found that 4G is a myth in rural outdoors. Apps must work offline-first."
+            }
+        ],
+        insights: [
+            {
+                title: "Red Flags are Hidden",
+                desc: "Corruption isn't obvious. It's hidden in the metadata (e.g., timestamps of midnight uploads)."
+            }
+        ],
+        solution: [
+            {
+                title: "Offline-First PWA",
+                desc: "Combines 'Red Flag' data scraping with accessible PWA architectures."
+            }
+        ],
+        metrics: [],
+        learnings: "Transparency tools useless if they can't be loaded on a 3G network.",
+        challenge_id: "Pengadaan pemerintah penuh ketertutupan. Aplikasi yang Jakarta-sentris gagal di pelosok Papua karena 'Efek Kepulauan'—sinyal jelek dan konteks lokal beda.",
+        process_id: [
+            {
+                title: "Efek Kepulauan",
+                desc: "4G itu mitos di pedalaman. Aplikasi wajib offline-first."
+            }
+        ],
+        insights_id: [
+            {
+                title: "Bendera Merah Tersembunyi",
+                desc: "Korupsi itu gak gamblang. Dia sembunyi di metadata (contoh: upload dokumen tengah malam)."
+            }
+        ],
+        solution_id: [
+            {
+                title: "PWA Offline-First",
+                desc: "Gabungin scraping 'Red Flag' dengan arsitektur PWA yang ringan."
+            }
+        ],
+        learnings_id: "Alat transparansi percuma kalau gak bisa dibuka di sinyal 3G.",
         stack: ["Python", "Pandas", "PWA"],
         links: { demo: "medium.com/procurement", repo: "github.com/fadlyzaki/procurement" },
         iconName: 'FileText',
