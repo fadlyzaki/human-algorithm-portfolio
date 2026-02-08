@@ -619,7 +619,7 @@ const Portfolio = () => {
           </section >
 
           {/* SECTION 4: NOTES */}
-          < section id="notes" className="mb-40 scroll-mt-24" >
+          <section id="notes" className="mb-40 scroll-mt-24">
             <SectionTitle
               number="4"
               title={t('home.section_notes')}
@@ -681,9 +681,9 @@ const Portfolio = () => {
                 </div>
               )}
             </div>
-          </section >
+          </section>
 
-        </div >
+        </div>
 
         {/* FOOTER */}
 
@@ -691,8 +691,8 @@ const Portfolio = () => {
           <Footer />
         </section>
 
-      </main >
-    </div >
+      </main>
+    </div>
   );
 };
 
