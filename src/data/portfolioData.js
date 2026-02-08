@@ -238,140 +238,6 @@ export const SIDE_PROJECTS = [
     },
 
     {
-        id: 'grab-merantau',
-        title: 'Grab Merantau',
-        subtitle: 'Emotional Remittance',
-        desc: 'Redefining the "Remittance" flow for the Southeast Asian diaspora. Sending care, not just cash.',
-        desc_id: 'Mendefinisikan ulang arus "Remitansi" bagi diaspora Asia Tenggara. Mengirim perhatian, bukan cuma uang.',
-        tldr: "Bridging the emotional gap for 5M+ migrant workers who support families back home.",
-        tldr_id: "Menjembatani jarak emosional bagi 5 juta+ pekerja migran yang menafkahi keluarga di kampung.",
-        snapshot: {
-            tagline: "Emotional Remittance",
-            heroImage: "/grab-merantau-cover.png" // Mock
-        },
-        context: {
-            role: "Service Designer",
-            timeline: "March 2026",
-            team: "Solo / Concept",
-            client: "Hackathon"
-        },
-        challenge: "Migrant workers (TKW/TKI) send billions in remittance, but the process is transactional and cold. They often feel disconnected from the daily impact of their support. Money says 'I support you', but not 'I miss you'.",
-        process: [
-            {
-                title: "Digital Ethnography",
-                desc: "Interviews with 5 migrant workers in Hong Kong revealed a pattern: they video call while their family eats, just to feel present."
-            }
-        ],
-        insights: [
-            {
-                title: "The Care Package Paradox",
-                desc: "Workers prefer sending goods (packages) over cash because it feels more personal, but logistics are slow and expensive."
-            }
-        ],
-        solution: [
-            {
-                title: "Merantau Mode",
-                desc: "A contextual layer on the Superapp that allows cross-border food delivery with voice-notes, turning a financial transaction into a care package."
-            }
-        ],
-        metrics: [
-            { label: "Emotional Connection", value: "High" }
-        ],
-        learnings: "Fintech products often ignore the emotional context of money.",
-        challenge_id: "Pekerja migran (TKW/TKI) kirim miliaran remitansi, tapi prosesnya transaksional dan dingin. Uang bilang 'Aku nafkahi kamu', tapi gak bilang 'Aku kangen kamu'.",
-        process_id: [
-            {
-                title: "Etnografi Digital",
-                desc: "Interview dengan 5 TKW di Hong Kong mengungkap pola: mereka video call saat keluarga makan, demi merasa hadir."
-            }
-        ],
-        insights_id: [
-            {
-                title: "Paradoks Paket",
-                desc: "Pekerja lebih suka kirim barang daripada tunai karena terasa lebih personal, tapi logistik mahal dan lama."
-            }
-        ],
-        solution_id: [
-            {
-                title: "Mode Merantau",
-                desc: "Layer kontekstual di Superapp buat kirim makanan lintas-negara pakai voice-note. Ubah transaksi jadi perhatian."
-            }
-        ],
-        learnings_id: "Produk fintech sering melupakan konteks emosional dari uang.",
-        stack: ["UX Research", "Service Design", "Fintech"],
-        links: { demo: "#", repo: "#" },
-        iconName: 'Heart',
-        type: 'Service Design',
-        hidden: false,
-        featured: false
-    },
-    {
-        id: 'flood-alert',
-        title: 'Flood Alert',
-        subtitle: 'Civic Resilience System',
-        desc: 'A hyper-local disaster response system for Jakarta\'s monsoon season.',
-        desc_id: 'Sistem respon bencana hyper-local untuk musim hujan Jakarta.',
-        tldr: "Zero-blindspot geospatial alerting during critical flood events.",
-        tldr_id: "Peringatan geospasial tanpa blindspot selama kejadian banjir kritis.",
-        snapshot: {
-            tagline: "Civic Resilience System",
-            heroImage: "/flood-alert-cover.png"
-        },
-        context: {
-            role: "IoT Engineer",
-            timeline: "Flash Project",
-            team: "Solo",
-            client: "Jakarta Smart City (Unofficial)"
-        },
-        challenge: "Jakarta sinks 10cm/year. Traditional alerts are city-wide and vague, leaving citizens trapped in 'blindspot' neighborhoods during flash floods.",
-        process: [
-            {
-                title: "Mapping the Blindspots",
-                desc: "Government sensors cover major rivers, but micro-drainage in slums is unmonitored. We needed crowdsourced data."
-            }
-        ],
-        insights: [
-            {
-                title: "Trust in Neighbors",
-                desc: "People trust their neighbors more than the government during disasters. A P2P verification system was essential."
-            }
-        ],
-        solution: [
-            {
-                title: "Waze for Disasters",
-                desc: "Built using PostGIS & Node.js. It aggregates government sensor data and crowdsouces reports to generate safe evacuation routes in real-time."
-            }
-        ],
-        metrics: [],
-        learnings: "In disaster UI, 'Red' is not enough. You need specific, actionable directives.",
-        challenge_id: "Jakarta tenggelam 10cm/tahun. Peringatan tradisional terlalu umum, membuat warga terjebak di area 'blindspot' saat banjir bandang.",
-        process_id: [
-            {
-                title: "Memetakan Blindspot",
-                desc: "Sensor pemerintah cuma cover sungai besar. Got mikro di pemukiman gak terpantau. Butuh data crowdsource."
-            }
-        ],
-        insights_id: [
-            {
-                title: "Percaya Tetangga",
-                desc: "Orang lebih percaya tetangga daripada pemerintah saat bencana. Sistem verifikasi P2P itu krusial."
-            }
-        ],
-        solution_id: [
-            {
-                title: "Waze untuk Bencana",
-                desc: "Dibangun pakai PostGIS & Node.js. Agregasi data sensor dan laporan warga buat rute evakuasi real-time."
-            }
-        ],
-        learnings_id: "Dalam UI bencana, warna 'Merah' aja gak cukup. Butuh arahan spesifik yang bisa dilakukan.",
-        stack: ["Node.js", "PostGIS", "Flutter"],
-        links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
-        iconName: 'AlertTriangle',
-        type: 'IoT Prototype',
-        hidden: false,
-        featured: false
-    },
-    {
         id: 'procurement',
         title: 'Procurement Reform',
         subtitle: 'Civic Tech Action Plan',
@@ -699,6 +565,72 @@ export const NOTES = [
             }
         ],
         learnings_id: "Teknologi harusnya jadi sepeda buat pikiran, bukan ban berjalan buat mata."
+    },
+    {
+        id: 'flood-alert',
+        title: 'Flood Alert',
+        subtitle: 'Civic Resilience System',
+        desc: 'A hyper-local disaster response system for Jakarta\'s monsoon season.',
+        desc_id: 'Sistem respon bencana hyper-local untuk musim hujan Jakarta.',
+        tldr: "Zero-blindspot geospatial alerting during critical flood events.",
+        tldr_id: "Peringatan geospasial tanpa blindspot selama kejadian banjir kritis.",
+        snapshot: {
+            tagline: "Civic Resilience System",
+            heroImage: "/flood-alert-cover.png"
+        },
+        context: {
+            role: "IoT Engineer",
+            timeline: "Flash Project",
+            team: "Solo",
+            client: "Jakarta Smart City (Unofficial)"
+        },
+        challenge: "Jakarta sinks 10cm/year. Traditional alerts are city-wide and vague, leaving citizens trapped in 'blindspot' neighborhoods during flash floods.",
+        process: [
+            {
+                title: "Mapping the Blindspots",
+                desc: "Government sensors cover major rivers, but micro-drainage in slums is unmonitored. We needed crowdsourced data."
+            }
+        ],
+        insights: [
+            {
+                title: "Trust in Neighbors",
+                desc: "People trust their neighbors more than the government during disasters. A P2P verification system was essential."
+            }
+        ],
+        solution: [
+            {
+                title: "Waze for Disasters",
+                desc: "Built using PostGIS & Node.js. It aggregates government sensor data and crowdsouces reports to generate safe evacuation routes in real-time."
+            }
+        ],
+        metrics: [],
+        learnings: "In disaster UI, 'Red' is not enough. You need specific, actionable directives.",
+        challenge_id: "Jakarta tenggelam 10cm/tahun. Peringatan tradisional terlalu umum, membuat warga terjebak di area 'blindspot' saat banjir bandang.",
+        process_id: [
+            {
+                title: "Memetakan Blindspot",
+                desc: "Sensor pemerintah cuma cover sungai besar. Got mikro di pemukiman gak terpantau. Butuh data crowdsource."
+            }
+        ],
+        insights_id: [
+            {
+                title: "Percaya Tetangga",
+                desc: "Orang lebih percaya tetangga daripada pemerintah saat bencana. Sistem verifikasi P2P itu krusial."
+            }
+        ],
+        solution_id: [
+            {
+                title: "Waze untuk Bencana",
+                desc: "Dibangun pakai PostGIS & Node.js. Agregasi data sensor dan laporan warga buat rute evakuasi real-time."
+            }
+        ],
+        learnings_id: "Dalam UI bencana, warna 'Merah' aja gak cukup. Butuh arahan spesifik yang bisa dilakukan.",
+        stack: ["Node.js", "PostGIS", "Flutter"],
+        links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
+        iconName: 'AlertTriangle',
+        type: 'IoT Prototype',
+        hidden: false,
+        featured: false
     },
     {
         id: 'filter-me',
