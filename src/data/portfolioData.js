@@ -2507,17 +2507,17 @@ export const WORK_CLUSTERS = [
                     },
                     challenge: "We discovered a critical 'Blind Spot'. Agents didn't know which metrics actually impacted their bonus. Was it GMV? Visit count? Active outlets? The complex formula was hidden, leading to 'Target Parking'—where agents stopped halfway because they weren't sure if their effort counted.",
                     process: [
-                        { title: "The Feelings Audit", desc: "We interviewed FAs and TLs. The sentiment was 'Anxiety'. Agents felt the system was cheating them because the calculation was opaque." },
-                        { title: "Behavior Design", desc: "We decided to hide the 'Goals' (Caps) but highlight the 'Criteria'. We didn't want agents to stop once they hit a number; we wanted them to chase the maximum possible incentive." }
+                        { title: "The Feelings Audit", desc: "We interviewed FAs and TLs. The sentiment was 'Anxiety'. Agents felt the system was cheating them because the calculation was opaque.", image: "/case-studies/stoqo-sales/research-raw.jpg" },
+                        { title: "Behavior Design", desc: "We decided to hide the 'Goals' (Caps) but highlight the 'Criteria'. We didn't want agents to stop once they hit a number; we wanted them to chase the maximum possible incentive.", image: "/case-studies/stoqo-sales/research-brainstorm.jpg" }
                     ],
                     insights: [
                         { title: "The Commitment Consistency", desc: "Psychologically, if an agent click a button saying 'Siap Komandan!' (Ready Commander!), they are 3x more likely to actually do the work. It turns a task into a promise." },
                         { title: "Visual Signaling", desc: "Text is noise. We gathered 30 metrics but only tagged 3 with a bright yellow 'KPI' badge. This functioned as a visual sieve for attention." }
                     ],
                     solution: [
-                        { title: "Siap Komandan!", desc: "An onboarding 'ceremony' where agents acknowledge their mission. It acts as a psychological contract between the user and the app." },
-                        { title: "The KPI Tag", desc: "We added a 'KPI' label to specific cards (e.g., 30 Outlet, 15 Outlet NC). User logic: 'If it has a yellow tag, I chase it. If not, I ignore it.'" },
-                        { title: "Sticky Context", desc: "The 'Data Information' header stays sticky as users scroll, reminding them: 'This data is yours, updated at 14:00'. It builds trust in the data relevance." }
+                        { title: "Siap Komandan!", desc: "An onboarding 'ceremony' where agents acknowledge their mission. It acts as a psychological contract between the user and the app.", image: "/case-studies/stoqo-sales/solution-ui.png" },
+                        { title: "The KPI Tag", desc: "We added a 'KPI' label to specific cards (e.g., 30 Outlet, 15 Outlet NC). User logic: 'If it has a yellow tag, I chase it. If not, I ignore it.'", image: "/case-studies/stoqo-sales/solution-ui.png" },
+                        { title: "Sticky Context", desc: "The 'Data Information' header stays sticky as users scroll, reminding them: 'This data is yours, updated at 14:00'. It builds trust in the data relevance.", image: "/case-studies/stoqo-sales/solution-ui.png" }
                     ],
                     metrics: [
                         { label: "Commitment", value: "98%" },
