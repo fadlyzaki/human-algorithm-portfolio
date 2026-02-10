@@ -2597,9 +2597,9 @@ export const WORK_CLUSTERS = [
                         { title: "Sinyal Visual", desc: "Teks itu 'noise'. Kami kumpulkan 30 metrik tapi cuma kasih label 'KPI' kuning ke 3 biji. Ini berfungsi sebagai penyaring atensi visual." }
                     ],
                     solution: [
-                        { title: "Siap Komandan!", desc: "Sebuah 'upacara' onboarding di mana agen mengakui misi mereka. Ini bertindak sebagai kontrak psikologis antara user dan aplikasi." },
-                        { title: "Tag KPI", desc: "Kami tambah label 'KPI' di kartu tertentu (misal: 30 Outlet). Logika user: 'Kalau ada tag kuning, gue kejar. Kalau nggak, gue cuekin'." },
-                        { title: "Konteks Melayang", desc: "Header 'Informasi Data' tetap nempel (sticky) pas user scroll, ngingetin mereka: 'Data ini punya lo, diupdate jam 14:00'. Ini bangun kepercayaan sama relevansi data." }
+                        { title: "Siap Komandan!", desc: "Sebuah 'upacara' onboarding di mana agen mengakui misi mereka. Ini bertindak sebagai kontrak psikologis antara user dan aplikasi.", image: "/case-studies/stoqo-sales/solution-incentivize.png" },
+                        { title: "Tag KPI", desc: "Kami tambah label 'KPI' di kartu tertentu (misal: 30 Outlet). Logika user: 'Kalau ada tag kuning, gue kejar. Kalau nggak, gue cuekin'.", image: "/case-studies/stoqo-sales/solution-ui.png" },
+                        { title: "Konteks Melayang", desc: "Header 'Informasi Data' tetap nempel (sticky) pas user scroll, ngingetin mereka: 'Data ini punya lo, diupdate jam 14:00'. Ini bangun kepercayaan sama relevansi data.", image: null }
                     ],
                     metrics: [
                         { label: "Komitmen", value: "98%" },
