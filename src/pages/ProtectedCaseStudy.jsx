@@ -763,7 +763,11 @@ const ProtectedCaseStudy = () => {
                 {/* Annotated Image Area */}
                 <div className="w-full md:w-2/3 aspect-video bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] relative shadow-2xl overflow-hidden group">
                   {/* Real Image or Abstract Fallback */}
-                  {sol.image ? (
+                  {sol.componentId ? (
+                    <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
+                      <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
+                    </div>
+                  ) : sol.image ? (
                     <ZoomableImage
                       src={sol.image}
                       alt={sol.title}
@@ -781,7 +785,7 @@ const ProtectedCaseStudy = () => {
                   )}
 
                   {/* Annotation Hotspot (Animated) - Only show if image is missing to avoid clutter? Or keep it? Keeping it for vibe. */}
-                  {!sol.image && (
+                  {!sol.image && !sol.componentId && (
                     <>
                       <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-[var(--brand)] rounded-full animate-ping"></div>
                       <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-[var(--brand)] rounded-full border-2 border-[var(--bg-void)]"></div>
@@ -789,7 +793,7 @@ const ProtectedCaseStudy = () => {
                   )}
 
                   {/* Caption Tooltip */}
-                  <div className="absolute bottom-6 left-6 bg-[var(--bg-void)]/90 backdrop-blur border border-[var(--border-color)] p-3 rounded max-w-xs text-xs shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:-translate-y-2 translate-y-2">
+                  <div className="absolute bottom-6 left-6 bg-[var(--bg-void)]/90 backdrop-blur border border-[var(--border-color)] p-3 rounded max-w-xs text-xs shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:-translate-y-2 translate-y-2 pointer-events-none">
                     <span className="font-bold text-[var(--brand)] block mb-1">Feature Highlight</span>
                     {sol.desc}
                   </div>

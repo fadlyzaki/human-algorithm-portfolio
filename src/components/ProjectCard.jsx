@@ -647,6 +647,106 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
         );
     }
 
+    // 14.1. SOLUTION: SIAP KOMANDAN (Commitment Switch)
+    if (id === 'stoqo-sales-incentive') {
+        return (
+            <Container expanded={expanded} showChrome={showChrome} figIndex="S.1" schematicType="BEHAVIORAL_COMMITMENT_LOCK">
+                <div className="w-full h-full flex items-center justify-center p-8">
+                    <div className="relative w-40 h-40 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(0,0,0,0.05)_inset]">
+                        {/* Outer Ring */}
+                        <div className="absolute inset-0 rounded-full border border-dashed border-slate-300 dark:border-white/20 animate-[spin_10s_linear_infinite]"></div>
+
+                        {/* The Button */}
+                        <div className="w-24 h-24 rounded-full bg-[var(--brand)]/10 border border-[var(--brand)] flex items-center justify-center relative cursor-not-allowed group-hover:scale-95 transition-transform duration-500">
+                            {/* Fingerprint / Touch ID */}
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[var(--brand)] animate-pulse">
+                                <path d="M12 4.5v15m7.5-7.5h-15" opacity="0.5" />
+                                <path d="M12 12m-2-2a3 3 0 0 1 4 4" strokeLinecap="round" />
+                            </svg>
+
+                            {/* Confirmed State Ripple */}
+                            <div className="absolute inset-0 rounded-full border border-[var(--brand)] opacity-0 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                        </div>
+
+                        {/* Label */}
+                        <div className="absolute bottom-8 px-3 py-1 bg-white dark:bg-black border border-[var(--brand)]/30 rounded text-[8px] font-mono text-[var(--brand)] uppercase tracking-widest shadow-lg translate-y-8">
+                            COMMITMENT_VERIFIED
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 14.2. SOLUTION: KPI TAGS (Signal vs Noise)
+    if (id === 'stoqo-sales-kpi') {
+        return (
+            <Container expanded={expanded} showChrome={showChrome} figIndex="S.2" schematicType="SIGNAL_TO_NOISE_FILTER">
+                <div className="w-full h-full flex flex-col items-center justify-center gap-3 p-8">
+                    {/* Filter Stream */}
+                    <div className="flex gap-2">
+                        {/* Noise Item */}
+                        <div className="w-16 h-12 border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-white/5 rounded flex flex-col justify-center items-center opacity-30">
+                            <div className="w-8 h-1 bg-slate-300 rounded mb-1"></div>
+                            <div className="w-4 h-1 bg-slate-200 rounded"></div>
+                        </div>
+                        {/* SIGNAL Item (KPI) */}
+                        <div className="w-16 h-12 border border-[var(--brand)] bg-white dark:bg-white/10 rounded flex flex-col justify-center items-center shadow-[0_4px_12px_rgba(0,0,0,0.1)] relative overflow-hidden group-hover:-translate-y-1 transition-transform">
+                            <div className="absolute top-0 right-0 w-4 h-4 bg-[var(--brand)] flex items-center justify-center">
+                                <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                            </div>
+                            <div className="w-8 h-1 bg-[var(--brand)] rounded mb-1 opacity-80"></div>
+                            <div className="w-4 h-1 bg-[var(--brand)] rounded opacity-50"></div>
+                        </div>
+                        {/* Noise Item */}
+                        <div className="w-16 h-12 border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-white/5 rounded flex flex-col justify-center items-center opacity-30">
+                            <div className="w-8 h-1 bg-slate-300 rounded mb-1"></div>
+                            <div className="w-4 h-1 bg-slate-200 rounded"></div>
+                        </div>
+                    </div>
+
+                    {/* The Filter Mechanism */}
+                    <div className="w-full max-w-[200px] h-px bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-50 my-2"></div>
+                    <div className="text-[8px] font-mono text-[var(--brand)] uppercase tracking-[0.2em] animate-pulse">
+                        ATTENTION_SIEVE_ACTIVE
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 14.3. SOLUTION: STICKY CONTEXT (Persistent Data)
+    if (id === 'stoqo-sales-context') {
+        return (
+            <Container expanded={expanded} showChrome={showChrome} figIndex="S.3" schematicType="PERSISTENT_DATA_LAYER">
+                <div className="w-full h-full relative overflow-hidden flex flex-col bg-slate-50 dark:bg-white/5">
+                    {/* Sticky Header */}
+                    <div className="absolute top-0 left-0 right-0 h-16 bg-white dark:bg-black/80 backdrop-blur-md border-b border-[var(--brand)]/30 z-20 flex items-center px-6 justify-between shadow-sm">
+                        <div className="flex gap-2 items-center">
+                            <div className="w-2 h-2 rounded-full bg-[var(--brand)] animate-pulse"></div>
+                            <div className="w-16 h-2 bg-slate-200 dark:bg-white/20 rounded"></div>
+                        </div>
+                        <div className="w-8 h-4 border border-slate-200 dark:border-white/20 rounded"></div>
+                    </div>
+
+                    {/* Scrolling Content */}
+                    <div className="w-full h-full pt-20 px-6 flex flex-col gap-3 opacity-50 animate-[translate-y_3s_linear_infinite]">
+                        {[1, 2, 3, 4].map(i => (
+                            <div key={i} className="w-full h-12 bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded"></div>
+                        ))}
+                    </div>
+
+                    {/* Pin Icon */}
+                    <div className="absolute top-6 right-6 z-30 text-[var(--brand)]">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                            <path d="M12 2v20M2 12h20" /> {/* Abstract fix symbol */}
+                        </svg>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
     // 15. PAPER TO PAPERLESS (OCR/Scanning)
     if (id === 'p11') {
         return (

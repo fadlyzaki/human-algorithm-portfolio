@@ -2515,9 +2515,9 @@ export const WORK_CLUSTERS = [
                         { title: "Visual Signaling", desc: "Text is noise. We gathered 30 metrics but only tagged 3 with a bright yellow 'KPI' badge. This functioned as a visual sieve for attention." }
                     ],
                     solution: [
-                        { title: "Siap Komandan!", desc: "An onboarding 'ceremony' where agents acknowledge their mission. It acts as a psychological contract between the user and the app.", image: "/case-studies/stoqo-sales/solution-incentivize.png" },
-                        { title: "The KPI Tag", desc: "We added a 'KPI' label to specific cards (e.g., 30 Outlet, 15 Outlet NC). User logic: 'If it has a yellow tag, I chase it. If not, I ignore it.'", image: "/case-studies/stoqo-sales/solution-ui.png" },
-                        { title: "Sticky Context", desc: "The 'Data Information' header stays sticky as users scroll, reminding them: 'This data is yours, updated at 14:00'. It builds trust in the data relevance.", image: null }
+                        { title: "Siap Komandan!", desc: "An onboarding 'ceremony' where agents acknowledge their mission. It acts as a psychological contract between the user and the app.", componentId: "stoqo-sales-incentive" },
+                        { title: "The KPI Tag", desc: "We added a 'KPI' label to specific cards (e.g., 30 Outlet, 15 Outlet NC). User logic: 'If it has a yellow tag, I chase it. If not, I ignore it.'", componentId: "stoqo-sales-kpi" },
+                        { title: "Sticky Context", desc: "The 'Data Information' header stays sticky as users scroll, reminding them: 'This data is yours, updated at 14:00'. It builds trust in the data relevance.", componentId: "stoqo-sales-context" }
                     ],
                     metrics: [
                         { label: "Commitment", value: "98%" },
@@ -2597,9 +2597,9 @@ export const WORK_CLUSTERS = [
                         { title: "Sinyal Visual", desc: "Teks itu 'noise'. Kami kumpulkan 30 metrik tapi cuma kasih label 'KPI' kuning ke 3 biji. Ini berfungsi sebagai penyaring atensi visual." }
                     ],
                     solution: [
-                        { title: "Siap Komandan!", desc: "Sebuah 'upacara' onboarding di mana agen mengakui misi mereka. Ini bertindak sebagai kontrak psikologis antara user dan aplikasi.", image: "/case-studies/stoqo-sales/solution-incentivize.png" },
-                        { title: "Tag KPI", desc: "Kami tambah label 'KPI' di kartu tertentu (misal: 30 Outlet). Logika user: 'Kalau ada tag kuning, gue kejar. Kalau nggak, gue cuekin'.", image: "/case-studies/stoqo-sales/solution-ui.png" },
-                        { title: "Konteks Melayang", desc: "Header 'Informasi Data' tetap nempel (sticky) pas user scroll, ngingetin mereka: 'Data ini punya lo, diupdate jam 14:00'. Ini bangun kepercayaan sama relevansi data.", image: null }
+                        { title: "Siap Komandan!", desc: "Sebuah 'upacara' onboarding di mana agen mengakui misi mereka. Ini bertindak sebagai kontrak psikologis antara user dan aplikasi.", componentId: "stoqo-sales-incentive" },
+                        { title: "Tag KPI", desc: "Kami tambah label 'KPI' di kartu tertentu (misal: 30 Outlet). Logika user: 'Kalau ada tag kuning, gue kejar. Kalau nggak, gue cuekin'.", componentId: "stoqo-sales-kpi" },
+                        { title: "Konteks Melayang", desc: "Header 'Informasi Data' tetap nempel (sticky) pas user scroll, ngingetin mereka: 'Data ini punya lo, diupdate jam 14:00'. Ini bangun kepercayaan sama relevansi data.", componentId: "stoqo-sales-context" }
                     ],
                     metrics: [
                         { label: "Komitmen", value: "98%" },
