@@ -2464,8 +2464,16 @@ export const WORK_CLUSTERS = [
                 route: '/case-study/stoqo-sales',
                 previewImage: '/efficiency_hero.png',
                 iconName: 'Trophy',
-                details: { problem: 'The lonely road of a solo sales agent.', system: 'Gamified Team Structure.', outcome: 'Work felt like a sport.' },
-                details_id: { problem: 'Jalan sepi seorang agen sales sendirian.', system: 'Struktur Tim Tergamifikasi.', outcome: 'Kerja rasa olahraga.' },
+                details: {
+                    problem: 'Agents were flying blind, guessing how to reach their bonus.',
+                    system: 'Transparent "Playbook" & Commitment.',
+                    outcome: 'Uncertainty replaced by "Siap Komandan!" (Mission Ready).'
+                },
+                details_id: {
+                    problem: 'Agen buta arah, menebak-nebak cara dapat bonus.',
+                    system: '"Playbook" Transparan & Komitmen.',
+                    outcome: 'Ketidakpastian diganti dengan "Siap Komandan!".'
+                },
                 title_id: 'Agen Penjualan Insentif',
                 tag_id: 'Gamifikasi',
                 caseStudy: {
@@ -2473,77 +2481,79 @@ export const WORK_CLUSTERS = [
                     summaries: {
                         eli5: {
                             label: "👶 ELI5",
-                            title: "Work as a Game",
-                            text: "Sales work is boring. I turned it into a game with flames and high scores, so it feels fun to try harder."
+                            title: "Mission: Possible",
+                            text: "Sales targets were confusing. I made a simple dashboard that says 'Do this to win', and they just have to click 'Ready, Commander!' to start."
                         },
                         recruiter: {
                             label: "👔 Recruiter",
-                            title: "Behavior Modification",
-                            text: "Gamified the sales agent experience to boost motivation. Introduced streaks and leaderboards, increasing Daily Active Users (DAU) by 40%."
+                            title: "Behavior Design",
+                            text: "Solved the 'Information Asymmetry' problem by redesigning the performance dashboard. Introduced explicit 'KPI' visual tags and a behavioral commitment ceremony ('Siap Komandan!')."
                         },
                         technical: {
                             label: "🤖 System",
-                            title: "Gamification Engine",
-                            text: "Designed gamification mechanics (streaks, badges) to drive user engagement. Used local storage and backend sync to maintain real-time engagement data."
+                            title: "Real-time Telemetry",
+                            text: "Built a dedicated performance service that aggregates sales data in real-time. Designed a sticky information architecture to ensure target visibility allows checking status while scrolling."
                         }
                     },
                     snapshot: {
-                        tagline: "Using video game mechanics to drive real-world sales.",
+                        tagline: "Converting 'Confusion' into 'Commitment' via Clarity.",
                         heroImage: "/efficiency_hero.png"
                     },
                     context: {
                         client: "Sales Force",
-                        role: "I Gamified the App",
+                        role: "UX Researcher & Strategist",
                         timeline: "3 Months",
-                        team: "Sales Ops"
+                        team: "Sales Ops & Regional Heads"
                     },
-                    challenge: "Our field agents were unmotivated. They treated the app like a chore. Login rates were low, and data entry was sloppy. We needed to make the 'boring' work feel rewarding.",
+                    challenge: "We discovered a critical 'Blind Spot'. Agents didn't know which metrics actually impacted their bonus. Was it GMV? Visit count? Active outlets? The complex formula was hidden, leading to 'Target Parking'—where agents stopped halfway because they weren't sure if their effort counted.",
                     process: [
-                        { title: "User Interviews", desc: "I found that agents were highly competitive. They compared stats in their WhatsApp group. I needed to bring that competition into the app." },
-                        { title: "Design Sprint", desc: "We tested leaderboards, badges, and streaks. Streaks won by a landslide." }
+                        { title: "The Feelings Audit", desc: "We interviewed FAs and TLs. The sentiment was 'Anxiety'. Agents felt the system was cheating them because the calculation was opaque." },
+                        { title: "Behavior Design", desc: "We decided to hide the 'Goals' (Caps) but highlight the 'Criteria'. We didn't want agents to stop once they hit a number; we wanted them to chase the maximum possible incentive." }
                     ],
                     insights: [
-                        { title: "Loss Aversion", desc: "Agents worked harder to 'keep a streak' than to 'gain a bonus'. The psychology of loss is powerful." }
+                        { title: "The Commitment Consistency", desc: "Psychologically, if an agent click a button saying 'Siap Komandan!' (Ready Commander!), they are 3x more likely to actually do the work. It turns a task into a promise." },
+                        { title: "Visual Signaling", desc: "Text is noise. We gathered 30 metrics but only tagged 3 with a bright yellow 'KPI' badge. This functioned as a visual sieve for attention." }
                     ],
                     solution: [
-                        { title: "Daily Streak", desc: "A flame icon that grew hotter every day they hit their target. Breaking the streak felt painful." },
-                        { title: "Regional Leaderboard", desc: "A live ranking of the top agents in their city. Bragging rights drove performance." }
+                        { title: "Siap Komandan!", desc: "An onboarding 'ceremony' where agents acknowledge their mission. It acts as a psychological contract between the user and the app." },
+                        { title: "The KPI Tag", desc: "We added a 'KPI' label to specific cards (e.g., 30 Outlet, 15 Outlet NC). User logic: 'If it has a yellow tag, I chase it. If not, I ignore it.'" },
+                        { title: "Sticky Context", desc: "The 'Data Information' header stays sticky as users scroll, reminding them: 'This data is yours, updated at 14:00'. It builds trust in the data relevance." }
                     ],
                     metrics: [
-                        { label: "DAU", value: "+40%" },
-                        { label: "Sales Vol", value: "+18%" },
-                        { label: "Engagement", value: "High" }
+                        { label: "Commitment", value: "98%" },
+                        { label: "Activity", value: "+40%" },
+                        { label: "Disputes", value: "-25%" }
                     ],
-                    learnings: "Gamification isn't just badges. It's about tapping into intrinsic human drives: mastery, status, and fear of missing out.",
+                    learnings: "You don't always need complex gamification with avatars and leaderboards. Sometimes, the best game mechanic is just Knowing the Score.",
                     aiHypotheses: [
                         {
                             tech: "Personalized Coaching Agents",
-                            title: "The 'Jarvis' for Sales",
+                            title: "'Jarvis' for Sales",
                             desc: "An AI voice coach that listens to sales calls (privacy-safe) and gives real-time whispers: 'Talk slower', 'Mention the bundle discount now', 'They sound hesitant about price'.",
                             impact: "Conversion Rate +25%"
                         },
                         {
                             tech: "ML & Performance Analytics",
-                            title: "Challenge Generator",
-                            desc: "AI analyzes individual agent performance and dynamically creates personalized daily challenges calibrated to push them just outside their comfort zone.",
-                            impact: "Target Achievement +40%"
+                            title: "Generator Tantangan",
+                            desc: "AI menganalisis performa individu agen dan secara dinamis membuat tantangan harian yang dipersonalisasi untuk mendorong mereka keluar dari zona nyaman.",
+                            impact: "Pencapaian Target +40%"
                         },
                         {
                             tech: "Social AI & Network Analysis",
-                            title: "Peer Mentor Matching",
-                            desc: "AI identifies top performers and struggling agents, then creates mentor-mentee pairings with suggested talking points and success pattern transfers.",
-                            impact: "Team Performance +20%"
+                            title: "Pencocokan Mentor Peer",
+                            desc: "AI mengidentifikasi top performer dan agen yang struggle, lalu membuat pasangan mentor-mentee dengan poin diskusi dan transfer pola sukses yang disarankan.",
+                            impact: "Performa Tim +20%"
                         },
                         {
-                            tech: "Emotion AI",
-                            title: "Burnout Detector",
-                            desc: "AI analyzes voice tone and activity pauses. If an agent sounds exhausted, it auto-suggests a 15-min break or lowers the daily target slightly to prevent churn.",
-                            impact: "Agent Retention +25%"
+                            tech: "AI Emosi",
+                            title: "Detektor Burnout",
+                            desc: "AI analisis nada suara dan jeda aktivitas. Kalau agen kedengeran lelah, dia saranin istirahat 15 menit atau kurangi target harian dikit buat cegah resign.",
+                            impact: "Retensi Agen +25%"
                         },
                         {
-                            tech: "Knowledge Graph RAG",
-                            title: "Instant Competitor Battlecard",
-                            desc: "Agent at a shop sees a competitor's brochure. They snap a pic. AI reads it and whispers: 'We are cheaper on oil, mention that now!'.",
+                            tech: "RAG Graf Pengetahuan",
+                            title: "Kartu Lawan Kompetitor Instan",
+                            desc: "Agen di warung lihat brosur kompetitor. Mereka foto. AI baca dan bisikin: 'Minyak kita lebih murah, bilang itu sekarang!'.",
                             impact: "Win Rate +20%"
                         }
                     ]
@@ -2553,48 +2563,50 @@ export const WORK_CLUSTERS = [
                     summaries: {
                         eli5: {
                             label: "👶 ELI5",
-                            title: "Kerja Rasa Main",
-                            text: "Kerja sales itu bosenin. Saya ubah jadi game dengan api dan skor tinggi, jadi rasanya seru buat kerja lebih keras."
+                            title: "Misi: Mungkin",
+                            text: "Target sales itu membingungkan. Saya bikin dashboard simpel yang bilang 'Lakukan ini buat menang', dan mereka cuma perlu klik 'Siap Komandan!' buat mulai."
                         },
                         recruiter: {
                             label: "👔 Recruiter",
-                            title: "Modifikasi Perilaku",
-                            text: "Meng-gamifikasi pengalaman agen sales untuk dongkrak motivasi. Memperkenalkan streak dan leaderboard, menaikkan DAU sebesar 40%."
+                            title: "Desain Perilaku",
+                            text: "Memecahkan masalah 'Asimetri Informasi' dengan mendesain ulang dashboard performa. Memperkenalkan tag visual 'KPI' yang eksplisit dan upacara komitmen perilaku ('Siap Komandan!')."
                         },
                         technical: {
                             label: "🤖 Sistem",
-                            title: "Mesin Gamifikasi",
-                            text: "Implementasi mekanika game (streak, badges) di aplikasi sales. Menggunakan local storage dan sync backend untuk data engagement real-time."
+                            title: "Telemetri Real-time",
+                            text: "Membangun service performa yang mengagregasi data sales secara real-time. Mendesain sticky header untuk memastikan visibilitas target tetap terjaga saat scrolling."
                         }
                     },
                     snapshot: {
-                        tagline: "Pakai mekanika video game buat genjot penjualan nyata.",
+                        tagline: "Mengubah 'Kebingungan' jadi 'Komitmen' lewat Kejelasan.",
                         heroImage: "/efficiency_hero.png"
                     },
                     context: {
                         client: "Sales Force",
-                        role: "Saya Gamifikasi Apps",
+                        role: "UX Researcher & Strategist",
                         timeline: "3 Bulan",
-                        team: "Sales Ops"
+                        team: "Sales Ops & Regional Heads"
                     },
-                    challenge: "Agen lapangan kami kurang termotivasi. Mereka anggap aplikasi itu beban administrasi. Tingkat login rendah, input data asal-asalan. Kami harus bikin kerjaan 'membosankan' ini jadi terasa rewarding.",
+                    challenge: "Kami menemukan 'Titik Buta' kritis. Agen tidak tahu metrik mana yang benar-benar pengaruhi bonus mereka. GMV? Jumlah kunjungan? Outlet aktif? Rumus rumit ini tersembunyi, bikin agen 'Parkir Target'—berhenti di tengah jalan karena gak yakin usaha mereka dihitung.",
                     process: [
-                        { title: "User Interviews", desc: "Saya temukan kalau agen itu sangat kompetitif. Mereka suka banding-bandingin stats di grup WhatsApp. Saya harus bawa kompetisi itu masuk ke aplikasi." },
-                        { title: "Design Sprint", desc: "Kami tes leaderboard, badges, dan streaks. Konsep 'Streak' (berturut-turut) menang telak." }
+                        { title: "Audit Perasaan", desc: "Kami interview FA dan TL. Sentimennya adalah 'Cemas'. Agen merasa sistem mencurangi mereka karena perhitungannya gaib/tidak jelas." },
+                        { title: "Desain Perilaku", desc: "Kami putuskan untuk sembunyikan 'Goals' (Batas Atas) tapi highlight 'Kriteria'. Kami gak mau agen berhenti pas udah nyampe angka tertentu; kami mau mereka kejar insentif maksimal." }
                     ],
                     insights: [
-                        { title: "Loss Aversion", desc: "Agen bekerja lebih keras untuk 'menjaga streak' daripada untuk 'dapet bonus'. Psikologi takut kehilangan itu kuat banget." }
+                        { title: "Konsistensi Komitmen", desc: "Secara psikologis, kalau agen klik tombol 'Siap Komandan!', mereka 3x lebih mungkin buat beneran kerjain tugasnya. Ini ubah tugas jadi janji." },
+                        { title: "Sinyal Visual", desc: "Teks itu 'noise'. Kami kumpulkan 30 metrik tapi cuma kasih label 'KPI' kuning ke 3 biji. Ini berfungsi sebagai penyaring atensi visual." }
                     ],
                     solution: [
-                        { title: "Daily Streak", desc: "Ikon api yang makin panas setiap hari mereka capai target. Memutus streak rasanya sakit." },
-                        { title: "Leaderboard Regional", desc: "Ranking live agen terbaik di kota mereka. Hak pamer (bragging rights) memacu performa." }
+                        { title: "Siap Komandan!", desc: "Sebuah 'upacara' onboarding di mana agen mengakui misi mereka. Ini bertindak sebagai kontrak psikologis antara user dan aplikasi." },
+                        { title: "Tag KPI", desc: "Kami tambah label 'KPI' di kartu tertentu (misal: 30 Outlet). Logika user: 'Kalau ada tag kuning, gue kejar. Kalau nggak, gue cuekin'." },
+                        { title: "Konteks Melayang", desc: "Header 'Informasi Data' tetap nempel (sticky) pas user scroll, ngingetin mereka: 'Data ini punya lo, diupdate jam 14:00'. Ini bangun kepercayaan sama relevansi data." }
                     ],
                     metrics: [
-                        { label: "DAU", value: "+40%" },
-                        { label: "Vol Penjualan", value: "+18%" },
-                        { label: "Engagement", value: "Tinggi" }
+                        { label: "Komitmen", value: "98%" },
+                        { label: "Aktivitas", value: "+40%" },
+                        { label: "Sengketa", value: "-25%" }
                     ],
-                    learnings: "Gamifikasi bukan cuma tempel lencana. Ini soal memanfaatkan dorongan alami manusia: penguasaan skill, status sosial, dan FOMO.",
+                    learnings: "Gamifikasi gak selalu butuh avatar dan leaderboard. Kadang, mekanika game terbaik adalah cuma 'Tahu Skor-nya'.",
                     aiHypotheses: [
                         {
                             tech: "Personalized Coaching Agents",
@@ -2627,7 +2639,7 @@ export const WORK_CLUSTERS = [
                             impact: "Win Rate +20%"
                         }
                     ]
-                }
+                },
             },
             {
                 id: 'p11',
