@@ -2515,7 +2515,7 @@ export const WORK_CLUSTERS = [
                         { title: "Visual Signaling", desc: "Text is noise. We gathered 30 metrics but only tagged 3 with a bright yellow 'KPI' badge. This functioned as a visual sieve for attention." }
                     ],
                     solution: [
-                        { title: "Siap Komandan!", desc: "An onboarding 'ceremony' where agents acknowledge their mission. It acts as a psychological contract between the user and the app.", image: null },
+                        { title: "Siap Komandan!", desc: "An onboarding 'ceremony' where agents acknowledge their mission. It acts as a psychological contract between the user and the app.", image: "/case-studies/stoqo-sales/solution-incentivize.png" },
                         { title: "The KPI Tag", desc: "We added a 'KPI' label to specific cards (e.g., 30 Outlet, 15 Outlet NC). User logic: 'If it has a yellow tag, I chase it. If not, I ignore it.'", image: "/case-studies/stoqo-sales/solution-ui.png" },
                         { title: "Sticky Context", desc: "The 'Data Information' header stays sticky as users scroll, reminding them: 'This data is yours, updated at 14:00'. It builds trust in the data relevance.", image: null }
                     ],
