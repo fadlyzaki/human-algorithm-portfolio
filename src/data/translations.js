@@ -250,7 +250,8 @@ export const translations = {
             exploring: "Exploring alternatives...",
             generating: "Generating alternative approach...",
             explore_another: "Explore Another Idea",
-            impact_label: "Impact"
+            impact_label: "Impact",
+            back: "Return to Base"
         }
     },
     id: {
@@ -504,7 +505,8 @@ export const translations = {
             exploring: "Mengeksplorasi alternatif...",
             generating: "Menghasilkan pendekatan alternatif...",
             explore_another: "Eksplorasi Ide Lain",
-            impact_label: "Dampak"
+            impact_label: "Dampak",
+            back: "Kembali ke Markas"
         }
     }
 };
