@@ -715,7 +715,7 @@ export const WORK_CLUSTERS = [
         hook: 'Engineering dignity into the blue-collar job hunt. Reducing the cognitive load of application forms for millions of workers.',
         miniDesc: 'Building a "Trust Layer" for the blue-collar economy. We didn\'t just digitize resumes; we architected a reputation system that bridges the gap between informal skills and formal employment.',
         stats: [
-            { label: 'Role', value: 'Lead Product Designer' },
+            { label: 'Role', value: 'Senior Product Designer' },
             { label: 'Timeline', value: 'May 2022 - Nov 2022' },
             { label: 'Impact', value: 'Scale & Reliability' },
             { label: 'Platform', value: 'Mobile app (android) & Websites' }
@@ -801,9 +801,9 @@ export const WORK_CLUSTERS = [
                         { title: "One-Tap Speed", desc: "I designed 'Smart Templates' that allowed recruiters to send commonly used replies (e.g., 'Interview Scheduled') in a single tap." }
                     ],
                     metrics: [
-                        { label: "Response Rate", value: "+45%" },
-                        { label: "Time-to-Hire", value: "-3 Days" },
-                        { label: "NPS", value: "78" }
+                        { label: "Response Rate", value: "Significant Increase" },
+                        { label: "Time-to-Hire", value: "Accelerated" },
+                        { label: "NPS", value: "High Candidate Satisfaction" }
                     ],
                     learnings: "This project taught me that 'features' don't solve problems; 'workflows' do. By mimicking the tool they already used (WhatsApp) but adding structure, I won adoption without training.",
                     aiHypotheses: [
@@ -883,9 +883,9 @@ export const WORK_CLUSTERS = [
                         { title: "Kecepatan Satu Tap", desc: "Saya desain 'Template Pintar' buat jawaban umum (misal: 'Interview Dijadwalkan') cuma pake satu tap." }
                     ],
                     metrics: [
-                        { label: "Rate Respon", value: "+45%" },
-                        { label: "Waktu Rekrut", value: "-3 Hari" },
-                        { label: "NPS", value: "78" }
+                        { label: "Rate Respon", value: "Meningkat Signifikan" },
+                        { label: "Waktu Rekrut", value: "Lebih Cepat" },
+                        { label: "NPS", value: "Kepuasan Tinggi" }
                     ],
                     learnings: "Proyek ini ngajarin saya kalo fitur gak nyelesain masalah; alur kerja (workflow) yang nyelesain. Dengan niru alat yang udah biasa mereka pake (WhatsApp) tapi dikasih struktur, saya dapet adopsi tanpa perlu training ribet.",
                     aiHypotheses: [
@@ -986,9 +986,9 @@ export const WORK_CLUSTERS = [
                         { title: "Bulk Acts", desc: "I realized users never act on one person at a time. I added 'Select All' actions to every stage." }
                     ],
                     metrics: [
-                        { label: "Efficiency", value: "+20%" },
-                        { label: "Data Accuracy", value: "99%" },
-                        { label: "Adoption", value: "100%" }
+                        { label: "Efficiency", value: "Improved Recruiter Speed" },
+                        { label: "Data Accuracy", value: "Near Perfect" },
+                        { label: "Adoption", value: "Full Team Adoption" }
                     ],
                     learnings: "Replacing a spreadsheet is the hardest design challenge. You can't just be prettier; you have to be faster. I learned to respect the utility of a grid.",
                     aiHypotheses: [
@@ -1066,9 +1066,9 @@ export const WORK_CLUSTERS = [
                         { title: "Aksi Massal", desc: "User gak pernah kerja satu-satu. Saya tambahin fitur 'Pilih Semua' (Select All) di setiap tahap." }
                     ],
                     metrics: [
-                        { label: "Efisiensi", value: "+20%" },
-                        { label: "Akurasi Data", value: "99%" },
-                        { label: "Adopsi", value: "100%" }
+                        { label: "Efisiensi", value: "Lebih Cepat" },
+                        { label: "Akurasi Data", value: "Hampir Sempurna" },
+                        { label: "Adopsi", value: "Adopsi Penuh" }
                     ],
                     learnings: "Gantiin Excel itu tantangan desain paling susah. Gak bisa cuma main cantik; harus lebih cepet. Saya belajar buat menghargai fungsi grid.",
                     aiHypotheses: [
@@ -1169,9 +1169,9 @@ export const WORK_CLUSTERS = [
                         { title: "Voice Notes", desc: "For users who struggled with typing, I added a 'Record Audio' feature. It became the most used feature." }
                     ],
                     metrics: [
-                        { label: "App Starts", value: "+45%" },
-                        { label: "Completed", value: "+60%" },
-                        { label: "Trust", value: "High" }
+                        { label: "App Starts", value: "Boosted Volume" },
+                        { label: "Completed", value: "Higher Completion" },
+                        { label: "Trust", value: "High Candidate Trust" }
                     ],
                     learnings: "Lowering the barrier to entry increases volume, but you need checks for quality. Voice notes were the perfect middle ground—easy to send, but rich in signal.",
                     aiHypotheses: [
@@ -1249,9 +1249,9 @@ export const WORK_CLUSTERS = [
                         { title: "Voice Notes", desc: "Buat user yang susah ngetik, saya tambahin fitur 'Rekam Suara'. Jadi fitur paling laku." }
                     ],
                     metrics: [
-                        { label: "Mulai Lamar", value: "+45%" },
-                        { label: "Selesai", value: "+60%" },
-                        { label: "Trust", value: "Tinggi" }
+                        { label: "Mulai Lamar", value: "Volume Naik" },
+                        { label: "Selesai", value: "Penyelesaian Tinggi" },
+                        { label: "Trust", value: "Kepercayaan Tinggi" }
                     ],
                     learnings: "Nurunin hambatan masuk ningkatin volume, tapi butuh filter kualitas. Voice note itu jalan tengah sempurna—gampang dikirim, tapi kaya info.",
                     aiHypotheses: [
@@ -1352,9 +1352,9 @@ export const WORK_CLUSTERS = [
                         { title: "Visual Tags", desc: "I designed a distinct icon set for every job category, acting as visual anchors for scanning." }
                     ],
                     metrics: [
-                        { label: "Retention D1", value: "+15%" },
-                        { label: "Search Success", value: "85%" },
-                        { label: "Bounce Rate", value: "-10%" }
+                        { label: "Retention D1", value: "Improved Retention" },
+                        { label: "Search Success", value: "High Success Rate" },
+                        { label: "Bounce Rate", value: "Reduced Drop-offs" }
                     ],
                     learnings: "Navigation is not just about structure; it's about confidence. If a user feels lost for 1 second, they are gone. I learned to count clicks like currency.",
                     aiHypotheses: [
@@ -1432,9 +1432,9 @@ export const WORK_CLUSTERS = [
                         { title: "Tag Visual", desc: "Saya desain set ikon unik untuk setiap kategori pekerjaan, berfungsi sebagai jangkar visual saat scanning cepat." }
                     ],
                     metrics: [
-                        { label: "Retensi D1", value: "+15%" },
-                        { label: "Sukses Cari", value: "85%" },
-                        { label: "Bounce Rate", value: "-10%" }
+                        { label: "Retensi D1", value: "Retensi Membaik" },
+                        { label: "Sukses Cari", value: "Tingkat Sukses Tinggi" },
+                        { label: "Bounce Rate", value: "Drop-off Berkurang" }
                     ],
                     learnings: "Navigasi bukan cuma soal struktur; ini soal kepercayaan diri. Kalau user merasa tersesat 1 detik saja, mereka pergi. Saya belajar menghargai setiap klik.",
                     aiHypotheses: [
@@ -1497,7 +1497,7 @@ export const WORK_CLUSTERS = [
         hook: 'Systematizing trust in a chaotic market. Designing fail-safe transaction flows for the $100B B2B supply chain.',
         miniDesc: 'Digitizing the supply chain not by disrupting it, but by scaffolding the existing relationships. We built a "Digital Handshake" protocol that respects the informal nature of traditional trade.',
         stats: [
-            { label: 'Role', value: 'Product Designer' },
+            { label: 'Role', value: 'Product Designer 2' },
             { label: 'Timeline', value: 'April 2020 - April 2022' },
             { label: 'Impact', value: 'Marketplace Liquidity' },
             { label: 'Platform', value: 'Web Dashboard & PWA' }
@@ -1573,9 +1573,9 @@ export const WORK_CLUSTERS = [
                         { title: "Escrow Badge", desc: "I added a visual 'Money Back Guarantee' shield next to the Pay button. It increased conversion by 5% alone." }
                     ],
                     metrics: [
-                        { label: "Cart Abandon", value: "-12%" },
-                        { label: "Conversion", value: "+8%" },
-                        { label: "AOV", value: "+15%" }
+                        { label: "Cart Abandon", value: "Reduced Abandonment" },
+                        { label: "Conversion", value: "Boosted Conversion" },
+                        { label: "AOV", value: "Increased Order Value" }
                     ],
                     learnings: "Trust is built in milliseconds. You can't ask for money if you look messy. A clean UI is a trustworthy UI.",
                     aiHypotheses: [
@@ -1653,9 +1653,9 @@ export const WORK_CLUSTERS = [
                         { title: "Badge Escrow", desc: "Saya tambah perisai visual 'Jaminan Uang Kembali' di sebelah tombol Bayar. Ini menaikkan konversi 5% sendirian." }
                     ],
                     metrics: [
-                        { label: "Cart Abandon", value: "-12%" },
-                        { label: "Konversi", value: "+8%" },
-                        { label: "AOV", value: "+15%" }
+                        { label: "Cart Abandon", value: "Abandonment Turun" },
+                        { label: "Konversi", value: "Konversi Naik" },
+                        { label: "AOV", value: "Nilai Order Naik" }
                     ],
                     learnings: "Kepercayaan dibangun dalam milidetik. Anda nggak bisa minta uang kalau tampilan berantakan. UI yang rapi adalah UI yang bisa dipercaya.",
                     aiHypotheses: [
@@ -1748,9 +1748,9 @@ export const WORK_CLUSTERS = [
                         { title: "Verified Badge", desc: "A visual tick that signaled 'Official Distributor', boosting trust for buyers." }
                     ],
                     metrics: [
-                        { label: "Onboarded", value: "50+" },
-                        { label: "GMV Uplift", value: "+22%" },
-                        { label: "Brand NPS", value: "65" }
+                        { label: "Onboarded", value: "Major Partners Onboarded" },
+                        { label: "GMV Uplift", value: "Significant GMV Growth" },
+                        { label: "Brand NPS", value: "High Partner Satisfaction" }
                     ],
                     learnings: "B2B buyers are still human. They gravitate towards 'polished' content because it signals reliability.",
                     aiHypotheses: [
@@ -1828,9 +1828,9 @@ export const WORK_CLUSTERS = [
                         { title: "Badge Terverifikasi", desc: "Centang visual yang menandakan 'Distributor Resmi', meningkatkan kepercayaan pembeli." }
                     ],
                     metrics: [
-                        { label: "Onboarded", value: "50+" },
-                        { label: "Kenaikan GMV", value: "+22%" },
-                        { label: "NPS Brand", value: "65" }
+                        { label: "Onboarded", value: "Mitra Utama Onboard" },
+                        { label: "Kenaikan GMV", value: "Pertumbuhan GMV Signifikan" },
+                        { label: "NPS Brand", value: "Kepuasan Mitra Tinggi" }
                     ],
                     learnings: "Pembeli B2B juga manusia. Mereka tertarik pada konten yang 'poles' karena itu sinyal keandalan.",
                     aiHypotheses: [
@@ -1923,9 +1923,9 @@ export const WORK_CLUSTERS = [
                         { title: "Rule Engine", desc: "Visual toggles for 'Combinable' vs 'Exclusive' promos." }
                     ],
                     metrics: [
-                        { label: "Utilization", value: "+25%" },
-                        { label: "Errors", value: "0%" },
-                        { label: "Sales Spikes", value: "High" }
+                        { label: "Utilization", value: "Improved Utilization" },
+                        { label: "Errors", value: "Eliminated Errors" },
+                        { label: "Sales Spikes", value: "Generated Sales Spikes" }
                     ],
                     learnings: "In complex systems, clarity is the best feature. If the user can't predict the outcome, the system is broken.",
                     aiHypotheses: [
@@ -2003,9 +2003,9 @@ export const WORK_CLUSTERS = [
                         { title: "Mesin Aturan", desc: "Toggle visual untuk promo 'Bisa Digabung' vs 'Eksklusif'." }
                     ],
                     metrics: [
-                        { label: "Utilisasi", value: "+25%" },
-                        { label: "Error", value: "0%" },
-                        { label: "Lonjakan Sales", value: "Tinggi" }
+                        { label: "Utilisasi", value: "Utilisasi Membaik" },
+                        { label: "Error", value: "Nihil Error" },
+                        { label: "Lonjakan Sales", value: "Lonjakan Penjualan" }
                     ],
                     learnings: "Di sistem kompleks, kejelasan adalah fitur terbaik. Kalau user nggak bisa prediksi hasilnya, sistemnya rusak.",
                     aiHypotheses: [
@@ -2098,9 +2098,9 @@ export const WORK_CLUSTERS = [
                         { title: "Synced Components", desc: "A design-to-code workflow. Update Figma, sync to production." }
                     ],
                     metrics: [
-                        { label: "Dev Velocity", value: "+30%" },
-                        { label: "Design Debt", value: "0%" },
-                        { label: "Consistency", value: "100%" }
+                        { label: "Dev Velocity", value: "Accelerated Development" },
+                        { label: "Design Debt", value: "Eliminated Debt" },
+                        { label: "Consistency", value: "Unified UI" }
                     ],
                     learnings: "A design system is a product, not a project. It needs maintenance, versioning, and a roadmap.",
                     aiHypotheses: [
@@ -2178,9 +2178,9 @@ export const WORK_CLUSTERS = [
                         { title: "Library React", desc: "Paket npm yang tersinkronisasi sempurna. Desain sekali, impor di mana saja." }
                     ],
                     metrics: [
-                        { label: "Kecepatan Dev", value: "+30%" },
-                        { label: "Ukuran Kode", value: "-15%" },
-                        { label: "Konsistensi", value: "100%" }
+                        { label: "Kecepatan Dev", value: "Development Lebih Cepat" },
+                        { label: "Ukuran Kode", value: "Kode Lebih Efisien" },
+                        { label: "Konsistensi", value: "UI Terpadu" }
                     ],
                     learnings: "Design system itu produk, bukan proyek. Butuh maintenance, versioning, dan roadmap.",
                     aiHypotheses: [
@@ -2328,9 +2328,9 @@ export const WORK_CLUSTERS = [
                         { title: "Driver Info", desc: "Secure contact info for the driver, giving users a direct line to their goods.", image: "/case-studies/delivery-methods/tes3.png" }
                     ],
                     metrics: [
-                        { label: "Support Tix", value: "-60%" },
-                        { label: "Trust", value: "+40%" },
-                        { label: "Repeat Order", value: "+10%" }
+                        { label: "Support Tix", value: "Drastically Reduced" },
+                        { label: "Trust", value: "Increased Trust" },
+                        { label: "Repeat Order", value: "Improved Retention" }
                     ],
                     learnings: "Transparency is cheaper than speed. Users will wait if they know why. This project wasn't about UI; it was about selling 'peace of mind' as a feature.",
                     aiHypotheses: [
@@ -2415,9 +2415,9 @@ export const WORK_CLUSTERS = [
                         { title: "Info Pengemudi", desc: "Info kontak sopir yang aman, memberi user jalur langsung ke barang mereka.", image: "/case-studies/delivery-methods/tes3.png" }
                     ],
                     metrics: [
-                        { label: "Tiket Support", value: "-60%" },
-                        { label: "Trust", value: "+40%" },
-                        { label: "Repeat Order", value: "+10%" }
+                        { label: "Tiket Support", value: "Berkurang Drastis" },
+                        { label: "Trust", value: "Kepercayaan Naik" },
+                        { label: "Repeat Order", value: "Retensi Membaik" }
                     ],
                     learnings: "Transparansi itu lebih murah daripada kecepatan. User mau nunggu kalau mereka tau alasannya. Proyek ini bukan soal UI; ini soal menjual 'ketenangan pikiran' sebagai fitur.",
                     aiHypotheses: [
@@ -2520,9 +2520,9 @@ export const WORK_CLUSTERS = [
                         { title: "Sticky Context", desc: "The 'Data Information' header stays sticky as users scroll, reminding them: 'This data is yours, updated at 14:00'. It builds trust in the data relevance.", componentId: "stoqo-sales-context" }
                     ],
                     metrics: [
-                        { label: "Commitment", value: "98%" },
-                        { label: "Activity", value: "+40%" },
-                        { label: "Disputes", value: "-25%" }
+                        { label: "Commitment", value: "High Agent Commitment" },
+                        { label: "Activity", value: "Boosted Activity" },
+                        { label: "Disputes", value: "Reduced Disputes" }
                     ],
                     learnings: "You don't always need complex gamification with avatars and leaderboards. Sometimes, the best game mechanic is just Knowing the Score.",
                     aiHypotheses: [
@@ -2602,9 +2602,9 @@ export const WORK_CLUSTERS = [
                         { title: "Konteks Melayang", desc: "Header 'Informasi Data' tetap nempel (sticky) pas user scroll, ngingetin mereka: 'Data ini punya lo, diupdate jam 14:00'. Ini bangun kepercayaan sama relevansi data.", componentId: "stoqo-sales-context" }
                     ],
                     metrics: [
-                        { label: "Komitmen", value: "98%" },
-                        { label: "Aktivitas", value: "+40%" },
-                        { label: "Sengketa", value: "-25%" }
+                        { label: "Komitmen", value: "Komitmen Tinggi" },
+                        { label: "Aktivitas", value: "Aktivitas Naik" },
+                        { label: "Sengketa", value: "Sengketa Berkurang" }
                     ],
                     learnings: "Gamifikasi gak selalu butuh avatar dan leaderboard. Kadang, mekanika game terbaik adalah cuma 'Tahu Skor-nya'.",
                     aiHypotheses: [
@@ -2680,9 +2680,9 @@ export const WORK_CLUSTERS = [
                         { title: "Digital Archive", desc: "A search bar that could find a receipt from 3 years ago in 2 seconds." }
                     ],
                     metrics: [
-                        { label: "Paper Redux", value: "90%" },
-                        { label: "Search Speed", value: "100x" },
-                        { label: "Cost Save", value: "High" }
+                        { label: "Paper Redux", value: "Eliminated Paperwork" },
+                        { label: "Search Speed", value: "Instant Search" },
+                        { label: "Cost Save", value: "Significant Savings" }
                     ],
                     learnings: "The future is inevitable, but it needs a bridge. The 'Confidence Score' was the bridge that let users trust the AI.",
                     aiHypotheses: [
@@ -2743,9 +2743,9 @@ export const WORK_CLUSTERS = [
                         { title: "Arsip Digital", desc: "Kolom pencarian yang bisa nemuin bon dari 3 tahun lalu dalam 2 detik." }
                     ],
                     metrics: [
-                        { label: "Kertas Turun", value: "90%" },
-                        { label: "Cari Cepat", value: "100x" },
-                        { label: "Hemat Biaya", value: "Tinggi" }
+                        { label: "Kertas Turun", value: "Hapus Penggunaan Kertas" },
+                        { label: "Cari Cepat", value: "Pencarian Instan" },
+                        { label: "Hemat Biaya", value: "Hemat Biaya Signifikan" }
                     ],
                     learnings: "Masa depan itu pasti, tapi butuh jembatan. 'Confidence Score' adalah jembatan yang bikin user berani percaya sama AI.",
                     aiHypotheses: [

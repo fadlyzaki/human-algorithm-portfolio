@@ -610,6 +610,18 @@ const ProtectedCaseStudy = () => {
 
           {/* Content Wrapper */}
           <div className="relative z-10 w-full flex flex-col items-center">
+            {/* WIP Label for incomplete projects */}
+            {!['stoqo-logistics', 'stoqo-sales'].includes(projectData.id) && (
+              <div className="mb-6 flex items-center justify-center">
+                <div className="bg-amber-500/10 border border-amber-500/50 text-amber-600 dark:text-amber-400 px-4 py-2 rounded-full flex items-center gap-2 backdrop-blur-sm">
+                  <AlertTriangle size={14} />
+                  <span className="font-mono text-[10px] uppercase tracking-widest">
+                    {t('protected.wip_label') || "Work in Progress"}
+                  </span>
+                </div>
+              </div>
+            )}
+
             {/* Cinematic Title */}
             <div className="mb-4">
               <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--brand)] border-b border-[var(--brand)] pb-2 inline-block">

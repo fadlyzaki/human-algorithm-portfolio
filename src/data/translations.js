@@ -78,11 +78,11 @@ export const translations = {
             log_1_desc: "Initialization phase. From teaching Interaction Design to managing agile products at GDP Labs and researching Fintech UX at Tokopedia. This was the hybridizing of CS logic and Design thinking.",
             log_2_title: "Product Designer @ STOQO",
             log_2_desc: "My first deep dive into operational complexity. STOQO streamlines the F&B supply chain, empowering micro & small businesses with easy access to competitively-priced ingredients. My job was to digitize offline routines so business owners could focus on cooking, not shopping.",
-            log_3_title: "Product Designer @ GudangAda",
+            log_3_title: "Product Designer 2 @ GudangAda",
             log_3_desc: "This was my crash course in scale. GudangAda transforms Indonesia's B2B distribution chain through end-to-end digital solutions. I learned that in high-volume B2B tools serving principals, distributors, and retailers, reducing friction isn't just a UX goal—it's a revenue metric.",
             log_4_title: "UI/UX Consultant @ Du Anyam",
             log_4_desc: "A study in social impact. I consulted for a social enterprise empowering rural women through wicker crafts. The interface had to connect rural skills with modern markets.",
-            log_5_title: "Product Designer @ Lumina (YC W22)",
+            log_5_title: "Senior Product Designer @ Lumina (YC W22)",
             log_5_desc: "Designing for the blue-collar economy requires radical honesty. Lumina revolutionizes recruitment through a highly engaged job community platform. I wasn't just building features; I was building a trust layer connecting hundreds of thousands of workers with SMEs.",
             log_6_title: "System Recalibration (Health Crisis)",
             log_6_desc: "A severe health crisis forced a system shutdown. This wasn't just a break; it was a survival necessity. As part of my recovery, I completed a Master's in EdTech, studying cognitive load and human adaptation. I shifted my focus from 'Optimization' to 'Resilience', rebuilding my philosophy to prioritize user agency.",
@@ -251,7 +251,8 @@ export const translations = {
             generating: "Generating alternative approach...",
             explore_another: "Explore Another Idea",
             impact_label: "Impact",
-            back: "Return to Base"
+            back: "Return to Base",
+            wip_label: "Work in Progress: Case details are mock data"
         }
     },
     id: {
@@ -333,11 +334,11 @@ export const translations = {
             log_1_desc: "Fase inisialisasi. Dari Asisten Dosen Desain Interaksi hingga mengelola produk agile di GDP Labs dan riset UX Fintech di Tokopedia. Hibridasi logika Computer Science dan Design Thinking.",
             log_2_title: "Product Designer @ STOQO",
             log_2_desc: "Penyelaman pertama ke kompleksitas operasional. STOQO merampingkan rantai pasok F&B, memberdayakan UMKM dengan akses bahan baku murah. Tugas saya mendigitalkan rutinitas offline agar pemilik bisnis bisa fokus memasak, bukan belanja.",
-            log_3_title: "Product Designer @ GudangAda",
+            log_3_title: "Product Designer 2 @ GudangAda",
             log_3_desc: "Kursus kilat tentang skala (scale). GudangAda mentransformasi distribusi B2B Indonesia. Saya belajar bahwa dalam tool B2B volume tinggi, mengurangi friksi bukan sekadar tujuan UX—itu adalah metrik pendapatan (Revenue Metric).",
             log_4_title: "UI/UX Consultant @ Du Anyam",
             log_4_desc: "Studi dampak sosial. Konsultasi untuk wirausaha sosial yang memberdayakan perempuan pedesaan. Antarmuka harus menjembatani keterampilan tradisional dengan pasar modern.",
-            log_5_title: "Product Designer @ Lumina (YC W22)",
+            log_5_title: "Senior Product Designer @ Lumina (YC W22)",
             log_5_desc: "Desain untuk 'Blue Collar Economy' butuh kejujuran radikal. Kami membangun platform komunitas kerja. Bukan sekadar fitur, tapi lapisan kepercayaan (trust layer) yang menghubungkan ratusan ribu pekerja dengan pemberi kerja.",
             log_6_title: "Kalibrasi Ulang Sistem (Krisis Kesehatan)",
             log_6_desc: "Krisis kesehatan serius memaksa sistem berhenti total. Ini bukan sekadar istirahat; ini adalah keharusan untuk bertahan hidup. Sebagai bagian dari pemulihan, saya menyelesaikan S2 EdTech. Saya mengalihkan fokus dari 'Optimasi' ke 'Ketangguhan', membangun kembali filosofi saya untuk memprioritaskan manusia.",
@@ -506,7 +507,8 @@ export const translations = {
             generating: "Menghasilkan pendekatan alternatif...",
             explore_another: "Eksplorasi Ide Lain",
             impact_label: "Dampak",
-            back: "Kembali ke Markas"
+            back: "Kembali ke Markas",
+            wip_label: "Sedang Dikerjakan: Detail kasus adalah data sampel"
         }
     }
 };

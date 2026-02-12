@@ -91,18 +91,7 @@ const AboutPage = () => {
       color: 'text-[var(--text-primary)]',
       category: 'work'
     },
-    {
-      year: 'Jun 2020 - Dec 2020',
-      type: 'EXECUTION_LOG',
-      title: t('about.log_4_title'),
-      company: 'Du Anyam',
-      link: null,
-      desc: t('about.log_4_desc'),
-      tags: ["Social Enterprise", "Empowerment", "Consulting"],
-      icon: Briefcase,
-      color: 'text-[var(--text-primary)]',
-      category: 'work'
-    },
+
     {
       year: 'Mar 2018 - Apr 2020',
       type: 'EXECUTION_LOG',
