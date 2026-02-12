@@ -707,8 +707,8 @@ export const WORK_CLUSTERS = [
             title: "Konteks Unik",
             items: ["Pengguna Kerah Biru", "Pasar Android-First", "UX Siap Offline"]
         },
-        motivation: "I saw my father, a middle-manager in a factory, struggle to find reliable people while thousands were looking for work. The gap wasn't skill; it was trust. I wanted to build a bridge made of pixels that felt like a handshake.",
-        motivation_id: "Saya melihat ayah saya, seorang manajer pabrik, kesulitan mencari pekerja jujur padahal ribuan orang butuh kerja. Celahnya bukan skill, tapi kepercayaan. Saya ingin membangun jembatan digital yang rasanya seperti jabat tangan.",
+        motivation: "As a 'merantau' (migrant) worker myself, I share the pain of the blue-collar workforce, who are mostly migrants too. I decided to join this company to help build a system that respects their journey and dignity.",
+        motivation_id: "Sebagai seorang perantau, saya merasakan peliknya kehidupan pekerja kerah biru yang mayoritas juga perantau. Saya bergabung untuk membantu membangun sistem yang menghargai perjuangan dan martabat mereka.",
         brandColor: '#1AA8B4', // Lumina Teal
         linkedinUrl: 'https://www.linkedin.com/company/luminatechnologies/about/',
         heroImage: '/workforce_hero.png',
@@ -1488,8 +1488,8 @@ export const WORK_CLUSTERS = [
             title: "Faktor Skala",
             items: ["Pasar B2B $100M", "Rantai Pasokan FMCG", "Logistik Terfragmentasi"]
         },
-        motivation: "My grandmother ran a small warung in the village. Every week, she'd travel hours to the city just to restock. I watched technology disrupt big malls while she was left behind. I built this to give her—and millions like her—the same power as the giants.",
-        motivation_id: "Nenek saya punya warung kecil di desa. Tiap minggu dia harus ke kota berjam-jam cuma buat stok barang. Saya lihat teknologi cuma bantu mal besar sementara dia ditinggal. Saya bangun ini supaya dia punya kekuatan yang sama dengan raksasa retail.",
+        motivation: "When COVID hit, I saw my aunt's Mom & Pop store struggle to get supplies. It wasn't just a business problem; it was personal. When I got the opportunity to help, I joined to improve the transaction flow, specifically easing the burden for buyers like her.",
+        motivation_id: "Saat COVID melanda, saya melihat warung tante saya kesulitan mendapatkan stok. Itu bukan sekadar masalah bisnis; itu personal. Saat kesempatan untuk membantu datang, saya bergabung untuk memperbaiki alur transaksi, meringankan beban bagi pembeli seperti beliau.",
         hook_id: 'Membangun rasa aman di pasar low-trust. Memastikan pemilik warung merasa setenang belanja stok 5 juta seperti saat jajan 5 ribu.',
         brandColor: '#00D1C7', // GudangAda Cyan
         linkedinUrl: 'https://www.linkedin.com/company/gudangada/about/',
@@ -2235,8 +2235,8 @@ export const WORK_CLUSTERS = [
             title: "Realita Operasional",
             items: ["Bahan Baku Segar", "Pengiriman Just-In-Time", "Turnover Pekerja Tinggi"]
         },
-        motivation: "Food waste is a logistics failure, not a production one. I spent nights in damp markets watching tons of fresh chili go to rot because the supply chain was a black hole. I wanted to turn that chaos into a symphony of data.",
-        motivation_id: "Limbah makanan itu kegagalan logistik, bukan produksi. Saya habiskan malam di pasar lembap melihat berton-ton cabai busuk cuma karena rantai pasoknya gelap gulita. Saya ingin mengubah kekacauan itu jadi simfoni data.",
+        motivation: "Coming from a non-urban city like Padang—where culinary culture is global—made me deeply aware of how supply chains impact daily life. I wanted to help ease the pain points of my fellow people from Padang, ensuring they get fresher ingredients at cheaper prices.",
+        motivation_id: "Berasal dari kota non-metropolitan seperti Padang—di mana budaya kulinernya mendunia—membuat saya sadar betapa rantai pasok berdampak pada hidup sehari-hari. Saya ingin membantu meringankan beban sesama perantau Minang, memastikan mereka mendapatkan bahan baku lebih segar dengan harga lebih murah.",
         brandColor: '#FA6130', // Stoqo Orange
         linkedinUrl: 'https://www.linkedin.com/company/stoqo-technologies/about/',
         heroImage: '/efficiency_hero.png',
