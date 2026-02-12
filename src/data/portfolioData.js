@@ -702,7 +702,7 @@ export const WORK_CLUSTERS = [
         },
         subtitle_id: 'Memanusiakan Operasional',
         hook_id: 'Memberi martabat pada pencarian kerja. Platform komunitas yang memastikan pekerja kerah biru tidak merasa seperti sedang mengemis pekerjaan.',
-        miniDesc_id: 'Membangun "LinkedIn" untuk mereka yang bekerja dengan tangan. Membantu ribuan sopir, pelayan, dan pekerja gudang menemukan pekerjaan yang layak tanpa perantara.',
+        miniDesc_id: 'Membangun "LinkedIn" untuk pekerja tangan. Merancang sistem reputasi dan membangun praktik Design Ops untuk mengelola alur kerja freelance.',
         companyFocus_id: {
             title: "Konteks Unik",
             items: ["Pengguna Kerah Biru", "Pasar Android-First", "UX Siap Offline"]
@@ -713,9 +713,10 @@ export const WORK_CLUSTERS = [
         linkedinUrl: 'https://www.linkedin.com/company/luminatechnologies/about/',
         heroImage: '/workforce_hero.png',
         hook: 'Engineering dignity into the blue-collar job hunt. Reducing the cognitive load of application forms for millions of workers.',
-        miniDesc: 'Building a "Trust Layer" for the blue-collar economy. We didn\'t just digitize resumes; we architected a reputation system that bridges the gap between informal skills and formal employment.',
+        miniDesc: 'Building a "Trust Layer" for the blue-collar economy. Architected a reputation system and established Design Ops practices to manage freelance workflows.',
         stats: [
-            { label: 'Role', value: 'Senior Designer & Ops' },
+            { label: 'Role', value: 'Senior Product Designer' },
+            { label: 'Contribution', value: 'Design Ops & Mentoring' },
             { label: 'Timeline', value: 'May 2022 - Nov 2022' },
             { label: 'Impact', value: 'Scale & Reliability' },
             { label: 'Platform', value: 'Mobile app (android) & Websites' }
@@ -1495,16 +1496,17 @@ export const WORK_CLUSTERS = [
         linkedinUrl: 'https://www.linkedin.com/company/gudangada/about/',
         heroImage: '/commerce_hero.png',
         hook: 'Systematizing trust in a chaotic market. Designing fail-safe transaction flows for the $100B B2B supply chain.',
-        miniDesc: 'Digitizing the supply chain not by disrupting it, but by scaffolding the existing relationships. We built a "Digital Handshake" protocol that respects the informal nature of traditional trade.',
+        miniDesc: 'Digitizing the supply chain by scaffolding existing relationships. Established Design Ops, mentored interns, and scaled the design team.',
         stats: [
-            { label: 'Role', value: 'Product Designer & Mentor' },
+            { label: 'Role', value: 'Product Designer 2' },
+            { label: 'Contribution', value: 'Design Ops & Hiring' },
             { label: 'Timeline', value: 'April 2020 - April 2022' },
             { label: 'Impact', value: 'Marketplace Liquidity' },
             { label: 'Platform', value: 'Web Dashboard & PWA' }
         ],
         culture: {
             title: "The Arena",
-            description: "The kitchen is a chaotic place; our software had to be the calm center. I also contributed to team growth by mentoring interns and helping with design interviews. We spent days in hot warehouses and crowded markets to understand the real users.",
+            description: "Building a digital layer on top of a chaotic, traditional supply chain wasn't easy. I established Design Ops practices: mentoring interns, conducting design reviews, and interviewing new hires. We spent days in hot warehouses and crowded markets to understand the real users.",
             images: [
                 { src: "/commerce_hero.png", caption: "Warehouse Audit", span: "col-span-1 md:col-span-2 row-span-2" },
                 { src: "/commerce_hero.png", caption: "Market Visit", span: "col-span-1 row-span-1" },
@@ -1996,7 +1998,7 @@ export const WORK_CLUSTERS = [
                         { title: "Perbaikan", desc: "Saya usulkan UI 'Aturan Tumpuk': Kategori tegas (Ongkir, Produk, Bundling) yang tidak boleh tumpang tindih." }
                     ],
                     insights: [
-                        { title: "Takut Rugi", desc: "User takut banget 'sedekah tak sengaja'. Saya tambah kalkulator 'Potensi Loss' yang nunjukin maksimal uang terbakar sebelum mereka publish promo." }
+                        { title: "Takut Rugi", desc: "User takut banget 'sedekah tak sengaja'. Saya tambah kalkulator 'Potensi Loss' yang nunjukkin maksimal uang terbakar sebelum mereka publish promo." }
                     ],
                     solution: [
                         { title: "Simulator Promo", desc: "Tool yang membiarkan AM ngetes promo mereka lawan keranjang palsu buat lihat harga akhir." },
@@ -2245,14 +2247,15 @@ export const WORK_CLUSTERS = [
         hook_id: 'Mendesain untuk jam-jam tak terlihat. Memastikan mereka yang memberi makan Jakarta bisa tidur nyenyak sampai truk datang.',
         miniDesc_id: 'Logistik bukan cuma soal mindahin kardus. Ini soal kecemasan pemilik restoran yang nunggu jam 4 pagi, bertanya-tanya apakah bahan masakannya bakal nyampe.',
         stats: [
-            { label: 'Role', value: 'Early Product Designer' },
-            { label: 'Timeline', value: 'Mar 2018 - April 2020' },
-            { label: 'Scope', value: 'Customer, Ops, Warehousing' },
-            { label: 'Status', value: 'Closed (Covid-19)' }
+            { label: 'Role', value: 'Product Designer' },
+            { label: 'Contribution', value: 'Intern Mentorship' },
+            { label: 'Timeline', value: 'March 2018 - April 2020' },
+            { label: 'Impact', value: 'Operational Efficiency' },
+            { label: 'Platform', value: 'Android App & Dashboard' }
         ],
         culture: {
             title: "The Arena",
-            description: "I worked there as one of the early product designers, touching almost every product line—from customer-facing apps to complex warehousing logistics. We built a culture of 'Get Your Hands Dirty'.",
+            description: "I worked there as one of the early product designers, touching almost every product line—from customer-facing apps to complex warehousing logistics. I also contributed to Design Ops by mentoring interns and supporting the hiring process. We built a culture of 'Get Your Hands Dirty'.",
             images: [
                 { src: "/hero-stoqo.jpg", caption: "Warehouse Visits", span: "col-span-1 md:col-span-2 row-span-2" },
                 { src: "/case-studies/delivery-methods/mvimg-20190507.jpg", caption: "The Squad", span: "col-span-1 row-span-1" },
