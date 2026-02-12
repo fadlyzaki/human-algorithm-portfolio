@@ -313,7 +313,14 @@ const CompanyDetail = () => {
                                         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-20 pointer-events-none"></div>
 
                                         {/* Floating Badge */}
-                                        <div className="absolute top-4 right-4 z-20">
+                                        <div className="absolute top-4 right-4 z-20 flex flex-col items-end gap-2">
+                                            {/* WIP Label */}
+                                            {(!['stoqo-logistics', 'stoqo-sales'].includes(project.id)) && (
+                                                <div className="bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 px-3 py-1.5 rounded-full border border-amber-200 dark:border-amber-700/50 text-[10px] font-mono font-bold uppercase tracking-widest shadow-sm backdrop-blur-md">
+                                                    WORK IN PROGRESS
+                                                </div>
+                                            )}
+                                            {/* Project Type Badge */}
                                             <div className="flex items-center gap-2 bg-white dark:bg-black text-black dark:text-white px-3 py-1.5 rounded-full border border-black/10 dark:border-white/10 text-[11px] font-mono uppercase tracking-widest shadow-lg">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] animate-pulse"></div>
                                                 {project.type}
