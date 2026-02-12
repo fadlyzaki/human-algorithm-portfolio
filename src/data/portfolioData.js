@@ -1035,7 +1035,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Optimasi Alur Kerja",
-                            text: "Merancang ulang ATS internal untuk menggantikan tracking berbasis Excel. Memperkenalkan pipeline gaya Kanban yang meningkatkan akurasi data hingga 99% dan mencapai adopsi 100%."
+                            text: "Merancang ulang ATS internal untuk menggantikan tracking berbasis Excel. Memperkenalkan pipeline gaya Kanban yang meningkatkan akurasi data dan mencapai adopsi tim sepenuhnya."
                         },
                         technical: {
                             label: "🤖 Sistem",
@@ -1118,12 +1118,12 @@ export const WORK_CLUSTERS = [
                 details: {
                     problem: 'Asking a driver for a CV creates panic, not data.',
                     system: 'One-tap "Hello" instead of a 10-page form.',
-                    outcome: '45% more people dared to apply.'
+                    outcome: 'More people dared to apply.'
                 },
                 details_id: {
                     problem: 'Minta CV ke supir bikin panik, bukan dapet data.',
                     system: 'Cukup "Halo" sekali tap, bukan formulir 10 hal.',
-                    outcome: '45% lebih banyak orang berani melamar.'
+                    outcome: 'Lebih banyak orang berani melamar.'
                 },
                 title_id: 'Chat Your Employer',
                 tag_id: 'Akses Langsung',
@@ -1138,7 +1138,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Removing Friction",
-                            text: "Addressed high drop-off rates by replacing long forms with a chat-first application flow. This reduced friction significantly and increased application completion rates by 60%."
+                            text: "Addressed high drop-off rates by replacing long forms with a chat-first application flow. This reduced friction significantly and increased application completion rates."
                         },
                         technical: {
                             label: "🤖 System",
@@ -1622,7 +1622,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Rekayasa Kepercayaan",
-                            text: "Menyederhanakan checkout B2B kompleks dari 7 langkah jadi 3. Menambah sinyal kepercayaan seperti badge escrow, mengurangi cart abandonment 12%."
+                            text: "Menyederhanakan checkout B2B kompleks dari 7 langkah jadi 3. Menambah sinyal kepercayaan seperti badge escrow, mengurangi tingkat pengabaian keranjang secara signifikan."
                         },
                         technical: {
                             label: "🤖 Sistem",
@@ -1717,7 +1717,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "B2B Branding",
-                            text: "Created a 'Shop-in-Shop' CMS for major FMCG partners. Allowed brands to manage their own assets, resulting in 50+ onboarded partners."
+                            text: "Created a 'Shop-in-Shop' CMS for major FMCG partners. Allowed brands to manage their own assets, resulting in successful onboarding of major partners."
                         },
                         technical: {
                             label: "🤖 System",
@@ -1797,7 +1797,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Branding B2B",
-                            text: "Membuat CMS 'Shop-in-Shop' untuk mitra FMCG besar. Memungkinkan brand mengelola aset mereka sendiri, menghasilkan 50+ mitra onboard."
+                            text: "Membuat CMS 'Shop-in-Shop' untuk mitra FMCG besar. Memungkinkan brand mengelola aset mereka sendiri, menghasilkan onboarding mitra utama yang sukses."
                         },
                         technical: {
                             label: "🤖 Sistem",
@@ -1892,7 +1892,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Operational Safeguards",
-                            text: "Designed a conflict-free promotion engine for internal teams. Eliminated pricing errors and increased promo utilization by 25%."
+                            text: "Designed a conflict-free promotion engine for internal teams. Eliminated pricing errors and increased promo utilization significantly."
                         },
                         technical: {
                             label: "🤖 System",
@@ -2067,7 +2067,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Scalable Design System",
-                            text: "Established a comprehensive Design System to unify UI across products. Accelerated developer velocity by 30% and reduced technical debt."
+                            text: "Established a comprehensive Design System to unify UI across products. Accelerated developer velocity and reduced technical debt."
                         },
                         technical: {
                             label: "🤖 System",
@@ -2290,7 +2290,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Service Reliability",
-                            text: "Solved a critical anxiety point by implementing real-time logistics tracking. Reduced support tickets by 60% and increased customer reliance."
+                            text: "Solved a critical anxiety point by implementing real-time logistics tracking. Reduced support tickets significantly and increased customer reliance."
                         },
                         technical: {
                             label: "🤖 System",
