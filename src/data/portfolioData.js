@@ -715,14 +715,14 @@ export const WORK_CLUSTERS = [
         hook: 'Engineering dignity into the blue-collar job hunt. Reducing the cognitive load of application forms for millions of workers.',
         miniDesc: 'Building a "Trust Layer" for the blue-collar economy. We didn\'t just digitize resumes; we architected a reputation system that bridges the gap between informal skills and formal employment.',
         stats: [
-            { label: 'Role', value: 'Senior Product Designer' },
+            { label: 'Role', value: 'Senior Designer & Ops' },
             { label: 'Timeline', value: 'May 2022 - Nov 2022' },
             { label: 'Impact', value: 'Scale & Reliability' },
             { label: 'Platform', value: 'Mobile app (android) & Websites' }
         ],
         culture: {
             title: "The Arena",
-            description: "We built a culture of 'Radical Honesty'. We weren't just building an app; we were building a livelihood for thousands. Every design decision was tested in the field, not just in Figma.",
+            description: "High volume, low margin, fast pace. We shipped daily. I also established Design Ops practices: mentoring interns, conducting design reviews, and interviewing new hires. We weren't just building an app; we were building a livelihood. I also managed freelance designers to scale our assets. Every design decision was tested in the field, not just in Figma.",
             images: [
                 { src: "/workforce_hero.png", caption: "Field Research", span: "col-span-1 md:col-span-2 row-span-2" },
                 { src: "/workforce_hero.png", caption: "Driver Onboarding", span: "col-span-1 row-span-1" },
@@ -732,7 +732,7 @@ export const WORK_CLUSTERS = [
         },
         culture_id: {
             title: "Medan Juang",
-            description: "Kami membangun budaya 'Kejujuran Radikal'. Kami bukan cuma bikin aplikasi; kami bikin mata pencaharian buat ribuan orang. Setiap keputusan desain diuji di lapangan, bukan cuma di Figma."
+            description: "Volume tinggi, margin rendah, cepat. Kami ship tiap hari. Saya juga membangun Design Ops: mementori magang, review desain, dan interview karyawan baru. Kami bukan cuma bikin aplikasi; kami bikin mata pencarian. Saya juga mengelola desainer freelance untuk skala aset. Setiap keputusan desain diuji di lapangan, bukan cuma di Figma."
         },
         projects: [
             {
@@ -1055,7 +1055,7 @@ export const WORK_CLUSTERS = [
                     },
                     challenge: "Data HR berantakan di 5 tools beda dan spreadsheet raksasa. Tim gak bisa jawab pertanyaan simpel kayak 'Berapa driver yang kita rekrut hari ini?' tanpa pusing dulu.",
                     process: [
-                        { title: "Audit Total", desc: "Saya print semua spreadsheet dan stabilo-in setiap kolom yang duplikat. Ternyata kita minta data yang sama sampe 4 kali." },
+                        { title: "Audit Total", desc: "Saya print semua spreadsheet dan stabilo-in setiap kolom yang duplikat. Ternyata kami minta data yang sama sampe 4 kali." },
                         { title: "Friksi", desc: "User nolak dashboard baru. Mereka cinta banget fleksibilitas Excel. Saya harus buktiin kalau 'struktur' itu sepadan dengan hilangnya 'kebebasan'." }
                     ],
                     insights: [
@@ -1480,7 +1480,7 @@ export const WORK_CLUSTERS = [
         logo: '/gudangada-logo.png', // Placeholder for company logo
         subtitle: 'Managing Scale',
         companyFocus: {
-            title: "Scale Factor",
+            title: "Unique Context",
             icon: "TrendingUp",
             items: ["$100B B2B Market", "FMCG Supply Chain", "Fragmented Logistics"]
         },
@@ -1497,14 +1497,14 @@ export const WORK_CLUSTERS = [
         hook: 'Systematizing trust in a chaotic market. Designing fail-safe transaction flows for the $100B B2B supply chain.',
         miniDesc: 'Digitizing the supply chain not by disrupting it, but by scaffolding the existing relationships. We built a "Digital Handshake" protocol that respects the informal nature of traditional trade.',
         stats: [
-            { label: 'Role', value: 'Product Designer 2' },
+            { label: 'Role', value: 'Product Designer & Mentor' },
             { label: 'Timeline', value: 'April 2020 - April 2022' },
             { label: 'Impact', value: 'Marketplace Liquidity' },
             { label: 'Platform', value: 'Web Dashboard & PWA' }
         ],
         culture: {
             title: "The Arena",
-            description: "Building a digital layer on top of a chaotic, traditional supply chain wasn't easy. We spent days in hot warehouses and crowded markets to understand the real users.",
+            description: "The kitchen is a chaotic place; our software had to be the calm center. I also contributed to team growth by mentoring interns and helping with design interviews. We spent days in hot warehouses and crowded markets to understand the real users.",
             images: [
                 { src: "/commerce_hero.png", caption: "Warehouse Audit", span: "col-span-1 md:col-span-2 row-span-2" },
                 { src: "/commerce_hero.png", caption: "Market Visit", span: "col-span-1 row-span-1" },
