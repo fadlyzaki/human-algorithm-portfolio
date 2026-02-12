@@ -39,7 +39,6 @@ const SystemManifest = () => {
     name: "Fadly Uzzaki",
     role: t('manifest.role'),
     location: "Jakarta, Indonesia",
-    status: t('manifest.status'),
     links: [
       { label: "linkedin.com/in/fadlyzaki", url: "https://www.linkedin.com/in/fadlyzaki/", icon: Linkedin },
       { label: "fadlyzaki-design.vercel.app", url: "https://fadlyzaki-design.vercel.app/", icon: Globe },
@@ -162,12 +161,6 @@ const SystemManifest = () => {
           <div className="mb-4">
             <h1 className="text-4xl md:text-5xl font-mono uppercase tracking-tight mb-2">{header.name}</h1>
             <h2 className="text-lg text-[var(--text-secondary)] font-mono mb-3">{header.role}</h2>
-            {header.status && (
-              <div className="flex items-center gap-2 text-sm font-mono text-[var(--accent-mono)]">
-                <div className="w-2 h-2 bg-current rounded-full animate-pulse print:hidden"></div>
-                {header.status}
-              </div>
-            )}
           </div>
 
           {/* Contact Links - Horizontal Layout with Location */}
