@@ -14,7 +14,8 @@ import {
   BookOpen,
   User,
   Sun,
-  Moon
+  Moon,
+  Phone
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import SEO from '../components/SEO';
@@ -42,7 +43,8 @@ const SystemManifest = () => {
     links: [
       { label: "linkedin.com/in/fadlyzaki", url: "https://www.linkedin.com/in/fadlyzaki/", icon: Linkedin },
       { label: "fadlyzaki-design.vercel.app", url: "https://fadlyzaki-design.vercel.app/", icon: Globe },
-      { label: "fadly.uzzaki@gmail.com", url: "mailto:fadly.uzzaki@gmail.com", icon: Mail }
+      { label: "fadly.uzzaki@gmail.com", url: "mailto:fadly.uzzaki@gmail.com", icon: Mail },
+      { label: "0877-8873-4744", url: "tel:+6287788734744", icon: Phone }
     ]
   };
 
@@ -160,10 +162,12 @@ const SystemManifest = () => {
           <div className="mb-4">
             <h1 className="text-4xl md:text-5xl font-mono uppercase tracking-tight mb-2">{header.name}</h1>
             <h2 className="text-lg text-[var(--text-secondary)] font-mono mb-3">{header.role}</h2>
-            <div className="flex items-center gap-2 text-sm font-mono text-[var(--accent-mono)]">
-              <div className="w-2 h-2 bg-current rounded-full animate-pulse print:hidden"></div>
-              {header.status}
-            </div>
+            {header.status && (
+              <div className="flex items-center gap-2 text-sm font-mono text-[var(--accent-mono)]">
+                <div className="w-2 h-2 bg-current rounded-full animate-pulse print:hidden"></div>
+                {header.status}
+              </div>
+            )}
           </div>
 
           {/* Contact Links - Horizontal Layout with Location */}
