@@ -3264,8 +3264,106 @@ export const WORK_CLUSTERS = [
                             impact: "Efisiensi Bensin Lebih Baik"
                         }
                     ]
-                }
-            },
+                },
+                caseStudy_id: {
+                    locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Truk Saya Dimana?",
+                            text: "Nunggu truk dalam gelap itu menakutkan. Saya buat aplikasi yang kasih tahu persis posisi truk, jadi Anda bisa berhenti cemas dan lanjut tidur."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Keandalan Layanan",
+                            text: "Mengatasi titik kecemasan kritis dengan mengimplementasikan pelacakan logistik real-time. Mengurangi tiket support secara signifikan dan meningkatkan kepercayaan pelanggan."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "Telemetri & Push",
+                            text: "Mendesain antarmuka pelacakan real-time. Mengganti kecemasan dengan visibilitas menggunakan update status langsung."
+                        }
+                    },
+                    snapshot: {
+                        tagline: "Memutus siklus cemas 'Truk saya di mana?'.",
+                        heroImage: "airy:network"
+                    },
+                    context: {
+                        client: "STOQO Logistics",
+                        role: "End-to-End Experience",
+                        timeline: "2 Bulan",
+                        team: "Ops & Engineering"
+                    },
+                    challenge: "Saya menemukan realita pahit: pengguna kami bangun jam 4 pagi bukan untuk kerja, tapi untuk menunggu. Pengiriman telat bukan cuma ketidaknyamanan; ini ancaman eksistensi. Tantangan saya adalah memutus siklus kecemasan ini tanpa budget buat beli 100 truk baru.",
+                    process: [
+                        { title: "Metodologi", desc: "Saya gak percaya tiket Jira, jadi saya ikut naik truk pengiriman. Saya lihat sopir susah payah SMS sambil nyetir. Sistemnya bukan rusak; tapi berbahaya.", image: "airy:timeline" },
+                        { title: "Insight Utama", desc: "Ngobrol sama 5 pemilik warung, saya temukan konflik aslinya: Masalahnya bukan kecepatan. Tapi keheningan (ketidaktahuan). Mereka bisa terima telat; tapi gak bisa terima kalau gak dikabarin.", image: "airy:venn" },
+                        { title: "Studi Lapangan", desc: "Saya gabung sama Field Activators buat lihat kekacauan di lapangan. Ini menjembatani 'Keluhan Pelanggan' dengan 'Realita Operasional'.", image: "airy:ecosystem" },
+                        { title: "Workshop Analisis", desc: "Saya fasilitasi sesi journey mapping dimana kami identifikasi 4 pain points: Mismacth Mental Model, Ketidakpastian, Kurang Komunikasi, dan Kurang Awareness.", image: "airy:matrix" },
+                        { title: "Ko-Kreasi", desc: "Saya gak desain sendirian. Saya pimpin workshop seharian bareng Lead Engineering dan Ops buat pastiin desain ini bisa dibangun (feasible).", image: "airy:flow" },
+                        { title: "Ideasi", desc: "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Jawabannya bukan 'truk lebih cepat'—tapi 'informasi yang lebih baik'.", image: "airy:architecture" },
+                        { title: "Validasi", desc: "Saya bawa high-fidelity prototype kembali ke user untuk testing sprint 3 hari. Melihat mereka bingung adalah validasi terbaik.", image: "airy:chart" }
+                    ],
+                    insights: [
+                        { title: "Psikologi Menunggu", desc: "Saya belajar kalau menunggu yang jelas estimasinya terasa lebih cepat daripada menunggu tanpa kabar. Estimasi kasar pun bisa menenangkan user." },
+                        { title: "Masalah 'Kepagian'", desc: "Ternyata, sopir yang datang kepagian juga masalah. Warung belum siap terima barang jam 3 pagi kalau janjinya jam 5." }
+                    ],
+                    solution_id: [
+                        {
+                            title: "Prototipe Logistik Langsung",
+                            desc: "Rasakan antarmuka pelacakan pengiriman real-time. Catatan: Ini adalah rekreasi high-fidelity dari prototipe asli tahun 2018.",
+                            componentId: "stoqo-logistics-live"
+                        },
+                        {
+                            title: "Pengalaman Pengiriman B2B (1)",
+                            desc: "3 jam setelah batas waktu pembelian, pengguna akan menerima notifikasi status pengiriman sebagai pengingat untuk pengiriman besok.",
+                            image: "/case-studies/stoqo-logistics/delivery-experience-1.png"
+                        },
+                        {
+                            title: "Pengalaman Pengiriman B2B (2)",
+                            desc: "Pengguna akan menerima notifikasi status pengiriman yang menginformasikan bahwa pengiriman sedang dalam perjalanan (Siap dikirim) atau sudah sampai.",
+                            image: "/case-studies/stoqo-logistics/delivery-experience-2.png"
+                        }
+                    ],
+                    metrics: [
+                        { label: "Tiket Support", value: "Berkurang Drastis" },
+                        { label: "Kepercayaan", value: "Kepercayaan Naik" },
+                        { label: "Repeat Order", value: "Retensi Membaik" }
+                    ],
+                    learnings: "Transparansi itu lebih murah daripada kecepatan. User mau nunggu kalau mereka tau alasannya. Proyek ini bukan soal UI; ini soal menjual 'ketenangan pikiran' sebagai fitur.",
+                    aiHypotheses: [
+                        {
+                            tech: "Computer Vision & IoT",
+                            title: "Loading Dock Pintar",
+                            desc: "Kamera di gudang men-scan volume barang yang dimuat. AI memprediksi seberapa penuh truk dan memberi notifikasi ke user: 'Pesanan Anda memakan 40% kapasitas truk, tiba dalam 2 jam.'",
+                            impact: "Kapasitas Optimal"
+                        },
+                        {
+                            tech: "Predictive ML & Weather API",
+                            title: "ETA Sadar-Lalu Lintas",
+                            desc: "Model machine learning yang dilatih dari data historis pengiriman, lalu lintas real-time, dan pola cuaca. Auto-adjust ETA dan proaktif notifikasi user sebelum keterlambatan terjadi.",
+                            impact: "Akurasi ETA Lebih Tinggi"
+                        },
+                        {
+                            tech: "LLM & Voice Interface",
+                            title: "Concierge AI WhatsApp",
+                            desc: "Asisten AI yang bisa diajak chat natural: 'Pesanan saya dimana?' Dia paham konteks, cek sistem, dan balas dalam Bahasa Indonesia dengan update real-time.",
+                            impact: "Beban Support Berkurang"
+                        },
+                        {
+                            tech: "Optimasi Rute Dinamis",
+                            title: "Koreksi Tengah Jalan",
+                            desc: "Macet di depan? AI rute ulang seluruh armada real-time, tukar urutan drop-off antar truk biar setiap warung dapat barang sebelum buka.",
+                            impact: "Keterlambatan Berkurang"
+                        },
+                        {
+                            tech: "AI Penyeimbang Muatan",
+                            title: "Tetris Sempurna",
+                            desc: "AI simulasi 1.000 konfigurasi muat buat maksimalkan isi truk sambil minimalkan gesekan 'Masuk Terakhir, Keluar Pertama' buat sopir.",
+                            impact: "Efisiensi Bensin Lebih Baik"
+                        }
+                    ]
+                },
             {
                 id: 'stoqo-sales',
                 title: 'Incentive Sales Agent',
