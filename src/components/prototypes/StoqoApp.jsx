@@ -394,6 +394,13 @@ const StoqoApp = () => {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-xl z-30"></div>
 
                 {renderScreen()}
+
+                {/* Recreation Disclaimer Badge */}
+                <div className="absolute bottom-6 left-0 w-full flex justify-center pointer-events-none z-50">
+                    <span className="text-[9px] font-mono text-gray-400 bg-gray-100/90 backdrop-blur-sm px-2 py-0.5 rounded border border-gray-200 shadow-sm">
+                        Recreated 2018 Prototype
+                    </span>
+                </div>
             </div>
         </div>
     );

@@ -3124,7 +3124,7 @@ export const WORK_CLUSTERS = [
                     solution: [
                         {
                             title: "Live Logistics Prototype",
-                            desc: "Experience the real-time delivery tracking interface...",
+                            desc: "Experience the real-time delivery tracking interface. Note: This is a high-fidelity recreation of the original 2018 prototype.",
                             componentId: "stoqo-logistics-live"
                         }
                     ],
@@ -3319,7 +3319,7 @@ export const WORK_CLUSTERS = [
                     solution: [
                         {
                             title: "Live Prototype",
-                            desc: "Interact with the actual mobile app interface. Experience the 'Siap Komandan!' onboarding, KPI tracking, and real-time performance dashboard.",
+                            desc: "Interact with the actual mobile app interface. Experience the 'Siap Komandan!' onboarding, KPI tracking, and real-time performance dashboard. Note: This is a high-fidelity recreation of the original 2018 prototype.",
                             componentId: "stoqo-live-app"
                         }
                     ],
@@ -3405,7 +3405,7 @@ export const WORK_CLUSTERS = [
                     solution_id: [
                         {
                             title: "Prototipe Langsung",
-                            desc: "Interaksi langsung dengan antarmuka aplikasi seluler. Rasakan onboarding 'Siap Komandan!', pelacakan KPI, dan dasbor kinerja waktu nyata.",
+                            desc: "Interaksi langsung dengan antarmuka aplikasi seluler. Rasakan onboarding 'Siap Komandan!', pelacakan KPI, dan dasbor kinerja waktu nyata. Catatan: Ini adalah rekreasi high-fidelity dari prototipe asli tahun 2018.",
                             componentId: "stoqo-live-app"
                         }
                     ],

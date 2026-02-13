@@ -240,6 +240,11 @@ const OrderDetailsLayout = ({ children, onNavigate, activeScreen }) => {
                             </button>
                         ))}
                     </div>
+                    <div className="mt-4 flex justify-center">
+                        <span className="text-[10px] font-mono text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700/50 px-2 py-1 rounded border border-gray-200 dark:border-gray-600">
+                            Recreated 2018 Prototype
+                        </span>
+                    </div>
                 </div>
             </main>
             <div className="absolute bottom-0 w-full h-8 flex justify-center items-center bg-transparent pointer-events-none">
