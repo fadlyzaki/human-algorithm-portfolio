@@ -891,7 +891,7 @@ const ProtectedCaseStudy = () => {
               <div className="space-y-32">
                 {caseData.solution ? caseData.solution.map((sol, i) => (
                   <div key={i} className={`flex flex-col md:flex-row gap-12 items-center ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                    <div className="w-full md:w-2/3 aspect-video bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] relative shadow-2xl overflow-hidden group">
+                    <div className={`w-full ${sol.componentId === 'stoqo-live-app' ? 'md:w-1/2 aspect-[9/19] max-w-sm mx-auto' : 'md:w-2/3 aspect-video'} bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] relative shadow-2xl overflow-hidden group`}>
                       {/* Real Image or Abstract Fallback */}
                       {sol.componentId ? (
                         <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
