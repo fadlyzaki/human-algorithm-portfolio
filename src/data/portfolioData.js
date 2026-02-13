@@ -63,7 +63,48 @@ export const SIDE_PROJECTS = [
             { label: "Ai Hallucination", value: "Standardized" }
         ],
         learnings: "The role of the designer has fundamentally shifted. We are no longer just 'creatives'; we are 'Semantic Architects'. The future belongs to those who can speak the language of models.",
-        designProcess: [], // Deprecated for side projects, but kept for type safety if needed.
+        designProcess: [
+            {
+                type: "research",
+                title: "The Market Gap",
+                desc: "Traditional portfolios are static artifacts that fail to demonstrate *how* a designer thinks in the age of AI. They show the 'what', but miss the 'shift'.",
+                title_id: "Celah Pasar",
+                desc_id: "Portofolio tradisional adalah artefak statis yang gagal menunjukkan *bagaimana* seorang desainer berpikir di era AI. Mereka menunjukkan 'apa', tetapi melewatkan 'pergeseran'.",
+                image: "airy:architecture"
+            },
+            {
+                type: "insight",
+                title: "Context Windows",
+                desc: "The bottleneck wasn't coding speed; it was managing the AI's context. We architected a modular codebase to keep the 'Context Window' clean.",
+                title_id: "Jendela Konteks",
+                desc_id: "Hambatannya bukan kecepatan coding; melainkan mengelola konteks AI. Kami mengarsipkan basis kode modular untuk menjaga 'Jendela Konteks' tetap bersih.",
+                image: "airy:data"
+            },
+            {
+                type: "design",
+                title: "Recursive Design",
+                desc: "The product is self-aware. It lists itself as a case study. We used a 'Chaos System' aesthetic to visually represent the messy reality of human-AI collaboration.",
+                title_id: "Desain Rekursif",
+                desc_id: "Produk ini sadar diri. Ia mencantumkan dirinya sendiri sebagai studi kasus. Kami menggunakan estetika 'Sistem Kekacauan' untuk merepresentasikan kolaborasi manusia-AI.",
+                image: "airy:cycle"
+            },
+            {
+                type: "ship",
+                title: "Agentic Workflow",
+                desc: "I acted as the Product Manager, 'negotiating' with AI agents (Gemini/Cortex) to execute the implementation. Reduced dev time by 70%.",
+                title_id: "Workflow Agentic",
+                desc_id: "Saya bertindak sebagai Manajer Produk, 'bernegosiasi' dengan agen AI untuk mengeksekusi implementasi. Mengurangi waktu pengembangan sebesar 70%.",
+                image: "airy:flow"
+            },
+            {
+                type: "measure",
+                title: "Semantic Architect",
+                desc: "The role of the designer has shifted. We are no longer just 'creatives'; we are 'Semantic Architects' who speak the language of models.",
+                title_id: "Arsitek Semantik",
+                desc_id: "Peran desainer telah bergeser. Kami bukan lagi sekadar 'kreatif'; kami adalah 'Arsitek Semantik' yang berbicara bahasa model.",
+                image: "airy:network"
+            }
+        ],
         // ID Translations
         challenge_id: "Celah Pasar: Portofolio tradisional adalah artefak statis yang gagal menunjukkan *bagaimana* seorang desainer berpikir di era AI. Mereka menunjukkan 'apa', tetapi melewatkan 'pergeseran'—transisi dari pencipta menjadi konduktor.",
         process_id: [
@@ -163,7 +204,48 @@ export const SIDE_PROJECTS = [
             { label: "Anxiety Rpt", value: "Minimized" }
         ],
         learnings: "Technology shouldn't just digitize the textbook; it should fix the psychology of the classroom. Lowering the stakes of failure raises the rate of learning.",
-        designProcess: [], // Deprecated
+        designProcess: [
+            {
+                type: "research",
+                title: "The Silent Failure",
+                desc: "In every classroom, students who know the answer remain silent due to fear of public failure. Traditional tools track grades, not confidence.",
+                title_id: "Kebisuan yang Gagal",
+                desc_id: "Di setiap kelas, siswa yang tahu jawabannya tetap diam karena takut gagal di depan umum. Alat tradisional melacak nilai, bukan kepercayaan diri.",
+                image: "airy:flow"
+            },
+            {
+                type: "insight",
+                title: "Singing Bypass",
+                desc: "We found that students who stutter when speaking can often sing fluently. Melody bypasses the neural blockages of anxiety.",
+                title_id: "Jalur Bernyanyi",
+                desc_id: "Kami menemukan bahwa siswa yang gagap saat berbicara seringkali bisa bernyanyi dengan lancar. Melodi memintas hambatan saraf kecemasan.",
+                image: "airy:venn"
+            },
+            {
+                type: "design",
+                title: "Private Mode",
+                desc: "We removed the 'Audience'. Students record themselves in a safe space, self-correcting before they submit. UX shifted from 'Performance' to 'Practice'.",
+                title_id: "Mode Pribadi",
+                desc_id: "Kami menghapus 'Penonton'. Siswa merekam diri di ruang aman, mengoreksi diri sebelum mengirim. UX bergeser dari 'Pertunjukan' ke 'Latihan'.",
+                image: "airy:ui"
+            },
+            {
+                type: "ship",
+                title: "Latency as Feedback",
+                desc: "Used Firebase for millisecond-level feedback. The 'Ding!' sound became a dopamine trigger to reinforce the behavior of 'trying'.",
+                title_id: "Latensi sebagai Umpan Balik",
+                desc_id: "Menggunakan Firebase untuk umpan balik milidetik. Suara 'Ding!' menjadi pemicu dopamin untuk memperkuat perilaku 'mencoba'.",
+                image: "airy:network"
+            },
+            {
+                type: "measure",
+                title: "Psychological Safety",
+                desc: "lowering the stakes of failure raises the rate of learning. Participation surged when the fear of judgment was removed.",
+                title_id: "Keamanan Psikologis",
+                desc_id: "Menurunkan taruhan kegagalan meningkatkan tingkat pembelajaran. Partisipasi melonjak saat ketakutan akan penghakiman dihilangkan.",
+                image: "airy:radar"
+            }
+        ],
         // ID Translations
         challenge_id: "Kebisuan yang Gagal: Di setiap kelas, ada siswa yang tahu jawabannya tetapi takut gagal di depan umum. Kami membutuhkan cara untuk membuat perjuangan yang tak terlihat menjadi terlihat.",
         process_id: [
@@ -243,6 +325,48 @@ export const SIDE_PROJECTS = [
             { label: "Privacy", value: "100% Local" }
         ],
         learnings: "Your memories shouldn't be held hostage by an algorithm.",
+        designProcess: [
+            {
+                type: "research",
+                title: "Designing for Nostalgia",
+                desc: "Spotify Wrapped is a corporate summary. We wanted to verify 'What actually happened?'. The friction of manual entry forces reflection.",
+                title_id: "Mendesain Nostalgia",
+                desc_id: "Spotify Wrapped adalah rangkuman korporat. Kami ingin memverifikasi 'Apa yang sebenarnya terjadi?'. Friksi input manual memaksa refleksi.",
+                image: "airy:timeline"
+            },
+            {
+                type: "insight",
+                title: "The 'Share' Paradox",
+                desc: "People want privacy but love to perform. They needed a way to share the 'aesthetic' of their year without exposing the raw data.",
+                title_id: "Paradoks 'Share'",
+                desc_id: "Orang ingin privasi tapi suka tampil. Mereka butuh cara untuk membagikan 'estetika' tahun mereka tanpa mengekspos data mentah.",
+                image: "airy:venn"
+            },
+            {
+                type: "design",
+                title: "Aura Themes",
+                desc: "Visualizing the invisible. We created abstract themes like 'Neon Chaos' or 'Blueprint Structure' to represent the feeling of the year.",
+                title_id: "Tema Aura",
+                desc_id: "Memvisualisasikan yang tak terlihat. Kami membuat tema abstrak seperti 'Neon Chaos' atau 'Blueprint Structure' untuk mewakili perasaan tahun itu.",
+                image: "airy:layers"
+            },
+            {
+                type: "ship",
+                title: "Manual Entry UI",
+                desc: "A quiet, focused interface. No APIs, no automation. Just you and your memories.",
+                title_id: "UI Input Manual",
+                desc_id: "Antarmuka yang tenang dan fokus. Tanpa API, tanpa otomatisasi. Hanya kamu dan kenanganmu.",
+                image: "airy:ui"
+            },
+            {
+                type: "measure",
+                title: "Reclaimed Memory",
+                desc: "Users reported a deeper sense of closure compared to automated summaries. The act of remembering is valuable.",
+                title_id: "Ingatan yang Direbut Kembali",
+                desc_id: "Pengguna melaporkan rasa penutupan yang lebih dalam dibandingkan rangkuman otomatis. Tindakan mengingat itu berharga.",
+                image: "airy:data"
+            }
+        ],
         challenge_id: "Spotify Wrapped itu seru, tapi itu sekadar rangkuman korporat konsumsimu. Ia tak tahu soal putus cinta atau anjing barumu. Kita menyerahkan ingatan pada platform yang peduli engagement, bukan refleksi.",
         process_id: [
             {
@@ -311,6 +435,48 @@ export const SIDE_PROJECTS = [
             { label: "Offline Access", value: "Enabled" }
         ],
         learnings: "Transparency tools useless if they can't be loaded on a 3G network.",
+        designProcess: [
+            {
+                type: "research",
+                title: "The Archipelago Effect",
+                desc: "Government procurement needs to reach rural Papua, but 4G is a myth there. Apps must work offline-first.",
+                title_id: "Efek Kepulauan",
+                desc_id: "Pengadaan pemerintah perlu menjangkau pedalaman Papua, tapi 4G itu mitos di sana. Aplikasi wajib offline-first.",
+                image: "airy:ecosystem"
+            },
+            {
+                type: "insight",
+                title: "Red Flags are Hidden",
+                desc: "Corruption isn't obvious. It's hidden in the metadata (e.g., timestamps of midnight uploads).",
+                title_id: "Bendera Merah Tersembunyi",
+                desc_id: "Korupsi itu gak gamblang. Dia sembunyi di metadata (contoh: upload dokumen tengah malam).",
+                image: "airy:radar"
+            },
+            {
+                type: "design",
+                title: "Offline Architecture",
+                desc: "Designed a local-first sync engine. Data is stored on the device and syncs only when a connection is stable.",
+                title_id: "Arsitektur Offline",
+                desc_id: "Mendesain mesin sinkronisasi local-first. Data disimpan di perangkat dan hanya sinkron saat koneksi stabil.",
+                image: "airy:architecture"
+            },
+            {
+                type: "ship",
+                title: "PWA Implementation",
+                desc: "Built as a Progressive Web App to ensure accessibility on low-end devices without requiring a heavy store download.",
+                title_id: "Implementasi PWA",
+                desc_id: "Dibangun sebagai Progressive Web App untuk memastikan aksesibilitas di perangkat low-end tanpa download berat.",
+                image: "airy:layers"
+            },
+            {
+                type: "measure",
+                title: "Radical Transparency",
+                desc: "By enabling access in remote areas, we increased the surface area for public oversight significantly.",
+                title_id: "Transparansi Radikal",
+                desc_id: "Dengan memungkinkan akses di area terpencil, kami meningkatkan area pengawasan publik secara signifikan.",
+                image: "airy:chart"
+            }
+        ],
         challenge_id: "Pengadaan pemerintah penuh ketertutupan. Aplikasi yang Jakarta-sentris gagal di pelosok Papua karena 'Efek Kepulauan'—sinyal jelek dan konteks lokal beda.",
         process_id: [
             {
@@ -528,6 +694,48 @@ export const NOTES = [
             { label: "Remittance", value: "Humanized" }
         ],
         learnings: "Closing the loop with emotion, not just a transaction status.",
+        designProcess: [
+            {
+                type: "research",
+                title: "Why Cash Feels Cold",
+                desc: "Every month, millions of migrant workers send money home. It's a transaction of love, but the interface is cold, sterile, and purely numeric.",
+                title_id: "Kenapa Uang Terasa Dingin",
+                desc_id: "Tiap bulan perantau kirim uang. Itu transaksi cinta, tapi antarmukanya dingin dan cuma angka.",
+                image: "airy:flow"
+            },
+            {
+                type: "insight",
+                title: "Delivering Warmth",
+                desc: "Kinship isn't just about sending Rupiah; it's about sending 'Care Packages'. It lets the sender be present in family life remotely.",
+                title_id: "Mengirim Kehangatan",
+                desc_id: "Kinship bukan cuma kirim Rupiah, tapi 'Paket Perhatian'. Biar pengirim merasa hadir di rumah.",
+                image: "airy:cycle"
+            },
+            {
+                type: "design",
+                title: "The Zero-UI Receiver",
+                desc: "The people who need care often have the oldest phones. We designed a WhatsApp-based receiver flow with SMS fallback.",
+                title_id: "Penerima Tanpa-UI",
+                desc_id: "Orang tua sering gaptek. Kami desain alur penerimaan via WhatsApp dengan fallback SMS.",
+                image: "airy:ecosystem"
+            },
+            {
+                type: "ship",
+                title: "Video Receipt",
+                desc: "A transaction ends when money arrives. A relationship continues. Drivers record the family's reaction so the sender sees their mother smiling.",
+                title_id: "Resi Video",
+                desc_id: "Transaksi selesai saat uang sampai. Hubungan berlanjut. Driver rekam reaksi keluarga biar pengirim lihat senyum Ibu.",
+                image: "airy:ui"
+            },
+            {
+                type: "measure",
+                title: "Humanized Remittance",
+                desc: "We measured success by the emotional connection deepened, not just the volume of transactions.",
+                title_id: "Remitansi yang Dimanusiakan",
+                desc_id: "Kami mengukur kesuksesan dari hubungan emosional yang diperdalam, bukan hanya volume transaksi.",
+                image: "airy:venn"
+            }
+        ],
         challenge_id: "Transfer uang itu gampang; menunjukkan kepedulian itu susah. Uang bilang 'Aku support kamu,' tapi gak bilang 'Aku kangen kamu.'",
         process_id: [
             {
@@ -628,6 +836,48 @@ export const NOTES = [
             { label: "Friend Interaction", value: "Tripled" }
         ],
         learnings: "Technology should be a bicycle for the mind, not a conveyor belt for the eyes.",
+        designProcess: [
+            {
+                type: "research",
+                title: "The Attention Trap",
+                desc: "Social media transitioned from Connecting People to Retaining Attention. Ideally, users should be pilots, not passengers.",
+                title_id: "Perangkap Atensi",
+                desc_id: "Medsos beralih dari Koneksi ke Retensi Atensi. Idealnya, user harus jadi pilot, bukan penumpang.",
+                image: "airy:hierarchy"
+            },
+            {
+                type: "insight",
+                title: "Contextual Moods",
+                desc: "Users don't have static preferences; they have moods. Sometimes 'Doom Scroll', sometimes 'Friends Only'. Settings menus are too rigid.",
+                title_id: "Mood Kontekstual",
+                desc_id: "User gak punya preferensi statis; punya mood. Kadang 'Doom Scroll', kadang 'Hanya Teman'. Menu setting terlalu kaku.",
+                image: "airy:venn"
+            },
+            {
+                type: "design",
+                title: "Stealth Mode Switcher",
+                desc: "Turned the 'For You' header into a dropdown. Users can switch to 'Friends Only' instantly. Noise vanishes.",
+                title_id: "Stealth Mode Switcher",
+                desc_id: "Ubah header 'For You' jadi dropdown. User bisa switch ke 'Hanya Teman' instan. Bising hilang.",
+                image: "airy:ui"
+            },
+            {
+                type: "ship",
+                title: "Chill Mode",
+                desc: "Implemented filters for high-BPM audio and rapid cuts. The feed becomes a digital magazine, not a slot machine.",
+                title_id: "Mode Santai",
+                desc_id: "Implementasi filter audio cepat dan potongan kasar. Feed jadi majalah digital, bukan mesin slot.",
+                image: "airy:layers"
+            },
+            {
+                type: "measure",
+                title: "Trust Score",
+                desc: "Giving control back increased trust. Friend interactions tripled when the noise was removed.",
+                title_id: "Skor Kepercayaan",
+                desc_id: "Memberi kontrol balik meningkatkan kepercayaan. Interaksi teman naik 3x lipat saat noise hilang.",
+                image: "airy:radar"
+            }
+        ],
         challenge_id: "Medsos beralih dari Koneksi ke Retensi Atensi. Ini mencuri agensi user, menciptakan 'Feed Sampah' demi dopamin murah. User merasa dimanipulasi.",
         process_id: [
             {
@@ -712,6 +962,48 @@ export const NOTES = [
             { label: "Trust", value: "High" }
         ],
         learnings: "In disaster UI, 'Red' is not enough. You need specific, actionable directives.",
+        designProcess: [
+            {
+                type: "research",
+                title: "Mapping Blindspots",
+                desc: "Jakarta sinks 10cm/year. Government sensors cover rivers, but micro-drainage in slums is unmonitored.",
+                title_id: "Memetakan Blindspot",
+                desc_id: "Jakarta tenggelam 10cm/tahun. Sensor pemerintah cover sungai, tapi got mikro di pemukiman gak terpantau.",
+                image: "airy:ecosystem"
+            },
+            {
+                type: "insight",
+                title: "Trust in Neighbors",
+                desc: "People trust their neighbors more than the government during disasters. A P2P verification system was essential.",
+                title_id: "Percaya Tetangga",
+                desc_id: "Orang lebih percaya tetangga daripada pemerintah saat bencana. Sistem verifikasi P2P itu krusial.",
+                image: "airy:network"
+            },
+            {
+                type: "design",
+                title: "Waze for Disasters",
+                desc: "We designed a crowdsourced alert system. It aggregates sensor data and user reports to generate safe evacuation routes.",
+                title_id: "Waze untuk Bencana",
+                desc_id: "Kami desain sistem peringatan crowdsource. Agregasi data sensor dan laporan warga buat rute evakuasi aman.",
+                image: "airy:architecture"
+            },
+            {
+                type: "ship",
+                title: "Real-time Alerting",
+                desc: "Built using PostGIS & Node.js for geospatial accuracy. Alerts are pushed in real-time to affected neighborhoods.",
+                title_id: "Peringatan Real-time",
+                desc_id: "Dibangun pakai PostGIS & Node.js untuk akurasi spasial. Peringatan di-push real-time ke warga terdampak.",
+                image: "airy:radar"
+            },
+            {
+                type: "measure",
+                title: "Civic Resilience",
+                desc: "Zero-blindspot coverage during critical flood events. High trust from the community.",
+                title_id: "Ketahanan Warga",
+                desc_id: "Cakupan tanpa blindspot selama banjir kritis. Kepercayaan tinggi dari komunitas.",
+                image: "airy:chart"
+            }
+        ],
         challenge_id: "Jakarta tenggelam 10cm/tahun. Peringatan tradisional terlalu umum, membuat warga terjebak di area 'blindspot' saat banjir bandang.",
         process_id: [
             {
@@ -766,6 +1058,48 @@ export const NOTES = [
         metrics: [
             { label: "Confidence", value: "Boosted" },
             { label: "Return Rate", value: "Lowered" }
+        ],
+        designProcess: [
+            {
+                type: "research",
+                title: "The Mirror Test",
+                desc: "We've all been there: You buy sunglasses online, they arrive, you put them on, and you look ridiculous. This is the 'Trust Gap'.",
+                title_id: "Ujian Cermin",
+                desc_id: "Kita semua pernah alami: Beli kacamata online, sampai, dipakai, kelihatan konyol. Ini adalah 'Celah Kepercayaan'.",
+                image: "airy:ui"
+            },
+            {
+                type: "insight",
+                title: "Social Proof",
+                desc: "Shopping is inherently social. 'Does this look good?' is a question we ask friends, not algorithms.",
+                title_id: "Bukti Sosial",
+                desc_id: "Belanja itu kegiatan sosial. 'Ini cakep gak?' itu pertanyaan buat teman, bukan algoritma.",
+                image: "airy:venn"
+            },
+            {
+                type: "design",
+                title: "Trying It On",
+                desc: "FilterMe isn't a catalog; it's a mirror. Using AR, we let users 'wear' the product before they buy it.",
+                title_id: "Mencoba Digital",
+                desc_id: "FilterMe bukan katalog; ini cermin. Pakai AR, kami biarkan user 'pakai' produk sebelum beli.",
+                image: "airy:layers"
+            },
+            {
+                type: "ship",
+                title: "Share to Story",
+                desc: "We integrated 'Share to Story'. Users snap an AR selfie and get real-time validation from friends before spending a dime.",
+                title_id: "Share ke Story",
+                desc_id: "Kami integrasi 'Share to Story'. User selfie AR dan dapat validasi real-time dari teman sebelum bayar.",
+                image: "airy:network"
+            },
+            {
+                type: "measure",
+                title: "Limits of Tech",
+                desc: "Fun does not equal Trust. AR solves for 'Shape' and 'Vibe', but struggles with 'Texture' and 'Shade'.",
+                title_id: "Batas Teknologi",
+                desc_id: "Seru bukan berarti Percaya. AR selesaikan 'Bentuk' dan 'Vibe', tapi susah di 'Tekstur' dan 'Warna'.",
+                image: "airy:chart"
+            }
         ],
         modules: [
             {
@@ -925,6 +1259,48 @@ export const WORK_CLUSTERS = [
                         { label: "NPS", value: "High Candidate Satisfaction" }
                     ],
                     learnings: "This project taught me that 'features' don't solve problems; 'workflows' do. By mimicking the tool they already used (WhatsApp) but adding structure, I won adoption without training.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "The Shadow",
+                            desc: "I sat with 5 recruiters for a shift. I watched them copy-paste the same message 50 times. It wasn't a 'tracking' problem; it was a 'typing' problem.",
+                            title_id: "Observasi Langsung",
+                            desc_id: "Saya duduk bareng 5 rekruter selama satu shift. Saya liat mereka copy-paste pesan yang sama 50 kali. Ini bukan masalah 'tracking', ini masalah 'ngetik'.",
+                            image: "airy:timeline"
+                        },
+                        {
+                            type: "insight",
+                            title: "Fear of Formality",
+                            desc: "I discovered that candidates ignored emails because they felt too formal. Chat felt safe. The medium was the message.",
+                            title_id: "Takut Formalitas",
+                            desc_id: "Kandidat nyuekin email karena terlalu formal. Chat terasa aman. Mediumnya adalah pesannya.",
+                            image: "airy:venn"
+                        },
+                        {
+                            type: "design",
+                            title: "Prototyping",
+                            desc: "I built a 'Whatsapp-lookalike' prototype and verified it with actual blue-collar workers. If they could use WhatsApp, they could use this.",
+                            title_id: "Prototipe",
+                            desc_id: "Saya bikin prototipe mirip WhatsApp dan verifikasi langsung sama pekerja kerah biru. Kalau mereka bisa pake WhatsApp, mereka pasti bisa pake ini.",
+                            image: "airy:ui"
+                        },
+                        {
+                            type: "ship",
+                            title: "Universal Inbox",
+                            desc: "I consolidated SMS, WhatsApp, and In-App messages into one unified thread. No more tab switching.",
+                            title_id: "Inbox Terpadu",
+                            desc_id: "Saya gabungin SMS, WhatsApp, dan In-App jadi satu thread. Gak perlu gonta-ganti tab lagi.",
+                            image: "airy:layers"
+                        },
+                        {
+                            type: "measure",
+                            title: "Response Rate",
+                            desc: "Recruiters saw a significant increase in response rates due to the familiar chat interface.",
+                            title_id: "Rate Respon",
+                            desc_id: "Rekruter melihat peningkatan signifikan dalam tingkat respon karena antarmuka chat yang familiar.",
+                            image: "airy:chart"
+                        }
+                    ],
                     aiHypotheses: [
                         {
                             tech: "LLM Agents & Sentiment Analysis",
@@ -1110,6 +1486,48 @@ export const WORK_CLUSTERS = [
                         { label: "Adoption", value: "Full Team Adoption" }
                     ],
                     learnings: "Replacing a spreadsheet is the hardest design challenge. You can't just be prettier; you have to be faster. I learned to respect the utility of a grid.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "The Audit",
+                            desc: "I printed out the spreadsheets and highlighted every duplicate column. We were asking for the same data 4 times.",
+                            title_id: "Audit Total",
+                            desc_id: "Saya print semua spreadsheet dan stabilo-in setiap kolom yang duplikat. Ternyata kami minta data yang sama sampe 4 kali.",
+                            image: "airy:matrix"
+                        },
+                        {
+                            type: "insight",
+                            title: "Density is King",
+                            desc: "Most dashboards drown in whitespace. HR users needed density. I designed for maximum information per vertical pixel.",
+                            title_id: "Kepadatan itu Raja",
+                            desc_id: "Kebanyakan dashboard modern kebanyakan ruang kosong (whitespace). User HR butuh kepadatan data. Saya desain supaya informasi maksimal per piksel.",
+                            image: "airy:kanban"
+                        },
+                        {
+                            type: "design",
+                            title: "The Pipeline",
+                            desc: "I built a drag-and-drop Kanban board that visualized the candidate journey, instantly highlighting bottlenecks.",
+                            title_id: "Pipeline Visual",
+                            desc_id: "Saya bikin papan Kanban drag-and-drop yang memvisualisasikan perjalanan kandidat. Langsung keliatan macetnya di mana.",
+                            image: "airy:funnel"
+                        },
+                        {
+                            type: "ship",
+                            title: "Bulk Acts",
+                            desc: "I realized users never act on one person at a time. I added 'Select All' actions to every stage.",
+                            title_id: "Aksi Massal",
+                            desc_id: "User gak pernah kerja satu-satu. Saya tambahin fitur 'Pilih Semua' (Select All) di setiap tahap.",
+                            image: "airy:data"
+                        },
+                        {
+                            type: "measure",
+                            title: "Efficiency",
+                            desc: "Recruiter speed improved significantly, with near-perfect data accuracy and full team adoption.",
+                            title_id: "Efisiensi",
+                            desc_id: "Kecepatan rekruter meningkat signifikan, dengan akurasi data hampir sempurna dan adopsi tim penuh.",
+                            image: "airy:chart"
+                        }
+                    ],
                     aiHypotheses: [
                         {
                             tech: "RAG (Retrieval-Augmented Generation)",
@@ -1293,6 +1711,48 @@ export const WORK_CLUSTERS = [
                         { label: "Trust", value: "High Candidate Trust" }
                     ],
                     learnings: "Lowering the barrier to entry increases volume, but you need checks for quality. Voice notes were the perfect middle ground—easy to send, but rich in signal.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "Trust Audit",
+                            desc: "We mapped the entire user journey and identified 4 'Anxiety Spikes': Signup, Search, Cart, and Payment. The highest drop-off was at Payment.",
+                            title_id: "Taruhan",
+                            desc_id: "Hipotesis saya: User bukan gak berkualitas, tapi kurang PD. Formulir rasanya kayak ujian. Chat rasanya kayak nyapa.",
+                            image: "airy:funnel"
+                        },
+                        {
+                            type: "insight",
+                            title: "Trust Deficiency",
+                            desc: "Users didn't trust a faceless form. They trusted a person. I added 'Recruiter Avatars' to humanize the screen.",
+                            title_id: "Defisit Kepercayaan",
+                            desc_id: "User gak percaya sama formulir tanpa wajah. Mereka percaya sama orang. Saya tambahin 'Avatar Rekruter' buat memanusiakan layar.",
+                            image: "airy:venn"
+                        },
+                        {
+                            type: "design",
+                            title: "One-Tap Apply",
+                            desc: "I replaced the 'Apply Now' form with a pre-filled message: 'Hi, I'm interested in this job.'.",
+                            title_id: "Lamar Satu Tap",
+                            desc_id: "Saya ganti formulir 'Apply Now' dengan pesan template: 'Halo, saya tertarik sama kerjaan ini.'.",
+                            image: "airy:flow"
+                        },
+                        {
+                            type: "ship",
+                            title: "Voice Notes",
+                            desc: "For users who struggled with typing, I added a 'Record Audio' feature. It became the most used feature.",
+                            title_id: "Voice Notes",
+                            desc_id: "Buat user yang susah ngetik, saya tambahin fitur 'Rekam Suara'. Jadi fitur paling laku.",
+                            image: "airy:ui"
+                        },
+                        {
+                            type: "measure",
+                            title: "App Starts",
+                            desc: "Boosted volume of applications and higher completion rates due to reduced friction.",
+                            title_id: "Mulai Lamar",
+                            desc_id: "Volume lamaran melonjak dan tingkat penyelesaian lebih tinggi karena pengurangan friksi.",
+                            image: "airy:chart"
+                        }
+                    ],
                     aiHypotheses: [
                         {
                             tech: "Audio-to-Structured-Data (Whisper)",
@@ -1476,6 +1936,48 @@ export const WORK_CLUSTERS = [
                         { label: "Bounce Rate", value: "Reduced Drop-offs" }
                     ],
                     learnings: "Navigation is not just about structure; it's about confidence. If a user feels lost for 1 second, they are gone. I learned to count clicks like currency.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "Card Sorting",
+                            desc: "I ran a card-sorting exercise with actual users. Their mental model was flat, not hierarchical.",
+                            title_id: "Card Sorting",
+                            desc_id: "Saya lakukan card-sorting dengan user asli. Mental model mereka itu datar (flat), bukan hirarkis macam pohon.",
+                            image: "airy:hierarchy"
+                        },
+                        {
+                            type: "insight",
+                            title: "Visual vs. Text",
+                            desc: "Our users were visual learners. They ignored text labels but clicked instantly on icons. I pivoted the design to be icon-first.",
+                            title_id: "Visual vs Teks",
+                            desc_id: "User kami adalah pembelajar visual. Mereka mengabaikan label teks tapi langsung klik ikon. Saya ubah desain jadi icon-first.",
+                            image: "airy:venn"
+                        },
+                        {
+                            type: "design",
+                            title: "Flat Hierarchy",
+                            desc: "I flattened the navigation depth from 4 levels to 2. Every job was now reachable in 2 taps.",
+                            title_id: "Hirarki Datar",
+                            desc_id: "Saya pangkas kedalaman navigasi dari 4 level jadi 2. Setiap lowongan kerja kini bisa dijangkau dalam 2 tap.",
+                            image: "airy:layers"
+                        },
+                        {
+                            type: "ship",
+                            title: "Visual Tags",
+                            desc: "I designed a distinct icon set for every job category, acting as visual anchors for scanning.",
+                            title_id: "Tag Visual",
+                            desc_id: "Saya desain set ikon unik untuk setiap kategori pekerjaan, berfungsi sebagai jangkar visual saat scanning cepat.",
+                            image: "airy:ecosystem"
+                        },
+                        {
+                            type: "measure",
+                            title: "Retention D1",
+                            desc: "Improved Day-1 retention and high search success rate with reduced bounce rates.",
+                            title_id: "Retensi D1",
+                            desc_id: "Meningkatkan retensi Hari-1 dan tingkat keberhasilan pencarian yang tinggi dengan penurunan bounce rate.",
+                            image: "airy:chart"
+                        }
+                    ],
                     aiHypotheses: [
                         {
                             tech: "Predictive UI",
@@ -1698,6 +2200,48 @@ export const WORK_CLUSTERS = [
                         { label: "AOV", value: "Increased Order Value" }
                     ],
                     learnings: "Trust is built in milliseconds. You can't ask for money if you look messy. A clean UI is a trustworthy UI.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "The Audit",
+                            desc: "I printed every screen of the checkout flow. It spanned 3 meters on the wall. We were asking for the same address 3 times.",
+                            title_id: "Audit Total",
+                            desc_id: "Saya print setiap layar alur checkout. Panjangnya 3 meter di dinding. Ternyata kami minta alamat yang sama 3 kali.",
+                            image: "airy:timeline"
+                        },
+                        {
+                            type: "insight",
+                            title: "Payment Anxiety",
+                            desc: "I found that users only cared about one thing: 'Will I get my refund if this goes wrong?' We needed to front-load that assurance.",
+                            title_id: "Kecemasan Bayar",
+                            desc_id: "Saya temukan user cuma peduli satu hal: 'Uang saya balik nggak kalau ini gagal?' Kami harus taruh jaminan itu di depan.",
+                            image: "airy:venn"
+                        },
+                        {
+                            type: "design",
+                            title: "3-Step Flow",
+                            desc: "I collapsed the 7 steps into 3: Cart, Payment, Confirmation. Radical simplification.",
+                            title_id: "Alur 3-Langkah",
+                            desc_id: "Saya ringkas 7 langkah jadi 3: Keranjang, Bayar, Konfirmasi. Penyederhanaan radikal.",
+                            image: "airy:flow"
+                        },
+                        {
+                            type: "ship",
+                            title: "Escrow Badge",
+                            desc: "I added a visual 'Money Back Guarantee' shield next to the Pay button. It increased conversion alone.",
+                            title_id: "Badge Escrow",
+                            desc_id: "Saya tambah perisai visual 'Jaminan Uang Kembali' di sebelah tombol Bayar. Ini menaikkan konversi 5% sendirian.",
+                            image: "airy:ui"
+                        },
+                        {
+                            type: "measure",
+                            title: "Cart Abandon",
+                            desc: "Significantly reduced cart abandonment rate and increased average order value (AOV).",
+                            title_id: "Cart Abandon",
+                            desc_id: "Mengurangi tingkat pengabaian keranjang secara signifikan dan meningkatkan nilai pesanan rata-rata (AOV).",
+                            image: "airy:chart"
+                        }
+                    ],
                     aiHypotheses: [
                         {
                             tech: "Predictive Fraud Detection",
@@ -1873,6 +2417,48 @@ export const WORK_CLUSTERS = [
                         { label: "Brand NPS", value: "High Partner Satisfaction" }
                     ],
                     learnings: "B2B buyers are still human. They gravitate towards 'polished' content because it signals reliability.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "The Tension",
+                            desc: "Brands wanted 'microsites'. Engineering wanted 'standard templates'. I had to design a system that felt custom but was generated from a standard JSON schema.",
+                            title_id: "Ketegangan",
+                            desc_id: "Brand minta 'microsites'. Engineering minta 'template standar'. Saya harus desain sistem yang terasa custom tapi digenerate dari skema JSON standar.",
+                            image: "airy:architecture"
+                        },
+                        {
+                            type: "insight",
+                            title: "Vanity Metrics",
+                            desc: "Brands cared more about 'Total Views' than 'Sales'. I highlighted traffic analytics in their dashboard to satisfy this need.",
+                            title_id: "Vanity Metrics",
+                            desc_id: "Brand lebih peduli 'Total Views' daripada 'Sales'. Saya highlight analitik trafik di dashboard mereka untuk memuaskan kebutuhan ini.",
+                            image: "airy:chart"
+                        },
+                        {
+                            type: "design",
+                            title: "Store Builder",
+                            desc: "A WYSIWYG editor for brand managers to customize their landing pages.",
+                            title_id: "Store Builder",
+                            desc_id: "Editor WYSIWYG buat manajer brand kustomisasi landing page mereka.",
+                            image: "airy:ui"
+                        },
+                        {
+                            type: "ship",
+                            title: "Verified Badge",
+                            desc: "A visual tick that signaled 'Official Distributor', boosting trust for buyers.",
+                            title_id: "Badge Terverifikasi",
+                            desc_id: "Centang visual yang menandakan 'Distributor Resmi', meningkatkan kepercayaan pembeli.",
+                            image: "airy:ecosystem"
+                        },
+                        {
+                            type: "measure",
+                            title: "Onboarded",
+                            desc: "Successfully onboarded major partners and achieved significant GMV growth.",
+                            title_id: "Onboarded",
+                            desc_id: "Berhasil onboarding mitra utama dan mencapai pertumbuhan GMV yang signifikan.",
+                            image: "airy:radar"
+                        }
+                    ],
                     aiHypotheses: [
                         {
                             tech: "Generative Design (StyleGAN)",
@@ -2048,6 +2634,48 @@ export const WORK_CLUSTERS = [
                         { label: "Sales Spikes", value: "Generated Sales Spikes" }
                     ],
                     learnings: "In complex systems, clarity is the best feature. If the user can't predict the outcome, the system is broken.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "Logic Mapping",
+                            desc: "I mapped out the dependency tree of our discounts. It looked like a bowl of spaghetti.",
+                            title_id: "Mapping Logika",
+                            desc_id: "Saya petakan pohon dependensi diskon kami. Bentuknya kayak benang kusut.",
+                            image: "airy:network"
+                        },
+                        {
+                            type: "insight",
+                            title: "Fear of Loss",
+                            desc: "Users were terrified of 'accidental giveaways'. I added a 'Potential Loss' calculator that showed the max burn before they published.",
+                            title_id: "Takut Rugi",
+                            desc_id: "User takut banget 'sedekah tak sengaja'. Saya tambah kalkulator 'Potensi Loss' yang nunjukkin maksimal uang terbakar sebelum mereka publish promo.",
+                            image: "airy:chart"
+                        },
+                        {
+                            type: "design",
+                            title: "Promo Simulator",
+                            desc: "A tool that let AMs test their promo against a fake cart to see the final price.",
+                            title_id: "Simulator Promo",
+                            desc_id: "Tool yang membiarkan AM ngetes promo mereka lawan keranjang palsu buat lihat harga akhir.",
+                            image: "airy:ui"
+                        },
+                        {
+                            type: "ship",
+                            title: "Rule Engine",
+                            desc: "Visual toggles for 'Combinable' vs 'Exclusive' promos.",
+                            title_id: "Mesin Aturan",
+                            desc_id: "Toggle visual untuk promo 'Bisa Digabung' vs 'Eksklusif'.",
+                            image: "airy:radar"
+                        },
+                        {
+                            type: "measure",
+                            title: "Utilization",
+                            desc: "Eliminated pricing errors and generated sales spikes through improved promo utilization.",
+                            title_id: "Utilisasi",
+                            desc_id: "Menghilangkan error harga dan menghasilkan lonjakan penjualan melalui penggunaan promo yang lebih baik.",
+                            image: "airy:chart"
+                        }
+                    ],
                     aiHypotheses: [
                         {
                             tech: "Reinforcement Learning",
@@ -2223,6 +2851,48 @@ export const WORK_CLUSTERS = [
                         { label: "Consistency", value: "Unified UI" }
                     ],
                     learnings: "A design system is a product, not a project. It needs maintenance, versioning, and a roadmap.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "Inventory",
+                            desc: "I collected every button in the app. Seeing them all in one place was the wake-up call management needed.",
+                            title_id: "Inventaris",
+                            desc_id: "Saya kumpulkan semua tombol di aplikasi. Melihat semuanya di satu tempat adalah tamparan yang dibutuhkan manajemen.",
+                            image: "airy:matrix"
+                        },
+                        {
+                            type: "insight",
+                            title: "Dev First",
+                            desc: "I realized a design system isn't for designers; it's for developers. I wrote the documentation in their language (Props, API), not ours.",
+                            title_id: "Dev First",
+                            desc_id: "Saya sadar design system bukan buat desainer; tapi buat developer. Saya tulis dokumentasi pakai bahasa mereka (Props, API), bukan bahasa desain.",
+                            image: "airy:kanban"
+                        },
+                        {
+                            type: "design",
+                            title: "UI Kit",
+                            desc: "A comprehensive Figma library with auto-layout components.",
+                            title_id: "UI Kit",
+                            desc_id: "Library Figma komprehensif dengan komponen auto-layout.",
+                            image: "airy:ui"
+                        },
+                        {
+                            type: "ship",
+                            title: "Synced Components",
+                            desc: "A design-to-code workflow. Update Figma, sync to production.",
+                            title_id: "Library React",
+                            desc_id: "Paket npm yang tersinkronisasi sempurna. Desain sekali, impor di mana saja.",
+                            image: "airy:cycle"
+                        },
+                        {
+                            type: "measure",
+                            title: "Dev Velocity",
+                            desc: "Accelerated development velocity and eliminated design debt through a unified UI.",
+                            title_id: "Kecepatan Dev",
+                            desc_id: "Mempercepat kecepatan pengembangan dan menghilangkan hutang desain melalui UI yang terpadu.",
+                            image: "airy:chart"
+                        }
+                    ],
                     aiHypotheses: [
                         {
                             tech: "Multimodal LLM (Vision-to-Code)",
@@ -2455,6 +3125,48 @@ export const WORK_CLUSTERS = [
                         { label: "Repeat Order", value: "Improved Retention" }
                     ],
                     learnings: "Transparency is cheaper than speed. Users will wait if they know why. This project wasn't about UI; it was about selling 'peace of mind' as a feature.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "Methodology",
+                            desc: "I didn't trust the Jira tickets, so I rode in the delivery trucks. I saw drivers struggling to text while driving. The 'system' wasn't broken; it was dangerous.",
+                            title_id: "Metodologi",
+                            desc_id: "Saya tidak percaya tiket Jira, jadi saya ikut naik truk pengiriman. Saya melihat sopir kesulitan SMS sambil menyetir. Sistemnya bukan rusak; tapi berbahaya.",
+                            image: "airy:timeline"
+                        },
+                        {
+                            type: "insight",
+                            title: "Psychology of Waiting",
+                            desc: "I learned that known waits feel shorter than unknown waits. Even a rough estimate calms the user.",
+                            title_id: "Psikologi Menunggu",
+                            desc_id: "Menunggu yang jelas estimasinya terasa lebih cepat daripada menunggu tanpa kabar. Estimasi kasar pun bisa menenangkan user.",
+                            image: "airy:venn"
+                        },
+                        {
+                            type: "design",
+                            title: "Status Tracking",
+                            desc: "I stole the mental model from Domino's. If you can track a $10 pizza, why not a $500 pallet of rice?",
+                            title_id: "Pelacakan Status",
+                            desc_id: "Saya curi mental model dari Domino's Pizza. Kalau pizza 50 ribu aja bisa dilacak, kenapa beras 500 ribu enggak?",
+                            image: "airy:radar"
+                        },
+                        {
+                            type: "ship",
+                            title: "Proactive Push",
+                            desc: "I stopped waiting for them to ask. I designed notifications that triggered the moment the truck left the warehouse.",
+                            title_id: "Notifikasi Proaktif",
+                            desc_id: "Berhenti nunggu user nanya. Saya desain notifikasi yang otomatis dikirim begitu truk keluar dari gudang.",
+                            image: "airy:flow"
+                        },
+                        {
+                            type: "measure",
+                            title: "Support Tix",
+                            desc: "Drastic reduction in support tickets ('Where is my truck?') and increased customer trust.",
+                            title_id: "Tiket Support",
+                            desc_id: "Pengurangan drastis tiket support ('Truk saya mana?') dan peningkatan kepercayaan pelanggan.",
+                            image: "airy:chart"
+                        }
+                    ],
                     aiHypotheses: [
                         {
                             tech: "Computer Vision & IoT",
@@ -2647,6 +3359,48 @@ export const WORK_CLUSTERS = [
                         { label: "Disputes", value: "Reduced Disputes" }
                     ],
                     learnings: "You don't always need complex gamification with avatars and leaderboards. Sometimes, the best game mechanic is just Knowing the Score.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "The Feelings Audit",
+                            desc: "We interviewed FAs and TLs. The sentiment was 'Anxiety'. Agents felt the system was cheating them because the calculation was opaque.",
+                            title_id: "Audit Perasaan",
+                            desc_id: "Kami interview FA dan TL. Sentimennya adalah 'Cemas'. Agen merasa sistem mencurangi mereka karena perhitungannya gaib/tidak jelas.",
+                            image: "airy:radar"
+                        },
+                        {
+                            type: "insight",
+                            title: "The Insight",
+                            desc: "Psychologically, if an agent click a button saying 'Siap Komandan!' (Ready Commander!), they are 3x more likely to actually do the work. It turns a task into a promise.",
+                            title_id: "Konsistensi Komitmen",
+                            desc_id: "Secara psikologis, kalau agen klik tombol 'Siap Komandan!', mereka 3x lebih mungkin buat beneran kerjain tugasnya. Ini ubah tugas jadi janji.",
+                            image: "airy:flow"
+                        },
+                        {
+                            type: "design",
+                            title: "Siap Komandan!",
+                            desc: "An onboarding 'ceremony' where agents acknowledge their mission. It acts as a psychological contract between the user and the app.",
+                            title_id: "Siap Komandan!",
+                            desc_id: "Sebuah 'upacara' onboarding di mana agen mengakui misi mereka. Ini bertindak sebagai kontrak psikologis antara user dan aplikasi.",
+                            image: "airy:ui"
+                        },
+                        {
+                            type: "ship",
+                            title: "The KPI Tag",
+                            desc: "We added a 'KPI' label to specific cards (e.g., 30 Outlet, 15 Outlet NC). User logic: 'If it has a yellow tag, I chase it. If not, I ignore it.'",
+                            title_id: "Tag KPI",
+                            desc_id: "Kami tambah label 'KPI' di kartu tertentu (misal: 30 Outlet). Logika user: 'Kalau ada tag kuning, gue kejar. Kalau nggak, gue cuekin'.",
+                            image: "airy:kanban"
+                        },
+                        {
+                            type: "measure",
+                            title: "Commitment",
+                            desc: "High agent commitment to targets, boosted daily activity, and reduced incentive disputes.",
+                            title_id: "Komitmen",
+                            desc_id: "Komitmen agen tinggi terhadap target, peningkatan aktivitas harian, dan pengurangan sengketa insentif.",
+                            image: "airy:chart"
+                        }
+                    ],
                     aiHypotheses: [
                         {
                             tech: "Personalized Coaching Agents",
@@ -2779,6 +3533,23 @@ export const WORK_CLUSTERS = [
                 tag_id: 'Keberlanjutan',
                 caseStudy: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "No More Paper",
+                            text: "My office was drowning in paper. I made an app where you take a picture of a receipt, and the computer reads it automatically. No more typing!"
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Operational Digitization",
+                            text: "Designed a mobile OCR solution to digitize physical workflows. Reduced manual data entry by 90% and created a searchable digital archive."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "OCR & Confidence",
+                            text: "Implemented a camera-first workflow using OCR. Designed a 'Confidence Score' UI to handle imperfect scans, allowing human-in-the-loop verification."
+                        }
+                    },
                     snapshot: {
                         tagline: "Killing the filing cabinet, one scan at a time.",
                         heroImage: "airy:layers"
@@ -2807,6 +3578,48 @@ export const WORK_CLUSTERS = [
                         { label: "Cost Save", value: "Significant Savings" }
                     ],
                     learnings: "The future is inevitable, but it needs a bridge. The 'Confidence Score' was the bridge that let users trust the AI.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "Observation",
+                            desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals.",
+                            title_id: "Observasi",
+                            desc_id: "Saya perhatikan tim admin menghabiskan 4 jam sehari cuma buat ketik ulang data dari kertas ke komputer.",
+                            image: "airy:cycle"
+                        },
+                        {
+                            type: "insight",
+                            title: "Trust the Machine",
+                            desc: "Users were skeptical of OCR accuracy. I designed a 'Confidence Score' UI that highlighted fields the AI wasn't sure about.",
+                            title_id: "Percaya Mesin",
+                            desc_id: "User awalnya skeptis sama akurasi OCR. Saya desain UI 'Skor Kepercayaan' (Confidence Score) yang menghighlight kolom mana yang AI-nya ragu, jadi user bisa cek ulang.",
+                            image: "airy:venn"
+                        },
+                        {
+                            type: "design",
+                            title: "Smart Scan",
+                            desc: "Point the camera at an invoice, and the app extracts the Date, Total, and Vendor.",
+                            title_id: "Smart Scan",
+                            desc_id: "Arahkan kamera ke faktur, dan aplikasi langsung ekstrak Tanggal, Total, dan Vendor.",
+                            image: "airy:ui"
+                        },
+                        {
+                            type: "ship",
+                            title: "Digital Archive",
+                            desc: "A search bar that could find a receipt from 3 years ago in 2 seconds.",
+                            title_id: "Arsip Digital",
+                            desc_id: "Kolom pencarian yang bisa nemuin bon dari 3 tahun lalu dalam 2 detik.",
+                            image: "airy:chart"
+                        },
+                        {
+                            type: "measure",
+                            title: "Paper Redux",
+                            desc: "Significant reduction in paper usage, instant document retrieval, and cost savings.",
+                            title_id: "Kertas Turun",
+                            desc_id: "Pengurangan signifikan penggunaan kertas, pencarian dokumen instan, dan penghematan biaya.",
+                            image: "airy:layers"
+                        }
+                    ],
                     aiHypotheses: [
                         {
                             tech: "Visual Document Understanding (VDU)",
@@ -2842,6 +3655,23 @@ export const WORK_CLUSTERS = [
                 },
                 caseStudy_id: {
                     locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Bebas Kertas",
+                            text: "Kantor penuh kertas numpuk. Saya bikin aplikasi yang bisa baca foto bon dan surat jalan otomatis. Gak perlu ketik ulang manual lagi!"
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Digitalisasi Operasional",
+                            text: "Mendesain solusi OCR mobile untuk mendigitalkan alur kerja fisik. Mengurangi entri data manual 90% dan membuat arsip digital yang searchable."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "OCR & Skor Kepercayaan",
+                            text: "Implementasi alur kerja camera-first dengan OCR. Desain UI 'Confidence Score' untuk menangani hasil scan yang tidak sempurna, memfasilitasi verifikasi manusia."
+                        }
+                    },
                     snapshot: {
                         tagline: "Memusnahkan lemari arsip, satu scan tiap kali.",
                         heroImage: "airy:layers"
