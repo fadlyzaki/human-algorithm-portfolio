@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
    Sun, Moon, ArrowUpRight, Code, Cpu, Link as LinkIcon, AlertTriangle,
@@ -107,6 +107,8 @@ const SideProjectDetail = () => {
 
    const brandColor = project.brandColor || (isDark ? '#60A5FA' : '#2563EB');
 
+
+   const [showLivePreview, setShowLivePreview] = useState(true);
 
    return (
       <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white pb-32">
@@ -313,9 +315,9 @@ const SideProjectDetail = () => {
                   </div>
                )}
 
-               {/* C. PRODUCT SHOWCASE */}
-               {!project.prototypeLink && activeSolution && (
-                  <div className="space-y-16 bg-[var(--bg-surface)] p-8 md:p-12 rounded-3xl border border-[var(--border-color)]">
+               {/* C. PRODUCT SHOWCASE - CONDITIONAL RENDER */}
+               {activeSolution && (!project.prototypeLink || !showLivePreview) && (
+                  <div className="space-y-16 bg-[var(--bg-surface)] p-8 md:p-12 rounded-3xl border border-[var(--border-color)] animate-in fade-in zoom-in duration-500">
                      <div className="text-center max-w-2xl mx-auto mb-12">
                         <h2 className="text-3xl font-bold mb-4">The Solution</h2>
                         <p className="text-[var(--text-secondary)]">Delivered as a robust, scalable product.</p>
@@ -347,8 +349,8 @@ const SideProjectDetail = () => {
 
 
                {/* C.5. LIVE PREVIEW */}
-               {project.prototypeLink && (
-                  <div className="space-y-8">
+               {project.prototypeLink && showLivePreview && (
+                  <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
                      <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-4">
                            <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
@@ -358,14 +360,22 @@ const SideProjectDetail = () => {
                               {isIndonesian ? "Pratinjau Langsung" : "Live Preview"}
                            </span>
                         </div>
-                        <a
-                           href={project.prototypeLink}
-                           target="_blank"
-                           rel="noreferrer"
-                           className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand)] hover:underline"
-                        >
-                           {isIndonesian ? "Buka di Tab Baru" : "Open in New Tab"} <ArrowUpRight size={14} />
-                        </a>
+                        <div className="flex items-center gap-4">
+                           <button
+                              onClick={() => setShowLivePreview(false)}
+                              className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                           >
+                              {isIndonesian ? "Ganti ke Galeri Statis" : "Switch to Static Gallery"}
+                           </button>
+                           <a
+                              href={project.prototypeLink}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand)] hover:underline"
+                           >
+                              {isIndonesian ? "Buka di Tab Baru" : "Open in New Tab"} <ArrowUpRight size={14} />
+                           </a>
+                        </div>
                      </div>
 
                      <div className="w-full h-[600px] bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative group">
@@ -375,11 +385,20 @@ const SideProjectDetail = () => {
                            className="w-full h-full"
                            loading="lazy"
                         />
-                        {/* Overlay to prevent scroll trapping until clicked (optional, but good UX) */}
-                        {/* <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-center justify-center text-white font-mono text-sm">
-                           Interact
-                        </div> */}
                      </div>
+                  </div>
+               )}
+
+               {/* Toggle Back to Live Preview Button (If in Static Mode and Prototype Exists) */}
+               {project.prototypeLink && !showLivePreview && (
+                  <div className="flex justify-center mb-12">
+                     <button
+                        onClick={() => setShowLivePreview(true)}
+                        className="flex items-center gap-2 mx-auto px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--bg-card)] transition-colors text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]"
+                     >
+                        <Monitor size={14} />
+                        {isIndonesian ? "Tampilkan Pratinjau Langsung" : "Show Live Preview"}
+                     </button>
                   </div>
                )}
 
