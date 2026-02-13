@@ -4,6 +4,7 @@ import {
     Shield, Plane, BookOpen, Heart, Eye, Map, List, CheckCircle2, TrendingUp,
     Clock, DollarSign, Camera, Users, Truck, Cpu, Trophy, AlertTriangle
 } from 'lucide-react';
+import StoqoApp from './prototypes/StoqoApp';
 
 // ABSTRACT UI COMPONENTS
 const WindowControls = () => (
@@ -742,6 +743,15 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                         ATTENTION_SIEVE_ACTIVE
                     </div>
                 </div>
+            </Container>
+        );
+    }
+
+    // 14.4. STOQO LIVE APP PROTOTYPE
+    if (id === 'stoqo-live-app') {
+        return (
+            <Container expanded={expanded} showChrome={showChrome} figIndex="S.0" schematicType="LIVE_PROTOTYPE_SIMULATION">
+                <StoqoApp />
             </Container>
         );
     }
