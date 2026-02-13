@@ -1,9 +1,9 @@
+```javascript
 import React, { useState } from 'react';
 import {
     Signal, Wifi, Battery, Home, BarChart2, Store, User,
     Info, ChevronUp, ChevronDown, ArrowRight, ArrowLeft
 } from 'lucide-react';
-import { useNavigate, MemoryRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 
 // --- CUSTOM THEME CONSTANTS ---
 const THEME = {
@@ -49,30 +49,30 @@ const StatusBar = () => (
     </div>
 );
 
-const BottomNav = ({ active }) => {
+const BottomNav = ({ active, onNavigate }) => {
     const navItems = [
-        { id: 'home', icon: Home, label: 'Home', path: '/' },
-        { id: 'performa', icon: BarChart2, label: 'Performa', path: '/dashboard' },
-        { id: 'account', icon: Store, label: 'Account', path: '#' },
-        { id: 'lead', icon: User, label: 'Lead', path: '#' },
+        { id: 'home', icon: Home, label: 'Home', screen: 'home' },
+        { id: 'performa', icon: BarChart2, label: 'Performa', screen: 'dashboard' },
+        { id: 'account', icon: Store, label: 'Account', screen: '#' },
+        { id: 'lead', icon: User, label: 'Lead', screen: '#' },
     ];
 
     return (
         <div className="flex justify-around items-center h-16 pb-2 z-20 absolute bottom-0 w-full rounded-b-[20px] overflow-hidden border-t"
-            style={{ backgroundColor: THEME.colors.surfaceLight, borderColor: THEME.colors.borderLight }}>
+             style={{ backgroundColor: THEME.colors.surfaceLight, borderColor: THEME.colors.borderLight }}>
             {navItems.map((item) => {
                 const isActive = active === item.id;
                 const Icon = item.icon;
                 return (
-                    <Link
+                    <button
                         key={item.id}
-                        to={item.path}
-                        className={`flex flex-col items-center justify-center w-full h-full transition-colors`}
+                        onClick={() => item.screen !== '#' && onNavigate(item.screen)}
+                        className={`flex flex - col items - center justify - center w - full h - full transition - colors`}
                         style={{ color: isActive ? THEME.colors.primaryOrange : THEME.colors.navInactive }}
                     >
                         <Icon size={24} strokeWidth={isActive ? 2.5 : 2} className="mb-1" />
                         <span className="text-[10px] font-medium">{item.label}</span>
-                    </Link>
+                    </button>
                 );
             })}
         </div>
@@ -87,9 +87,7 @@ const KPIBadge = () => (
 
 // --- SCREENS ---
 
-const OnboardingScreen = () => {
-    const navigate = useNavigate();
-
+const OnboardingScreen = ({ onNavigate }) => {
     return (
         <div className="relative w-full h-full flex flex-col font-sans overflow-hidden" style={{ backgroundColor: THEME.colors.backgroundLight }}>
             <StatusBar />
@@ -143,7 +141,7 @@ const OnboardingScreen = () => {
                             Anda dapat mengetahui hasil kerja terkini sebagai FA STOQO pada halaman ini
                         </p>
                         <button
-                            onClick={() => navigate('/dashboard')}
+                            onClick={() => onNavigate('dashboard')}
                             className="w-full font-bold py-3 px-4 rounded-full transition duration-200 shadow-md transform active:scale-95 text-white hover:opacity-90"
                             style={{ backgroundColor: THEME.colors.blueCta }}
                         >
@@ -153,12 +151,12 @@ const OnboardingScreen = () => {
                 </div>
             </div>
 
-            <BottomNav active="performa" />
+            <BottomNav active="performa" onNavigate={onNavigate} />
         </div>
     );
 };
 
-const DashboardScreen = () => {
+const DashboardScreen = ({ onNavigate }) => {
     const [isDetailOpen, setIsDetailOpen] = useState(true);
 
     return (
@@ -229,7 +227,7 @@ const DashboardScreen = () => {
                     </div>
 
                     {/* Link to Orders */}
-                    <Link to="/orders" className="block group">
+                    <button onClick={() => onNavigate('orders')} className="block w-full group text-left">
                         <div className="border rounded-xl p-4 flex justify-between items-center transition" style={{ backgroundColor: 'rgba(91, 128, 255, 0.1)', borderColor: THEME.colors.blueCta }}>
                             <div className="flex flex-col">
                                 <span className="text-sm font-bold" style={{ color: THEME.colors.blueCta }}>Lihat Order & Revenue</span>
@@ -237,7 +235,7 @@ const DashboardScreen = () => {
                             </div>
                             <ArrowRight size={20} color={THEME.colors.blueCta} className="group-hover:translate-x-1 transition-transform" />
                         </div>
-                    </Link>
+                    </button>
 
                     {/* Grid Metrics */}
                     <div className="grid grid-cols-2 gap-3">
@@ -273,12 +271,12 @@ const DashboardScreen = () => {
                 </div>
             </main>
 
-            <BottomNav active="performa" />
+            <BottomNav active="performa" onNavigate={onNavigate} />
         </div>
     );
 };
 
-const OrderScreen = () => {
+const OrderScreen = ({ onNavigate }) => {
     const [isOrderOpen, setIsOrderOpen] = useState(true);
     const [isGmvOpen, setIsGmvOpen] = useState(true);
 
@@ -287,9 +285,9 @@ const OrderScreen = () => {
             <StatusBar />
             <div className="px-4 py-3 text-white shrink-0" style={{ backgroundColor: THEME.colors.primaryOrange }}>
                 <div className="flex items-center gap-2">
-                    <Link to="/dashboard" className="text-white hover:text-gray-200">
+                    <button onClick={() => onNavigate('dashboard')} className="text-white hover:text-gray-200">
                         <ArrowLeft size={20} />
-                    </Link>
+                    </button>
                     <h1 className="text-lg font-semibold">Revenue & Orders</h1>
                 </div>
             </div>
@@ -365,7 +363,7 @@ const OrderScreen = () => {
                 </div>
             </div>
 
-            <BottomNav active="performa" />
+            <BottomNav active="performa" onNavigate={onNavigate} />
         </div>
     );
 };
@@ -373,23 +371,33 @@ const OrderScreen = () => {
 // --- APP CONTAINER ---
 
 const StoqoApp = () => {
+    const [currentScreen, setCurrentScreen] = useState('home');
+
+    const renderScreen = () => {
+        switch (currentScreen) {
+            case 'home':
+                return <OnboardingScreen onNavigate={setCurrentScreen} />;
+            case 'dashboard':
+                return <DashboardScreen onNavigate={setCurrentScreen} />;
+            case 'orders':
+                return <OrderScreen onNavigate={setCurrentScreen} />;
+            default:
+                return <OnboardingScreen onNavigate={setCurrentScreen} />;
+        }
+    };
+
     return (
         <div className="w-full h-full flex items-center justify-center p-4">
-            {/* Phone Frame */}
+             {/* Phone Frame */}
             <div className="relative w-full max-w-[320px] h-[640px] bg-white shadow-2xl overflow-hidden rounded-[30px] border-[8px] border-gray-900 flex flex-col mx-auto ring-1 ring-black/10">
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-xl z-30"></div>
 
-                <MemoryRouter>
-                    <Routes>
-                        <Route path="/" element={<OnboardingScreen />} />
-                        <Route path="/dashboard" element={<DashboardScreen />} />
-                        <Route path="/orders" element={<OrderScreen />} />
-                    </Routes>
-                </MemoryRouter>
+                {renderScreen()}
             </div>
         </div>
     );
 };
 
 export default StoqoApp;
+```
