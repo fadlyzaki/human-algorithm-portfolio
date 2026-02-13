@@ -1,4 +1,4 @@
-```javascript
+
 import React, { useState } from 'react';
 import {
     Signal, Wifi, Battery, Home, BarChart2, Store, User,
@@ -59,7 +59,7 @@ const BottomNav = ({ active, onNavigate }) => {
 
     return (
         <div className="flex justify-around items-center h-16 pb-2 z-20 absolute bottom-0 w-full rounded-b-[20px] overflow-hidden border-t"
-             style={{ backgroundColor: THEME.colors.surfaceLight, borderColor: THEME.colors.borderLight }}>
+            style={{ backgroundColor: THEME.colors.surfaceLight, borderColor: THEME.colors.borderLight }}>
             {navItems.map((item) => {
                 const isActive = active === item.id;
                 const Icon = item.icon;
@@ -67,7 +67,7 @@ const BottomNav = ({ active, onNavigate }) => {
                     <button
                         key={item.id}
                         onClick={() => item.screen !== '#' && onNavigate(item.screen)}
-                        className={`flex flex - col items - center justify - center w - full h - full transition - colors`}
+                        className={`flex flex-col items-center justify-center w-full h-full transition-colors`}
                         style={{ color: isActive ? THEME.colors.primaryOrange : THEME.colors.navInactive }}
                     >
                         <Icon size={24} strokeWidth={isActive ? 2.5 : 2} className="mb-1" />
@@ -388,7 +388,7 @@ const StoqoApp = () => {
 
     return (
         <div className="w-full h-full flex items-center justify-center p-4">
-             {/* Phone Frame */}
+            {/* Phone Frame */}
             <div className="relative w-full max-w-[320px] h-[640px] bg-white shadow-2xl overflow-hidden rounded-[30px] border-[8px] border-gray-900 flex flex-col mx-auto ring-1 ring-black/10">
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-xl z-30"></div>
@@ -400,4 +400,4 @@ const StoqoApp = () => {
 };
 
 export default StoqoApp;
-```
+
