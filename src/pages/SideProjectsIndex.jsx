@@ -199,13 +199,13 @@ const SideProjectsIndex = () => {
             </nav>
 
             <main className="max-w-6xl mx-auto px-6 pt-32 pb-24" ref={containerRef}>
-                <header className="mb-32 relative min-h-[50vh] flex flex-col justify-center">
+                <header className="mb-32 relative min-h-[50vh] flex flex-col justify-center text-center md:text-left">
                     {/* Background Visual */}
                     <div className="absolute inset-0 z-0 opacity-40 grayscale blur-[1px]">
                         <NexusAI color={isDark ? '#60A5FA' : '#2563EB'} />
                     </div>
 
-                    <div className="relative z-10">
+                    <div className="relative z-10 max-w-4xl">
                         <Treasure
                             id="projects-index"
                             className="top-0 right-0"
@@ -213,9 +213,16 @@ const SideProjectsIndex = () => {
                         >
                             RARE RUBY FOUND!
                         </Treasure>
-                        <h1 className="text-5xl md:text-8xl font-serif italic mb-8 tracking-tighter">Side Projects</h1>
-                        <p className="text-xl md:text-3xl text-[var(--text-secondary)] max-w-2xl font-light leading-relaxed">
-                            A curated log of prototypes, daemons, and recursive experiments built to push the boundaries of human-AI collaboration.
+                        <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] backdrop-blur-md">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)] animate-pulse"></div>
+                            <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">Venture Portfolio 2024-2026</span>
+                        </div>
+                        <h1 className="text-5xl md:text-8xl font-serif italic mb-8 tracking-tighter leading-[0.9]">
+                            Ship. Measure. <br /><span className="text-[var(--text-secondary)]">Repeat.</span>
+                        </h1>
+                        <p className="text-xl md:text-2xl text-[var(--text-secondary)] font-light leading-relaxed max-w-2xl">
+                            A showcase of independent products, from 0 to 1. <br className="hidden md:block" />
+                            <span className="opacity-80 text-lg">Strategy, Execution, and Market Reality.</span>
                         </p>
                     </div>
                 </header>
@@ -223,7 +230,7 @@ const SideProjectsIndex = () => {
                 <div className="mb-32">
                     <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
                         <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
-                        Production
+                        Launched Ventures
                         <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">

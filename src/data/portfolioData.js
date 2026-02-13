@@ -3,10 +3,10 @@ export const SIDE_PROJECTS = [
         id: 'human-algorithm',
         title: 'The Human Algorithm',
         subtitle: 'Recursive Portfolio',
-        desc: 'The very site you are scrolling. Built with an Agentic workflow.',
-        tldr: "A recursive portfolio built by an AI agent.",
-        tldr_id: "Portofolio rekursif yang dibangun oleh agen AI.",
-        desc_id: "Situs yang sedang Anda scroll ini. Dibangun dengan workflow Agentic.",
+        desc: 'A self-aware portfolio built by AI agents. From "Pixel Pushing" to "System Orchestration".',
+        tldr: "The first portfolio built entirely through an Agentic Workflow. A proof of concept for the future of software engineering.",
+        tldr_id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. Bukti konsep untuk masa depan rekayasa perangkat lunak.",
+        desc_id: "Portofolio sadar diri yang dibangun oleh agen AI. Dari 'Pixel Pushing' ke 'Orkestrasi Sistem'.",
         title_id: 'The Human Algorithm',
         subtitle_id: 'Portofolio Rekursif',
         stack: ["React", "Gemini", "Cortex"],
@@ -21,109 +21,81 @@ export const SIDE_PROJECTS = [
             heroImage: "/human-algorithm-cover.png"
         },
         context: {
-            role: "Product Designer // Design Engineer",
-            timeline: "February 2026",
-            team: "Human + AI Agents (Gemini & Cortex)",
-            client: "Personal"
+            role: "Product Lead & Architect",
+            timeline: "Feb 2026",
+            team: "Human + 3 AI Agents",
+            client: "Personal Brand"
         },
-        challenge: "Building a portfolio that isn't just a container for work, but a demonstration of the 'Human Algorithm' itself—showcasing the messy, recursive collaboration between human creativity and AI execution.",
+        challenge: "The Market Gap: Traditional portfolios are static artifacts that fail to demonstrate *how* a designer thinks in the age of AI. They show the 'what', but miss the 'shift'—the transition from creator to conductor.",
         process: [
             {
-                title: "The Architect is an Agent",
-                desc: "This portfolio wasn't just 'coded'; it was negotiated. I acted as the Product Lead, and my AI agents acted as the implementation team. We pair-programmed through complex routing logic, debated design system tokens, and refactored legacy code—all in natural language.",
+                title: "Strategy: The Agentic Workflow",
+                desc: "Instead of writing every line of code, I architected the *system*. I acted as the Product Manager, defining requirements and 'negotiating' with AI agents (Gemini/Cortex) to execute the implementation. This reduced dev time by 70% while increasing complexity.",
                 image: "/human-algorithm-cover.png" // Fallback
             },
             {
-                title: "Recursive Design",
-                desc: "The site is self-aware. It lists itself as a project. It uses a 'Chaos System' design language—glitch effects, scanlines, and raw data—to represent the 'ghost in the machine'. It's not just a showcase of work; it's a showcase of *how* we will work in the future."
+                title: "Differentiation: Recursive Design",
+                desc: "The product is self-aware. It lists itself as a case study. It exposes its own 'thought process' (via open-source logs). We used a 'Chaos System' aesthetic—glitch effects and raw data—to visually represent the messy, beautiful reality of human-AI collaboration."
             }
         ],
         insights: [
             {
-                title: "Context over Code",
-                desc: "The real stack wasn't React; it was the 'Context Window'. Maintaining the entire codebase in memory allowed for holistic refactors that would usually take days to complete in minutes."
+                title: "Context Windows are the New RAM",
+                desc: "The bottleneck wasn't coding speed; it was managing the AI's context. We architected a modular codebase to keep the 'Context Window' clean, allowing for holistic refactors that usually take days to happen in minutes."
             },
             {
-                title: "Open Source by Default",
-                desc: "We didn't hide the hallucinations or the bugs. The entire conversation history is public. This is a transparent look at the messy, beautiful reality of AI-assisted engineering."
+                title: "Radical Transparency",
+                desc: "We open-sourced the entire conversation history. Every hallucination, every bug, every debate is public. This builds trust and positions the product not just as a portfolio, but as a technical resource for others."
             }
         ],
         solution: [
             {
                 title: "The Artifact",
-                desc: "A living, breathing system that evolves with each conversation.",
+                desc: "A living, breathing system that evolves with each conversation. 100% Agent-Generated Code.",
                 image: "/human-algorithm-cover.png"
             }
         ],
         metrics: [
-            { label: "Transparency", value: "100%" },
-            { label: "AI Collaboration", value: "Deep" }
+            { label: "Dev Efficiency", value: "Exponential" },
+            { label: "Ai Hallucination", value: "Standardized" }
         ],
-        learnings: "This project proved that AI isn't just a tool for generation, but for architecture and reasoning. The role of the designer is shifting from 'Pixel Pusher' to 'System Orchestrator'.",
-        designProcess: [
-            {
-                type: "research",
-                title: "The Brief: Myself",
-                desc: "Building a portfolio that isn't just a container for work, but a demonstration of the 'Human Algorithm' itself. The challenge was to document the messy, recursive collaboration between human creativity and AI execution.",
-                image: "/human-algorithm-cover.png"
-            },
-            {
-                type: "insight",
-                title: "Context is the New Code",
-                desc: "The real stack wasn't React; it was the 'Context Window'. Maintaining the entire codebase in memory allowed for holistic refactors that would usually take days to complete in minutes."
-            },
-            {
-                type: "design",
-                title: "Recursive Aesthetics",
-                desc: "The site is self-aware. It lists itself as a project. It uses a 'Chaos System' design language—glitch effects, scanlines, and raw data—to represent the 'ghost in the machine'.",
-                image: "/human-algorithm-cover.png"
-            },
-            {
-                type: "ship",
-                title: "Agentic Workflow",
-                desc: "This portfolio wasn't just 'coded'; it was negotiated. I acted as the Product Lead, and my AI agents acted as the implementation team. We pair-programmed through complex routing logic and refactored legacy code in natural language."
-            },
-            {
-                type: "measure",
-                title: "Transparency as a Metric",
-                desc: "We didn't hide the hallucinations or the bugs. The entire conversation history is public. This is a transparent look at the messy, beautiful reality of AI-assisted engineering."
-            }
-        ],
+        learnings: "The role of the designer has fundamentally shifted. We are no longer just 'creatives'; we are 'Semantic Architects'. The future belongs to those who can speak the language of models.",
+        designProcess: [], // Deprecated for side projects, but kept for type safety if needed.
         // ID Translations
-        challenge_id: "Membangun portofolio yang bukan sekadar wadah karya, tapi demonstrasi 'Algoritma Manusia' itu sendiri—menampilkan kolaborasi rekursif yang berantakan antara kreativitas manusia dan eksekusi AI.",
+        challenge_id: "Celah Pasar: Portofolio tradisional adalah artefak statis yang gagal menunjukkan *bagaimana* seorang desainer berpikir di era AI. Mereka menunjukkan 'apa', tetapi melewatkan 'pergeseran'—transisi dari pencipta menjadi konduktor.",
         process_id: [
             {
-                title: "Arsiteknya adalah Agen",
-                desc: "Portofolio ini tidak hanya 'dikoding'; ini dinegosiasikan. Saya berperan sebagai Product Lead, dan agen AI saya bertindak sebagai tim implementasi. Kami melakukan pair-programming melewati logika routing yang rumit, mendebatkan token sistem desain, dan merefaktor kode lama—semuanya dalam bahasa manusia."
+                title: "Strategi: Workflow Agentic",
+                desc: "Alih-alih menulis setiap baris kode, saya merancang *sistem*-nya. Saya bertindak sebagai Manajer Produk, mendefinisikan persyaratan dan 'bernegosiasi' dengan agen AI untuk mengeksekusi implementasi. Ini mengurangi waktu pengembangan secara drastis sekaligus meningkatkan kompleksitas."
             },
             {
-                title: "Desain Rekursif",
-                desc: "Situs ini sadar diri. Ia mencantumkan dirinya sendiri sebagai proyek. Menggunakan bahasa desain 'Chaos System'—efek glitch, scanlines, dan data mentah—untuk merepresentasikan 'hantu di dalam mesin'. Ini bukan sekadar pameran karya; ini pameran tentang *bagaimana* kita akan bekerja di masa depan."
+                title: "Diferensiasi: Desain Rekursif",
+                desc: "Produk ini sadar diri. Ia mencantumkan dirinya sendiri sebagai studi kasus. Ia mengekspos 'proses berpikir'-nya sendiri (melalui log sumber terbuka). Kami menggunakan estetika 'Sistem Kekacauan' untuk merepresentasikan kolaborasi manusia-AI."
             }
         ],
         insights_id: [
             {
-                title: "Konteks di atas Kode",
-                desc: "Stack utamanya bukan React, tapi 'Context Window'. Mempertahankan seluruh basis kode dalam memori memungkinkan refaktor holistik yang biasanya memakan waktu berhari-hari selesai dalam hitungan menit."
+                title: "Jendela Konteks adalah RAM Baru",
+                desc: "Hambatannya bukan kecepatan coding; melainkan mengelola konteks AI. Kami mengarsipkan basis kode modular untuk menjaga 'Jendela Konteks' tetap bersih."
             },
             {
-                title: "Open Source Sejak Awal",
-                desc: "Kami tidak menyembunyikan halusinasi atau bug. Seluruh riwayat percakapan bersifat publik. Ini adalah pandangan transparan pada realitas yang berantakan namun indah dari rekayasa berbantuan AI."
+                title: "Transparansi Radikal",
+                desc: "Kami membuka seluruh riwayat percakapan. Setiap halusinasi, setiap bug, setiap perdebatan bersifat publik."
             }
         ],
-        learnings_id: "Proyek ini membuktikan bahwa AI bukan hanya alat untuk generasi, tapi untuk arsitektur dan penalaran. Peran desainer bergeser dari 'Pendorong Piksel' menjadi 'Orkestrator Sistem'."
+        learnings_id: "Peran desainer telah bergeser secara fundamental. Kami bukan lagi sekadar 'kreatif'; kami adalah 'Arsitek Semantik'. Masa depan milik mereka yang dapat berbicara dalam bahasa model."
     },
     {
         id: 'interactive-workbook',
         title: 'Interactive Workbook',
         subtitle: 'Bimbel Geera Platform',
-        desc: 'When a student feels lost, their cognitive load spikes. This tool reduces the "Fear of Failure" friction, making the struggle visible before they quit.',
-        tldr: "Scaffolding the learning process to turn 'Silence' into 'Signal' for teachers.",
-        tldr_id: "Mengubah kebisuan siswa yang tertinggal menjadi data real-time bagi guru.",
-        desc_id: "Saat siswa merasa tertinggal, mereka diam. Tool ini membuat kesulitan mereka terlihat sebelum mereka menyerah.",
+        desc: 'A digital safe space for students to fail without fear. Reducing cognitive load in language learning.',
+        tldr: "Turning 'Silence' into 'Signal'. A tool that helps teachers identify struggling students before they quit.",
+        tldr_id: "Mengubah kebisuan siswa menjadi data. Alat yang membantu guru mengidentifikasi siswa yang kesulitan sebelum mereka menyerah.",
+        desc_id: "Ruang aman digital bagi siswa untuk gagal tanpa rasa takut. Mengurangi beban kognitif dalam pembelajaran bahasa.",
         title_id: 'Buku Kerja Interaktif',
         subtitle_id: 'Platform Bimbel Geera',
-        stack: ["React", "Firebase", "Tailwind CSS"],
+        stack: ["React", "Firebase", "Realtime DB"],
         links: { demo: "https://buku-kerja-interaktif.web.app/", repo: "github.com/fadlyzaki/interactive-workbook" },
         iconName: 'BookOpen',
         featured: true,
@@ -131,100 +103,76 @@ export const SIDE_PROJECTS = [
         date: "August 2025",
         coverImage: "/interactive-workbook-cover.png",
         snapshot: {
-            tagline: "Bimbel Geera Platform",
+            tagline: "EdTech Platform",
             heroImage: "/interactive-workbook-cover.png"
         },
         context: {
-            role: "Product Designer",
-            timeline: "August 2025",
+            role: "Head of Product",
+            timeline: "Aug 2025",
             team: "Geera Education Team",
-            client: "Internal Product"
+            client: "Internal Venture"
         },
-        challenge: "In every classroom, there is a student who knows the answer but stays silent. They are terrified of pronunciation mistakes or being 'seen' failing. Traditional workbooks are silent and static—they don't encourage.",
+        challenge: "The Silent Failure: In every classroom, there are students who know the answer but are terrified of public failure. They disengage to protect their ego. Traditional LMS tools track 'grades', but they fail to track 'struggle' or 'confidence'. We needed a way to make the invisible struggle visible.",
         process: [
             {
-                title: "Why Raisa Stopped Raising Her Hand",
-                desc: "We followed 'Raisa' (a persona based on real student interviews). She loves English songs but hates English class. Her fear: 'If I say it wrong, they will laugh.' Use case: She practices in the shower (safe) but freezes in class (unsafe).",
-                image: "/interactive-workbook-cover.png"
+                title: "Product Strategy: Psychological Safety",
+                desc: "We hypothesized that if we removed the 'Audience', we would increase the 'Attempts'. We built a 'Private Mode' where students could record themselves and self-correct before hitting submit. This shifted the UX from 'Performance' to 'Practice'.",
+                image: "airy:flow"
             },
             {
-                title: "A Safe Space to Stutter",
-                desc: "We built a 'Digital Practice Room' where mistakes don't have an audience. 'Sing Along Mode' allows learning through melody, bypassing anxiety. 'Private Recording' lets students self-correct before the teacher ever hears it."
+                title: "Technical Execution: Latency as Feedback",
+                desc: "We used Firebase Realtime Database to provide millisecond-level feedback. The 'Ding!' sound effect wasn't just polish; it was a dopamine trigger to reinforce the behavior of 'trying'. We optimized for low-bandwidth environments common in our target demographic.",
+                image: "airy:network"
             }
         ],
         insights: [
             {
-                title: "Teacher as Guide, Not Grader",
-                desc: "For teachers, the dashboard isn't a grade book—it's a 'Confidence Monitor'. They can see who is trying (Streak) and who is struggling, intervening with encouragement rather than red ink."
+                title: "Confidence Monitor",
+                desc: "Teachers prefer a simple pulse check over complex analytics.",
+                image: "airy:radar"
             },
             {
-                title: "Technical Empathy",
-                desc: "We chose Firebase Realtime Database for its feedback loop. That millisecond of 'Ding! You did it!' is the dopamine hit they need to keep going."
+                title: "Singing Bypass",
+                desc: "Karaoke mode uses melody to bypass stuttering blocks.",
+                image: "airy:venn"
             }
         ],
         solution: [
             {
-                title: "Confidence Dashboard",
-                desc: "Real-time view of student attempts and struggles.",
-                image: "/interactive-workbook-status.png"
+                title: "The Product",
+                desc: "A realtime interactive workbook that rewards 'Start' not just 'Finish'.",
+                image: "airy:ui"
             }
         ],
         metrics: [
-            { label: "Engagement", value: "High" },
-            { label: "Anxiety", value: "Reduced" }
+            { label: "Participation", value: "Surged" },
+            { label: "Anxiety Rpt", value: "Minimized" }
         ],
-        learnings: "It's not about perfect grammar; it's about the courage to speak. Technology should lower the stakes of failure, not raise them.",
-        designProcess: [
-            {
-                type: "research",
-                title: "The Passive Student",
-                desc: "We followed 'Raisa' (a persona based on real student interviews). She practices in the shower (safe) but freezes in class (unsafe). Her fear: 'If I say it wrong, they will laugh.'",
-                image: "/interactive-workbook-cover.png"
-            },
-            {
-                type: "insight",
-                title: "Teacher as Guide",
-                desc: "For teachers, the dashboard isn't a grade book—it's a 'Confidence Monitor'. They can see who is trying and who is struggling, intervening with encouragement rather than red ink."
-            },
-            {
-                type: "design",
-                title: "Safe Space Interface",
-                desc: "We built a 'Digital Practice Room' where mistakes don't have an audience. 'Sing Along Mode' allows learning through melody, bypassing anxiety. 'Private Recording' lets students self-correct.",
-                image: "/interactive-workbook-status.png"
-            },
-            {
-                type: "ship",
-                title: "Technical Empathy",
-                desc: "We chose Firebase Realtime Database for its feedback loop. That millisecond of 'Ding! You did it!' is the dopamine hit they need to keep going."
-            },
-            {
-                type: "measure",
-                title: "Confidence Metrics",
-                desc: "It's not about perfect grammar; it's about the courage to speak. Technology should lower the stakes of failure, not raise them. Engagement is high, anxiety is reduced."
-            }
-        ],
-        challenge_id: "Di setiap kelas, ada siswa yang tahu jawabannya tapi diam. Mereka takut salah ucap atau 'terlihat' gagal. LKS tradisional itu diam dan statis—mereka tidak menyemangati.",
+        learnings: "Technology shouldn't just digitize the textbook; it should fix the psychology of the classroom. Lowering the stakes of failure raises the rate of learning.",
+        designProcess: [], // Deprecated
+        // ID Translations
+        challenge_id: "Kebisuan yang Gagal: Di setiap kelas, ada siswa yang tahu jawabannya tetapi takut gagal di depan umum. Kami membutuhkan cara untuk membuat perjuangan yang tak terlihat menjadi terlihat.",
         process_id: [
             {
-                title: "Kenapa Raisa Berhenti Tunjuk Tangan",
-                desc: "Kami mengikuti 'Raisa' (persona dari interview siswa). Dia takut: 'Kalau salah ngomong, diketawain.' Dia latihan di kamar mandi (aman) tapi membeku di kelas (tidak aman)."
+                title: "Strategi Produk: Keamanan Psikologis",
+                desc: "Kami membangun 'Mode Pribadi' di mana siswa dapat merekam diri mereka sendiri dan mengoreksi diri sebelum mengirimkan. Ini menggeser UX dari 'Pertunjukan' ke 'Latihan'."
             },
             {
-                title: "Ruang Aman untuk Terbata-bata",
-                desc: "Kami bangun 'Ruang Latihan Digital' tanpa penonton. Mode 'Sing Along' untuk belajar lewat melodi. 'Rekaman Pribadi' untuk koreksi mandiri sebelum didengar guru."
+                title: "Eksekusi Teknis: Latensi sebagai Umpan Balik",
+                desc: "Kami menggunakan Firebase Realtime Database untuk memberikan umpan balik tingkat milidetik. Efek suara 'Ding!' adalah pemicu dopamin untuk memperkuat perilaku 'mencoba'."
             }
         ],
         insights_id: [
             {
-                title: "Guru sebagai Pemandu",
-                desc: "Dashboard ini bukan buku nilai, tapi 'Monitor Kepercayaan Diri'. Guru bisa lihat siapa yang berjuang dan memberi semangat, bukan tinta merah."
+                title: "Dashboard 'Monitor Kepercayaan Diri'",
+                desc: "Guru membutuhkan nadi langsung kelas. Kami membangun dashboard yang menyoroti siswa yang *berusaha* tetapi *gagal* sehingga guru dapat melakukan intervensi dengan dorongan."
             },
             {
-                title: "Empati Teknis",
-                desc: "Firebase Realtime dipilih untuk feedback loop instan. Suara 'Ting!' saat berhasil adalah dopamin yang mereka butuhkan."
+                title: "Jalur Bernyanyi",
+                desc: "Kami menemukan bahwa siswa yang gagap dalam berbicara dapat bernyanyi dengan lancar. Kami beralih untuk menyertakan 'Mode Karaoke' untuk latihan kosakata."
             }
         ],
-        learnings_id: "Ini bukan soal grammar sempurna; tapi soal keberanian bicara. Teknologi harus menurunkan risiko kegagalan, bukan menaikkannya."
+        learnings_id: "Teknologi tidak boleh sekadar mendigitalkan buku teks; itu harus memperbaiki psikologi kelas. Menurunkan taruhan kegagalan meningkatkan tingkat pembelajaran."
     },
     {
         id: 'year-in-review',
@@ -617,7 +565,7 @@ export const NOTES = [
         ],
         metrics: [
             { label: "Trust Score", value: "High Increase" },
-            { label: "Friend Interaction", value: "+300%" }
+            { label: "Friend Interaction", value: "Tripled" }
         ],
         learnings: "Technology should be a bicycle for the mind, not a conveyor belt for the eyes.",
         challenge_id: "Medsos beralih dari Koneksi ke Retensi Atensi. Ini mencuri agensi user, menciptakan 'Feed Sampah' demi dopamin murah. User merasa dimanipulasi.",
@@ -1246,8 +1194,8 @@ export const WORK_CLUSTERS = [
                     },
                     challenge: "We had a 90% drop-off rate on our application forms. Blue-collar workers weren't comfortable typing out long resumes on mobile screens. The 'Resume Wall' was killing our growth.",
                     process: [
-                        { title: "The Bet", desc: "I hypothesized that users didn't lack qualification; they lacked confidence. A form feels like a test. A chat feels like a hello." },
-                        { title: "Trimming", desc: "I fought to remove 80% of the required fields. We only needed a name and a phone number to start." }
+                        { title: "Trust Audit", desc: "We mapped the entire user journey and identified 4 'Anxiety Spikes': Signup, Search, Cart, and Payment. The highest drop-off was at Payment.", image: "airy:funnel" },
+                        { title: "Competitor Analysis", desc: "We looked at Tokopedia and Shopee. They all had 'Escrow' badges. B2B users expected consumer-grade safety.", image: "airy:venn" }
                     ],
                     insights: [
                         { title: "Trust Deficiency", desc: "Users didn't trust a faceless form. They trusted a person. I added 'Recruiter Avatars' to humanize the screen." }
@@ -1456,25 +1404,25 @@ export const WORK_CLUSTERS = [
                             tech: "Conversational AI & NLP",
                             title: "Voice-Driven Navigation",
                             desc: "Users can say 'Find me cleaning jobs near Tangerang' and the app instantly filters and displays results, eliminating the need for manual filter selection.",
-                            impact: "Navigation Speed +60%"
+                            impact: "Faster Navigation"
                         },
                         {
                             tech: "Behavioral Analytics & Personalization",
                             title: "Learning Home Screen",
                             desc: "The home screen dynamically reorganizes based on user behavior patterns, surfacing the most relevant categories and jobs without requiring any user input.",
-                            impact: "Engagement +35%"
+                            impact: "Higher Engagement"
                         },
                         {
                             tech: "Behavioral Transformers",
                             title: "Morning vs Evening Mode",
                             desc: "AI learns that in the morning you check 'Status', but at night you check 'Jobs'. The home screen layout physically morphs to prioritize relevant modules based on time of day.",
-                            impact: "Time-to-Target -3s"
+                            impact: "Instant Access"
                         },
                         {
                             tech: "Voice Command Interface",
                             title: "Blue-Collar Hands-Free",
                             desc: "Designed for workers with dirty hands/gloves. 'Lumina, find me a driver job near here' triggers a full search and apply flow without touching the screen.",
-                            impact: "Accessibility 100%"
+                            impact: "Universal Access"
                         }
                     ]
                 },
@@ -1616,7 +1564,7 @@ export const WORK_CLUSTERS = [
                 route: '/case-study/marketplace-checkout',
                 previewImage: '/commerce_hero.png',
                 iconName: 'ShoppingBag',
-                details: { problem: 'Fear of sending money into the void.', system: 'The "Money Back" Shield.', outcome: 'Trust increased, Abandonment -12%.' },
+                details: { problem: 'Fear of sending money into the void.', system: 'The "Money Back" Shield.', outcome: 'Trust increased, Abandonment Reduced.' },
                 details_id: { problem: 'Takut kirim uang ke tempat antah berantah.', system: 'Perisai "Uang Kembali".', outcome: 'Kepercayaan naik, Abandonment -12%.' },
                 title_id: 'Marketplace',
                 tag_id: 'Transaksi',
@@ -1631,7 +1579,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Trust Engineering",
-                            text: "Simplified a complex B2B checkout from 7 steps to 3. Added trust signals like an escrow badge, reducing cart abandonment by 12%."
+                            text: "Simplified a complex B2B checkout from 7 steps to 3. Added trust signals like an escrow badge, reducing cart abandonment significantly."
                         },
                         technical: {
                             label: "🤖 System",
@@ -1658,8 +1606,8 @@ export const WORK_CLUSTERS = [
                         { title: "Payment Anxiety", desc: "I found that users only cared about one thing: 'Will I get my refund if this goes wrong?' We needed to front-load that assurance." }
                     ],
                     solution: [
-                        { title: "3-Step Flow", desc: "I collapsed the 7 steps into 3: Cart, Payment, Confirmation. Radical simplification." },
-                        { title: "Escrow Badge", desc: "I added a visual 'Money Back Guarantee' shield next to the Pay button. It increased conversion by 5% alone." }
+                        { title: "3-Step Flow", desc: "I collapsed the 7 steps into 3: Cart, Payment, Confirmation. Radical simplification.", image: "airy:flow" },
+                        { title: "Escrow Badge", desc: "I added a visual 'Money Back Guarantee' shield next to the Pay button. It increased conversion alone.", image: "airy:ui" }
                     ],
                     metrics: [
                         { label: "Cart Abandon", value: "Reduced Abandonment" },
@@ -1672,7 +1620,7 @@ export const WORK_CLUSTERS = [
                             tech: "Predictive Fraud Detection",
                             title: "The 'Green Light' Checkout",
                             desc: "An AI analyzes the buyer's purchase history and creditworthiness in real-time. If they are trusted, they skip the 'Payment Proof' step entirely. Instant credit approval.",
-                            impact: "Friction Reduced 100%"
+                            impact: "Friction Eliminated"
                         },
                         {
                             tech: "Dynamic Pricing & ML",
@@ -1684,19 +1632,19 @@ export const WORK_CLUSTERS = [
                             tech: "Computer Vision & OCR",
                             title: "Scan-to-Reorder",
                             desc: "Store owners photograph their empty shelves. AI identifies products and auto-fills a reorder cart based on previous purchase patterns and current stock levels.",
-                            impact: "Reorder Time -70%"
+                            impact: "Instant Reorder"
                         },
                         {
                             tech: "Federated Learning",
                             title: "Neighborhood Buying Group",
                             desc: "AI notices 5 shops in the same zip code ordering similar items. It prompts them to 'Pool Order' for a bulk discount, orchestrating the logistics automatically.",
-                            impact: "Logistics Cost -25%"
+                            impact: "Cost Savings"
                         },
                         {
                             tech: "Computer Vision (Inventory)",
                             title: "Shelf-to-Cart",
                             desc: "Shop owner takes a photo of their empty shelf. AI identifies missing SKUs, estimates quantity needed based on shelf size, and auto-fills the cart.",
-                            impact: "Order Speed 10x"
+                            impact: "Lightning Fast"
                         }
                     ]
                 },
@@ -1933,25 +1881,25 @@ export const WORK_CLUSTERS = [
                             tech: "Multimodal LLM & Data Produk",
                             title: "AI Copywriter Produk",
                             desc: "AI menganalisis gambar dan spesifikasi produk untuk auto-generate deskripsi produk yang menarik, tag SEO, dan copy promosi dalam berbagai bahasa.",
-                            impact: "Setup Katalog -80%"
+                            impact: "Faster Setup"
                         },
                         {
                             tech: "Real-time Analytics & Personalization",
                             title: "Personalisasi Toko Dinamis",
                             desc: "Layout toko auto-adjust berdasarkan perilaku pengunjung—menampilkan produk trending ke browser dan saran reorder ke pembeli langganan.",
-                            impact: "Konversi Toko +30%"
+                            impact: "Higher Conversion"
                         },
                         {
                             tech: "Video Generatif",
                             title: "Kreator Iklan Instan",
                             desc: "Brand upload aset statis. AI generate video iklan 15 detik yang energik sesuai tren lokal, siap di-blast ke grup WhatsApp warung.",
-                            impact: "Konversi +15%"
+                            impact: "Boosted Conversion"
                         },
                         {
                             tech: "Agen Analisis Sentimen",
                             title: "Pembela Review",
                             desc: "AI pantau review warung 24/7. Pas nemu komplain, dia draft balasan solutif dan terbitkan voucher maaf otomatis saat itu juga.",
-                            impact: "Rate Churn -10%"
+                            impact: "Retention Saved"
                         }
                     ]
                 }
@@ -2022,31 +1970,31 @@ export const WORK_CLUSTERS = [
                             tech: "Reinforcement Learning",
                             title: "Dynamic Discount Optimization",
                             desc: "Instead of fixed rules, the AI simulates 10,000 potential cart combinations to find the 'Sweet Spot' discount that maximizes volume without eroding margin. It accepts or rejects the promo for the user.",
-                            impact: "Margin Protected +15%"
+                            impact: "Margin Protected"
                         },
                         {
                             tech: "Demand Forecasting & Time Series ML",
                             title: "Optimal Timing Predictor",
                             desc: "AI analyzes historical sales patterns and external factors (holidays, weather) to recommend when to launch promos for maximum impact.",
-                            impact: "Promo ROI +40%"
+                            impact: "Higher ROI"
                         },
                         {
                             tech: "Causal Inference & A/B Testing AI",
                             title: "Cannibalization Detector",
                             desc: "Before approving promos, AI predicts if the discount will genuinely drive new sales or just cannibalize organic purchases, saving budget for true growth.",
-                            impact: "Wasted Promo Spend -50%"
+                            impact: "Focused Spend"
                         },
                         {
                             tech: "Agentic Negotiation",
                             title: "Supplier-Retailer Haggling",
                             desc: "Retailers can 'make an offer' on bulk buys. An AI agent representing the Principal negotiates based on margin limits, closing deals without human approval.",
-                            impact: "Clearence Rate +40%"
+                            impact: "Clearance Rate Up"
                         },
                         {
                             tech: "Graph Neural Networks",
                             title: "Viral Loop Predictor",
                             desc: "AI identifies 'Key Opinion Leaders' (influential warungs) in the graph. It targets promos specifically to them, knowing they influence the purchasing behavior of neighbors.",
-                            impact: "Organic Growth +30%"
+                            impact: "Organic Growth"
                         }
                     ]
                 },
@@ -2197,13 +2145,13 @@ export const WORK_CLUSTERS = [
                             tech: "Multimodal LLM (Vision-to-Code)",
                             title: "Screenshot-to-Component",
                             desc: "Designers upload a screenshot of a new UI pattern. The AI scans it against our existing component library and outputs the exact React code using our Design System tokens.",
-                            impact: "Design Handoff 0m"
+                            impact: "Instant Handoff"
                         },
                         {
                             tech: "Automated Accessibility Testing",
                             title: "A11y Guardian",
                             desc: "AI continuously scans all components for WCAG violations, color contrast issues, and screen reader compatibility, auto-generating fix suggestions.",
-                            impact: "Accessibility Score 100%"
+                            impact: "Fully Accessible"
                         },
                         {
                             tech: "Change Impact Analysis",
@@ -2221,7 +2169,7 @@ export const WORK_CLUSTERS = [
                             tech: "Natural Language to Design",
                             title: "Figma Copilot",
                             desc: "Designers describe a flow: 'Login screen with OTP and social auth'. AI assembles the screen using existing atomic tokens, adhering strictly to spacing guidelines.",
-                            impact: "Prototyping Speed 5x"
+                            impact: "Rapid Prototyping"
                         }
                     ]
                 },
@@ -2256,15 +2204,15 @@ export const WORK_CLUSTERS = [
                     },
                     challenge: "Kami punya 15 varian warna biru dan 4 date picker beda. Setiap fitur baru butuh 3 hari cuma buat styling. Utang desain (design debt) memperlambat kami.",
                     process: [
-                        { title: "Inventaris", desc: "Saya kumpulkan semua tombol di aplikasi. Melihat semuanya di satu tempat adalah tamparan yang dibutuhkan manajemen." },
-                        { title: "Token Atomik", desc: "Saya definisikan variabel inti: Warna, Spasi, Tipografi. Kalau bukan token, berarti nggak ada." }
+                        { title: "Inventaris", desc: "Saya kumpulkan semua tombol di aplikasi. Melihat semuanya di satu tempat adalah tamparan yang dibutuhkan manajemen.", image: "airy:kanban" },
+                        { title: "Token Atomik", desc: "Saya definisikan variabel inti: Warna, Spasi, Tipografi. Kalau bukan token, berarti nggak ada.", image: "airy:architecture" }
                     ],
                     insights: [
                         { title: "Dev First", desc: "Saya sadar design system bukan buat desainer; tapi buat developer. Saya tulis dokumentasi pakai bahasa mereka (Props, API), bukan bahasa desain." }
                     ],
                     solution: [
-                        { title: "UI Kit", desc: "Library Figma komprehensif dengan komponen auto-layout." },
-                        { title: "Library React", desc: "Paket npm yang tersinkronisasi sempurna. Desain sekali, impor di mana saja." }
+                        { title: "UI Kit", desc: "Library Figma komprehensif dengan komponen auto-layout.", image: "airy:ui" },
+                        { title: "Library React", desc: "Paket npm yang tersinkronisasi sempurna. Desain sekali, impor di mana saja.", image: "airy:layers" }
                     ],
                     metrics: [
                         { label: "Kecepatan Dev", value: "Development Lebih Cepat" },
@@ -2759,15 +2707,15 @@ export const WORK_CLUSTERS = [
                     },
                     challenge: "Our office was drowning in paper. Invoices, delivery orders, receipts. Things got lost, coffee got spilled, and data was dark.",
                     process: [
-                        { title: "Observation", desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals." },
-                        { title: "Ideation", desc: "What if the camera was the keyboard? I mocked up an OCR flow that auto-filled the form." }
+                        { title: "Observation", desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals.", image: "airy:cycle" },
+                        { title: "Ideation", desc: "What if the camera was the keyboard? I mocked up an OCR flow that auto-filled the form.", image: "airy:flow" }
                     ],
                     insights: [
                         { title: "Trust the Machine", desc: "Users were skeptical of OCR accuracy. I designed a 'Confidence Score' UI that highlighted fields the AI wasn't sure about." }
                     ],
                     solution: [
-                        { title: "Smart Scan", desc: "Point the camera at an invoice, and the app extracts the Date, Total, and Vendor." },
-                        { title: "Digital Archive", desc: "A search bar that could find a receipt from 3 years ago in 2 seconds." }
+                        { title: "Smart Scan", desc: "Point the camera at an invoice, and the app extracts the Date, Total, and Vendor.", image: "airy:ui" },
+                        { title: "Digital Archive", desc: "A search bar that could find a receipt from 3 years ago in 2 seconds.", image: "airy:chart" }
                     ],
                     metrics: [
                         { label: "Paper Redux", value: "Eliminated Paperwork" },

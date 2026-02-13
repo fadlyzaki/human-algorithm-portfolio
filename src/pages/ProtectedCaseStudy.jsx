@@ -14,6 +14,7 @@ import BackButton from '../components/BackButton';
 import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
 import ZoomableImage from '../components/ZoomableImage';
+import AiryDiagram from '../components/AiryDiagram';
 
 /* --- AI BRAINSTORM COMPONENT --- */
 /* Redesigned as a Human + AI collaborative dialogue */
@@ -706,7 +707,11 @@ const ProtectedCaseStudy = () => {
                           <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[var(--brand)] shadow-lg border-2 border-[var(--bg-card)] z-20 opacity-80"></div>
 
                           <div className="min-h-[250px] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50 flex items-center justify-center">
-                            {step.image ? (
+                            {step.image && step.image.startsWith('airy:') ? (
+                              <div className="w-full h-[300px] bg-[var(--bg-surface)] p-4">
+                                <AiryDiagram type={step.image.split(':')[1]} />
+                              </div>
+                            ) : step.image ? (
                               <ZoomableImage src={step.image} alt={step.title} className="max-w-full max-h-[400px] object-cover" />
                             ) : (
                               <div className="p-12 opacity-10">
@@ -812,7 +817,11 @@ const ProtectedCaseStudy = () => {
                       <div className="relative bg-[var(--bg-card)] border border-[var(--border-color)] p-2 shadow-2xl transform transition-transform duration-300 hover:scale-[1.02] hover:rotate-0 rotate-1">
                         <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-red-500/80 shadow-lg border-2 border-white/20 z-20"></div>
                         <div className="min-h-[200px] max-h-[400px] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50 flex items-center justify-center">
-                          {step.image ? (
+                          {step.image && step.image.startsWith('airy:') ? (
+                            <div className="w-full h-[300px] bg-[var(--bg-surface)] p-4">
+                              <AiryDiagram type={step.image.split(':')[1]} />
+                            </div>
+                          ) : step.image ? (
                             <ZoomableImage
                               src={step.image}
                               alt={step.title}
@@ -889,6 +898,10 @@ const ProtectedCaseStudy = () => {
                       {sol.componentId ? (
                         <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
                           <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
+                        </div>
+                      ) : sol.image && sol.image.startsWith('airy:') ? (
+                        <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)] p-8">
+                          <AiryDiagram type={sol.image.split(':')[1]} />
                         </div>
                       ) : sol.image ? (
                         <ZoomableImage

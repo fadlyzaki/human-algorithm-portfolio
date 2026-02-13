@@ -13,6 +13,7 @@ import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
 import Treasure from '../components/Treasure';
 import ZoomableImage from '../components/ZoomableImage';
+import AiryDiagram from '../components/AiryDiagram';
 
 // Interaction Components
 import WorkforceAI from '../components/interactions/WorkforceAI';
@@ -159,208 +160,179 @@ const SideProjectDetail = () => {
 
          <main className="relative z-10">
 
-            {/* --- 2. CINEMATIC HERO --- */}
-            {/* --- 2. CINEMATIC HERO --- */}
-            <header className="min-h-[90vh] flex flex-col justify-center items-center px-6 pt-24 md:pt-32 text-center relative overflow-hidden">
-               {/* Technical Illustration Background */}
-               <div className="absolute inset-0 z-0 bg-black dark:bg-white overflow-hidden">
-                  <div className="w-full h-full opacity-40 grayscale blur-[1px] transition-all duration-1000">
-                     <InteractionComponent color={brandColor} />
+            {/* --- 2. PRODUCT HERO --- */}
+            <header className="min-h-[85vh] flex flex-col justify-center items-center px-6 pt-24 md:pt-32 text-center relative overflow-hidden bg-black dark:bg-white text-white dark:text-black transition-colors duration-500">
+               {/* Product Visual Background */}
+               <div className="absolute inset-0 z-0">
+                  <div className="w-full h-full opacity-30 grayscale blur-[2px] scale-105">
+                     {project.snapshot.heroImage ? (
+                        <img src={project.snapshot.heroImage} alt="Hero" className="w-full h-full object-cover" />
+                     ) : (
+                        <InteractionComponent color={brandColor} />
+                     )}
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-void)] via-transparent to-[var(--bg-void)]"></div>
+                  <div className="absolute inset-0 bg-black/60 dark:bg-white/60"></div>
                </div>
 
-               {/* Decorative floating elements */}
-               <div className="absolute top-1/4 left-10 w-24 h-24 border border-[var(--border-color)] opacity-20 rounded-full animate-[spin_10s_linear_infinite] z-10"></div>
-               <div className="absolute bottom-1/4 right-10 w-32 h-32 border border-dashed border-[var(--border-color)] opacity-20 rounded-full animate-[spin_15s_linear_infinite_reverse] z-10"></div>
-
-               <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 space-y-8 max-w-4xl mx-auto relative z-20">
-                  <Treasure
-                     id="project-detail"
-                     className="-top-12 right-0"
-                     type="coins"
-                  >
-                     ANCIENT COINS!
-                  </Treasure>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)]">
-                     <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></div>
-                     <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+               <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 space-y-8 max-w-5xl mx-auto relative z-20">
+                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/20 dark:border-black/10 bg-black/50 dark:bg-white/50 backdrop-blur-md">
+                     <span className="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
+                     <span className="font-mono text-xs uppercase tracking-widest text-white dark:text-black">
                         {activeSnapshot.tagline}
                      </span>
                   </div>
 
-                  <h1 className="text-4xl md:text-8xl lg:text-9xl font-serif italic leading-[0.9] tracking-tighter text-white dark:text-black">
+                  <h1 className="text-5xl md:text-8xl lg:text-9xl font-sans font-bold tracking-tighter text-white dark:text-black">
                      {activeTitle}
                   </h1>
 
-                  <p className="text-xl md:text-2xl font-light text-white/80 dark:text-black/80 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-xl md:text-3xl font-light text-white/90 dark:text-black/90 max-w-3xl mx-auto leading-relaxed">
                      {activeTldr}
                   </p>
                </div>
 
                {/* Scroll Indicator */}
-               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
-                  <span className="font-mono text-[10px] uppercase tracking-widest">Scroll to Initialize</span>
-                  <div className="w-px h-8 bg-[var(--text-primary)]"></div>
+               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce text-white dark:text-black">
+                  <span className="font-mono text-[10px] uppercase tracking-widest">Market Analysis</span>
+                  <div className="w-px h-8 bg-current"></div>
                </div>
             </header>
 
-            {/* --- 3. CONTEXT STRIP (METADATA) --- */}
-            <section className="border-y border-[var(--border-color)] bg-white dark:bg-black relative z-20">
-               <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+            {/* --- 3. VENTURE SPECS --- */}
+            <section className="border-b border-[var(--border-color)] bg-[var(--bg-surface)] sticky top-0 z-40 backdrop-blur-md bg-opacity-90">
+               <div className="max-w-7xl mx-auto px-6 py-6 overflow-x-auto no-scrollbar">
+                  <div className="flex items-center justify-between min-w-max gap-12">
 
-                  {/* Stack */}
-                  <div className="space-y-2">
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-black/60 dark:text-white/60 flex items-center gap-2">
-                        <Cpu size={12} /> Technology
-                     </h3>
-                     <div className="flex flex-wrap gap-2">
-                        {project.stack.map(tech => (
-                           <span key={tech} className="text-sm font-medium text-black dark:text-white border-b border-[var(--border-color)] pb-0.5">{tech}</span>
-                        ))}
-                     </div>
-                  </div>
-
-                  {/* Links */}
-                  <div className="space-y-2">
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-black/60 dark:text-white/60 flex items-center gap-2">
-                        <LinkIcon size={12} /> Coordinates
-                     </h3>
-                     <div className="flex flex-col gap-1 text-sm">
-                        {project.links.demo && project.links.demo !== '#' ? (
-                           <a href={project.links.demo} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-black dark:text-white hover:text-[var(--accent)] transition-colors">
-                              Live Demo <ArrowUpRight size={12} />
+                     {/* Links (Primary CTA) */}
+                     <div className="flex items-center gap-4">
+                        {project.links.demo && project.links.demo !== '#' && (
+                           <a href={project.links.demo} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg-card)] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">
+                              Launch Product <ArrowUpRight size={14} />
                            </a>
-                        ) : <span className="text-black/50 dark:text-white/50 italic">Demo Offline</span>}
-
+                        )}
                         {project.links.repo && project.links.repo !== '#' && (
-                           <a href={`https://${project.links.repo}`} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-black dark:text-white hover:text-[var(--accent)] transition-colors">
-                              Source Code <Code size={12} />
+                           <a href={`https://${project.links.repo}`} target="_blank" rel="noreferrer" className="flex items-center gap-2 border border-[var(--border-color)] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[var(--bg-void)] transition-colors">
+                              <Code size={14} /> Source
                            </a>
                         )}
                      </div>
-                  </div>
 
-                  {/* Context */}
-                  <div className="space-y-2">
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-black/60 dark:text-white/60 flex items-center gap-2">
-                        <Layers size={12} /> Context
-                     </h3>
-                     <div className="text-sm font-medium text-black dark:text-white">{activeContext.role}</div>
-                  </div>
-
-                  {/* Timeline */}
-                  <div className="space-y-2">
-                     <h3 className="font-mono text-[10px] uppercase tracking-widest text-black/60 dark:text-white/60 flex items-center gap-2">
-                        <Terminal size={12} /> Timeline
-                     </h3>
-                     <div className="text-sm font-medium text-black dark:text-white">{activeContext.timeline}</div>
+                     {/* Stats/Meta */}
+                     <div className="flex items-center gap-8 text-[var(--text-secondary)]">
+                        <div className="flex flex-col">
+                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Role</span>
+                           <span className="text-xs font-bold text-[var(--text-primary)]">{activeContext.role}</span>
+                        </div>
+                        <div className="flex flex-col">
+                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Timeline</span>
+                           <span className="text-xs font-bold text-[var(--text-primary)]">{activeContext.timeline}</span>
+                        </div>
+                        <div className="flex flex-col">
+                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Tech Stack</span>
+                           <span className="text-xs font-bold text-[var(--text-primary)]">{project.stack.slice(0, 3).join(', ')}</span>
+                        </div>
+                     </div>
                   </div>
                </div>
             </section>
 
-            {/* --- 4. THE FILE (Content Modules) --- */}
+            {/* --- 4. PRODUCT NARRATIVE --- */}
             <section className="max-w-4xl mx-auto px-6 py-24 space-y-32">
 
-               {/* A. CHALLENGE */}
+               {/* A. OPPORTUNITY (The "Why") */}
                <article>
                   <div className="flex items-center gap-4 mb-8">
-                     <span className="w-12 h-[1px] bg-[var(--accent)]"></span>
-                     <span className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">01 // The Challenge</span>
+                     <div className="w-8 h-8 rounded-full bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)]">
+                        <ScanEye size={16} />
+                     </div>
+                     <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">The Opportunity</span>
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-serif italic mb-8 leading-tight">
-                     "{activeChallenge}"
+                  <h2 className="text-3xl md:text-5xl font-sans font-bold mb-8 leading-tight">
+                     {activeChallenge}
                   </h2>
                </article>
 
-               {/* B. PROCESS */}
-               {activeProcess && activeProcess.map((step, idx) => (
-                  <article key={idx} className="group grid md:grid-cols-2 gap-12 items-center">
-                     <div className={`order-2 ${idx % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
-                        <div className="mb-4 font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
-                           Process 0{idx + 1}
-                        </div>
-                        <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                        <p className="text-lg text-[var(--text-secondary)] leading-relaxed">{step.desc}</p>
-                     </div>
-                     <div className={`order-1 ${idx % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
-                        {step.image ? (
-                           <div className="rounded-lg overflow-hidden border border-[var(--border-color)] shadow-lg rotate-1 group-hover:rotate-0 transition-transform duration-500">
-                              <ZoomableImage src={step.image} alt={step.title} className="w-full h-auto" />
-                           </div>
-                        ) : (
-                           <div className="aspect-video bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center opacity-50">
-                              <Box size={48} strokeWidth={1} />
-                           </div>
-                        )}
-                     </div>
-                  </article>
-               ))}
-
-               {/* C. INSIGHTS */}
-               {activeInsights && (
-                  <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] p-8 md:p-12 rounded-2xl relative overflow-hidden">
-                     <div className="absolute top-0 right-0 p-32 bg-[var(--brand)] opacity-5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                     <div className="relative z-10">
-                        <div className="flex items-center gap-4 mb-12">
-                           <span className="w-12 h-[1px] bg-[var(--accent)]"></span>
-                           <span className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">02 // Key Insights</span>
-                        </div>
-                        <div className="grid md:grid-cols-2 gap-12">
-                           {activeInsights.map((insight, idx) => (
-                              <div key={idx} className="space-y-4">
-                                 <h3 className="font-serif italic text-2xl text-[var(--text-primary)]">{insight.title}</h3>
-                                 <p className="text-[var(--text-secondary)] leading-relaxed">{insight.desc}</p>
-                              </div>
-                           ))}
-                        </div>
-                     </div>
-                  </div>
-               )}
-
-               {/* D. SOLUTION */}
-               {activeSolution && (
-                  <div className="space-y-16">
-                     <div className="flex items-center gap-4">
-                        <span className="w-12 h-[1px] bg-[var(--accent)]"></span>
-                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">03 // The Solution</span>
-                     </div>
-                     {activeSolution.map((sol, idx) => (
-                        <div key={idx} className="space-y-6">
-                           {sol.image && (
-                              <div className="w-full rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl">
-                                 <ZoomableImage src={sol.image} alt={sol.title} className="w-full h-auto" />
+               {/* B. STRATEGY (The "How" & "What") */}
+               {activeProcess && (
+                  <div className="border-l-2 border-[var(--border-color)] pl-8 md:pl-12 space-y-16">
+                     {activeProcess.map((step, idx) => (
+                        <article key={idx} className="relative group">
+                           <span className="absolute -left-[41px] md:-left-[57px] top-0 w-4 h-4 rounded-full bg-[var(--bg-void)] border-2 border-[var(--border-color)] group-hover:border-[var(--accent)] transition-colors"></span>
+                           <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
+                              {step.title}
+                           </h3>
+                           <p className="text-lg text-[var(--text-secondary)] leading-relaxed mb-6">{step.desc}</p>
+                           {step.image && (
+                              <div className="rounded-xl overflow-hidden border border-[var(--border-color)] shadow-sm bg-[var(--bg-surface)]">
+                                 {step.image.startsWith('airy:') ? (
+                                    <div className="w-full h-[300px] p-8">
+                                       <AiryDiagram type={step.image.split(':')[1]} />
+                                    </div>
+                                 ) : (
+                                    <ZoomableImage src={step.image} alt={step.title} className="w-full h-auto" />
+                                 )}
                               </div>
                            )}
-                           <div className="max-w-2xl mx-auto text-center">
-                              <h3 className="text-xl font-bold mb-2">{sol.title}</h3>
-                              <p className="text-[var(--text-secondary)]">{sol.desc}</p>
-                           </div>
-                        </div>
+                        </article>
                      ))}
                   </div>
                )}
 
-               {/* E. METRICS & LEARNINGS */}
+               {/* C. PRODUCT SHOWCASE */}
+               {activeSolution && (
+                  <div className="space-y-16 bg-[var(--bg-surface)] p-8 md:p-12 rounded-3xl border border-[var(--border-color)]">
+                     <div className="text-center max-w-2xl mx-auto mb-12">
+                        <h2 className="text-3xl font-bold mb-4">The Solution</h2>
+                        <p className="text-[var(--text-secondary)]">Delivered as a robust, scalable product.</p>
+                     </div>
+
+                     <div className="grid gap-12">
+                        {activeSolution.map((sol, idx) => (
+                           <div key={idx} className="space-y-6">
+                              {sol.image && (
+                                 <div className="w-full rounded-xl overflow-hidden shadow-2xlring-1 ring-black/5 bg-[var(--bg-surface)]">
+                                    {sol.image.startsWith('airy:') ? (
+                                       <div className="w-full h-[300px] p-8">
+                                          <AiryDiagram type={sol.image.split(':')[1]} />
+                                       </div>
+                                    ) : (
+                                       <ZoomableImage src={sol.image} alt={sol.title} className="w-full h-auto" />
+                                    )}
+                                 </div>
+                              )}
+                              <div className="text-left">
+                                 <h3 className="text-xl font-bold mb-2">{sol.title}</h3>
+                                 <p className="text-[var(--text-secondary)]">{sol.desc}</p>
+                              </div>
+                           </div>
+                        ))}
+                     </div>
+                  </div>
+               )}
+
+               {/* D. TRACTION & METRICS */}
                {(activeMetrics || activeLearnings) && (
-                  <div className="grid md:grid-cols-2 gap-12 pt-12 border-t border-[var(--border-color)]">
+                  <div className="grid md:grid-cols-2 gap-8 md:gap-16">
                      {activeMetrics && (
-                        <div>
-                           <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-6">Impact</h4>
-                           <div className="space-y-6">
+                        <div className="bg-[var(--bg-surface)] p-8 rounded-2xl border border-[var(--border-color)]">
+                           <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-8 flex items-center gap-2">
+                              <Box size={14} /> Key Metrics
+                           </h4>
+                           <div className="space-y-8">
                               {activeMetrics.map((m, i) => (
-                                 <div key={i} className="flex items-baseline justify-between border-b border-[var(--border-color)] pb-2">
-                                    <span className="text-lg">{m.label}</span>
-                                    <span className="text-2xl font-bold text-[var(--accent)]">{m.value}</span>
+                                 <div key={i}>
+                                    <div className="text-4xl font-bold text-[var(--text-primary)] mb-1">{m.value}</div>
+                                    <div className="text-sm text-[var(--text-secondary)] uppercase tracking-wide opacity-80">{m.label}</div>
                                  </div>
                               ))}
                            </div>
                         </div>
                      )}
+
                      {activeLearnings && (
-                        <div>
-                           <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-6">Takeaways</h4>
-                           <p className="text-xl font-serif italic text-[var(--text-primary)] leading-relaxed">
+                        <div className="bg-[var(--accent)] text-white p-8 rounded-2xl flex flex-col justify-between">
+                           <h4 className="font-mono text-xs uppercase tracking-widest opacity-70 mb-8">Founder's Note</h4>
+                           <p className="text-xl md:text-2xl font-serif italic leading-relaxed">
                               "{activeLearnings}"
                            </p>
                         </div>
