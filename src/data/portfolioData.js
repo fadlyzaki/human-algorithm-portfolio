@@ -3126,6 +3126,16 @@ export const WORK_CLUSTERS = [
                             title: "Live Logistics Prototype",
                             desc: "Experience the real-time delivery tracking interface. Note: This is a high-fidelity recreation of the original 2018 prototype.",
                             componentId: "stoqo-logistics-live"
+                        },
+                        {
+                            title: "B2B Delivery Experience (1)",
+                            desc: "3 hours after purchase cut-off time, user will receive a delivery status notification as reminder for tomorrow delivery.",
+                            image: "/case-studies/stoqo-logistics/delivery-experience-1.png"
+                        },
+                        {
+                            title: "B2B Delivery Experience (2)",
+                            desc: "User will receive a delivery status notification informing that the delivery is on the way (Ready to deliver) or already arrived.",
+                            image: "/case-studies/stoqo-logistics/delivery-experience-2.png"
                         }
                     ],
                     metrics: [
