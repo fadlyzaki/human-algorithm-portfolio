@@ -18,7 +18,7 @@ export const SIDE_PROJECTS = [
         coverImage: "/human-algorithm-cover.png",
         snapshot: {
             tagline: "Recursive Portfolio",
-            heroImage: "/human-algorithm-cover.png"
+            heroImage: "airy:architecture"
         },
         context: {
             role: "Product Lead & Architect",
@@ -31,7 +31,7 @@ export const SIDE_PROJECTS = [
             {
                 title: "Strategy: The Agentic Workflow",
                 desc: "Instead of writing every line of code, I architected the *system*. I acted as the Product Manager, defining requirements and 'negotiating' with AI agents (Gemini/Cortex) to execute the implementation. This reduced dev time by 70% while increasing complexity.",
-                image: "/human-algorithm-cover.png" // Fallback
+                image: "airy:flow"
             },
             {
                 title: "Differentiation: Recursive Design",
@@ -55,7 +55,7 @@ export const SIDE_PROJECTS = [
             {
                 title: "The Artifact",
                 desc: "A living, breathing system that evolves with each conversation. 100% Agent-Generated Code.",
-                image: "/human-algorithm-cover.png"
+                image: "airy:architecture"
             }
         ],
         metrics: [
@@ -69,7 +69,8 @@ export const SIDE_PROJECTS = [
         process_id: [
             {
                 title: "Strategi: Workflow Agentic",
-                desc: "Alih-alih menulis setiap baris kode, saya merancang *sistem*-nya. Saya bertindak sebagai Manajer Produk, mendefinisikan persyaratan dan 'bernegosiasi' dengan agen AI untuk mengeksekusi implementasi. Ini mengurangi waktu pengembangan secara drastis sekaligus meningkatkan kompleksitas."
+                desc: "Alih-alih menulis setiap baris kode, saya merancang *sistem*-nya. Saya bertindak sebagai Manajer Produk, mendefinisikan persyaratan dan 'bernegosiasi' dengan agen AI untuk mengeksekusi implementasi. Ini mengurangi waktu pengembangan secara drastis sekaligus meningkatkan kompleksitas.",
+                image: "airy:flow"
             },
             {
                 title: "Diferensiasi: Desain Rekursif",
@@ -87,6 +88,13 @@ export const SIDE_PROJECTS = [
                 title: "Transparansi Radikal",
                 desc: "Kami membuka seluruh riwayat percakapan. Setiap halusinasi, setiap bug, setiap perdebatan bersifat publik.",
                 image: "airy:network"
+            }
+        ],
+        solution_id: [
+            {
+                title: "Artefak",
+                desc: "Sistem yang hidup dan bernapas yang berkembang dengan setiap percakapan. 100% Kode yang Dihasilkan Agen.",
+                image: "airy:architecture"
             }
         ],
         learnings_id: "Peran desainer telah bergeser secara fundamental. Kami bukan lagi sekadar 'kreatif'; kami adalah 'Arsitek Semantik'. Masa depan milik mereka yang dapat berbicara dalam bahasa model."

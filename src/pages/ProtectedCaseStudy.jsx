@@ -780,11 +780,11 @@ const ProtectedCaseStudy = () => {
                       {caseData.metrics && caseData.metrics.length > 0 && (
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8 bg-[var(--bg-card)]/50">
                           {caseData.metrics.map((m, i) => (
-                            <div key={i} className="relative bg-[var(--bg-surface)] border border-[var(--border-color)] p-8 rounded-xl flex flex-col items-center justify-center overflow-hidden group hover:border-[var(--brand)]/50 transition-colors duration-300">
+                            <div key={i} className="relative bg-[var(--bg-surface)] border border-[var(--border-color)] p-6 md:p-8 rounded-xl flex flex-col items-center justify-center overflow-hidden group hover:border-[var(--brand)]/50 transition-colors duration-300">
                               <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                              <div className="relative z-10 text-center">
-                                <div className="text-4xl md:text-5xl font-mono font-bold tracking-tighter text-[var(--brand)] mb-3">{m.value}</div>
-                                <div className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">{m.label}</div>
+                              <div className="relative z-10 text-center w-full">
+                                <div className="text-3xl md:text-5xl font-mono font-bold tracking-tighter text-[var(--brand)] mb-3 break-words leading-tight">{m.value}</div>
+                                <div className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">{m.label}</div>
                               </div>
                             </div>
                           ))}
@@ -947,7 +947,7 @@ const ProtectedCaseStudy = () => {
                 {(caseData.metrics || []).map((m, i) => (
                   <div key={i} className="pt-8 md:pt-0 md:px-8">
                     <div className="text-sm font-bold uppercase tracking-widest opacity-70 mb-2">{m.label}</div>
-                    <div className="text-6xl font-mono font-bold tracking-tighter">{m.value}</div>
+                    <div className="text-3xl md:text-6xl font-mono font-bold tracking-tighter break-words leading-tight">{m.value}</div>
                   </div>
                 ))}
               </div>
