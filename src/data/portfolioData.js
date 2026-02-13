@@ -3321,6 +3321,16 @@ export const WORK_CLUSTERS = [
                             title: "Live Prototype",
                             desc: "Interact with the actual mobile app interface. Experience the 'Siap Komandan!' onboarding, KPI tracking, and real-time performance dashboard. Note: This is a high-fidelity recreation of the original 2018 prototype.",
                             componentId: "stoqo-live-app"
+                        },
+                        {
+                            title: "Incentivize Field Agent",
+                            desc: "On-boarding pop-up introducing the new 'Performance' menu. The flow guides agents to a dedicated performance page showing prioritized criteria for tracking achievements and incentives.",
+                            image: "/case-studies/stoqo-sales/incentivize-flow.png"
+                        },
+                        {
+                            title: "UI Elements Explained",
+                            desc: "A breakdown of the UI components: Sticky headers for context, card hierarchy for detailed versus summary info, and explicit 'KPI' labels to guide agent focus.",
+                            image: "/case-studies/stoqo-sales/ui-elements-explained.png"
                         }
                     ],
                     metrics: [
@@ -3407,6 +3417,16 @@ export const WORK_CLUSTERS = [
                             title: "Prototipe Langsung",
                             desc: "Interaksi langsung dengan antarmuka aplikasi seluler. Rasakan onboarding 'Siap Komandan!', pelacakan KPI, dan dasbor kinerja waktu nyata. Catatan: Ini adalah rekreasi high-fidelity dari prototipe asli tahun 2018.",
                             componentId: "stoqo-live-app"
+                        },
+                        {
+                            title: "Insentif Agen Lapangan",
+                            desc: "Pop-up onboarding yang memperkenalkan menu 'Performa' baru. Alur ini memandu agen ke halaman kinerja khusus yang menampilkan kriteria prioritas untuk melacak pencapaian dan insentif.",
+                            image: "/case-studies/stoqo-sales/incentivize-flow.png"
+                        },
+                        {
+                            title: "Penjelasan Elemen UI",
+                            desc: "Rincian komponen UI: Header lengket untuk konteks, hierarki kartu untuk info detail vs ringkasan, dan label 'KPI' eksplisit untuk memandu fokus agen.",
+                            image: "/case-studies/stoqo-sales/ui-elements-explained.png"
                         }
                     ],
                     metrics: [
