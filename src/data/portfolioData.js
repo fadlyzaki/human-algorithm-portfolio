@@ -35,17 +35,20 @@ export const SIDE_PROJECTS = [
             },
             {
                 title: "Differentiation: Recursive Design",
-                desc: "The product is self-aware. It lists itself as a case study. It exposes its own 'thought process' (via open-source logs). We used a 'Chaos System' aesthetic—glitch effects and raw data—to visually represent the messy, beautiful reality of human-AI collaboration."
+                desc: "The product is self-aware. It lists itself as a case study. It exposes its own 'thought process' (via open-source logs). We used a 'Chaos System' aesthetic—glitch effects and raw data—to visually represent the messy, beautiful reality of human-AI collaboration.",
+                image: "airy:cycle"
             }
         ],
         insights: [
             {
                 title: "Context Windows are the New RAM",
-                desc: "The bottleneck wasn't coding speed; it was managing the AI's context. We architected a modular codebase to keep the 'Context Window' clean, allowing for holistic refactors that usually take days to happen in minutes."
+                desc: "The bottleneck wasn't coding speed; it was managing the AI's context. We architected a modular codebase to keep the 'Context Window' clean, allowing for holistic refactors that usually take days to happen in minutes.",
+                image: "airy:data"
             },
             {
                 title: "Radical Transparency",
-                desc: "We open-sourced the entire conversation history. Every hallucination, every bug, every debate is public. This builds trust and positions the product not just as a portfolio, but as a technical resource for others."
+                desc: "We open-sourced the entire conversation history. Every hallucination, every bug, every debate is public. This builds trust and positions the product not just as a portfolio, but as a technical resource for others.",
+                image: "airy:network"
             }
         ],
         solution: [
@@ -70,17 +73,20 @@ export const SIDE_PROJECTS = [
             },
             {
                 title: "Diferensiasi: Desain Rekursif",
-                desc: "Produk ini sadar diri. Ia mencantumkan dirinya sendiri sebagai studi kasus. Ia mengekspos 'proses berpikir'-nya sendiri (melalui log sumber terbuka). Kami menggunakan estetika 'Sistem Kekacauan' untuk merepresentasikan kolaborasi manusia-AI."
+                desc: "Produk ini sadar diri. Ia mencantumkan dirinya sendiri sebagai studi kasus. Ia mengekspos 'proses berpikir'-nya sendiri (melalui log sumber terbuka). Kami menggunakan estetika 'Sistem Kekacauan' untuk merepresentasikan kolaborasi manusia-AI.",
+                image: "airy:cycle"
             }
         ],
         insights_id: [
             {
                 title: "Jendela Konteks adalah RAM Baru",
-                desc: "Hambatannya bukan kecepatan coding; melainkan mengelola konteks AI. Kami mengarsipkan basis kode modular untuk menjaga 'Jendela Konteks' tetap bersih."
+                desc: "Hambatannya bukan kecepatan coding; melainkan mengelola konteks AI. Kami mengarsipkan basis kode modular untuk menjaga 'Jendela Konteks' tetap bersih.",
+                image: "airy:data"
             },
             {
                 title: "Transparansi Radikal",
-                desc: "Kami membuka seluruh riwayat percakapan. Setiap halusinasi, setiap bug, setiap perdebatan bersifat publik."
+                desc: "Kami membuka seluruh riwayat percakapan. Setiap halusinasi, setiap bug, setiap perdebatan bersifat publik.",
+                image: "airy:network"
             }
         ],
         learnings_id: "Peran desainer telah bergeser secara fundamental. Kami bukan lagi sekadar 'kreatif'; kami adalah 'Arsitek Semantik'. Masa depan milik mereka yang dapat berbicara dalam bahasa model."
@@ -204,22 +210,25 @@ export const SIDE_PROJECTS = [
         process: [
             {
                 title: "Designing for Nostalgia",
-                desc: "We built a tool that asks: 'What actually happened?' The Input is manual—no APIs. The Friction is the point; typing forces reflection."
+                desc: "We built a tool that asks: 'What actually happened?' The Input is manual—no APIs. The Friction is the point; typing forces reflection.",
+                image: "airy:timeline"
             },
             {
                 title: "Visualizing the Invisible",
-                desc: "How do you visualize 'Heartbreak'? We created abstract 'Aura Themes'. Neon for chaos, Blueprint for structure, Soft Focus for healing."
+                desc: "How do you visualize 'Heartbreak'? We created abstract 'Aura Themes'. Neon for chaos, Blueprint for structure, Soft Focus for healing.",
+                image: "airy:layers"
             }
         ],
         insights: [
             {
                 title: "The 'Share' Paradox",
-                desc: "People want privacy but love to perform. 'Screenshot Mode' strips the UI, allowing users to perform vulnerability on Instagram Stories while reclaiming the aesthetic for their own narrative."
+                desc: "People want privacy but love to perform. 'Screenshot Mode' strips the UI, allowing users to perform vulnerability on Instagram Stories while reclaiming the aesthetic for their own narrative.",
+                image: "airy:venn"
             }
         ],
         solution: [
-            { title: "Manual Entry Interface", desc: "A quiet space to remember." },
-            { title: "The Output", desc: "Shareable artifacts of personal history." }
+            { title: "Manual Entry Interface", desc: "A quiet space to remember.", image: "airy:ui" },
+            { title: "The Output", desc: "Shareable artifacts of personal history.", image: "airy:data" }
         ],
         metrics: [],
         learnings: "Your memories shouldn't be held hostage by an algorithm.",
@@ -227,17 +236,20 @@ export const SIDE_PROJECTS = [
         process_id: [
             {
                 title: "Mendesain Nostalgia",
-                desc: "Alat yang bertanya: 'Apa yang sebenarnya terjadi?' Input manual, tanpa API. Friksi mengetik itu memaksa refleksi."
+                desc: "Alat yang bertanya: 'Apa yang sebenarnya terjadi?' Input manual, tanpa API. Friksi mengetik itu memaksa refleksi.",
+                image: "airy:timeline"
             },
             {
                 title: "Memvisualisasikan yang Tak Terlihat",
-                desc: "Gimana visualisasi 'Patah Hati'? Kami buat 'Tema Aura': Neon untuk chaos, Blueprint untuk struktur, Soft Focus untuk penyembuhan."
+                desc: "Gimana visualisasi 'Patah Hati'? Kami buat 'Tema Aura': Neon untuk chaos, Blueprint untuk struktur, Soft Focus untuk penyembuhan.",
+                image: "airy:layers"
             }
         ],
         insights_id: [
             {
                 title: "Paradoks 'Share'",
-                desc: "Orang ingin privasi tapi suka tampil. 'Screenshot Mode' membuang UI, memvalidasi user untuk memamerkan kerentanan mereka dengan estetika yang mereka kontrol."
+                desc: "Orang ingin privasi tapi suka tampil. 'Screenshot Mode' membuang UI, memvalidasi user untuk memamerkan kerentanan mereka dengan estetika yang mereka kontrol.",
+                image: "airy:venn"
             }
         ],
         learnings_id: "Kenanganmu tak seharusnya disandera algoritma."
@@ -265,19 +277,22 @@ export const SIDE_PROJECTS = [
         process: [
             {
                 title: "The Archipelago Effect",
-                desc: "We found that 4G is a myth in rural outdoors. Apps must work offline-first."
+                desc: "We found that 4G is a myth in rural outdoors. Apps must work offline-first.",
+                image: "airy:ecosystem"
             }
         ],
         insights: [
             {
                 title: "Red Flags are Hidden",
-                desc: "Corruption isn't obvious. It's hidden in the metadata (e.g., timestamps of midnight uploads)."
+                desc: "Corruption isn't obvious. It's hidden in the metadata (e.g., timestamps of midnight uploads).",
+                image: "airy:radar"
             }
         ],
         solution: [
             {
                 title: "Offline-First PWA",
-                desc: "Combines 'Red Flag' data scraping with accessible PWA architectures."
+                desc: "Combines 'Red Flag' data scraping with accessible PWA architectures.",
+                image: "airy:architecture"
             }
         ],
         metrics: [],
@@ -286,19 +301,22 @@ export const SIDE_PROJECTS = [
         process_id: [
             {
                 title: "Efek Kepulauan",
-                desc: "4G itu mitos di pedalaman. Aplikasi wajib offline-first."
+                desc: "4G itu mitos di pedalaman. Aplikasi wajib offline-first.",
+                image: "airy:ecosystem"
             }
         ],
         insights_id: [
             {
                 title: "Bendera Merah Tersembunyi",
-                desc: "Korupsi itu gak gamblang. Dia sembunyi di metadata (contoh: upload dokumen tengah malam)."
+                desc: "Korupsi itu gak gamblang. Dia sembunyi di metadata (contoh: upload dokumen tengah malam).",
+                image: "airy:radar"
             }
         ],
         solution_id: [
             {
                 title: "PWA Offline-First",
-                desc: "Gabungin scraping 'Red Flag' dengan arsitektur PWA yang ringan."
+                desc: "Gabungin scraping 'Red Flag' dengan arsitektur PWA yang ringan.",
+                image: "airy:architecture"
             }
         ],
         learnings_id: "Alat transparansi percuma kalau gak bisa dibuka di sinyal 3G.",
@@ -347,23 +365,27 @@ export const NOTES = [
         process: [
             {
                 title: "The $50 Heartbeat Skip",
-                desc: "You find the perfect flight. You text friends. They take 3 hours. You refresh. Price went up. That regret is what we designed against."
+                desc: "You find the perfect flight. You text friends. They take 3 hours. You refresh. Price went up. That regret is what we designed against.",
+                image: "airy:timeline"
             },
             {
                 title: "Buying Time, Not Tickets",
-                desc: "Users weren't paying for the ticket; they were paying for the *option* to wait. The ability to ask their boss for leave without risking a price hike."
+                desc: "Users weren't paying for the ticket; they were paying for the *option* to wait. The ability to ask their boss for leave without risking a price hike.",
+                image: "airy:funnel"
             }
         ],
         insights: [
             {
                 title: "The Honest Algorithm",
-                desc: "To build trust, we showed our work: 'AI Prediction: 85% chance this price rises tomorrow.' This turned a 'Hidden Fee' into 'Insurance'."
+                desc: "To build trust, we showed our work: 'AI Prediction: 85% chance this price rises tomorrow.' This turned a 'Hidden Fee' into 'Insurance'.",
+                image: "airy:chart"
             }
         ],
         solution: [
             {
                 title: "The Pause Button",
-                desc: "A small fee ($2) to freeze the algorithm for 24 hours. Shifts user state from Panic to Control."
+                desc: "A small fee ($2) to freeze the algorithm for 24 hours. Shifts user state from Panic to Control.",
+                image: "airy:ui"
             }
         ],
         metrics: [],
@@ -401,23 +423,27 @@ export const NOTES = [
         process_id: [
             {
                 title: "Jantung Copot Karena 500 Ribu",
-                desc: "Nemu tiket pas. Chat temen. Lama bales. Refresh. Harga naik. Rasa nyesek itu musuh desain kami."
+                desc: "Nemu tiket pas. Chat temen. Lama bales. Refresh. Harga naik. Rasa nyesek itu musuh desain kami.",
+                image: "airy:timeline"
             },
             {
                 title: "Beli Waktu, Bukan Tiket",
-                desc: "User bayar bukan buat tiket, tapi buat *opsi* nunggu. Kemampuan minta izin bos tanpa takut harga naik."
+                desc: "User bayar bukan buat tiket, tapi buat *opsi* nunggu. Kemampuan minta izin bos tanpa takut harga naik.",
+                image: "airy:funnel"
             }
         ],
         insights_id: [
             {
                 title: "Algoritma Jujur",
-                desc: "Kami buka dapur: 'Prediksi AI: 85% peluang naik besok.' Ini ubah 'Biaya Admin' jadi 'Asuransi'."
+                desc: "Kami buka dapur: 'Prediksi AI: 85% peluang naik besok.' Ini ubah 'Biaya Admin' jadi 'Asuransi'.",
+                image: "airy:chart"
             }
         ],
         solution_id: [
             {
                 title: "Tombol Pause",
-                desc: "Bayar receh buat bekukan algoritma 24 jam. Ubah user dari Panik ke Kontrol."
+                desc: "Bayar receh buat bekukan algoritma 24 jam. Ubah user dari Panik ke Kontrol.",
+                image: "airy:ui"
             }
         ],
         learnings_id: "Price Lock bukan produk fintech; ini obat anti-cemas."
@@ -457,23 +483,27 @@ export const NOTES = [
         process: [
             {
                 title: "Why Cash Feels Cold",
-                desc: "Every month, millions of migrant workers send money home. It's a transaction of love, but the interface is cold, sterile, and purely numeric."
+                desc: "Every month, millions of migrant workers send money home. It's a transaction of love, but the interface is cold, sterile, and purely numeric.",
+                image: "airy:flow"
             },
             {
                 title: "The Zero-UI Receiver",
-                desc: "The harsh reality: The people who need care the most often have the oldest phones. We built a WhatsApp-based receiver flow with SMS fallback."
+                desc: "The harsh reality: The people who need care the most often have the oldest phones. We built a WhatsApp-based receiver flow with SMS fallback.",
+                image: "airy:ecosystem"
             }
         ],
         insights: [
             {
                 title: "Delivering Warmth",
-                desc: "Kinship isn't about sending Rupiah; it's about sending 'Care Packages' (e.g., a Sunday Dinner basket). It lets the sender be present in family life remotely."
+                desc: "Kinship isn't about sending Rupiah; it's about sending 'Care Packages' (e.g., a Sunday Dinner basket). It lets the sender be present in family life remotely.",
+                image: "airy:cycle"
             }
         ],
         solution: [
             {
                 title: "Video Receipt",
-                desc: "A transaction ends when money arrives. A relationship continues. Drivers record the family's reaction (with consent) so the sender sees their mother smiling."
+                desc: "A transaction ends when money arrives. A relationship continues. Drivers record the family's reaction (with consent) so the sender sees their mother smiling.",
+                image: "airy:ui"
             }
         ],
         metrics: [],
@@ -482,23 +512,27 @@ export const NOTES = [
         process_id: [
             {
                 title: "Kenapa Uang Terasa Dingin",
-                desc: "Tiap bulan perantau kirim uang. Itu transaksi cinta, tapi antarmukanya dingin dan cuma angka."
+                desc: "Tiap bulan perantau kirim uang. Itu transaksi cinta, tapi antarmukanya dingin dan cuma angka.",
+                image: "airy:flow"
             },
             {
                 title: "Penerima Tanpa-UI",
-                desc: "Orang tua sering gaptek. Kami buat alur penerimaan via WhatsApp dengan fallback SMS."
+                desc: "Orang tua sering gaptek. Kami buat alur penerimaan via WhatsApp dengan fallback SMS.",
+                image: "airy:ecosystem"
             }
         ],
         insights_id: [
             {
                 title: "Mengirim Kehangatan",
-                desc: "Bukan kirim Rupiah, tapi 'Paket Perhatian' (misal: Sembako Makan Malam). Biar pengirim merasa hadir di rumah."
+                desc: "Bukan kirim Rupiah, tapi 'Paket Perhatian' (misal: Sembako Makan Malam). Biar pengirim merasa hadir di rumah.",
+                image: "airy:cycle"
             }
         ],
         solution_id: [
             {
                 title: "Resi Video",
-                desc: "Transaksi selesai saat uang sampai. Hubungan berlanjut. Driver rekam reaksi keluarga biar pengirim lihat senyum Ibu."
+                desc: "Transaksi selesai saat uang sampai. Hubungan berlanjut. Driver rekam reaksi keluarga biar pengirim lihat senyum Ibu.",
+                image: "airy:ui"
             }
         ],
         learnings_id: "Menutup lingkaran dengan emosi, bukan sekadar status transaksi."
@@ -536,31 +570,37 @@ export const NOTES = [
         process: [
             {
                 title: "The Protagonist: Sarah",
-                desc: "Sarah wants updates from friends but gets ads and viral screamers. She feels 'digital loneliness' even while scrolling. Our goal: Give her back the steering wheel."
+                desc: "Sarah wants updates from friends but gets ads and viral screamers. She feels 'digital loneliness' even while scrolling. Our goal: Give her back the steering wheel.",
+                image: "airy:hierarchy"
             },
             {
                 title: "Failed Attempt: The Cockpit",
-                desc: "We tried a complex settings panel with sliders. Users hated it. 'This looks like work. I don't want to calibrate my feed like a sound engineer.'"
+                desc: "We tried a complex settings panel with sliders. Users hated it. 'This looks like work. I don't want to calibrate my feed like a sound engineer.'",
+                image: "airy:kanban"
             }
         ],
         insights: [
             {
                 title: "From Settings to Vibes",
-                desc: "Users don't have static preferences; they have Contextual Moods. Sometimes they want 'Doom Scroll', sometimes 'Friends Only'."
+                desc: "Users don't have static preferences; they have Contextual Moods. Sometimes they want 'Doom Scroll', sometimes 'Friends Only'.",
+                image: "airy:venn"
             }
         ],
         solution: [
             {
                 title: "Stealth Mode Switcher",
-                desc: "Turned the 'For You' header into a dropdown. Sarah can switch to 'Friends Only' instantly. Noise vanishes."
+                desc: "Turned the 'For You' header into a dropdown. Sarah can switch to 'Friends Only' instantly. Noise vanishes.",
+                image: "airy:ui"
             },
             {
                 title: "Chill Mode",
-                desc: "Filters out high-BPM audio and rapid cuts. The feed becomes a digital magazine, not a slot machine."
+                desc: "Filters out high-BPM audio and rapid cuts. The feed becomes a digital magazine, not a slot machine.",
+                image: "airy:layers"
             },
             {
                 title: "Micro-Blocking",
-                desc: "One-tap removal of AI/spam content via tags, training the algorithm without leaving the feed."
+                desc: "One-tap removal of AI/spam content via tags, training the algorithm without leaving the feed.",
+                image: "airy:radar"
             }
         ],
         metrics: [
@@ -572,31 +612,37 @@ export const NOTES = [
         process_id: [
             {
                 title: "Protagonis: Sarah",
-                desc: "Sarah mau update teman tapi dapet iklan dan video teriak. Dia merasa kesepian digital. Goal kami: Kembalikan kemudi ke dia."
+                desc: "Sarah mau update teman tapi dapet iklan dan video teriak. Dia merasa kesepian digital. Goal kami: Kembalikan kemudi ke dia.",
+                image: "airy:hierarchy"
             },
             {
                 title: "Gagal: Kokpit",
-                desc: "Kami coba panel setting rumit. User benci. 'Ini kayak kerjaan. Gue gak mau kalibrasi feed kayak sound engineer.'"
+                desc: "Kami coba panel setting rumit. User benci. 'Ini kayak kerjaan. Gue gak mau kalibrasi feed kayak sound engineer.'",
+                image: "airy:kanban"
             }
         ],
         insights_id: [
             {
                 title: "Dari Setting ke Vibe",
-                desc: "User gak punya preferensi statis; mereka punya Mood Kontekstual. Kadang mau 'Doom Scroll', kadang 'Hanya Teman'."
+                desc: "User gak punya preferensi statis; mereka punya Mood Kontekstual. Kadang mau 'Doom Scroll', kadang 'Hanya Teman'.",
+                image: "airy:venn"
             }
         ],
         solution_id: [
             {
                 title: "Stealth Mode Switcher",
-                desc: "Ubah header 'For You' jadi dropdown. Bisa switch ke 'Hanya Teman' instan. Bising hilang."
+                desc: "Ubah header 'For You' jadi dropdown. Bisa switch ke 'Hanya Teman' instan. Bising hilang.",
+                image: "airy:ui"
             },
             {
                 title: "Mode Santai",
-                desc: "Filter audio cepat dan potongan kasar. Feed jadi majalah digital, bukan mesin slot."
+                desc: "Filter audio cepat dan potongan kasar. Feed jadi majalah digital, bukan mesin slot.",
+                image: "airy:layers"
             },
             {
                 title: "Micro-Blocking",
-                desc: "Hapus konten AI/spam sekali tap lewat tag, melatih algoritma tanpa keluar feed."
+                desc: "Hapus konten AI/spam sekali tap lewat tag, melatih algoritma tanpa keluar feed.",
+                image: "airy:radar"
             }
         ],
         learnings_id: "Teknologi harusnya jadi sepeda buat pikiran, bukan ban berjalan buat mata."
@@ -623,19 +669,22 @@ export const NOTES = [
         process: [
             {
                 title: "Mapping the Blindspots",
-                desc: "Government sensors cover major rivers, but micro-drainage in slums is unmonitored. We needed crowdsourced data."
+                desc: "Government sensors cover major rivers, but micro-drainage in slums is unmonitored. We needed crowdsourced data.",
+                image: "airy:ecosystem"
             }
         ],
         insights: [
             {
                 title: "Trust in Neighbors",
-                desc: "People trust their neighbors more than the government during disasters. A P2P verification system was essential."
+                desc: "People trust their neighbors more than the government during disasters. A P2P verification system was essential.",
+                image: "airy:network"
             }
         ],
         solution: [
             {
                 title: "Waze for Disasters",
-                desc: "Built using PostGIS & Node.js. It aggregates government sensor data and crowdsouces reports to generate safe evacuation routes in real-time."
+                desc: "Built using PostGIS & Node.js. It aggregates government sensor data and crowdsouces reports to generate safe evacuation routes in real-time.",
+                image: "airy:architecture"
             }
         ],
         metrics: [],
@@ -644,19 +693,22 @@ export const NOTES = [
         process_id: [
             {
                 title: "Memetakan Blindspot",
-                desc: "Sensor pemerintah cuma cover sungai besar. Got mikro di pemukiman gak terpantau. Butuh data crowdsource."
+                desc: "Sensor pemerintah cuma cover sungai besar. Got mikro di pemukiman gak terpantau. Butuh data crowdsource.",
+                image: "airy:ecosystem"
             }
         ],
         insights_id: [
             {
                 title: "Percaya Tetangga",
-                desc: "Orang lebih percaya tetangga daripada pemerintah saat bencana. Sistem verifikasi P2P itu krusial."
+                desc: "Orang lebih percaya tetangga daripada pemerintah saat bencana. Sistem verifikasi P2P itu krusial.",
+                image: "airy:network"
             }
         ],
         solution_id: [
             {
                 title: "Waze untuk Bencana",
-                desc: "Dibangun pakai PostGIS & Node.js. Agregasi data sensor dan laporan warga buat rute evakuasi real-time."
+                desc: "Dibangun pakai PostGIS & Node.js. Agregasi data sensor dan laporan warga buat rute evakuasi real-time.",
+                image: "airy:architecture"
             }
         ],
         learnings_id: "Dalam UI bencana, warna 'Merah' aja gak cukup. Butuh arahan spesifik yang bisa dilakukan.",

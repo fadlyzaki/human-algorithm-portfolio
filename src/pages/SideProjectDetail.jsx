@@ -278,6 +278,37 @@ const SideProjectDetail = () => {
                   </div>
                )}
 
+               {/* B.5. KEY INSIGHTS */}
+               {activeInsights && activeInsights.length > 0 && (
+                  <div className="space-y-8">
+                     <div className="flex items-center gap-4 mb-4">
+                        <div className="w-8 h-8 rounded-full bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)]">
+                           <Layers size={16} />
+                        </div>
+                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">Key Insights</span>
+                     </div>
+                     <div className="grid gap-6">
+                        {activeInsights.map((insight, idx) => (
+                           <div key={idx} className="bg-[var(--bg-surface)] border-l-4 border-[var(--accent)] rounded-r-xl p-6 md:p-8 space-y-4">
+                              <h3 className="text-xl font-bold">{insight.title}</h3>
+                              <p className="text-[var(--text-secondary)] leading-relaxed">{insight.desc}</p>
+                              {insight.image && (
+                                 <div className="rounded-xl overflow-hidden border border-[var(--border-color)] shadow-sm bg-[var(--bg-surface)] mt-4">
+                                    {insight.image.startsWith('airy:') ? (
+                                       <div className="w-full h-[300px] p-8">
+                                          <AiryDiagram type={insight.image.split(':')[1]} />
+                                       </div>
+                                    ) : (
+                                       <ZoomableImage src={insight.image} alt={insight.title} className="w-full h-auto" />
+                                    )}
+                                 </div>
+                              )}
+                           </div>
+                        ))}
+                     </div>
+                  </div>
+               )}
+
                {/* C. PRODUCT SHOWCASE */}
                {activeSolution && (
                   <div className="space-y-16 bg-[var(--bg-surface)] p-8 md:p-12 rounded-3xl border border-[var(--border-color)]">
