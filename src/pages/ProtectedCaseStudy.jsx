@@ -646,6 +646,7 @@ const ProtectedCaseStudy = () => {
 
         </section>
 
+
         {/* 2. CONTEXT STRIP */}
         <section className="bg-[var(--bg-card)] border-y border-[var(--border-color)] py-12 relative overflow-hidden">
           {/* Watermark */}
@@ -757,10 +758,10 @@ const ProtectedCaseStudy = () => {
 
                   {/* RENDER: MEASURE (Metrics Grid) */}
                   {step.type === 'measure' && (
-                    <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl p-8 md:p-12 text-center">
-                      <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-                        <div className="max-w-md text-left">
-                          <h3 className="text-2xl font-bold font-serif mb-4 flex items-center gap-3">
+                    <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl overflow-hidden">
+                      <div className="p-8 md:p-12 text-center border-b border-[var(--border-color)]">
+                        <div className="max-w-2xl mx-auto">
+                          <h3 className="text-2xl font-bold font-serif mb-4 flex items-center justify-center gap-3">
                             <BarChart size={24} className="text-[var(--accent-red)]" />
                             {step.title}
                           </h3>
@@ -768,8 +769,19 @@ const ProtectedCaseStudy = () => {
                             {step.desc}
                           </p>
                         </div>
-                        {/* If specific metrics exist in the step, render them here. Otherwise just the qualitative description. */}
                       </div>
+
+                      {/* Render Metrics Grid if data exists */}
+                      {caseData.metrics && caseData.metrics.length > 0 && (
+                        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[var(--border-color)] bg-[var(--bg-card)]">
+                          {caseData.metrics.map((m, i) => (
+                            <div key={i} className="p-8 text-center hover:bg-[var(--bg-surface)] transition-colors duration-300">
+                              <div className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] mb-2 opacity-70">{m.label}</div>
+                              <div className="text-4xl md:text-5xl font-mono font-bold tracking-tighter text-[var(--brand)]">{m.value}</div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   )}
 
@@ -911,19 +923,21 @@ const ProtectedCaseStudy = () => {
           </>
         )}
 
-        {/* 6. IMPACT & OUTCOMES */}
-        <section className="bg-[var(--brand)] text-[var(--bg-void)] py-32">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-black/10">
-              {(caseData.metrics || []).map((m, i) => (
-                <div key={i} className="pt-8 md:pt-0 md:px-8">
-                  <div className="text-sm font-bold uppercase tracking-widest opacity-70 mb-2">{m.label}</div>
-                  <div className="text-6xl font-mono font-bold tracking-tighter">{m.value}</div>
-                </div>
-              ))}
+        {/* 6. IMPACT & OUTCOMES - Only show if NO designProcess (Legacy Fallback) */}
+        {!caseData.designProcess && (
+          <section className="bg-[var(--brand)] text-[var(--bg-void)] py-32">
+            <div className="max-w-6xl mx-auto px-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-black/10">
+                {(caseData.metrics || []).map((m, i) => (
+                  <div key={i} className="pt-8 md:pt-0 md:px-8">
+                    <div className="text-sm font-bold uppercase tracking-widest opacity-70 mb-2">{m.label}</div>
+                    <div className="text-6xl font-mono font-bold tracking-tighter">{m.value}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* 7. AI BRAINSTORM (HUMAN + AI COLLABORATION) */}
         {(caseData.aiHypotheses || caseData.aiHypothesis) && (
