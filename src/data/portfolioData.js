@@ -60,6 +60,35 @@ export const SIDE_PROJECTS = [
             { label: "AI Collaboration", value: "Deep" }
         ],
         learnings: "This project proved that AI isn't just a tool for generation, but for architecture and reasoning. The role of the designer is shifting from 'Pixel Pusher' to 'System Orchestrator'.",
+        designProcess: [
+            {
+                type: "research",
+                title: "The Brief: Myself",
+                desc: "Building a portfolio that isn't just a container for work, but a demonstration of the 'Human Algorithm' itself. The challenge was to document the messy, recursive collaboration between human creativity and AI execution.",
+                image: "/human-algorithm-cover.png"
+            },
+            {
+                type: "insight",
+                title: "Context is the New Code",
+                desc: "The real stack wasn't React; it was the 'Context Window'. Maintaining the entire codebase in memory allowed for holistic refactors that would usually take days to complete in minutes."
+            },
+            {
+                type: "design",
+                title: "Recursive Aesthetics",
+                desc: "The site is self-aware. It lists itself as a project. It uses a 'Chaos System' design language—glitch effects, scanlines, and raw data—to represent the 'ghost in the machine'.",
+                image: "/human-algorithm-cover.png"
+            },
+            {
+                type: "ship",
+                title: "Agentic Workflow",
+                desc: "This portfolio wasn't just 'coded'; it was negotiated. I acted as the Product Lead, and my AI agents acted as the implementation team. We pair-programmed through complex routing logic and refactored legacy code in natural language."
+            },
+            {
+                type: "measure",
+                title: "Transparency as a Metric",
+                desc: "We didn't hide the hallucinations or the bugs. The entire conversation history is public. This is a transparent look at the messy, beautiful reality of AI-assisted engineering."
+            }
+        ],
         // ID Translations
         challenge_id: "Membangun portofolio yang bukan sekadar wadah karya, tapi demonstrasi 'Algoritma Manusia' itu sendiri—menampilkan kolaborasi rekursif yang berantakan antara kreativitas manusia dan eksekusi AI.",
         process_id: [
@@ -145,6 +174,35 @@ export const SIDE_PROJECTS = [
             { label: "Anxiety", value: "Reduced" }
         ],
         learnings: "It's not about perfect grammar; it's about the courage to speak. Technology should lower the stakes of failure, not raise them.",
+        designProcess: [
+            {
+                type: "research",
+                title: "The Passive Student",
+                desc: "We followed 'Raisa' (a persona based on real student interviews). She practices in the shower (safe) but freezes in class (unsafe). Her fear: 'If I say it wrong, they will laugh.'",
+                image: "/interactive-workbook-cover.png"
+            },
+            {
+                type: "insight",
+                title: "Teacher as Guide",
+                desc: "For teachers, the dashboard isn't a grade book—it's a 'Confidence Monitor'. They can see who is trying and who is struggling, intervening with encouragement rather than red ink."
+            },
+            {
+                type: "design",
+                title: "Safe Space Interface",
+                desc: "We built a 'Digital Practice Room' where mistakes don't have an audience. 'Sing Along Mode' allows learning through melody, bypassing anxiety. 'Private Recording' lets students self-correct.",
+                image: "/interactive-workbook-status.png"
+            },
+            {
+                type: "ship",
+                title: "Technical Empathy",
+                desc: "We chose Firebase Realtime Database for its feedback loop. That millisecond of 'Ding! You did it!' is the dopamine hit they need to keep going."
+            },
+            {
+                type: "measure",
+                title: "Confidence Metrics",
+                desc: "It's not about perfect grammar; it's about the courage to speak. Technology should lower the stakes of failure, not raise them. Engagement is high, anxiety is reduced."
+            }
+        ],
         challenge_id: "Di setiap kelas, ada siswa yang tahu jawabannya tapi diam. Mereka takut salah ucap atau 'terlihat' gagal. LKS tradisional itu diam dan statis—mereka tidak menyemangati.",
         process_id: [
             {
@@ -362,6 +420,35 @@ export const NOTES = [
         ],
         metrics: [],
         learnings: "Price Lock is not a fintech product; it's an anxiety medication.",
+        designProcess: [
+            {
+                type: "research",
+                title: "Anxiety in Pricing",
+                desc: "The specific anxiety of watching a flight price jump $50 while you wait for your boss\'s approval. In a world of dynamic pricing, the user is always the loser.",
+                image: "/price-lock-cover.png"
+            },
+            {
+                type: "insight",
+                title: "Buying Time",
+                desc: "Users weren't paying for the ticket; they were paying for the *option* to wait. The ability to ask their boss for leave without risking a price hike."
+            },
+            {
+                type: "design",
+                title: "The Pause Button",
+                desc: "A small fee ($2) to freeze the algorithm for 24 hours. Shifts user state from Panic to Control. A simple toggle that buys peace of mind.",
+                image: "/price-lock-cover.png"
+            },
+            {
+                type: "ship",
+                title: "The Honest Algorithm",
+                desc: "To build trust, we showed our work: 'AI Prediction: 85% chance this price rises tomorrow.' This turned a 'Hidden Fee' into 'Insurance'."
+            },
+            {
+                type: "measure",
+                title: "Emotional ROI",
+                desc: "Price Lock is not a fintech product; it's an anxiety medication. We measured success not just in revenue, but in the reduction of user panic."
+            }
+        ],
         challenge_id: "Kecemasan spesifik saat melihat tiket naik 500rb sambil menunggu izin cuti bos. Di dunia 'dynamic pricing', user selalu kalah.",
         process_id: [
             {

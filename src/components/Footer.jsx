@@ -47,6 +47,7 @@ const Footer = () => {
                     <Link to="/#notes" className="hover:underline text-sm">{t('nav.notes')}</Link>
                     <Link to="/contact" className="hover:underline text-sm">{t('nav.contact')}</Link>
                     <Link to="/cv" className="hover:underline text-sm">{t('nav.system_directory')}</Link>
+                    <Link to="/process" className="hover:underline text-sm">{t('nav.process')}</Link>
                 </div>
 
                 {/* COL 2: SOCIALS */}

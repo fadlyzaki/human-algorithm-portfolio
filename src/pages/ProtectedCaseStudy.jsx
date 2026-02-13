@@ -670,163 +670,246 @@ const ProtectedCaseStudy = () => {
 
         </section>
 
-        {/* 3. PROCESS: FILM STRIP */}
-        <section className="max-w-6xl mx-auto px-6 py-32">
-          <div className="flex items-baseline justify-between mb-16 border-b border-[var(--border-color)] pb-6">
-            <h2 className="text-4xl font-serif italic">{t('protected.process_title') || "The Process"}</h2>
-            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.process_subtitle') || "Evolution of Thought"}</span>
-          </div>
+        {/* 3. UNIFIED DESIGN PROCESS FRAMEWORK */}
+        {/* Renders the 5-step process if 'designProcess' data exists. Fallback to legacy layout if not. */}
+        {caseData.designProcess ? (
+          <section className="max-w-6xl mx-auto px-6 py-32 space-y-32">
 
-          {/* Horizontal Scroll / Grid -> Treating steps like film negatives */}
-          {/* Horizontal Scroll / Grid -> Treating steps like film negatives */}
-          {/* Vertical Investigation Board -> Zig-Zag Layout */}
-          <div className="space-y-24 relative">
-            {/* Central Timeline Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[var(--border-color)] -translate-x-1/2 hidden md:block z-0"></div>
+            {/* Header */}
+            <div className="flex items-baseline justify-between border-b border-[var(--border-color)] pb-6 mb-16">
+              <h2 className="text-4xl font-serif italic">{t('protected.process_title') || "The Process"}</h2>
+              <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.process_subtitle') || "Evolution of Thought"}</span>
+            </div>
 
-            {caseData.process && caseData.process.map((step, i) => (
-              <div key={i} className={`flex flex-col md:flex-row gap-12 items-center relative z-10 ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+            {/* Steps Loop */}
+            {caseData.designProcess.map((step, i) => {
+              // Step Configuration based on Type
+              const isOdd = i % 2 !== 0;
+              const stepNumber = `0${i + 1}`;
 
-                {/* 1. VISUAL EVIDENCE (Image) */}
-                <div className="w-full md:w-1/2 relative group">
-                  <div className="relative bg-[var(--bg-card)] border border-[var(--border-color)] p-2 shadow-2xl transform transition-transform duration-300 hover:scale-[1.02] hover:rotate-0 rotate-1">
-                    {/* Tape/Pin */}
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-red-500/80 shadow-lg border-2 border-white/20 z-20"></div>
+              return (
+                <div key={i} className={`relative ${step.type === 'insight' || step.type === 'measure' ? 'max-w-4xl mx-auto' : ''}`}>
+                  {/* Connecting Line (Desktop) */}
+                  {i !== caseData.designProcess.length - 1 && (
+                    <div className={`absolute left-4 md:left-1/2 top-20 bottom-[-128px] w-px bg-gradient-to-b from-[var(--border-color)] to-transparent -translate-x-1/2 z-0 hidden md:block opacity-50`}></div>
+                  )}
 
-                    {/* Image Container - Flexible height for varying aspect ratios */}
-                    <div className="min-h-[200px] max-h-[400px] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50 flex items-center justify-center">
-                      {step.image ? (
-                        <ZoomableImage
-                          src={step.image}
-                          alt={step.title}
-                          className="max-w-full max-h-[380px] object-contain"
-                        />
-                      ) : (
-                        <div className="w-full h-[200px] flex items-center justify-center opacity-20 bg-[var(--bg-card)]">
-                          <Activity size={48} />
+                  {/* RENDER: RESEARCH / SHIP (Standard Text + Image Layout) */}
+                  {(step.type === 'research' || step.type === 'ship' || step.type === 'design') && (
+                    <div className={`flex flex-col md:flex-row gap-12 items-center relative z-10 ${isOdd ? 'md:flex-row-reverse' : ''}`}>
+
+                      {/* Visual Evidence */}
+                      <div className="w-full md:w-1/2 group">
+                        <div className={`relative bg-[var(--bg-card)] border border-[var(--border-color)] p-2 shadow-2xl transform transition-transform duration-500 hover:scale-[1.01] ${isOdd ? 'rotate-1 hover:rotate-0' : '-rotate-1 hover:rotate-0'}`}>
+                          {/* Tape/Pin */}
+                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[var(--brand)] shadow-lg border-2 border-[var(--bg-card)] z-20 opacity-80"></div>
+
+                          <div className="min-h-[250px] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50 flex items-center justify-center">
+                            {step.image ? (
+                              <ZoomableImage src={step.image} alt={step.title} className="max-w-full max-h-[400px] object-cover" />
+                            ) : (
+                              <div className="p-12 opacity-10">
+                                {step.type === 'ship' ? <Rocket size={48} /> : <Search size={48} />}
+                              </div>
+                            )}
+                          </div>
+                          <div className="mt-2 flex justify-between items-center px-2">
+                            <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">{step.type} EVIDENCE</span>
+                            <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] opacity-50">REF: {stepNumber}</span>
+                          </div>
                         </div>
-                      )}
-                      {/* Grid Overlay for texture */}
-                      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+                      </div>
+
+                      {/* Narrative */}
+                      <div className={`w-full md:w-1/2 ${isOdd ? 'text-right md:pr-12' : 'md:pl-12'}`}>
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className={`flex-shrink-0 w-8 h-8 rounded-full border border-[var(--brand)] text-[var(--brand)] flex items-center justify-center font-mono text-xs`}>
+                            {i + 1}
+                          </div>
+                          <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t(`process.steps.${step.type}.title`) || step.type}</span>
+                        </div>
+                        <h3 className="text-3xl font-bold font-serif mb-6">{step.title}</h3>
+                        <div className="prose prose-sm dark:prose-invert font-mono text-[var(--text-secondary)] leading-relaxed">
+                          {step.desc}
+                        </div>
+                      </div>
                     </div>
+                  )}
 
-                    <div className="mt-2 flex justify-between items-center px-2">
-                      <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">{t('protected.evidence') || "EVIDENCE"} #{i + 1}</span>
-                      <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] opacity-50">CONFIDENTIAL</span>
+                  {/* RENDER: INSIGHT (Highlight Card) */}
+                  {step.type === 'insight' && (
+                    <div className="bg-[var(--bg-card)] border border-[var(--brand)]/30 rounded-2xl p-8 md:p-12 relative overflow-hidden text-center group hover:border-[var(--brand)] transition-colors">
+                      <div className="absolute top-0 left-0 w-full h-1 bg-[var(--brand)]"></div>
+                      <Lightbulb size={32} className="mx-auto text-[var(--brand)] mb-6" />
+                      <h3 className="text-2xl md:text-3xl font-serif italic mb-6 leading-tight text-[var(--text-primary)]">
+                        "{step.title}"
+                      </h3>
+                      <p className="text-[var(--text-secondary)] font-mono text-sm leading-relaxed max-w-2xl mx-auto">
+                        {step.desc}
+                      </p>
+                      <div className="mt-8 flex justify-center">
+                        <span className="px-3 py-1 bg-[var(--brand)]/10 text-[var(--brand)] text-[10px] font-mono uppercase tracking-widest rounded-full">
+                          Key Insight
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  )}
 
-                {/* 2. CONNECTIVE TISSUE (Timeline Node) */}
-                <div className="hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-[var(--bg-void)] border border-[var(--brand)] text-[var(--brand)] font-mono text-xs z-20 relative">
-                  {i + 1}
-                </div>
+                  {/* RENDER: MEASURE (Metrics Grid) */}
+                  {step.type === 'measure' && (
+                    <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl p-8 md:p-12 text-center">
+                      <div className="flex flex-col md:flex-row items-center justify-center gap-12">
+                        <div className="max-w-md text-left">
+                          <h3 className="text-2xl font-bold font-serif mb-4 flex items-center gap-3">
+                            <BarChart size={24} className="text-[var(--accent-red)]" />
+                            {step.title}
+                          </h3>
+                          <p className="text-[var(--text-secondary)] mb-0 leading-relaxed">
+                            {step.desc}
+                          </p>
+                        </div>
+                        {/* If specific metrics exist in the step, render them here. Otherwise just the qualitative description. */}
+                      </div>
+                    </div>
+                  )}
 
-                {/* 3. NARRATIVE (Text) */}
-                <div className={`w-full md:w-1/2 ${i % 2 === 1 ? 'text-right md:pr-12' : 'md:pl-12'}`}>
-                  <div className={`inline-block font-mono text-xs text-[var(--brand)] border border-[var(--brand)] px-3 py-1 rounded-full mb-4 opacity-80`}>
-                    {t('protected.step') || "STEP"} 0{i + 1}
-                  </div>
-                  <h3 className="text-3xl font-bold font-serif mb-6">{step.title}</h3>
-                  <div className={`prose prose-sm dark:prose-invert font-mono text-[var(--text-secondary)] leading-relaxed ${i % 2 === 1 ? 'ml-auto' : ''}`}>
-                    {step.desc}
-                  </div>
                 </div>
+              );
+            })}
 
+          </section>
+        ) : (
+          /* LEGACY LAYOUT - Keep existing structure for backward compatibility */
+          <>
+            {/* 3. PROCESS: FILM STRIP */}
+            <section className="max-w-6xl mx-auto px-6 py-32">
+              <div className="flex items-baseline justify-between mb-16 border-b border-[var(--border-color)] pb-6">
+                <h2 className="text-4xl font-serif italic">{t('protected.process_title') || "The Process"}</h2>
+                <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.process_subtitle') || "Evolution of Thought"}</span>
               </div>
-            ))}
-          </div>
-        </section>
 
-        {/* 4. KEY INSIGHTS (MOOD & TYPOGRAPHY) */}
-        {caseData.insights && (
-          <section className="bg-[var(--bg-card)] border-y border-[var(--border-color)] py-32 relative overflow-hidden">
-            <div className="absolute -right-20 -top-20 w-96 h-96 bg-[var(--brand)] opacity-5 rounded-full blur-3xl"></div>
+              <div className="space-y-24 relative">
+                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[var(--border-color)] -translate-x-1/2 hidden md:block z-0"></div>
 
-            <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-              <Sun size={32} className="mx-auto text-[var(--brand)] mb-8" />
-              <h2 className="text-3xl md:text-5xl font-serif italic mb-16 leading-tight">
-                {t('protected.insights_title') || "\"We realized that clarity was more valuable than features.\""}
-              </h2>
+                {caseData.process && caseData.process.map((step, i) => (
+                  <div key={i} className={`flex flex-col md:flex-row gap-12 items-center relative z-10 ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                    <div className="w-full md:w-1/2 relative group">
+                      <div className="relative bg-[var(--bg-card)] border border-[var(--border-color)] p-2 shadow-2xl transform transition-transform duration-300 hover:scale-[1.02] hover:rotate-0 rotate-1">
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-red-500/80 shadow-lg border-2 border-white/20 z-20"></div>
+                        <div className="min-h-[200px] max-h-[400px] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50 flex items-center justify-center">
+                          {step.image ? (
+                            <ZoomableImage
+                              src={step.image}
+                              alt={step.title}
+                              className="max-w-full max-h-[380px] object-contain"
+                            />
+                          ) : (
+                            <div className="w-full h-[200px] flex items-center justify-center opacity-20 bg-[var(--bg-card)]">
+                              <Activity size={48} />
+                            </div>
+                          )}
+                          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+                        </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-                {caseData.insights.map((insight, i) => (
-                  <div key={i} className="border-l-2 border-[var(--brand)] pl-8 py-2">
-                    <h3 className="font-bold uppercase tracking-widest text-xs mb-3 text-[var(--brand)]">{insight.title}</h3>
-                    <p className="text-lg text-[var(--text-primary)] leading-relaxed">{insight.desc}</p>
+                        <div className="mt-2 flex justify-between items-center px-2">
+                          <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">{t('protected.evidence') || "EVIDENCE"} #{i + 1}</span>
+                          <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] opacity-50">CONFIDENTIAL</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-[var(--bg-void)] border border-[var(--brand)] text-[var(--brand)] font-mono text-xs z-20 relative">
+                      {i + 1}
+                    </div>
+
+                    <div className={`w-full md:w-1/2 ${i % 2 === 1 ? 'text-right md:pr-12' : 'md:pl-12'}`}>
+                      <div className={`inline-block font-mono text-xs text-[var(--brand)] border border-[var(--brand)] px-3 py-1 rounded-full mb-4 opacity-80`}>
+                        {t('protected.step') || "STEP"} 0{i + 1}
+                      </div>
+                      <h3 className="text-3xl font-bold font-serif mb-6">{step.title}</h3>
+                      <div className={`prose prose-sm dark:prose-invert font-mono text-[var(--text-secondary)] leading-relaxed ${i % 2 === 1 ? 'ml-auto' : ''}`}>
+                        {step.desc}
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
-            </div>
-          </section>
-        )}
+            </section>
 
-        {/* 5. SOLUTION: ANNOTATED SCREENS */}
-        <section className="max-w-6xl mx-auto px-6 py-32">
-          <div className="flex items-baseline justify-between mb-16">
-            <h2 className="text-4xl font-serif italic">{t('protected.solution_title') || "The Solution"}</h2>
-            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.solution_subtitle') || "Interface Design"}</span>
-          </div>
+            {/* 4. KEY INSIGHTS (Legacy) */}
+            {caseData.insights && (
+              <section className="bg-[var(--bg-card)] border-y border-[var(--border-color)] py-32 relative overflow-hidden">
+                <div className="absolute -right-20 -top-20 w-96 h-96 bg-[var(--brand)] opacity-5 rounded-full blur-3xl"></div>
 
-          <div className="space-y-32">
-            {caseData.solution ? caseData.solution.map((sol, i) => (
-              <div key={i} className={`flex flex-col md:flex-row gap-12 items-center ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+                  <Sun size={32} className="mx-auto text-[var(--brand)] mb-8" />
+                  <h2 className="text-3xl md:text-5xl font-serif italic mb-16 leading-tight">
+                    {t('protected.insights_title') || "\"We realized that clarity was more valuable than features.\""}
+                  </h2>
 
-                {/* Annotated Image Area */}
-                <div className="w-full md:w-2/3 aspect-video bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] relative shadow-2xl overflow-hidden group">
-                  {/* Real Image or Abstract Fallback */}
-                  {sol.componentId ? (
-                    <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
-                      <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
-                    </div>
-                  ) : sol.image ? (
-                    <ZoomableImage
-                      src={sol.image}
-                      alt={sol.title}
-                      className="absolute inset-0 w-full h-full object-contain bg-black/5 dark:bg-black/50"
-                    />
-                  ) : (
-                    <div className="absolute inset-4 bg-[var(--bg-surface)] rounded border border-[var(--border-color)]">
-                      <div className="h-8 border-b border-[var(--border-color)] bg-[var(--bg-card)] flex items-center px-4 gap-2">
-                        <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+                    {caseData.insights.map((insight, i) => (
+                      <div key={i} className="border-l-2 border-[var(--brand)] pl-8 py-2">
+                        <h3 className="font-bold uppercase tracking-widest text-xs mb-3 text-[var(--brand)]">{insight.title}</h3>
+                        <p className="text-lg text-[var(--text-primary)] leading-relaxed">{insight.desc}</p>
                       </div>
-                      <div className="p-8 flex items-center justify-center opacity-10">
-                        <Monitor size={64} />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Annotation Hotspot (Animated) - Only show if image is missing to avoid clutter? Or keep it? Keeping it for vibe. */}
-                  {!sol.image && !sol.componentId && (
-                    <>
-                      <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-[var(--brand)] rounded-full animate-ping"></div>
-                      <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-[var(--brand)] rounded-full border-2 border-[var(--bg-void)]"></div>
-                    </>
-                  )}
-
-                  {/* Caption Tooltip */}
-                  <div className="absolute bottom-6 left-6 bg-[var(--bg-void)]/90 backdrop-blur border border-[var(--border-color)] p-3 rounded max-w-xs text-xs shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:-translate-y-2 translate-y-2 pointer-events-none">
-                    <span className="font-bold text-[var(--brand)] block mb-1">Feature Highlight</span>
-                    {sol.desc}
+                    ))}
                   </div>
                 </div>
-
-                {/* Narrative Text */}
-                <div className="w-full md:w-1/3">
-                  <div className="font-mono text-xs text-[var(--text-secondary)] mb-4 uppercase tracking-widest">{t('protected.exhibit') || "Exhibit"} {String.fromCharCode(65 + i)}</div>
-                  <h3 className="text-2xl font-bold mb-4">{sol.title}</h3>
-                  <p className="text-[var(--text-secondary)] leading-relaxed">
-                    {sol.desc}
-                  </p>
-                </div>
-              </div>
-            )) : (
-              <div className="p-12 border border-dashed border-[var(--border-color)] text-center text-[var(--text-secondary)] font-mono">
-                {t('protected.classified_arch') || "[ CLASSIFIED SYSTEM ARCHITECTURE ]"}
-              </div>
+              </section>
             )}
-          </div>
-        </section>
+
+            {/* 5. SOLUTION (Legacy) */}
+            <section className="max-w-6xl mx-auto px-6 py-32">
+              <div className="flex items-baseline justify-between mb-16">
+                <h2 className="text-4xl font-serif italic">{t('protected.solution_title') || "The Solution"}</h2>
+                <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.solution_subtitle') || "Interface Design"}</span>
+              </div>
+
+              <div className="space-y-32">
+                {caseData.solution ? caseData.solution.map((sol, i) => (
+                  <div key={i} className={`flex flex-col md:flex-row gap-12 items-center ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                    <div className="w-full md:w-2/3 aspect-video bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] relative shadow-2xl overflow-hidden group">
+                      {/* Real Image or Abstract Fallback */}
+                      {sol.componentId ? (
+                        <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
+                          <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
+                        </div>
+                      ) : sol.image ? (
+                        <ZoomableImage
+                          src={sol.image}
+                          alt={sol.title}
+                          className="absolute inset-0 w-full h-full object-contain bg-black/5 dark:bg-black/50"
+                        />
+                      ) : (
+                        <div className="absolute inset-4 bg-[var(--bg-surface)] rounded border border-[var(--border-color)]">
+                          <div className="h-8 border-b border-[var(--border-color)] bg-[var(--bg-card)] flex items-center px-4 gap-2">
+                            <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                          </div>
+                          <div className="p-8 flex items-center justify-center opacity-10">
+                            <Monitor size={64} />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className={`w-full md:w-1/3 ${i % 2 === 1 ? 'text-right' : ''}`}>
+                      <div className="font-mono text-xs text-[var(--text-secondary)] mb-4 uppercase tracking-widest">{t('protected.exhibit') || "Exhibit"} {String.fromCharCode(65 + i)}</div>
+                      <h3 className="text-2xl font-bold mb-4">{sol.title}</h3>
+                      <p className="text-[var(--text-secondary)] leading-relaxed">
+                        {sol.desc}
+                      </p>
+                    </div>
+                  </div>
+                )) : (
+                  <div className="p-12 border border-dashed border-[var(--border-color)] text-center text-[var(--text-secondary)] font-mono">
+                    {t('protected.classified_arch') || "[ CLASSIFIED SYSTEM ARCHITECTURE ]"}
+                  </div>
+                )}
+              </div>
+            </section>
+          </>
+        )}
 
         {/* 6. IMPACT & OUTCOMES */}
         <section className="bg-[var(--brand)] text-[var(--bg-void)] py-32">

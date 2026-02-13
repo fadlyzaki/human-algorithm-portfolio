@@ -10,7 +10,8 @@ export const translations = {
             cv: "Download CV",
             system_directory: "System Directory",
             index: "Index",
-            archives: "Archives"
+            archives: "Archives",
+            process: "Process"
         },
         home: {
             role: "Product Designer // Design Engineer",
@@ -253,6 +254,36 @@ export const translations = {
             impact_label: "Impact",
             back: "Return to Base",
             wip_label: "Work in Progress: Case details are mock data"
+        },
+        process: {
+            page_title: "Design Process",
+            title: "The Process",
+            subtitle: "Scaling Empathy",
+            description: "Design isn't just about pixels. It's about reducing ambiguity. My process is a loop of diverging to understand and converging to execute.",
+            cta_title: "Ready to build something resilient?",
+            cta_desc: "Let's apply this process to your next project.",
+            steps: {
+                research: {
+                    title: "Research",
+                    desc: "Deep dive into the problem space. User interviews, data dumps, finding the 'unknown unknowns'. I don't just ask users what they want; I observe what they do."
+                },
+                insight: {
+                    title: "Insight",
+                    desc: "Synthesizing noise into signal. Defining the core problem statement and 'How Might We'. We stop when we find the root cause, not just the symptom."
+                },
+                design: {
+                    title: "Design",
+                    desc: "Divergent exploration followed by convergent refinement. Wireframes -> Lo-fi -> Hi-fi. I design systems, not just screens, ensuring scalability from day one."
+                },
+                ship: {
+                    title: "Ship",
+                    desc: "Handshake with engineering. Documentation, QA, and polish. 'It's not done until it works'. I speak code, so nothing gets lost in translation."
+                },
+                measure: {
+                    title: "Measure",
+                    desc: "Feedback loops. Analytics, user testing, iteration. 'Data is the voice of the user'. We launch, we learn, and we improve."
+                }
+            }
         }
     },
     id: {
@@ -266,7 +297,8 @@ export const translations = {
             cv: "Unduh CV",
             system_directory: "Direktori Sistem",
             index: "Indeks",
-            archives: "Arsip"
+            archives: "Arsip",
+            process: "Proses"
         },
         home: {
             role: "Product Designer",
@@ -509,6 +541,36 @@ export const translations = {
             impact_label: "Dampak",
             back: "Kembali ke Markas",
             wip_label: "Sedang Dikerjakan: Detail kasus adalah data sampel"
+        },
+        process: {
+            page_title: "Proses Desain",
+            title: "Proses",
+            subtitle: "Menskalakan Empati",
+            description: "Desain bukan hanya soal piksel. Ini soal mengurangi ambiguitas. Proses saya adalah siklus menyebar untuk memahami dan memusat untuk mengeksekusi.",
+            cta_title: "Siap membangun sesuatu yang tangguh?",
+            cta_desc: "Mari terapkan proses ini pada proyek Anda berikutnya.",
+            steps: {
+                research: {
+                    title: "Riset",
+                    desc: "Menyelami ruang masalah. Wawancara pengguna, analisis data, mencari 'unknown unknowns'. Saya tidak hanya bertanya apa yang pengguna mau; saya mengamati apa yang mereka lakukan."
+                },
+                insight: {
+                    title: "Wawasan",
+                    desc: "Mengubah kebisingan menjadi sinyal. Mendefinisikan pernyataan masalah inti dan 'How Might We'. Kita berhenti saat menemukan akar masalah, bukan hanya gejala."
+                },
+                design: {
+                    title: "Desain",
+                    desc: "Eksplorasi divergen diikuti penyempurnaan konvergen. Wireframe -> Lo-fi -> Hi-fi. Saya mendesain sistem, bukan hanya layar, memastikan skalabilitas sejak hari pertama."
+                },
+                ship: {
+                    title: "Kirim",
+                    desc: "Jabat tangan dengan engineering. Dokumentasi, QA, dan polesan. 'Belum selesai sampai berfungsi'. Saya bicara bahasa kode, jadi tidak ada yang hilang dalam terjemahan."
+                },
+                measure: {
+                    title: "Ukur",
+                    desc: "Umpan balik. Analitik, pengujian pengguna, iterasi. 'Data adalah suara pengguna'. Kita luncurkan, kita belajar, dan kita perbaiki."
+                }
+            }
         }
     }
 };

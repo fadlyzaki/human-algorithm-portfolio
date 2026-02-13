@@ -13,6 +13,7 @@ const SideProjectsIndex = React.lazy(() => import('./pages/SideProjectsIndex'));
 const CompanyDetail = React.lazy(() => import('./pages/CompanyDetail'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
+const DesignProcess = React.lazy(() => import('./pages/DesignProcess'));
 
 import { LanguageProvider } from './context/LanguageContext';
 import { HandCursorProvider } from './context/HandCursorContext';
@@ -48,6 +49,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/cv" element={<SystemManifest />} />
+              <Route path="/process" element={<DesignProcess />} />
 
               {/* Index Pages */}
               <Route path="/side-projects" element={<SideProjectsIndex />} />
