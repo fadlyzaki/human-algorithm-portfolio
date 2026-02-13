@@ -3363,439 +3363,438 @@ export const WORK_CLUSTERS = [
                             impact: "Efisiensi Bensin Lebih Baik"
                         }
                     ]
-                },
-            },
-            },
-    {
-        id: 'stoqo-sales',
-        title: 'Incentive Sales Agent',
-        tag: 'Gamification',
-        type: 'Mobile App',
-        role: 'UX Strategist',
-        timeline: '3 Months',
-        route: '/case-study/stoqo-sales',
-        previewImage: '/efficiency_hero.png',
-        iconName: 'Trophy',
-        details: {
-            problem: 'Agents were flying blind, guessing how to reach their bonus.',
-            system: 'Transparent "Playbook" & Commitment.',
-            outcome: 'Uncertainty replaced by "Siap Komandan!" (Mission Ready).'
-        },
-        details_id: {
-            problem: 'Agen buta arah, menebak-nebak cara dapat bonus.',
-            system: '"Playbook" Transparan & Komitmen.',
-            outcome: 'Ketidakpastian diganti dengan "Siap Komandan!".'
-        },
-        title_id: 'Agen Penjualan Insentif',
-        tag_id: 'Gamifikasi',
-        caseStudy: {
-            locked: true,
-            summaries: {
-                eli5: {
-                    label: "👶 ELI5",
-                    title: "Mission: Possible",
-                    text: "Sales targets were confusing. I made a simple dashboard that says 'Do this to win', and they just have to click 'Ready, Commander!' to start."
-                },
-                recruiter: {
-                    label: "👔 Recruiter",
-                    title: "Behavior Design",
-                    text: "Solved the 'Information Asymmetry' problem by redesigning the performance dashboard. Introduced explicit 'KPI' visual tags and a behavioral commitment ceremony ('Siap Komandan!')."
-                },
-                technical: {
-                    label: "🤖 System",
-                    title: "Real-time Telemetry",
-                    text: "Built a dedicated performance service that aggregates sales data in real-time. Designed a sticky information architecture to ensure target visibility allows checking status while scrolling."
                 }
             },
-            snapshot: {
-                tagline: "Converting 'Confusion' into 'Commitment' via Clarity.",
-                heroImage: "airy:chart"
-            },
-            context: {
-                client: "Sales Force",
-                role: "UX Researcher & Strategist",
-                timeline: "3 Months",
-                team: "Sales Ops & Regional Heads"
-            },
-            challenge: "We discovered a critical 'Blind Spot'. Agents didn't know which metrics actually impacted their bonus. Was it GMV? Visit count? Active outlets? The complex formula was hidden, leading to 'Target Parking'—where agents stopped halfway because they weren't sure if their effort counted.",
-            process: [
-                { title: "The Feelings Audit", desc: "We interviewed FAs and TLs. The sentiment was 'Anxiety'. Agents felt the system was cheating them because the calculation was opaque.", image: "airy:radar" },
-                { title: "Behavior Design", desc: "We decided to hide the 'Goals' (Caps) but highlight the 'Criteria'. We didn't want agents to stop once they hit a number; we wanted them to chase the maximum possible incentive.", image: "airy:flow" }
-            ],
-            insights: [
-                { title: "The Commitment Consistency", desc: "Psychologically, if an agent click a button saying 'Siap Komandan!' (Ready Commander!), they are 3x more likely to actually do the work. It turns a task into a promise." },
-                { title: "Visual Signaling", desc: "Text is noise. We gathered 30 metrics but only tagged 3 with a bright yellow 'KPI' badge. This functioned as a visual sieve for attention." }
-            ],
-            solution: [
-                {
-                    title: "Live Prototype",
-                    desc: "Interact with the actual mobile app interface. Experience the 'Siap Komandan!' onboarding, KPI tracking, and real-time performance dashboard. Note: This is a high-fidelity recreation of the original 2018 prototype.",
-                    componentId: "stoqo-live-app"
+            {
+                id: 'stoqo-sales',
+                title: 'Incentive Sales Agent',
+                tag: 'Gamification',
+                type: 'Mobile App',
+                role: 'UX Strategist',
+                timeline: '3 Months',
+                route: '/case-study/stoqo-sales',
+                previewImage: '/efficiency_hero.png',
+                iconName: 'Trophy',
+                details: {
+                    problem: 'Agents were flying blind, guessing how to reach their bonus.',
+                    system: 'Transparent "Playbook" & Commitment.',
+                    outcome: 'Uncertainty replaced by "Siap Komandan!" (Mission Ready).'
                 },
-                {
-                    title: "Incentivize Field Agent",
-                    desc: "On-boarding pop-up introducing the new 'Performance' menu. The flow guides agents to a dedicated performance page showing prioritized criteria for tracking achievements and incentives.",
-                    image: "/case-studies/stoqo-sales/solution-incentivize.png"
+                details_id: {
+                    problem: 'Agen buta arah, menebak-nebak cara dapat bonus.',
+                    system: '"Playbook" Transparan & Komitmen.',
+                    outcome: 'Ketidakpastian diganti dengan "Siap Komandan!".'
                 },
-                {
-                    title: "UI Elements Explained",
-                    desc: "A breakdown of the UI components: Sticky headers for context, card hierarchy for detailed versus summary info, and explicit 'KPI' labels to guide agent focus.",
-                    image: "/case-studies/stoqo-sales/solution-ui.png"
-                }
-            ],
-            metrics: [
-                { label: "Commitment", value: "High Agent Commitment" },
-                { label: "Activity", value: "Boosted Activity" },
-                { label: "Disputes", value: "Reduced Disputes" }
-            ],
-            learnings: "You don't always need complex gamification with avatars and leaderboards. Sometimes, the best game mechanic is just Knowing the Score.",
+                title_id: 'Agen Penjualan Insentif',
+                tag_id: 'Gamifikasi',
+                caseStudy: {
+                    locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Mission: Possible",
+                            text: "Sales targets were confusing. I made a simple dashboard that says 'Do this to win', and they just have to click 'Ready, Commander!' to start."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Behavior Design",
+                            text: "Solved the 'Information Asymmetry' problem by redesigning the performance dashboard. Introduced explicit 'KPI' visual tags and a behavioral commitment ceremony ('Siap Komandan!')."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "Real-time Telemetry",
+                            text: "Built a dedicated performance service that aggregates sales data in real-time. Designed a sticky information architecture to ensure target visibility allows checking status while scrolling."
+                        }
+                    },
+                    snapshot: {
+                        tagline: "Converting 'Confusion' into 'Commitment' via Clarity.",
+                        heroImage: "airy:chart"
+                    },
+                    context: {
+                        client: "Sales Force",
+                        role: "UX Researcher & Strategist",
+                        timeline: "3 Months",
+                        team: "Sales Ops & Regional Heads"
+                    },
+                    challenge: "We discovered a critical 'Blind Spot'. Agents didn't know which metrics actually impacted their bonus. Was it GMV? Visit count? Active outlets? The complex formula was hidden, leading to 'Target Parking'—where agents stopped halfway because they weren't sure if their effort counted.",
+                    process: [
+                        { title: "The Feelings Audit", desc: "We interviewed FAs and TLs. The sentiment was 'Anxiety'. Agents felt the system was cheating them because the calculation was opaque.", image: "airy:radar" },
+                        { title: "Behavior Design", desc: "We decided to hide the 'Goals' (Caps) but highlight the 'Criteria'. We didn't want agents to stop once they hit a number; we wanted them to chase the maximum possible incentive.", image: "airy:flow" }
+                    ],
+                    insights: [
+                        { title: "The Commitment Consistency", desc: "Psychologically, if an agent click a button saying 'Siap Komandan!' (Ready Commander!), they are 3x more likely to actually do the work. It turns a task into a promise." },
+                        { title: "Visual Signaling", desc: "Text is noise. We gathered 30 metrics but only tagged 3 with a bright yellow 'KPI' badge. This functioned as a visual sieve for attention." }
+                    ],
+                    solution: [
+                        {
+                            title: "Live Prototype",
+                            desc: "Interact with the actual mobile app interface. Experience the 'Siap Komandan!' onboarding, KPI tracking, and real-time performance dashboard. Note: This is a high-fidelity recreation of the original 2018 prototype.",
+                            componentId: "stoqo-live-app"
+                        },
+                        {
+                            title: "Incentivize Field Agent",
+                            desc: "On-boarding pop-up introducing the new 'Performance' menu. The flow guides agents to a dedicated performance page showing prioritized criteria for tracking achievements and incentives.",
+                            image: "/case-studies/stoqo-sales/solution-incentivize.png"
+                        },
+                        {
+                            title: "UI Elements Explained",
+                            desc: "A breakdown of the UI components: Sticky headers for context, card hierarchy for detailed versus summary info, and explicit 'KPI' labels to guide agent focus.",
+                            image: "/case-studies/stoqo-sales/solution-ui.png"
+                        }
+                    ],
+                    metrics: [
+                        { label: "Commitment", value: "High Agent Commitment" },
+                        { label: "Activity", value: "Boosted Activity" },
+                        { label: "Disputes", value: "Reduced Disputes" }
+                    ],
+                    learnings: "You don't always need complex gamification with avatars and leaderboards. Sometimes, the best game mechanic is just Knowing the Score.",
 
 
-            aiHypotheses: [
-                {
-                    tech: "Personalized Coaching Agents",
-                    title: "'Jarvis' for Sales",
-                    desc: "An AI voice coach that listens to sales calls (privacy-safe) and gives real-time whispers: 'Talk slower', 'Mention the bundle discount now', 'They sound hesitant about price'.",
-                    impact: "Higher Conversion Rate"
+                    aiHypotheses: [
+                        {
+                            tech: "Personalized Coaching Agents",
+                            title: "'Jarvis' for Sales",
+                            desc: "An AI voice coach that listens to sales calls (privacy-safe) and gives real-time whispers: 'Talk slower', 'Mention the bundle discount now', 'They sound hesitant about price'.",
+                            impact: "Higher Conversion Rate"
+                        },
+                        {
+                            tech: "ML & Performance Analytics",
+                            title: "Generator Tantangan",
+                            desc: "AI menganalisis performa individu agen dan secara dinamis membuat tantangan harian yang dipersonalisasi untuk mendorong mereka keluar dari zona nyaman.",
+                            impact: "Higher Target Achievement"
+                        },
+                        {
+                            tech: "Social AI & Network Analysis",
+                            title: "Pencocokan Mentor Peer",
+                            desc: "AI mengidentifikasi top performer dan agen yang struggle, lalu membuat pasangan mentor-mentee dengan poin diskusi dan transfer pola sukses yang disarankan.",
+                            impact: "Better Team Performance"
+                        },
+                        {
+                            tech: "AI Emosi",
+                            title: "Detektor Burnout",
+                            desc: "AI analisis nada suara dan jeda aktivitas. Kalau agen kedengeran lelah, dia saranin istirahat 15 menit atau kurangi target harian dikit buat cegah resign.",
+                            impact: "Improved Agent Retention"
+                        },
+                        {
+                            tech: "RAG Graf Pengetahuan",
+                            title: "Kartu Lawan Kompetitor Instan",
+                            desc: "Agen di warung lihat brosur kompetitor. Mereka foto. AI baca dan bisikin: 'Minyak kita lebih murah, bilang itu sekarang!'.",
+                            impact: "Higher Win Rate"
+                        }
+                    ]
                 },
-                {
-                    tech: "ML & Performance Analytics",
-                    title: "Generator Tantangan",
-                    desc: "AI menganalisis performa individu agen dan secara dinamis membuat tantangan harian yang dipersonalisasi untuk mendorong mereka keluar dari zona nyaman.",
-                    impact: "Higher Target Achievement"
+                caseStudy_id: {
+                    locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Misi: Mungkin",
+                            text: "Target sales itu membingungkan. Saya bikin dashboard simpel yang bilang 'Lakukan ini buat menang', dan mereka cuma perlu klik 'Siap Komandan!' buat mulai."
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Desain Perilaku",
+                            text: "Memecahkan masalah 'Asimetri Informasi' dengan mendesain ulang dashboard performa. Memperkenalkan tag visual 'KPI' yang eksplisit dan upacara komitmen perilaku ('Siap Komandan!')."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "Telemetri Real-time",
+                            text: "Membangun service performa yang mengagregasi data sales secara real-time. Mendesain sticky header untuk memastikan visibilitas target tetap terjaga saat scrolling."
+                        }
+                    },
+                    snapshot: {
+                        tagline: "Mengubah 'Kebingungan' jadi 'Komitmen' lewat Kejelasan.",
+                        heroImage: "airy:chart"
+                    },
+                    context: {
+                        client: "Sales Force",
+                        role: "UX Researcher & Strategist",
+                        timeline: "3 Bulan",
+                        team: "Sales Ops & Regional Heads"
+                    },
+                    challenge: "Kami menemukan 'Titik Buta' kritis. Agen tidak tahu metrik mana yang benar-benar pengaruhi bonus mereka. GMV? Jumlah kunjungan? Outlet aktif? Rumus rumit ini tersembunyi, bikin agen 'Parkir Target'—berhenti di tengah jalan karena gak yakin usaha mereka dihitung.",
+                    process: [
+                        { title: "Audit Perasaan", desc: "Kami interview FA dan TL. Sentimennya adalah 'Cemas'. Agen merasa sistem mencurangi mereka karena perhitungannya gaib/tidak jelas." },
+                        { title: "Desain Perilaku", desc: "Kami putuskan untuk sembunyikan 'Goals' (Batas Atas) tapi highlight 'Kriteria'. Kami gak mau agen berhenti pas udah nyampe angka tertentu; kami mau mereka kejar insentif maksimal." }
+                    ],
+                    insights: [
+                        { title: "Konsistensi Komitmen", desc: "Secara psikologis, kalau agen klik tombol 'Siap Komandan!', mereka 3x lebih mungkin buat beneran kerjain tugasnya. Ini ubah tugas jadi janji." },
+                        { title: "Sinyal Visual", desc: "Teks itu 'noise'. Kami kumpulkan 30 metrik tapi cuma kasih label 'KPI' kuning ke 3 biji. Ini berfungsi sebagai penyaring atensi visual." }
+                    ],
+                    solution_id: [
+                        {
+                            title: "Prototipe Langsung",
+                            desc: "Interaksi langsung dengan antarmuka aplikasi seluler. Rasakan onboarding 'Siap Komandan!', pelacakan KPI, dan dasbor kinerja waktu nyata. Catatan: Ini adalah rekreasi high-fidelity dari prototipe asli tahun 2018.",
+                            componentId: "stoqo-live-app"
+                        },
+                        {
+                            title: "Insentif Agen Lapangan",
+                            desc: "Pop-up onboarding yang memperkenalkan menu 'Performa' baru. Alur ini memandu agen ke halaman kinerja khusus yang menampilkan kriteria prioritas untuk melacak pencapaian dan insentif.",
+                            image: "/case-studies/stoqo-sales/solution-incentivize.png"
+                        },
+                        {
+                            title: "Penjelasan Elemen UI",
+                            desc: "Rincian komponen UI: Header lengket untuk konteks, hierarki kartu untuk info detail vs ringkasan, dan label 'KPI' eksplisit untuk memandu fokus agen.",
+                            image: "/case-studies/stoqo-sales/solution-ui.png"
+                        }
+                    ],
+                    metrics: [
+                        { label: "Komitmen", value: "Komitmen Tinggi" },
+                        { label: "Aktivitas", value: "Aktivitas Naik" },
+                        { label: "Sengketa", value: "Sengketa Berkurang" }
+                    ],
+                    learnings: "Gamifikasi gak selalu butuh avatar dan leaderboard. Kadang, mekanika game terbaik adalah cuma 'Tahu Skor-nya'.",
+                    aiHypotheses: [
+                        {
+                            tech: "Personalized Coaching Agents",
+                            title: "'Jarvis' untuk Sales",
+                            desc: "AI voice coach yang dengerin panggilan sales (privacy-safe) dan kasih bisikan real-time: 'Ngomongnya pelan dikit', 'Tawarin diskon bundle sekarang', 'Mereka kedengeran ragu soal harga tuh'.",
+                            impact: "Konversi Meningkat"
+                        },
+                        {
+                            tech: "ML & Performance Analytics",
+                            title: "Generator Tantangan",
+                            desc: "AI menganalisis performa individu agen dan secara dinamis membuat tantangan harian yang dipersonalisasi untuk mendorong mereka keluar dari zona nyaman.",
+                            impact: "Pencapaian Target Lebih Tinggi"
+                        },
+                        {
+                            tech: "Social AI & Network Analysis",
+                            title: "Pencocokan Mentor Peer",
+                            desc: "AI mengidentifikasi top performer dan agen yang struggle, lalu membuat pasangan mentor-mentee dengan poin diskusi dan transfer pola sukses yang disarankan.",
+                            impact: "Performa Tim Lebih Baik"
+                        },
+                        {
+                            tech: "AI Emosi",
+                            title: "Detektor Burnout",
+                            desc: "AI analisis nada suara dan jeda aktivitas. Kalau agen kedengeran lelah, dia saranin istirahat 15 menit atau kurangi target harian dikit buat cegah resign.",
+                            impact: "Retensi Agen Membaik"
+                        },
+                        {
+                            tech: "RAG Graf Pengetahuan",
+                            title: "Kartu Lawan Kompetitor Instan",
+                            desc: "Agen di warung lihat brosur kompetitor. Mereka foto. AI baca dan bisikin: 'Minyak kita lebih murah, bilang itu sekarang!'.",
+                            impact: "Win Rate Lebih Tinggi"
+                        }
+                    ]
                 },
-                {
-                    tech: "Social AI & Network Analysis",
-                    title: "Pencocokan Mentor Peer",
-                    desc: "AI mengidentifikasi top performer dan agen yang struggle, lalu membuat pasangan mentor-mentee dengan poin diskusi dan transfer pola sukses yang disarankan.",
-                    impact: "Better Team Performance"
-                },
-                {
-                    tech: "AI Emosi",
-                    title: "Detektor Burnout",
-                    desc: "AI analisis nada suara dan jeda aktivitas. Kalau agen kedengeran lelah, dia saranin istirahat 15 menit atau kurangi target harian dikit buat cegah resign.",
-                    impact: "Improved Agent Retention"
-                },
-                {
-                    tech: "RAG Graf Pengetahuan",
-                    title: "Kartu Lawan Kompetitor Instan",
-                    desc: "Agen di warung lihat brosur kompetitor. Mereka foto. AI baca dan bisikin: 'Minyak kita lebih murah, bilang itu sekarang!'.",
-                    impact: "Higher Win Rate"
-                }
-            ]
-        },
-        caseStudy_id: {
-            locked: true,
-            summaries: {
-                eli5: {
-                    label: "👶 ELI5",
-                    title: "Misi: Mungkin",
-                    text: "Target sales itu membingungkan. Saya bikin dashboard simpel yang bilang 'Lakukan ini buat menang', dan mereka cuma perlu klik 'Siap Komandan!' buat mulai."
-                },
-                recruiter: {
-                    label: "👔 Recruiter",
-                    title: "Desain Perilaku",
-                    text: "Memecahkan masalah 'Asimetri Informasi' dengan mendesain ulang dashboard performa. Memperkenalkan tag visual 'KPI' yang eksplisit dan upacara komitmen perilaku ('Siap Komandan!')."
-                },
-                technical: {
-                    label: "🤖 Sistem",
-                    title: "Telemetri Real-time",
-                    text: "Membangun service performa yang mengagregasi data sales secara real-time. Mendesain sticky header untuk memastikan visibilitas target tetap terjaga saat scrolling."
-                }
             },
-            snapshot: {
-                tagline: "Mengubah 'Kebingungan' jadi 'Komitmen' lewat Kejelasan.",
-                heroImage: "airy:chart"
-            },
-            context: {
-                client: "Sales Force",
-                role: "UX Researcher & Strategist",
-                timeline: "3 Bulan",
-                team: "Sales Ops & Regional Heads"
-            },
-            challenge: "Kami menemukan 'Titik Buta' kritis. Agen tidak tahu metrik mana yang benar-benar pengaruhi bonus mereka. GMV? Jumlah kunjungan? Outlet aktif? Rumus rumit ini tersembunyi, bikin agen 'Parkir Target'—berhenti di tengah jalan karena gak yakin usaha mereka dihitung.",
-            process: [
-                { title: "Audit Perasaan", desc: "Kami interview FA dan TL. Sentimennya adalah 'Cemas'. Agen merasa sistem mencurangi mereka karena perhitungannya gaib/tidak jelas." },
-                { title: "Desain Perilaku", desc: "Kami putuskan untuk sembunyikan 'Goals' (Batas Atas) tapi highlight 'Kriteria'. Kami gak mau agen berhenti pas udah nyampe angka tertentu; kami mau mereka kejar insentif maksimal." }
-            ],
-            insights: [
-                { title: "Konsistensi Komitmen", desc: "Secara psikologis, kalau agen klik tombol 'Siap Komandan!', mereka 3x lebih mungkin buat beneran kerjain tugasnya. Ini ubah tugas jadi janji." },
-                { title: "Sinyal Visual", desc: "Teks itu 'noise'. Kami kumpulkan 30 metrik tapi cuma kasih label 'KPI' kuning ke 3 biji. Ini berfungsi sebagai penyaring atensi visual." }
-            ],
-            solution_id: [
-                {
-                    title: "Prototipe Langsung",
-                    desc: "Interaksi langsung dengan antarmuka aplikasi seluler. Rasakan onboarding 'Siap Komandan!', pelacakan KPI, dan dasbor kinerja waktu nyata. Catatan: Ini adalah rekreasi high-fidelity dari prototipe asli tahun 2018.",
-                    componentId: "stoqo-live-app"
+            {
+                id: 'paper-to-paperless',
+                title: 'Paper-to-Paperless (Concept)',
+                tag: 'Sustainability',
+                type: 'Concept',
+                role: 'Concept Artist',
+                timeline: '1 Month',
+                route: '/case-study/paper-to-paperless',
+                previewImage: '/efficiency_hero.png',
+                iconName: 'Scan',
+                details: { problem: 'The panic of a lost invoice in a chaotic kitchen.', system: 'Camera-as-Keyboard.', outcome: 'No more "lost money".' },
+                details_id: { problem: 'Paniknya bon hilang di dapur yang chaos.', system: 'Kamera-jadi-Keyboard.', outcome: 'Gak ada lagi "uang hilang".' },
+                title_id: 'Paper-to-Paperless (Konsep)',
+                tag_id: 'Keberlanjutan',
+                caseStudy: {
+                    locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "No More Paper",
+                            text: "My office was drowning in paper. I made an app where you take a picture of a receipt, and the computer reads it automatically. No more typing!"
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Operational Digitization",
+                            text: "Designed a mobile OCR solution to digitize physical workflows. Reduced manual data entry by 90% and created a searchable digital archive."
+                        },
+                        technical: {
+                            label: "🤖 System",
+                            title: "OCR & Confidence",
+                            text: "Implemented a camera-first workflow using OCR. Designed a 'Confidence Score' UI to handle imperfect scans, allowing human-in-the-loop verification."
+                        }
+                    },
+                    snapshot: {
+                        tagline: "Killing the filing cabinet, one scan at a time.",
+                        heroImage: "airy:layers"
+                    },
+                    context: {
+                        client: "Internal Ops",
+                        role: "I envisioned the Future",
+                        timeline: "1 Month",
+                        team: "Solo Project"
+                    },
+                    challenge: "Our office was drowning in paper. Invoices, delivery orders, receipts. Things got lost, coffee got spilled, and data was dark.",
+                    process: [
+                        { title: "Observation", desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals.", image: "airy:cycle" },
+                        { title: "Ideation", desc: "What if the camera was the keyboard? I mocked up an OCR flow that auto-filled the form.", image: "airy:flow" }
+                    ],
+                    insights: [
+                        { title: "Trust the Machine", desc: "Users were skeptical of OCR accuracy. I designed a 'Confidence Score' UI that highlighted fields the AI wasn't sure about." }
+                    ],
+                    solution: [
+                        { title: "Smart Scan", desc: "Point the camera at an invoice, and the app extracts the Date, Total, and Vendor.", image: "airy:ui" },
+                        { title: "Digital Archive", desc: "A search bar that could find a receipt from 3 years ago in 2 seconds.", image: "airy:chart" }
+                    ],
+                    metrics: [
+                        { label: "Paper Redux", value: "Eliminated Paperwork" },
+                        { label: "Search Speed", value: "Instant Search" },
+                        { label: "Cost Save", value: "Significant Savings" }
+                    ],
+                    learnings: "The future is inevitable, but it needs a bridge. The 'Confidence Score' was the bridge that let users trust the AI.",
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "Observation",
+                            desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals.",
+                            title_id: "Observasi",
+                            desc_id: "Saya perhatikan tim admin menghabiskan 4 jam sehari cuma buat ketik ulang data dari kertas ke komputer.",
+                            image: "airy:cycle"
+                        },
+                        {
+                            type: "insight",
+                            title: "Trust the Machine",
+                            desc: "Users were skeptical of OCR accuracy. I designed a 'Confidence Score' UI that highlighted fields the AI wasn't sure about.",
+                            title_id: "Percaya Mesin",
+                            desc_id: "User awalnya skeptis sama akurasi OCR. Saya desain UI 'Skor Kepercayaan' (Confidence Score) yang menghighlight kolom mana yang AI-nya ragu, jadi user bisa cek ulang.",
+                            image: "airy:venn"
+                        },
+                        {
+                            type: "design",
+                            title: "Smart Scan",
+                            desc: "Point the camera at an invoice, and the app extracts the Date, Total, and Vendor.",
+                            title_id: "Smart Scan",
+                            desc_id: "Arahkan kamera ke faktur, dan aplikasi langsung ekstrak Tanggal, Total, dan Vendor.",
+                            image: "airy:ui"
+                        },
+                        {
+                            type: "ship",
+                            title: "Digital Archive",
+                            desc: "A search bar that could find a receipt from 3 years ago in 2 seconds.",
+                            title_id: "Arsip Digital",
+                            desc_id: "Kolom pencarian yang bisa nemuin bon dari 3 tahun lalu dalam 2 detik.",
+                            image: "airy:chart"
+                        },
+                        {
+                            type: "measure",
+                            title: "Paper Redux",
+                            desc: "Significant reduction in paper usage, instant document retrieval, and cost savings.",
+                            title_id: "Kertas Turun",
+                            desc_id: "Pengurangan signifikan penggunaan kertas, pencarian dokumen instan, dan penghematan biaya.",
+                            image: "airy:layers"
+                        }
+                    ],
+                    aiHypotheses: [
+                        {
+                            tech: "Visual Document Understanding (VDU)",
+                            title: "Semantic Search for Paper",
+                            desc: "You can ask the system: 'Find me the invoice for the red chair we bought last May.' The AI visualizes the document and highlights the exact line item.",
+                            impact: "Instant Audit"
+                        },
+                        {
+                            tech: "Anomaly Detection & Pattern Recognition",
+                            title: "Expense Fraud Spotter",
+                            desc: "AI analyzes scanned receipts for anomalies like duplicate submissions, unusual vendors, or out-of-policy amounts, flagging suspicious claims before approval.",
+                            impact: "Enhanced Fraud Detection"
+                        },
+                        {
+                            tech: "Multi-Document Intelligence",
+                            title: "Contract Auto-Reconciler",
+                            desc: "Upload a contract and its related invoices. AI automatically matches line items, flags discrepancies, and generates a reconciliation report.",
+                            impact: "Instant Reconciliation"
+                        },
+                        {
+                            tech: "Predictive Analytics",
+                            title: "Cashflow Crystal Ball",
+                            desc: "By digitizing all pending invoices, AI predicts cash flow gaps 30 days out. 'Warning: You will be short on cash on Feb 12th unless you delay payment to Vendor X'.",
+                            impact: "Reduced Liquidity Risk"
+                        },
+                        {
+                            tech: "Robotic Process Automation (AI-RPA)",
+                            title: "One-Click Pay",
+                            desc: "AI verifies the invoice against the delivery order. If they match perfectly, it schedules the payment automatically. Humans only review the mismatches.",
+                            impact: "Eliminated Manual Hours"
+                        }
+                    ]
                 },
-                {
-                    title: "Insentif Agen Lapangan",
-                    desc: "Pop-up onboarding yang memperkenalkan menu 'Performa' baru. Alur ini memandu agen ke halaman kinerja khusus yang menampilkan kriteria prioritas untuk melacak pencapaian dan insentif.",
-                    image: "/case-studies/stoqo-sales/solution-incentivize.png"
-                },
-                {
-                    title: "Penjelasan Elemen UI",
-                    desc: "Rincian komponen UI: Header lengket untuk konteks, hierarki kartu untuk info detail vs ringkasan, dan label 'KPI' eksplisit untuk memandu fokus agen.",
-                    image: "/case-studies/stoqo-sales/solution-ui.png"
+                caseStudy_id: {
+                    locked: true,
+                    summaries: {
+                        eli5: {
+                            label: "👶 ELI5",
+                            title: "Bebas Kertas",
+                            text: "Kantor penuh kertas numpuk. Saya bikin aplikasi yang bisa baca foto bon dan surat jalan otomatis. Gak perlu ketik ulang manual lagi!"
+                        },
+                        recruiter: {
+                            label: "👔 Recruiter",
+                            title: "Digitalisasi Operasional",
+                            text: "Mendesain solusi OCR mobile untuk mendigitalkan alur kerja fisik. Mengurangi entri data manual 90% dan membuat arsip digital yang searchable."
+                        },
+                        technical: {
+                            label: "🤖 Sistem",
+                            title: "OCR & Skor Kepercayaan",
+                            text: "Implementasi alur kerja camera-first dengan OCR. Desain UI 'Confidence Score' untuk menangani hasil scan yang tidak sempurna, memfasilitasi verifikasi manusia."
+                        }
+                    },
+                    snapshot: {
+                        tagline: "Memusnahkan lemari arsip, satu scan tiap kali.",
+                        heroImage: "airy:layers"
+                    },
+                    context: {
+                        client: "Ops Internal",
+                        role: "Visi Masa Depan",
+                        timeline: "1 Bulan",
+                        team: "Proyek Solo"
+                    },
+                    challenge: "Kantor kami tenggelam dalam kertas. Faktur, surat jalan, bon. Dokumen hilang, kena tumpahan kopi, dan datanya 'gelap' (tidak bisa diolah).",
+                    process: [
+                        { title: "Observasi", desc: "Saya perhatikan tim admin menghabiskan 4 jam sehari cuma buat ketik ulang data dari kertas ke komputer.", image: "airy:cycle" },
+                        { title: "Ideasi", desc: "Gimana kalau kamera jadi keyboard-nya? Saya mock-up alur OCR yang otomatis ngisi formulir.", image: "airy:flow" }
+                    ],
+                    insights: [
+                        { title: "Percaya Mesin", desc: "User awalnya skeptis sama akurasi OCR. Saya desain UI 'Skor Kepercayaan' (Confidence Score) yang menghighlight kolom mana yang AI-nya ragu, jadi user bisa cek ulang." }
+                    ],
+                    solution: [
+                        { title: "Smart Scan", desc: "Arahkan kamera ke faktur, dan aplikasi langsung ekstrak Tanggal, Total, dan Vendor.", image: "airy:ui" },
+                        { title: "Arsip Digital", desc: "Kolom pencarian yang bisa nemuin bon dari 3 tahun lalu dalam 2 detik.", image: "airy:chart" }
+                    ],
+                    metrics: [
+                        { label: "Kertas Turun", value: "Hapus Penggunaan Kertas" },
+                        { label: "Cari Cepat", value: "Pencarian Instan" },
+                        { label: "Hemat Biaya", value: "Hemat Biaya Signifikan" }
+                    ],
+                    learnings: "Masa depan itu pasti, tapi butuh jembatan. 'Confidence Score' adalah jembatan yang bikin user berani percaya sama AI.",
+                    aiHypotheses: [
+                        {
+                            tech: "Visual Document Understanding (VDU)",
+                            title: "Pencarian Semantik Kertas",
+                            desc: "Anda bisa tanya sistem: 'Cariin faktur kursi merah yang kita beli Mei lalu.' AI bakal visualisasikan dokumen dan highlight baris item yang dimaksud.",
+                            impact: "Audit Instan"
+                        },
+                        {
+                            tech: "Anomaly Detection & Pattern Recognition",
+                            title: "Pendeteksi Fraud Pengeluaran",
+                            desc: "AI menganalisis bon yang di-scan untuk anomali seperti pengajuan ganda, vendor tidak biasa, atau jumlah di luar kebijakan, menandai klaim mencurigakan sebelum disetujui.",
+                            impact: "Deteksi Fraud Meningkat"
+                        },
+                        {
+                            tech: "Multi-Document Intelligence",
+                            title: "Auto-Rekonsiliasi Kontrak",
+                            desc: "Upload kontrak dan faktur terkait. AI otomatis mencocokkan item baris, menandai perbedaan, dan menghasilkan laporan rekonsiliasi.",
+                            impact: "Rekonsiliasi Instan"
+                        },
+                        {
+                            tech: "Analitik Prediktif",
+                            title: "Bola Kristal Arus Kas",
+                            desc: "Dengan digitalisasi semua tagihan tunda, AI prediksi celah arus kas 30 hari ke depan. 'Awas: Kas bakal kurang tgl 12 Feb kecuali tunda bayar Vendor X'.",
+                            impact: "Risiko Likuiditas Turun"
+                        },
+                        {
+                            tech: "Otomasi Proses Robotik (AI-RPA)",
+                            title: "Bayar Satu Klik",
+                            desc: "AI verifikasi tagihan lawan surat jalan. Kalau cocok sempurna, dia jadwalin pembayaran otomatis. Manusia cuma review yang gak cocok.",
+                            impact: "Jam Kerja Manual Dihapus"
+                        }
+                    ]
                 }
-            ],
-            metrics: [
-                { label: "Komitmen", value: "Komitmen Tinggi" },
-                { label: "Aktivitas", value: "Aktivitas Naik" },
-                { label: "Sengketa", value: "Sengketa Berkurang" }
-            ],
-            learnings: "Gamifikasi gak selalu butuh avatar dan leaderboard. Kadang, mekanika game terbaik adalah cuma 'Tahu Skor-nya'.",
-            aiHypotheses: [
-                {
-                    tech: "Personalized Coaching Agents",
-                    title: "'Jarvis' untuk Sales",
-                    desc: "AI voice coach yang dengerin panggilan sales (privacy-safe) dan kasih bisikan real-time: 'Ngomongnya pelan dikit', 'Tawarin diskon bundle sekarang', 'Mereka kedengeran ragu soal harga tuh'.",
-                    impact: "Konversi Meningkat"
-                },
-                {
-                    tech: "ML & Performance Analytics",
-                    title: "Generator Tantangan",
-                    desc: "AI menganalisis performa individu agen dan secara dinamis membuat tantangan harian yang dipersonalisasi untuk mendorong mereka keluar dari zona nyaman.",
-                    impact: "Pencapaian Target Lebih Tinggi"
-                },
-                {
-                    tech: "Social AI & Network Analysis",
-                    title: "Pencocokan Mentor Peer",
-                    desc: "AI mengidentifikasi top performer dan agen yang struggle, lalu membuat pasangan mentor-mentee dengan poin diskusi dan transfer pola sukses yang disarankan.",
-                    impact: "Performa Tim Lebih Baik"
-                },
-                {
-                    tech: "AI Emosi",
-                    title: "Detektor Burnout",
-                    desc: "AI analisis nada suara dan jeda aktivitas. Kalau agen kedengeran lelah, dia saranin istirahat 15 menit atau kurangi target harian dikit buat cegah resign.",
-                    impact: "Retensi Agen Membaik"
-                },
-                {
-                    tech: "RAG Graf Pengetahuan",
-                    title: "Kartu Lawan Kompetitor Instan",
-                    desc: "Agen di warung lihat brosur kompetitor. Mereka foto. AI baca dan bisikin: 'Minyak kita lebih murah, bilang itu sekarang!'.",
-                    impact: "Win Rate Lebih Tinggi"
-                }
-            ]
-        },
-    },
-    {
-        id: 'paper-to-paperless',
-        title: 'Paper-to-Paperless (Concept)',
-        tag: 'Sustainability',
-        type: 'Concept',
-        role: 'Concept Artist',
-        timeline: '1 Month',
-        route: '/case-study/paper-to-paperless',
-        previewImage: '/efficiency_hero.png',
-        iconName: 'Scan',
-        details: { problem: 'The panic of a lost invoice in a chaotic kitchen.', system: 'Camera-as-Keyboard.', outcome: 'No more "lost money".' },
-        details_id: { problem: 'Paniknya bon hilang di dapur yang chaos.', system: 'Kamera-jadi-Keyboard.', outcome: 'Gak ada lagi "uang hilang".' },
-        title_id: 'Paper-to-Paperless (Konsep)',
-        tag_id: 'Keberlanjutan',
-        caseStudy: {
-            locked: true,
-            summaries: {
-                eli5: {
-                    label: "👶 ELI5",
-                    title: "No More Paper",
-                    text: "My office was drowning in paper. I made an app where you take a picture of a receipt, and the computer reads it automatically. No more typing!"
-                },
-                recruiter: {
-                    label: "👔 Recruiter",
-                    title: "Operational Digitization",
-                    text: "Designed a mobile OCR solution to digitize physical workflows. Reduced manual data entry by 90% and created a searchable digital archive."
-                },
-                technical: {
-                    label: "🤖 System",
-                    title: "OCR & Confidence",
-                    text: "Implemented a camera-first workflow using OCR. Designed a 'Confidence Score' UI to handle imperfect scans, allowing human-in-the-loop verification."
-                }
-            },
-            snapshot: {
-                tagline: "Killing the filing cabinet, one scan at a time.",
-                heroImage: "airy:layers"
-            },
-            context: {
-                client: "Internal Ops",
-                role: "I envisioned the Future",
-                timeline: "1 Month",
-                team: "Solo Project"
-            },
-            challenge: "Our office was drowning in paper. Invoices, delivery orders, receipts. Things got lost, coffee got spilled, and data was dark.",
-            process: [
-                { title: "Observation", desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals.", image: "airy:cycle" },
-                { title: "Ideation", desc: "What if the camera was the keyboard? I mocked up an OCR flow that auto-filled the form.", image: "airy:flow" }
-            ],
-            insights: [
-                { title: "Trust the Machine", desc: "Users were skeptical of OCR accuracy. I designed a 'Confidence Score' UI that highlighted fields the AI wasn't sure about." }
-            ],
-            solution: [
-                { title: "Smart Scan", desc: "Point the camera at an invoice, and the app extracts the Date, Total, and Vendor.", image: "airy:ui" },
-                { title: "Digital Archive", desc: "A search bar that could find a receipt from 3 years ago in 2 seconds.", image: "airy:chart" }
-            ],
-            metrics: [
-                { label: "Paper Redux", value: "Eliminated Paperwork" },
-                { label: "Search Speed", value: "Instant Search" },
-                { label: "Cost Save", value: "Significant Savings" }
-            ],
-            learnings: "The future is inevitable, but it needs a bridge. The 'Confidence Score' was the bridge that let users trust the AI.",
-            designProcess: [
-                {
-                    type: "research",
-                    title: "Observation",
-                    desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals.",
-                    title_id: "Observasi",
-                    desc_id: "Saya perhatikan tim admin menghabiskan 4 jam sehari cuma buat ketik ulang data dari kertas ke komputer.",
-                    image: "airy:cycle"
-                },
-                {
-                    type: "insight",
-                    title: "Trust the Machine",
-                    desc: "Users were skeptical of OCR accuracy. I designed a 'Confidence Score' UI that highlighted fields the AI wasn't sure about.",
-                    title_id: "Percaya Mesin",
-                    desc_id: "User awalnya skeptis sama akurasi OCR. Saya desain UI 'Skor Kepercayaan' (Confidence Score) yang menghighlight kolom mana yang AI-nya ragu, jadi user bisa cek ulang.",
-                    image: "airy:venn"
-                },
-                {
-                    type: "design",
-                    title: "Smart Scan",
-                    desc: "Point the camera at an invoice, and the app extracts the Date, Total, and Vendor.",
-                    title_id: "Smart Scan",
-                    desc_id: "Arahkan kamera ke faktur, dan aplikasi langsung ekstrak Tanggal, Total, dan Vendor.",
-                    image: "airy:ui"
-                },
-                {
-                    type: "ship",
-                    title: "Digital Archive",
-                    desc: "A search bar that could find a receipt from 3 years ago in 2 seconds.",
-                    title_id: "Arsip Digital",
-                    desc_id: "Kolom pencarian yang bisa nemuin bon dari 3 tahun lalu dalam 2 detik.",
-                    image: "airy:chart"
-                },
-                {
-                    type: "measure",
-                    title: "Paper Redux",
-                    desc: "Significant reduction in paper usage, instant document retrieval, and cost savings.",
-                    title_id: "Kertas Turun",
-                    desc_id: "Pengurangan signifikan penggunaan kertas, pencarian dokumen instan, dan penghematan biaya.",
-                    image: "airy:layers"
-                }
-            ],
-            aiHypotheses: [
-                {
-                    tech: "Visual Document Understanding (VDU)",
-                    title: "Semantic Search for Paper",
-                    desc: "You can ask the system: 'Find me the invoice for the red chair we bought last May.' The AI visualizes the document and highlights the exact line item.",
-                    impact: "Instant Audit"
-                },
-                {
-                    tech: "Anomaly Detection & Pattern Recognition",
-                    title: "Expense Fraud Spotter",
-                    desc: "AI analyzes scanned receipts for anomalies like duplicate submissions, unusual vendors, or out-of-policy amounts, flagging suspicious claims before approval.",
-                    impact: "Enhanced Fraud Detection"
-                },
-                {
-                    tech: "Multi-Document Intelligence",
-                    title: "Contract Auto-Reconciler",
-                    desc: "Upload a contract and its related invoices. AI automatically matches line items, flags discrepancies, and generates a reconciliation report.",
-                    impact: "Instant Reconciliation"
-                },
-                {
-                    tech: "Predictive Analytics",
-                    title: "Cashflow Crystal Ball",
-                    desc: "By digitizing all pending invoices, AI predicts cash flow gaps 30 days out. 'Warning: You will be short on cash on Feb 12th unless you delay payment to Vendor X'.",
-                    impact: "Reduced Liquidity Risk"
-                },
-                {
-                    tech: "Robotic Process Automation (AI-RPA)",
-                    title: "One-Click Pay",
-                    desc: "AI verifies the invoice against the delivery order. If they match perfectly, it schedules the payment automatically. Humans only review the mismatches.",
-                    impact: "Eliminated Manual Hours"
-                }
-            ]
-        },
-        caseStudy_id: {
-            locked: true,
-            summaries: {
-                eli5: {
-                    label: "👶 ELI5",
-                    title: "Bebas Kertas",
-                    text: "Kantor penuh kertas numpuk. Saya bikin aplikasi yang bisa baca foto bon dan surat jalan otomatis. Gak perlu ketik ulang manual lagi!"
-                },
-                recruiter: {
-                    label: "👔 Recruiter",
-                    title: "Digitalisasi Operasional",
-                    text: "Mendesain solusi OCR mobile untuk mendigitalkan alur kerja fisik. Mengurangi entri data manual 90% dan membuat arsip digital yang searchable."
-                },
-                technical: {
-                    label: "🤖 Sistem",
-                    title: "OCR & Skor Kepercayaan",
-                    text: "Implementasi alur kerja camera-first dengan OCR. Desain UI 'Confidence Score' untuk menangani hasil scan yang tidak sempurna, memfasilitasi verifikasi manusia."
-                }
-            },
-            snapshot: {
-                tagline: "Memusnahkan lemari arsip, satu scan tiap kali.",
-                heroImage: "airy:layers"
-            },
-            context: {
-                client: "Ops Internal",
-                role: "Visi Masa Depan",
-                timeline: "1 Bulan",
-                team: "Proyek Solo"
-            },
-            challenge: "Kantor kami tenggelam dalam kertas. Faktur, surat jalan, bon. Dokumen hilang, kena tumpahan kopi, dan datanya 'gelap' (tidak bisa diolah).",
-            process: [
-                { title: "Observasi", desc: "Saya perhatikan tim admin menghabiskan 4 jam sehari cuma buat ketik ulang data dari kertas ke komputer.", image: "airy:cycle" },
-                { title: "Ideasi", desc: "Gimana kalau kamera jadi keyboard-nya? Saya mock-up alur OCR yang otomatis ngisi formulir.", image: "airy:flow" }
-            ],
-            insights: [
-                { title: "Percaya Mesin", desc: "User awalnya skeptis sama akurasi OCR. Saya desain UI 'Skor Kepercayaan' (Confidence Score) yang menghighlight kolom mana yang AI-nya ragu, jadi user bisa cek ulang." }
-            ],
-            solution: [
-                { title: "Smart Scan", desc: "Arahkan kamera ke faktur, dan aplikasi langsung ekstrak Tanggal, Total, dan Vendor.", image: "airy:ui" },
-                { title: "Arsip Digital", desc: "Kolom pencarian yang bisa nemuin bon dari 3 tahun lalu dalam 2 detik.", image: "airy:chart" }
-            ],
-            metrics: [
-                { label: "Kertas Turun", value: "Hapus Penggunaan Kertas" },
-                { label: "Cari Cepat", value: "Pencarian Instan" },
-                { label: "Hemat Biaya", value: "Hemat Biaya Signifikan" }
-            ],
-            learnings: "Masa depan itu pasti, tapi butuh jembatan. 'Confidence Score' adalah jembatan yang bikin user berani percaya sama AI.",
-            aiHypotheses: [
-                {
-                    tech: "Visual Document Understanding (VDU)",
-                    title: "Pencarian Semantik Kertas",
-                    desc: "Anda bisa tanya sistem: 'Cariin faktur kursi merah yang kita beli Mei lalu.' AI bakal visualisasikan dokumen dan highlight baris item yang dimaksud.",
-                    impact: "Audit Instan"
-                },
-                {
-                    tech: "Anomaly Detection & Pattern Recognition",
-                    title: "Pendeteksi Fraud Pengeluaran",
-                    desc: "AI menganalisis bon yang di-scan untuk anomali seperti pengajuan ganda, vendor tidak biasa, atau jumlah di luar kebijakan, menandai klaim mencurigakan sebelum disetujui.",
-                    impact: "Deteksi Fraud Meningkat"
-                },
-                {
-                    tech: "Multi-Document Intelligence",
-                    title: "Auto-Rekonsiliasi Kontrak",
-                    desc: "Upload kontrak dan faktur terkait. AI otomatis mencocokkan item baris, menandai perbedaan, dan menghasilkan laporan rekonsiliasi.",
-                    impact: "Rekonsiliasi Instan"
-                },
-                {
-                    tech: "Analitik Prediktif",
-                    title: "Bola Kristal Arus Kas",
-                    desc: "Dengan digitalisasi semua tagihan tunda, AI prediksi celah arus kas 30 hari ke depan. 'Awas: Kas bakal kurang tgl 12 Feb kecuali tunda bayar Vendor X'.",
-                    impact: "Risiko Likuiditas Turun"
-                },
-                {
-                    tech: "Otomasi Proses Robotik (AI-RPA)",
-                    title: "Bayar Satu Klik",
-                    desc: "AI verifikasi tagihan lawan surat jalan. Kalau cocok sempurna, dia jadwalin pembayaran otomatis. Manusia cuma review yang gak cocok.",
-                    impact: "Jam Kerja Manual Dihapus"
-                }
-            ]
-        }
-    }
-]
+            }
+        ]
     }
 ];
