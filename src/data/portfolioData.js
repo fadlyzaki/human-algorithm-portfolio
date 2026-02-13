@@ -118,7 +118,7 @@ export const SIDE_PROJECTS = [
         coverImage: "/interactive-workbook-cover.png",
         snapshot: {
             tagline: "EdTech Platform",
-            heroImage: "/interactive-workbook-cover.png"
+            heroImage: "airy:flow"
         },
         context: {
             role: "Head of Product",
@@ -206,7 +206,7 @@ export const SIDE_PROJECTS = [
         coverImage: "/year-in-review-cover.png",
         snapshot: {
             tagline: "Manual Data Visualization",
-            heroImage: "/year-in-review-cover.png"
+            heroImage: "airy:data"
         },
         context: {
             role: "Creator",
@@ -238,7 +238,10 @@ export const SIDE_PROJECTS = [
             { title: "Manual Entry Interface", desc: "A quiet space to remember.", image: "airy:ui" },
             { title: "The Output", desc: "Shareable artifacts of personal history.", image: "airy:data" }
         ],
-        metrics: [],
+        metrics: [
+            { label: "Nostalgia", value: "Reclaimed" },
+            { label: "Privacy", value: "100% Local" }
+        ],
         learnings: "Your memories shouldn't be held hostage by an algorithm.",
         challenge_id: "Spotify Wrapped itu seru, tapi itu sekadar rangkuman korporat konsumsimu. Ia tak tahu soal putus cinta atau anjing barumu. Kita menyerahkan ingatan pada platform yang peduli engagement, bukan refleksi.",
         process_id: [
@@ -273,7 +276,7 @@ export const SIDE_PROJECTS = [
         tldr_id: "Memberdayakan profesional IT untuk mereformasi pengadaan pemerintah Indonesia.",
         snapshot: {
             tagline: "Civic Tech Action Plan",
-            heroImage: "/procurement-cover.png"
+            heroImage: "airy:ecosystem"
         },
         context: {
             role: "Researcher",
@@ -303,7 +306,10 @@ export const SIDE_PROJECTS = [
                 image: "airy:architecture"
             }
         ],
-        metrics: [],
+        metrics: [
+            { label: "Transparency", value: "Radical" },
+            { label: "Offline Access", value: "Enabled" }
+        ],
         learnings: "Transparency tools useless if they can't be loaded on a 3G network.",
         challenge_id: "Pengadaan pemerintah penuh ketertutupan. Aplikasi yang Jakarta-sentris gagal di pelosok Papua karena 'Efek Kepulauan'—sinyal jelek dan konteks lokal beda.",
         process_id: [
@@ -361,7 +367,7 @@ export const NOTES = [
         brandColor: "#10B981", // Fintech Green
         snapshot: {
             tagline: "Fintech Feature for OTA",
-            heroImage: "/price-lock-cover.png"
+            heroImage: "airy:chart"
         },
         context: {
             role: "Product Designer",
@@ -396,7 +402,10 @@ export const NOTES = [
                 image: "airy:ui"
             }
         ],
-        metrics: [],
+        metrics: [
+            { label: "User Anxiety", value: "Reduced" },
+            { label: "Trust Score", value: "Elevated" }
+        ],
         learnings: "Price Lock is not a fintech product; it's an anxiety medication.",
         designProcess: [
             {
@@ -479,7 +488,7 @@ export const NOTES = [
         brandColor: "#EC4899", // Kinship Pink
         snapshot: {
             tagline: "Social Logistics & Gifting",
-            heroImage: "/project-kinship-cover.png"
+            heroImage: "airy:venn"
         },
         context: {
             role: "Product Designer",
@@ -514,7 +523,10 @@ export const NOTES = [
                 image: "airy:ui"
             }
         ],
-        metrics: [],
+        metrics: [
+            { label: "Connection", value: "Deepened" },
+            { label: "Remittance", value: "Humanized" }
+        ],
         learnings: "Closing the loop with emotion, not just a transaction status.",
         challenge_id: "Transfer uang itu gampang; menunjukkan kepedulian itu susah. Uang bilang 'Aku support kamu,' tapi gak bilang 'Aku kangen kamu.'",
         process_id: [
@@ -566,7 +578,7 @@ export const NOTES = [
         coverImage: "/about-portrait-new.jpg",
         snapshot: {
             tagline: "Redesigning Algorithms",
-            heroImage: "/about-portrait-new.jpg"
+            heroImage: "airy:hierarchy"
         },
         context: {
             role: "UX Researcher",
@@ -665,7 +677,7 @@ export const NOTES = [
         tldr_id: "Peringatan geospasial tanpa blindspot selama kejadian banjir kritis.",
         snapshot: {
             tagline: "Civic Resilience System",
-            heroImage: "/flood-alert-cover.png"
+            heroImage: "airy:radar"
         },
         context: {
             role: "IoT Engineer",
@@ -695,7 +707,10 @@ export const NOTES = [
                 image: "airy:architecture"
             }
         ],
-        metrics: [],
+        metrics: [
+            { label: "Response", value: "Real-time" },
+            { label: "Trust", value: "High" }
+        ],
         learnings: "In disaster UI, 'Red' is not enough. You need specific, actionable directives.",
         challenge_id: "Jakarta tenggelam 10cm/tahun. Peringatan tradisional terlalu umum, membuat warga terjebak di area 'blindspot' saat banjir bandang.",
         process_id: [
@@ -744,6 +759,14 @@ export const NOTES = [
         type: 'AR Camera',
         date: "January 2018",
         coverImage: "/filterme-cover.png",
+        snapshot: {
+            tagline: "AR Commerce Experiment",
+            heroImage: "airy:ui"
+        },
+        metrics: [
+            { label: "Confidence", value: "Boosted" },
+            { label: "Return Rate", value: "Lowered" }
+        ],
         modules: [
             {
                 title: "The Mirror Test",
@@ -863,8 +886,8 @@ export const WORK_CLUSTERS = [
                         },
                         recruiter: {
                             label: "👔 Recruiter",
-                            title: "Impact: +45% Response Rate",
-                            text: "Led the redesign of the candidate communication module. Solved a critical bottleneck where recruiters were overwhelmed by unstructured data. Result: Reduced time-to-hire by 3 days and improved candidate NPS by 78 points."
+                            title: "Impact: Response Rate Boost",
+                            text: "Led the redesigned candidate communication module. Solved a critical bottleneck where recruiters were overwhelmed by unstructured data. Result: Reduced time-to-hire by 3 days and improved candidate NPS by 78 points."
                         },
                         technical: {
                             label: "🤖 System",
@@ -874,7 +897,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Why do we treat recruitment like email when candidates live on WhatsApp?",
-                        heroImage: "/workforce_hero.png"
+                        heroImage: "airy:flow"
                     },
                     context: {
                         client: "Internal Product",
@@ -945,7 +968,7 @@ export const WORK_CLUSTERS = [
                         },
                         recruiter: {
                             label: "👔 Recruiter",
-                            title: "Dampak: +45% Respon Rate",
+                            title: "Dampak: Lonjakan Respon",
                             text: "Memimpin redesign modul komunikasi kandidat. Menyelesaikan bottleneck di mana rekruter kewalahan data tidak terstruktur. Hasil: Waktu rekrutmen turun 3 hari & NPS kandidat naik 78 poin."
                         },
                         technical: {
@@ -1061,7 +1084,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Replacing the 'Excel Comfort Blanket' with something better.",
-                        heroImage: "/workforce_hero.png"
+                        heroImage: "airy:kanban"
                     },
                     context: {
                         client: "Internal Product",
@@ -1141,7 +1164,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Ganti 'Selimut Nyaman' Excel dengan sesuatu yang lebih baik, tanpa bikin kaget.",
-                        heroImage: "/workforce_hero.png"
+                        heroImage: "airy:kanban"
                     },
                     context: {
                         client: "Produk Internal",
@@ -1244,7 +1267,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "What if applying for a job was as easy as saying 'Hi'?",
-                        heroImage: "/workforce_hero.png"
+                        heroImage: "airy:flow"
                     },
                     context: {
                         client: "Consumer App",
@@ -1324,7 +1347,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Gimana kalau ngelamar kerja itu segampang bilang 'Halo'?",
-                        heroImage: "/workforce_hero.png"
+                        heroImage: "airy:flow"
                     },
                     context: {
                         client: "Aplikasi Konsumen",
@@ -1427,7 +1450,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Helping users find their way without a map.",
-                        heroImage: "/workforce_hero.png"
+                        heroImage: "airy:ecosystem"
                     },
                     context: {
                         client: "Core Product",
@@ -1507,7 +1530,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Bantu user temukan jalan tanpa peta.",
-                        heroImage: "/workforce_hero.png"
+                        heroImage: "airy:ecosystem"
                     },
                     context: {
                         client: "Produk Utama",
@@ -1649,7 +1672,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "7 steps to buy a box of noodles? We had to fix the trust gap.",
-                        heroImage: "/commerce_hero.png"
+                        heroImage: "airy:flow"
                     },
                     context: {
                         client: "GudangAda",
@@ -1729,7 +1752,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "7 langkah buat beli semardus mie? Kami harus perbaiki gap kepercayaan.",
-                        heroImage: "/commerce_hero.png"
+                        heroImage: "airy:flow"
                     },
                     context: {
                         client: "GudangAda",
@@ -1824,7 +1847,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Giving Unilever and P&G their own real estate in a chaotic marketplace.",
-                        heroImage: "/commerce_hero.png"
+                        heroImage: "airy:architecture"
                     },
                     context: {
                         client: "Strategic Partnership",
@@ -1904,7 +1927,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Memberi Unilever dan P&G 'lahan real estate' di pasar yang chaotic.",
-                        heroImage: "/commerce_hero.png"
+                        heroImage: "airy:architecture"
                     },
                     context: {
                         client: "Partnership Strategis",
@@ -1999,7 +2022,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Turning a math headache into a 1-click discount engine.",
-                        heroImage: "/commerce_hero.png"
+                        heroImage: "airy:radar"
                     },
                     context: {
                         client: "Internal Tool",
@@ -2079,7 +2102,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Mengubah sakit kepala matematika jadi mesin diskon 1-klik.",
-                        heroImage: "/commerce_hero.png"
+                        heroImage: "airy:radar"
                     },
                     context: {
                         client: "Internal Tool",
@@ -2174,7 +2197,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Ending the '50 Shades of Grey' button chaos.",
-                        heroImage: "/commerce_hero.png"
+                        heroImage: "airy:architecture"
                     },
                     context: {
                         client: "Infrastructure",
@@ -2254,7 +2277,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Mengakhiri kekacauan tombol '50 Shades of Grey'.",
-                        heroImage: "/commerce_hero.png"
+                        heroImage: "airy:architecture"
                     },
                     context: {
                         client: "Infrastruktur",
@@ -2398,7 +2421,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Solving the 'Where is my truck?' anxiety loop.",
-                        heroImage: null
+                        heroImage: "airy:network"
                     },
                     context: {
                         client: "STOQO Logistics",
@@ -2408,22 +2431,23 @@ export const WORK_CLUSTERS = [
                     },
                     challenge: "I discovered a harsh reality: our users were waking up at 4 AM not to work, but to wait. Late deliveries weren't just an inconvenience; they were an existential threat. My challenge was to break this cycle of anxiety without having the budget to buy 100 new trucks.",
                     process: [
-                        { title: "Methodology", desc: "I didn't trust the Jira tickets, so I rode in the delivery trucks. I saw drivers struggling to text while driving. The 'system' wasn't broken; it was dangerous.", image: "/case-studies/delivery-methods/screen-shot-2020.png" },
-                        { title: "The Insight", desc: "Talking to 5 owners, I found the real conflict: It wasn't about speed. It was about silence. They could handle a late truck; they couldn't handle not knowing.", image: "/case-studies/delivery-methods/untitled.png" },
-                        { title: "Field Study", desc: "I joined the Field Activators to see the chaos on the ground. This bridged the gap between 'Customer Complaints' and 'Operational Reality'.", image: "/case-studies/delivery-methods/img-20190502.jpg" },
-                        { title: "Analysis Workshop", desc: "I facilitated the journey mapping session where we identified 4 pain points: Mental Model Mismatch, Uncertainty, Lack of Communication, and Lack of Awareness.", image: "/case-studies/delivery-methods/customer-app-board.jpg" },
-                        { title: "Co-Creation", desc: "I didn't design in a silo. I led a full-day workshop with the Engineering and Ops leads to ensure technical feasibility wasn't an afterthought.", image: "/case-studies/delivery-methods/img-20190507.jpg" },
-                        { title: "Ideation", desc: "The focus shifted to: 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks'—it was 'better information'.", image: "/case-studies/delivery-methods/customer-app-board-1.jpg" },
-                        { title: "Validation", desc: "I took the high-fidelity prototypes back to the users for a 3-day testing sprint. Watching them struggle is the best validity test.", image: "/case-studies/delivery-methods/untitled-1.png" }
+
+                        { title: "Methodology", desc: "I didn't trust the Jira tickets, so I rode in the delivery trucks. I saw drivers struggling to text while driving. The 'system' wasn't broken; it was dangerous.", image: "airy:timeline" },
+                        { title: "The Insight", desc: "Talking to 5 owners, I found the real conflict: It wasn't about speed. It was about silence. They could handle a late truck; they couldn't handle not knowing.", image: "airy:venn" },
+                        { title: "Field Study", desc: "I joined the Field Activators to see the chaos on the ground. This bridged the gap between 'Customer Complaints' and 'Operational Reality'.", image: "airy:ecosystem" },
+                        { title: "Analysis Workshop", desc: "I facilitated the journey mapping session where we identified 4 pain points: Mental Model Mismatch, Uncertainty, Lack of Communication, and Lack of Awareness.", image: "airy:matrix" },
+                        { title: "Co-Creation", desc: "I didn't design in a silo. I led a full-day workshop with the Engineering and Ops leads to ensure technical feasibility wasn't an afterthought.", image: "airy:flow" },
+                        { title: "Ideation", desc: "The focus shifted to: 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks'—it was 'better information'.", image: "airy:architecture" },
+                        { title: "Validation", desc: "I took the high-fidelity prototypes back to the users for a 3-day testing sprint. Watching them struggle is the best validity test.", image: "airy:chart" }
                     ],
                     insights: [
                         { title: "Psychology of Waiting", desc: "I learned that known waits feel shorter than unknown waits. Even a rough estimate calms the user." },
                         { title: "The 'Early' Problem", desc: "Surprisingly, drivers arriving too early was also a disruption. Customers weren't ready to receive goods at 3 AM if they expected 5 AM." }
                     ],
                     solution: [
-                        { title: "Status Tracking", desc: "I stole the mental model from Domino's. If you can track a $10 pizza, why not a $500 pallet of rice?", image: "/case-studies/delivery-methods/tes.png" },
-                        { title: "Proactive Push", desc: "I stopped waiting for them to ask. I designed notifications that triggered the moment the truck left the warehouse.", image: "/case-studies/delivery-methods/tes2.png" },
-                        { title: "Driver Info", desc: "Secure contact info for the driver, giving users a direct line to their goods.", image: "/case-studies/delivery-methods/tes3.png" }
+                        { title: "Status Tracking", desc: "I stole the mental model from Domino's. If you can track a $10 pizza, why not a $500 pallet of rice?", image: "airy:radar" },
+                        { title: "Proactive Push", desc: "I stopped waiting for them to ask. I designed notifications that triggered the moment the truck left the warehouse.", image: "airy:flow" },
+                        { title: "Driver Info", desc: "Secure contact info for the driver, giving users a direct line to their goods.", image: "airy:ui" }
                     ],
                     metrics: [
                         { label: "Support Tix", value: "Drastically Reduced" },
@@ -2485,7 +2509,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Mengakhiri siklus cemas 'Truk saya di mana?'",
-                        heroImage: null
+                        heroImage: "airy:network"
                     },
                     context: {
                         client: "STOQO Logistics",
@@ -2495,22 +2519,22 @@ export const WORK_CLUSTERS = [
                     },
                     challenge: "Saya menemukan fakta pahit: pengguna kami bangun jam 4 pagi bukan untuk bekerja, tapi untuk menunggu. Pengiriman terlambat bukan cuma ketidaknyamanan; ini ancaman eksistensial bagi usaha warung mereka. Tantangan saya adalah memutus siklus kecemasan ini tanpa punya budget untuk beli 100 truk baru.",
                     process: [
-                        { title: "Metodologi", desc: "Saya tidak percaya tiket Jira, jadi saya ikut naik truk pengiriman. Saya melihat sopir kesulitan SMS sambil menyetir. Sistemnya bukan rusak; tapi berbahaya.", image: "/case-studies/delivery-methods/screen-shot-2020.png" },
-                        { title: "Insight Utama", desc: "Setelah bicara dengan 5 pemilik warung, saya temukan konflik aslinya: Masalahnya bukan kecepatan. Tapi kesunyian (ketidaktahuan). Mereka bisa terima telat; tapi nggak bisa terima kalau nggak dikabarin.", image: "/case-studies/delivery-methods/untitled.png" },
-                        { title: "Studi Lapangan", desc: "Saya bergabung dengan Field Activators untuk melihat kekacauan di lapangan. Ini menjembatani 'Keluhan Pelanggan' dengan 'Realita Operasional'.", image: "/case-studies/delivery-methods/img-20190502.jpg" },
-                        { title: "Workshop Analisis", desc: "Saya memfasilitasi sesi journey mapping di mana kami identifikasi 4 pain points: Mismacth Mental Model, Ketidakpastian, Kurang Komunikasi, dan Kurang Awareness.", image: "/case-studies/delivery-methods/customer-app-board.jpg" },
-                        { title: "Ko-Kreasi", desc: "Saya tidak mendesain sendirian. Saya pimpin workshop seharian bareng Lead Engineering dan Ops untuk memastikan desain ini bisa dibangun (feasible).", image: "/case-studies/delivery-methods/img-20190507.jpg" },
-                        { title: "Ideasi", desc: "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Jawabannya bukan 'truk lebih cepat'—tapi 'informasi yang lebih baik'.", image: "/case-studies/delivery-methods/customer-app-board-1.jpg" },
-                        { title: "Validasi", desc: "Saya bawa high-fidelity prototype kembali ke user untuk testing sprint 3 hari. Melihat mereka bingung adalah validasi terbaik.", image: "/case-studies/delivery-methods/untitled-1.png" }
+                        { title: "Metodologi", desc: "Saya tidak percaya tiket Jira, jadi saya ikut naik truk pengiriman. Saya melihat sopir kesulitan SMS sambil menyetir. Sistemnya bukan rusak; tapi berbahaya.", image: "airy:timeline" },
+                        { title: "Insight Utama", desc: "Setelah bicara dengan 5 pemilik warung, saya temukan konflik aslinya: Masalahnya bukan kecepatan. Tapi kesunyian (ketidaktahuan). Mereka bisa terima telat; tapi nggak bisa terima kalau nggak dikabarin.", image: "airy:venn" },
+                        { title: "Studi Lapangan", desc: "Saya bergabung dengan Field Activators untuk melihat kekacauan di lapangan. Ini menjembatani 'Keluhan Pelanggan' dengan 'Realita Operasional'.", image: "airy:ecosystem" },
+                        { title: "Workshop Analisis", desc: "Saya memfasilitasi sesi journey mapping di mana kami identifikasi 4 pain points: Mismacth Mental Model, Ketidakpastian, Kurang Komunikasi, dan Kurang Awareness.", image: "airy:matrix" },
+                        { title: "Ko-Kreasi", desc: "Saya tidak mendesain sendirian. Saya pimpin workshop seharian bareng Lead Engineering dan Ops untuk memastikan desain ini bisa dibangun (feasible).", image: "airy:flow" },
+                        { title: "Ideasi", desc: "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Jawabannya bukan 'truk lebih cepat'—tapi 'informasi yang lebih baik'.", image: "airy:architecture" },
+                        { title: "Validasi", desc: "Saya bawa high-fidelity prototype kembali ke user untuk testing sprint 3 hari. Melihat mereka bingung adalah validasi terbaik.", image: "airy:chart" }
                     ],
                     insights: [
                         { title: "Psikologi Menunggu", desc: "Menunggu yang jelas estimasinya terasa lebih cepat daripada menunggu tanpa kabar. Estimasi kasar pun bisa menenangkan user." },
                         { title: "Masalah 'Kepagian'", desc: "Ternyata, sopir yang datang kepagian juga masalah. Warung belum siap terima barang jam 3 pagi kalau janjinya jam 5." }
                     ],
                     solution: [
-                        { title: "Pelacakan Status", desc: "Saya curi mental model dari Domino's Pizza. Kalau pizza 50 ribu aja bisa dilacak, kenapa beras 500 ribu enggak?", image: "/case-studies/delivery-methods/tes.png" },
-                        { title: "Notifikasi Proaktif", desc: "Berhenti nunggu user nanya. Saya desain notifikasi yang otomatis dikirim begitu truk keluar dari gudang.", image: "/case-studies/delivery-methods/tes2.png" },
-                        { title: "Info Pengemudi", desc: "Info kontak sopir yang aman, memberi user jalur langsung ke barang mereka.", image: "/case-studies/delivery-methods/tes3.png" }
+                        { title: "Pelacakan Status", desc: "Saya curi mental model dari Domino's Pizza. Kalau pizza 50 ribu aja bisa dilacak, kenapa beras 500 ribu enggak?", image: "airy:radar" },
+                        { title: "Notifikasi Proaktif", desc: "Berhenti nunggu user nanya. Saya desain notifikasi yang otomatis dikirim begitu truk keluar dari gudang.", image: "airy:flow" },
+                        { title: "Info Pengemudi", desc: "Info kontak sopir yang aman, memberi user jalur langsung ke barang mereka.", image: "airy:ui" }
                     ],
                     metrics: [
                         { label: "Tiket Support", value: "Berkurang Drastis" },
@@ -2595,7 +2619,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Converting 'Confusion' into 'Commitment' via Clarity.",
-                        heroImage: "/efficiency_hero.png"
+                        heroImage: "airy:chart"
                     },
                     context: {
                         client: "Sales Force",
@@ -2605,8 +2629,8 @@ export const WORK_CLUSTERS = [
                     },
                     challenge: "We discovered a critical 'Blind Spot'. Agents didn't know which metrics actually impacted their bonus. Was it GMV? Visit count? Active outlets? The complex formula was hidden, leading to 'Target Parking'—where agents stopped halfway because they weren't sure if their effort counted.",
                     process: [
-                        { title: "The Feelings Audit", desc: "We interviewed FAs and TLs. The sentiment was 'Anxiety'. Agents felt the system was cheating them because the calculation was opaque.", image: "/case-studies/stoqo-sales/research-raw.jpg" },
-                        { title: "Behavior Design", desc: "We decided to hide the 'Goals' (Caps) but highlight the 'Criteria'. We didn't want agents to stop once they hit a number; we wanted them to chase the maximum possible incentive.", image: "/case-studies/stoqo-sales/research-brainstorm.jpg" }
+                        { title: "The Feelings Audit", desc: "We interviewed FAs and TLs. The sentiment was 'Anxiety'. Agents felt the system was cheating them because the calculation was opaque.", image: "airy:radar" },
+                        { title: "Behavior Design", desc: "We decided to hide the 'Goals' (Caps) but highlight the 'Criteria'. We didn't want agents to stop once they hit a number; we wanted them to chase the maximum possible incentive.", image: "airy:flow" }
                     ],
                     insights: [
                         { title: "The Commitment Consistency", desc: "Psychologically, if an agent click a button saying 'Siap Komandan!' (Ready Commander!), they are 3x more likely to actually do the work. It turns a task into a promise." },
@@ -2677,7 +2701,7 @@ export const WORK_CLUSTERS = [
                     },
                     snapshot: {
                         tagline: "Mengubah 'Kebingungan' jadi 'Komitmen' lewat Kejelasan.",
-                        heroImage: "/efficiency_hero.png"
+                        heroImage: "airy:chart"
                     },
                     context: {
                         client: "Sales Force",
@@ -2757,7 +2781,7 @@ export const WORK_CLUSTERS = [
                     locked: true,
                     snapshot: {
                         tagline: "Killing the filing cabinet, one scan at a time.",
-                        heroImage: "/efficiency_hero.png"
+                        heroImage: "airy:layers"
                     },
                     context: {
                         client: "Internal Ops",
@@ -2820,7 +2844,7 @@ export const WORK_CLUSTERS = [
                     locked: true,
                     snapshot: {
                         tagline: "Memusnahkan lemari arsip, satu scan tiap kali.",
-                        heroImage: "/efficiency_hero.png"
+                        heroImage: "airy:layers"
                     },
                     context: {
                         client: "Ops Internal",

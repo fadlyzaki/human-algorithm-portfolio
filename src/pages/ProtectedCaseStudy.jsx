@@ -778,14 +778,11 @@ const ProtectedCaseStudy = () => {
 
                       {/* Render Metrics Grid if data exists */}
                       {caseData.metrics && caseData.metrics.length > 0 && (
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8 bg-[var(--bg-card)]/50">
+                        <div className="mx-6 mb-8 md:mx-12 md:mb-12 border border-[var(--border-color)] rounded-lg overflow-hidden flex flex-col md:flex-row bg-[var(--bg-surface)]">
                           {caseData.metrics.map((m, i) => (
-                            <div key={i} className="relative bg-[var(--bg-surface)] border border-[var(--border-color)] p-6 md:p-8 rounded-xl flex flex-col items-center justify-center overflow-hidden group hover:border-[var(--brand)]/50 transition-colors duration-300">
-                              <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                              <div className="relative z-10 text-center w-full">
-                                <div className="text-3xl md:text-5xl font-mono font-bold tracking-tighter text-[var(--brand)] mb-3 break-words leading-tight">{m.value}</div>
-                                <div className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">{m.label}</div>
-                              </div>
+                            <div key={i} className="flex-1 p-6 md:p-8 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-[var(--border-color)] last:border-0 hover:bg-[var(--bg-card)] transition-colors group">
+                              <div className="text-2xl md:text-4xl font-mono font-bold tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors mb-2 break-words max-w-full leading-tight">{m.value}</div>
+                              <div className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-[var(--text-secondary)] opacity-70">{m.label}</div>
                             </div>
                           ))}
                         </div>

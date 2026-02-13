@@ -165,8 +165,12 @@ const SideProjectDetail = () => {
                {/* Product Visual Background */}
                <div className="absolute inset-0 z-0">
                   <div className="w-full h-full opacity-30 grayscale blur-[2px] scale-105">
-                     {project.snapshot.heroImage ? (
-                        <img src={project.snapshot.heroImage} alt="Hero" className="w-full h-full object-cover" />
+                     {activeSnapshot.heroImage && activeSnapshot.heroImage.startsWith('airy:') ? (
+                        <div className="w-full h-full p-20 opacity-50">
+                           <AiryDiagram type={activeSnapshot.heroImage.split(':')[1]} />
+                        </div>
+                     ) : activeSnapshot.heroImage ? (
+                        <img src={activeSnapshot.heroImage} alt="Hero" className="w-full h-full object-cover" />
                      ) : (
                         <InteractionComponent color={brandColor} />
                      )}
