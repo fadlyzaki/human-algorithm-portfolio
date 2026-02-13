@@ -232,8 +232,8 @@ const OrderDetailsLayout = ({ children, onNavigate, activeScreen }) => {
                                 key={btn.id}
                                 onClick={() => onNavigate(btn.id)}
                                 className={`p-2 rounded text-center transition-colors ${activeScreen === btn.id
-                                        ? 'bg-[#f27f0d] text-white font-bold'
-                                        : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
+                                    ? 'bg-[#f27f0d] text-white font-bold'
+                                    : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
                                     }`}
                             >
                                 {btn.label}
@@ -447,7 +447,7 @@ const StoqoLogisticsApp = () => {
     return (
         <div className="w-full h-full flex items-center justify-center p-4">
             {/* Phone Frame */}
-            <div className="relative w-full max-w-[320px] h-[640px] bg-white shadow-2xl overflow-hidden rounded-[30px] border-[8px] border-gray-900 flex flex-col mx-auto ring-1 ring-black/10">
+            <div className="relative w-full h-full bg-white shadow-2xl overflow-hidden rounded-[30px] border-[8px] border-gray-900 flex flex-col mx-auto ring-1 ring-black/10">
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-xl z-30"></div>
                 {renderScreen()}
