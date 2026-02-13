@@ -779,7 +779,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     }
 
     // 15. PAPER TO PAPERLESS (OCR/Scanning)
-    if (id === 'p11') {
+    if (id === 'paper-to-paperless') {
         return (
             <Container expanded={expanded} showChrome={showChrome} figIndex="3.0" schematicType="OPTICAL_CHAR_RECOGNITION">
                 <div className="w-full h-full p-10 flex flex-col items-center justify-center">
