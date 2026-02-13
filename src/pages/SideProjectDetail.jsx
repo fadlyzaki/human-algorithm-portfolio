@@ -59,7 +59,7 @@ const SideProjectDetail = () => {
    const themeStyles = {
       '--bg-void': isDark ? '#050505' : '#F2F2F5', // Slightly lighter/darker concrete feel
       '--bg-surface': isDark ? '#111' : '#FFFFFF',
-      '--bg-card': isDark ? '#161616' : '#FFFFF',
+      '--bg-card': isDark ? '#161616' : '#FFFFFF',
       '--text-primary': isDark ? '#E5E5E5' : '#111827',
       '--text-secondary': isDark ? '#A1A1AA' : '#6B7280',
       '--border-color': isDark ? '#333' : '#E5E7EB',
