@@ -3122,9 +3122,11 @@ export const WORK_CLUSTERS = [
                         { title: "The 'Early' Problem", desc: "Surprisingly, drivers arriving too early was also a disruption. Customers weren't ready to receive goods at 3 AM if they expected 5 AM." }
                     ],
                     solution: [
-                        { title: "Status Tracking", desc: "I stole the mental model from Domino's. If you can track a $10 pizza, why not a $500 pallet of rice?", image: "airy:radar" },
-                        { title: "Proactive Push", desc: "I stopped waiting for them to ask. I designed notifications that triggered the moment the truck left the warehouse.", image: "airy:flow" },
-                        { title: "Driver Info", desc: "Secure contact info for the driver, giving users a direct line to their goods.", image: "airy:ui" }
+                        {
+                            title: "Live Logistics Prototype",
+                            desc: "Experience the real-time delivery tracking interface...",
+                            componentId: "stoqo-logistics-live"
+                        }
                     ],
                     metrics: [
                         { label: "Support Tix", value: "Drastically Reduced" },
@@ -3132,48 +3134,7 @@ export const WORK_CLUSTERS = [
                         { label: "Repeat Order", value: "Improved Retention" }
                     ],
                     learnings: "Transparency is cheaper than speed. Users will wait if they know why. This project wasn't about UI; it was about selling 'peace of mind' as a feature.",
-                    designProcess: [
-                        {
-                            type: "research",
-                            title: "Methodology",
-                            desc: "I didn't trust the Jira tickets, so I rode in the delivery trucks. I saw drivers struggling to text while driving. The 'system' wasn't broken; it was dangerous.",
-                            title_id: "Metodologi",
-                            desc_id: "Saya tidak percaya tiket Jira, jadi saya ikut naik truk pengiriman. Saya melihat sopir kesulitan SMS sambil menyetir. Sistemnya bukan rusak; tapi berbahaya.",
-                            image: "airy:timeline"
-                        },
-                        {
-                            type: "insight",
-                            title: "Psychology of Waiting",
-                            desc: "I learned that known waits feel shorter than unknown waits. Even a rough estimate calms the user.",
-                            title_id: "Psikologi Menunggu",
-                            desc_id: "Menunggu yang jelas estimasinya terasa lebih cepat daripada menunggu tanpa kabar. Estimasi kasar pun bisa menenangkan user.",
-                            image: "airy:venn"
-                        },
-                        {
-                            type: "design",
-                            title: "Status Tracking",
-                            desc: "I stole the mental model from Domino's. If you can track a $10 pizza, why not a $500 pallet of rice?",
-                            title_id: "Pelacakan Status",
-                            desc_id: "Saya curi mental model dari Domino's Pizza. Kalau pizza 50 ribu aja bisa dilacak, kenapa beras 500 ribu enggak?",
-                            image: "airy:radar"
-                        },
-                        {
-                            type: "ship",
-                            title: "Proactive Push",
-                            desc: "I stopped waiting for them to ask. I designed notifications that triggered the moment the truck left the warehouse.",
-                            title_id: "Notifikasi Proaktif",
-                            desc_id: "Berhenti nunggu user nanya. Saya desain notifikasi yang otomatis dikirim begitu truk keluar dari gudang.",
-                            image: "airy:flow"
-                        },
-                        {
-                            type: "measure",
-                            title: "Support Tix",
-                            desc: "Drastic reduction in support tickets ('Where is my truck?') and increased customer trust.",
-                            title_id: "Tiket Support",
-                            desc_id: "Pengurangan drastis tiket support ('Truk saya mana?') dan peningkatan kepercayaan pelanggan.",
-                            image: "airy:chart"
-                        }
-                    ],
+
                     aiHypotheses: [
                         {
                             tech: "Computer Vision & IoT",

@@ -5,6 +5,7 @@ import {
     Clock, DollarSign, Camera, Users, Truck, Cpu, Trophy, AlertTriangle
 } from 'lucide-react';
 import StoqoApp from './prototypes/StoqoApp';
+import StoqoLogisticsApp from './prototypes/StoqoLogisticsApp';
 
 // ABSTRACT UI COMPONENTS
 const WindowControls = () => (
@@ -752,6 +753,14 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
         return (
             <Container expanded={expanded} showChrome={showChrome} figIndex="S.0" schematicType="LIVE_PROTOTYPE_SIMULATION">
                 <StoqoApp />
+            </Container>
+        );
+    }
+
+    if (id === 'stoqo-logistics-live') {
+        return (
+            <Container expanded={expanded} showChrome={showChrome} figIndex="S.1" schematicType="LIVE_LOGISTICS_SIMULATION">
+                <StoqoLogisticsApp />
             </Container>
         );
     }
