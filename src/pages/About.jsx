@@ -246,8 +246,10 @@ const AboutPage = () => {
         <header className="relative flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)]">
           <BackButton to="/" label={t('about.main_terminal')} />
 
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] hidden md:block">
-            ABOUT
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] hidden md:flex items-center gap-4">
+            <span className="opacity-50">ABOUT</span>
+            <span className="opacity-20">/</span>
+            <Link to="/process" className="hover:text-[var(--text-primary)] transition-colors">PROCESS</Link>
           </div>
 
           <div className="flex items-center gap-4">

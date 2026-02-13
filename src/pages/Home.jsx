@@ -267,6 +267,7 @@ const Portfolio = () => {
               <Link to="/about" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.about').toUpperCase()}</Link>
               <a href="#work" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.work').toUpperCase()}</a>
               <a href="#side-projects" className="hover:text-[var(--text-primary)] transition-colors">/PROJECTS</a>
+              <Link to="/process" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.process').toUpperCase()}</Link>
               <Link to="/contact" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.contact').toUpperCase()}</Link>
             </div>
 
@@ -688,7 +689,7 @@ const Portfolio = () => {
         </section>
 
       </main>
-    </div>
+    </div >
   );
 };
 
