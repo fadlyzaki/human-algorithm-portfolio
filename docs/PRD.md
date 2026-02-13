@@ -1,4 +1,4 @@
-# Product Requirements Document (PRD): Human Algorithm Portfolio v2.6
+# Product Requirements Document (PRD): Human Algorithm Portfolio v2.7
 
 ## 1. Executive Summary
 The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity.
@@ -110,6 +110,8 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Draggable Photo Stack**: Multi-variant ID card designs (Industrial, Cyberpunk, Swiss) with Framer Motion physics.
 *   **Tag & Pill Accessibility**: Standardized label legibility (`11px` min) and enforced contrast ratios for badges sitting on inverted card headers.
 *   **Bento Grid About Section (v2.5)**: Reorganized homepage About section into 3-column grid with 5 modular cards (Bio Narrative, ProfileScanner, Philosophy, Current Focus, Runtime Metrics) for cleaner visual hierarchy.
+*   **Case Study Layout Refactor (v2.7)**: "Solution" section for Stoqo Sales & Logistics now features a centered interactive prototype for focus, with explanatory static images arranged in a responsive 2-column grid.
+*   **Stoqo Logistics Localization (v2.7)**: Full Indonesian translation support added to Stoqo Logistics, matching the bilingual capabilities of Stoqo Sales.
 
 ## 4. Functional Specifications
 
@@ -155,6 +157,7 @@ The homepage follows a "Priority-First" narrative flow:
 *   **[COMPLETED]** Modern AI Hypotheses Expansion (Agentic/Reasoning)
 *   **[COMPLETED]** Narrative Refinement: "Resilience" Story & "Scientific Design Engineer" Positioning
 *   **[COMPLETED]** Master's Degree Integration: `KNOWLEDGE_INSTALL` in System Runtime Log
+*   **[COMPLETED]** Stoqo Logistics Visuals & Localization (Centered Prototype + Grid Layout + ID Language)
 *   **[Q2]** Enhanced AI Agent: Expand semantic memory with real RAG backend
 *   **[Q3]** CMS Integration: Migrating "Notes" to MDX
 *   **[Q4]** 3D WebGL Experiments: Evaluating Three.js for hero section
