@@ -930,31 +930,31 @@ export const WORK_CLUSTERS = [
                             tech: "LLM Agents & Sentiment Analysis",
                             title: "Auto-Negotiation Bot",
                             desc: "Instead of recruiters manually typing replies, an Agent would draft responses based on the candidate's sentiment and availability. It could schedule interviews automatically by syncing with calendar APIs.",
-                            impact: "Response Time < 5 mins"
+                            impact: "Near-Instant Response"
                         },
                         {
                             tech: "Voice AI & Speech-to-Text",
                             title: "Voice-First Screening",
                             desc: "Candidates record voice answers to screening questions. AI transcribes, analyzes tone and confidence, and auto-generates a candidate summary score for recruiters.",
-                            impact: "Screening Time -80%"
+                            impact: "Drastic Screening Reduction"
                         },
                         {
                             tech: "Predictive Analytics & ML",
                             title: "Candidate Fit Predictor",
                             desc: "ML model trained on historical hiring data predicts which candidates are most likely to accept offers and stay long-term, helping recruiters prioritize high-value leads.",
-                            impact: "Offer Acceptance +25%"
+                            impact: "Higher Offer Acceptance"
                         },
                         {
                             tech: "Voice-to-Action Agents",
                             title: "Interview on the Go",
                             desc: "Candidates can answer screening questions via voice note while commuting. AI transcribes, summarizes key competencies, and updates their profile capability match.",
-                            impact: "Candidate Experience 4.9/5"
+                            impact: "Top-Tier Candidate Experience"
                         },
                         {
                             tech: "Large Reasoning Models (LRM)",
                             title: "Bias Auditor Bot",
                             desc: "A silent observer AI that flags potential unconscious bias in recruiter messages or job descriptions before they are sent, suggesting more inclusive phrasing.",
-                            impact: "Diversity Hiring +20%"
+                            impact: "Improved Diversity Hiring"
                         }
                     ]
                 },
@@ -969,7 +969,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Dampak: Lonjakan Respon",
-                            text: "Memimpin redesign modul komunikasi kandidat. Menyelesaikan bottleneck di mana rekruter kewalahan data tidak terstruktur. Hasil: Waktu rekrutmen turun 3 hari & NPS kandidat naik 78 poin."
+                            text: "Memimpin redesign modul komunikasi kandidat. Menyelesaikan bottleneck di mana rekruter kewalahan data tidak terstruktur. Hasil: Waktu rekrutmen turun drastis & kepuasan kandidat meningkat tajam."
                         },
                         technical: {
                             label: "🤖 Sistem",
@@ -1012,31 +1012,31 @@ export const WORK_CLUSTERS = [
                             tech: "Agen LLM & Analisa Sentimen",
                             title: "Bot Negosiasi Otomatis",
                             desc: "Daripada rekruter ngetik manual, Agen bakal nulis draft jawaban berdasarkan mood kandidat dan ketersediaan waktu. Bisa jadwalin interview otomatis lho.",
-                            impact: "Waktu Respon < 5 menit"
+                            impact: "Waktu Respon Cepat"
                         },
                         {
                             tech: "Voice AI & Speech-to-Text",
                             title: "Screening Berbasis Suara",
                             desc: "Kandidat rekam jawaban suara untuk pertanyaan screening. AI transkripsi, analisa nada dan kepercayaan diri, dan auto-generate skor ringkasan kandidat untuk rekruter.",
-                            impact: "Waktu Screening -80%"
+                            impact: "Waktu Screening Berkurang Drastis"
                         },
                         {
                             tech: "Predictive Analytics & ML",
                             title: "Prediktor Kecocokan Kandidat",
                             desc: "Model ML yang dilatih dari data rekrutmen historis memprediksi kandidat mana yang kemungkinan besar terima offer dan bertahan lama, bantu rekruter prioritaskan lead bernilai tinggi.",
-                            impact: "Penerimaan Offer +25%"
+                            impact: "Penerimaan Offer Lebih Tinggi"
                         },
                         {
                             tech: "Voice-to-Action Agents",
                             title: "Wawancara Sambil Jalan",
                             desc: "Kandidat bisa jawab pertanyaan screening lewat voice note sambil di jalan. AI transkrip, ringkas kompetensi inti, dan update kecocokan profil.",
-                            impact: "Pengalaman Kandidat 4.9/5"
+                            impact: "Pengalaman Kandidat Terbaik"
                         },
                         {
                             tech: "Model Penalaran Besar",
                             title: "Bot Auditor Bias",
                             desc: "AI pengamat diam yang menandai potensi bias bawah sadar di pesan rekruter atau deskripsi kerja sebelum dikirim, menyarankan bahasa yang lebih inklusif.",
-                            impact: "Perekrutan Diversifikasi +20%"
+                            impact: "Perekrutan Diversifikasi Meningkat"
                         }
                     ]
                 },
@@ -1054,12 +1054,12 @@ export const WORK_CLUSTERS = [
                 details: {
                     problem: 'HR lost the human story in the spreadsheet grid.',
                     system: 'Visual pipelines that respect the candidate.',
-                    outcome: 'Hiring became 20% faster & more humane.'
+                    outcome: 'Hiring became significantly faster & more humane.'
                 },
                 details_id: {
                     problem: 'Cerita manusia hilang tertelan grid Excel.',
                     system: 'Pipeline visual yang menghargai kandidat.',
-                    outcome: 'Rekrutmen jadi 20% lebih cepat & manusiawi.'
+                    outcome: 'Rekrutmen jadi jauh lebih cepat & manusiawi.'
                 },
                 title_id: 'Dashboard ATS untuk HR',
                 tag_id: 'Manajemen',
@@ -1074,7 +1074,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Workflow Optimization",
-                            text: "Redesigned the internal ATS to replace Excel-based tracking. Introduced a Kanban-style pipeline that improved data accuracy by 99% and achieved 100% adoption among the HR team."
+                            text: "Redesigned the internal ATS to replace Excel-based tracking. Introduced a Kanban-style pipeline that improved data accuracy significantly and achieved full adoption among the HR team."
                         },
                         technical: {
                             label: "🤖 System",
@@ -1115,31 +1115,31 @@ export const WORK_CLUSTERS = [
                             tech: "RAG (Retrieval-Augmented Generation)",
                             title: "The 'Chief of Staff' Sidebar",
                             desc: "A natural language sidebar where HR can ask: 'Who are the top 3 drivers for East Jakarta?' The AI retrieves data from the pipeline and summarizes it, eliminating the need for complex filters.",
-                            impact: "Data Retrieval Speed 10x"
+                            impact: "Instant Data Retrieval"
                         },
                         {
                             tech: "Computer Vision & Document AI",
                             title: "Auto-Resume Parsing",
                             desc: "AI extracts structured data from uploaded resumes (PDFs, images) automatically, populating candidate profiles without manual data entry. Handles Indonesian and English resumes.",
-                            impact: "Data Entry Time -90%"
+                            impact: "Eliminated Manual Entry"
                         },
                         {
                             tech: "Anomaly Detection & ML",
                             title: "Pipeline Health Monitor",
                             desc: "Real-time ML model detects unusual patterns like sudden drop-offs at specific stages, alerting HR to process bottlenecks before they impact hiring goals.",
-                            impact: "Issue Detection +3 days earlier"
+                            impact: "Proactive Issue Detection"
                         },
                         {
                             tech: "Predictive attrition Modeling",
                             title: "Resignation Radar",
                             desc: "AI analyzes public activity (GitHub, LinkedIn) to predict which 'Passive' candidates are about to open to opportunities, alerting recruiters to reach out first.",
-                            impact: "First-to-Contact Rate 80%"
+                            impact: "High First-to-Contact Rate"
                         },
                         {
                             tech: "Generative UI (GenUI)",
                             title: "Dynamic Pipeline View",
                             desc: "Instead of static columns, the dashboard rebuilds itself based on the recruiter's intent. 'Show me bottlenecks' transforms the UI into a heatmap of stalled candidates.",
-                            impact: "Time-to-Insight -90%"
+                            impact: "Instant Insight Generation"
                         }
                     ]
                 },
@@ -1195,31 +1195,31 @@ export const WORK_CLUSTERS = [
                             tech: "RAG (Retrieval-Augmented Generation)",
                             title: "Sidebar 'Chief of Staff'",
                             desc: "Sidebar chat di mana HR bisa tanya: 'Siapa 3 driver terbaik di Jakarta Timur?' AI bakal ambil data dari pipeline dan ngerangkum, gak perlu filter ribet lagi.",
-                            impact: "Kecepatan Data 10x"
+                            impact: "Akses Data Instan"
                         },
                         {
                             tech: "Computer Vision & Document AI",
                             title: "Parsing CV Otomatis",
                             desc: "AI mengekstrak data terstruktur dari CV yang diupload (PDF, gambar) secara otomatis, mengisi profil kandidat tanpa input manual. Support CV Indonesia dan Inggris.",
-                            impact: "Waktu Input Data -90%"
+                            impact: "Input Manual Dihapus"
                         },
                         {
                             tech: "Anomaly Detection & ML",
                             title: "Monitor Kesehatan Pipeline",
                             desc: "Model ML real-time mendeteksi pola tidak biasa seperti drop-off mendadak di tahap tertentu, alert HR tentang bottleneck proses sebelum impact hiring goals.",
-                            impact: "Deteksi Masalah +3 hari lebih cepat"
+                            impact: "Deteksi Masalah Proaktif"
                         },
                         {
                             tech: "Pemodelan Attrition Prediktif",
                             title: "Radar Resign",
                             desc: "AI analisis aktivitas publik (GitHub, LinkedIn) untuk prediksi kandidat 'Pasif' mana yang bakal terbuka sama peluang, ngasih tahu rekruter buat kontak duluan.",
-                            impact: "Tingkat Kontak Pertama 80%"
+                            impact: "Tingkat Kontak Pertama Tinggi"
                         },
                         {
                             tech: "Generative UI (GenUI)",
                             title: "Tampilan Pipeline Dinamis",
                             desc: "Alih-alih kolom statis, dashboard membangun ulang dirinya berdasarkan niat rekruter. 'Tunjukkan bottleneck' mengubah UI jadi heatmap kandidat yang macet.",
-                            impact: "Waktu-ke-Insight -90%"
+                            impact: "Insight Instan"
                         }
                     ]
                 },
@@ -1298,31 +1298,31 @@ export const WORK_CLUSTERS = [
                             tech: "Audio-to-Structured-Data (Whisper)",
                             title: "Instant Resume Generator",
                             desc: "Candidates simply talk about their experience for 1 minute. The AI transcribes the audio, extracts skills/dates, and builds a formatted tabular resume automatically.",
-                            impact: "Completion Rate +90%"
+                            impact: "Rocketing Completion Rate"
                         },
                         {
                             tech: "NLP & Intent Classification",
                             title: "Smart Job Matching",
                             desc: "AI analyzes voice note content to understand candidate skills and preferences, then auto-suggests relevant job openings instead of requiring manual search.",
-                            impact: "Job Match Accuracy +40%"
+                            impact: "Better Job Matching"
                         },
                         {
                             tech: "Emotion AI & Tone Analysis",
                             title: "Candidate Confidence Scorer",
                             desc: "AI analyzes voice recordings for confidence, enthusiasm, and communication clarity, providing recruiters with soft-skill insights before interviews.",
-                            impact: "Interview Quality +30%"
+                            impact: "Higher Quality Interviews"
                         },
                         {
                             tech: "Multimodal Resume Parsing",
                             title: "Portfolio-First Scanning",
                             desc: "For creative roles, AI ignores the text resume and scans the portfolio images/videos first, matching visual style and technical complexity to the job vibe.",
-                            impact: "Quality Hire +30%"
+                            impact: "Better Quality Hires"
                         },
                         {
                             tech: "Real-time Translation & Cultural Adaptation",
                             title: "Border-Free Chat",
                             desc: "Enables seamless chat between a recruiter in Tokyo and a worker in Jakarta. Not just translation, but cultural nuance adjustment (politeness levels).",
-                            impact: "Global Placement +40%"
+                            impact: "Expanded Global Placement"
                         }
                     ]
                 },
@@ -1337,7 +1337,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Menghapus Hambatan",
-                            text: "Mengatasi drop-off tinggi dengan mengganti formulir panjang jadi alur berbasis chat. Ini mengurangi friksi dan menaikkan tingkat penyelesaian lamaran sebesar 60%."
+                            text: "Mengatasi drop-off tinggi dengan mengganti formulir panjang jadi alur berbasis chat. Ini mengurangi friksi dan menaikkan tingkat penyelesaian lamaran secara signifikan."
                         },
                         technical: {
                             label: "🤖 Sistem",
@@ -1378,31 +1378,31 @@ export const WORK_CLUSTERS = [
                             tech: "Audio-ke-Data-Terstruktur (Whisper)",
                             title: "Generator CV Instan",
                             desc: "Kandidat cukup ngomong soal pengalaman mereka selama 1 menit. AI bakal transkrip audio, ekstrak skill/tanggal, dan bikin CV rapi secara otomatis.",
-                            impact: "Tingkat Penyelesaian +90%"
+                            impact: "Tingkat Penyelesaian Melonjak"
                         },
                         {
                             tech: "NLP & Klasifikasi Intent",
                             title: "Pencocokan Kerja Pintar",
                             desc: "AI menganalisa konten voice note untuk memahami skill dan preferensi kandidat, lalu auto-suggest lowongan relevan tanpa perlu cari manual.",
-                            impact: "Akurasi Match Kerja +40%"
+                            impact: "Akurasi Match Lebih Baik"
                         },
                         {
                             tech: "Emotion AI & Analisis Nada",
                             title: "Skor Kepercayaan Diri Kandidat",
                             desc: "AI menganalisa rekaman suara untuk kepercayaan diri, antusiasme, dan kejelasan komunikasi, memberikan insight soft-skill ke rekruter sebelum interview.",
-                            impact: "Kualitas Interview +30%"
+                            impact: "Kualitas Interview Naik"
                         },
                         {
                             tech: "Parsing Resume Multimodal",
                             title: "Scanning Portfolio-First",
                             desc: "Buat posisi kreatif, AI abaikan teks resume dan scan gambar/video portofolio duluan, mencocokkan gaya visual dan kompleksitas teknis sama vibe kerjaan.",
-                            impact: "Kualitas Hire +30%"
+                            impact: "Kualitas Hire Lebih Baik"
                         },
                         {
                             tech: "Transalasi & Adaptasi Budaya Real-time",
                             title: "Chat Tanpa Batas",
                             desc: "Memungkinkan chat mulus antara rekruter di Tokyo dan pekerja di Jakarta. Bukan cuma terjemahan, tapi penyesuaian nuansa budaya (tingkat kesopanan).",
-                            impact: "Penempatan Global +40%"
+                            impact: "Penempatan Global Meluas"
                         }
                     ]
                 }
@@ -1420,12 +1420,12 @@ export const WORK_CLUSTERS = [
                 details: {
                     problem: 'Getting lost in filters when you need a job today.',
                     system: 'Visual-first discovery for rapid scanning.',
-                    outcome: 'Users found hope (jobs) 15% faster.'
+                    outcome: 'Users found hope (jobs) much faster.'
                 },
                 details_id: {
                     problem: 'Tersesat di filter saat butuh kerja hari ini juga.',
                     system: 'Penemuan berbasis visual buat scanning cepat.',
-                    outcome: 'User nemu harapan (kerjaan) 15% lebih cepat.'
+                    outcome: 'User nemu harapan (kerjaan) jauh lebih cepat.'
                 },
                 title_id: 'App Utama (Navigasi & Penemuan)',
                 tag_id: 'UX Inti',
@@ -1440,7 +1440,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Navigation Redesign",
-                            text: "Revamped core navigation based on card-sorting research. Flattened the hierarchy from 4 levels to 2, improving Day-1 retention by 15%."
+                            text: "Revamped core navigation based on card-sorting research. Flattened the hierarchy from 4 levels to 2, improving Day-1 retention significantly."
                         },
                         technical: {
                             label: "🤖 System",
@@ -1481,7 +1481,7 @@ export const WORK_CLUSTERS = [
                             tech: "Predictive UI",
                             title: "Zero-Click Discovery",
                             desc: "The app anticipates user intent based on time-of-day and location. If a user opens the app at 8 AM in a warehouse district, the 'Forklift Driver' jobs appear instantly on the home screen.",
-                            impact: "Time-to-Apply -40%"
+                            impact: "Faster Application Time"
                         },
                         {
                             tech: "Conversational AI & NLP",
@@ -1520,7 +1520,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Redesain Navigasi",
-                            text: "Merombak navigasi inti berdasarkan riset card-sorting. Mendatarkan hirarki dari 4 level jadi 2, meningkatkan retensi Hari-1 sebesar 15%."
+                            text: "Merombak navigasi inti berdasarkan riset card-sorting. Mendatarkan hirarki dari 4 level jadi 2, meningkatkan retensi Hari-1 secara signifikan."
                         },
                         technical: {
                             label: "🤖 Sistem",
@@ -1561,31 +1561,31 @@ export const WORK_CLUSTERS = [
                             tech: "Predictive UI",
                             title: "Penemuan Tanpa-Klik",
                             desc: "Aplikasi mengantisipasi niat user berdasarkan waktu dan lokasi. Jika user buka aplikasi jam 8 pagi di area pergudangan, lowongan 'Supir Forklift' langsung muncul di layar utama.",
-                            impact: "Waktu-Lamar -40%"
+                            impact: "Waktu-Lamar Lebih Cepat"
                         },
                         {
                             tech: "Conversational AI & NLP",
                             title: "Navigasi Berbasis Suara",
                             desc: "User bisa bilang 'Carikan kerja cleaning di Tangerang' dan aplikasi langsung filter dan tampilkan hasilnya, tanpa perlu pilih filter manual.",
-                            impact: "Kecepatan Navigasi +60%"
+                            impact: "Navigasi Lebih Cepat"
                         },
                         {
                             tech: "Behavioral Analytics & Personalization",
                             title: "Home Screen yang Belajar",
                             desc: "Home screen secara dinamis mereorganisasi berdasarkan pola perilaku user, memunculkan kategori dan lowongan paling relevan tanpa perlu input user.",
-                            impact: "Engagement +35%"
+                            impact: "Higher Engagement"
                         },
                         {
                             tech: "Transformer Perilaku",
                             title: "Mode Pagi vs Malam",
                             desc: "AI belajar kalau pagi kamu cek 'Status', tapi malam cek 'Loker'. Layout home screen berubah fisik buat prioritasin modul relevan berdasar waktu.",
-                            impact: "Waktu-ke-Tujuan -3s"
+                            impact: "Akses Lebih Cepat"
                         },
                         {
                             tech: "Antarmuka Perintah Suara",
                             title: "Hands-Free Pekerja Lapangan",
                             desc: "Didesain buat pekerja dengan tangan kotor/sarung tangan. 'Lumina, cariin kerjaan supir dekat sini' memicu flow cari dan lamar tanpa sentuh layar.",
-                            impact: "Aksesibilitas 100%"
+                            impact: "Aksesibilitas Penuh"
                         }
                     ]
                 }
@@ -1648,7 +1648,7 @@ export const WORK_CLUSTERS = [
                 previewImage: '/commerce_hero.png',
                 iconName: 'ShoppingBag',
                 details: { problem: 'Fear of sending money into the void.', system: 'The "Money Back" Shield.', outcome: 'Trust increased, Abandonment Reduced.' },
-                details_id: { problem: 'Takut kirim uang ke tempat antah berantah.', system: 'Perisai "Uang Kembali".', outcome: 'Kepercayaan naik, Abandonment -12%.' },
+                details_id: { problem: 'Takut kirim uang ke tempat antah berantah.', system: 'Perisai "Uang Kembali".', outcome: 'Kepercayaan naik, Abandonment Berkurang.' },
                 title_id: 'Marketplace',
                 tag_id: 'Transaksi',
                 caseStudy: {
@@ -1709,7 +1709,7 @@ export const WORK_CLUSTERS = [
                             tech: "Dynamic Pricing & ML",
                             title: "Smart Bundle Suggestions",
                             desc: "AI analyzes cart contents and suggests complementary products with optimized bundle pricing, increasing average order value while providing genuine value to buyers.",
-                            impact: "AOV +25%"
+                            impact: "Higher Order Value"
                         },
                         {
                             tech: "Computer Vision & OCR",
@@ -1878,31 +1878,31 @@ export const WORK_CLUSTERS = [
                             tech: "Generative Design (StyleGAN)",
                             title: "Brand Asset Autopilot",
                             desc: "Brands upload 1 logo and 1 product image. The AI automatically generates 50 variations of banners, social posts, and store themes that adhere to their brand guidelines.",
-                            impact: "Onboarding Time -90%"
+                            impact: "Instant Onboarding"
                         },
                         {
                             tech: "Multimodal LLM & Product Data",
                             title: "AI Product Copywriter",
                             desc: "AI analyzes product images and specs to auto-generate compelling product descriptions, SEO tags, and promotional copy in multiple languages.",
-                            impact: "Catalog Setup -80%"
+                            impact: "Rapid Catalog Setup"
                         },
                         {
                             tech: "Real-time Analytics & Personalization",
                             title: "Dynamic Store Personalization",
                             desc: "Store layout auto-adjusts based on visitor behavior—showing trending products to browsers and reorder suggestions to returning buyers.",
-                            impact: "Store Conversion +30%"
+                            impact: "Higher Store Conversion"
                         },
                         {
                             tech: "Generative Video (GenAI)",
                             title: "Instant Ad Creator",
                             desc: "Brands upload static assets. AI generates 15-second high-energy video ads tailored to local trends, ready to be blasted to retailer WhatsApp groups.",
-                            impact: "Conversion Rate +15%"
+                            impact: "Boosted Conversion Rate"
                         },
                         {
                             tech: "Sentiment Analysis Agents",
                             title: "Review Defender",
                             desc: "AI monitors retailer reviews 24/7. Upon spotting a complaint, it drafts a solution-oriented reply and issues an automated apology voucher instantly.",
-                            impact: "Churn Rate -10%"
+                            impact: "Better Retention"
                         }
                     ]
                 },
@@ -1958,31 +1958,31 @@ export const WORK_CLUSTERS = [
                             tech: "Generative Design (StyleGAN)",
                             title: "Autopilot Aset Brand",
                             desc: "Brand upload 1 logo dan 1 gambar produk. AI otomatis generate 50 variasi banner, posting sosial, dan tema toko yang sesuai panduan brand mereka.",
-                            impact: "Waktu Onboarding -90%"
+                            impact: "Onboarding Instan"
                         },
                         {
                             tech: "Multimodal LLM & Data Produk",
                             title: "AI Copywriter Produk",
                             desc: "AI menganalisis gambar dan spesifikasi produk untuk auto-generate deskripsi produk yang menarik, tag SEO, dan copy promosi dalam berbagai bahasa.",
-                            impact: "Faster Setup"
+                            impact: "Setup Lebih Cepat"
                         },
                         {
                             tech: "Real-time Analytics & Personalization",
                             title: "Personalisasi Toko Dinamis",
                             desc: "Layout toko auto-adjust berdasarkan perilaku pengunjung—menampilkan produk trending ke browser dan saran reorder ke pembeli langganan.",
-                            impact: "Higher Conversion"
+                            impact: "Konversi Lebih Tinggi"
                         },
                         {
                             tech: "Video Generatif",
                             title: "Kreator Iklan Instan",
                             desc: "Brand upload aset statis. AI generate video iklan 15 detik yang energik sesuai tren lokal, siap di-blast ke grup WhatsApp warung.",
-                            impact: "Boosted Conversion"
+                            impact: "Konversi Meningkat"
                         },
                         {
                             tech: "Agen Analisis Sentimen",
                             title: "Pembela Review",
                             desc: "AI pantau review warung 24/7. Pas nemu komplain, dia draft balasan solutif dan terbitkan voucher maaf otomatis saat itu juga.",
-                            impact: "Retention Saved"
+                            impact: "Retensi Terjaga"
                         }
                     ]
                 }
@@ -2133,31 +2133,31 @@ export const WORK_CLUSTERS = [
                             tech: "Reinforcement Learning",
                             title: "Optimasi Diskon Dinamis",
                             desc: "Alih-alih aturan kaku, AI mensimulasikan 10.000 kombinasi keranjang untuk cari 'Sweet Spot' diskon yang maksimalkan volume tanpa menggerus margin. AI yang accept/reject promo user.",
-                            impact: "Margin Terlindungi +15%"
+                            impact: "Margin Terlindungi"
                         },
                         {
                             tech: "Demand Forecasting & Time Series ML",
                             title: "Prediktor Waktu Optimal",
                             desc: "AI menganalisis pola penjualan historis dan faktor eksternal (libur, cuaca) untuk merekomendasikan kapan meluncurkan promo untuk dampak maksimal.",
-                            impact: "ROI Promo +40%"
+                            impact: "ROI Promo Meningkat"
                         },
                         {
                             tech: "Causal Inference & A/B Testing AI",
                             title: "Detektor Kanibalisasi",
                             desc: "Sebelum menyetujui promo, AI memprediksi apakah diskon akan benar-benar mendorong penjualan baru atau hanya kanibalisasi pembelian organik, menghemat budget untuk pertumbuhan nyata.",
-                            impact: "Pemborosan Promo -50%"
+                            impact: "Pemborosan Promo Berkurang"
                         },
                         {
                             tech: "Negosiasi Agentic",
                             title: "Tawar-menawar Supplier-Warung",
                             desc: "Warung bisa 'tawar harga' buat beli banyak. Agen AI mewakili Principal negosiasi berdasar batas margin, deal tanpa persetujuan manusia.",
-                            impact: "Rate Habis Stok +40%"
+                            impact: "Stok Lebih Terjaga"
                         },
                         {
                             tech: "Jaringan Saraf Graf",
                             title: "Prediktor Viral Loop",
                             desc: "AI identifikasi 'Tokoh Kunci' (warung berpengaruh) di graf. Dia target promo khusus ke mereka, tau mereka pengaruhi belanja tetangganya.",
-                            impact: "Pertumbuhan Organik +30%"
+                            impact: "Pertumbuhan Organik"
                         }
                     ]
                 }
@@ -2240,13 +2240,13 @@ export const WORK_CLUSTERS = [
                             tech: "Change Impact Analysis",
                             title: "Token Change Predictor",
                             desc: "Before updating a design token, AI simulates the visual impact across all screens and apps, showing previews of affected components to prevent breaking changes.",
-                            impact: "Breaking Changes -95%"
+                            impact: "Breaking Changes Eliminated"
                         },
                         {
                             tech: "Self-Healing UI",
                             title: "Runtime Error Shim",
                             desc: "If a component crashes in production, the Design System AI swaps it with a 'Safe Mode' fallback version instantly, keeping the app functional while alerting devs.",
-                            impact: "Uptime 99.99%"
+                            impact: "Maximum Uptime"
                         },
                         {
                             tech: "Natural Language to Design",
@@ -2308,31 +2308,31 @@ export const WORK_CLUSTERS = [
                             tech: "Multimodal LLM (Vision-to-Code)",
                             title: "Screenshot-to-Component",
                             desc: "Desainer upload screenshot pola UI baru. AI scan komponen itu lawan library yang ada dan output kode React persis pakai token Design System kami.",
-                            impact: "Handoff Desain 0m"
+                            impact: "Handoff Desain Instan"
                         },
                         {
                             tech: "Automated Accessibility Testing",
                             title: "A11y Guardian",
                             desc: "AI terus-menerus scan semua komponen untuk pelanggaran WCAG, masalah kontras warna, dan kompatibilitas screen reader, auto-generate saran perbaikan.",
-                            impact: "Skor Aksesibilitas 100%"
+                            impact: "Aksesibilitas Penuh"
                         },
                         {
                             tech: "Change Impact Analysis",
                             title: "Prediktor Perubahan Token",
                             desc: "Sebelum update design token, AI simulasikan dampak visual di semua layar dan aplikasi, menampilkan preview komponen yang terpengaruh untuk mencegah breaking changes.",
-                            impact: "Breaking Changes -95%"
+                            impact: "Breaking Changes Dihapus"
                         },
                         {
                             tech: "UI Sembuh Sendiri",
                             title: "Penambal Error Runtime",
                             desc: "Kalau komponen crash di produksi, AI Design System tukar sama versi cadangan 'Safe Mode' instan, jaga aplikasi jalan sambil lapor dev.",
-                            impact: "Uptime 99.99%"
+                            impact: "Uptime Maksimal"
                         },
                         {
                             tech: "Bahasa Natural ke Desain",
                             title: "Copilot Figma",
                             desc: "Desainer jelasin flow: 'Layar login pakai OTP dan sosmed'. AI rakit layar pakai token atomik yang ada, patuh banget sama aturan spasi.",
-                            impact: "Kecepatan Prototyping 5x"
+                            impact: "Prototyping Cepat"
                         }
                     ]
                 }
@@ -2460,31 +2460,31 @@ export const WORK_CLUSTERS = [
                             tech: "Computer Vision & IoT",
                             title: "Smart Loading Docks",
                             desc: "Cameras at the warehouse scan the volume of goods being loaded. The AI predicts the exact truck fill-rate and notifies the customer: 'Your order consumes 40% of the truck, arriving in 2 hours.'",
-                            impact: "Capacity Usage +20%"
+                            impact: "Optimized Capacity"
                         },
                         {
                             tech: "Predictive ML & Weather API",
                             title: "Traffic-Aware ETAs",
                             desc: "Machine learning model trained on historical delivery data, real-time traffic, and weather patterns. Auto-adjusts ETAs and proactively notifies users before delays happen.",
-                            impact: "ETA Accuracy +35%"
+                            impact: "Higher ETA Accuracy"
                         },
                         {
                             tech: "LLM & Voice Interface",
                             title: "WhatsApp AI Concierge",
                             desc: "An AI assistant that users can text naturally: 'Where's my order?' It understands context, checks the system, and replies in Bahasa Indonesia with real-time updates.",
-                            impact: "Support Load -70%"
+                            impact: "Reduced Support Load"
                         },
                         {
                             tech: "Dynamic Routing Optimization",
                             title: "Mid-Route Correction",
                             desc: "Traffic jam ahead? AI re-routes the entire fleet in real-time, swapping drop-off orders between trucks to ensure every warung gets goods before opening time.",
-                            impact: "Late Deliveries -40%"
+                            impact: "Fewer Late Deliveries"
                         },
                         {
                             tech: "Load Balancing AI",
                             title: "Perfect Tetris",
                             desc: "AI simulates 1,000 loading configurations to maximize truck fill rate while minimizing 'Last In, First Out' friction for drivers.",
-                            impact: "Fuel Efficiency +15%"
+                            impact: "Better Fuel Efficiency"
                         }
                     ]
                 },
@@ -2499,7 +2499,7 @@ export const WORK_CLUSTERS = [
                         recruiter: {
                             label: "👔 Recruiter",
                             title: "Keandalan Layanan",
-                            text: "Menyelesaikan masalah kecemasan kritis dengan pelacakan logistik real-time. Mengurangi tiket support 60% dan menaikkan kepercayaan."
+                            text: "Menyelesaikan masalah kecemasan kritis dengan pelacakan logistik real-time. Mengurangi tiket support secara drastis dan menaikkan kepercayaan."
                         },
                         technical: {
                             label: "🤖 Sistem",
@@ -2547,31 +2547,31 @@ export const WORK_CLUSTERS = [
                             tech: "Computer Vision & IoT",
                             title: "Loading Dock Pintar",
                             desc: "Kamera di gudang men-scan volume barang yang dimuat. AI memprediksi seberapa penuh truk dan memberi notifikasi ke user: 'Pesanan Anda memakan 40% kapasitas truk, tiba dalam 2 jam.'",
-                            impact: "Kapasitas Terpakai +20%"
+                            impact: "Kapasitas Optimal"
                         },
                         {
                             tech: "Predictive ML & Weather API",
                             title: "ETA Sadar-Lalu Lintas",
                             desc: "Model machine learning yang dilatih dari data historis pengiriman, lalu lintas real-time, dan pola cuaca. Auto-adjust ETA dan proaktif notifikasi user sebelum keterlambatan terjadi.",
-                            impact: "Akurasi ETA +35%"
+                            impact: "Akurasi ETA Lebih Tinggi"
                         },
                         {
                             tech: "LLM & Voice Interface",
                             title: "Concierge AI WhatsApp",
                             desc: "Asisten AI yang bisa diajak chat natural: 'Pesanan saya dimana?' Dia paham konteks, cek sistem, dan balas dalam Bahasa Indonesia dengan update real-time.",
-                            impact: "Beban Support -70%"
+                            impact: "Beban Support Berkurang"
                         },
                         {
                             tech: "Optimasi Rute Dinamis",
                             title: "Koreksi Tengah Jalan",
                             desc: "Macet di depan? AI rute ulang seluruh armada real-time, tukar urutan drop-off antar truk biar setiap warung dapat barang sebelum buka.",
-                            impact: "Terlambat -40%"
+                            impact: "Keterlambatan Berkurang"
                         },
                         {
                             tech: "AI Penyeimbang Muatan",
                             title: "Tetris Sempurna",
                             desc: "AI simulasi 1.000 konfigurasi muat buat maksimalkan isi truk sambil minimalkan gesekan 'Masuk Terakhir, Keluar Pertama' buat sopir.",
-                            impact: "Efisiensi Bensin +15%"
+                            impact: "Efisiensi Bensin Lebih Baik"
                         }
                     ]
                 }
@@ -2652,31 +2652,31 @@ export const WORK_CLUSTERS = [
                             tech: "Personalized Coaching Agents",
                             title: "'Jarvis' for Sales",
                             desc: "An AI voice coach that listens to sales calls (privacy-safe) and gives real-time whispers: 'Talk slower', 'Mention the bundle discount now', 'They sound hesitant about price'.",
-                            impact: "Conversion Rate +25%"
+                            impact: "Higher Conversion Rate"
                         },
                         {
                             tech: "ML & Performance Analytics",
                             title: "Generator Tantangan",
                             desc: "AI menganalisis performa individu agen dan secara dinamis membuat tantangan harian yang dipersonalisasi untuk mendorong mereka keluar dari zona nyaman.",
-                            impact: "Pencapaian Target +40%"
+                            impact: "Higher Target Achievement"
                         },
                         {
                             tech: "Social AI & Network Analysis",
                             title: "Pencocokan Mentor Peer",
                             desc: "AI mengidentifikasi top performer dan agen yang struggle, lalu membuat pasangan mentor-mentee dengan poin diskusi dan transfer pola sukses yang disarankan.",
-                            impact: "Performa Tim +20%"
+                            impact: "Better Team Performance"
                         },
                         {
                             tech: "AI Emosi",
                             title: "Detektor Burnout",
                             desc: "AI analisis nada suara dan jeda aktivitas. Kalau agen kedengeran lelah, dia saranin istirahat 15 menit atau kurangi target harian dikit buat cegah resign.",
-                            impact: "Retensi Agen +25%"
+                            impact: "Improved Agent Retention"
                         },
                         {
                             tech: "RAG Graf Pengetahuan",
                             title: "Kartu Lawan Kompetitor Instan",
                             desc: "Agen di warung lihat brosur kompetitor. Mereka foto. AI baca dan bisikin: 'Minyak kita lebih murah, bilang itu sekarang!'.",
-                            impact: "Win Rate +20%"
+                            impact: "Higher Win Rate"
                         }
                     ]
                 },
@@ -2734,31 +2734,31 @@ export const WORK_CLUSTERS = [
                             tech: "Personalized Coaching Agents",
                             title: "'Jarvis' untuk Sales",
                             desc: "AI voice coach yang dengerin panggilan sales (privacy-safe) dan kasih bisikan real-time: 'Ngomongnya pelan dikit', 'Tawarin diskon bundle sekarang', 'Mereka kedengeran ragu soal harga tuh'.",
-                            impact: "Konversi +25%"
+                            impact: "Konversi Meningkat"
                         },
                         {
                             tech: "ML & Performance Analytics",
                             title: "Generator Tantangan",
                             desc: "AI menganalisis performa individu agen dan secara dinamis membuat tantangan harian yang dipersonalisasi untuk mendorong mereka keluar dari zona nyaman.",
-                            impact: "Pencapaian Target +40%"
+                            impact: "Pencapaian Target Lebih Tinggi"
                         },
                         {
                             tech: "Social AI & Network Analysis",
                             title: "Pencocokan Mentor Peer",
                             desc: "AI mengidentifikasi top performer dan agen yang struggle, lalu membuat pasangan mentor-mentee dengan poin diskusi dan transfer pola sukses yang disarankan.",
-                            impact: "Performa Tim +20%"
+                            impact: "Performa Tim Lebih Baik"
                         },
                         {
                             tech: "AI Emosi",
                             title: "Detektor Burnout",
                             desc: "AI analisis nada suara dan jeda aktivitas. Kalau agen kedengeran lelah, dia saranin istirahat 15 menit atau kurangi target harian dikit buat cegah resign.",
-                            impact: "Retensi Agen +25%"
+                            impact: "Retensi Agen Membaik"
                         },
                         {
                             tech: "RAG Graf Pengetahuan",
                             title: "Kartu Lawan Kompetitor Instan",
                             desc: "Agen di warung lihat brosur kompetitor. Mereka foto. AI baca dan bisikin: 'Minyak kita lebih murah, bilang itu sekarang!'.",
-                            impact: "Win Rate +20%"
+                            impact: "Win Rate Lebih Tinggi"
                         }
                     ]
                 },
@@ -2812,31 +2812,31 @@ export const WORK_CLUSTERS = [
                             tech: "Visual Document Understanding (VDU)",
                             title: "Semantic Search for Paper",
                             desc: "You can ask the system: 'Find me the invoice for the red chair we bought last May.' The AI visualizes the document and highlights the exact line item.",
-                            impact: "Audit Speed 100x"
+                            impact: "Instant Audit"
                         },
                         {
                             tech: "Anomaly Detection & Pattern Recognition",
                             title: "Expense Fraud Spotter",
                             desc: "AI analyzes scanned receipts for anomalies like duplicate submissions, unusual vendors, or out-of-policy amounts, flagging suspicious claims before approval.",
-                            impact: "Fraud Detection +85%"
+                            impact: "Enhanced Fraud Detection"
                         },
                         {
                             tech: "Multi-Document Intelligence",
                             title: "Contract Auto-Reconciler",
                             desc: "Upload a contract and its related invoices. AI automatically matches line items, flags discrepancies, and generates a reconciliation report.",
-                            impact: "Reconciliation Time -90%"
+                            impact: "Instant Reconciliation"
                         },
                         {
                             tech: "Predictive Analytics",
                             title: "Cashflow Crystal Ball",
                             desc: "By digitizing all pending invoices, AI predicts cash flow gaps 30 days out. 'Warning: You will be short on cash on Feb 12th unless you delay payment to Vendor X'.",
-                            impact: "Liquidity Crisis -80%"
+                            impact: "Reduced Liquidity Risk"
                         },
                         {
                             tech: "Robotic Process Automation (AI-RPA)",
                             title: "One-Click Pay",
                             desc: "AI verifies the invoice against the delivery order. If they match perfectly, it schedules the payment automatically. Humans only review the mismatches.",
-                            impact: "Manual Org Hours -95%"
+                            impact: "Eliminated Manual Hours"
                         }
                     ]
                 },
@@ -2875,31 +2875,31 @@ export const WORK_CLUSTERS = [
                             tech: "Visual Document Understanding (VDU)",
                             title: "Pencarian Semantik Kertas",
                             desc: "Anda bisa tanya sistem: 'Cariin faktur kursi merah yang kita beli Mei lalu.' AI bakal visualisasikan dokumen dan highlight baris item yang dimaksud.",
-                            impact: "Kecepatan Audit 100x"
+                            impact: "Audit Instan"
                         },
                         {
                             tech: "Anomaly Detection & Pattern Recognition",
                             title: "Pendeteksi Fraud Pengeluaran",
                             desc: "AI menganalisis bon yang di-scan untuk anomali seperti pengajuan ganda, vendor tidak biasa, atau jumlah di luar kebijakan, menandai klaim mencurigakan sebelum disetujui.",
-                            impact: "Deteksi Fraud +85%"
+                            impact: "Deteksi Fraud Meningkat"
                         },
                         {
                             tech: "Multi-Document Intelligence",
                             title: "Auto-Rekonsiliasi Kontrak",
                             desc: "Upload kontrak dan faktur terkait. AI otomatis mencocokkan item baris, menandai perbedaan, dan menghasilkan laporan rekonsiliasi.",
-                            impact: "Waktu Rekonsiliasi -90%"
+                            impact: "Rekonsiliasi Instan"
                         },
                         {
                             tech: "Analitik Prediktif",
                             title: "Bola Kristal Arus Kas",
                             desc: "Dengan digitalisasi semua tagihan tunda, AI prediksi celah arus kas 30 hari ke depan. 'Awas: Kas bakal kurang tgl 12 Feb kecuali tunda bayar Vendor X'.",
-                            impact: "Krisis Likuiditas -80%"
+                            impact: "Risiko Likuiditas Turun"
                         },
                         {
                             tech: "Otomasi Proses Robotik (AI-RPA)",
                             title: "Bayar Satu Klik",
                             desc: "AI verifikasi tagihan lawan surat jalan. Kalau cocok sempurna, dia jadwalin pembayaran otomatis. Manusia cuma review yang gak cocok.",
-                            impact: "Jam Kerja Manual -95%"
+                            impact: "Jam Kerja Manual Dihapus"
                         }
                     ]
                 }
