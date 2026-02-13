@@ -3325,12 +3325,12 @@ export const WORK_CLUSTERS = [
                         {
                             title: "Incentivize Field Agent",
                             desc: "On-boarding pop-up introducing the new 'Performance' menu. The flow guides agents to a dedicated performance page showing prioritized criteria for tracking achievements and incentives.",
-                            image: "/case-studies/stoqo-sales/incentivize-flow.png"
+                            image: "/case-studies/stoqo-sales/solution-incentivize.png"
                         },
                         {
                             title: "UI Elements Explained",
                             desc: "A breakdown of the UI components: Sticky headers for context, card hierarchy for detailed versus summary info, and explicit 'KPI' labels to guide agent focus.",
-                            image: "/case-studies/stoqo-sales/ui-elements-explained.png"
+                            image: "/case-studies/stoqo-sales/solution-ui.png"
                         }
                     ],
                     metrics: [
@@ -3421,12 +3421,12 @@ export const WORK_CLUSTERS = [
                         {
                             title: "Insentif Agen Lapangan",
                             desc: "Pop-up onboarding yang memperkenalkan menu 'Performa' baru. Alur ini memandu agen ke halaman kinerja khusus yang menampilkan kriteria prioritas untuk melacak pencapaian dan insentif.",
-                            image: "/case-studies/stoqo-sales/incentivize-flow.png"
+                            image: "/case-studies/stoqo-sales/solution-incentivize.png"
                         },
                         {
                             title: "Penjelasan Elemen UI",
                             desc: "Rincian komponen UI: Header lengket untuk konteks, hierarki kartu untuk info detail vs ringkasan, dan label 'KPI' eksplisit untuk memandu fokus agen.",
-                            image: "/case-studies/stoqo-sales/ui-elements-explained.png"
+                            image: "/case-studies/stoqo-sales/solution-ui.png"
                         }
                     ],
                     metrics: [
