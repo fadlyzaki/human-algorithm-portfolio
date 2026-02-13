@@ -1055,6 +1055,13 @@ export const NOTES = [
             tagline: "AR Commerce Experiment",
             heroImage: "airy:ui"
         },
+        context: {
+            role: "Prototyper",
+            timeline: "Jan 2018",
+            team: "Solo Project",
+            client: "Personal Experiment"
+        },
+        challenge: " The 'Trust Gap' in online shopping is real. Users hesitate to buy because they can't physically try products on. 'Pixel Perfection' in photos rarely matches 'Physical Reality', leading to high return rates and low conversion.",
         metrics: [
             { label: "Confidence", value: "Boosted" },
             { label: "Return Rate", value: "Lowered" }
