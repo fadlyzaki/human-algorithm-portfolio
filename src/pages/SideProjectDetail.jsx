@@ -314,7 +314,7 @@ const SideProjectDetail = () => {
                )}
 
                {/* C. PRODUCT SHOWCASE */}
-               {activeSolution && (
+               {!project.prototypeLink && activeSolution && (
                   <div className="space-y-16 bg-[var(--bg-surface)] p-8 md:p-12 rounded-3xl border border-[var(--border-color)]">
                      <div className="text-center max-w-2xl mx-auto mb-12">
                         <h2 className="text-3xl font-bold mb-4">The Solution</h2>
@@ -341,6 +341,44 @@ const SideProjectDetail = () => {
                               </div>
                            </div>
                         ))}
+                     </div>
+                  </div>
+               )}
+
+
+               {/* C.5. LIVE PREVIEW */}
+               {project.prototypeLink && (
+                  <div className="space-y-8">
+                     <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-4">
+                           <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                              <Monitor size={16} />
+                           </div>
+                           <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+                              {isIndonesian ? "Pratinjau Langsung" : "Live Preview"}
+                           </span>
+                        </div>
+                        <a
+                           href={project.prototypeLink}
+                           target="_blank"
+                           rel="noreferrer"
+                           className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand)] hover:underline"
+                        >
+                           {isIndonesian ? "Buka di Tab Baru" : "Open in New Tab"} <ArrowUpRight size={14} />
+                        </a>
+                     </div>
+
+                     <div className="w-full h-[600px] bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative group">
+                        <iframe
+                           src={project.prototypeLink}
+                           title="Live Preview"
+                           className="w-full h-full"
+                           loading="lazy"
+                        />
+                        {/* Overlay to prevent scroll trapping until clicked (optional, but good UX) */}
+                        {/* <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-center justify-center text-white font-mono text-sm">
+                           Interact
+                        </div> */}
                      </div>
                   </div>
                )}

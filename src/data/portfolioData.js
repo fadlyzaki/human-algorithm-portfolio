@@ -11,6 +11,7 @@ export const SIDE_PROJECTS = [
         subtitle_id: 'Portofolio Rekursif',
         stack: ["React", "Gemini", "Cortex"],
         links: { demo: "#", repo: "https://github.com/fadlyzaki/human-algorithm-portfolio" },
+        prototypeLink: "/", // Recursive Portfolio
         iconName: 'Cpu',
         featured: true,
         type: 'Meta-Project',
@@ -1029,6 +1030,7 @@ export const NOTES = [
         learnings_id: "Dalam UI bencana, warna 'Merah' aja gak cukup. Butuh arahan spesifik yang bisa dilakukan.",
         stack: ["Node.js", "PostGIS", "Flutter"],
         links: { demo: "flood.fadly.design", repo: "github.com/fadlyzaki/flood-alert" },
+        prototypeLink: "https://flood.fadly.design",
         iconName: 'AlertTriangle',
         type: 'IoT Prototype',
         hidden: false,
