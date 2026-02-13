@@ -3368,48 +3368,8 @@ export const WORK_CLUSTERS = [
                         { label: "Disputes", value: "Reduced Disputes" }
                     ],
                     learnings: "You don't always need complex gamification with avatars and leaderboards. Sometimes, the best game mechanic is just Knowing the Score.",
-                    designProcess: [
-                        {
-                            type: "research",
-                            title: "The Feelings Audit",
-                            desc: "We interviewed FAs and TLs. The sentiment was 'Anxiety'. Agents felt the system was cheating them because the calculation was opaque.",
-                            title_id: "Audit Perasaan",
-                            desc_id: "Kami interview FA dan TL. Sentimennya adalah 'Cemas'. Agen merasa sistem mencurangi mereka karena perhitungannya gaib/tidak jelas.",
-                            image: "airy:radar"
-                        },
-                        {
-                            type: "insight",
-                            title: "The Insight",
-                            desc: "Psychologically, if an agent click a button saying 'Siap Komandan!' (Ready Commander!), they are 3x more likely to actually do the work. It turns a task into a promise.",
-                            title_id: "Konsistensi Komitmen",
-                            desc_id: "Secara psikologis, kalau agen klik tombol 'Siap Komandan!', mereka 3x lebih mungkin buat beneran kerjain tugasnya. Ini ubah tugas jadi janji.",
-                            image: "airy:flow"
-                        },
-                        {
-                            type: "design",
-                            title: "Siap Komandan!",
-                            desc: "An onboarding 'ceremony' where agents acknowledge their mission. It acts as a psychological contract between the user and the app.",
-                            title_id: "Siap Komandan!",
-                            desc_id: "Sebuah 'upacara' onboarding di mana agen mengakui misi mereka. Ini bertindak sebagai kontrak psikologis antara user dan aplikasi.",
-                            image: "airy:ui"
-                        },
-                        {
-                            type: "ship",
-                            title: "The KPI Tag",
-                            desc: "We added a 'KPI' label to specific cards (e.g., 30 Outlet, 15 Outlet NC). User logic: 'If it has a yellow tag, I chase it. If not, I ignore it.'",
-                            title_id: "Tag KPI",
-                            desc_id: "Kami tambah label 'KPI' di kartu tertentu (misal: 30 Outlet). Logika user: 'Kalau ada tag kuning, gue kejar. Kalau nggak, gue cuekin'.",
-                            image: "airy:kanban"
-                        },
-                        {
-                            type: "measure",
-                            title: "Commitment",
-                            desc: "High agent commitment to targets, boosted daily activity, and reduced incentive disputes.",
-                            title_id: "Komitmen",
-                            desc_id: "Komitmen agen tinggi terhadap target, peningkatan aktivitas harian, dan pengurangan sengketa insentif.",
-                            image: "airy:chart"
-                        }
-                    ],
+
+
                     aiHypotheses: [
                         {
                             tech: "Personalized Coaching Agents",
