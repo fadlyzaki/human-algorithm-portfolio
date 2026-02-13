@@ -925,7 +925,8 @@ const ProtectedCaseStudy = () => {
                                 <ZoomableImage
                                   src={sol.image}
                                   alt={sol.title}
-                                  className="absolute inset-0 w-full h-full object-contain bg-black/5 dark:bg-black/50"
+                                  containerClassName="absolute inset-0 w-full h-full"
+                                  className="w-full h-full object-contain bg-black/5 dark:bg-black/50"
                                 />
                               ) : (
                                 <div className="absolute inset-0 flex items-center justify-center opacity-10">
