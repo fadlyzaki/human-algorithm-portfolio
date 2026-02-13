@@ -3308,7 +3308,7 @@ export const WORK_CLUSTERS = [
                         { title: "Psikologi Menunggu", desc: "Saya belajar kalau menunggu yang jelas estimasinya terasa lebih cepat daripada menunggu tanpa kabar. Estimasi kasar pun bisa menenangkan user." },
                         { title: "Masalah 'Kepagian'", desc: "Ternyata, sopir yang datang kepagian juga masalah. Warung belum siap terima barang jam 3 pagi kalau janjinya jam 5." }
                     ],
-                    solution_id: [
+                    solution: [
                         {
                             title: "Prototipe Logistik Langsung",
                             desc: "Rasakan antarmuka pelacakan pengiriman real-time. Catatan: Ini adalah rekreasi high-fidelity dari prototipe asli tahun 2018.",
@@ -3521,7 +3521,7 @@ export const WORK_CLUSTERS = [
                         { title: "Konsistensi Komitmen", desc: "Secara psikologis, kalau agen klik tombol 'Siap Komandan!', mereka 3x lebih mungkin buat beneran kerjain tugasnya. Ini ubah tugas jadi janji." },
                         { title: "Sinyal Visual", desc: "Teks itu 'noise'. Kami kumpulkan 30 metrik tapi cuma kasih label 'KPI' kuning ke 3 biji. Ini berfungsi sebagai penyaring atensi visual." }
                     ],
-                    solution_id: [
+                    solution: [
                         {
                             title: "Prototipe Langsung",
                             desc: "Interaksi langsung dengan antarmuka aplikasi seluler. Rasakan onboarding 'Siap Komandan!', pelacakan KPI, dan dasbor kinerja waktu nyata. Catatan: Ini adalah rekreasi high-fidelity dari prototipe asli tahun 2018.",
