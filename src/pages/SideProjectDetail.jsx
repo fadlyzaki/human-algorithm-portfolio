@@ -163,42 +163,41 @@ const SideProjectDetail = () => {
          <main className="relative z-10">
 
             {/* --- 2. PRODUCT HERO --- */}
-            <header className="min-h-[85vh] flex flex-col justify-center items-center px-6 pt-24 md:pt-32 text-center relative overflow-hidden bg-black dark:bg-white text-white dark:text-black transition-colors duration-500">
-               {/* Product Visual Background */}
-               <div className="absolute inset-0 z-0">
-                  <div className="w-full h-full opacity-30 grayscale blur-[2px] scale-105">
-                     {activeSnapshot.heroImage && activeSnapshot.heroImage.startsWith('airy:') ? (
-                        <div className="w-full h-full p-20 opacity-50">
-                           <AiryDiagram type={activeSnapshot.heroImage.split(':')[1]} />
-                        </div>
-                     ) : activeSnapshot.heroImage ? (
-                        <img src={activeSnapshot.heroImage} alt="Hero" className="w-full h-full object-cover" />
-                     ) : (
-                        <InteractionComponent color={brandColor} />
-                     )}
+            <header className="min-h-[85vh] flex flex-col justify-center items-center px-6 pt-24 md:pt-32 text-center relative overflow-hidden bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-500 border-b border-[var(--border-color)]">
+               {/* Product Visual Background (Airy Diagram) */}
+               <div className="absolute inset-0 z-0 pointer-events-none">
+                  <div className="w-full h-full opacity-[0.15] dark:opacity-[0.25] grayscale hover:grayscale-0 transition-all duration-1000 scale-105">
+                     <ProjectCard
+                        id={project.id}
+                        type={project.type || 'Web'}
+                        expanded={true}
+                        backgroundOnly={true}
+                     />
                   </div>
-                  <div className="absolute inset-0 bg-black/60 dark:bg-white/60"></div>
+                  {/* Gradient Overlay for Text Readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-void)] via-[var(--bg-void)]/80 to-transparent"></div>
+                  <div className="absolute inset-0 bg-[var(--bg-void)]/20 backdrop-blur-[1px]"></div>
                </div>
 
                <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 space-y-8 max-w-5xl mx-auto relative z-20">
-                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/20 dark:border-black/10 bg-black/50 dark:bg-white/50 backdrop-blur-md">
+                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)]/80 backdrop-blur-md shadow-sm">
                      <span className="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
-                     <span className="font-mono text-xs uppercase tracking-widest text-white dark:text-black">
+                     <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-primary)]">
                         {activeSnapshot.tagline}
                      </span>
                   </div>
 
-                  <h1 className="text-5xl md:text-8xl lg:text-9xl font-sans font-bold tracking-tighter text-white dark:text-black">
+                  <h1 className="text-5xl md:text-8xl lg:text-9xl font-sans font-bold tracking-tighter text-[var(--text-primary)]">
                      {activeTitle}
                   </h1>
 
-                  <p className="text-xl md:text-3xl font-light text-white/90 dark:text-black/90 max-w-3xl mx-auto leading-relaxed">
+                  <p className="text-xl md:text-3xl font-light text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed">
                      {activeTldr}
                   </p>
                </div>
 
                {/* Scroll Indicator */}
-               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce text-white dark:text-black">
+               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce text-[var(--text-secondary)]">
                   <span className="font-mono text-[10px] uppercase tracking-widest">Market Analysis</span>
                   <div className="w-px h-8 bg-current"></div>
                </div>
