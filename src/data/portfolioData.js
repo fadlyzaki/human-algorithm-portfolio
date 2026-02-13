@@ -3420,14 +3420,17 @@ export const WORK_CLUSTERS = [
                         timeline: "3 Months",
                         team: "Sales Ops & Regional Heads"
                     },
-                    challenge: "We discovered a critical 'Blind Spot'. Agents didn't know which metrics actually impacted their bonus. Was it GMV? Visit count? Active outlets? The complex formula was hidden, leading to 'Target Parking'—where agents stopped halfway because they weren't sure if their effort counted.",
+                    challenge: "Our 'Field Activators' (Sales Team) were churning faster than we could hire them. The root cause wasn't salary; it was 'KPI Anxiety'. They didn't understand how they were being measured, leading to a breakdown of trust.",
                     process: [
-                        { title: "The Feelings Audit", desc: "We interviewed FAs and TLs. The sentiment was 'Anxiety'. Agents felt the system was cheating them because the calculation was opaque.", image: "airy:radar" },
-                        { title: "Behavior Design", desc: "We decided to hide the 'Goals' (Caps) but highlight the 'Criteria'. We didn't want agents to stop once they hit a number; we wanted them to chase the maximum possible incentive.", image: "airy:flow" }
+                        { title: "Raw Data Interview", desc: "We found a critical gap: 'TL doesn't understand definition of the KPI'. If the leaders are confused, the troops are lost.", image: "airy:flow" },
+                        { title: "The Trust Equation", desc: "Our research revealed: 'No Trust = No Action'. When data reliability is questioned ('My app says X, your dash says Y'), motivation collapses.", image: "airy:venn" },
+                        { title: "Brainstorming: 'Chewable' KPI", desc: "How might we give consistent understanding? We moved from complex dashboards to 'Chewable Information'—breaking down monthly targets into daily, edible goals.", image: "airy:matrix" },
+                        { title: "Gamification Strategy", desc: "We introduced a 'Tier System' (General, Kapten) and badges to tap into internal motivation, moving beyond just monetary incentives.", image: "airy:architecture" },
+                        { title: "Offline-First Education", desc: "We created 'Video Animasi' and standardized infographics to ensure every FA, regardless of reading level, understood the rules of the game.", image: "airy:ecosystem" }
                     ],
                     insights: [
-                        { title: "The Commitment Consistency", desc: "Psychologically, if an agent click a button saying 'Siap Komandan!' (Ready Commander!), they are 3x more likely to actually do the work. It turns a task into a promise." },
-                        { title: "Visual Signaling", desc: "Text is noise. We gathered 30 metrics but only tagged 3 with a bright yellow 'KPI' badge. This functioned as a visual sieve for attention." }
+                        { title: "The 'Admin Day' Fix", desc: "We institutionalized 'Admin Day' for Team Leaders to sync data offline, reducing the 'confusion and anxiety' caused by connectivity gaps." },
+                        { title: "Melody Bypass", desc: "We found that rhythm helps retention. We used catchy, repetitive formats for KPI updates to bypass cognitive overload." }
                     ],
                     solution: [
                         {
@@ -3516,14 +3519,17 @@ export const WORK_CLUSTERS = [
                         timeline: "3 Bulan",
                         team: "Sales Ops & Regional Heads"
                     },
-                    challenge: "Kami menemukan 'Titik Buta' kritis. Agen tidak tahu metrik mana yang benar-benar pengaruhi bonus mereka. GMV? Jumlah kunjungan? Outlet aktif? Rumus rumit ini tersembunyi, bikin agen 'Parkir Target'—berhenti di tengah jalan karena gak yakin usaha mereka dihitung.",
-                    process: [
-                        { title: "Audit Perasaan", desc: "Kami interview FA dan TL. Sentimennya adalah 'Cemas'. Agen merasa sistem mencurangi mereka karena perhitungannya gaib/tidak jelas." },
-                        { title: "Desain Perilaku", desc: "Kami putuskan untuk sembunyikan 'Goals' (Batas Atas) tapi highlight 'Kriteria'. Kami gak mau agen berhenti pas udah nyampe angka tertentu; kami mau mereka kejar insentif maksimal." }
+                    challenge_id: "Kami menemukan 'Titik Buta' kritis. Agen tidak tahu metrik mana yang benar-benar pengaruh ke bonus. Rumus rumit ini tersembunyi, bikin agen 'Parkir Target' karena gak yakin usaha mereka dihitung. Akar masalahnya bukan gaji, tapi 'Kecemasan KPI'.",
+                    process_id: [
+                        { title: "Wawancara Data Mentah", desc: "Kami temukan celah kritis: 'TL tidak paham definisi KPI'. Kalau pemimpinnya bingung, pasukannya tersesat." },
+                        { title: "Persamaan Kepercayaan", desc: "Riset kami mengungkap: 'Tidak Ada Kepercayaan = Tidak Ada Aksi'. Saat keandalan data dipertanyakan ('Aplikasi saya bilang X, dashboard kamu bilang Y'), motivasi runtuh." },
+                        { title: "Brainstorming: KPI 'Kunyahan'", desc: "Gimana cara kasih pemahaman konsisten? Kami ubah dashboard rumit jadi 'Informasi Kunyahan'—memecah target bulanan jadi tujuan harian yang bisa dimakan." },
+                        { title: "Strategi Gamifikasi", desc: "Kami perkenalkan 'Sistem Tier' (Jenderal, Kapten) dan lencana untuk menyentuh motivasi internal, lebih dari sekadar insentif uang." },
+                        { title: "Edukasi Offline-First", desc: "Kami buat 'Video Animasi' dan infografis standar untuk memastikan setiap FA, apapun tingkat literasinya, paham aturan mainnya." }
                     ],
-                    insights: [
-                        { title: "Konsistensi Komitmen", desc: "Secara psikologis, kalau agen klik tombol 'Siap Komandan!', mereka 3x lebih mungkin buat beneran kerjain tugasnya. Ini ubah tugas jadi janji." },
-                        { title: "Sinyal Visual", desc: "Teks itu 'noise'. Kami kumpulkan 30 metrik tapi cuma kasih label 'KPI' kuning ke 3 biji. Ini berfungsi sebagai penyaring atensi visual." }
+                    insights_id: [
+                        { title: "Perbaikan 'Hari Admin'", desc: "Kami formalkan 'Hari Admin' bagi Team Leader untuk sinkronisasi data offline, mengurangi 'kebingungan dan kecemasan' akibat sinyal jelek." },
+                        { title: "Jalur Melodi", desc: "Kami temukan ritme bantu ingatan. Kami pakai format berulang yang catchy untuk update KPI biar gak overload kognitif." }
                     ],
                     solution: [
                         {
