@@ -3058,8 +3058,9 @@ export const WORK_CLUSTERS = [
             images: [
                 { src: "/work/stoqo-team.jpg", caption: "The Squad", span: "col-span-1 md:col-span-2 row-span-2" },
                 { src: "/work/stoqo-batik.jpg", caption: "Batik Day", span: "col-span-1 md:col-span-2 row-span-1" },
-                { src: "/work/stoqo-office.jpg", caption: "At the HQ", span: "col-span-1 row-span-1" },
-                { src: "/work/stoqo-remote.jpg", caption: "Remote Design Ops", span: "col-span-1 row-span-1" }
+                { src: "/work/stoqo-hawaiian.jpg", caption: "Hawaiian Day", span: "col-span-1 md:col-span-2 row-span-1" },
+                { src: "/work/stoqo-office.jpg", caption: "At the HQ", span: "col-span-1 md:col-span-2 row-span-2" },
+                { src: "/work/stoqo-remote.jpg", caption: "Remote Design Ops", span: "col-span-1 md:col-span-2 row-span-1" }
             ]
         },
         culture_id: {
