@@ -20,12 +20,12 @@ const WorkBento = ({ cluster }) => {
             onClick={() => navigate(`/work/${cluster.id}`)}
             className="group relative flex flex-col h-[480px] bg-gray-50 dark:bg-neutral-900 border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
         >
-            {/* 1. HEADER (Top) - Balanced Polish (App Icon Style) */}
+            {/* 1. HEADER (Top) - Fine-tuned Balance (Large Icon, Smaller Text) */}
             <div className="flex justify-between items-center p-8 pb-2 z-10 w-full gap-5">
 
-                {/* Left: Logo (App Icon Container) */}
+                {/* Left: Logo (App Icon Container - Larger) */}
                 <div className="shrink-0">
-                    <div className="w-16 h-16 bg-white dark:bg-black rounded-2xl border border-black/5 dark:border-white/10 flex items-center justify-center shadow-sm p-3.5">
+                    <div className="w-20 h-20 bg-white dark:bg-black rounded-2xl border border-black/5 dark:border-white/10 flex items-center justify-center shadow-sm p-4">
                         {cluster.logo ? (
                             <img src={cluster.logo} alt="logo" className="w-full h-full object-contain" />
                         ) : (
@@ -36,7 +36,7 @@ const WorkBento = ({ cluster }) => {
 
                 {/* Middle: Company & Role */}
                 <div className="flex-grow flex flex-col justify-center">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight mb-1">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight mb-1">
                         {cluster.company || cluster.title}
                     </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 font-medium leading-snug w-full">
