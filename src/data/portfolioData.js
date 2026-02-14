@@ -1179,7 +1179,7 @@ export const WORK_CLUSTERS = [
         miniDesc: 'Building a "Trust Layer" for the blue-collar economy. Architected a reputation system and established Design Ops practices to manage freelance workflows.',
         stats: [
             { label: 'Role', value: 'Senior Product Designer' },
-            { label: 'Contribution', value: 'Design Ops & Mentoring' },
+            { label: 'Teams', value: 'ATS HR, Customer App, Design Ops' },
             { label: 'Timeline', value: 'May 2022 - Nov 2022' },
             { label: 'Impact', value: 'Workforce Accessibility' },
             { label: 'Platform', value: 'Mobile Apps & Website' }
@@ -2130,7 +2130,7 @@ export const WORK_CLUSTERS = [
         miniDesc: 'Digitizing the supply chain by scaffolding existing relationships. Established Design Ops, mentored interns, and scaled the design team.',
         stats: [
             { label: 'Role', value: 'Product Designer 2' },
-            { label: 'Contribution', value: 'Design Ops & Hiring' },
+            { label: 'Teams', value: 'Marketplace App, Payment, Design Ops' },
             { label: 'Timeline', value: 'April 2020 - April 2022' },
             { label: 'Impact', value: 'Trust & Transaction Safety' },
             { label: 'Platform', value: 'Mobile Apps & Website' }
@@ -3047,7 +3047,7 @@ export const WORK_CLUSTERS = [
         miniDesc_id: 'Logistik bukan cuma soal mindahin kardus. Ini soal kecemasan pemilik restoran yang nunggu jam 4 pagi, bertanya-tanya apakah bahan masakannya bakal nyampe.',
         stats: [
             { label: 'Role', value: 'Product Designer' },
-            { label: 'Contribution', value: 'Intern Mentorship' },
+            { label: 'Teams', value: 'Sales App, Customer App, Warehouse, Design Ops' },
             { label: 'Timeline', value: 'March 2018 - April 2020' },
             { label: 'Impact', value: 'Operational Efficiency' },
             { label: 'Platform', value: 'Mobile Apps & Website' }

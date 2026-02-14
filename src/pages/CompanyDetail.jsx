@@ -205,7 +205,7 @@ const CompanyDetail = () => {
                             ]).map((stat, i, arr) => {
                                 const labelMap = {
                                     'Role': t('company.role'),
-                                    'Contribution': t('company.contribution') || 'Contribution',
+                                    'Teams': t('company.teams') || 'Teams',
                                     'Timeline': t('company.period'),
                                     'Impact': t('company.impact'),
                                     'Platform': t('company.platform')
