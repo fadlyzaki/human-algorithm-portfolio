@@ -386,6 +386,11 @@ const CompanyDetail = () => {
                                     <p className="text-[var(--text-secondary)] leading-relaxed">
                                         {isId ? (cluster.culture_id?.description || cluster.culture.description) : cluster.culture.description}
                                     </p>
+                                    {(isId ? (cluster.culture_id?.disclaimer || cluster.culture.disclaimer) : cluster.culture.disclaimer) && (
+                                        <p className="text-xs text-[var(--text-secondary)] opacity-60 mt-3 italic">
+                                            ✉ {isId ? (cluster.culture_id?.disclaimer || cluster.culture.disclaimer) : cluster.culture.disclaimer}
+                                        </p>
+                                    )}
                                 </div>
                             </ScrollReveal>
 
