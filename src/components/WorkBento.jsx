@@ -50,15 +50,8 @@ const WorkBento = ({ cluster }) => {
                                 src={cluster.logo}
                                 alt={cluster.company || cluster.title}
                                 className={`w-full h-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110 ${isHovered ? 'brightness-0 invert' : ''}`}
-                            // Note: Adding brightness-0 invert on hover to force logo to white if it's on brand color?
-                            // User asked for "Full Logo can be seen clearly".
-                            // Often full color logos clash with brand color backgrounds. 
-                            // I will try adding a white brightness filter ON HOVER to make it look like a white-out logo on colored bg, which is standard.
-                            // BUT user said "dont make the logo greyscale but make it full logo".
-                            // I will switch the logic: Keep full color normally. On color hover, try to keep full color but add drop shadow?
-                            // Actually, let's remove the filter for now and respect the "Full Logo" request strictly.
-                            // If it clashes, I'll fix it in next iteration.
-                            // Reverting className to just object-contain + scale.
+                            // We use brightness-0 to make it black, then invert to make it white.
+                            // This ensures high contrast against the colored background.
                             />
                         ) : (
                             <div className={`w-20 h-20 rounded-full opacity-100 ${isHovered ? 'bg-white' : 'bg-current'}`} style={{ color: isHovered ? undefined : cluster.brandColor }}></div>
@@ -81,12 +74,12 @@ const WorkBento = ({ cluster }) => {
 
             {/* 2. VISUAL (Bottom / Fill) */}
             <div className="relative flex-grow w-full overflow-hidden flex items-end justify-center px-8 pb-0 mt-4 z-10">
-                {/* Gradient Background to blend bottom if needed - Dynamic based on hover? */}
+                {/* Gradient Background to blend bottom if needed */}
                 <div
                     className="absolute inset-x-0 bottom-0 h-32 pointer-events-none z-10 opacity-50 transition-colors duration-500"
                     style={{
                         background: isHovered
-                            ? `linear-gradient(to top, ${cluster.brandColor}, transparent)` // This might look weird if brandColor is solid. Better to just fade out.
+                            ? `linear-gradient(to top, ${cluster.brandColor}, transparent)`
                             : undefined
                     }}
                 >
