@@ -30,13 +30,13 @@ const WorkBento = ({ cluster }) => {
             onClick={() => navigate(`/work/${cluster.id}`)}
             className="group relative flex flex-col h-[480px] bg-gray-50 dark:bg-neutral-900 border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
         >
-            {/* 1. HEADER (Top) - Minimalist Brand-Only Layout (Larger Logo) */}
+            {/* 1. HEADER (Top) - Maximum Logo Impact Layout */}
             <div className="flex justify-between items-center p-8 pb-2 z-10 w-full gap-4">
 
-                {/* Left Side: Logo Only (Full Color, Clear, Larger) */}
+                {/* Left Side: Logo Only (Full Color, Clear, HUGE) */}
                 <div className="shrink-0">
-                    {/* Size increased to w-20/h-20 for dominant visibility */}
-                    <div className="w-20 h-20 flex items-center justify-center">
+                    {/* Size increased to w-28/h-28 (112px) for maximum presence */}
+                    <div className="w-28 h-28 flex items-center justify-center">
                         {cluster.logo ? (
                             <img
                                 src={cluster.logo}
@@ -44,19 +44,19 @@ const WorkBento = ({ cluster }) => {
                                 className="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110"
                             />
                         ) : (
-                            <div className="w-16 h-16 bg-current rounded-full opacity-100" style={{ color: cluster.brandColor }}></div>
+                            <div className="w-20 h-20 bg-current rounded-full opacity-100" style={{ color: cluster.brandColor }}></div>
                         )}
                     </div>
                 </div>
 
                 {/* Right Side: Role + Period (Right Aligned) */}
                 <div className="flex flex-col items-end text-right">
-                    {/* Role (Top) */}
-                    <p className="text-xl text-gray-900 dark:text-gray-100 font-bold leading-tight">
+                    {/* Role (Top) - Reverted to text-base for contrast against huge logo */}
+                    <p className="text-base text-gray-900 dark:text-gray-100 font-bold leading-tight">
                         {role}
                     </p>
                     {/* Period (Bottom) - No Context */}
-                    <p className="text-base text-gray-500 dark:text-gray-400 font-medium mt-1">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium mt-1">
                         {yearDisplay}
                     </p>
                 </div>
