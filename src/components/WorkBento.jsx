@@ -102,6 +102,7 @@ const WorkBento = ({ cluster }) => {
                                 src={cluster.heroImage}
                                 alt={title}
                                 className="w-full h-auto object-cover block"
+                                style={cluster.heroImageStyle}
                             />
                             {/* Gloss/Reflection */}
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none mix-blend-overlay"></div>
