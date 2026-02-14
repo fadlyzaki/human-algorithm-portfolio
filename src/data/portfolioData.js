@@ -1181,8 +1181,8 @@ export const WORK_CLUSTERS = [
             { label: 'Role', value: 'Senior Product Designer' },
             { label: 'Contribution', value: 'Design Ops & Mentoring' },
             { label: 'Timeline', value: 'May 2022 - Nov 2022' },
-            { label: 'Impact', value: 'Scale & Reliability' },
-            { label: 'Platform', value: 'Mobile app (android) & Websites' }
+            { label: 'Impact', value: 'Workforce Accessibility' },
+            { label: 'Platform', value: 'Mobile Apps & Website' }
         ],
         culture: {
             title: "The Arena",
@@ -2132,8 +2132,8 @@ export const WORK_CLUSTERS = [
             { label: 'Role', value: 'Product Designer 2' },
             { label: 'Contribution', value: 'Design Ops & Hiring' },
             { label: 'Timeline', value: 'April 2020 - April 2022' },
-            { label: 'Impact', value: 'Marketplace Liquidity' },
-            { label: 'Platform', value: 'Web Dashboard & PWA' }
+            { label: 'Impact', value: 'Trust & Transaction Safety' },
+            { label: 'Platform', value: 'Mobile Apps & Website' }
         ],
         culture: {
             title: "The Arena",
@@ -3050,7 +3050,7 @@ export const WORK_CLUSTERS = [
             { label: 'Contribution', value: 'Intern Mentorship' },
             { label: 'Timeline', value: 'March 2018 - April 2020' },
             { label: 'Impact', value: 'Operational Efficiency' },
-            { label: 'Platform', value: 'Android App & Dashboard' }
+            { label: 'Platform', value: 'Mobile Apps & Website' }
         ],
         culture: {
             title: "The Arena",
