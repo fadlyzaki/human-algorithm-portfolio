@@ -49,9 +49,7 @@ const WorkBento = ({ cluster }) => {
                             <img
                                 src={cluster.logo}
                                 alt={cluster.company || cluster.title}
-                                className={`w-full h-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110 ${isHovered ? 'brightness-0 invert' : ''}`}
-                            // We use brightness-0 to make it black, then invert to make it white.
-                            // This ensures high contrast against the colored background.
+                                className={`w-full h-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110`}
                             />
                         ) : (
                             <div className={`w-20 h-20 rounded-full opacity-100 ${isHovered ? 'bg-white' : 'bg-current'}`} style={{ color: isHovered ? undefined : cluster.brandColor }}></div>
