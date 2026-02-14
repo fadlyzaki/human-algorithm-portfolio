@@ -39,6 +39,13 @@ const WorkBento = ({ cluster }) => {
             {/* Default Background (only visible when NOT hovered) */}
             <div className={`absolute inset-0 bg-gray-50 dark:bg-neutral-900 transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-100'}`} />
 
+            {/* Hover Action (Floating - Top Right) */}
+            <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <div className="bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
+                    View <ArrowUpRight size={12} />
+                </div>
+            </div>
+
             {/* 1. HEADER (Top) - Maximum Logo Impact + Dynamic Text Color */}
             <div className="flex justify-between items-center p-8 pb-2 z-10 w-full gap-4 relative">
 
@@ -58,13 +65,13 @@ const WorkBento = ({ cluster }) => {
                 </div>
 
                 {/* Right Side: Role + Period (Right Aligned) */}
-                <div className="flex flex-col items-end text-right transition-colors duration-300">
+                <div className="flex flex-col items-end text-right transition-colors duration-300 max-w-[140px]">
                     {/* Role (Top) */}
-                    <p className={`text-base font-bold leading-tight transition-colors duration-300 ${isHovered ? 'text-white' : 'text-gray-900 dark:text-gray-100'}`}>
+                    <p className={`text-sm font-bold leading-tight line-clamp-2 transition-colors duration-300 ${isHovered ? 'text-white' : 'text-gray-900 dark:text-gray-100'}`}>
                         {role}
                     </p>
                     {/* Period (Bottom) */}
-                    <p className={`text-sm font-medium mt-1 transition-colors duration-300 ${isHovered ? 'text-white/90' : 'text-gray-500 dark:text-gray-400'}`}>
+                    <p className={`text-xs font-medium mt-1 transition-colors duration-300 ${isHovered ? 'text-white/90' : 'text-gray-500 dark:text-gray-400'}`}>
                         {yearDisplay}
                     </p>
                 </div>
@@ -86,12 +93,7 @@ const WorkBento = ({ cluster }) => {
                     )}
                 </div>
 
-                {/* Hover Action (Floating) */}
-                <div className="absolute top-0 right-8 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                    <div className="bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
-                        View <ArrowUpRight size={12} />
-                    </div>
-                </div>
+
 
                 {/* Device / Visual Frame */}
                 <div className={`relative transform transition-transform duration-700 ${cluster.heroImage && cluster.heroImage.startsWith('/') ? 'w-[180px] mx-auto' : 'w-full max-w-[90%] group-hover:scale-105 origin-bottom'}`}>
