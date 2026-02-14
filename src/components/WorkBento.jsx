@@ -13,49 +13,35 @@ const WorkBento = ({ cluster }) => {
     // For the reference style, we focus on Company, Role, and Visual.
     const title = isId ? (cluster.title_id || cluster.title) : cluster.title;
     const role = cluster.stats?.find(s => s.label === 'Role')?.value || cluster.projects[0]?.role || "Product Designer";
-    const timeline = cluster.stats?.find(s => s.label === 'Timeline')?.value || "2020";
+    // Timeline removed as per Iteration 5
 
     return (
         <div
             onClick={() => navigate(`/work/${cluster.id}`)}
             className="group relative flex flex-col h-[480px] bg-gray-50 dark:bg-neutral-900 border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
         >
-            {/* 1. HEADER (Top) - Reference Match */}
-            <div className="flex justify-between items-start p-8 pb-2 z-10 w-full gap-4">
+            {/* 1. HEADER (Top) - Simplified Layout (No Date, Open Logo) */}
+            <div className="flex justify-between items-start p-8 pb-2 z-10 w-full gap-5">
 
-                {/* Left: Logo */}
+                {/* Left: Logo (Open, no container) */}
                 <div className="shrink-0 pt-1">
-                    <div className="w-16 h-16 bg-white dark:bg-black rounded-2xl border border-black/5 dark:border-white/10 flex items-center justify-center shadow-sm p-3">
+                    <div className="w-14 h-14 flex items-center justify-center">
                         {cluster.logo ? (
-                            <img src={cluster.logo} alt="logo" className="w-full h-full object-contain" />
+                            <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-sm" />
                         ) : (
-                            <div className="w-full h-full bg-current rounded-full opacity-20" style={{ color: cluster.brandColor }}></div>
+                            <div className="w-10 h-10 bg-current rounded-full opacity-20" style={{ color: cluster.brandColor }}></div>
                         )}
                     </div>
                 </div>
 
                 {/* Middle: Company & Role */}
-                <div className="flex-grow flex flex-col justify-start pt-1">
+                <div className="flex-grow flex flex-col justify-start pt-1.5">
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight mb-1">
                         {cluster.company || cluster.title}
                     </h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium leading-snug w-3/4">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium leading-snug w-full">
                         {role}
                     </p>
-                </div>
-
-                {/* Right: Timeline (Boxed) */}
-                <div className="shrink-0 pt-1">
-                    <div className="border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 flex flex-col items-end bg-white/50 dark:bg-black/20 backdrop-blur-sm">
-                        <span className="text-[10px] text-gray-400 dark:text-gray-500 font-mono font-bold uppercase tracking-widest whitespace-nowrap">
-                            {start}
-                        </span>
-                        {end && (
-                            <span className="text-[10px] text-gray-400 dark:text-gray-500 font-mono font-bold uppercase tracking-widest whitespace-nowrap mt-0.5">
-                                {end}
-                            </span>
-                        )}
-                    </div>
                 </div>
             </div>
 
