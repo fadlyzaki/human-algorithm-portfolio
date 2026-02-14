@@ -3667,48 +3667,6 @@ export const WORK_CLUSTERS = [
                         { label: "Cost Save", value: "Significant Savings" }
                     ],
                     learnings: "The future is inevitable, but it needs a bridge. The 'Confidence Score' was the bridge that let users trust the AI.",
-                    designProcess: [
-                        {
-                            type: "research",
-                            title: "Observation",
-                            desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals.",
-                            title_id: "Observasi",
-                            desc_id: "Saya perhatikan tim admin menghabiskan 4 jam sehari cuma buat ketik ulang data dari kertas ke komputer.",
-                            image: "airy:cycle"
-                        },
-                        {
-                            type: "insight",
-                            title: "Trust the Machine",
-                            desc: "Users were skeptical of OCR accuracy. I designed a 'Confidence Score' UI that highlighted fields the AI wasn't sure about.",
-                            title_id: "Percaya Mesin",
-                            desc_id: "User awalnya skeptis sama akurasi OCR. Saya desain UI 'Skor Kepercayaan' (Confidence Score) yang menghighlight kolom mana yang AI-nya ragu, jadi user bisa cek ulang.",
-                            image: "airy:venn"
-                        },
-                        {
-                            type: "design",
-                            title: "Smart Scan",
-                            desc: "Point the camera at an invoice, and the app extracts the Date, Total, and Vendor.",
-                            title_id: "Smart Scan",
-                            desc_id: "Arahkan kamera ke faktur, dan aplikasi langsung ekstrak Tanggal, Total, dan Vendor.",
-                            image: "airy:ui"
-                        },
-                        {
-                            type: "ship",
-                            title: "Digital Archive",
-                            desc: "A search bar that could find a receipt from 3 years ago in 2 seconds.",
-                            title_id: "Arsip Digital",
-                            desc_id: "Kolom pencarian yang bisa nemuin bon dari 3 tahun lalu dalam 2 detik.",
-                            image: "airy:chart"
-                        },
-                        {
-                            type: "measure",
-                            title: "Paper Redux",
-                            desc: "Significant reduction in paper usage, instant document retrieval, and cost savings.",
-                            title_id: "Kertas Turun",
-                            desc_id: "Pengurangan signifikan penggunaan kertas, pencarian dokumen instan, dan penghematan biaya.",
-                            image: "airy:layers"
-                        }
-                    ],
                     aiHypotheses: [
                         {
                             tech: "Visual Document Understanding (VDU)",
