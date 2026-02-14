@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { MemoryRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import {
     Signal, Wifi, Battery, LogOut, ClipboardList, History, User,
     Truck, CheckCircle, Clock, ArrowRight, Package, AlertCircle,
@@ -43,15 +42,13 @@ const StatusBar = ({ variant = "light" }) => {
     );
 };
 
-const BottomNav = () => {
-    const navigate = useNavigate();
-    const location = useLocation();
-    const isTasks = location.pathname === '/';
+const BottomNav = ({ onNavigate, currentPath }) => {
+    const isTasks = currentPath === '/';
 
     return (
         <nav className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shrink-0">
             <div className="flex justify-around items-center h-16">
-                <button onClick={() => navigate('/')} className={`flex flex-col items-center justify-center w-full h-full ${isTasks ? 'text-[#ec5b13]' : 'text-gray-500 dark:text-gray-400'}`}>
+                <button onClick={() => onNavigate('/')} className={`flex flex-col items-center justify-center w-full h-full ${isTasks ? 'text-[#ec5b13]' : 'text-gray-500 dark:text-gray-400'}`}>
                     <ClipboardList size={24} />
                     <span className="text-[10px] mt-1 font-medium">Tasks</span>
                 </button>
@@ -70,9 +67,7 @@ const BottomNav = () => {
 
 // --- SCREENS ---
 
-const TaskManagementPage = () => {
-    const navigate = useNavigate();
-
+const TaskManagementPage = ({ onNavigate }) => {
     return (
         <div className="flex flex-col h-full bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
             <StatusBar />
@@ -141,7 +136,7 @@ const TaskManagementPage = () => {
                                 <span className="font-semibold text-gray-900 dark:text-white">3 dari 7 order</span>
                             </div>
                             <button
-                                onClick={() => navigate('/checking')}
+                                onClick={() => onNavigate('/checking')}
                                 className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md shadow transition-colors flex justify-center items-center gap-2">
                                 <span>Lihat Checklist</span>
                                 <ArrowRight size={16} />
@@ -201,13 +196,12 @@ const TaskManagementPage = () => {
                     </div>
                 </section>
             </main>
-            <BottomNav />
+            <BottomNav onNavigate={onNavigate} currentPath="/" />
         </div>
     );
 };
 
-const CheckingDetailPage = () => {
-    const navigate = useNavigate();
+const CheckingDetailPage = ({ onNavigate }) => {
     const [showSuccess, setShowSuccess] = useState(false);
     const [items, setItems] = useState([
         { id: 1, name: 'Cabe Merah Keriting (Ekonomis)', qty: '20 Pak', sub: '1 kg/Pak', status: 'problem', icon: Package, iconColor: 'text-red-500', bgColor: 'bg-red-50 dark:bg-red-900/20' },
@@ -220,7 +214,7 @@ const CheckingDetailPage = () => {
             <StatusBar />
             <div className="bg-[#ec5b13] px-4 py-3 flex items-center justify-between text-white shrink-0 z-10 shadow-md">
                 <div className="flex items-center space-x-3">
-                    <button onClick={() => navigate('/')} className="hover:bg-white/20 rounded-full p-1 transition">
+                    <button onClick={() => onNavigate('/')} className="hover:bg-white/20 rounded-full p-1 transition">
                         <ArrowLeft size={24} />
                     </button>
                     <h1 className="text-lg font-semibold tracking-wide">Checking</h1>
@@ -352,7 +346,7 @@ const CheckingDetailPage = () => {
                             Data telah berhasil diverifikasi dan tersimpan di sistem.
                         </p>
                         <button
-                            onClick={() => navigate('/')}
+                            onClick={() => onNavigate('/')}
                             className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition-colors duration-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                             Lanjut Ke Checking Lain
                         </button>
@@ -366,6 +360,8 @@ const CheckingDetailPage = () => {
 // --- MAIN APP COMPONENT ---
 
 const StoqoCheckerApp = () => {
+    const [screen, setScreen] = useState('/');
+
     return (
         <div className="w-full h-full flex items-center justify-center p-4">
             {/* Phone Frame */}
@@ -373,12 +369,11 @@ const StoqoCheckerApp = () => {
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-xl z-30"></div>
 
-                <MemoryRouter>
-                    <Routes>
-                        <Route path="/" element={<TaskManagementPage />} />
-                        <Route path="/checking" element={<CheckingDetailPage />} />
-                    </Routes>
-                </MemoryRouter>
+                {screen === '/' ? (
+                    <TaskManagementPage onNavigate={setScreen} />
+                ) : (
+                    <CheckingDetailPage onNavigate={setScreen} />
+                )}
 
                 {/* Recreation Disclaimer Badge */}
                 <div className="absolute bottom-6 left-0 w-full flex justify-center pointer-events-none z-50">
