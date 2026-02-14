@@ -3640,8 +3640,13 @@ export const WORK_CLUSTERS = [
                         { title: "Observation", desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals.", image: "airy:cycle" },
                         { title: "Ideation", desc: "What if the camera was the keyboard? I mocked up an OCR flow that auto-filled the form.", image: "airy:flow" }
                     ],
-                    insights: [
-                        { title: "Trust the Machine", desc: "Users were skeptical of OCR accuracy. I designed a 'Confidence Score' UI that highlighted fields the AI wasn't sure about." }
+                    challenge_id: "Kantor kami tenggelam dalam kertas. Faktur, surat jalan, bon. Dokumen hilang, kena tumpahan kopi, dan datanya 'gelap' (tidak bisa diolah).",
+                    process_id: [
+                        { title: "Observasi", desc: "Saya perhatikan tim admin menghabiskan 4 jam sehari cuma buat ketik ulang data dari kertas ke komputer.", image: "airy:cycle" },
+                        { title: "Ideasi", desc: "Gimana kalau kamera jadi keyboard-nya? Saya mock-up alur OCR yang otomatis ngisi formulir.", image: "airy:flow" }
+                    ],
+                    insights_id: [
+                        { title: "Percaya Mesin", desc: "User awalnya skeptis sama akurasi OCR. Saya desain UI 'Skor Kepercayaan' (Confidence Score) yang menghighlight kolom mana yang AI-nya ragu, jadi user bisa cek ulang." }
                     ],
                     solution: [
                         {
@@ -3734,96 +3739,6 @@ export const WORK_CLUSTERS = [
                             title: "One-Click Pay",
                             desc: "AI verifies the invoice against the delivery order. If they match perfectly, it schedules the payment automatically. Humans only review the mismatches.",
                             impact: "Eliminated Manual Hours"
-                        }
-                    ]
-                },
-                caseStudy_id: {
-                    locked: true,
-                    summaries: {
-                        eli5: {
-                            label: "👶 ELI5",
-                            title: "Bebas Kertas",
-                            text: "Kantor penuh kertas numpuk. Saya bikin aplikasi yang bisa baca foto bon dan surat jalan otomatis. Gak perlu ketik ulang manual lagi!"
-                        },
-                        recruiter: {
-                            label: "👔 Recruiter",
-                            title: "Digitalisasi Operasional",
-                            text: "Mendesain solusi OCR mobile untuk mendigitalkan alur kerja fisik. Mengurangi entri data manual 90% dan membuat arsip digital yang searchable."
-                        },
-                        technical: {
-                            label: "🤖 Sistem",
-                            title: "OCR & Skor Kepercayaan",
-                            text: "Implementasi alur kerja camera-first dengan OCR. Desain UI 'Confidence Score' untuk menangani hasil scan yang tidak sempurna, memfasilitasi verifikasi manusia."
-                        }
-                    },
-                    snapshot: {
-                        tagline: "Memusnahkan lemari arsip, satu scan tiap kali.",
-                        heroImage: "airy:layers"
-                    },
-                    context: {
-                        client: "Ops Internal",
-                        role: "Visi Masa Depan",
-                        timeline: "1 Bulan",
-                        team: "Proyek Solo"
-                    },
-                    challenge: "Kantor kami tenggelam dalam kertas. Faktur, surat jalan, bon. Dokumen hilang, kena tumpahan kopi, dan datanya 'gelap' (tidak bisa diolah).",
-                    process: [
-                        { title: "Observasi", desc: "Saya perhatikan tim admin menghabiskan 4 jam sehari cuma buat ketik ulang data dari kertas ke komputer.", image: "airy:cycle" },
-                        { title: "Ideasi", desc: "Gimana kalau kamera jadi keyboard-nya? Saya mock-up alur OCR yang otomatis ngisi formulir.", image: "airy:flow" }
-                    ],
-                    insights: [
-                        { title: "Percaya Mesin", desc: "User awalnya skeptis sama akurasi OCR. Saya desain UI 'Skor Kepercayaan' (Confidence Score) yang menghighlight kolom mana yang AI-nya ragu, jadi user bisa cek ulang." }
-                    ],
-                    solution: [
-                        {
-                            title: "Prototipe Picker Langsung",
-                            desc: "Mengganti alur kerja kertas dengan aplikasi picker mobile. Rasakan langsung alur pemindaian, pengambilan, dan validasi barang.",
-                            componentId: "stoqo-picker-app"
-                        },
-                        {
-                            title: "QA Human-in-the-Loop",
-                            desc: "Aplikasi khusus untuk checker memverifikasi barang yang dikemas terhadap manifest. Mengurangi keluhan 'barang salah' sebesar 80%.",
-                            componentId: "stoqo-checker-app"
-                        },
-                        { title: "Smart Scan", desc: "Arahkan kamera ke faktur, dan aplikasi langsung ekstrak Tanggal, Total, dan Vendor.", image: "airy:ui" },
-                        { title: "Arsip Digital", desc: "Kolom pencarian yang bisa nemuin bon dari 3 tahun lalu dalam 2 detik.", image: "airy:chart" }
-                    ],
-                    metrics: [
-                        { label: "Kertas Turun", value: "Hapus Penggunaan Kertas" },
-                        { label: "Cari Cepat", value: "Pencarian Instan" },
-                        { label: "Hemat Biaya", value: "Hemat Biaya Signifikan" }
-                    ],
-                    learnings: "Masa depan itu pasti, tapi butuh jembatan. 'Confidence Score' adalah jembatan yang bikin user berani percaya sama AI.",
-                    aiHypotheses: [
-                        {
-                            tech: "Visual Document Understanding (VDU)",
-                            title: "Pencarian Semantik Kertas",
-                            desc: "Anda bisa tanya sistem: 'Cariin faktur kursi merah yang kita beli Mei lalu.' AI bakal visualisasikan dokumen dan highlight baris item yang dimaksud.",
-                            impact: "Audit Instan"
-                        },
-                        {
-                            tech: "Anomaly Detection & Pattern Recognition",
-                            title: "Pendeteksi Fraud Pengeluaran",
-                            desc: "AI menganalisis bon yang di-scan untuk anomali seperti pengajuan ganda, vendor tidak biasa, atau jumlah di luar kebijakan, menandai klaim mencurigakan sebelum disetujui.",
-                            impact: "Deteksi Fraud Meningkat"
-                        },
-                        {
-                            tech: "Multi-Document Intelligence",
-                            title: "Auto-Rekonsiliasi Kontrak",
-                            desc: "Upload kontrak dan faktur terkait. AI otomatis mencocokkan item baris, menandai perbedaan, dan menghasilkan laporan rekonsiliasi.",
-                            impact: "Rekonsiliasi Instan"
-                        },
-                        {
-                            tech: "Analitik Prediktif",
-                            title: "Bola Kristal Arus Kas",
-                            desc: "Dengan digitalisasi semua tagihan tunda, AI prediksi celah arus kas 30 hari ke depan. 'Awas: Kas bakal kurang tgl 12 Feb kecuali tunda bayar Vendor X'.",
-                            impact: "Risiko Likuiditas Turun"
-                        },
-                        {
-                            tech: "Otomasi Proses Robotik (AI-RPA)",
-                            title: "Bayar Satu Klik",
-                            desc: "AI verifikasi tagihan lawan surat jalan. Kalau cocok sempurna, dia jadwalin pembayaran otomatis. Manusia cuma review yang gak cocok.",
-                            impact: "Jam Kerja Manual Dihapus"
                         }
                     ]
                 }
