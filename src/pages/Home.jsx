@@ -623,6 +623,8 @@ const Portfolio = () => {
           </section >
 
           {/* SECTION 4: NOTES */}
+          {/* SECTION 4: NOTES (HIDDEN) */}
+          {/*
           <section id="notes" className="mb-40 scroll-mt-24">
             <SectionTitle
               number="4"
@@ -686,6 +688,7 @@ const Portfolio = () => {
               )}
             </div>
           </section>
+          */}
 
         </div>
 
