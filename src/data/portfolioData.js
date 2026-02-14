@@ -3058,8 +3058,8 @@ export const WORK_CLUSTERS = [
             disclaimer: "If anyone on the team is uncomfortable with their image being featured here, please reach out to me and I'll remove it immediately.",
             layout: "masonry",
             images: [
-                { src: "/work/stoqo-team.jpg", caption: "My Birthday years ago!" },
                 { src: "/work/stoqo-office.jpg", caption: "At the HQ" },
+                { src: "/work/stoqo-team.jpg", caption: "My Birthday years ago!" },
                 { src: "/work/stoqo-hawaiian.jpg", caption: "Halloween day at the office" },
                 { src: "/work/stoqo-batik.jpg", caption: "Batik Day" },
                 { src: "/work/stoqo-remote.jpg", caption: "Design Team Assemble" }
