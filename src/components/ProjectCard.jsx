@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import StoqoApp from './prototypes/StoqoApp';
 import StoqoLogisticsApp from './prototypes/StoqoLogisticsApp';
+import StoqoPickerApp from './prototypes/StoqoPickerApp';
+import StoqoCheckerApp from './prototypes/StoqoCheckerApp';
 
 // ABSTRACT UI COMPONENTS
 const WindowControls = () => (
@@ -761,6 +763,25 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
         return (
             <Container expanded={expanded} showChrome={showChrome} figIndex="S.1" schematicType="LIVE_LOGISTICS_SIMULATION">
                 <StoqoLogisticsApp />
+            </Container>
+        );
+    }
+
+
+    // 14.5. STOQO PICKER APP (Warehouse)
+    if (id === 'stoqo-picker-app') {
+        return (
+            <Container expanded={expanded} showChrome={showChrome} figIndex="S.2" schematicType="WAREHOUSE_EXECUTION">
+                <StoqoPickerApp />
+            </Container>
+        );
+    }
+
+    // 14.6. STOQO CHECKER APP (QA)
+    if (id === 'stoqo-checker-app') {
+        return (
+            <Container expanded={expanded} showChrome={showChrome} figIndex="S.3" schematicType="QUALITY_CONTROL">
+                <StoqoCheckerApp />
             </Container>
         );
     }

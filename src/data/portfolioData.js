@@ -3644,7 +3644,16 @@ export const WORK_CLUSTERS = [
                         { title: "Trust the Machine", desc: "Users were skeptical of OCR accuracy. I designed a 'Confidence Score' UI that highlighted fields the AI wasn't sure about." }
                     ],
                     solution: [
-                        { title: "Smart Scan", desc: "Point the camera at an invoice, and the app extracts the Date, Total, and Vendor.", image: "airy:ui" },
+                        {
+                            title: "Live Picker Prototype",
+                            desc: "Replaced paper workflows with a mobile picker app. Experience the scanning, picking, and validation flow directly.",
+                            componentId: "stoqo-picker-app"
+                        },
+                        {
+                            title: "Human-in-the-Loop QA",
+                            desc: "A dedicated app for checkers to verify packed items against the manifest. Reduced 'wrong item' complaints by 80%.",
+                            componentId: "stoqo-checker-app"
+                        },
                         { title: "Digital Archive", desc: "A search bar that could find a receipt from 3 years ago in 2 seconds.", image: "airy:chart" }
                     ],
                     metrics: [
