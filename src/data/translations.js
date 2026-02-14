@@ -255,7 +255,8 @@ export const translations = {
             back: "Return to Base",
             wip_label: "Work in Progress: Case details are mock data",
             impact_title: "Impact & Outcomes",
-            impact_subtitle: "Measurable Results"
+            impact_subtitle: "Measurable Results",
+            live_prototype: "Try the App"
         },
         process: {
             page_title: "Design Process",
@@ -544,7 +545,8 @@ export const translations = {
             back: "Kembali ke Markas",
             wip_label: "Sedang Dikerjakan: Detail kasus adalah data sampel",
             impact_title: "Dampak & Hasil",
-            impact_subtitle: "Hasil Terukur"
+            impact_subtitle: "Hasil Terukur",
+            live_prototype: "Coba Aplikasinya"
         },
         process: {
             page_title: "Proses Desain",
