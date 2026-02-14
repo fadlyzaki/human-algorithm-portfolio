@@ -15,9 +15,6 @@ const WorkBento = ({ cluster }) => {
     const role = cluster.stats?.find(s => s.label === 'Role')?.value || cluster.projects[0]?.role || "Product Designer";
     const timeline = cluster.stats?.find(s => s.label === 'Timeline')?.value || "2020";
 
-    // Format Timeline for the box (Split by " - " if possible for stacking)
-    const [start, end] = timeline.includes(' - ') ? timeline.split(' - ') : [timeline, ''];
-
     return (
         <div
             onClick={() => navigate(`/work/${cluster.id}`)}
