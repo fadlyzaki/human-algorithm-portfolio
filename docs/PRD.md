@@ -162,6 +162,21 @@ The homepage follows a "Priority-First" narrative flow:
 *   **[Q3]** CMS Integration: Migrating "Notes" to MDX
 *   **[Q4]** 3D WebGL Experiments: Evaluating Three.js for hero section
 
+## 7. Asset Specifications
+
+### 7.1 Work Bento Cards (Homepage)
+To maintain the "Apple-style" minimalist aesthetic, assets for the Work grid must adhere to strict dimensions and quality standards.
+
+| Component | Element | Dimensions (WxH) | Format | Notes |
+|-----------|---------|------------------|--------|-------|
+| **Card Container** | Full Card | `480px` (Fixed Height) | N/A | Width is responsive (`100%` of grid column). |
+| **Hero Visual** | Product Shot | **1200x900px** (Recommended) | PNG/WebP | Aspect ratio ~4:3. Should be a high-fidelity "Device Frame" or "Product Shot" on a transparent or matching background. Anchored to the bottom. |
+| **Company Logo** | Icon | **112x112px** (Min) | SVG/PNG | Displayed at `56x56px`. Must be transparent with sufficient contrast against white/dark backgrounds. |
+
+**Visual Guidelines:**
+*   **Hero Images**: Avoid text. Focus on UI screens, device mockups (phones, laptops), or abstract product representations.
+*   **Logos**: Use the standalone logomark (icon) rather than the full logotype if possible, for better scalability on mobile.
+
 ---
 **Document Status**: *ACTIVE*  
 **Product Owner**: Fadly Uzzaki  
