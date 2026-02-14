@@ -3056,10 +3056,9 @@ export const WORK_CLUSTERS = [
             title: "The Arena",
             description: "I worked there as one of the early product designers, touching almost every product line—from customer-facing apps to complex warehousing logistics. I also contributed to Design Ops by mentoring interns and supporting the hiring process. We built a culture of 'Get Your Hands Dirty'.",
             images: [
-                { src: "/hero-stoqo.jpg", caption: "Warehouse Visits", span: "col-span-1 md:col-span-2 row-span-2" },
-                { src: "/case-studies/delivery-methods/mvimg-20190507.jpg", caption: "The Squad", span: "col-span-1 row-span-1" },
-                { src: "/case-studies/delivery-methods/untitled-2.png", caption: "Usability Testing", span: "col-span-1 row-span-1" },
-                { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80", caption: "Townhall", span: "col-span-1 md:col-span-2 row-span-1" }
+                { src: "/work/stoqo-team.jpg", caption: "The Squad", span: "col-span-1 md:col-span-2 row-span-2" },
+                { src: "/work/stoqo-office.jpg", caption: "At the HQ", span: "col-span-1 md:col-span-2 row-span-2" },
+                { src: "/work/stoqo-remote.jpg", caption: "Remote Design Ops", span: "col-span-1 md:col-span-4 row-span-1" }
             ]
         },
         culture_id: {
