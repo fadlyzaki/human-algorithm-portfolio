@@ -21,29 +21,29 @@ const WorkBento = ({ cluster }) => {
             className="group relative flex flex-col h-[480px] bg-gray-50 dark:bg-neutral-900 border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
         >
             {/* 1. HEADER (Top) */}
-            <div className="flex justify-between items-start p-8 pb-4 z-10 w-full">
+            <div className="flex justify-between items-start p-8 pb-2 z-10 w-full">
                 {/* Left: Logo & Company */}
-                <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white dark:bg-black rounded-xl border border-black/5 dark:border-white/10 flex items-center justify-center shadow-sm">
+                <div className="flex items-center gap-5">
+                    <div className="w-14 h-14 bg-white dark:bg-black rounded-2xl border border-black/5 dark:border-white/10 flex items-center justify-center shadow-sm p-2 shrink-0">
                         {cluster.logo ? (
-                            <img src={cluster.logo} alt="logo" className="w-8 h-8 object-contain" />
+                            <img src={cluster.logo} alt="logo" className="w-full h-full object-contain" />
                         ) : (
-                            <div className="w-6 h-6 bg-current rounded-full opacity-20" style={{ color: cluster.brandColor }}></div>
+                            <div className="w-full h-full bg-current rounded-full opacity-20" style={{ color: cluster.brandColor }}></div>
                         )}
                     </div>
-                    <div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-none mb-1">
+                    <div className="flex flex-col justify-center">
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight">
                             {cluster.company || cluster.title}
                         </h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 font-medium line-clamp-1">
+                        <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
                             {role}
                         </p>
                     </div>
                 </div>
 
                 {/* Right: Timeline (Hidden on small mobile, visible on desktop) */}
-                <div className="hidden md:flex flex-col items-end text-right">
-                    <span className="text-xs text-gray-400 dark:text-gray-500 font-mono mt-1 uppercase tracking-wider">
+                <div className="hidden md:flex flex-col items-end text-right pt-1">
+                    <span className="text-[10px] text-gray-400 dark:text-gray-500 font-mono font-medium uppercase tracking-widest border border-gray-200 dark:border-gray-800 px-2 py-1 rounded-md">
                         {timeline}
                     </span>
                 </div>
