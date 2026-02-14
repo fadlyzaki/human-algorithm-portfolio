@@ -3312,6 +3312,48 @@ export const WORK_CLUSTERS = [
                         { title: "Ideasi", desc: "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Jawabannya bukan 'truk lebih cepat'—tapi 'informasi yang lebih baik'.", image: "airy:architecture" },
                         { title: "Validasi", desc: "Saya bawa high-fidelity prototype kembali ke user untuk testing sprint 3 hari. Melihat mereka bingung adalah validasi terbaik.", image: "airy:chart" }
                     ],
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "Metodologi & Studi Lapangan",
+                            desc: "Saya gak percaya tiket Jira, jadi saya ikut naik truk pengiriman. Saya lihat sopir susah payah SMS sambil nyetir. Sistemnya bukan rusak; tapi berbahaya.",
+                            title_id: "Metodologi & Studi Lapangan",
+                            desc_id: "Saya gak percaya tiket Jira, jadi saya ikut naik truk pengiriman. Saya lihat sopir susah payah SMS sambil nyetir. Sistemnya bukan rusak; tapi berbahaya.",
+                            image: "airy:timeline"
+                        },
+                        {
+                            type: "insight",
+                            title: "Insight Utama",
+                            desc: "Ngobrol sama 5 pemilik warung, saya temukan konflik aslinya: Masalahnya bukan kecepatan. Tapi keheningan. Mereka bisa terima telat; tapi gak bisa terima kalau gak dikabarin.",
+                            title_id: "Insight Utama",
+                            desc_id: "Ngobrol sama 5 pemilik warung, saya temukan konflik aslinya: Masalahnya bukan kecepatan. Tapi keheningan. Mereka bisa terima telat; tapi gak bisa terima kalau gak dikabarin.",
+                            image: "airy:venn"
+                        },
+                        {
+                            type: "design",
+                            title: "Ideasi & Ko-Kreasi",
+                            desc: "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Jawabannya bukan 'truk lebih cepat'—tapi 'informasi yang lebih baik'. Saya pimpin workshop bareng Lead Engineering.",
+                            title_id: "Ideasi & Ko-Kreasi",
+                            desc_id: "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Jawabannya bukan 'truk lebih cepat'—tapi 'informasi yang lebih baik'. Saya pimpin workshop bareng Lead Engineering.",
+                            image: "airy:architecture"
+                        },
+                        {
+                            type: "ship",
+                            title: "Prototipe Logistik",
+                            desc: "Membangun sistem pelacakan real-time yang menjembatani kurir dan pelanggan. Mengurangi 'kecemasan menunggu' dengan transparansi lokasi.",
+                            title_id: "Prototipe Logistik",
+                            desc_id: "Membangun sistem pelacakan real-time yang menjembatani kurir dan pelanggan. Mengurangi 'kecemasan menunggu' dengan transparansi lokasi.",
+                            image: "airy:flow"
+                        },
+                        {
+                            type: "measure",
+                            title: "Validasi",
+                            desc: "Saya bawa high-fidelity prototype kembali ke user untuk testing sprint 3 hari. Melihat mereka bingung adalah validasi terbaik.",
+                            title_id: "Validasi",
+                            desc_id: "Saya bawa high-fidelity prototype kembali ke user untuk testing sprint 3 hari. Melihat mereka bingung adalah validasi terbaik.",
+                            image: "airy:chart"
+                        }
+                    ],
                     insights: [
                         { title: "Psikologi Menunggu", desc: "Saya belajar kalau menunggu yang jelas estimasinya terasa lebih cepat daripada menunggu tanpa kabar. Estimasi kasar pun bisa menenangkan user." },
                         { title: "Masalah 'Kepagian'", desc: "Ternyata, sopir yang datang kepagian juga masalah. Warung belum siap terima barang jam 3 pagi kalau janjinya jam 5." }
