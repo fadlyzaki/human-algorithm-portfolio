@@ -896,12 +896,12 @@ const ProtectedCaseStudy = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
                         {caseData.solution.filter(s => s.componentId).map((sol, i) => (
                           <div key={`int-${i}`} className="flex flex-col items-center">
-                            <div className="w-full aspect-[9/19] bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] relative shadow-2xl overflow-hidden group transition-transform duration-500 hover:scale-[1.02]">
+                            <div className="w-full max-w-[320px] aspect-[9/19] bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] relative shadow-2xl overflow-hidden group transition-transform duration-500 hover:scale-[1.02]">
                               <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
                                 <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
                               </div>
                             </div>
-                            <div className="mt-8 text-center px-4">
+                            <div className="mt-8 text-center px-4 max-w-[320px]">
                               <div className="font-mono text-xs text-[var(--brand)] mb-2 uppercase tracking-widest font-bold">
                                 {t('protected.live_prototype') || "Interactive Prototype"}
                               </div>
