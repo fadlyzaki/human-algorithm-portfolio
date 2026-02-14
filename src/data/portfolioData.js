@@ -3775,6 +3775,16 @@ export const WORK_CLUSTERS = [
                         { title: "Percaya Mesin", desc: "User awalnya skeptis sama akurasi OCR. Saya desain UI 'Skor Kepercayaan' (Confidence Score) yang menghighlight kolom mana yang AI-nya ragu, jadi user bisa cek ulang." }
                     ],
                     solution: [
+                        {
+                            title: "Prototipe Picker Langsung",
+                            desc: "Mengganti alur kerja kertas dengan aplikasi picker mobile. Rasakan langsung alur pemindaian, pengambilan, dan validasi barang.",
+                            componentId: "stoqo-picker-app"
+                        },
+                        {
+                            title: "QA Human-in-the-Loop",
+                            desc: "Aplikasi khusus untuk checker memverifikasi barang yang dikemas terhadap manifest. Mengurangi keluhan 'barang salah' sebesar 80%.",
+                            componentId: "stoqo-checker-app"
+                        },
                         { title: "Smart Scan", desc: "Arahkan kamera ke faktur, dan aplikasi langsung ekstrak Tanggal, Total, dan Vendor.", image: "airy:ui" },
                         { title: "Arsip Digital", desc: "Kolom pencarian yang bisa nemuin bon dari 3 tahun lalu dalam 2 detik.", image: "airy:chart" }
                     ],
