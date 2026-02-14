@@ -891,25 +891,49 @@ const ProtectedCaseStudy = () => {
               <div className="space-y-32">
                 {caseData.solution ? (
                   <>
-                    {/* 1. Interactive Prototypes (Centered) */}
-                    {caseData.solution.filter(s => s.componentId).map((sol, i) => (
-                      <div key={`int-${i}`} className="flex flex-col items-center mb-24 last:mb-12">
-                        <div className="w-full md:w-1/2 aspect-[9/19] max-w-sm mx-auto bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] relative shadow-2xl overflow-hidden group transition-transform duration-500 hover:scale-[1.02]">
-                          <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
-                            <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
+                    {/* 1. Interactive Prototypes (Grid or Centered) */}
+                    {caseData.solution.filter(s => s.componentId).length > 1 ? (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+                        {caseData.solution.filter(s => s.componentId).map((sol, i) => (
+                          <div key={`int-${i}`} className="flex flex-col items-center">
+                            <div className="w-full aspect-[9/19] bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] relative shadow-2xl overflow-hidden group transition-transform duration-500 hover:scale-[1.02]">
+                              <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
+                                <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
+                              </div>
+                            </div>
+                            <div className="mt-8 text-center px-4">
+                              <div className="font-mono text-xs text-[var(--brand)] mb-2 uppercase tracking-widest font-bold">
+                                {t('protected.live_prototype') || "Interactive Prototype"}
+                              </div>
+                              <h3 className="text-xl font-bold mb-2">{sol.title}</h3>
+                              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                                {sol.desc}
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                        <div className="mt-10 text-center max-w-2xl mx-auto px-4">
-                          <div className="font-mono text-xs text-[var(--brand)] mb-4 uppercase tracking-widest font-bold">
-                            {t('protected.live_prototype') || "Interactive Prototype"}
-                          </div>
-                          <h3 className="text-3xl font-bold mb-4">{sol.title}</h3>
-                          <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-                            {sol.desc}
-                          </p>
-                        </div>
+                        ))}
                       </div>
-                    ))}
+                    ) : (
+                      /* Single Item Centered Layout */
+                      caseData.solution.filter(s => s.componentId).map((sol, i) => (
+                        <div key={`int-${i}`} className="flex flex-col items-center mb-24 last:mb-12">
+                          <div className="w-full md:w-1/2 aspect-[9/19] max-w-sm mx-auto bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] relative shadow-2xl overflow-hidden group transition-transform duration-500 hover:scale-[1.02]">
+                            <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
+                              <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
+                            </div>
+                          </div>
+                          <div className="mt-10 text-center max-w-2xl mx-auto px-4">
+                            <div className="font-mono text-xs text-[var(--brand)] mb-4 uppercase tracking-widest font-bold">
+                              {t('protected.live_prototype') || "Interactive Prototype"}
+                            </div>
+                            <h3 className="text-3xl font-bold mb-4">{sol.title}</h3>
+                            <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+                              {sol.desc}
+                            </p>
+                          </div>
+                        </div>
+                      ))
+                    )}
 
                     {/* 2. Static Exhibits (Grid) */}
                     {caseData.solution.filter(s => !s.componentId).length > 0 && (
