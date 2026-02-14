@@ -112,6 +112,8 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Bento Grid About Section (v2.5)**: Reorganized homepage About section into 3-column grid with 5 modular cards (Bio Narrative, ProfileScanner, Philosophy, Current Focus, Runtime Metrics) for cleaner visual hierarchy.
 *   **Case Study Layout Refactor (v2.7)**: "Solution" section for Stoqo Sales & Logistics now features a centered interactive prototype for focus, with explanatory static images arranged in a responsive 2-column grid.
 *   **Stoqo Logistics Localization (v2.7)**: Full Indonesian translation support added to Stoqo Logistics, matching the bilingual capabilities of Stoqo Sales.
+*   **Standardized Case Study Layout (v2.9)**: Unified all case studies (Stoqo, GudangAda, Lumina) to a strict 5-step `designProcess` structure (Research → Insight → Design → Ship → Measure), ensuring consistent narrative rhythm.
+*   **Interactive Solution Modules (v2.9)**: "Paper-to-Paperless" concept now features fully interactive `StoqoPickerApp` and `StoqoCheckerApp` prototypes replacing static images.
 
 ## 4. Functional Specifications
 
@@ -158,6 +160,8 @@ The homepage follows a "Priority-First" narrative flow:
 *   **[COMPLETED]** Narrative Refinement: "Resilience" Story & "Scientific Design Engineer" Positioning
 *   **[COMPLETED]** Master's Degree Integration: `KNOWLEDGE_INSTALL` in System Runtime Log
 *   **[COMPLETED]** Stoqo Logistics Visuals & Localization (Centered Prototype + Grid Layout + ID Language)
+*   **[COMPLETED]** Unified 5-Step Design Process (All Case Studies Standardized)
+*   **[COMPLETED]** Interactive Warehouse Prototypes (Stoqo Picker & Checker Apps)
 *   **[Q2]** Enhanced AI Agent: Expand semantic memory with real RAG backend
 *   **[Q3]** CMS Integration: Migrating "Notes" to MDX
 *   **[Q4]** 3D WebGL Experiments: Evaluating Three.js for hero section
