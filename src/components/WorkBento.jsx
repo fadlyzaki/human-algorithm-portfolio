@@ -94,17 +94,16 @@ const WorkBento = ({ cluster }) => {
                 </div>
 
                 {/* Device / Visual Frame */}
-                {/* We simulate a 'device' look by adding a border/shadow to the image */}
-                <div className="relative w-full max-w-[90%] transform transition-transform duration-700 group-hover:scale-105 group-hover:-translate-y-2 origin-bottom">
+                <div className={`relative transform transition-transform duration-700 group-hover:scale-105 group-hover:-translate-y-2 origin-bottom ${cluster.heroImage && cluster.heroImage.startsWith('/') ? 'w-full max-w-[55%] mx-auto' : 'w-full max-w-[90%]'}`}>
                     {cluster.heroImage && cluster.heroImage.startsWith('/') ? (
-                        <div className="relative rounded-t-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] border-t-[6px] border-x-[6px] border-gray-900/10 dark:border-white/10 bg-gray-900">
+                        <div className="relative rounded-t-[20px] overflow-hidden shadow-[0_8px_40px_-8px_rgba(0,0,0,0.3)] border-t-[4px] border-x-[4px] border-white/20 dark:border-white/15 bg-white dark:bg-neutral-800">
                             <img
                                 src={cluster.heroImage}
                                 alt={title}
-                                className="w-full h-full object-cover object-top"
+                                className="w-full h-auto object-cover object-top"
                             />
                             {/* Gloss/Reflection */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none mix-blend-overlay"></div>
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none mix-blend-overlay"></div>
                         </div>
                     ) : (
                         <div className="w-full aspect-[4/3] bg-white dark:bg-black/20 rounded-t-2xl border-t border-x border-black/5 flex items-center justify-center relative overflow-hidden shadow-xl">
