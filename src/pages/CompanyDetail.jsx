@@ -413,6 +413,25 @@ const CompanyDetail = () => {
                                         </ScrollReveal>
                                     ))}
                                 </div>
+                            ) : cluster.culture.layout === 'symmetric-grid' ? (
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    {cluster.culture.images.map((img, i) => (
+                                        <ScrollReveal key={i} delay={i * 100} className={`relative group overflow-hidden rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] ${img.span || ''}`}>
+                                            <ZoomableImage
+                                                src={img.src}
+                                                alt={img.caption}
+                                                className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0 ${img.pos || 'object-top'}`}
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                                <div className="absolute bottom-4 left-4">
+                                                    <span className="text-xs font-mono text-white/90 uppercase tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10">
+                                                        {img.caption}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </ScrollReveal>
+                                    ))}
+                                </div>
                             ) : (
                                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[240px]">
                                     {cluster.culture.images.map((img, i) => (
