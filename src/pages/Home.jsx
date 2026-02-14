@@ -17,7 +17,7 @@ import DraggablePhoto from '../components/DraggablePhoto';
 import ProfileScanner from '../components/ProfileScanner';
 import ProjectCard from '../components/ProjectCard';
 import ScrollReveal from '../components/ScrollReveal';
-import WorkHoloDeck from '../components/WorkHoloDeck';
+import WorkBento from '../components/WorkBento';
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import { useHandCursor } from '../context/HandCursorContext';
@@ -434,10 +434,10 @@ const Portfolio = () => {
               <SectionTitle number="1" title={t('home.section_work')} />
             </ScrollReveal>
 
-            <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {WORK_CLUSTERS.map((cluster, idx) => (
                 <ScrollReveal key={idx} delay={idx * 150}>
-                  <WorkHoloDeck cluster={cluster} />
+                  <WorkBento cluster={cluster} />
                 </ScrollReveal>
               ))}
             </div>
