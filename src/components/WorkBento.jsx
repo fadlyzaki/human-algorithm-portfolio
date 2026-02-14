@@ -12,15 +12,25 @@ const WorkBento = ({ cluster }) => {
     // Extract data
     const title = isId ? (cluster.title_id || cluster.title) : cluster.title;
     const role = cluster.stats?.find(s => s.label === 'Role')?.value || cluster.projects[0]?.role || "Product Designer";
-    const timeline = cluster.stats?.find(s => s.label === 'Timeline')?.value || "2020";
+    const rawTimeline = cluster.stats?.find(s => s.label === 'Timeline')?.value || "2020";
     const platform = cluster.stats?.find(s => s.label === 'Platform')?.value || cluster.projects[0]?.type || "Product";
 
-    // Clean up platform text (e.g. "Mobile app (android) & Websites" -> "Mobile & Web")
+    // Clean up platform text
     const cleanPlatform = platform.replace('Mobile app (android)', 'Mobile').replace('Websites', 'Web').split('&')[0].trim();
 
+    // Parse Timeline: "May 2022 - Nov 2022" -> "2022", "2021 - Present" -> "2021 - Present"
+    const years = rawTimeline.match(/\d{4}|Present/g) || [];
+    let yearDisplay = years[0] || rawTimeline;
+    if (years.length > 1) {
+        if (years[0] === years[1]) {
+            yearDisplay = years[0]; // Same year
+        } else {
+            yearDisplay = `${years[0]} - ${years[1]}`; // Range
+        }
+    }
+
     // Construct Meta String: "Context — Date"
-    // e.g., "Mobile — 2022"
-    const metaString = `${cleanPlatform} — ${timeline.split('-')[0].trim()}`;
+    const metaString = `${cleanPlatform} — ${yearDisplay}`;
 
     return (
         <div
@@ -32,10 +42,14 @@ const WorkBento = ({ cluster }) => {
 
                 {/* Left Side: Logo Icon + Company Name (Row) */}
                 <div className="flex items-center gap-3">
-                    {/* Logo: Small, Clean, No Container */}
+                    {/* Logo: Optimized for Brand Mark feel */}
                     <div className="w-8 h-8 flex items-center justify-center shrink-0">
                         {cluster.logo ? (
-                            <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-sm grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100" />
+                            <img
+                                src={cluster.logo}
+                                alt="logo"
+                                className="w-full h-full object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                            />
                         ) : (
                             <div className="w-6 h-6 bg-current rounded-full opacity-40" style={{ color: cluster.brandColor }}></div>
                         )}
