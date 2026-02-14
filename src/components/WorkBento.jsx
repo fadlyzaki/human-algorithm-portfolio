@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import ProjectCard from './ProjectCard';
 
@@ -10,94 +10,75 @@ const WorkBento = ({ cluster }) => {
     const isId = language === 'id';
 
     // Extract data
+    // For the reference style, we focus on Company, Role, and Visual.
     const title = isId ? (cluster.title_id || cluster.title) : cluster.title;
-    const subtitle = isId ? (cluster.subtitle_id || cluster.subtitle) : cluster.subtitle;
-    const desc = isId ? (cluster.hook_id || cluster.hook) : cluster.hook;
-    const brandColor = cluster.brandColor || '#3B82F6';
+    const role = cluster.stats?.find(s => s.label === 'Role')?.value || cluster.projects[0]?.role || "Product Designer";
+    const timeline = cluster.stats?.find(s => s.label === 'Timeline')?.value || "2020";
 
     return (
         <div
             onClick={() => navigate(`/work/${cluster.id}`)}
-            className="group relative flex flex-col h-full bg-[var(--bg-card)] border border-[var(--border-color)] rounded-3xl overflow-hidden cursor-pointer hover:border-[var(--accent-blue)]/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
+            className="group relative flex flex-col h-[480px] bg-gray-50 dark:bg-neutral-900 border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
         >
-            {/* 1. HERO VISUAL AREA (Top Half) */}
-            <div className="relative h-64 md:h-80 overflow-hidden bg-gray-100 dark:bg-gray-900">
-                {/* Background Image / Airy Diagram */}
-                <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
-                    {/* If heroImage exists and is an image path, use img. If it's 'airy:', use ProjectCard? 
-               Actually, ProjectCard might be too complex for a small preview if not careful, 
-               but let's stick to the reference style: Product Showcase. 
-               The reference shows specific product UI. 
-               We'll use the 'heroImage' from cluster if available, or fall back to ProjectCard visual.
-           */}
-                    {cluster.heroImage && cluster.heroImage.startsWith('/') ? (
-                        <img
-                            src={cluster.heroImage}
-                            alt={title}
-                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                        />
-                    ) : (
-                        <div className="w-full h-full p-8 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-opacity">
-                            <ProjectCard id={cluster.id} expanded={true} showChrome={false} backgroundOnly={true} />
-                        </div>
-                    )}
-                </div>
-
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent opacity-80"></div>
-
-                {/* Floating Logo/Icon */}
-                <div className="absolute top-6 left-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 flex items-center justify-center shadow-lg">
-                    {cluster.logo ? (
-                        <img src={cluster.logo} alt="logo" className="w-8 h-8 object-contain" />
-                    ) : (
-                        <div className="w-full h-full bg-current opacity-20" style={{ color: brandColor }}></div>
-                    )}
-                </div>
-
-                {/* Hover Action */}
-                <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                    <div className="bg-white dark:bg-black text-black dark:text-white px-4 py-2 rounded-full font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg">
-                        View Case <ArrowUpRight size={14} />
+            {/* 1. HEADER (Top) */}
+            <div className="flex justify-between items-start p-8 pb-4 z-10 w-full">
+                {/* Left: Logo & Company */}
+                <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-white dark:bg-black rounded-xl border border-black/5 dark:border-white/10 flex items-center justify-center shadow-sm">
+                        {cluster.logo ? (
+                            <img src={cluster.logo} alt="logo" className="w-8 h-8 object-contain" />
+                        ) : (
+                            <div className="w-6 h-6 bg-current rounded-full opacity-20" style={{ color: cluster.brandColor }}></div>
+                        )}
                     </div>
+                    <div>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-none mb-1">
+                            {cluster.company || cluster.title}
+                        </h3>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 font-medium line-clamp-1">
+                            {role}
+                        </p>
+                    </div>
+                </div>
+
+                {/* Right: Timeline (Hidden on small mobile, visible on desktop) */}
+                <div className="hidden md:flex flex-col items-end text-right">
+                    <span className="text-xs text-gray-400 dark:text-gray-500 font-mono mt-1 uppercase tracking-wider">
+                        {timeline}
+                    </span>
                 </div>
             </div>
 
-            {/* 2. CONTENT AREA (Bottom Half) */}
-            <div className="flex flex-col flex-grow p-8 pt-2 relative">
-                <div className="mb-4">
-                    <div className="flex items-center gap-3 mb-2">
-                        <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--accent-blue)] border border-[var(--accent-blue)]/20 px-2 py-1 rounded bg-[var(--accent-blue)]/5">
-                            {subtitle}
-                        </span>
+            {/* 2. VISUAL (Bottom / Fill) */}
+            <div className="relative flex-grow w-full overflow-hidden flex items-end justify-center px-8 pb-0 mt-4">
+                {/* Gradient Background to blend bottom if needed */}
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-gray-50 dark:from-neutral-900 to-transparent pointer-events-none z-10 opacity-50"></div>
+
+                {/* Hover Action (Floating) */}
+                <div className="absolute top-0 right-8 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <div className="bg-white dark:bg-black text-black dark:text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
+                        View <ArrowUpRight size={12} />
                     </div>
-                    <h3 className="text-3xl font-serif italic text-[var(--text-primary)] leading-tight mb-3 group-hover:text-[var(--accent-blue)] transition-colors">
-                        {title}
-                    </h3>
-                    <p className="text-[var(--text-secondary)] font-light leading-relaxed line-clamp-3">
-                        {desc}
-                    </p>
                 </div>
 
-                {/* Footer / Stats or mini-projects */}
-                <div className="mt-auto pt-6 border-t border-[var(--border-color)] flex items-center justify-between">
-                    <div className="flex -space-x-2 overflow-hidden">
-                        {/* Maps small circles for project previews or just abstract dots */}
-                        {cluster.projects.slice(0, 3).map((p, i) => (
-                            <div key={i} className="inline-block h-6 w-6 rounded-full ring-2 ring-[var(--bg-card)] bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-[8px] font-mono text-[var(--text-secondary)]">
-                                {i + 1}
-                            </div>
-                        ))}
-                        {cluster.projects.length > 3 && (
-                            <div className="inline-block h-6 w-6 rounded-full ring-2 ring-[var(--bg-card)] bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-[8px] font-mono text-[var(--text-secondary)]">
-                                +
-                            </div>
-                        )}
-                    </div>
-
-                    <span className="font-mono text-xs text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors flex items-center gap-2">
-                        {cluster.projects.length} {isId ? 'Proyek' : 'Projects'} <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                    </span>
+                {/* Device / Visual Frame */}
+                {/* We simulate a 'device' look by adding a border/shadow to the image */}
+                <div className="relative w-full max-w-[90%] transform transition-transform duration-700 group-hover:scale-105 group-hover:-translate-y-2 origin-bottom">
+                    {cluster.heroImage && cluster.heroImage.startsWith('/') ? (
+                        <div className="relative rounded-t-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] border-t-[6px] border-x-[6px] border-gray-900/10 dark:border-white/10 bg-gray-900">
+                            <img
+                                src={cluster.heroImage}
+                                alt={title}
+                                className="w-full h-auto object-cover block"
+                            />
+                            {/* Gloss/Reflection */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none mix-blend-overlay"></div>
+                        </div>
+                    ) : (
+                        <div className="w-full aspect-[4/3] bg-white dark:bg-black/20 rounded-t-2xl border-t border-x border-black/5 flex items-center justify-center relative overflow-hidden shadow-xl">
+                            <ProjectCard id={cluster.id} expanded={true} showChrome={false} backgroundOnly={false} />
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
