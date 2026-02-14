@@ -1174,7 +1174,7 @@ export const WORK_CLUSTERS = [
         motivation_id: "Sebagai seorang perantau, saya merasakan peliknya kehidupan pekerja kerah biru yang mayoritas juga perantau. Saya bergabung untuk membantu membangun sistem yang menghargai perjuangan dan martabat mereka.",
         brandColor: '#1AA8B4', // Lumina Teal
         linkedinUrl: 'https://www.linkedin.com/company/luminatechnologies/about/',
-        heroImage: '/images/lumina_hero_mobile.png',
+        heroImage: '/images/gudangada_hero_mobile.png',
         hook: 'Engineering dignity into the blue-collar job hunt. Reducing the cognitive load of application forms for millions of workers.',
         miniDesc: 'Building a "Trust Layer" for the blue-collar economy. Architected a reputation system and established Design Ops practices to manage freelance workflows.',
         stats: [
@@ -2125,7 +2125,7 @@ export const WORK_CLUSTERS = [
         hook_id: 'Membangun rasa aman di pasar low-trust. Memastikan pemilik warung merasa setenang belanja stok 5 juta seperti saat jajan 5 ribu.',
         brandColor: '#00D1C7', // GudangAda Cyan
         linkedinUrl: 'https://www.linkedin.com/company/gudangada/about/',
-        heroImage: '/images/gudangada_hero_mobile.png',
+        heroImage: '/images/lumina_hero_mobile.png',
         hook: 'Systematizing trust in a chaotic market. Designing fail-safe transaction flows for the $100B B2B supply chain.',
         miniDesc: 'Digitizing the supply chain by scaffolding existing relationships. Established Design Ops, mentored interns, and scaled the design team.',
         stats: [
