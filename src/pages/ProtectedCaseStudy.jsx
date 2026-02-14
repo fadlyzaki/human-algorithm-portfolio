@@ -982,60 +982,58 @@ const ProtectedCaseStudy = () => {
             )}
           </div>
         </section>
-      </>
+
+        {/* 6. IMPACT & OUTCOMES - Standardized Lumina Style */}
+        {!caseData.designProcess && caseData.metrics && caseData.metrics.length > 0 && (
+          <section className="max-w-6xl mx-auto px-6 py-32">
+            <div className="flex items-baseline justify-between mb-16 border-b border-[var(--border-color)] pb-6">
+              <h2 className="text-4xl font-serif italic">{t('protected.impact_title') || "Impact & Outcomes"}</h2>
+              <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.impact_subtitle') || "Measurable Results"}</span>
+            </div>
+
+            <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl overflow-hidden shadow-sm">
+              <div className="flex flex-col md:flex-row">
+                {caseData.metrics.map((m, i) => (
+                  <div key={i} className="flex-1 p-8 md:p-12 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-[var(--border-color)] last:border-0 hover:bg-[var(--bg-card)] transition-colors group">
+                    <div className="text-3xl md:text-5xl font-mono font-bold tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors mb-4 break-words max-w-full leading-tight">
+                      {m.value}
+                    </div>
+                    <div className="text-xs md:text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] opacity-70">
+                      {m.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         )}
 
-      {/* 6. IMPACT & OUTCOMES - Standardized Lumina Style */}
-      {!caseData.designProcess && caseData.metrics && caseData.metrics.length > 0 && (
-        <section className="max-w-6xl mx-auto px-6 py-32">
-          <div className="flex items-baseline justify-between mb-16 border-b border-[var(--border-color)] pb-6">
-            <h2 className="text-4xl font-serif italic">{t('protected.impact_title') || "Impact & Outcomes"}</h2>
-            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.impact_subtitle') || "Measurable Results"}</span>
-          </div>
+        {/* 7. AI BRAINSTORM (HUMAN + AI COLLABORATION) */}
+        {(caseData.aiHypotheses || caseData.aiHypothesis) && (
+          <AIBrainstorm
+            hypotheses={caseData.aiHypotheses || [caseData.aiHypothesis]}
+            t={t}
+          />
+        )}
 
-          <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl overflow-hidden shadow-sm">
-            <div className="flex flex-col md:flex-row">
-              {caseData.metrics.map((m, i) => (
-                <div key={i} className="flex-1 p-8 md:p-12 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-[var(--border-color)] last:border-0 hover:bg-[var(--bg-card)] transition-colors group">
-                  <div className="text-3xl md:text-5xl font-mono font-bold tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors mb-4 break-words max-w-full leading-tight">
-                    {m.value}
-                  </div>
-                  <div className="text-xs md:text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] opacity-70">
-                    {m.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* 8. TAKEAWAYS (ARCHITECT'S NOTE) */}
+        <section className="max-w-3xl mx-auto px-6 py-40 text-center">
+          <FileText className="mx-auto text-[var(--text-secondary)] mb-8" size={32} />
+          <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">{t('protected.architect_debrief') || "// Architect's Debrief"}</h4>
+          <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
+            "{caseData.learnings || caseData.memo || "Confidential"}"
+          </p>
+          <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
         </section>
-      )}
 
-      {/* 7. AI BRAINSTORM (HUMAN + AI COLLABORATION) */}
-      {(caseData.aiHypotheses || caseData.aiHypothesis) && (
-        <AIBrainstorm
-          hypotheses={caseData.aiHypotheses || [caseData.aiHypothesis]}
-          t={t}
-        />
-      )}
+        {/* FOOTER */}
+        <footer className="border-t border-[var(--border-color)] py-12 text-center opacity-40 hover:opacity-100 transition-opacity">
+          <p className="font-mono text-[10px] uppercase tracking-widest">
+            Human By Design Portfolio · Fadly Uzzaki 🧢 © 2025-2026
+          </p>
+        </footer>
 
-      {/* 8. TAKEAWAYS (ARCHITECT'S NOTE) */}
-      <section className="max-w-3xl mx-auto px-6 py-40 text-center">
-        <FileText className="mx-auto text-[var(--text-secondary)] mb-8" size={32} />
-        <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">{t('protected.architect_debrief') || "// Architect's Debrief"}</h4>
-        <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
-          "{caseData.learnings || caseData.memo || "Confidential"}"
-        </p>
-        <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-[var(--border-color)] py-12 text-center opacity-40 hover:opacity-100 transition-opacity">
-        <p className="font-mono text-[10px] uppercase tracking-widest">
-          Human By Design Portfolio · Fadly Uzzaki 🧢 © 2025-2026
-        </p>
-      </footer>
-
-    </main>
+      </main>
     </div >
   );
 };
