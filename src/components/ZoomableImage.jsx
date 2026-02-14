@@ -51,7 +51,7 @@ const ZoomableImage = ({
         <>
             {/* Thumbnail with zoom indicator */}
             <div
-                className={`relative cursor-zoom-in group ${containerClassName}`}
+                className={`relative cursor-zoom-in group w-full h-full ${containerClassName}`}
                 onClick={handleClick}
             >
                 <img
