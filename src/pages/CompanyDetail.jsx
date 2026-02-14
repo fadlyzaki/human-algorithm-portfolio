@@ -395,7 +395,7 @@ const CompanyDetail = () => {
                                         <ZoomableImage
                                             src={img.src}
                                             alt={img.caption}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
+                                            className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0 ${img.pos || 'object-top'}`}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                                             <div className="absolute bottom-4 left-4">
