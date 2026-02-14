@@ -193,28 +193,31 @@ const CompanyDetail = () => {
                         </ScrollReveal>
                     </div>
 
-                    {/* Stats Ticker */}
-                    <div className="border-t border-[var(--border-color)] py-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-                        {(cluster.stats || [
-                            { label: 'Role', value: 'Lead Product Designer' },
-                            { label: 'Timeline', value: '2020 - 2023' },
-                            { label: 'Impact', value: 'Scale & Reliability' },
-                            { label: 'Platform', value: 'Mobile app (android) & Websites' }
-                        ]).map((stat, i) => {
-                            // Map labels to translations
-                            const labelMap = {
-                                'Role': t('company.role'),
-                                'Timeline': t('company.period'),
-                                'Impact': t('company.impact'),
-                                'Platform': t('company.platform')
-                            };
-                            return (
-                                <div key={i} className="flex flex-col">
-                                    <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-1">{labelMap[stat.label] || stat.label}</span>
-                                    <span className="font-medium text-sm md:text-base">{stat.value}</span>
-                                </div>
-                            );
-                        })}
+                    {/* Stats Bar */}
+                    <div className="border-t border-[var(--border-color)] relative">
+                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-30"></div>
+                        <div className="py-6 grid grid-cols-3 md:grid-cols-5 gap-y-5 gap-x-6">
+                            {(cluster.stats || [
+                                { label: 'Role', value: 'Lead Product Designer' },
+                                { label: 'Timeline', value: '2020 - 2023' },
+                                { label: 'Impact', value: 'Workforce Accessibility' },
+                                { label: 'Platform', value: 'Mobile Apps & Website' }
+                            ]).map((stat, i, arr) => {
+                                const labelMap = {
+                                    'Role': t('company.role'),
+                                    'Contribution': t('company.contribution') || 'Contribution',
+                                    'Timeline': t('company.period'),
+                                    'Impact': t('company.impact'),
+                                    'Platform': t('company.platform')
+                                };
+                                return (
+                                    <div key={i} className={`flex flex-col ${i > 0 ? 'md:border-l md:border-[var(--border-color)] md:pl-6' : ''}`}>
+                                        <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-1.5">{labelMap[stat.label] || stat.label}</span>
+                                        <span className="font-medium text-sm text-[var(--text-primary)]">{stat.value}</span>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
                 </header>
 
