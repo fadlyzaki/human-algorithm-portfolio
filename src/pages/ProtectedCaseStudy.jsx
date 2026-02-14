@@ -880,160 +880,162 @@ const ProtectedCaseStudy = () => {
                 </div>
               </section>
             )}
-
-            {/* 5. SOLUTION (Legacy) */}
-            <section className="max-w-6xl mx-auto px-6 py-32">
-              <div className="flex items-baseline justify-between mb-16">
-                <h2 className="text-4xl font-serif italic">{t('protected.solution_title') || "The Solution"}</h2>
-                <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.solution_subtitle') || "Interface Design"}</span>
-              </div>
-
-              <div className="space-y-32">
-                {caseData.solution ? (
-                  <>
-                    {/* 1. Interactive Prototypes (Grid or Centered) */}
-                    {caseData.solution.filter(s => s.componentId).length > 1 ? (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-                        {caseData.solution.filter(s => s.componentId).map((sol, i) => (
-                          <div key={`int-${i}`} className="flex flex-col items-center">
-                            <div className="w-full max-w-[320px] aspect-[9/19] bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] relative shadow-2xl overflow-hidden group transition-transform duration-500 hover:scale-[1.02]">
-                              <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
-                                <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
-                              </div>
-                            </div>
-                            <div className="mt-8 text-center px-4 max-w-[320px]">
-                              <div className="font-mono text-xs text-[var(--brand)] mb-2 uppercase tracking-widest font-bold">
-                                {t('protected.live_prototype') || "Interactive Prototype"}
-                              </div>
-                              <h3 className="text-xl font-bold mb-2">{sol.title}</h3>
-                              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                                {sol.desc}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      /* Single Item Centered Layout */
-                      caseData.solution.filter(s => s.componentId).map((sol, i) => (
-                        <div key={`int-${i}`} className="flex flex-col items-center mb-24 last:mb-12">
-                          <div className="w-full md:w-1/2 aspect-[9/19] max-w-sm mx-auto bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] relative shadow-2xl overflow-hidden group transition-transform duration-500 hover:scale-[1.02]">
-                            <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
-                              <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
-                            </div>
-                          </div>
-                          <div className="mt-10 text-center max-w-2xl mx-auto px-4">
-                            <div className="font-mono text-xs text-[var(--brand)] mb-4 uppercase tracking-widest font-bold">
-                              {t('protected.live_prototype') || "Interactive Prototype"}
-                            </div>
-                            <h3 className="text-3xl font-bold mb-4">{sol.title}</h3>
-                            <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-                              {sol.desc}
-                            </p>
-                          </div>
-                        </div>
-                      ))
-                    )}
-
-                    {/* 2. Static Exhibits (Grid) */}
-                    {caseData.solution.filter(s => !s.componentId).length > 0 && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 mt-16 border-t border-[var(--border-color)] pt-16">
-                        {caseData.solution.filter(s => !s.componentId).map((sol, i) => (
-                          <div key={`static-${i}`} className="flex flex-col group">
-                            <div className="aspect-video bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] relative shadow-lg overflow-hidden mb-6 transition-all duration-300 group-hover:shadow-xl group-hover:border-[var(--brand)]/30">
-                              {sol.image && sol.image.startsWith('airy:') ? (
-                                <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)] p-6">
-                                  <AiryDiagram type={sol.image.split(':')[1]} />
-                                </div>
-                              ) : sol.image ? (
-                                <ZoomableImage
-                                  src={sol.image}
-                                  alt={sol.title}
-                                  containerClassName="absolute inset-0 w-full h-full"
-                                  className="w-full h-full object-contain bg-black/5 dark:bg-black/50"
-                                />
-                              ) : (
-                                <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                                  <Monitor size={48} />
-                                </div>
-                              )}
-                            </div>
-                            <div>
-                              <div className="font-mono text-xs text-[var(--text-secondary)] mb-3 uppercase tracking-widest flex items-center gap-2">
-                                <span className="w-6 h-[1px] bg-[var(--text-secondary)] opacity-50"></span>
-                                {t('protected.exhibit') || "Exhibit"} {String.fromCharCode(65 + i)}
-                              </div>
-                              <h3 className="text-xl font-bold mb-3 group-hover:text-[var(--brand)] transition-colors">{sol.title}</h3>
-                              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                                {sol.desc}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <div className="p-12 border border-dashed border-[var(--border-color)] text-center text-[var(--text-secondary)] font-mono">
-                    {t('protected.classified_arch') || "[ CLASSIFIED SYSTEM ARCHITECTURE ]"}
-                  </div>
-                )}
-              </div>
-            </section>
           </>
         )}
 
-        {/* 6. IMPACT & OUTCOMES - Standardized Lumina Style */}
-        {!caseData.designProcess && caseData.metrics && caseData.metrics.length > 0 && (
-          <section className="max-w-6xl mx-auto px-6 py-32">
-            <div className="flex items-baseline justify-between mb-16 border-b border-[var(--border-color)] pb-6">
-              <h2 className="text-4xl font-serif italic">{t('protected.impact_title') || "Impact & Outcomes"}</h2>
-              <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.impact_subtitle') || "Measurable Results"}</span>
-            </div>
+        {/* 5. SOLUTION (Unified - Renders for both layouts) */}
+        <section className="max-w-6xl mx-auto px-6 py-32">
+          <div className="flex items-baseline justify-between mb-16">
+            <h2 className="text-4xl font-serif italic">{t('protected.solution_title') || "The Solution"}</h2>
+            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.solution_subtitle') || "Interface Design"}</span>
+          </div>
 
-            <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl overflow-hidden shadow-sm">
-              <div className="flex flex-col md:flex-row">
-                {caseData.metrics.map((m, i) => (
-                  <div key={i} className="flex-1 p-8 md:p-12 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-[var(--border-color)] last:border-0 hover:bg-[var(--bg-card)] transition-colors group">
-                    <div className="text-3xl md:text-5xl font-mono font-bold tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors mb-4 break-words max-w-full leading-tight">
-                      {m.value}
-                    </div>
-                    <div className="text-xs md:text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] opacity-70">
-                      {m.label}
-                    </div>
+          <div className="space-y-32">
+            {caseData.solution ? (
+              <>
+                {/* 1. Interactive Prototypes (Grid or Centered) */}
+                {caseData.solution.filter(s => s.componentId).length > 1 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+                    {caseData.solution.filter(s => s.componentId).map((sol, i) => (
+                      <div key={`int-${i}`} className="flex flex-col items-center">
+                        <div className="w-full max-w-[320px] aspect-[9/19] bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] relative shadow-2xl overflow-hidden group transition-transform duration-500 hover:scale-[1.02]">
+                          <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
+                            <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
+                          </div>
+                        </div>
+                        <div className="mt-8 text-center px-4 max-w-[320px]">
+                          <div className="font-mono text-xs text-[var(--brand)] mb-2 uppercase tracking-widest font-bold">
+                            {t('protected.live_prototype') || "Interactive Prototype"}
+                          </div>
+                          <h3 className="text-xl font-bold mb-2">{sol.title}</h3>
+                          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                            {sol.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                ) : (
+                  /* Single Item Centered Layout */
+                  caseData.solution.filter(s => s.componentId).map((sol, i) => (
+                    <div key={`int-${i}`} className="flex flex-col items-center mb-24 last:mb-12">
+                      <div className="w-full md:w-1/2 aspect-[9/19] max-w-sm mx-auto bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] relative shadow-2xl overflow-hidden group transition-transform duration-500 hover:scale-[1.02]">
+                        <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
+                          <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
+                        </div>
+                      </div>
+                      <div className="mt-10 text-center max-w-2xl mx-auto px-4">
+                        <div className="font-mono text-xs text-[var(--brand)] mb-4 uppercase tracking-widest font-bold">
+                          {t('protected.live_prototype') || "Interactive Prototype"}
+                        </div>
+                        <h3 className="text-3xl font-bold mb-4">{sol.title}</h3>
+                        <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+                          {sol.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))
+                )}
+
+                {/* 2. Static Exhibits (Grid) */}
+                {caseData.solution.filter(s => !s.componentId).length > 0 && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 mt-16 border-t border-[var(--border-color)] pt-16">
+                    {caseData.solution.filter(s => !s.componentId).map((sol, i) => (
+                      <div key={`static-${i}`} className="flex flex-col group">
+                        <div className="aspect-video bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] relative shadow-lg overflow-hidden mb-6 transition-all duration-300 group-hover:shadow-xl group-hover:border-[var(--brand)]/30">
+                          {sol.image && sol.image.startsWith('airy:') ? (
+                            <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)] p-6">
+                              <AiryDiagram type={sol.image.split(':')[1]} />
+                            </div>
+                          ) : sol.image ? (
+                            <ZoomableImage
+                              src={sol.image}
+                              alt={sol.title}
+                              containerClassName="absolute inset-0 w-full h-full"
+                              className="w-full h-full object-contain bg-black/5 dark:bg-black/50"
+                            />
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                              <Monitor size={48} />
+                            </div>
+                          )}
+                        </div>
+                        <div>
+                          <div className="font-mono text-xs text-[var(--text-secondary)] mb-3 uppercase tracking-widest flex items-center gap-2">
+                            <span className="w-6 h-[1px] bg-[var(--text-secondary)] opacity-50"></span>
+                            {t('protected.exhibit') || "Exhibit"} {String.fromCharCode(65 + i)}
+                          </div>
+                          <h3 className="text-xl font-bold mb-3 group-hover:text-[var(--brand)] transition-colors">{sol.title}</h3>
+                          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                            {sol.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="p-12 border border-dashed border-[var(--border-color)] text-center text-[var(--text-secondary)] font-mono">
+                {t('protected.classified_arch') || "[ CLASSIFIED SYSTEM ARCHITECTURE ]"}
               </div>
-            </div>
-          </section>
-        )}
-
-        {/* 7. AI BRAINSTORM (HUMAN + AI COLLABORATION) */}
-        {(caseData.aiHypotheses || caseData.aiHypothesis) && (
-          <AIBrainstorm
-            hypotheses={caseData.aiHypotheses || [caseData.aiHypothesis]}
-            t={t}
-          />
-        )}
-
-        {/* 8. TAKEAWAYS (ARCHITECT'S NOTE) */}
-        <section className="max-w-3xl mx-auto px-6 py-40 text-center">
-          <FileText className="mx-auto text-[var(--text-secondary)] mb-8" size={32} />
-          <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">{t('protected.architect_debrief') || "// Architect's Debrief"}</h4>
-          <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
-            "{caseData.learnings || caseData.memo || "Confidential"}"
-          </p>
-          <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
+            )}
+          </div>
         </section>
+      </>
+        )}
 
-        {/* FOOTER */}
-        <footer className="border-t border-[var(--border-color)] py-12 text-center opacity-40 hover:opacity-100 transition-opacity">
-          <p className="font-mono text-[10px] uppercase tracking-widest">
-            Human By Design Portfolio · Fadly Uzzaki 🧢 © 2025-2026
-          </p>
-        </footer>
+      {/* 6. IMPACT & OUTCOMES - Standardized Lumina Style */}
+      {!caseData.designProcess && caseData.metrics && caseData.metrics.length > 0 && (
+        <section className="max-w-6xl mx-auto px-6 py-32">
+          <div className="flex items-baseline justify-between mb-16 border-b border-[var(--border-color)] pb-6">
+            <h2 className="text-4xl font-serif italic">{t('protected.impact_title') || "Impact & Outcomes"}</h2>
+            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.impact_subtitle') || "Measurable Results"}</span>
+          </div>
 
-      </main>
+          <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl overflow-hidden shadow-sm">
+            <div className="flex flex-col md:flex-row">
+              {caseData.metrics.map((m, i) => (
+                <div key={i} className="flex-1 p-8 md:p-12 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-[var(--border-color)] last:border-0 hover:bg-[var(--bg-card)] transition-colors group">
+                  <div className="text-3xl md:text-5xl font-mono font-bold tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors mb-4 break-words max-w-full leading-tight">
+                    {m.value}
+                  </div>
+                  <div className="text-xs md:text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] opacity-70">
+                    {m.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 7. AI BRAINSTORM (HUMAN + AI COLLABORATION) */}
+      {(caseData.aiHypotheses || caseData.aiHypothesis) && (
+        <AIBrainstorm
+          hypotheses={caseData.aiHypotheses || [caseData.aiHypothesis]}
+          t={t}
+        />
+      )}
+
+      {/* 8. TAKEAWAYS (ARCHITECT'S NOTE) */}
+      <section className="max-w-3xl mx-auto px-6 py-40 text-center">
+        <FileText className="mx-auto text-[var(--text-secondary)] mb-8" size={32} />
+        <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">{t('protected.architect_debrief') || "// Architect's Debrief"}</h4>
+        <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
+          "{caseData.learnings || caseData.memo || "Confidential"}"
+        </p>
+        <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-[var(--border-color)] py-12 text-center opacity-40 hover:opacity-100 transition-opacity">
+        <p className="font-mono text-[10px] uppercase tracking-widest">
+          Human By Design Portfolio · Fadly Uzzaki 🧢 © 2025-2026
+        </p>
+      </footer>
+
+    </main>
     </div >
   );
 };

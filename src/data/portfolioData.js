@@ -3432,6 +3432,48 @@ export const WORK_CLUSTERS = [
                         { title: "Gamification Strategy", desc: "We introduced a 'Tier System' (General, Kapten) and badges to tap into internal motivation, moving beyond just monetary incentives.", image: "airy:architecture" },
                         { title: "Offline-First Education", desc: "We created 'Video Animasi' and standardized infographics to ensure every FA, regardless of reading level, understood the rules of the game.", image: "airy:ecosystem" }
                     ],
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "Raw Data Interview",
+                            desc: "We found a critical gap: 'TL doesn't understand definition of the KPI'. If the leaders are confused, the troops are lost.",
+                            title_id: "Wawancara Data Mentah",
+                            desc_id: "Kami temukan celah kritis: 'TL tidak paham definisi KPI'. Kalau pemimpinnya bingung, pasukannya tersesat.",
+                            image: "airy:flow"
+                        },
+                        {
+                            type: "insight",
+                            title: "The Trust Equation",
+                            desc: "Our research revealed: 'No Trust = No Action'. When data reliability is questioned ('My app says X, your dash says Y'), motivation collapses.",
+                            title_id: "Persamaan Kepercayaan",
+                            desc_id: "Riset kami mengungkap: 'Tidak Ada Kepercayaan = Tidak Ada Aksi'. Saat keandalan data dipertanyakan, motivasi runtuh.",
+                            image: "airy:venn"
+                        },
+                        {
+                            type: "design",
+                            title: "Brainstorming: 'Chewable' KPI",
+                            desc: "How might we give consistent understanding? We moved from complex dashboards to 'Chewable Information'—breaking down monthly targets into daily, edible goals.",
+                            title_id: "Brainstorming: KPI 'Kunyahan'",
+                            desc_id: "Kami ubah dashboard rumit jadi 'Informasi Kunyahan'—memecah target bulanan jadi tujuan harian yang bisa dimakan.",
+                            image: "airy:matrix"
+                        },
+                        {
+                            type: "design",
+                            title: "Gamification Strategy",
+                            desc: "We introduced a 'Tier System' (General, Kapten) and badges to tap into internal motivation, moving beyond just monetary incentives.",
+                            title_id: "Strategi Gamifikasi",
+                            desc_id: "Kami perkenalkan 'Sistem Tier' dan lencana untuk menyentuh motivasi internal, lebih dari sekadar uang.",
+                            image: "airy:architecture"
+                        },
+                        {
+                            type: "ship",
+                            title: "Offline-First Education",
+                            desc: "We created 'Video Animasi' and standardized infographics to ensure every FA, regardless of reading level, understood the rules of the game.",
+                            title_id: "Edukasi Offline-First",
+                            desc_id: "Kami buat 'Video Animasi' dan infografis standar agar setiap FA paham aturan mainnya.",
+                            image: "airy:ecosystem"
+                        }
+                    ],
                     insights: [
                         { title: "The 'Admin Day' Fix", desc: "We institutionalized 'Admin Day' for Team Leaders to sync data offline, reducing the 'confusion and anxiety' caused by connectivity gaps." },
                         { title: "Melody Bypass", desc: "We found that rhythm helps retention. We used catchy, repetitive formats for KPI updates to bypass cognitive overload." }
@@ -3639,6 +3681,32 @@ export const WORK_CLUSTERS = [
                     process: [
                         { title: "Observation", desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals.", image: "airy:cycle" },
                         { title: "Ideation", desc: "What if the camera was the keyboard? I mocked up an OCR flow that auto-filled the form.", image: "airy:flow" }
+                    ],
+                    designProcess: [
+                        {
+                            type: "research",
+                            title: "Observation",
+                            desc: "I watched the admin team spend 4 hours a day purely on data entry from paper visuals.",
+                            title_id: "Observasi",
+                            desc_id: "Saya perhatikan tim admin menghabiskan 4 jam sehari cuma buat ketik ulang data dari kertas ke komputer.",
+                            image: "airy:cycle"
+                        },
+                        {
+                            type: "design",
+                            title: "Ideation",
+                            desc: "What if the camera was the keyboard? I mocked up an OCR flow that auto-filled the form.",
+                            title_id: "Ideasi",
+                            desc_id: "Gimana kalau kamera jadi keyboard-nya? Saya mock-up alur OCR yang otomatis ngisi formulir.",
+                            image: "airy:flow"
+                        },
+                        {
+                            type: "insight",
+                            title: "Trusting the Machine",
+                            desc: "Users were skeptical about OCR accuracy. I designed a 'Confidence Score' UI that highlighted low-confidence fields for human review.",
+                            title_id: "Percaya Mesin",
+                            desc_id: "User awalnya skeptis sama akurasi OCR. Saya desain UI 'Skor Kepercayaan' untuk highlight field yang meragukan.",
+                            image: "airy:venn"
+                        }
                     ],
                     challenge_id: "Kantor kami tenggelam dalam kertas. Faktur, surat jalan, bon. Dokumen hilang, kena tumpahan kopi, dan datanya 'gelap' (tidak bisa diolah).",
                     process_id: [
