@@ -381,7 +381,7 @@ const CompanyDetail = () => {
 
                         <div className="max-w-7xl mx-auto px-6">
                             <ScrollReveal>
-                                <div className="mb-12 max-w-2xl">
+                                <div className="mb-12 max-w-4xl">
                                     <h3 className="font-serif italic text-4xl mb-4">{isId ? (cluster.culture_id?.title || cluster.culture.title) : cluster.culture.title}</h3>
                                     <p className="text-[var(--text-secondary)] leading-relaxed">
                                         {isId ? (cluster.culture_id?.description || cluster.culture.description) : cluster.culture.description}
@@ -395,7 +395,7 @@ const CompanyDetail = () => {
                             </ScrollReveal>
 
                             {cluster.culture.layout === 'masonry' ? (
-                                <div className="columns-1 md:columns-2 gap-4 space-y-4">
+                                <div className="columns-1 md:columns-3 gap-4 space-y-4">
                                     {cluster.culture.images.map((img, i) => (
                                         <ScrollReveal key={i} delay={i * 80} className="break-inside-avoid relative group overflow-hidden rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)]">
                                             <ZoomableImage
