@@ -13,10 +13,6 @@ const WorkBento = ({ cluster }) => {
     const title = isId ? (cluster.title_id || cluster.title) : cluster.title;
     const role = cluster.stats?.find(s => s.label === 'Role')?.value || cluster.projects[0]?.role || "Product Designer";
     const rawTimeline = cluster.stats?.find(s => s.label === 'Timeline')?.value || "2020";
-    const platform = cluster.stats?.find(s => s.label === 'Platform')?.value || cluster.projects[0]?.type || "Product";
-
-    // Clean up platform text
-    const cleanPlatform = platform.replace('Mobile app (android)', 'Mobile').replace('Websites', 'Web').split('&')[0].trim();
 
     // Parse Timeline: "May 2022 - Nov 2022" -> "2022", "2021 - Present" -> "2021 - Present"
     const years = rawTimeline.match(/\d{4}|Present/g) || [];
@@ -29,46 +25,39 @@ const WorkBento = ({ cluster }) => {
         }
     }
 
-    // Construct Meta String: "Context — Date"
-    const metaString = `${cleanPlatform} — ${yearDisplay}`;
-
     return (
         <div
             onClick={() => navigate(`/work/${cluster.id}`)}
             className="group relative flex flex-col h-[480px] bg-gray-50 dark:bg-neutral-900 border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
         >
-            {/* 1. HEADER (Top) - Reference Structure Match (Split Header) */}
+            {/* 1. HEADER (Top) - Minimalist Brand-Only Layout */}
             <div className="flex justify-between items-start p-8 pb-2 z-10 w-full gap-4">
 
-                {/* Left Side: Logo Icon + Company Name (Row) */}
-                <div className="flex items-center gap-3">
-                    {/* Logo: Optimized for Brand Mark feel */}
-                    <div className="w-8 h-8 flex items-center justify-center shrink-0">
+                {/* Left Side: Logo Only (Full Color, Clear) */}
+                <div className="shrink-0 pt-1">
+                    {/* Size increased to w-12/h-12 for standalone visibility */}
+                    <div className="w-12 h-12 flex items-center justify-center">
                         {cluster.logo ? (
                             <img
                                 src={cluster.logo}
-                                alt="logo"
-                                className="w-full h-full object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                                alt={cluster.company || cluster.title}
+                                className="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110"
                             />
                         ) : (
-                            <div className="w-6 h-6 bg-current rounded-full opacity-40" style={{ color: cluster.brandColor }}></div>
+                            <div className="w-10 h-10 bg-current rounded-full opacity-100" style={{ color: cluster.brandColor }}></div>
                         )}
                     </div>
-                    {/* Company Name */}
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white leading-none tracking-tight">
-                        {cluster.company || cluster.title}
-                    </h3>
                 </div>
 
-                {/* Right Side: Role + Context (Right Aligned) */}
-                <div className="flex flex-col items-end text-right">
+                {/* Right Side: Role + Period (Right Aligned) */}
+                <div className="flex flex-col items-end text-right pt-2">
                     {/* Role (Top) */}
-                    <p className="text-base text-gray-700 dark:text-gray-300 font-medium leading-snug">
+                    <p className="text-base text-gray-900 dark:text-gray-100 font-bold leading-snug">
                         {role}
                     </p>
-                    {/* Context/Date (Bottom) */}
-                    <p className="text-sm text-gray-400 dark:text-gray-500 font-medium mt-1">
-                        {metaString}
+                    {/* Period (Bottom) - No Context */}
+                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium mt-1">
+                        {yearDisplay}
                     </p>
                 </div>
             </div>
