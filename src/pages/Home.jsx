@@ -257,33 +257,40 @@ const Portfolio = () => {
       {/* 1. Desktop Top Bar */}
       {/* REC-03: Ensure Navbar stays visible if Gesture Mode is active */}
       <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${showNav ? 'translate-y-0' : '-translate-y-full'}`}>
-        <div className="bg-[var(--bg-backdrop)] backdrop-blur-md border-b border-[var(--border-color)] px-6 py-3 flex justify-between items-center max-w-5xl mx-auto">
-          <Link to="/" className="font-mono text-[var(--text-primary)] font-bold text-lg hover:text-[var(--accent-blue)] transition-colors tracking-tight">
-            Fadlyzaki
+        <div className="bg-white/80 dark:bg-neutral-950/80 backdrop-blur-lg border-b border-black/8 dark:border-white/10 px-8 py-4 flex justify-between items-center">
+          <Link to="/" className="flex items-baseline gap-2 group">
+            <span className="font-serif italic text-[var(--text-primary)] text-lg tracking-tight group-hover:text-[var(--accent-blue)] transition-colors">
+              Fadly Zaki
+            </span>
+            <span className="text-[var(--text-secondary)] text-sm font-light hidden sm:inline">
+              — Design Engineer
+            </span>
           </Link>
 
-          <div className="flex items-center gap-6">
-            <div className="hidden md:flex gap-6 font-mono text-xs text-[var(--text-secondary)]">
-              <Link to="/about" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.about').toUpperCase()}</Link>
-              <a href="#work" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.work').toUpperCase()}</a>
-              <a href="#side-projects" className="hover:text-[var(--text-primary)] transition-colors">/PROJECTS</a>
-              <Link to="/process" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.process').toUpperCase()}</Link>
-              <Link to="/contact" className="hover:text-[var(--text-primary)] transition-colors">/{t('nav.contact').toUpperCase()}</Link>
-            </div>
+          <div className="flex items-center gap-8">
+            <nav className="hidden md:flex gap-7 text-sm text-[var(--text-secondary)]">
+              <Link to="/about" className="hover:text-[var(--text-primary)] transition-colors">{t('nav.about')}</Link>
+              <a href="#work" className="hover:text-[var(--text-primary)] transition-colors">{t('nav.work')}</a>
+              <a href="#side-projects" className="hover:text-[var(--text-primary)] transition-colors">Projects</a>
+              <Link to="/process" className="hover:text-[var(--text-primary)] transition-colors">{t('nav.process')}</Link>
+              <Link to="/contact" className="hover:text-[var(--text-primary)] transition-colors">{t('nav.contact')}</Link>
+            </nav>
 
-            <button onClick={toggleGestureMode} className={`p-1 transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`} title="Enable Hand Tracking for 'Decryption Lens' Experiment">
-              <ScanEye size={16} />
-            </button>
-            <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1" aria-label="Toggle Theme">
-              {isDark ? <Sun size={16} /> : <Moon size={16} />}
-            </button>
-            <button
-              onClick={toggleLanguage}
-              className="font-mono text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors text-xs uppercase tracking-widest flex items-center gap-1 p-1"
-              title="Switch Language"
-            >
-              {language}
-            </button>
+            <div className="flex items-center gap-3 border-l border-[var(--border-color)] pl-4">
+              <button onClick={toggleGestureMode} className={`p-1 transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`} title="Enable Hand Tracking for 'Decryption Lens' Experiment">
+                <ScanEye size={16} />
+              </button>
+              <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1" aria-label="Toggle Theme">
+                {isDark ? <Sun size={16} /> : <Moon size={16} />}
+              </button>
+              <button
+                onClick={toggleLanguage}
+                className="font-mono text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors text-xs uppercase tracking-widest flex items-center gap-1 p-1"
+                title="Switch Language"
+              >
+                {language}
+              </button>
+            </div>
           </div>
         </div>
       </div>
