@@ -3059,7 +3059,7 @@ export const WORK_CLUSTERS = [
                 { src: "/work/stoqo-team.jpg", caption: "My Birthday years ago!", span: "col-span-1 md:col-span-2 row-span-2" },
                 { src: "/work/stoqo-batik.jpg", caption: "Batik Day", span: "col-span-1 md:col-span-2 row-span-1" },
                 { src: "/work/stoqo-hawaiian.jpg", caption: "Halloween day at the office", span: "col-span-1 md:col-span-2 row-span-1" },
-                { src: "/work/stoqo-office.jpg", caption: "At the HQ", span: "col-span-1 md:col-span-2 row-span-2" },
+                { src: "/work/stoqo-office.jpg", caption: "At the HQ", span: "col-span-1 md:col-span-2 row-span-1" },
                 { src: "/work/stoqo-remote.jpg", caption: "Design Team Assemble", span: "col-span-1 md:col-span-2 row-span-1" }
             ]
         },
