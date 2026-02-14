@@ -94,7 +94,7 @@ const WorkBento = ({ cluster }) => {
                 </div>
 
                 {/* Device / Visual Frame */}
-                <div className={`relative transform transition-transform duration-700 group-hover:scale-105 origin-bottom ${cluster.heroImage && cluster.heroImage.startsWith('/') ? 'w-[180px] mx-auto' : 'w-full max-w-[90%]'}`}>
+                <div className={`relative transform transition-transform duration-700 ${cluster.heroImage && cluster.heroImage.startsWith('/') ? 'w-[180px] mx-auto' : 'w-full max-w-[90%] group-hover:scale-105 origin-bottom'}`}>
                     {cluster.heroImage && cluster.heroImage.startsWith('/') ? (
                         <div className="relative rounded-t-[20px] overflow-hidden shadow-[0_8px_40px_-8px_rgba(0,0,0,0.3)] border-t-[4px] border-x-[4px] border-white/20 dark:border-white/15 bg-white dark:bg-neutral-800">
                             <img
