@@ -20,26 +20,27 @@ const WorkBento = ({ cluster }) => {
             onClick={() => navigate(`/work/${cluster.id}`)}
             className="group relative flex flex-col h-[480px] bg-gray-50 dark:bg-neutral-900 border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
         >
-            {/* 1. HEADER (Top) - Simplified Layout (No Date, Open Logo) */}
-            <div className="flex justify-between items-start p-8 pb-2 z-10 w-full gap-5">
+            {/* 1. HEADER (Top) - Simplified Layout (No Date, Open Logo, Larger Logo) */}
+            <div className="flex justify-between items-center p-8 pb-2 z-10 w-full gap-6">
 
                 {/* Left: Logo (Open, no container) */}
-                <div className="shrink-0 pt-1">
-                    <div className="w-14 h-14 flex items-center justify-center">
+                <div className="shrink-0">
+                    <div className="w-20 h-20 flex items-center justify-center">
                         {cluster.logo ? (
+                            // Increased size to ensure visibility
                             <img src={cluster.logo} alt="logo" className="w-full h-full object-contain drop-shadow-sm" />
                         ) : (
-                            <div className="w-10 h-10 bg-current rounded-full opacity-20" style={{ color: cluster.brandColor }}></div>
+                            <div className="w-16 h-16 bg-current rounded-full opacity-20" style={{ color: cluster.brandColor }}></div>
                         )}
                     </div>
                 </div>
 
                 {/* Middle: Company & Role */}
-                <div className="flex-grow flex flex-col justify-start pt-1.5">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight mb-1">
+                <div className="flex-grow flex flex-col justify-center">
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white leading-none tracking-tight mb-2">
                         {cluster.company || cluster.title}
                     </h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium leading-snug w-full">
+                    <p className="text-base text-gray-500 dark:text-gray-400 font-medium leading-snug w-full">
                         {role}
                     </p>
                 </div>
