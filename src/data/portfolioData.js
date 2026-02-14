@@ -3056,12 +3056,13 @@ export const WORK_CLUSTERS = [
             title: "The Arena",
             description: "I worked there as one of the early product designers, touching almost every product line—from customer-facing apps to complex warehousing logistics. I also contributed to Design Ops by mentoring interns and supporting the hiring process. We built a culture of 'Get Your Hands Dirty'.",
             disclaimer: "If anyone on the team is uncomfortable with their image being featured here, please reach out to me and I'll remove it immediately.",
+            layout: "masonry",
             images: [
-                { src: "/work/stoqo-team.jpg", caption: "My Birthday years ago!", span: "col-span-1 md:col-span-2 row-span-2" },
-                { src: "/work/stoqo-office.jpg", caption: "At the HQ", span: "col-span-1 md:col-span-2 row-span-1" },
-                { src: "/work/stoqo-batik.jpg", caption: "Batik Day", span: "col-span-1 md:col-span-2 row-span-1" },
-                { src: "/work/stoqo-hawaiian.jpg", caption: "Halloween day at the office", span: "col-span-1 md:col-span-2 row-span-1", pos: "object-center" },
-                { src: "/work/stoqo-remote.jpg", caption: "Design Team Assemble", span: "col-span-1 md:col-span-2 row-span-1", pos: "object-center" }
+                { src: "/work/stoqo-team.jpg", caption: "My Birthday years ago!" },
+                { src: "/work/stoqo-office.jpg", caption: "At the HQ" },
+                { src: "/work/stoqo-hawaiian.jpg", caption: "Halloween day at the office" },
+                { src: "/work/stoqo-batik.jpg", caption: "Batik Day" },
+                { src: "/work/stoqo-remote.jpg", caption: "Design Team Assemble" }
             ]
         },
         culture_id: {
