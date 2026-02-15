@@ -22,7 +22,7 @@ export const SIDE_PROJECTS = [
             heroImage: "airy:architecture"
         },
         context: {
-            role: "Product Lead & Architect",
+            role: "Product Owner",
             timeline: "Feb 2026",
             team: "Human + 3 AI Agents",
             client: "Personal Brand"
@@ -163,7 +163,7 @@ export const SIDE_PROJECTS = [
             heroImage: "/productivity-illusion-hero.png"
         },
         context: {
-            role: "Product Researcher",
+            role: "Product Owner",
             timeline: "2025-2026",
             team: "Solo Research",
             client: "Academic"
@@ -295,7 +295,7 @@ export const SIDE_PROJECTS = [
             heroImage: "airy:flow"
         },
         context: {
-            role: "Head of Product",
+            role: "Product Owner",
             timeline: "Aug 2025",
             team: "Geera Education Team",
             client: "Internal Venture"
@@ -425,8 +425,8 @@ export const SIDE_PROJECTS = [
             heroImage: "airy:data"
         },
         context: {
-            role: "Creator",
-            timeline: "December 2025",
+            role: "Product Owner",
+            timeline: "Dec 2025",
             team: "Solo Project",
             client: "Public"
         },
@@ -537,7 +537,7 @@ export const SIDE_PROJECTS = [
             heroImage: "airy:ecosystem"
         },
         context: {
-            role: "Researcher",
+            role: "Product Owner",
             timeline: "2024",
             team: "Open Data Lab",
             client: "NGO"
@@ -670,8 +670,8 @@ export const NOTES = [
             heroImage: "airy:chart"
         },
         context: {
-            role: "Product Designer",
-            timeline: "February 2026",
+            role: "Product Owner",
+            timeline: "Feb 2026",
             team: "Growth Team",
             client: "Internal Product"
         },
@@ -791,8 +791,8 @@ export const NOTES = [
             heroImage: "airy:venn"
         },
         context: {
-            role: "Product Designer",
-            timeline: "February 2026",
+            role: "Product Owner",
+            timeline: "Feb 2026",
             team: "Logistics Team",
             client: "Internal Product"
         },
@@ -923,8 +923,8 @@ export const NOTES = [
             heroImage: "airy:hierarchy"
         },
         context: {
-            role: "UX Researcher",
-            timeline: "March 2026",
+            role: "Product Owner",
+            timeline: "Mar 2026",
             team: "Social Media Giant",
             client: "Internal Research"
         },
@@ -1064,8 +1064,8 @@ export const NOTES = [
             heroImage: "airy:radar"
         },
         context: {
-            role: "IoT Engineer",
-            timeline: "Flash Project",
+            role: "Product Owner",
+            timeline: "2024",
             team: "Solo",
             client: "Jakarta Smart City (Unofficial)"
         },
@@ -1191,7 +1191,7 @@ export const NOTES = [
             heroImage: "airy:ui"
         },
         context: {
-            role: "Prototyper",
+            role: "Product Owner",
             timeline: "Jan 2018",
             team: "Solo Project",
             client: "Personal Experiment"
