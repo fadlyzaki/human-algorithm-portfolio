@@ -243,7 +243,7 @@ const SideProjectsIndex = () => {
                             >
                                 <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] mb-6 overflow-hidden relative">
                                     <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
-                                        <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} />
+                                        <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} image={project.coverImage} />
                                     </div>
                                     <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
                                     <div className="absolute bottom-4 left-4 font-mono text-[11px] text-black dark:text-white bg-white/90 dark:bg-black/90 px-2 py-1 backdrop-blur-sm rounded border border-black/10 dark:border-white/10">
@@ -287,7 +287,7 @@ const SideProjectsIndex = () => {
                             >
                                 <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] border-dashed mb-6 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
                                     <div className="absolute inset-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
-                                        <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} />
+                                        <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} image={project.coverImage} />
                                     </div>
                                     <div className="absolute top-4 left-4 font-mono text-[11px] uppercase tracking-wider text-[var(--text-secondary)] bg-[var(--bg-void)] border border-[var(--border-color)] px-2 py-1 rounded">
                                         NOTE
