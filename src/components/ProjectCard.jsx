@@ -894,7 +894,59 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
         );
     }
 
-    // 18. PROCUREMENT REFORM (Transparency Filter)
+    // 18. THE PRODUCTIVITY ILLUSION (Full-Bleed Radar)
+    if (id === 'productivity-illusion') {
+        return (
+            <Container expanded={expanded} showChrome={showChrome} figIndex="P.1" schematicType="PERCEPTION_VS_REALITY">
+                <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
+                    {/* Radar Chart Background */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-30">
+                        <div className="w-56 h-56 border border-slate-200 dark:border-white/10 rotate-45"></div>
+                        <div className="absolute w-40 h-40 border border-slate-200 dark:border-white/10 rotate-45"></div>
+                        <div className="absolute w-24 h-24 border border-slate-200 dark:border-white/10 rotate-45"></div>
+                    </div>
+
+                    {/* The Illusion (Distorted Shape) */}
+                    <div className="relative w-full h-full p-8 flex items-center justify-center">
+                        <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-[0_0_15px_rgba(var(--brand-rgb),0.3)]">
+                            {/* "Busyness" Polygon (High Activity, Low Impact) */}
+                            <path
+                                d="M100,20 L170,80 L160,160 L40,150 L30,70 Z"
+                                fill="var(--brand)"
+                                fillOpacity="0.1"
+                                stroke="var(--brand)"
+                                strokeWidth="1"
+                                strokeDasharray="4 2"
+                                className="animate-[pulse_4s_ease-in-out_infinite]"
+                            />
+                            {/* "Impact" Polygon (Small Core) */}
+                            <path
+                                d="M100,80 L120,100 L110,130 L90,120 L80,90 Z"
+                                fill="var(--brand)"
+                                fillOpacity="0.8"
+                                stroke="white"
+                                strokeWidth="0.5"
+                            />
+                        </svg>
+
+                        {/* Floating Labels */}
+                        <div className="absolute top-1/4 right-1/4 translate-x-4 -translate-y-4">
+                            <span className="px-2 py-0.5 bg-white dark:bg-black border border-slate-100 dark:border-white/10 text-[8px] font-mono text-slate-400 rounded shadow-sm">
+                                BUSYNESS
+                            </span>
+                        </div>
+                        <div className="absolute bottom-1/3 left-1/3 -translate-x-4 translate-y-4">
+                            <span className="px-2 py-0.5 bg-[var(--brand)] text-white text-[8px] font-mono font-bold rounded shadow-md">
+                                IMPACT
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // 19. PROCUREMENT REFORM (Transparency Filter)
     if (id === 'procurement') {
         return (
             <Container expanded={expanded} showChrome={showChrome} figIndex="1.1" schematicType="TRANSPARENCY_FILTER">
