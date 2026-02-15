@@ -162,6 +162,7 @@ The homepage follows a "Priority-First" narrative flow:
 *   **[COMPLETED]** Stoqo Logistics Visuals & Localization (Centered Prototype + Grid Layout + ID Language)
 *   **[COMPLETED]** Unified 5-Step Design Process (All Case Studies Standardized)
 *   **[COMPLETED]** Interactive Warehouse Prototypes (Stoqo Picker & Checker Apps)
+*   **[COMPLETED]** Side Project: "The Productivity Illusion" (Product Research Case Study & Visuals)
 *   **[Q2]** Enhanced AI Agent: Expand semantic memory with real RAG backend
 *   **[Q3]** CMS Integration: Migrating "Notes" to MDX
 *   **[Q4]** 3D WebGL Experiments: Evaluating Three.js for hero section
