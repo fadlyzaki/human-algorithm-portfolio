@@ -969,7 +969,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
             const airyType = image.split(':')[1];
             return (
                 <Container figIndex="2.1" schematicType={`${type.toUpperCase()}_DIAGRAM`}>
-                    <AiryDiagram type={airyType} className="max-w-[80%] max-h-[80%]" />
+                    <AiryDiagram type={airyType} className="w-full h-full" />
                 </Container>
             );
         }
