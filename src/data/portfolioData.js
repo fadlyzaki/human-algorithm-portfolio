@@ -160,7 +160,7 @@ export const SIDE_PROJECTS = [
         coverImage: "/productivity-illusion-hero.png",
         snapshot: {
             tagline: "Human Algorithms",
-            heroImage: "/productivity-illusion-hero.png"
+            heroImage: "airy:radar"
         },
         context: {
             role: "Product Owner",
@@ -173,26 +173,26 @@ export const SIDE_PROJECTS = [
             {
                 title: "The Station Rotation Model",
                 desc: "I designed a Blended Learning framework that integrated a 15-minute gamified 'Digital Closure' into the physical classroom flow. Teacher-Led: Direct instruction. Collaborative: Peer-to-peer. Digital Closure: High-intensity sprint.",
-                image: "/productivity-illusion-process.png"
+                image: "airy:cycle"
             },
             {
                 title: "The Data Engine: Modeling",
                 desc: "To move beyond surface-level metrics, I used Google Colab to process raw behavioral logs. Normalization: Standardizing diverse metrics (XP, time) into a single Z-score index to find the truth.",
-                image: "/productivity-illusion-workflow.png"
+                image: "airy:funnel"
             }
         ],
         insights: [
             {
                 title: "The Productivity Illusion",
                 desc: "Students reported high Perception (Mean 3.44) due to constant positive reinforcement (streaks, sounds). However, actual logs showed 'low-intensity' states. Engagement != Learning.",
-                image: "/productivity-illusion-chart.png"
+                image: "airy:chart"
             }
         ],
         solution: [
             {
                 title: "Cognitive Integrity Widget",
                 desc: "We proposed a new widget that visualizes 'Active Focus Time' vs 'Total App Time', grounding users in reality and promoting high-efficiency bursts.",
-                image: "/productivity-illusion-mockup.png"
+                image: "airy:ui"
             }
         ],
         metrics: [
@@ -207,7 +207,7 @@ export const SIDE_PROJECTS = [
                 desc: "In West Sumatra, junior high students have high mobile access but low learning initiative. We explored why gamified apps weren't translating to grades.",
                 title_id: "Paradoks Digital",
                 desc_id: "Di Sumatera Barat, siswa SMP memiliki akses seluler tinggi tetapi inisiatif belajar rendah. Kami mengeksplorasi mengapa aplikasi gamifikasi tidak berdampak pada nilai.",
-                image: "/productivity-illusion-hero.png"
+                image: "airy:radar"
             },
             {
                 type: "insight",
@@ -215,7 +215,7 @@ export const SIDE_PROJECTS = [
                 desc: "Gamification can mask a lack of progress. Users are 'hooked' on the reward loop, creating an illusion of productivity while actual learning is low.",
                 title_id: "Ilusi Produktivitas",
                 desc_id: "Gamifikasi bisa menutupi kurangnya kemajuan. Pengguna 'terpancing' pada lingkaran hadiah, menciptakan ilusi produktivitas padahal pembelajaran nyata rendah.",
-                image: "/productivity-illusion-chart.png"
+                image: "airy:chart"
             },
             {
                 type: "design",
@@ -223,7 +223,7 @@ export const SIDE_PROJECTS = [
                 desc: "We didn't ditch digital. We time-boxed it. 15-minute high-intensity sprints at the end of class proved more effective than hour-long passive sessions.",
                 title_id: "Rotasi Stasiun",
                 desc_id: "Kami tidak membuang digital. Kami membatasinya. Sprint intensitas tinggi 15 menit di akhir kelas terbukti lebih efektif daripada sesi pasif berjam-jam.",
-                image: "/productivity-illusion-process.png"
+                image: "airy:cycle"
             },
             {
                 type: "ship",
@@ -231,7 +231,7 @@ export const SIDE_PROJECTS = [
                 desc: "Using Python & Z-Scores to normalize 'XP' against 'Test Scores' revealed the truth: engagement does not equal mastery.",
                 title_id: "Realitas Berbasis Data",
                 desc_id: "Menggunakan Python & Z-Score untuk menormalkan 'XP' terhadap 'Nilai Tes' mengungkapkan kebenaran: keterlibatan tidak sama dengan penguasaan.",
-                image: "/productivity-illusion-workflow.png"
+                image: "airy:funnel"
             },
             {
                 type: "measure",
@@ -239,7 +239,7 @@ export const SIDE_PROJECTS = [
                 desc: "The intervention showed a 'Large Effect' (r=0.62) on student outcomes. Mastery scores increased significantly.",
                 title_id: "Dampak: Efek Besar",
                 desc_id: "Intervensi menunjukkan 'Efek Besar' (r=0.62) pada hasil siswa. Skor penguasaan meningkat secara signifikan.",
-                image: "/productivity-illusion-mockup.png"
+                image: "airy:ui"
             }
         ],
         // ID Translations
@@ -248,26 +248,26 @@ export const SIDE_PROJECTS = [
             {
                 title: "Model Rotasi Stasiun",
                 desc: "Kerangka Blended Learning yang mengintegrasikan 'Penutupan Digital' gamifikasi 15 menit ke dalam alur kelas fisik.",
-                image: "/productivity-illusion-process.png"
+                image: "airy:cycle"
             },
             {
                 title: "Mesin Data: Pemodelan",
                 desc: "Untuk melampaui metrik permukaan, saya menggunakan Google Colab untuk memproses log perilaku mentah. Normalisasi metrik menjadi indeks Z-score tunggal.",
-                image: "/productivity-illusion-workflow.png"
+                image: "airy:funnel"
             }
         ],
         insights_id: [
             {
                 title: "Ilusi Produktivitas",
                 desc: "Siswa melaporkan Persepsi tinggi (Mean 3.44) karena penguatan positif konstan. Namun, log aktual menunjukkan keadaan 'intensitas rendah'.",
-                image: "/productivity-illusion-chart.png"
+                image: "airy:chart"
             }
         ],
         solution_id: [
             {
                 title: "Widget Integritas Kognitif",
                 desc: "Widget yang memvisualisasikan 'Waktu Fokus Aktif' vs 'Total Waktu Aplikasi', membumikan pengguna dalam realitas.",
-                image: "/productivity-illusion-mockup.png"
+                image: "airy:ui"
             }
         ],
         learnings_id: "Dengan menggunakan pemodelan data untuk mengupas lapisan persepsi pengguna, kita dapat merancang antarmuka yang benar-benar memberdayakan mereka untuk mencapai penguasaan."
