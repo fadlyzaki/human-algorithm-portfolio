@@ -149,23 +149,27 @@ The homepage follows a "Priority-First" narrative flow:
     *   **Visual Polish**: Removed legacy "Fig 1.0" artifacts for a cleaner, immersive display.
 
 ## 6. Roadmap & Future Iterations
+
+### Phase 1: Foundation & Identity (Active)
 *   **[COMPLETED]** Adaptive Content Engine (Adaptive Summaries)
 *   **[COMPLETED]** Hand Tracking (HandCursorOverlay + Treasure Hunt)
 *   **[COMPLETED]** Mobile Responsiveness (Work cards, ID card)
 *   **[COMPLETED]** Semantic Memory AI (SemanticMemory.jsx)
 *   **[COMPLETED]** AI Interactive Protocol (Contact page analysis + pings)
 *   **[COMPLETED]** Knowledge Upgrades (Certification system in About page)
-*   **[COMPLETED]** Airy Technical Diagrams (Animated Schematics)
-*   **[COMPLETED]** Modern AI Hypotheses Expansion (Agentic/Reasoning)
+
+### Phase 2: Narrative & Depth (Q1 2026)
 *   **[COMPLETED]** Narrative Refinement: "Resilience" Story & "Scientific Design Engineer" Positioning
 *   **[COMPLETED]** Master's Degree Integration: `KNOWLEDGE_INSTALL` in System Runtime Log
-*   **[COMPLETED]** Stoqo Logistics Visuals & Localization (Centered Prototype + Grid Layout + ID Language)
+*   **[COMPLETED]** Stoqo Logistics Visuals & Localization
 *   **[COMPLETED]** Unified 5-Step Design Process (All Case Studies Standardized)
 *   **[COMPLETED]** Interactive Warehouse Prototypes (Stoqo Picker & Checker Apps)
 *   **[COMPLETED]** Side Project: "The Productivity Illusion" (Product Research Case Study & Visuals)
-*   **[Q2]** Enhanced AI Agent: Expand semantic memory with real RAG backend
-*   **[Q3]** CMS Integration: Migrating "Notes" to MDX
-*   **[Q4]** 3D WebGL Experiments: Evaluating Three.js for hero section
+
+### Phase 3: Intelligence & Expansion (Q2-Q4 2026)
+*   **[Q2 2026]** Enhanced AI Agent: Expand semantic memory with real RAG backend.
+*   **[Q3 2026]** CMS Integration: Migrating "Notes" to MDX for easier publishing.
+*   **[Q4 2026]** 3D WebGL Experiments: Evaluating Three.js for immersive hero section.
 
 ## 7. Asset Specifications
 
