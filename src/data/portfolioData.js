@@ -157,7 +157,7 @@ export const SIDE_PROJECTS = [
         featured: true,
         type: 'Research',
         date: "2025-2026",
-        coverImage: "/productivity-illusion-hero.png",
+        coverImage: "airy:radar",
         snapshot: {
             tagline: "Human Algorithms",
             heroImage: "airy:radar"

@@ -8,6 +8,7 @@ import StoqoApp from './prototypes/StoqoApp';
 import StoqoLogisticsApp from './prototypes/StoqoLogisticsApp';
 import StoqoPickerApp from './prototypes/StoqoPickerApp';
 import StoqoCheckerApp from './prototypes/StoqoCheckerApp';
+import AiryDiagram from './AiryDiagram';
 
 // ABSTRACT UI COMPONENTS
 const WindowControls = () => (
@@ -56,6 +57,16 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
     // const t = type.toLowerCase(); // Unused
 
     if (image) {
+        // Handle Airy Diagrams defined in data
+        if (image.startsWith('airy:')) {
+            const airyType = image.split(':')[1];
+            return (
+                <Container figIndex="2.1" schematicType={`${type.toUpperCase()}_DIAGRAM`}>
+                    <AiryDiagram type={airyType} className="max-w-[80%] max-h-[80%]" />
+                </Container>
+            );
+        }
+
         return (
             <Container figIndex="2.1" schematicType={`${type.toUpperCase()}_DOCUMENTATION`}>
                 <div className="w-full h-full flex items-center justify-center p-8">
