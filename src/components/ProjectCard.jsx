@@ -56,39 +56,7 @@ const Container = ({ children, figIndex = "1.0", schematicType = "SYSTEM_ARCHITE
 const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, showChrome = false, backgroundOnly = false, priority = false }) => {
     // const t = type.toLowerCase(); // Unused
 
-    if (image) {
-        // Handle Airy Diagrams defined in data
-        if (image.startsWith('airy:')) {
-            const airyType = image.split(':')[1];
-            return (
-                <Container figIndex="2.1" schematicType={`${type.toUpperCase()}_DIAGRAM`}>
-                    <AiryDiagram type={airyType} className="max-w-[80%] max-h-[80%]" />
-                </Container>
-            );
-        }
-
-        return (
-            <Container figIndex="2.1" schematicType={`${type.toUpperCase()}_DOCUMENTATION`}>
-                <div className="w-full h-full flex items-center justify-center p-8">
-                    <div className="relative w-full h-full max-w-[85%] max-h-[80%] rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden border border-slate-100 transform group-hover:-translate-y-2 group-hover:rotate-1 transition-all duration-700">
-                        <img
-                            src={image}
-                            alt={type}
-                            fetchPriority={priority ? "high" : "auto"}
-                            loading={priority ? "eager" : "lazy"}
-                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
-                        />
-                        {/* Technical Overlay on Image */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand)]/10 to-transparent mix-blend-overlay"></div>
-                    </div>
-                    {/* Floating Tech Badges */}
-                    <div className="absolute top-12 right-12 w-12 h-12 rounded-full border border-slate-100 bg-white/80 backdrop-blur shadow-sm flex items-center justify-center text-[var(--brand)] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0">
-                        <Monitor size={20} />
-                    </div>
-                </div>
-            </Container>
-        );
-    }
+    // Image logic moved to end of file to prioritize custom IDs
 
     // --------------------------------------------------------------------------
     // UNIQUE DIAGRAMS PER PROJECT ID
@@ -988,6 +956,41 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                             <div className="w-px h-8 bg-[var(--brand)]"></div>
                             <span className="text-[6px] font-mono text-[var(--brand)] uppercase">VIBE_2</span>
                         </div>
+                    </div>
+                </div>
+            </Container>
+        );
+    }
+
+    // CHECK FOR GENERIC IMAGE / AIRY DIAGRAM (Fallback if no ID match)
+    if (image) {
+        // Handle Airy Diagrams defined in data
+        if (image.startsWith('airy:')) {
+            const airyType = image.split(':')[1];
+            return (
+                <Container figIndex="2.1" schematicType={`${type.toUpperCase()}_DIAGRAM`}>
+                    <AiryDiagram type={airyType} className="max-w-[80%] max-h-[80%]" />
+                </Container>
+            );
+        }
+
+        return (
+            <Container figIndex="2.1" schematicType={`${type.toUpperCase()}_DOCUMENTATION`}>
+                <div className="w-full h-full flex items-center justify-center p-8">
+                    <div className="relative w-full h-full max-w-[85%] max-h-[80%] rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden border border-slate-100 transform group-hover:-translate-y-2 group-hover:rotate-1 transition-all duration-700">
+                        <img
+                            src={image}
+                            alt={type}
+                            fetchPriority={priority ? "high" : "auto"}
+                            loading={priority ? "eager" : "lazy"}
+                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+                        />
+                        {/* Technical Overlay on Image */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand)]/10 to-transparent mix-blend-overlay"></div>
+                    </div>
+                    {/* Floating Tech Badges */}
+                    <div className="absolute top-12 right-12 w-12 h-12 rounded-full border border-slate-100 bg-white/80 backdrop-blur shadow-sm flex items-center justify-center text-[var(--brand)] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0">
+                        <Monitor size={20} />
                     </div>
                 </div>
             </Container>

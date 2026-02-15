@@ -1166,6 +1166,7 @@ export const NOTES = [
         prototypeLink: "https://flood.fadly.design",
         iconName: 'AlertTriangle',
         type: 'IoT Prototype',
+        coverImage: "airy:radar",
         hidden: false,
         featured: false
     },
