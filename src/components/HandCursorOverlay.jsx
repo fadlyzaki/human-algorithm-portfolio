@@ -12,6 +12,7 @@ const HandCursorOverlay = () => {
     const [isModelLoading, setIsModelLoading] = useState(false);
     const [modelReady, setModelReady] = useState(false);
     const [loadError, setLoadError] = useState(null);
+    const [showFallbackNotice, setShowFallbackNotice] = useState(false);
     // Refs for persistence
     const handsRef = useRef(null);
     const cameraRef = useRef(null);
