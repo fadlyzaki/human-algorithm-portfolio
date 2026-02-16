@@ -119,7 +119,7 @@ const LockScreen = ({ project, parentCluster, onSuccess }) => {
                                         <button
                                             key={mode}
                                             onClick={() => setActiveSummary(mode)}
-                                            className={`flex-1 py-3 text-[10px] md:text-xs uppercase tracking-widest font-mono transition-colors
+                                            className={`flex-1 py-3 px-1 text-[9px] sm:text-[10px] md:text-xs uppercase tracking-tight sm:tracking-widest font-mono transition-colors
                           ${activeSummary === mode
                                                     ? 'bg-[var(--bg-card)] text-[var(--brand)] font-bold border-b-2 border-b-[var(--brand)]'
                                                     : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'

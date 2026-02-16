@@ -51,7 +51,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                     CASE_FILE_{project.id.toUpperCase()}
                 </div>
 
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-4 md:gap-6">
 
                     <div className="flex items-center gap-4">
                         <button
@@ -110,12 +110,12 @@ const CaseStudyContent = ({ project, parentCluster }) => {
 
                         {/* Cinematic Title */}
                         <div className="mb-4">
-                            <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--brand)] border-b border-[var(--brand)] pb-2 inline-block">
+                            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[var(--brand)] border-b border-[var(--brand)] pb-1 sm:pb-2 inline-block">
                                 {caseData.snapshot?.tagline || "Confidential Project"}
                             </span>
                         </div>
 
-                        <h1 className="text-6xl md:text-8xl font-serif italic mb-8 leading-[0.9] tracking-tight max-w-5xl mx-auto">
+                        <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif italic mb-6 md:mb-8 leading-[1.1] md:leading-[0.9] tracking-tight max-w-5xl mx-auto px-4 md:px-0">
                             {isId ? (project.title_id || project.title) : project.title}
                         </h1>
 
@@ -136,11 +136,11 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                 {/* 2. CONTEXT STRIP */}
                 <section className="bg-[var(--bg-card)] border-y border-[var(--border-color)] py-12 relative overflow-hidden">
                     {/* Watermark */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 text-[10rem] font-black text-black/5 pointer-events-none select-none whitespace-nowrap z-0">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 text-6xl sm:text-8xl md:text-[10rem] font-black text-black/5 pointer-events-none select-none whitespace-nowrap z-0">
                         TOP SECRET
                     </div>
 
-                    <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
+                    <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
                         {[
                             { label: "Client", value: caseData.context?.client || "Confidential" },
                             { label: "Role", value: caseData.context?.role || project.role },
@@ -148,8 +148,8 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                             { label: "Team", value: caseData.context?.team || "Product Team" }
                         ].map((item, i) => (
                             <div key={i} className="flex flex-col">
-                                <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-2 opacity-70">{item.label}</span>
-                                <span className="font-medium text-lg font-serif">{item.value}</span>
+                                <span className="font-mono text-[9px] md:text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-1 md:mb-2 opacity-70">{item.label}</span>
+                                <span className="font-medium text-base md:text-lg font-serif leading-tight">{item.value}</span>
                             </div>
                         ))}
                     </div>
@@ -163,9 +163,9 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                     <section className="max-w-6xl mx-auto px-6 py-32 space-y-32">
 
                         {/* Header */}
-                        <div className="flex items-baseline justify-between border-b border-[var(--border-color)] pb-6 mb-16">
-                            <h2 className="text-4xl font-serif italic">{t('protected.process_title') || "The Process"}</h2>
-                            <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.process_subtitle') || "Evolution of Thought"}</span>
+                        <div className="flex flex-col sm:flex-row items-baseline justify-between border-b border-[var(--border-color)] pb-4 md:pb-6 mb-12 md:16 gap-4">
+                            <h2 className="text-3xl md:text-4xl font-serif italic">{t('protected.process_title') || "The Process"}</h2>
+                            <span className="font-mono text-[10px] md:text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.process_subtitle') || "Evolution of Thought"}</span>
                         </div>
 
                         {/* Steps Loop */}
@@ -191,9 +191,9 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                                                     {/* Tape/Pin */}
                                                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[var(--brand)] shadow-lg border-2 border-[var(--bg-card)] z-20 opacity-80"></div>
 
-                                                    <div className="min-h-[250px] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50 flex items-center justify-center">
+                                                    <div className="min-h-[200px] md:min-h-[250px] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50 flex items-center justify-center">
                                                         {step.image && step.image.startsWith('airy:') ? (
-                                                            <div className="w-full h-[300px] bg-[var(--bg-surface)] p-4">
+                                                            <div className="w-full h-[250px] md:h-[300px] bg-[var(--bg-surface)] p-4">
                                                                 <AiryDiagram type={step.image.split(':')[1]} />
                                                             </div>
                                                         ) : step.image ? (
@@ -219,7 +219,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                                                     </div>
                                                     <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t(`process.steps.${step.type}.title`) || step.type}</span>
                                                 </div>
-                                                <h3 className="text-3xl font-bold font-serif mb-6">{step.title}</h3>
+                                                <h3 className="text-2xl md:text-3xl font-bold font-serif mb-4 md:mb-6">{step.title}</h3>
                                                 <div className="prose prose-sm dark:prose-invert font-mono text-[var(--text-secondary)] leading-relaxed">
                                                     {step.desc}
                                                 </div>
@@ -369,9 +369,9 @@ const CaseStudyContent = ({ project, parentCluster }) => {
 
                 {/* 5. SOLUTION (Unified - Renders for both layouts) */}
                 <section className="max-w-6xl mx-auto px-6 py-32">
-                    <div className="flex items-baseline justify-between mb-16">
-                        <h2 className="text-4xl font-serif italic">{t('protected.solution_title') || "The Solution"}</h2>
-                        <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.solution_subtitle') || "Interface Design"}</span>
+                    <div className="flex flex-col sm:flex-row items-baseline justify-between mb-12 md:16 gap-4">
+                        <h2 className="text-3xl md:text-4xl font-serif italic">{t('protected.solution_title') || "The Solution"}</h2>
+                        <span className="font-mono text-[10px] md:text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.solution_subtitle') || "Interface Design"}</span>
                     </div>
 
                     <div className="space-y-32">
@@ -428,7 +428,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                                             <div key={`static-${i}`} className="flex flex-col group">
                                                 <div className="aspect-video bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] relative shadow-lg overflow-hidden mb-6 transition-all duration-300 group-hover:shadow-xl group-hover:border-[var(--brand)]/30">
                                                     {sol.image && sol.image.startsWith('airy:') ? (
-                                                        <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)] p-6">
+                                                        <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)] p-4 md:p-6">
                                                             <AiryDiagram type={sol.image.split(':')[1]} />
                                                         </div>
                                                     ) : sol.image ? (
