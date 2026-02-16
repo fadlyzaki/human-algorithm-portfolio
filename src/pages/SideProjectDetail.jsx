@@ -23,6 +23,7 @@ import NexusAI from '../components/interactions/NexusAI';
 import AgencyPivot from '../components/interactions/AgencyPivot';
 import FloodAlert from '../components/interactions/FloodAlert';
 import PriceLock from '../components/interactions/PriceLock';
+import ProjectKinship from '../components/interactions/ProjectKinship';
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
@@ -106,7 +107,8 @@ const SideProjectDetail = () => {
       'interactive-workbook': WorkforceAI,
       'agency-pivot': AgencyPivot,
       'flood-alert': FloodAlert,
-      'price-lock': PriceLock
+      'price-lock': PriceLock,
+      'project-kinship': ProjectKinship
    }[project.id] || null;
 
 
