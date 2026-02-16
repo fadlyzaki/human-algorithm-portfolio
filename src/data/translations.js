@@ -197,6 +197,7 @@ export const translations = {
             company_page: "Company Page",
             view_case: "View Case",
             problem: "The Problem",
+            teams: "Squads",
         },
         id_card: {
             access_level: "ACCESS_LEVEL_4",
@@ -486,7 +487,8 @@ export const translations = {
             company_page: "Halaman Perusahaan",
             view_case: "Lihat Kasus",
             problem: "Masalah",
-            fix: "Solusi"
+            fix: "Solusi",
+            teams: "Skuad",
         },
         id_card: {
             access_level: "AKSES_LEVEL_4",

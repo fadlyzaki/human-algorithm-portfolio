@@ -274,7 +274,13 @@ const CompanyDetail = () => {
                                     <footer className="mt-4 flex items-center justify-between">
                                         <div className="flex flex-col">
                                             <span className="text-[9px] font-mono text-[var(--brand)] uppercase tracking-wider">FADLY_ZAKI</span>
-                                            <span className="text-[8px] font-mono text-[var(--text-secondary)] opacity-60">LEAD_PRODUCT_DESIGNER</span>
+                                            <span className="text-[8px] font-mono text-[var(--text-secondary)] opacity-60">
+                                                {(() => {
+                                                    const roleStat = cluster.stats?.find(s => s.label === 'Role');
+                                                    const roleValue = roleStat ? roleStat.value : 'Product Designer';
+                                                    return roleValue.toUpperCase().replace(/\s+/g, '_');
+                                                })()}
+                                            </span>
                                         </div>
                                         <div className="w-8 h-8 rounded-full border border-[var(--border-color)] p-1 bg-[var(--bg-void)]">
                                             <img src="/about-portrait-new.jpg" alt="Author" className="w-full h-full object-cover rounded-full grayscale" />
