@@ -1067,7 +1067,7 @@ export const NOTES = [
         tldr_id: "Peringatan geospasial tanpa blindspot selama kejadian banjir kritis.",
         snapshot: {
             tagline: "Civic Resilience System",
-            heroImage: "airy:radar"
+            heroImage: "airy:map"
         },
         context: {
             role: "Product Owner",
@@ -1172,7 +1172,7 @@ export const NOTES = [
         prototypeLink: "https://flood.fadly.design",
         iconName: 'AlertTriangle',
         type: 'IoT Prototype',
-        coverImage: "airy:radar",
+        coverImage: "airy:map",
         hidden: false,
         featured: false
     },
@@ -1192,10 +1192,10 @@ export const NOTES = [
         featured: false,
         type: 'AR Camera',
         date: "January 2018",
-        coverImage: "/filterme-cover.png",
+        coverImage: "airy:face",
         snapshot: {
             tagline: "AR Commerce Experiment",
-            heroImage: "airy:ui"
+            heroImage: "airy:face"
         },
         context: {
             role: "Product Owner",

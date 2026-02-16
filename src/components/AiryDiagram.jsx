@@ -72,6 +72,8 @@ const DIAGRAM_REGISTRY = {
     'timeline': Diagrams.TimelineDiagram,
     'architecture': Diagrams.ArchitectureDiagram,
     'layers': Diagrams.LayersDiagram,
+    'map': Diagrams.MapDiagram,
+    'face': Diagrams.FaceDiagram,
     'default': Diagrams.DefaultDiagram
 };
 

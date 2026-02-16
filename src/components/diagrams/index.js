@@ -12,4 +12,6 @@ export { default as FunnelDiagram } from './FunnelDiagram';
 export { default as TimelineDiagram } from './TimelineDiagram';
 export { default as ArchitectureDiagram } from './ArchitectureDiagram';
 export { default as LayersDiagram } from './LayersDiagram';
+export { default as MapDiagram } from './MapDiagram';
+export { default as FaceDiagram } from './FaceDiagram';
 export { default as DefaultDiagram } from './DefaultDiagram';
