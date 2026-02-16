@@ -439,7 +439,7 @@ const SideProjectDetail = () => {
                         </span>
                      </div>
 
-                     <div className="max-w-sm mx-auto bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative">
+                     <div className={`mx-auto bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative ${project.id === 'project-zen' ? 'max-w-5xl' : 'max-w-sm'}`}>
                         <Suspense fallback={
                            <div className="p-8 space-y-4">
                               <SkeletonLine className="w-1/2 h-6" />
