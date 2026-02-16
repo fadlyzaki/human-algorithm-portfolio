@@ -62,7 +62,7 @@ const SystemMonitor = ({ skills }) => {
                         {skill.url && <div className="absolute right-0 top-0 w-2 h-2 bg-[var(--accent-blue)] rounded-full animate-pulse opacity-50"></div>}
 
                         {/* Bar Graph */}
-                        <div className="h-1.5 bg-[var(--bg-void)] rounded-full overflow-hidden relative border border-[var(--border-color)]/20 shadow-inner">
+                        <div className="h-2 bg-[var(--bg-void)] rounded-full overflow-hidden relative border border-[var(--border-color)]/20 shadow-inner">
                             <div
                                 className="h-full bg-[var(--accent-blue)] transition-all duration-1000 ease-out relative shadow-[0_0_8px_var(--accent-blue)]"
                                 style={{ width: `${metrics[skill.name]}%` }}
@@ -72,9 +72,13 @@ const SystemMonitor = ({ skills }) => {
                         </div>
 
                         {/* Sub-process */}
-                        <div className="text-[9px] text-[var(--text-card-secondary)] opacity-50 uppercase tracking-wider flex justify-between">
-                            <span>PID: {2048 + idx}</span>
-                            <span>MEM: {metrics[skill.name] * 12}MB</span>
+                        <div className="text-[9px] text-[var(--text-card-secondary)] opacity-50 uppercase tracking-wider flex justify-between items-center">
+                            <div className="flex gap-3">
+                                <span>PID: {2048 + idx}</span>
+                                <span className="hidden sm:inline">MEM: {metrics[skill.name] * 12}MB</span>
+                                <span className="sm:hidden">M: {metrics[skill.name] * 12}MB</span>
+                            </div>
+                            <span className="opacity-80">STATUS: ACTIVE</span>
                         </div>
                     </div>
                 ))}

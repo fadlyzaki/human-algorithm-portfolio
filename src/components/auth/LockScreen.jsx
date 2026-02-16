@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldAlert, ArrowLeft, Sun, Moon, ScanEye, Globe, Lock, Unlock, AlertTriangle, Activity, Database } from 'lucide-react';
+import { ShieldAlert, ArrowLeft, ArrowRight, Sun, Moon, ScanEye, Globe, Lock, Unlock, AlertTriangle, Activity, Database } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useHandCursor } from '../../context/HandCursorContext';

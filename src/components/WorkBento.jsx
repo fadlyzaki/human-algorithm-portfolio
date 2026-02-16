@@ -47,11 +47,11 @@ const WorkBento = ({ cluster }) => {
             </div>
 
             {/* 1. HEADER (Top) - Maximum Logo Impact + Dynamic Text Color */}
-            <div className="flex justify-between items-center p-8 pb-2 z-10 w-full gap-4 relative">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 sm:p-8 pb-2 z-10 w-full gap-4 relative">
 
                 {/* Left Side: Logo Only (Full Color, Clear, HUGE) */}
                 <div className="shrink-0">
-                    <div className="w-28 h-28 flex items-center justify-center">
+                    <div className="w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center">
                         {cluster.logo ? (
                             <img
                                 src={cluster.logo}
@@ -59,13 +59,13 @@ const WorkBento = ({ cluster }) => {
                                 className={`w-full h-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110`}
                             />
                         ) : (
-                            <div className={`w-20 h-20 rounded-full opacity-100 ${isHovered ? 'bg-white' : 'bg-current'}`} style={{ color: isHovered ? undefined : cluster.brandColor }}></div>
+                            <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full opacity-100 ${isHovered ? 'bg-white' : 'bg-current'}`} style={{ color: isHovered ? undefined : cluster.brandColor }}></div>
                         )}
                     </div>
                 </div>
 
-                {/* Right Side: Role + Period (Right Aligned) */}
-                <div className="flex flex-col items-end text-right transition-colors duration-300 max-w-[140px]">
+                {/* Right Side: Role + Period (Right Aligned on desktop, Left on mobile) */}
+                <div className="flex flex-col items-start sm:items-end text-left sm:text-right transition-colors duration-300 sm:max-w-[140px]">
                     {/* Role (Top) */}
                     <p className={`text-sm font-bold leading-tight line-clamp-2 transition-colors duration-300 ${isHovered ? 'text-white' : 'text-gray-900 dark:text-gray-100'}`}>
                         {role}

@@ -208,7 +208,7 @@ const Portfolio = () => {
       <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
       {/* Main Container */}
-      <main className="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-24 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-backdrop)] backdrop-blur-sm transition-colors duration-500 overflow-x-hidden">
+      <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-24 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-backdrop)] backdrop-blur-sm transition-colors duration-500 overflow-x-hidden">
         <div className="fade-in pt-12">
 
 
@@ -226,7 +226,7 @@ const Portfolio = () => {
                   HIDDEN GEM FOUND!
                 </Treasure>
 
-                <h1 className="font-mono text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
+                <h1 className="font-mono text-3xl sm:text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
                   {t('home.role')} · <br />
                   <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">{t('home.role_sub')}</span>
                 </h1>
@@ -256,9 +256,9 @@ const Portfolio = () => {
             </div>
 
             {/* Relocated Running Ticker */}
-            <div className="border-y border-[var(--border-color)] my-12 overflow-hidden relative z-20 group cursor-default">
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[var(--bg-backdrop)] to-transparent z-10"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[var(--bg-backdrop)] to-transparent z-10"></div>
+            <div className="border-y border-[var(--border-color)] my-12 overflow-hidden relative z-20 group cursor-default mx-[-1rem] sm:mx-0">
+              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-[var(--bg-backdrop)] via-[var(--bg-backdrop)]/80 to-transparent z-10"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-[var(--bg-backdrop)] via-[var(--bg-backdrop)]/80 to-transparent z-10"></div>
 
               <div className="flex whitespace-nowrap animate-marquee pause-on-hover py-3">
                 {[1, 2, 3, 4].map((i) => (
