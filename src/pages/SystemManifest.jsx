@@ -43,7 +43,7 @@ const SystemManifest = () => {
       { label: "linkedin.com/in/fadlyzaki", url: "https://www.linkedin.com/in/fadlyzaki/", icon: Linkedin },
       { label: "fadlyzaki-design.vercel.app", url: "https://fadlyzaki-design.vercel.app/", icon: Globe },
       { label: "fadly.uzzaki@gmail.com", url: "mailto:fadly.uzzaki@gmail.com", icon: Mail },
-      { label: "0877-8873-4744", url: "tel:+6287788734744", icon: Phone }
+
     ]
   };
 
