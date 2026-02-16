@@ -24,6 +24,7 @@ import AgencyPivot from '../components/interactions/AgencyPivot';
 import FloodAlert from '../components/interactions/FloodAlert';
 import PriceLock from '../components/interactions/PriceLock';
 import ProjectKinship from '../components/interactions/ProjectKinship';
+import ProjectZen from '../components/interactions/ProjectZen';
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
@@ -108,7 +109,8 @@ const SideProjectDetail = () => {
       'agency-pivot': AgencyPivot,
       'flood-alert': FloodAlert,
       'price-lock': PriceLock,
-      'project-kinship': ProjectKinship
+      'project-kinship': ProjectKinship,
+      'project-zen': ProjectZen
    }[project.id] || null;
 
 
