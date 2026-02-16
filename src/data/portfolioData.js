@@ -1290,6 +1290,150 @@ export const NOTES = [
                 content: "Kami belajar hal sulit: Seru bukan berarti Percaya.\n\nUser suka main filter (Engagement), tapi masih ragu beli (Konversi). Kenapa? Karena mereka gak percaya akurasi warna layar HP mereka.\n\nKesimpulan: AR bisa selesaikan masalah 'Bentuk' dan 'Vibe', tapi kesulitan selesaikan 'Tekstur' dan 'Warna Asli'."
             }
         ]
+    },
+    {
+        id: 'project-zen',
+        title: 'Project Zen',
+        subtitle: 'Netflix "Context-First"',
+        desc: 'Prioritizing Context (Time & Energy) over Content Inventory to reduce "Decision Fatigue".',
+        tldr: 'A frontend redesign that filters content based on Available Time and Cognitive Load.',
+        tldr_id: 'Desain ulang frontend yang memfilter konten berdasarkan Waktu Tersedia dan Beban Kognitif.',
+        desc_id: 'Memprioritaskan Konteks (Waktu & Energi) daripada Inventaris Konten untuk mengurangi "Kelelahan Keputusan".',
+        title_id: 'Proyek Zen',
+        subtitle_id: 'Netflix "Konteks-Pertama"',
+        stack: ["UX Research", "Heuristic Analysis", "Frontend Architecture"],
+        links: {
+            demo: "#",
+            repo: "#"
+        },
+        iconName: 'Zap',
+        featured: true,
+        type: 'Conceptual Redesign',
+        date: "October 2023",
+        coverImage: "airy:funnel",
+        brandColor: "#E50914",
+        snapshot: {
+            tagline: "Context-First Discovery",
+            heroImage: "airy:funnel"
+        },
+        context: {
+            role: "Product Design (Outsider)",
+            timeline: "Oct 2023",
+            team: "Solo / Concept",
+            client: "Netflix (Conceptual)"
+        },
+        challenge: "Current streaming interfaces prioritize content inventory (Genres) over user context (Time & Energy). This mismatch causes 'Decision Fatigue', leading to high abandonment rates where users leave to consume passive content like TikTok.",
+        process: [
+            {
+                title: "The Problem: Decision Fatigue",
+                desc: "Users open the app with a constraint ('I have 20 mins') or state ('I'm tired'). The interface forces them to browse generic silos. Consequence: 15 mins scrolling, then abandonment.",
+                image: "airy:chart"
+            },
+            {
+                title: "The Strategy: Context Bar",
+                desc: "A sticky navigation rail that filters content based on 'Available Time' and 'Cognitive Load' before the click. Instantly re-sorting the grid without reload.",
+                image: "airy:funnel"
+            }
+        ],
+        insights: [
+            {
+                title: "The 'Dinner Timer' Persona",
+                desc: "Budi has exactly 25 minutes to eat. He needs a show that finishes when his food finishes. Current UI fails him.",
+                image: "airy:clock"
+            },
+            {
+                title: "Heuristic Attention Score",
+                desc: "We assigned scores based on metadata: 'Sitcom' = Low Load (Green), 'Sci-Fi' = High Load (Red). Promoting 'Calm Mode' for tired users.",
+                image: "airy:radar"
+            }
+        ],
+        solution: [
+            {
+                title: "Context-First Interface",
+                desc: "Filters for 'Quick Bites' (<30m) and 'Chill' (Low Energy). Calm Mode disables auto-play trailers to reduce anxiety.",
+                image: "airy:ui"
+            }
+        ],
+        metrics: [
+            { label: "Time-to-Play", value: "-40%" },
+            { label: "Bounce Rate", value: "-15%" }
+        ],
+        learnings: "By surfacing duration and energy-level metadata before the click, we align the library with the user's immediate reality.",
+        designProcess: [
+            {
+                type: "research",
+                title: "Decision Fatigue",
+                desc: "Users open the app with a constraint ('I have 20 mins') or state ('I'm tired'). The interface forces them to browse generic silos.",
+                title_id: "Kelelahan Keputusan",
+                desc_id: "Pengguna buka aplikasi dengan batasan ('Cuma punya 20 menit') atau kondisi ('Lagi capek'). Antarmuka memaksa mereka menelusuri silo generik.",
+                image: "airy:chart"
+            },
+            {
+                type: "insight",
+                title: "The Dinner Timer",
+                desc: "Persona 'Budi' has exactly 25 minutes to eat. He needs a show that finishes when his food finishes.",
+                title_id: "Pengatur Waktu Makan Malam",
+                desc_id: "Persona 'Budi' punya tepat 25 menit untuk makan. Dia butuh tontonan yang selesai pas makanannya habis.",
+                image: "airy:timeline"
+            },
+            {
+                type: "design",
+                title: "Context Bar",
+                desc: "A sticky navigation rail that filters content based on 'Available Time' and 'Cognitive Load'.",
+                title_id: "Bar Konteks",
+                desc_id: "Rel navigasi lengket yang memfilter konten berdasarkan 'Waktu Tersedia' dan 'Beban Kognitif'.",
+                image: "airy:funnel"
+            },
+            {
+                type: "ship",
+                title: "Calm Mode",
+                desc: "Disabling auto-play trailers and muting colors when 'Chill' mode is active to match the user's low energy state.",
+                title_id: "Mode Tenang",
+                desc_id: "Menonaktifkan trailer auto-play dan memudarkan warna saat mode 'Santai' aktif untuk menyesuaikan energi rendah pengguna.",
+                image: "airy:ui"
+            },
+            {
+                type: "measure",
+                title: "Reducing TTP",
+                desc: "Targeting a 40% reduction in Time-to-Play by aligning content with immediate user context.",
+                title_id: "Mengurangi TTP",
+                desc_id: "Menargetkan pengurangan 40% dalam Time-to-Play (Waktu-ke-Putar) dengan menyelaraskan konten dengan konteks pengguna.",
+                image: "airy:chart"
+            }
+        ],
+        challenge_id: "Antarmuka streaming saat ini memprioritaskan inventaris konten (Genre) daripada konteks pengguna (Waktu & Energi). Ketidakcocokan ini menyebabkan 'Kelelahan Keputusan', membuat pengguna pergi ke TikTok.",
+        process_id: [
+            {
+                title: "Masalah: Kelelahan Keputusan",
+                desc: "Pengguna bingung mau nonton apa. Akibatnya: 15 menit scrolling, lalu keluar aplikasi.",
+                image: "airy:chart"
+            },
+            {
+                title: "Strategi: Bar Konteks",
+                desc: "Filter konten berdasarkan 'Waktu Tersedia' dan 'Beban Kognitif' sebelum klik. Mengurutkan ulang grid secara instan.",
+                image: "airy:funnel"
+            }
+        ],
+        insights_id: [
+            {
+                title: "Persona 'Makan Malam'",
+                desc: "Butuh tontonan yang pas sama durasi makan 25 menit.",
+                image: "airy:clock"
+            },
+            {
+                title: "Skor Perhatian Heuristik",
+                desc: "Sitkom = Beban Rendah (Hijau). Sci-Fi = Beban Tinggi (Merah).",
+                image: "airy:radar"
+            }
+        ],
+        solution_id: [
+            {
+                title: "Antarmuka Konteks-Pertama",
+                desc: "Filter 'Camilan Cepat' (<30m) dan 'Santai'. Mode Tenang mematikan auto-play.",
+                image: "airy:ui"
+            }
+        ],
+        learnings_id: "Dengan memunculkan metadata durasi dan energi sebelum klik, kita menyelaraskan perpustakaan dengan realitas pengguna."
     }
 ];
 
