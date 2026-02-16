@@ -319,7 +319,7 @@ const CompanyDetail = () => {
 
                                         {/* Abstract UI Component */}
                                         <div className="w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out">
-                                            <ProjectCard type={project.type} id={project.id} />
+                                            <ProjectCard type={project.type} id={project.id} expanded={true} />
                                         </div>
 
                                         {/* Overlay Pattern */}

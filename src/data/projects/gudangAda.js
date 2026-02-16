@@ -31,12 +31,15 @@ export const gudangAda = {
     ],
     culture: {
         title: "The Arena",
-        description: "Building a digital layer on top of a chaotic, traditional supply chain wasn't easy. I established Design Ops practices: mentoring interns, conducting design reviews, and interviewing new hires. We spent days in hot warehouses and crowded markets to understand the real users.",
+        description: "As Lead Product Designer, I orchestrated the digital transformation of a traditional supply chain. Beyond pixels, I built the design culture from scratch—establishing Design Ops, mentoring a growing team, and bridging the gap between chaotic offline markets and intuitive digital tools.",
+        disclaimer: "If anyone on the team is uncomfortable with their image being featured here, please reach out to me and I'll remove it immediately.",
+        layout: "symmetric-grid",
         images: [
-            { src: "/commerce_hero.png", caption: "Warehouse Audit", span: "col-span-1 md:col-span-2 row-span-2" },
-            { src: "/commerce_hero.png", caption: "Market Visit", span: "col-span-1 row-span-1" },
-            { src: "/commerce_hero.png", caption: "Team Briefing", span: "col-span-1 row-span-1" },
-            { src: "/commerce_hero.png", caption: "Strategy Session", span: "col-span-1 md:col-span-2 row-span-1" }
+            { src: "/images/gudangada/setup_wide.jpg", caption: "when we work remote while COVID", span: "md:col-start-1 md:row-start-1" },
+            { src: "/images/gudangada/workspace_detail.jpg", caption: "Design Team Review and Meet", span: "md:col-start-1 md:row-start-2" },
+            { src: "/images/gudangada/culture_pose.jpg", caption: "Me at HQ.", span: "md:col-start-2 md:row-start-1 md:row-span-2 h-full" },
+            { src: "/images/gudangada/gudangada_mural.jpg", caption: "GudangAda Culture Mural", span: "md:col-start-3 md:row-start-1" },
+            { src: "/images/gudangada/team_gathering.jpg", caption: "Team Gathering", span: "md:col-start-3 md:row-start-2" }
         ]
     },
     culture_id: {
