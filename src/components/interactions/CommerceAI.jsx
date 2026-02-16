@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Factory, Store, Truck, Package, ShoppingBag } from 'lucide-react';
 
 // Supply Chain Nodes

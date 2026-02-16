@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const ChartDiagram = ({ strokeColor, sw, draw }) => (
     <svg viewBox="0 0 400 300" className="w-full h-full p-8">
