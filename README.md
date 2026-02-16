@@ -1,4 +1,4 @@
-# The Human Algorithm: System Architecture v2.8
+# The Human Algorithm: System Architecture v2.9
 
 > **Engineering Philosophy**: "Chaos contained within a grid."
 
@@ -28,7 +28,11 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 *   **Privacy-First**: No video data is ever sent to a server. Inference happens locally in the browser's WASM runtime.
 *   **Performance**: Lazy-loaded via dynamic imports to ensure the vision model doesn't block the main thread's First Contentful Paint (FCP).
 
-### 4. Localization: Context-Driven Internationalization
+### 4. Visualization: Airy Technical Diagrams
+*   **Decision**: Replaced static PNGs with `AiryDiagram.jsx`, a custom SVG engine.
+*   **Benefit**: Renders localized, responsive, and animated technical schematics (Flow, Cycle, Architecture) at <5KB payload, replacing MBs of raster assets.
+
+### 5. Localization: Context-Driven Internationalization
 *   **Architecture**: A lightweight `LanguageContext` provider wrapping the application root.
 *   **Optimization**: Translations are stored in a centralized `translations.js` data structure, enabling instant O(1) lookup without network waterfalls common in CMS-based i18n solutions.
 
@@ -49,8 +53,9 @@ We optimize for **Cognitive Load** (User) and **Computational Load** (Device).
 ```bash
 src/
 ├── components/           # THE VIEW LAYER
-│   ├── interactions/     # Feature-Specific Microsystems (WorkforceAI, Diagrams)
-│   └── ...
+│   ├── interactions/     # Feature-Specific Microsystems (WorkforceAI, NexusAI)
+│   ├── AiryDiagram.jsx   # SVG Schematic Engine
+│   └── AIBrainstorm.jsx  # Conversational Interface
 ├── context/              # THE STATE LAYER
 │   ├── ThemeContext      # "The Void" (Dark Mode) vs "Surface" (Light Mode)
 │   └── ...
@@ -92,6 +97,7 @@ npm run build
 
 *   **Client-Side "Encryption"**: Sensitive case studies use a simulated decryption layer. Authentication is logic-based, not server-based, ensuring zero server-side attack surface for personal data.
 *   **No PII Collection**: The application is stateless and collects no Personally Identifiable Information beyond standard anonymous analytics.
+*   **Edge Case Hardening**: Extensive fallbacks for invalid IDs, missing translations, and camera permission denials ensure system stability.
 
 ---
 
