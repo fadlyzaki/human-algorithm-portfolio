@@ -36,9 +36,9 @@ export const gudangAda = {
         layout: "symmetric-grid",
         images: [
             { src: "/images/gudangada/setup_wide.jpg", caption: "when we work remote while COVID", span: "md:col-start-1 md:row-start-1" },
-            { src: "/images/gudangada/workspace_detail.jpg", caption: "Design Team Review and Meet", span: "md:col-start-1 md:row-start-2" },
+            { src: "/images/gudangada/workspace_detail.jpg", caption: "Design Team Review and Meet", span: "md:col-start-1 md:row-start-2", size: "object-cover", pos: "object-center" },
             { src: "/images/gudangada/culture_pose.jpg", caption: "Me at HQ.", span: "md:col-start-2 md:row-start-1 md:row-span-2 h-full" },
-            { src: "/images/gudangada/gudangada_mural.jpg", caption: "GudangAda Culture Mural", span: "md:col-start-3 md:row-start-1" },
+            { src: "/images/gudangada/gudangada_mural.jpg", caption: "GudangAda Culture Mural", span: "md:col-start-3 md:row-start-1", size: "object-cover", pos: "object-center" },
             { src: "/images/gudangada/team_gathering.jpg", caption: "Team Gathering", span: "md:col-start-3 md:row-start-2" }
         ]
     },
