@@ -8,7 +8,7 @@ import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import BackButton from '../components/BackButton';
-import { SIDE_PROJECTS, NOTES } from '../data/portfolioData';
+import useProjectData from '../hooks/useProjectData';
 import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
 import Treasure from '../components/Treasure';
@@ -38,10 +38,18 @@ const SideProjectDetail = () => {
    const { isGestureMode, toggleGestureMode } = useHandCursor();
    const { id } = useParams();
 
-   // Fetch Data
-   const project = SIDE_PROJECTS.find(p => p.id === id) || NOTES.find(p => p.id === id);
+   // Use Centralized Data Hook
+   const { project, loading } = useProjectData(id);
 
    const [showLivePreview, setShowLivePreview] = useState(true);
+
+   if (loading) {
+      return (
+         <div className="min-h-screen bg-black flex items-center justify-center">
+            <div className="animate-pulse text-gray-500">Loading...</div>
+         </div>
+      );
+   }
 
    if (!project) {
       return (

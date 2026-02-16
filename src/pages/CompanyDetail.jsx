@@ -5,7 +5,7 @@ import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
-import { WORK_CLUSTERS } from '../data/portfolioData';
+import useProjectData from '../hooks/useProjectData';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
@@ -35,7 +35,11 @@ const CompanyDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const cluster = WORK_CLUSTERS.find(c => c.id === id) || WORK_CLUSTERS[0];
+    const { project: cluster, loading } = useProjectData(id);
+
+    if (loading) return <div className="min-h-screen bg-black" />; // Minimal loader
+    if (!cluster) return null; // Or 404
+
     const brandColor = cluster.brandColor || 'var(--accent-blue)';
 
     const isId = language === 'id';
