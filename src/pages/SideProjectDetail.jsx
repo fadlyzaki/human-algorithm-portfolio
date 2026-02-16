@@ -20,6 +20,7 @@ import WorkforceAI from '../components/interactions/WorkforceAI';
 import CommerceAI from '../components/interactions/CommerceAI';
 import EfficiencyAI from '../components/interactions/EfficiencyAI';
 import NexusAI from '../components/interactions/NexusAI';
+import AgencyPivot from '../components/interactions/AgencyPivot';
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
@@ -104,7 +105,7 @@ const SideProjectDetail = () => {
       'year-in-review': NexusAI,
       'price-lock': EfficiencyAI,
       'project-kinship': CommerceAI,
-      'agency-pivot': NexusAI
+      'agency-pivot': AgencyPivot
    }[project.id] || NexusAI;
 
 
@@ -397,6 +398,7 @@ const SideProjectDetail = () => {
                   </div>
                )}
 
+
                {/* Toggle Back to Live Preview Button (If in Static Mode and Prototype Exists) */}
                {project.prototypeLink && !showLivePreview && (
                   <div className="flex justify-center mb-12">
@@ -407,6 +409,43 @@ const SideProjectDetail = () => {
                         <Monitor size={14} />
                         {isIndonesian ? "Tampilkan Pratinjau Langsung" : "Show Live Preview"}
                      </button>
+                  </div>
+               )}
+
+               {/* C.6. LIVE INTERACTION COMPONENT (Fallback if no external link) */}
+               {!project.prototypeLink && InteractionComponent && (
+                  <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700 mb-24">
+                     <div className="flex items-center gap-4 mb-4">
+                        <div className="w-8 h-8 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+                           <Cpu size={16} />
+                        </div>
+                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+                           {isIndonesian ? "Demo Interaktif" : "Interactive Demo"}
+                        </span>
+                     </div>
+
+                     <div className="w-full bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative">
+                        <InteractionComponent />
+                     </div>
+                  </div>
+               )}
+
+
+               {/* C.6. LIVE INTERACTION COMPONENT (Fallback if no external link) */}
+               {!project.prototypeLink && InteractionComponent && (
+                  <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700 mb-24">
+                     <div className="flex items-center gap-4 mb-4">
+                        <div className="w-8 h-8 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+                           <Cpu size={16} />
+                        </div>
+                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+                           {isIndonesian ? "Demo Interaktif" : "Interactive Demo"}
+                        </span>
+                     </div>
+
+                     <div className="w-full bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative">
+                        <InteractionComponent />
+                     </div>
                   </div>
                )}
 
