@@ -156,7 +156,7 @@ export const SIDE_PROJECTS = [
         desc_id: "Mendekode Kesenjangan Antara Keterlibatan Gamifikasi dan Penguasaan Kognitif.",
         title_id: 'The Productivity Illusion',
         subtitle_id: 'Algoritma Manusia',
-        stack: ["Python (Colab)", "Duolingo API", "Z-Score Modeling"],
+        stack: ["Python (Colab)", "Z-Score Modeling"],
         links: { demo: "#", repo: "#" },
         iconName: 'Activity',
         featured: true,
