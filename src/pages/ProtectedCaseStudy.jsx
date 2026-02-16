@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import {
   Lock, Unlock, AlertTriangle, ArrowRight, ShieldAlert, Database, Truck,
   ShoppingCart, FileText, Thermometer, Activity, PenTool, Sun, Moon, X, ArrowLeft, Monitor, Globe, ScanEye, Sparkles, RotateCcw,

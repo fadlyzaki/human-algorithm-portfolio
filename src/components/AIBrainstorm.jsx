@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
 /* --- AI BRAINSTORM COMPONENT --- */
@@ -27,19 +27,6 @@ const AIBrainstorm = ({ hypotheses, t }) => {
 
     const current = hypotheses[currentIndex];
 
-    // Typing indicator dots
-    const TypingDots = () => (
-        <div className="flex items-center gap-1 py-2">
-            {[0, 1, 2].map(i => (
-                <motion.div
-                    key={i}
-                    className="w-2 h-2 bg-emerald-400 rounded-full"
-                    animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1, 0.8] }}
-                    transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                />
-            ))}
-        </div>
-    );
 
     return (
         <section className="bg-gradient-to-b from-gray-950 via-black to-gray-950 text-white py-24 md:py-32 relative overflow-hidden">
@@ -238,5 +225,18 @@ const AIBrainstorm = ({ hypotheses, t }) => {
         </section>
     );
 };
+
+const TypingDots = () => (
+    <div className="flex items-center gap-1 py-2">
+        {[0, 1, 2].map(i => (
+            <motion.div
+                key={i}
+                className="w-2 h-2 bg-emerald-400 rounded-full"
+                animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1, 0.8] }}
+                transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
+            />
+        ))}
+    </div>
+);
 
 export default AIBrainstorm;

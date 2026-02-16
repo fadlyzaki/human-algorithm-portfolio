@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const FlowDiagram = ({ strokeColor, sw, draw }) => (
     <svg viewBox="0 0 400 200" className="w-full h-full p-8">

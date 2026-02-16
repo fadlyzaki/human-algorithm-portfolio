@@ -1,7 +1,7 @@
 import React from 'react';
 import DotGrid from '../ui/DotGrid';
 
-const Container = ({ children, figIndex = "1.0", schematicType = "SYSTEM_ARCHITECTURE", expanded = false, showChrome = false, backgroundOnly = false }) => {
+const Container = ({ children, expanded = false, showChrome = false, backgroundOnly = false }) => {
     if (backgroundOnly) {
         return (
             <div className="w-full h-full relative overflow-hidden">

@@ -35,6 +35,8 @@ const SideProjectDetail = () => {
    // Fetch Data
    const project = SIDE_PROJECTS.find(p => p.id === id) || NOTES.find(p => p.id === id);
 
+   const [showLivePreview, setShowLivePreview] = useState(true);
+
    if (!project) {
       return (
          <div className="min-h-screen bg-black text-white font-mono flex items-center justify-center p-6 relative overflow-hidden">
@@ -105,10 +107,7 @@ const SideProjectDetail = () => {
       'agency-pivot': NexusAI
    }[project.id] || NexusAI;
 
-   const brandColor = project.brandColor || (isDark ? '#60A5FA' : '#2563EB');
 
-
-   const [showLivePreview, setShowLivePreview] = useState(true);
 
    return (
       <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white pb-32">

@@ -31,7 +31,7 @@ const CARD_REGISTRY = {
     'paper-to-paperless': Cards.PaperToPaperlessCard,
 };
 
-const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, showChrome = false, backgroundOnly = false, priority = false }) => {
+const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, showChrome = false, backgroundOnly = false }) => {
 
     const CardComponent = useMemo(() => {
         if (id && CARD_REGISTRY[id]) {

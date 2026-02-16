@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChefHat, Truck, Clock, Leaf, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
+import { ChefHat, Clock, Leaf } from 'lucide-react';
 
 const EfficiencyAI = ({ color = '#FA6130' }) => {
     // JIT State

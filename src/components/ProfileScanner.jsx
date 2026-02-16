@@ -67,6 +67,10 @@ const ProfileScanner = ({
     const glareX = useTransform(x, [-10, 10], [0, 100]);
     const glareY = useTransform(y, [-10, 10], [0, 100]);
 
+    // Pre-calculate transforms for the badge at top level
+    const badgeX = useTransform(x, val => val * -0.5);
+    const badgeY = useTransform(y, val => val * -0.5);
+
     return (
         <motion.div
             ref={containerRef}
@@ -209,7 +213,7 @@ const ProfileScanner = ({
             {/* Status Badge (Moved outside for 3D depth) */}
             {showBadge && (
                 <motion.div
-                    style={{ z: 50, x: useTransform(x, val => val * -0.5), y: useTransform(y, val => val * -0.5) }}
+                    style={{ z: 50, x: badgeX, y: badgeY }}
                     className="absolute -bottom-4 -right-4 bg-[var(--bg-surface)] border border-[var(--border-color)] px-4 py-2 flex items-center gap-2 shadow-xl rounded-full z-50"
                 >
                     <span className="relative flex h-2 w-2">

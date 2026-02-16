@@ -4,14 +4,14 @@ import { User, Briefcase, CheckCircle2, Search, Zap } from 'lucide-react';
 
 const WorkforceAI = ({ color = '#1AA8B4' }) => {
     // Static Nodes Data
-    const candidates = [
+    const CANDIDATES = [
         { id: 'c1', role: 'Forklift Driver', exp: '3y', status: 'idle' },
         { id: 'c2', role: 'Warehouse Admin', exp: '5y', status: 'idle' },
         { id: 'c3', role: 'Packer', exp: '1y', status: 'idle' },
         { id: 'c4', role: 'Logistic Coord', exp: '4y', status: 'idle' },
     ];
 
-    const jobs = [
+    const JOBS = [
         { id: 'j1', title: 'PT. Logistik', type: 'Driver', status: 'open' },
         { id: 'j2', title: 'Gudang Damai', type: 'Admin', status: 'open' },
         { id: 'j3', title: 'Express Corp', type: 'Packer', status: 'open' },
@@ -25,8 +25,8 @@ const WorkforceAI = ({ color = '#1AA8B4' }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             // Random match generation
-            const candidateIdx = Math.floor(Math.random() * candidates.length);
-            const jobIdx = Math.floor(Math.random() * jobs.length);
+            const candidateIdx = Math.floor(Math.random() * CANDIDATES.length);
+            const jobIdx = Math.floor(Math.random() * JOBS.length);
 
             const newMatch = {
                 id: Date.now(),
@@ -65,9 +65,9 @@ const WorkforceAI = ({ color = '#1AA8B4' }) => {
                 <div className="flex flex-col gap-4 relative z-10 w-1/3">
                     <div className="mb-2 text-[9px] uppercase tracking-widest text-white/40 border-b border-white/10 pb-1 flex justify-between">
                         <span>Candidate_Pool</span>
-                        <span>N={candidates.length}</span>
+                        <span>N={CANDIDATES.length}</span>
                     </div>
-                    {candidates.map((c, i) => (
+                    {CANDIDATES.map((c) => (
                         <div key={c.id} className="relative group">
                             <div className="flex items-center gap-3 p-2 rounded-lg border border-white/5 bg-black/20 backdrop-blur-sm hover:border-white/20 transition-all">
                                 <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center border border-white/10">
@@ -186,7 +186,7 @@ const WorkforceAI = ({ color = '#1AA8B4' }) => {
                         <span>Open_Reqs</span>
                         <span>Job_Queue</span>
                     </div>
-                    {jobs.map((j, i) => (
+                    {JOBS.map((j) => (
                         <div key={j.id} className="relative group w-full flex justify-end">
                             {/* Connector Point Right */}
                             <div className="absolute left-[-4px] top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/20"></div>
