@@ -116,7 +116,7 @@ const HandCursorOverlay = () => {
                         setModelReady(true);
                         setIsModelLoading(false);
                         setLoadError(null);
-                        console.log("MediaPipe Hands Initialized (Persisted)");
+                        // console.log("MediaPipe Hands Initialized (Persisted)");
                     })
                     .catch((error) => {
                         clearTimeout(loadingTimeoutRef.current);
