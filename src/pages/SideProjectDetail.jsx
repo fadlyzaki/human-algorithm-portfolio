@@ -424,26 +424,7 @@ const SideProjectDetail = () => {
                         </span>
                      </div>
 
-                     <div className="w-full bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative">
-                        <InteractionComponent />
-                     </div>
-                  </div>
-               )}
-
-
-               {/* C.6. LIVE INTERACTION COMPONENT (Fallback if no external link) */}
-               {!project.prototypeLink && InteractionComponent && (
-                  <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700 mb-24">
-                     <div className="flex items-center gap-4 mb-4">
-                        <div className="w-8 h-8 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-500">
-                           <Cpu size={16} />
-                        </div>
-                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-                           {isIndonesian ? "Demo Interaktif" : "Interactive Demo"}
-                        </span>
-                     </div>
-
-                     <div className="w-full bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative">
+                     <div className="max-w-sm mx-auto bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative">
                         <InteractionComponent />
                      </div>
                   </div>
