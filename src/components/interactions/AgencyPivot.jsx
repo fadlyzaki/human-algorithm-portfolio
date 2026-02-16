@@ -111,7 +111,7 @@ const POSTS = [
 // --- COMPONENTS ---
 
 const StoryViewer = ({ story, onClose }) => (
-    <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-3xl flex flex-col animate-in fade-in zoom-in-95 duration-300">
+    <div className="absolute inset-0 z-[100] bg-black/95 backdrop-blur-3xl flex flex-col animate-in fade-in zoom-in-95 duration-300">
         <div className="h-1 flex gap-1 p-2 pt-4 safe-area-top">
             <div className="flex-1 bg-white/20 rounded-full overflow-hidden h-1">
                 <div className="h-full bg-white w-1/3 animate-[shimmer_2s_infinite]" />
@@ -212,11 +212,11 @@ const AgencyPivot = () => {
     );
 
     return (
-        <div className="flex justify-center bg-slate-900 min-h-screen font-sans antialiased text-slate-900 selection:bg-indigo-100">
-            <div className="w-full max-w-md bg-white min-h-screen relative shadow-[0_0_40px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden">
+        <div className="flex justify-center bg-slate-900 font-sans antialiased text-slate-900 selection:bg-indigo-100 rounded-xl overflow-hidden">
+            <div className="w-full max-w-md bg-white h-[600px] relative shadow-[0_0_40px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden">
 
                 {/* --- TOAST NOTIFICATION --- */}
-                <div className={`fixed top-24 left-1/2 transform -translate-x-1/2 z-[60] bg-slate-900/90 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-2xl flex items-center gap-2.5 transition-all duration-300 border border-white/10 ${toast ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95 pointer-events-none'}`}>
+                <div className={`absolute top-24 left-1/2 transform -translate-x-1/2 z-[60] bg-slate-900/90 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-2xl flex items-center gap-2.5 transition-all duration-300 border border-white/10 ${toast ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95 pointer-events-none'}`}>
                     <div className="bg-emerald-500 rounded-full p-0.5"><Check className="w-3 h-3 text-white" strokeWidth={3} /></div>
                     {toast}
                 </div>
