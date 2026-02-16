@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
    Sun, Moon, ArrowUpRight, Code, Cpu, Link as LinkIcon, AlertTriangle,
@@ -14,17 +14,18 @@ import ProjectCard from '../components/ProjectCard';
 import Treasure from '../components/Treasure';
 import ZoomableImage from '../components/ZoomableImage';
 import AiryDiagram from '../components/AiryDiagram';
+import SkeletonLine from '../components/ui/SkeletonLine';
 
-// Interaction Components
-import WorkforceAI from '../components/interactions/WorkforceAI';
-import CommerceAI from '../components/interactions/CommerceAI';
-import EfficiencyAI from '../components/interactions/EfficiencyAI';
-import NexusAI from '../components/interactions/NexusAI';
-import AgencyPivot from '../components/interactions/AgencyPivot';
-import FloodAlert from '../components/interactions/FloodAlert';
-import PriceLock from '../components/interactions/PriceLock';
-import ProjectKinship from '../components/interactions/ProjectKinship';
-import ProjectZen from '../components/interactions/ProjectZen';
+// Lazy Load Interaction Components
+const WorkforceAI = React.lazy(() => import('../components/interactions/WorkforceAI'));
+const CommerceAI = React.lazy(() => import('../components/interactions/CommerceAI'));
+const EfficiencyAI = React.lazy(() => import('../components/interactions/EfficiencyAI'));
+const NexusAI = React.lazy(() => import('../components/interactions/NexusAI'));
+const AgencyPivot = React.lazy(() => import('../components/interactions/AgencyPivot'));
+const FloodAlert = React.lazy(() => import('../components/interactions/FloodAlert'));
+const PriceLock = React.lazy(() => import('../components/interactions/PriceLock'));
+const ProjectKinship = React.lazy(() => import('../components/interactions/ProjectKinship'));
+const ProjectZen = React.lazy(() => import('../components/interactions/ProjectZen'));
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
@@ -417,6 +418,7 @@ const SideProjectDetail = () => {
                   </div>
                )}
 
+
                {/* C.6. LIVE INTERACTION COMPONENT (Fallback if no external link) */}
                {!project.prototypeLink && InteractionComponent && (
                   <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700 mb-24">
@@ -430,7 +432,14 @@ const SideProjectDetail = () => {
                      </div>
 
                      <div className="max-w-sm mx-auto bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative">
-                        <InteractionComponent />
+                        <Suspense fallback={
+                           <div className="p-8 space-y-4">
+                              <SkeletonLine className="w-1/2 h-6" />
+                              <SkeletonLine className="w-full h-32" />
+                           </div>
+                        }>
+                           <InteractionComponent />
+                        </Suspense>
                      </div>
                   </div>
                )}
