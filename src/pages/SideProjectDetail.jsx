@@ -21,6 +21,7 @@ import CommerceAI from '../components/interactions/CommerceAI';
 import EfficiencyAI from '../components/interactions/EfficiencyAI';
 import NexusAI from '../components/interactions/NexusAI';
 import AgencyPivot from '../components/interactions/AgencyPivot';
+import FloodAlert from '../components/interactions/FloodAlert';
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
@@ -102,7 +103,8 @@ const SideProjectDetail = () => {
    const InteractionComponent = {
       'human-algorithm': NexusAI,
       'interactive-workbook': WorkforceAI,
-      'agency-pivot': AgencyPivot
+      'agency-pivot': AgencyPivot,
+      'flood-alert': FloodAlert
    }[project.id] || null;
 
 
