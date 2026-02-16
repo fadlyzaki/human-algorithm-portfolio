@@ -455,7 +455,13 @@ export const SIDE_PROJECTS = [
             }
         ],
         solution: [
-            { title: "Manual Entry Interface", desc: "A quiet space to remember.", image: "airy:ui" },
+            {
+                title: "Manual Entry Interface",
+                desc: "A quiet space to remember.",
+                image: "airy:ui",
+                link: "https://year-in-review-jak.vercel.app/",
+                linkLabel: "Launch Wrapped"
+            },
             { title: "The Output", desc: "Shareable artifacts of personal history.", image: "airy:data" }
         ],
         metrics: [

@@ -337,7 +337,17 @@ const SideProjectDetail = () => {
                               )}
                               <div className="text-left">
                                  <h3 className="text-xl font-bold mb-2">{sol.title}</h3>
-                                 <p className="text-[var(--text-secondary)]">{sol.desc}</p>
+                                 <p className="text-[var(--text-secondary)] mb-4">{sol.desc}</p>
+                                 {sol.link && (
+                                    <a
+                                       href={sol.link}
+                                       target="_blank"
+                                       rel="noreferrer"
+                                       className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand)] hover:underline"
+                                    >
+                                       {sol.linkLabel || (isIndonesian ? "Lihat Demo" : "View Live Demo")} <ArrowUpRight size={14} />
+                                    </a>
+                                 )}
                               </div>
                            </div>
                         ))}
