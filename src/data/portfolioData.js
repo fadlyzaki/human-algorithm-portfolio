@@ -541,6 +541,7 @@ export const SIDE_PROJECTS = [
             tagline: "Civic Tech Action Plan",
             heroImage: "airy:ecosystem"
         },
+        coverImage: "airy:ecosystem",
         context: {
             role: "Product Owner",
             timeline: "2024",
