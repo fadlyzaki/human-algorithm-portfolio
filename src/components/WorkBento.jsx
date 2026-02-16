@@ -96,16 +96,30 @@ const WorkBento = ({ cluster }) => {
 
 
                 {/* Device / Visual Frame */}
-                <div className={`relative transform transition-transform duration-700 ${cluster.heroImage && cluster.heroImage.startsWith('/') ? 'w-[180px] mx-auto' : 'w-full max-w-[90%] group-hover:scale-105 origin-bottom'}`}>
+                <div className={`relative transform transition-transform duration-700 ${cluster.heroImage && cluster.heroImage.startsWith('/') ? 'w-[200px] mx-auto' : 'w-full max-w-[90%] group-hover:scale-105 origin-bottom'}`}>
                     {cluster.heroImage && cluster.heroImage.startsWith('/') ? (
-                        <div className="relative rounded-t-[20px] overflow-hidden shadow-[0_8px_40px_-8px_rgba(0,0,0,0.3)] border-t-[4px] border-x-[4px] border-white/20 dark:border-white/15 bg-white dark:bg-neutral-800">
-                            <img
-                                src={cluster.heroImage}
-                                alt={title}
-                                className="w-full aspect-[9/16] object-cover object-top"
-                            />
-                            {/* Gloss/Reflection */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none mix-blend-overlay"></div>
+                        <div className="relative rounded-t-[28px] overflow-hidden shadow-[0_12px_50px_-12px_rgba(0,0,0,0.5)] border-t-[6px] border-x-[6px] border-white/20 dark:border-white/10 bg-white dark:bg-neutral-800 aspect-[9/14] flex flex-col">
+                            {/* Device Header/Notch Area - Protects mockup headers from card rounding */}
+                            <div className="h-7 w-full flex items-center justify-center shrink-0 bg-white dark:bg-neutral-800 relative z-20">
+                                <div className="w-16 h-4 bg-black dark:bg-neutral-900 rounded-b-xl flex items-center justify-center">
+                                    <div className="w-1.5 h-1.5 bg-white/10 rounded-full blur-[0.5px]"></div>
+                                </div>
+                            </div>
+
+                            {/* Inner Screen Container */}
+                            <div className="relative flex-grow overflow-hidden rounded-t-lg">
+                                <img
+                                    src={cluster.heroImage}
+                                    alt={title}
+                                    className="w-full h-auto object-top transition-transform duration-[5000ms] ease-in-out group-hover:translate-y-[calc(-100%+280px)]"
+                                    style={{ transformOrigin: 'top' }}
+                                />
+                                {/* Gloss/Reflection */}
+                                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none mix-blend-overlay"></div>
+                            </div>
+
+                            {/* Inner Shadow for depth */}
+                            <div className="absolute inset-0 shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] pointer-events-none"></div>
                         </div>
                     ) : (
                         <div className="w-full aspect-[4/3] bg-white dark:bg-black/20 rounded-t-2xl border-t border-x border-black/5 flex items-center justify-center relative overflow-hidden shadow-xl">
