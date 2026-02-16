@@ -31,7 +31,7 @@ export const gudangAda = {
     ],
     culture: {
         title: "The Arena",
-        description: "As Lead Product Designer, I orchestrated the digital transformation of a traditional supply chain. Beyond pixels, I built the design culture from scratch—establishing Design Ops, mentoring a growing team, and bridging the gap between chaotic offline markets and intuitive digital tools.",
+        description: "As Product Designer 2, I orchestrated the digital transformation of a traditional supply chain. Beyond pixels, I built the design culture from scratch—establishing Design Ops, mentoring a growing team, and bridging the gap between chaotic offline markets and intuitive digital tools.",
         disclaimer: "If anyone on the team is uncomfortable with their image being featured here, please reach out to me and I'll remove it immediately.",
         layout: "symmetric-grid",
         images: [

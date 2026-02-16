@@ -424,7 +424,7 @@ const CompanyDetail = () => {
                                     ))}
                                 </div>
                             ) : cluster.culture.layout === 'symmetric-grid' ? (
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[260px]">
                                     {cluster.culture.images.map((img, i) => (
                                         <ScrollReveal key={i} delay={i * 100} className={`relative group overflow-hidden rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] ${img.span || ''}`}>
                                             <ZoomableImage

@@ -33,7 +33,7 @@ export const stoqo = {
     ],
     culture: {
         title: "The Arena",
-        description: "I worked there as one of the early product designers, touching almost every product line—from customer-facing apps to complex warehousing logistics. I also contributed to Design Ops by mentoring interns and supporting the hiring process. We built a culture of 'Get Your Hands Dirty'.",
+        description: "As an early Product Designer, I was instrumental in digitizing a chaotic supply chain. I designed across the entire ecosystem—from customer apps to warehouse logistics—while establishing Design Ops and mentoring new hires. We built a culture of 'Get Your Hands Dirty' to truly understand our users.",
         disclaimer: "If anyone on the team is uncomfortable with their image being featured here, please reach out to me and I'll remove it immediately.",
         layout: "symmetric-grid",
         images: [
