@@ -1,4 +1,4 @@
-# Product Requirements Document (PRD): Human Algorithm Portfolio v2.7
+# Product Requirements Document (PRD): Human Algorithm Portfolio v2.9.1
 
 ## 1. Executive Summary
 The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity.
@@ -178,6 +178,9 @@ The homepage follows a "Priority-First" narrative flow:
 *   **[COMPLETED]** Unified 5-Step Design Process (All Case Studies Standardized)
 *   **[COMPLETED]** Interactive Warehouse Prototypes (Stoqo Picker & Checker Apps)
 *   **[COMPLETED]** Side Project: "The Productivity Illusion" (Product Research Case Study & Visuals)
+*   **[COMPLETED]** GudangAda Gallery Refinement (v2.9.1): Symmetric grid layout with center-focused imagery.
+*   **[COMPLETED]** Global Visual Polish (v2.9.1): "Frameless" full-bleed project cards across all detail pages.
+*   **[COMPLETED]** Role Synchronization (v2.9.1): Historical accuracy alignment ("Product Designer 2") for GudangAda.
 
 ### Phase 3: Intelligence & Expansion (Q2-Q4 2026)
 *   **[Q2 2026]** Enhanced AI Agent: Expand semantic memory with real RAG backend.

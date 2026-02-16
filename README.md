@@ -1,4 +1,4 @@
-# The Human Algorithm: System Architecture v2.9
+# The Human Algorithm: System Architecture v2.9.1
 
 > **Engineering Philosophy**: "Chaos contained within a grid."
 
