@@ -16,7 +16,7 @@ export const SIDE_PROJECTS = [
         featured: true,
         type: 'Meta-Project',
         date: "February 2026",
-        coverImage: "/human-algorithm-cover.png",
+        coverImage: "airy:architecture",
         snapshot: {
             tagline: "Recursive Portfolio v2.9",
             heroImage: "airy:architecture"
@@ -294,7 +294,7 @@ export const SIDE_PROJECTS = [
         featured: true,
         type: 'Education',
         date: "August 2025",
-        coverImage: "/interactive-workbook-cover.png",
+        coverImage: "airy:flow",
         snapshot: {
             tagline: "EdTech Platform",
             heroImage: "airy:flow"
@@ -424,7 +424,7 @@ export const SIDE_PROJECTS = [
         iconName: 'Calendar',
         type: 'DataViz',
         date: "December 2025",
-        coverImage: "/year-in-review-cover.png",
+        coverImage: "airy:data",
         snapshot: {
             tagline: "Manual Data Visualization",
             heroImage: "airy:data"
@@ -669,7 +669,7 @@ export const NOTES = [
         featured: true,
         type: 'Fintech Lock',
         date: "February 2026",
-        coverImage: "/price-lock-cover.png",
+        coverImage: "airy:chart",
         brandColor: "#10B981", // Fintech Green
         snapshot: {
             tagline: "Fintech Feature for OTA",
@@ -790,7 +790,7 @@ export const NOTES = [
         featured: true,
         type: 'Logistics Kinship',
         date: "February 2026",
-        coverImage: "/project-kinship-cover.png",
+        coverImage: "airy:venn",
         brandColor: "#EC4899", // Kinship Pink
         snapshot: {
             tagline: "Social Logistics & Gifting",
@@ -923,7 +923,7 @@ export const NOTES = [
         type: 'Case Study',
         date: "March 2026",
         brandColor: "#8B5CF6", // Pivot Purple
-        coverImage: "/about-portrait-new.jpg",
+        coverImage: "airy:hierarchy",
         snapshot: {
             tagline: "Redesigning Algorithms",
             heroImage: "airy:hierarchy"
