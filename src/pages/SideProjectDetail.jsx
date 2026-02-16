@@ -102,11 +102,8 @@ const SideProjectDetail = () => {
    const InteractionComponent = {
       'human-algorithm': NexusAI,
       'interactive-workbook': WorkforceAI,
-      'year-in-review': NexusAI,
-      'price-lock': EfficiencyAI,
-      'project-kinship': CommerceAI,
       'agency-pivot': AgencyPivot
-   }[project.id] || NexusAI;
+   }[project.id] || null;
 
 
 
