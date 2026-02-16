@@ -148,6 +148,19 @@ The homepage follows a "Priority-First" narrative flow:
     *   **Hypothesis Scale-up**: Expanded "If I built this today" section to 5 AI-native hypotheses per case study, covering Agentic Workflows and Multi-modal reasoning.
     *   **Visual Polish**: Removed legacy "Fig 1.0" artifacts for a cleaner, immersive display.
 
+### 5.1 Security & Robustness (Audit 2026-02-16)
+*   **Client-Side "Security"**: Acknowledged architectural decision to handle password protection purely client-side for "Confidential" case studies. This is a portfolio demonstration feature, not a true security barrier.
+*   **Edge Case Hardening**:
+    *   **Invalid IDs**: `ProtectedCaseStudy` and `ProjectCard` render abstract compositions or "Access Denied" screens instead of crashing.
+    *   **Media Resilience**: `ProjectCard` implements `onError` handlers to swap broken images for technical diagrams (`ABSTRACT_COMPOSITION`).
+    *   **List Rendering**: `SideProjectsIndex` and other lists conditionally render headers to avoid "empty shelf" UI states.
+*   **Camera Privacy**: `HandCursorOverlay` gracefully downgrades to standard mouse interaction if camera permissions are denied or initialization fails.
+
+### 5.2 Architectural Components (v2.8+)
+*   **`AiryDiagram.jsx`**: A specialized SVG engine for rendering "technical schematic" visualizations (Flow, Cycle, Hierarchy, UI, Data, Venn, Kanban, Chart, Radar, Ecosystem). Used as the primary visual language for case studies.
+*   **`AIBrainstorm.jsx`**: A conversational interface component simulating a dialogue between the user and an AI collaborator, used to present "If I built this today" hypotheses.
+*   **`NavigationMenu.jsx`**: A unified, responsive navigation drawer for consistent site-wide wayfinding.
+
 ## 6. Roadmap & Future Iterations
 
 ### Phase 1: Foundation & Identity (Active)
