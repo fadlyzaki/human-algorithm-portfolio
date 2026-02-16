@@ -2,14 +2,14 @@ export const SIDE_PROJECTS = [
     {
         id: 'human-algorithm',
         title: 'The Human Algorithm',
-        subtitle: 'Recursive Portfolio',
+        subtitle: 'Recursive Portfolio v2.9',
         desc: 'A self-aware portfolio built by AI agents. From "Pixel Pushing" to "System Orchestration".',
         tldr: "The first portfolio built entirely through an Agentic Workflow. A proof of concept for the future of software engineering.",
         tldr_id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. Bukti konsep untuk masa depan rekayasa perangkat lunak.",
         desc_id: "Portofolio sadar diri yang dibangun oleh agen AI. Dari 'Pixel Pushing' ke 'Orkestrasi Sistem'.",
         title_id: 'The Human Algorithm',
-        subtitle_id: 'Portofolio Rekursif',
-        stack: ["React", "Gemini", "Cortex"],
+        subtitle_id: 'Portofolio Rekursif v2.9',
+        stack: ["React", "Framer Motion", "MediaPipe", "Vite", "Tailwind"],
         links: { demo: "/", repo: "https://github.com/fadlyzaki/human-algorithm-portfolio" },
         prototypeLink: "/", // Recursive Portfolio
         iconName: 'Cpu',
@@ -18,7 +18,7 @@ export const SIDE_PROJECTS = [
         date: "February 2026",
         coverImage: "/human-algorithm-cover.png",
         snapshot: {
-            tagline: "Recursive Portfolio",
+            tagline: "Recursive Portfolio v2.9",
             heroImage: "airy:architecture"
         },
         context: {
@@ -38,6 +38,11 @@ export const SIDE_PROJECTS = [
                 title: "Differentiation: Recursive Design",
                 desc: "The product is self-aware. It lists itself as a case study. It exposes its own 'thought process' (via open-source logs). We used a 'Chaos System' aesthetic—glitch effects and raw data—to visually represent the messy, beautiful reality of human-AI collaboration.",
                 image: "airy:cycle"
+            },
+            {
+                title: "Visualization: Technical Diagrams",
+                desc: "Replaced 15+ static images with `AiryDiagram.jsx`, a custom SVG engine. Reduced payload by 3MB while enabling responsive dark/light mode themes for all technical schematics.",
+                image: "airy:architecture"
             }
         ],
         insights: [
