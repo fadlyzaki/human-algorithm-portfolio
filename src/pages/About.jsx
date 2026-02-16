@@ -53,6 +53,8 @@ const AboutPage = () => {
       type: 'KNOWLEDGE_INSTALL',
       title: t('about.log_master_title'),
       desc: t('about.log_master_desc'),
+      link: 'productivity-illusion',
+      linkType: 'side-project',
       icon: BookOpen,
       color: 'text-[var(--accent-blue)]',
       category: 'bio'
@@ -385,24 +387,22 @@ const AboutPage = () => {
 
                       {/* WORK ITEM SPECIFIC EXTRAS */}
                       {item.category === 'work' && (
-                        <>
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {item.tags.map(tag => (
-                              <span key={tag} className="font-mono text-[10px] text-[var(--accent-blue)] bg-[var(--bg-void)] px-2 py-1 rounded border border-[var(--border-color)]">
-                                #{tag}
-                              </span>
-                            ))}
-                          </div>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {item.tags.map(tag => (
+                            <span key={tag} className="font-mono text-[10px] text-[var(--accent-blue)] bg-[var(--bg-void)] px-2 py-1 rounded border border-[var(--border-color)]">
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
 
-                          {item.link && (
-                            <Link
-                              to={`/work/${item.link}`}
-                              className="inline-flex items-center gap-2 text-xs font-mono text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-0.5"
-                            >
-                              {t('about.log_explore')}
-                            </Link>
-                          )}
-                        </>
+                      {item.link && (
+                        <Link
+                          to={item.linkType === 'side-project' ? `/side-project/${item.link}` : `/work/${item.link}`}
+                          className="inline-flex items-center gap-2 text-xs font-mono text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-0.5 mb-2"
+                        >
+                          {t('about.log_explore')}
+                        </Link>
                       )}
 
                       {/* BIO ITEM SPECIFIC EXTRAS */}
