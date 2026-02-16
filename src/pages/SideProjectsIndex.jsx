@@ -227,90 +227,94 @@ const SideProjectsIndex = () => {
                     </div>
                 </header>
 
-                <div className="mb-32">
-                    <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
-                        <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
-                        Launched Ventures
-                        <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
-                        {SIDE_PROJECTS.filter(p => !p.hidden).map((project, idx) => (
-                            <div
-                                key={idx}
-                                ref={el => cardsRef.current[idx] = el}
-                                onClick={() => navigate(`/side-project/${project.id}`)}
-                                className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform"
-                            >
-                                <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] mb-6 overflow-hidden relative">
-                                    <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
-                                        <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} image={project.coverImage} />
+                {SIDE_PROJECTS.length > 0 && (
+                    <div className="mb-32">
+                        <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
+                            <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
+                            Launched Ventures
+                            <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
+                            {SIDE_PROJECTS.filter(p => !p.hidden).map((project, idx) => (
+                                <div
+                                    key={project.id}
+                                    ref={el => cardsRef.current[idx] = el}
+                                    onClick={() => navigate(`/side-project/${project.id}`)}
+                                    className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform"
+                                >
+                                    <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] mb-6 overflow-hidden relative">
+                                        <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
+                                            <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} image={project.coverImage} />
+                                        </div>
+                                        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
+                                        <div className="absolute bottom-4 left-4 font-mono text-[11px] text-black dark:text-white bg-white/90 dark:bg-black/90 px-2 py-1 backdrop-blur-sm rounded border border-black/10 dark:border-white/10">
+                                            0{idx + 1}
+                                        </div>
+                                        <ArrowUpRight className="absolute top-4 right-4 text-white dark:text-black opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={20} />
                                     </div>
-                                    <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
-                                    <div className="absolute bottom-4 left-4 font-mono text-[11px] text-black dark:text-white bg-white/90 dark:bg-black/90 px-2 py-1 backdrop-blur-sm rounded border border-black/10 dark:border-white/10">
-                                        0{idx + 1}
-                                    </div>
-                                    <ArrowUpRight className="absolute top-4 right-4 text-white dark:text-black opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={20} />
-                                </div>
 
-                                <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4">
-                                    {(isIndonesian && project.title_id) ? project.title_id : project.title}
-                                </h3>
-                                <p className="text-[var(--text-secondary)] font-light text-sm leading-relaxed mb-4">
-                                    {(isIndonesian && project.desc_id) ? project.desc_id : project.desc}
-                                </p>
-                                <div className="flex gap-2 flex-wrap">
-                                    {project.stack.map((tech, tIdx) => (
-                                        <span key={tIdx} className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider">
-                                            {tech}
-                                        </span>
-                                    ))}
+                                    <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4">
+                                        {(isIndonesian && project.title_id) ? project.title_id : project.title}
+                                    </h3>
+                                    <p className="text-[var(--text-secondary)] font-light text-sm leading-relaxed mb-4">
+                                        {(isIndonesian && project.desc_id) ? project.desc_id : project.desc}
+                                    </p>
+                                    <div className="flex gap-2 flex-wrap">
+                                        {project.stack.map((tech, tIdx) => (
+                                            <span key={tIdx} className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
+                )}
 
                 {/* NOTES Section */}
-                <div className="mb-12">
-                    <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
-                        <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
-                        Prototypes
-                        <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
-                        {NOTES.map((project, idx) => (
-                            <div
-                                key={`note-${idx}`}
-                                ref={el => cardsRef.current[SIDE_PROJECTS.length + idx] = el}
-                                onClick={() => navigate(`/side-project/${project.id}`)}
-                                className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform opacity-80 hover:opacity-100"
-                            >
-                                <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] border-dashed mb-6 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
-                                    <div className="absolute inset-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
-                                        <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} image={project.coverImage} />
+                {NOTES.length > 0 && (
+                    <div className="mb-12">
+                        <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
+                            <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
+                            Prototypes
+                            <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
+                            {NOTES.map((project, idx) => (
+                                <div
+                                    key={project.id}
+                                    ref={el => cardsRef.current[SIDE_PROJECTS.length + idx] = el}
+                                    onClick={() => navigate(`/side-project/${project.id}`)}
+                                    className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform opacity-80 hover:opacity-100"
+                                >
+                                    <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] border-dashed mb-6 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+                                        <div className="absolute inset-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
+                                            <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} image={project.coverImage} />
+                                        </div>
+                                        <div className="absolute top-4 left-4 font-mono text-[11px] uppercase tracking-wider text-[var(--text-secondary)] bg-[var(--bg-void)] border border-[var(--border-color)] px-2 py-1 rounded">
+                                            NOTE
+                                        </div>
                                     </div>
-                                    <div className="absolute top-4 left-4 font-mono text-[11px] uppercase tracking-wider text-[var(--text-secondary)] bg-[var(--bg-void)] border border-[var(--border-color)] px-2 py-1 rounded">
-                                        NOTE
-                                    </div>
-                                </div>
 
-                                <h3 className="text-xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4 decoration-dotted">
-                                    {(isIndonesian && project.title_id) ? project.title_id : project.title}
-                                </h3>
-                                <p className="text-[var(--text-secondary)] font-light text-sm leading-relaxed mb-4 line-clamp-2">
-                                    {(isIndonesian && project.desc_id) ? project.desc_id : project.desc}
-                                </p>
-                                <div className="flex gap-2 flex-wrap opacity-60">
-                                    {project.stack.map((tech, tIdx) => (
-                                        <span key={tIdx} className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider">
-                                            {tech}
-                                        </span>
-                                    ))}
+                                    <h3 className="text-xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4 decoration-dotted">
+                                        {(isIndonesian && project.title_id) ? project.title_id : project.title}
+                                    </h3>
+                                    <p className="text-[var(--text-secondary)] font-light text-sm leading-relaxed mb-4 line-clamp-2">
+                                        {(isIndonesian && project.desc_id) ? project.desc_id : project.desc}
+                                    </p>
+                                    <div className="flex gap-2 flex-wrap opacity-60">
+                                        {project.stack.map((tech, tIdx) => (
+                                            <span key={tIdx} className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
+                )}
             </main>
             <Footer />
         </div >

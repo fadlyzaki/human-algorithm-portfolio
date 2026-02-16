@@ -1026,6 +1026,23 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
             );
         }
 
+        const [imgError, setImgError] = React.useState(false);
+
+        if (imgError) {
+            return (
+                <Container expanded={expanded} showChrome={showChrome} figIndex="0.1" schematicType="ABSTRACT_COMPOSITION">
+                    <div className="w-full h-full p-12 flex flex-col gap-4">
+                        <div className="flex-1 border border-dashed border-slate-200 rounded-2xl flex items-center justify-center">
+                            <div className="flex flex-col items-center gap-3">
+                                <Cpu size={32} className="text-slate-100 group-hover:text-[var(--brand)]/20 transition-colors duration-700" />
+                                <SkeletonLine width="80px" opacity={0.05} />
+                            </div>
+                        </div>
+                    </div>
+                </Container>
+            );
+        }
+
         return (
             <Container figIndex="2.1" schematicType={`${type.toUpperCase()}_DOCUMENTATION`}>
                 <div className="w-full h-full flex items-center justify-center p-8">
@@ -1036,6 +1053,7 @@ const ProjectCard = ({ type = 'Web', expanded = false, image = null, id = null, 
                             fetchPriority={priority ? "high" : "auto"}
                             loading={priority ? "eager" : "lazy"}
                             className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+                            onError={() => setImgError(true)}
                         />
                         {/* Technical Overlay on Image */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand)]/10 to-transparent mix-blend-overlay"></div>
