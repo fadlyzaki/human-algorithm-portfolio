@@ -778,15 +778,15 @@ export const NOTES = [
     },
     {
         id: 'project-kinship',
-        title: 'Project Kinship',
-        subtitle: 'Social Logistics & Gifting',
-        desc: 'Transferring money is easy; showing care is hard. Helping the diaspora send a meaningful meal home.',
-        tldr: "Bridging the emotional distance between 'Sender' and 'Receiver' in the remittance flow.",
-        tldr_id: "Menjembatani jarak emosional antara 'Pengirim' dan 'Penerima' dalam arus remitansi.",
-        desc_id: "Transfer uang itu gampang; menunjukkan kepedulian itu susah. Bantu perantau kirim makanan penuh makna.",
-        title_id: 'Project Kinship',
-        subtitle_id: 'Logistik Sosial & Hadiah',
-        stack: ["React", "LMM / AI", "Fintech (Remittance)"],
+        title: 'The Science of Care',
+        subtitle: 'Grab Merantau',
+        desc: '"Karena Perhatian Tidak Mengenal Jarak." A platform to help perantau send care — not just cash — home.',
+        tldr: "We built 'Grab Bakti': an emotional infrastructure that converts remittance into a tangible act of love.",
+        tldr_id: "Kami membangun 'Grab Bakti': infrastruktur emosional yang mengkonversi remitansi menjadi aksi kasih sayang nyata.",
+        desc_id: '"Karena Perhatian Tidak Mengenal Jarak." Platform untuk bantu perantau kirim perhatian — bukan cuma uang — ke kampung halaman.',
+        title_id: 'The Science of Care',
+        subtitle_id: 'Grab Merantau',
+        stack: ["React", "LLM / AI Concierge", "Fintech (Remittance)"],
         links: {
             demo: "https://gemini.google.com/share/bd973765947a",
             repo: "#"
@@ -798,117 +798,117 @@ export const NOTES = [
         coverImage: "airy:venn",
         brandColor: "#EC4899", // Kinship Pink
         snapshot: {
-            tagline: "Social Logistics & Gifting",
+            tagline: "Grab Merantau",
             heroImage: "airy:venn"
         },
         context: {
             role: "Product Owner",
             timeline: "Feb 2026",
             team: "Logistics Team",
-            client: "Internal Product"
+            client: "Grab (Internal Product)"
         },
-        challenge: "Transferring money is easy; showing care is hard. Money says 'I support you,' but it doesn't say 'I miss you.' We wanted to build a remittance tool that carried warmth.",
+        challenge: "I am a perantau. Far from Padang. When I hear Mom is sick in Padang, I want to send her Martabak Hayuda or Sate Mak Syukur. But GPS locks me in Jakarta. Grab exists in Jakarta, and Grab exists in Padang. Why can't I bridge them? Technology today forces you to 'be there' to order. We set out to fix that.",
         process: [
             {
-                title: "Why Cash Feels Cold",
-                desc: "Every month, millions of migrant workers send money home. It's a transaction of love, but the interface is cold, sterile, and purely numeric.",
+                title: "Grab Bakti: Emotional Infrastructure",
+                desc: "This isn't just a 'change address' feature. It's emotional infrastructure. For the Sender: the ability to 'be present' instantly. For the Receiver: the joy of a surprise without needing an app. For Grab: becoming part of the most intimate moments in Indonesian families.",
                 image: "airy:flow"
             },
             {
-                title: "The Zero-UI Receiver",
-                desc: "The harsh reality: The people who need care the most often have the oldest phones. We built a WhatsApp-based receiver flow with SMS fallback.",
+                title: "The Business Case: Ekonomi Kasih Sayang",
+                desc: "Emotional Remittance: Indonesians send trillions of Rupiah home every year. We convert that cash into GTV directly in the Grab ecosystem. Inclusive Acquisition: When Mom in Padang receives food via a WhatsApp link without installing an app, we're building brand trust with a generation previously unreachable. Gift orders have higher AOV because senders want to give the best.",
                 image: "airy:ecosystem"
             }
         ],
         insights: [
             {
-                title: "Delivering Warmth",
-                desc: "Kinship isn't about sending Rupiah; it's about sending 'Care Packages' (e.g., a Sunday Dinner basket). It lets the sender be present in family life remotely.",
+                title: "AI as 'The Smart Cousin'",
+                desc: "In Padang, there are many food choices. But which resto is open today? Which is most authentic? The AI Concierge acts like a local cousin. User says: 'Find warm food for Mom who has the flu,' and AI scans the best merchants in Padang serving quality soup or porridge.",
                 image: "airy:cycle"
             }
         ],
         solution: [
             {
-                title: "Video Receipt",
-                desc: "A transaction ends when money arrives. A relationship continues. Drivers record the family's reaction (with consent) so the sender sees their mother smiling.",
+                title: "Ibu-Friendly UX Design",
+                desc: "Video Message: Sender records a short video. When food arrives, the Driver says 'This is a message from your child in Jakarta,' and Mom clicks a big play button in her browser. Web-Microsite: Because Mom might not have phone memory to install an app, the system sends a unique link. One click, she can track the driver. Voice Reply: Mom doesn't need to type — just press the mic icon.",
                 image: "airy:ui"
             }
         ],
         metrics: [
-            { label: "Connection", value: "Deepened" },
-            { label: "Remittance", value: "Humanized" }
+            { label: "Target AOV", value: "2.5x" },
+            { label: "App Penetration", value: "90%" }
         ],
-        learnings: "Closing the loop with emotion, not just a transaction status.",
+        learnings: "I brought this idea not only because I understand APIs or GTV calculations. I brought it because I personally feel the pain of distance. I want to build a Grab that doesn't just move people and goods, but also moves love.",
         designProcess: [
             {
                 type: "research",
-                title: "Why Cash Feels Cold",
-                desc: "Every month, millions of migrant workers send money home. It's a transaction of love, but the interface is cold, sterile, and purely numeric.",
-                title_id: "Kenapa Uang Terasa Dingin",
-                desc_id: "Tiap bulan perantau kirim uang. Itu transaksi cinta, tapi antarmukanya dingin dan cuma angka.",
-                image: "airy:flow"
+                title: "The Perantau's Pain",
+                desc: "I am a perantau, far from Padang. When Mom is sick, I want to send her favorite food. But GPS locks me in Jakarta. Grab exists in both cities — why can't I bridge them?",
+                title_id: "Sakit Hati Perantau",
+                desc_id: "Saya perantau, jauh dari Padang. Saat Ibu sakit, saya ingin kirim makanan kesukaannya. Tapi GPS mengunci saya di Jakarta. Grab ada di dua kota — kenapa tidak bisa dijembatani?",
+                image: "airy:radar"
             },
             {
                 type: "insight",
-                title: "Delivering Warmth",
-                desc: "Kinship isn't just about sending Rupiah; it's about sending 'Care Packages'. It lets the sender be present in family life remotely.",
-                title_id: "Mengirim Kehangatan",
-                desc_id: "Kinship bukan cuma kirim Rupiah, tapi 'Paket Perhatian'. Biar pengirim merasa hadir di rumah.",
-                image: "airy:cycle"
+                title: "Ekonomi Kasih Sayang",
+                desc: "Indonesians send trillions home yearly. We convert cash remittance into GTV. Gift orders have 2.5x higher AOV. When Mom receives food via WhatsApp link without installing an app, we build trust with an unreachable generation.",
+                title_id: "Ekonomi Kasih Sayang",
+                desc_id: "Perantau Indonesia kirim triliunan tiap tahun. Kami konversi remitansi jadi GTV. Pesanan hadiah punya AOV 2.5x lebih tinggi. Saat Ibu terima makanan via link WhatsApp tanpa install aplikasi, kita bangun kepercayaan.",
+                image: "airy:chart"
             },
             {
                 type: "design",
-                title: "The Zero-UI Receiver",
-                desc: "The people who need care often have the oldest phones. We designed a WhatsApp-based receiver flow with SMS fallback.",
-                title_id: "Penerima Tanpa-UI",
-                desc_id: "Orang tua sering gaptek. Kami desain alur penerimaan via WhatsApp dengan fallback SMS.",
+                title: "AI Concierge + Zero-UI Receiver",
+                desc: "AI acts like a local cousin: 'Find warm food for Mom who has the flu.' Web-Microsite means Mom doesn't need to install anything — one click to track the driver in her browser.",
+                title_id: "AI Concierge + Penerima Tanpa-UI",
+                desc_id: "AI bertindak seperti sepupu lokal: 'Cari makanan hangat buat Ibu yang flu.' Web-Microsite artinya Ibu gak perlu install apa-apa — satu klik untuk lacak driver di browser.",
                 image: "airy:ecosystem"
             },
             {
                 type: "ship",
-                title: "Video Receipt",
-                desc: "A transaction ends when money arrives. A relationship continues. Drivers record the family's reaction so the sender sees their mother smiling.",
-                title_id: "Resi Video",
-                desc_id: "Transaksi selesai saat uang sampai. Hubungan berlanjut. Driver rekam reaksi keluarga biar pengirim lihat senyum Ibu.",
+                title: "Ibu-Friendly UX",
+                desc: "Video Message from sender played on delivery. Voice Reply so Mom doesn't need to type. Big buttons, browser-based — designed for the least tech-savvy user.",
+                title_id: "UX Ramah Ibu",
+                desc_id: "Pesan Video dari pengirim diputar saat makanan tiba. Balas Suara supaya Ibu gak perlu ngetik. Tombol besar, berbasis browser — didesain untuk pengguna paling gaptek.",
                 image: "airy:ui"
             },
             {
                 type: "measure",
-                title: "Humanized Remittance",
-                desc: "We measured success by the emotional connection deepened, not just the volume of transactions.",
-                title_id: "Remitansi yang Dimanusiakan",
-                desc_id: "Kami mengukur kesuksesan dari hubungan emosional yang diperdalam, bukan hanya volume transaksi.",
+                title: "Moving Love, Not Just Goods",
+                desc: "I brought this idea because I personally feel the pain of distance. I want to build a Grab that moves love — with 2.5x AOV target and 90% messaging app penetration as the bridge.",
+                title_id: "Memindahkan Kasih, Bukan Cuma Barang",
+                desc_id: "Saya bawa ide ini karena saya merasakan sendiri sakitnya jarak. Saya ingin membangun Grab yang memindahkan kasih sayang — dengan target AOV 2.5x dan penetrasi 90% aplikasi pesan sebagai jembatan.",
                 image: "airy:venn"
             }
         ],
-        challenge_id: "Transfer uang itu gampang; menunjukkan kepedulian itu susah. Uang bilang 'Aku support kamu,' tapi gak bilang 'Aku kangen kamu.'",
+        challenge_id: "Saya perantau. Jauh dari Padang. Saat Ibu kurang enak badan, saya ingin kirim Martabak Hayuda atau Sate Mak Syukur. Tapi GPS mengunci saya di Jakarta. Grab ada di Jakarta, Grab ada di Padang. Kenapa tidak bisa dijembatani? Teknologi hari ini memaksa kita 'ada di sana' untuk bisa memesan.",
         process_id: [
             {
-                title: "Kenapa Uang Terasa Dingin",
-                desc: "Tiap bulan perantau kirim uang. Itu transaksi cinta, tapi antarmukanya dingin dan cuma angka.",
+                title: "Grab Bakti: Infrastruktur Emosional",
+                desc: "Ini bukan sekadar fitur ganti alamat. Bagi Pengirim: kemudahan untuk 'hadir' secara instan. Bagi Penerima: kebahagiaan menerima kejutan tanpa pusing dengan aplikasi. Bagi Grab: menjadi bagian dari momen paling intim dalam keluarga Indonesia.",
                 image: "airy:flow"
             },
             {
-                title: "Penerima Tanpa-UI",
-                desc: "Orang tua sering gaptek. Kami buat alur penerimaan via WhatsApp dengan fallback SMS.",
+                title: "Strategi Bisnis: Ekonomi Kasih Sayang",
+                desc: "Remitansi Emosional: konversi uang tunai jadi GTV di ekosistem Grab. Akuisisi Inklusif: Ibu terima makanan via WhatsApp tanpa install aplikasi. Pesanan hadiah punya AOV lebih tinggi karena pengirim ingin kasih yang terbaik.",
                 image: "airy:ecosystem"
             }
         ],
         insights_id: [
             {
-                title: "Mengirim Kehangatan",
-                desc: "Bukan kirim Rupiah, tapi 'Paket Perhatian' (misal: Sembako Makan Malam). Biar pengirim merasa hadir di rumah.",
+                title: "AI Sebagai 'Sepupu yang Pintar'",
+                desc: "Di Padang banyak pilihan makanan. Tapi resto mana yang buka? Mana yang paling autentik? AI Concierge bertindak seperti sepupu yang tinggal di Padang. Cukup bilang 'Cari makanan hangat buat Ibu yang flu.'",
                 image: "airy:cycle"
             }
         ],
         solution_id: [
             {
-                title: "Resi Video",
-                desc: "Transaksi selesai saat uang sampai. Hubungan berlanjut. Driver rekam reaksi keluarga biar pengirim lihat senyum Ibu.",
+                title: "Desain UX Ramah Ibu",
+                desc: "Pesan Video: Pengirim rekam video pendek, diputar saat makanan tiba. Web-Microsite: Ibu gak perlu install aplikasi, satu klik di browser bisa lihat driver. Voice Reply: Ibu gak perlu ngetik, cukup tekan ikon mic.",
                 image: "airy:ui"
             }
         ],
-        learnings_id: "Menutup lingkaran dengan emosi, bukan sekadar status transaksi."
+        learnings_id: "Saya bawa ide ini bukan hanya karena mengerti API atau cara menghitung GTV. Saya membawanya karena merasakan sendiri sakitnya jarak. Saya ingin membangun Grab yang memindahkan kasih sayang."
     },
     {
         id: 'agency-pivot',
