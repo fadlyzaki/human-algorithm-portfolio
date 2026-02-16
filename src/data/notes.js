@@ -1,0 +1,783 @@
+
+export const NOTES = [
+    {
+        id: 'price-lock',
+        title: 'Price Lock',
+        subtitle: 'Fintech Feature for OTA',
+        desc: 'The specific anxiety of watching a flight price jump $50 while you wait for your boss\'s approval.',
+        tldr: "We built a 'pause button' on inflation for anxious travelers.",
+        tldr_id: "Kami membuat tombol 'pause' untuk inflasi bagi traveler yang cemas.",
+        desc_id: "Kecemasan spesifik saat melihat tiket naik 500rb sambil menunggu izin cuti bos.",
+        title_id: 'Price Lock',
+        subtitle_id: 'Fitur Fintech untuk OTA',
+        stack: ["React", "Python (Algorithm Logic)", "Fintech Integration"],
+        links: {
+            demo: "https://gemini.google.com/share/e12fc1c0dab2",
+            repo: "#"
+        },
+        iconName: 'Shield',
+        featured: true,
+        type: 'Fintech Lock',
+        date: "February 2026",
+        coverImage: "airy:chart",
+        brandColor: "#10B981", // Fintech Green
+        snapshot: {
+            tagline: "Fintech Feature for OTA",
+            heroImage: "airy:chart"
+        },
+        context: {
+            role: "Product Owner",
+            timeline: "Feb 2026",
+            team: "Growth Team",
+            client: "Internal Product"
+        },
+        challenge: "The specific anxiety of watching a flight price jump $50 while you wait for your boss\'s approval. In a world of dynamic pricing, the user is always the loser.",
+        process: [
+            {
+                title: "The $50 Heartbeat Skip",
+                desc: "You find the perfect flight. You text friends. They take 3 hours. You refresh. Price went up. That regret is what we designed against.",
+                image: "airy:timeline"
+            },
+            {
+                title: "Buying Time, Not Tickets",
+                desc: "Users weren't paying for the ticket; they were paying for the *option* to wait. The ability to ask their boss for leave without risking a price hike.",
+                image: "airy:funnel"
+            }
+        ],
+        insights: [
+            {
+                title: "The Honest Algorithm",
+                desc: "To build trust, we showed our work: 'AI Prediction: 85% chance this price rises tomorrow.' This turned a 'Hidden Fee' into 'Insurance'.",
+                image: "airy:chart"
+            }
+        ],
+        solution: [
+            {
+                title: "The Pause Button",
+                desc: "A small fee ($2) to freeze the algorithm for 24 hours. Shifts user state from Panic to Control.",
+                image: "airy:ui"
+            }
+        ],
+        metrics: [
+            { label: "User Anxiety", value: "Reduced" },
+            { label: "Trust Score", value: "Elevated" }
+        ],
+        learnings: "Price Lock is not a fintech product; it's an anxiety medication.",
+        designProcess: [
+            {
+                type: "research",
+                title: "Anxiety in Pricing",
+                desc: "The specific anxiety of watching a flight price jump $50 while you wait for your boss\'s approval. In a world of dynamic pricing, the user is always the loser.",
+                image: "/price-lock-cover.png"
+            },
+            {
+                type: "insight",
+                title: "Buying Time",
+                desc: "Users weren't paying for the ticket; they were paying for the *option* to wait. The ability to ask their boss for leave without risking a price hike."
+            },
+            {
+                type: "design",
+                title: "The Pause Button",
+                desc: "A small fee ($2) to freeze the algorithm for 24 hours. Shifts user state from Panic to Control. A simple toggle that buys peace of mind.",
+                image: "/price-lock-cover.png"
+            },
+            {
+                type: "ship",
+                title: "The Honest Algorithm",
+                desc: "To build trust, we showed our work: 'AI Prediction: 85% chance this price rises tomorrow.' This turned a 'Hidden Fee' into 'Insurance'."
+            },
+            {
+                type: "measure",
+                title: "Emotional ROI",
+                desc: "Price Lock is not a fintech product; it's an anxiety medication. We measured success not just in revenue, but in the reduction of user panic."
+            }
+        ],
+        challenge_id: "Kecemasan spesifik saat melihat tiket naik 500rb sambil menunggu izin cuti bos. Di dunia 'dynamic pricing', user selalu kalah.",
+        process_id: [
+            {
+                title: "Jantung Copot Karena 500 Ribu",
+                desc: "Nemu tiket pas. Chat temen. Lama bales. Refresh. Harga naik. Rasa nyesek itu musuh desain kami.",
+                image: "airy:timeline"
+            },
+            {
+                title: "Beli Waktu, Bukan Tiket",
+                desc: "User bayar bukan buat tiket, tapi buat *opsi* nunggu. Kemampuan minta izin bos tanpa takut harga naik.",
+                image: "airy:funnel"
+            }
+        ],
+        insights_id: [
+            {
+                title: "Algoritma Jujur",
+                desc: "Kami buka dapur: 'Prediksi AI: 85% peluang naik besok.' Ini ubah 'Biaya Admin' jadi 'Asuransi'.",
+                image: "airy:chart"
+            }
+        ],
+        solution_id: [
+            {
+                title: "Tombol Pause",
+                desc: "Bayar receh buat bekukan algoritma 24 jam. Ubah user dari Panik ke Kontrol.",
+                image: "airy:ui"
+            }
+        ],
+        learnings_id: "Price Lock bukan produk fintech; ini obat anti-cemas."
+    },
+    {
+        id: 'project-kinship',
+        title: 'The Science of Care',
+        subtitle: 'Grab Merantau',
+        desc: '"Karena Perhatian Tidak Mengenal Jarak." A platform to help perantau send care — not just cash — home.',
+        tldr: "We built 'Grab Bakti': an emotional infrastructure that converts remittance into a tangible act of love.",
+        tldr_id: "Kami membangun 'Grab Bakti': infrastruktur emosional yang mengkonversi remitansi menjadi aksi kasih sayang nyata.",
+        desc_id: '"Karena Perhatian Tidak Mengenal Jarak." Platform untuk bantu perantau kirim perhatian — bukan cuma uang — ke kampung halaman.',
+        title_id: 'The Science of Care',
+        subtitle_id: 'Grab Merantau',
+        stack: ["React", "LLM / AI Concierge", "Fintech (Remittance)"],
+        links: {
+            demo: "https://gemini.google.com/share/bd973765947a",
+            repo: "#"
+        },
+        iconName: 'Gift',
+        featured: true,
+        type: 'Logistics Kinship',
+        date: "February 2026",
+        coverImage: "airy:venn",
+        brandColor: "#EC4899", // Kinship Pink
+        snapshot: {
+            tagline: "Grab Merantau",
+            heroImage: "airy:venn"
+        },
+        context: {
+            role: "Product Owner",
+            timeline: "Feb 2026",
+            team: "Logistics Team",
+            client: "Grab (Internal Product)"
+        },
+        challenge: "I am a perantau. Far from Padang. When I hear Mom is sick in Padang, I want to send her Martabak Hayuda or Sate Mak Syukur. But GPS locks me in Jakarta. Grab exists in Jakarta, and Grab exists in Padang. Why can't I bridge them? Technology today forces you to 'be there' to order. We set out to fix that.",
+        process: [
+            {
+                title: "Grab Bakti: Emotional Infrastructure",
+                desc: "This isn't just a 'change address' feature. It's emotional infrastructure. For the Sender: the ability to 'be present' instantly. For the Receiver: the joy of a surprise without needing an app. For Grab: becoming part of the most intimate moments in Indonesian families.",
+                image: "airy:flow"
+            },
+            {
+                title: "The Business Case: Ekonomi Kasih Sayang",
+                desc: "Emotional Remittance: Indonesians send trillions of Rupiah home every year. We convert that cash into GTV directly in the Grab ecosystem. Inclusive Acquisition: When Mom in Padang receives food via a WhatsApp link without installing an app, we're building brand trust with a generation previously unreachable. Gift orders have higher AOV because senders want to give the best.",
+                image: "airy:ecosystem"
+            }
+        ],
+        insights: [
+            {
+                title: "AI as 'The Smart Cousin'",
+                desc: "In Padang, there are many food choices. But which resto is open today? Which is most authentic? The AI Concierge acts like a local cousin. User says: 'Find warm food for Mom who has the flu,' and AI scans the best merchants in Padang serving quality soup or porridge.",
+                image: "airy:cycle"
+            }
+        ],
+        solution: [
+            {
+                title: "Ibu-Friendly UX Design",
+                desc: "Video Message: Sender records a short video. When food arrives, the Driver says 'This is a message from your child in Jakarta,' and Mom clicks a big play button in her browser. Web-Microsite: Because Mom might not have phone memory to install an app, the system sends a unique link. One click, she can track the driver. Voice Reply: Mom doesn't need to type — just press the mic icon.",
+                image: "airy:ui"
+            }
+        ],
+        metrics: [
+            { label: "Target AOV", value: "2.5x" },
+            { label: "App Penetration", value: "90%" }
+        ],
+        learnings: "I brought this idea not only because I understand APIs or GTV calculations. I brought it because I personally feel the pain of distance. I want to build a Grab that doesn't just move people and goods, but also moves love.",
+        designProcess: [
+            {
+                type: "research",
+                title: "The Perantau's Pain",
+                desc: "I am a perantau, far from Padang. When Mom is sick, I want to send her favorite food. But GPS locks me in Jakarta. Grab exists in both cities — why can't I bridge them?",
+                title_id: "Sakit Hati Perantau",
+                desc_id: "Saya perantau, jauh dari Padang. Saat Ibu sakit, saya ingin kirim makanan kesukaannya. Tapi GPS mengunci saya di Jakarta. Grab ada di dua kota — kenapa tidak bisa dijembatani?",
+                image: "airy:radar"
+            },
+            {
+                type: "insight",
+                title: "Ekonomi Kasih Sayang",
+                desc: "Indonesians send trillions home yearly. We convert cash remittance into GTV. Gift orders have 2.5x higher AOV. When Mom receives food via WhatsApp link without installing an app, we build trust with an unreachable generation.",
+                title_id: "Ekonomi Kasih Sayang",
+                desc_id: "Perantau Indonesia kirim triliunan tiap tahun. Kami konversi remitansi jadi GTV. Pesanan hadiah punya AOV 2.5x lebih tinggi. Saat Ibu terima makanan via link WhatsApp tanpa install aplikasi, kita bangun kepercayaan.",
+                image: "airy:chart"
+            },
+            {
+                type: "design",
+                title: "AI Concierge + Zero-UI Receiver",
+                desc: "AI acts like a local cousin: 'Find warm food for Mom who has the flu.' Web-Microsite means Mom doesn't need to install anything — one click to track the driver in her browser.",
+                title_id: "AI Concierge + Penerima Tanpa-UI",
+                desc_id: "AI bertindak seperti sepupu lokal: 'Cari makanan hangat buat Ibu yang flu.' Web-Microsite artinya Ibu gak perlu install apa-apa — satu klik untuk lacak driver di browser.",
+                image: "airy:ecosystem"
+            },
+            {
+                type: "ship",
+                title: "Ibu-Friendly UX",
+                desc: "Video Message from sender played on delivery. Voice Reply so Mom doesn't need to type. Big buttons, browser-based — designed for the least tech-savvy user.",
+                title_id: "UX Ramah Ibu",
+                desc_id: "Pesan Video dari pengirim diputar saat makanan tiba. Balas Suara supaya Ibu gak perlu ngetik. Tombol besar, berbasis browser — didesain untuk pengguna paling gaptek.",
+                image: "airy:ui"
+            },
+            {
+                type: "measure",
+                title: "Moving Love, Not Just Goods",
+                desc: "I brought this idea because I personally feel the pain of distance. I want to build a Grab that moves love — with 2.5x AOV target and 90% messaging app penetration as the bridge.",
+                title_id: "Memindahkan Kasih, Bukan Cuma Barang",
+                desc_id: "Saya bawa ide ini karena saya merasakan sendiri sakitnya jarak. Saya ingin membangun Grab yang memindahkan kasih sayang — dengan target AOV 2.5x dan penetrasi 90% aplikasi pesan sebagai jembatan.",
+                image: "airy:venn"
+            }
+        ],
+        challenge_id: "Saya perantau. Jauh dari Padang. Saat Ibu kurang enak badan, saya ingin kirim Martabak Hayuda atau Sate Mak Syukur. Tapi GPS mengunci saya di Jakarta. Grab ada di Jakarta, Grab ada di Padang. Kenapa tidak bisa dijembatani? Teknologi hari ini memaksa kita 'ada di sana' untuk bisa memesan.",
+        process_id: [
+            {
+                title: "Grab Bakti: Infrastruktur Emosional",
+                desc: "Ini bukan sekadar fitur ganti alamat. Bagi Pengirim: kemudahan untuk 'hadir' secara instan. Bagi Penerima: kebahagiaan menerima kejutan tanpa pusing dengan aplikasi. Bagi Grab: menjadi bagian dari momen paling intim dalam keluarga Indonesia.",
+                image: "airy:flow"
+            },
+            {
+                title: "Strategi Bisnis: Ekonomi Kasih Sayang",
+                desc: "Remitansi Emosional: konversi uang tunai jadi GTV di ekosistem Grab. Akuisisi Inklusif: Ibu terima makanan via WhatsApp tanpa install aplikasi. Pesanan hadiah punya AOV lebih tinggi karena pengirim ingin kasih yang terbaik.",
+                image: "airy:ecosystem"
+            }
+        ],
+        insights_id: [
+            {
+                title: "AI Sebagai 'Sepupu yang Pintar'",
+                desc: "Di Padang banyak pilihan makanan. Tapi resto mana yang buka? Mana yang paling autentik? AI Concierge bertindak seperti sepupu yang tinggal di Padang. Cukup bilang 'Cari makanan hangat buat Ibu yang flu.'",
+                image: "airy:cycle"
+            }
+        ],
+        solution_id: [
+            {
+                title: "Desain UX Ramah Ibu",
+                desc: "Pesan Video: Pengirim rekam video pendek, diputar saat makanan tiba. Web-Microsite: Ibu gak perlu install aplikasi, satu klik di browser bisa lihat driver. Voice Reply: Ibu gak perlu ngetik, cukup tekan ikon mic.",
+                image: "airy:ui"
+            }
+        ],
+        learnings_id: "Saya bawa ide ini bukan hanya karena mengerti API atau cara menghitung GTV. Saya membawanya karena merasakan sendiri sakitnya jarak. Saya ingin membangun Grab yang memindahkan kasih sayang."
+    },
+    {
+        id: 'agency-pivot',
+        title: 'The "Agency" Pivot',
+        subtitle: 'Redesigning Algorithms',
+        desc: 'We stopped treating users like dopamine junkies and started treating them like pilots.',
+        tldr: "Giving the steering wheel back to your own attention span.",
+        tldr_id: "Mengembalikan kemudi setir kepada atensi Anda sendiri.",
+        desc_id: "Kami berhenti memperlakukan user seperti pecandu dopamin dan mulai memperlakukan mereka sebagai pilot.",
+        sections_id: {
+            challenge: "Medsos sekarang cuma mau nyuri perhatian kita. Akibatnya user gak punya kendali, cuma dikasih konten sampah biar terus scroll.",
+            approach: "Kita sadar user itu mood-nya berubah-ubah. Jadi kita pindahin kontrolnya langsung ke Feed, pake cara yang halus (Stealth UX)."
+        },
+        stack: ["UX Research", "Behavioral Psych", "Figma"],
+        links: { demo: "#", repo: "#" },
+        iconName: 'Brain',
+        type: 'Case Study',
+        date: "March 2026",
+        brandColor: "#8B5CF6", // Pivot Purple
+        coverImage: "airy:hierarchy",
+        snapshot: {
+            tagline: "Redesigning Algorithms",
+            heroImage: "airy:hierarchy"
+        },
+        context: {
+            role: "Product Owner",
+            timeline: "Mar 2026",
+            team: "Social Media Giant",
+            client: "Internal Research"
+        },
+        challenge: "Social media transitioned from Connecting People to Retaining Attention. This stripped users of agency, creating a 'Feed of Slop' that prioritizes cheap dopamine. Users feel manipulated and anxious.",
+        process: [
+            {
+                title: "The Protagonist: Sarah",
+                desc: "Sarah wants updates from friends but gets ads and viral screamers. She feels 'digital loneliness' even while scrolling. Our goal: Give her back the steering wheel.",
+                image: "airy:hierarchy"
+            },
+            {
+                title: "Failed Attempt: The Cockpit",
+                desc: "We tried a complex settings panel with sliders. Users hated it. 'This looks like work. I don't want to calibrate my feed like a sound engineer.'",
+                image: "airy:kanban"
+            }
+        ],
+        insights: [
+            {
+                title: "From Settings to Vibes",
+                desc: "Users don't have static preferences; they have Contextual Moods. Sometimes they want 'Doom Scroll', sometimes 'Friends Only'.",
+                image: "airy:venn"
+            }
+        ],
+        solution: [
+            {
+                title: "Stealth Mode Switcher",
+                desc: "Turned the 'For You' header into a dropdown. Sarah can switch to 'Friends Only' instantly. Noise vanishes.",
+                image: "airy:ui"
+            },
+            {
+                title: "Chill Mode",
+                desc: "Filters out high-BPM audio and rapid cuts. The feed becomes a digital magazine, not a slot machine.",
+                image: "airy:layers"
+            },
+            {
+                title: "Micro-Blocking",
+                desc: "One-tap removal of AI/spam content via tags, training the algorithm without leaving the feed.",
+                image: "airy:radar"
+            }
+        ],
+        metrics: [
+            { label: "Trust Score", value: "High Increase" },
+            { label: "Friend Interaction", value: "Tripled" }
+        ],
+        learnings: "Technology should be a bicycle for the mind, not a conveyor belt for the eyes.",
+        designProcess: [
+            {
+                type: "research",
+                title: "The Attention Trap",
+                desc: "Social media transitioned from Connecting People to Retaining Attention. Ideally, users should be pilots, not passengers.",
+                title_id: "Perangkap Atensi",
+                desc_id: "Medsos beralih dari Koneksi ke Retensi Atensi. Idealnya, user harus jadi pilot, bukan penumpang.",
+                image: "airy:hierarchy"
+            },
+            {
+                type: "insight",
+                title: "Contextual Moods",
+                desc: "Users don't have static preferences; they have moods. Sometimes 'Doom Scroll', sometimes 'Friends Only'. Settings menus are too rigid.",
+                title_id: "Mood Kontekstual",
+                desc_id: "User gak punya preferensi statis; punya mood. Kadang 'Doom Scroll', kadang 'Hanya Teman'. Menu setting terlalu kaku.",
+                image: "airy:venn"
+            },
+            {
+                type: "design",
+                title: "Stealth Mode Switcher",
+                desc: "Turned the 'For You' header into a dropdown. Users can switch to 'Friends Only' instantly. Noise vanishes.",
+                title_id: "Stealth Mode Switcher",
+                desc_id: "Ubah header 'For You' jadi dropdown. User bisa switch ke 'Hanya Teman' instan. Bising hilang.",
+                image: "airy:ui"
+            },
+            {
+                type: "ship",
+                title: "Chill Mode",
+                desc: "Implemented filters for high-BPM audio and rapid cuts. The feed becomes a digital magazine, not a slot machine.",
+                title_id: "Mode Santai",
+                desc_id: "Implementasi filter audio cepat dan potongan kasar. Feed jadi majalah digital, bukan mesin slot.",
+                image: "airy:layers"
+            },
+            {
+                type: "measure",
+                title: "Trust Score",
+                desc: "Giving control back increased trust. Friend interactions tripled when the noise was removed.",
+                title_id: "Skor Kepercayaan",
+                desc_id: "Memberi kontrol balik meningkatkan kepercayaan. Interaksi teman naik 3x lipat saat noise hilang.",
+                image: "airy:radar"
+            }
+        ],
+        challenge_id: "Medsos beralih dari Koneksi ke Retensi Atensi. Ini mencuri agensi user, menciptakan 'Feed Sampah' demi dopamin murah. User merasa dimanipulasi.",
+        process_id: [
+            {
+                title: "Protagonis: Sarah",
+                desc: "Sarah mau update teman tapi dapet iklan dan video teriak. Dia merasa kesepian digital. Goal kami: Kembalikan kemudi ke dia.",
+                image: "airy:hierarchy"
+            },
+            {
+                title: "Gagal: Kokpit",
+                desc: "Kami coba panel setting rumit. User benci. 'Ini kayak kerjaan. Gue gak mau kalibrasi feed kayak sound engineer.'",
+                image: "airy:kanban"
+            }
+        ],
+        insights_id: [
+            {
+                title: "Dari Setting ke Vibe",
+                desc: "User gak punya preferensi statis; mereka punya Mood Kontekstual. Kadang mau 'Doom Scroll', kadang 'Hanya Teman'.",
+                image: "airy:venn"
+            }
+        ],
+        solution_id: [
+            {
+                title: "Stealth Mode Switcher",
+                desc: "Ubah header 'For You' jadi dropdown. Bisa switch ke 'Hanya Teman' instan. Bising hilang.",
+                image: "airy:ui"
+            },
+            {
+                title: "Mode Santai",
+                desc: "Filter audio cepat dan potongan kasar. Feed jadi majalah digital, bukan mesin slot.",
+                image: "airy:layers"
+            },
+            {
+                title: "Micro-Blocking",
+                desc: "Hapus konten AI/spam sekali tap lewat tag, melatih algoritma tanpa keluar feed.",
+                image: "airy:radar"
+            }
+        ],
+        learnings_id: "Teknologi harusnya jadi sepeda buat pikiran, bukan ban berjalan buat mata."
+    },
+    {
+        id: 'flood-alert',
+        title: 'Flood Alert',
+        subtitle: 'Civic Resilience System',
+        desc: 'A hyper-local disaster response system for Jakarta\'s monsoon season.',
+        desc_id: 'Sistem respon bencana hyper-local untuk musim hujan Jakarta.',
+        tldr: "Zero-blindspot geospatial alerting during critical flood events.",
+        tldr_id: "Peringatan geospasial tanpa blindspot selama kejadian banjir kritis.",
+        snapshot: {
+            tagline: "Civic Resilience System",
+            heroImage: "airy:map"
+        },
+        context: {
+            role: "Product Owner",
+            timeline: "2024",
+            team: "Solo",
+            client: "Jakarta Smart City (Unofficial)"
+        },
+        challenge: "Jakarta sinks 10cm/year. Traditional alerts are city-wide and vague, leaving citizens trapped in 'blindspot' neighborhoods during flash floods.",
+        process: [
+            {
+                title: "Mapping the Blindspots",
+                desc: "Government sensors cover major rivers, but micro-drainage in slums is unmonitored. We needed crowdsourced data.",
+                image: "airy:ecosystem"
+            }
+        ],
+        insights: [
+            {
+                title: "Trust in Neighbors",
+                desc: "People trust their neighbors more than the government during disasters. A P2P verification system was essential.",
+                image: "airy:network"
+            }
+        ],
+        solution: [
+            {
+                title: "Waze for Disasters",
+                desc: "Built using PostGIS & Node.js. It aggregates government sensor data and crowdsouces reports to generate safe evacuation routes in real-time.",
+                image: "airy:architecture"
+            }
+        ],
+        metrics: [
+            { label: "Response", value: "Real-time" },
+            { label: "Trust", value: "High" }
+        ],
+        learnings: "In disaster UI, 'Red' is not enough. You need specific, actionable directives.",
+        designProcess: [
+            {
+                type: "research",
+                title: "Mapping Blindspots",
+                desc: "Jakarta sinks 10cm/year. Government sensors cover rivers, but micro-drainage in slums is unmonitored.",
+                title_id: "Memetakan Blindspot",
+                desc_id: "Jakarta tenggelam 10cm/tahun. Sensor pemerintah cover sungai, tapi got mikro di pemukiman gak terpantau.",
+                image: "airy:ecosystem"
+            },
+            {
+                type: "insight",
+                title: "Trust in Neighbors",
+                desc: "People trust their neighbors more than the government during disasters. A P2P verification system was essential.",
+                title_id: "Percaya Tetangga",
+                desc_id: "Orang lebih percaya tetangga daripada pemerintah saat bencana. Sistem verifikasi P2P itu krusial.",
+                image: "airy:network"
+            },
+            {
+                type: "design",
+                title: "Waze for Disasters",
+                desc: "We designed a crowdsourced alert system. It aggregates sensor data and user reports to generate safe evacuation routes.",
+                title_id: "Waze untuk Bencana",
+                desc_id: "Kami desain sistem peringatan crowdsource. Agregasi data sensor dan laporan warga buat rute evakuasi aman.",
+                image: "airy:architecture"
+            },
+            {
+                type: "ship",
+                title: "Real-time Alerting",
+                desc: "Built using PostGIS & Node.js for geospatial accuracy. Alerts are pushed in real-time to affected neighborhoods.",
+                title_id: "Peringatan Real-time",
+                desc_id: "Dibangun pakai PostGIS & Node.js untuk akurasi spasial. Peringatan di-push real-time ke warga terdampak.",
+                image: "airy:radar"
+            },
+            {
+                type: "measure",
+                title: "Civic Resilience",
+                desc: "Zero-blindspot coverage during critical flood events. High trust from the community.",
+                title_id: "Ketahanan Warga",
+                desc_id: "Cakupan tanpa blindspot selama banjir kritis. Kepercayaan tinggi dari komunitas.",
+                image: "airy:chart"
+            }
+        ],
+        challenge_id: "Jakarta tenggelam 10cm/tahun. Peringatan tradisional terlalu umum, membuat warga terjebak di area 'blindspot' saat banjir bandang.",
+        process_id: [
+            {
+                title: "Memetakan Blindspot",
+                desc: "Sensor pemerintah cuma cover sungai besar. Got mikro di pemukiman gak terpantau. Butuh data crowdsource.",
+                image: "airy:ecosystem"
+            }
+        ],
+        insights_id: [
+            {
+                title: "Percaya Tetangga",
+                desc: "Orang lebih percaya tetangga daripada pemerintah saat bencana. Sistem verifikasi P2P itu krusial.",
+                image: "airy:network"
+            }
+        ],
+        solution_id: [
+            {
+                title: "Waze untuk Bencana",
+                desc: "Dibangun pakai PostGIS & Node.js. Agregasi data sensor dan laporan warga buat rute evakuasi real-time.",
+                image: "airy:architecture"
+            }
+        ],
+        learnings_id: "Dalam UI bencana, warna 'Merah' aja gak cukup. Butuh arahan spesifik yang bisa dilakukan.",
+        stack: ["Node.js", "PostGIS", "Flutter"],
+        links: { demo: "#", repo: "#" },
+        iconName: 'AlertTriangle',
+        type: 'IoT Prototype',
+        coverImage: "airy:map",
+        hidden: false,
+        featured: false
+    },
+    {
+        id: 'filter-me',
+        title: 'FilterMe',
+        subtitle: 'AR Commerce Experiment',
+        desc: 'The moment of hesitation before clicking "Buy"—"Will this actually look good on me?"',
+        tldr: "Using AR to kill the 'Trust Gap' in online cosmetics shopping.",
+        tldr_id: "Menggunakan AR untuk membunuh 'Celah Kepercayaan' dalam belanja kosmetik online.",
+        desc_id: "Momen keraguan sebelum klik 'Beli'—'Ini beneran bagus gak ya di muka gue?'",
+        title_id: 'FilterMe',
+        subtitle_id: 'Eksperimen AR Commerce',
+        stack: ["Sketch", "Principle", "AR Design"],
+        links: { demo: "https://uxdesign.cc/enhancing-online-shopping-experience-fbdbd76438e8", repo: "#" },
+        iconName: 'Camera',
+        featured: false,
+        type: 'AR Camera',
+        date: "January 2018",
+        coverImage: "airy:face",
+        snapshot: {
+            tagline: "AR Commerce Experiment",
+            heroImage: "airy:face"
+        },
+        context: {
+            role: "Product Owner",
+            timeline: "Jan 2018",
+            team: "Solo Project",
+            client: "Personal Experiment"
+        },
+        challenge: " The 'Trust Gap' in online shopping is real. Users hesitate to buy because they can't physically try products on. 'Pixel Perfection' in photos rarely matches 'Physical Reality', leading to high return rates and low conversion.",
+        metrics: [
+            { label: "Confidence", value: "Boosted" },
+            { label: "Return Rate", value: "Lowered" }
+        ],
+        designProcess: [
+            {
+                type: "research",
+                title: "The Mirror Test",
+                desc: "We've all been there: You buy sunglasses online, they arrive, you put them on, and you look ridiculous. This is the 'Trust Gap'.",
+                title_id: "Ujian Cermin",
+                desc_id: "Kita semua pernah alami: Beli kacamata online, sampai, dipakai, kelihatan konyol. Ini adalah 'Celah Kepercayaan'.",
+                image: "airy:ui"
+            },
+            {
+                type: "insight",
+                title: "Social Proof",
+                desc: "Shopping is inherently social. 'Does this look good?' is a question we ask friends, not algorithms.",
+                title_id: "Bukti Sosial",
+                desc_id: "Belanja itu kegiatan sosial. 'Ini cakep gak?' itu pertanyaan buat teman, bukan algoritma.",
+                image: "airy:venn"
+            },
+            {
+                type: "design",
+                title: "Trying It On",
+                desc: "FilterMe isn't a catalog; it's a mirror. Using AR, we let users 'wear' the product before they buy it.",
+                title_id: "Mencoba Digital",
+                desc_id: "FilterMe bukan katalog; ini cermin. Pakai AR, kami biarkan user 'pakai' produk sebelum beli.",
+                image: "airy:layers"
+            },
+            {
+                type: "ship",
+                title: "Share to Story",
+                desc: "We integrated 'Share to Story'. Users snap an AR selfie and get real-time validation from friends before spending a dime.",
+                title_id: "Share ke Story",
+                desc_id: "Kami integrasi 'Share to Story'. User selfie AR dan dapat validasi real-time dari teman sebelum bayar.",
+                image: "airy:network"
+            },
+            {
+                type: "measure",
+                title: "Limits of Tech",
+                desc: "Fun does not equal Trust. AR solves for 'Shape' and 'Vibe', but struggles with 'Texture' and 'Shade'.",
+                title_id: "Batas Teknologi",
+                desc_id: "Seru bukan berarti Percaya. AR selesaikan 'Bentuk' dan 'Vibe', tapi susah di 'Tekstur' dan 'Warna'.",
+                image: "airy:chart"
+            }
+        ],
+        modules: [
+            {
+                title: "The Mirror Test",
+                content: "We've all been there: You see sunglasses online. They look cool on the model. You buy them. They arrive. You put them on. You look ridiculous.\n\nThis gap between 'Pixel Perfection' and 'Physical Reality' is why 40% of fashion e-commerce is returned. It's a trust deficit."
+            },
+            {
+                title: "Trying It On (Digitally)",
+                content: "We asked: Why do we trust a mirror? Because it moves with us.\n\nFilterMe isn't a catalog; it's a mirror. using AR, we let users 'wear' the product before they buy it. It changes the question from \"Is this product good?\" to \"Is this product good *on me*?\""
+            },
+            {
+                title: "The Social Proof",
+                content: "Shopping is inherently social. \"Does this look good?\" is a question we ask friends, not algorithms.\n\nWe integrated 'Share to Story'. Users could snap a selfie wearing the AR lipstick, post it to Instagram, and get real-time validation from their friends before spending a dime."
+            },
+            {
+                title: "The Limits of Tech",
+                content: "We learned a hard lesson: Fun does not equal Trust.\n\nUsers loved playing with the filters (Engagement), but they still hesitated to buy (Conversion). Why? Because they didn't trust the color accuracy of their phone screen.\n\nConclusion: AR can solve for 'Shape' and 'Vibe', but it struggles to solve for 'Texture' and 'Shade'."
+            }
+        ],
+        modules_id: [
+            {
+                title: "Ujian Cermin",
+                content: "Kita semua pernah mengalaminya: Lihat kacamata online. Keren di model. Beli. Sampai rumah. Pakai. Kelihatan konyol.\n\nJarak antara 'Kesempurnaan Piksel' dan 'Realitas Fisik' inilah alasan kenapa 40% barang fashion dikembalikan. Ini adalah defisit kepercayaan."
+            },
+            {
+                title: "Mencoba Secara Digital",
+                content: "Kami bertanya: Kenapa kita percaya cermin? Karena dia bergerak mengikuti kita.\n\nFilterMe bukan katalog; ini cermin. Pakai AR, kami biarkan user 'memakai' produk sebelum beli. Ini mengubah pertanyaan dari \"Produk ini bagus gak?\" jadi \"Produk ini bagus gak *di gue*?\""
+            },
+            {
+                title: "Bukti Sosial",
+                content: "Belanja itu kegiatan sosial. \"Ini cocok gak?\" adalah pertanyaan buat teman, bukan algoritma.\n\nKami integrasikan 'Share to Story'. User bisa selfie pakai lipstik AR, post ke Instagram, dan dapat validasi real-time dari teman sebelum keluar uang."
+            },
+            {
+                title: "Batas Teknologi",
+                content: "Kami belajar hal sulit: Seru bukan berarti Percaya.\n\nUser suka main filter (Engagement), tapi masih ragu beli (Konversi). Kenapa? Karena mereka gak percaya akurasi warna layar HP mereka.\n\nKesimpulan: AR bisa selesaikan masalah 'Bentuk' dan 'Vibe', tapi kesulitan selesaikan 'Tekstur' dan 'Warna Asli'."
+            }
+        ]
+    },
+    {
+        id: 'project-zen',
+        title: 'Project Zen',
+        subtitle: 'Netflix "Context-First"',
+        desc: 'Prioritizing Context (Time & Energy) over Content Inventory to reduce "Decision Fatigue".',
+        tldr: 'A frontend redesign that filters content based on Available Time and Cognitive Load.',
+        tldr_id: 'Desain ulang frontend yang memfilter konten berdasarkan Waktu Tersedia dan Beban Kognitif.',
+        desc_id: 'Memprioritaskan Konteks (Waktu & Energi) daripada Inventaris Konten untuk mengurangi "Kelelahan Keputusan".',
+        title_id: 'Proyek Zen',
+        subtitle_id: 'Netflix "Konteks-Pertama"',
+        stack: ["UX Research", "Heuristic Analysis", "Frontend Architecture"],
+        links: {
+            demo: "#",
+            repo: "#"
+        },
+        iconName: 'Zap',
+        featured: true,
+        type: 'Conceptual Redesign',
+        date: "October 2023",
+        coverImage: "airy:funnel",
+        brandColor: "#E50914",
+        snapshot: {
+            tagline: "Context-First Discovery",
+            heroImage: "airy:funnel"
+        },
+        context: {
+            role: "Product Design (Outsider)",
+            timeline: "Oct 2023",
+            team: "Solo / Concept",
+            client: "Netflix (Conceptual)"
+        },
+        challenge: "Current streaming interfaces prioritize content inventory (Genres) over user context (Time & Energy). This mismatch causes 'Decision Fatigue', leading to high abandonment rates where users leave to consume passive content like TikTok.",
+        process: [
+            {
+                title: "The Problem: Decision Fatigue",
+                desc: "Users open the app with a constraint ('I have 20 mins') or state ('I'm tired'). The interface forces them to browse generic silos. Consequence: 15 mins scrolling, then abandonment.",
+                image: "airy:chart"
+            },
+            {
+                title: "The Strategy: Context Bar",
+                desc: "A sticky navigation rail that filters content based on 'Available Time' and 'Cognitive Load' before the click. Instantly re-sorting the grid without reload.",
+                image: "airy:funnel"
+            }
+        ],
+        insights: [
+            {
+                title: "The 'Dinner Timer' Persona",
+                desc: "Budi has exactly 25 minutes to eat. He needs a show that finishes when his food finishes. Current UI fails him.",
+                image: "airy:clock"
+            },
+            {
+                title: "Heuristic Attention Score",
+                desc: "We assigned scores based on metadata: 'Sitcom' = Low Load (Green), 'Sci-Fi' = High Load (Red). Promoting 'Calm Mode' for tired users.",
+                image: "airy:radar"
+            }
+        ],
+        solution: [
+            {
+                title: "Context-First Interface",
+                desc: "Filters for 'Quick Bites' (<30m) and 'Chill' (Low Energy). Calm Mode disables auto-play trailers to reduce anxiety.",
+                image: "airy:ui"
+            }
+        ],
+        metrics: [
+            { label: "Time-to-Play", value: "-40%" },
+            { label: "Bounce Rate", value: "-15%" }
+        ],
+        learnings: "By surfacing duration and energy-level metadata before the click, we align the library with the user's immediate reality.",
+        designProcess: [
+            {
+                type: "research",
+                title: "Decision Fatigue",
+                desc: "Users open the app with a constraint ('I have 20 mins') or state ('I'm tired'). The interface forces them to browse generic silos.",
+                title_id: "Kelelahan Keputusan",
+                desc_id: "Pengguna buka aplikasi dengan batasan ('Cuma punya 20 menit') atau kondisi ('Lagi capek'). Antarmuka memaksa mereka menelusuri silo generik.",
+                image: "airy:chart"
+            },
+            {
+                type: "insight",
+                title: "The Dinner Timer",
+                desc: "Persona 'Budi' has exactly 25 minutes to eat. He needs a show that finishes when his food finishes.",
+                title_id: "Pengatur Waktu Makan Malam",
+                desc_id: "Persona 'Budi' punya tepat 25 menit untuk makan. Dia butuh tontonan yang selesai pas makanannya habis.",
+                image: "airy:timeline"
+            },
+            {
+                type: "design",
+                title: "Context Bar",
+                desc: "A sticky navigation rail that filters content based on 'Available Time' and 'Cognitive Load'.",
+                title_id: "Bar Konteks",
+                desc_id: "Rel navigasi lengket yang memfilter konten berdasarkan 'Waktu Tersedia' dan 'Beban Kognitif'.",
+                image: "airy:funnel"
+            },
+            {
+                type: "ship",
+                title: "Calm Mode",
+                desc: "Disabling auto-play trailers and muting colors when 'Chill' mode is active to match the user's low energy state.",
+                title_id: "Mode Tenang",
+                desc_id: "Menonaktifkan trailer auto-play dan memudarkan warna saat mode 'Santai' aktif untuk menyesuaikan energi rendah pengguna.",
+                image: "airy:ui"
+            },
+            {
+                type: "measure",
+                title: "Reducing TTP",
+                desc: "Targeting a 40% reduction in Time-to-Play by aligning content with immediate user context.",
+                title_id: "Mengurangi TTP",
+                desc_id: "Menargetkan pengurangan 40% dalam Time-to-Play (Waktu-ke-Putar) dengan menyelaraskan konten dengan konteks pengguna.",
+                image: "airy:chart"
+            }
+        ],
+        challenge_id: "Antarmuka streaming saat ini memprioritaskan inventaris konten (Genre) daripada konteks pengguna (Waktu & Energi). Ketidakcocokan ini menyebabkan 'Kelelahan Keputusan', membuat pengguna pergi ke TikTok.",
+        process_id: [
+            {
+                title: "Masalah: Kelelahan Keputusan",
+                desc: "Pengguna bingung mau nonton apa. Akibatnya: 15 menit scrolling, lalu keluar aplikasi.",
+                image: "airy:chart"
+            },
+            {
+                title: "Strategi: Bar Konteks",
+                desc: "Filter konten berdasarkan 'Waktu Tersedia' dan 'Beban Kognitif' sebelum klik. Mengurutkan ulang grid secara instan.",
+                image: "airy:funnel"
+            }
+        ],
+        insights_id: [
+            {
+                title: "Persona 'Makan Malam'",
+                desc: "Butuh tontonan yang pas sama durasi makan 25 menit.",
+                image: "airy:clock"
+            },
+            {
+                title: "Skor Perhatian Heuristik",
+                desc: "Sitkom = Beban Rendah (Hijau). Sci-Fi = Beban Tinggi (Merah).",
+                image: "airy:radar"
+            }
+        ],
+        solution_id: [
+            {
+                title: "Antarmuka Konteks-Pertama",
+                desc: "Filter 'Camilan Cepat' (<30m) dan 'Santai'. Mode Tenang mematikan auto-play.",
+                image: "airy:ui"
+            }
+        ],
+        learnings_id: "Dengan memunculkan metadata durasi dan energi sebelum klik, kita menyelaraskan perpustakaan dengan realitas pengguna."
+    }
+];
