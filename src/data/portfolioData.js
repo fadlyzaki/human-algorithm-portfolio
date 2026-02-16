@@ -420,7 +420,6 @@ export const SIDE_PROJECTS = [
         subtitle_id: 'Visualisasi Data Manual',
         stack: ["React", "TypeScript", "Canvas API"],
         links: { demo: "https://year-in-review-jak.vercel.app/", repo: "github.com/fadlyzaki/manual-wrapped" },
-        prototypeLink: "https://year-in-review-jak.vercel.app/",
         iconName: 'Calendar',
         type: 'DataViz',
         date: "December 2025",
