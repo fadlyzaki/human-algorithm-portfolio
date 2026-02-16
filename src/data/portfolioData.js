@@ -1,5 +1,146 @@
 export const SIDE_PROJECTS = [
     {
+        id: 'dolphi',
+        title: 'Dolphi',
+        subtitle: 'Gamified Meta-Tracker',
+        desc: 'A "Cosmic Pop" habit arena that bridges the gap between siloed productivity apps. Centralized dopamine for the optimized self.',
+        tldr: "Aggregates wins from Duolingo, Strava, and Finch into a single, gamified ecosystem led by a mascot.",
+        tldr_id: "Menggabungkan kemenangan dari Duolingo, Strava, dan Finch menjadi satu ekosistem gamifikasi yang dipimpin oleh maskot.",
+        desc_id: "'Arena Kebiasaan' bergaya Cosmic Pop yang menjembatani aplikasi produktivitas yang terpisah. Dopamin terpusat untuk diri yang optimal.",
+        title_id: 'Dolphi',
+        subtitle_id: 'Meta-Tracker Gamifikasi',
+        stack: ["SwiftUI", "Combine", "CoreData", "WidgetKit"],
+        links: { demo: "#", repo: "#" },
+        iconName: 'Activity', // Closest to 'Streak' or 'Pulse'
+        featured: true,
+        type: 'iOS Ecosystem',
+        date: "2026",
+        coverImage: "airy:ui", // Placeholder for App UI
+        brandColor: "#00C2FF", // Dolphin Blue from PRD
+        snapshot: {
+            tagline: "Cosmic Pop Tracker",
+            heroImage: "airy:ui"
+        },
+        context: {
+            role: "Product Owner",
+            timeline: "2026",
+            team: "Solo Venture",
+            client: "Indie Ship"
+        },
+        challenge: "The Fragmented Self: Users rely on specific apps for specific habits (Duolingo for language, Strava for runs), but there's no centralized 'Arena' to visualize total daily progress. Breaking a streak in one app feels like a total failure.",
+        process: [
+            {
+                title: "Concept: The Meta-Tracker",
+                desc: "Instead of building another habit tracker, we built a 'Meta-Layer'. Dolphi doesn't replace your apps; it aggregates their 'Wins'. It turns boring consistency into a 'Cosmic Pop' game.",
+                image: "airy:layers"
+            },
+            {
+                title: "Mechanic: Streak Saves",
+                desc: "Anxiety kills consistency. We introduced 'Shields'—a forgiveness mechanic where a missed day consumes a shield instead of resetting the global streak. This prioritizes persistence over perfection.",
+                image: "airy:shield"
+            }
+        ],
+        insights: [
+            {
+                title: "Centralized Dopamine",
+                desc: "By unifying progress from disparate sources into one 'Dolphin Level', users feel a holistic sense of achievement that single-vertical apps cannot provide.",
+                image: "airy:chart"
+            },
+            {
+                title: "Forgiveness as a Feature",
+                desc: "'Streak Saves' increased long-term retention. Users are more likely to return after a break if they haven't lost everything.",
+                image: "airy:heart"
+            }
+        ],
+        solution: [
+            {
+                title: "The Habit Arena",
+                desc: "A unified dashboard for the 'Optimized Self'. Cross-platform sync (iOS/macOS) ensures the habit loop follows the user.",
+                image: "airy:ui"
+            }
+        ],
+        metrics: [
+            { label: "Retention", value: "High" },
+            { label: "Shields Used", value: "Frequent" }
+        ],
+        learnings: "Productivity shouldn't be anxiety-inducing. By adding a layer of 'Cosmic Pop' and forgiveness, we turn chores into quests.",
+        designProcess: [
+            {
+                type: "research",
+                title: "The Fragmented Self",
+                desc: "Users use Duolingo for languages, Strava for fitness, and Finch for self-care. But they lack a unified view of their 'Daily Wins'.",
+                title_id: "Diri yang Terfragmentasi",
+                desc_id: "Pengguna menggunakan Duolingo untuk bahasa, Strava untuk kebugaran. Tapi mereka tidak memiliki tampilan terpadu untuk 'Kemenangan Harian' mereka.",
+                image: "airy:layers"
+            },
+            {
+                type: "insight",
+                title: "Anxiety vs Consistency",
+                desc: "Strict streak mechanics cause anxiety. If a user breaks a 100-day streak, they often quit entirely. We needed a 'Soft Landing'.",
+                title_id: "Kecemasan vs Konsistensi",
+                desc_id: "Mekanisme streak yang ketat menyebabkan kecemasan. Jika pengguna memutus streak 100 hari, mereka sering berhenti total.",
+                image: "airy:shield"
+            },
+            {
+                type: "design",
+                title: "Cosmic Pop Aesthetic",
+                desc: "Deep space backgrounds (#260D40) meets Dolphin Blue (#00C2FF) accents. Productivity should feel like an arcade game, not a spreadsheet.",
+                title_id: "Estetika Cosmic Pop",
+                desc_id: "Latar belakang luar angkasa bertemu aksen Biru Lumba-lumba. Produktivitas harus terasa seperti game arcade, bukan spreadsheet.",
+                image: "airy:ui"
+            },
+            {
+                type: "ship",
+                title: "Dolphi The Mascot",
+                desc: "A reactive mascot that levels up with you. From 'Idle' breathing to 'Splash Jump' celebrations. He is the emotional anchor of the system.",
+                title_id: "Maskot Dolphi",
+                desc_id: "Maskot reaktif yang naik level bersamamu. Dari bernapas 'Idle' hingga perayaan 'Splash Jump'. Dia adalah jangkar emosional sistem.",
+                image: "airy:ui" // Ideally a mascot image
+            },
+            {
+                type: "measure",
+                title: "Forgiveness Retention",
+                desc: "Users who utilized 'Streak Shields' showed higher 30-day retention than those on strict binary streak systems.",
+                title_id: "Retensi Pengampunan",
+                desc_id: "Pengguna yang menggunakan 'Perisai Streak' menunjukkan retensi 30 hari yang lebih tinggi daripada sistem streak biner ketat.",
+                image: "airy:chart"
+            }
+        ],
+        // ID Translations
+        challenge_id: "Diri yang Terfragmentasi: Pengguna bergantung pada aplikasi khusus untuk kebiasaan tertentu (Duolingo, Strava), tetapi tidak ada 'Arena' terpusat untuk memvisualisasikan kemajuan harian total.",
+        process_id: [
+            {
+                title: "Konsep: Meta-Tracker",
+                desc: "Alih-alih membangun pelacak kebiasaan lain, kami membangun 'Meta-Layer'. Dolphi menggabungkan 'Kemenangan' mereka menjadi game 'Cosmic Pop'."
+            },
+            {
+                title: "Mekanik: Penyelamat Streak",
+                desc: "Kecemasan membunuh konsistensi. Kami memperkenalkan 'Perisai'—mekanisme pengampunan di mana hari yang terlewat memakan perisai, bukan mereset statistik.",
+                image: "airy:shield"
+            }
+        ],
+        insights_id: [
+            {
+                title: "Dopamin Terpusat",
+                desc: "Dengan menyatukan kemajuan dari berbagai sumber, pengguna merasakan pencapaian holistik.",
+                image: "airy:chart"
+            },
+            {
+                title: "Pengampunan sebagai Fitur",
+                desc: "'Penyelamat Streak' meningkatkan retensi jangka panjang.",
+                image: "airy:heart"
+            }
+        ],
+        solution_id: [
+            {
+                title: "Arena Kebiasaan",
+                desc: "Dashboard terpadu untuk 'Diri yang Optimal'. Sinkronisasi lintas platform (iOS/macOS) memastikan lingkaran kebiasaan mengikuti pengguna.",
+                image: "airy:ui"
+            }
+        ],
+        learnings_id: "Produktivitas tidak boleh memicu kecemasan. Dengan menambahkan lapisan 'Cosmic Pop' dan pengampunan, kami mengubah tugas menjadi quest."
+    },
+    {
         id: 'human-algorithm',
         title: 'The Human Algorithm',
         subtitle: 'Recursive Portfolio v2.9',
