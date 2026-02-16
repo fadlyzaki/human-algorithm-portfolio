@@ -277,7 +277,12 @@ const SideProjectsIndex = () => {
                     <div className="mb-12">
                         <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
                             <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
-                            Prototypes
+                            <span>
+                                Prototypes
+                                <span className="block text-[10px] text-[var(--text-secondary)] normal-case mt-1 max-w-md">
+                                    Thinking, building, and attempts to solve problems.
+                                </span>
+                            </span>
                             <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
@@ -291,9 +296,6 @@ const SideProjectsIndex = () => {
                                     <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] border-dashed mb-6 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
                                         <div className="absolute inset-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
                                             <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} image={project.coverImage} />
-                                        </div>
-                                        <div className="absolute top-4 left-4 font-mono text-[11px] uppercase tracking-wider text-[var(--text-secondary)] bg-[var(--bg-void)] border border-[var(--border-color)] px-2 py-1 rounded">
-                                            NOTE
                                         </div>
                                     </div>
 
