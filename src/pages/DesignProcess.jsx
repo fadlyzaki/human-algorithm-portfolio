@@ -27,100 +27,78 @@ const DesignProcess = () => {
     const processSteps = [
         {
             id: '01',
-            phase: 'Discovery & Deconstruction',
-            objective: 'Minimize ambiguity and map the problem space.',
+            phase: 'Research & Deconstruction',
+            objective: 'Quantify ambiguity. Map the problem space to business levers.',
             icon: Search,
             airyType: 'radar',
             color: 'text-[var(--accent-blue)]',
             bg: 'bg-[var(--accent-blue)]',
             border: 'border-[var(--accent-blue)]',
             inputs: [
-                'Business Strategy',
-                'Historical Analytics',
-                'Competitor landscape',
-                'Stakeholder Interviews'
+                'Business Strategy & OKRs',
+                'Historical Analytics (SQL/Mixpanel)',
+                'Competitor Unit Economics',
+                'Stakeholder Constraints'
             ],
             outputs: [
-                'Problem Statement',
-                'User Personas & Archetypes',
-                'Current-State Journey Map',
-                'Success Metrics (KPIs)'
+                'Problem Definition Document',
+                'Opportunity Impact Sizing',
+                'Behavioral Archetypes',
+                'Heuristic Evaluation Report'
             ],
-            risk: 'Solving the wrong problem due to assumption bias.',
-            tools: ['Mixpanel', 'Dovetail', 'Figma Jam']
+            risk: 'Solving a low-value problem due to lack of diverse data.',
+            tools: ['User Interviews', 'Data Mining', 'Competitor Analysis']
         },
         {
             id: '02',
-            phase: 'Synthesis & Strategy',
-            objective: 'Define the architectural direction and functional requirements.',
+            phase: 'Insight & Strategy',
+            objective: 'Synthesize noise into directive architecture.',
             icon: Lightbulb,
             airyType: 'venn',
             color: 'text-[var(--accent-amber)]',
             bg: 'bg-[var(--accent-amber)]',
             border: 'border-[var(--accent-amber)]',
             inputs: [
-                'Raw User Data',
-                'Technical Constraints',
-                'Market Trends'
+                'Raw User Research Data',
+                'Technical Feasibility Audit',
+                'Market Trend Analysis'
             ],
             outputs: [
-                'Information Architecture',
-                'User Flow Diagrams',
-                'Low-Fidelity Wireframes',
-                'Design Principles'
+                'Product Requirements (PRD) Contribution',
+                'Information Architecture Maps',
+                'Strategic Journey Blueprints',
+                'Value Prop Definition'
             ],
-            risk: 'Scope creep and feature bloat.',
-            tools: ['Notion', 'Whimsical', 'Linear']
+            risk: 'Misalignment between user needs and business viability.',
+            tools: ['Synthesis', 'Problem Definition', 'Journey Mapping']
         },
         {
             id: '03',
-            phase: 'Interaction & Craft',
-            objective: 'Translate logic into intuitive, accessible interfaces.',
+            phase: 'Design & Craft',
+            objective: 'Architect scalable systems that embody the solution.',
             icon: PenTool,
             airyType: 'architecture',
             color: 'text-[var(--accent-purple)]',
             bg: 'bg-[var(--accent-purple)]',
             border: 'border-[var(--accent-purple)]',
             inputs: [
-                'Wireframes',
-                'Design System Tokens',
-                'Accessibility Guidelines'
+                'Strategic Blueprints',
+                'Design System Tokens (v2.0)',
+                'Accessibility Standards (WCAG Isomorphic)'
             ],
             outputs: [
-                'High-Fidelity Prototypes',
-                'Motion Choreography',
-                'Component Documentation',
-                'Micro-Interaction Specs'
+                'High-Fidelity Component Systems',
+                'Interactive Prototypes (State-Aware)',
+                'Motion Choreography Specs',
+                'accessibility-manifest.json'
             ],
-            risk: 'Usability friction and cognitive overload.',
-            tools: ['Figma', 'Protopie', 'Rive']
+            risk: 'Incurring design debt through ad-hoc patterns.',
+            tools: ['Wireframing', 'Prototyping', 'Design Systems']
         },
         {
             id: '04',
-            phase: 'Validation & Iteration',
-            objective: 'Verify hypotheses through rigorous testing.',
-            icon: Target,
-            airyType: 'chart',
-            color: 'text-[var(--accent-red)]',
-            bg: 'bg-[var(--accent-red)]',
-            border: 'border-[var(--accent-red)]',
-            inputs: [
-                'Interactive Prototypes',
-                'Test Scenarios'
-            ],
-            outputs: [
-                'Usability Reports',
-                'Heatmaps',
-                'Iteration Backlog',
-                'Go/No-Go Decision'
-            ],
-            risk: 'Confirmation bias in testing results.',
-            tools: ['Maze', 'UserTesting', 'Hotjar']
-        },
-        {
-            id: '05',
-            phase: 'Delivery & Systems',
-            objective: 'Standardize and scale the solution.',
+            phase: 'Ship & Systems',
+            objective: 'Orchestrate a zero-defect handoff and release.',
             icon: Rocket,
             airyType: 'flow',
             color: 'text-[var(--accent-green)]',
@@ -128,16 +106,38 @@ const DesignProcess = () => {
             border: 'border-[var(--accent-green)]',
             inputs: [
                 'Final Visuals',
-                'QA Feedback'
+                'Engineering constraints'
             ],
             outputs: [
-                'Design Tokens (JSON)',
-                'React Component Specs',
-                'Storybook Documentation',
-                'Release Notes'
+                'Production-Ready Assets',
+                'Component Documentation (Storybook)',
+                'QA Test Plans',
+                'Phased Rollout Strategy'
             ],
-            risk: 'Design drift during implementation.',
-            tools: ['Storybook', 'Vercel', 'GitHub']
+            risk: 'Implementation drift degrading user experience.',
+            tools: ['Hand-off', 'QA Tuning', 'Release Strategy']
+        },
+        {
+            id: '05',
+            phase: 'Measure & Iterate',
+            objective: 'Close the loop. Validate impact against business goals.',
+            icon: BarChart,
+            airyType: 'chart',
+            color: 'text-[var(--accent-red)]',
+            bg: 'bg-[var(--accent-red)]',
+            border: 'border-[var(--accent-red)]',
+            inputs: [
+                'Live User Telemetry',
+                'Support Ticket Analysis'
+            ],
+            outputs: [
+                'Post-Mortem Analysis',
+                'Conversion Rate Optimization (CRO)',
+                'Retention Cohort Reports',
+                'Next-Cycle Roadmap'
+            ],
+            risk: 'Optimizing for local maxima rather than system health.',
+            tools: ['Analytics', 'A/B Testing', 'Feedback Loops']
         }
     ];
 
