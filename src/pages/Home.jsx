@@ -13,6 +13,8 @@ import HomeHero from '../components/home/HomeHero';
 import HomeWorkSection from '../components/home/HomeWorkSection';
 import HomeSideProjects from '../components/home/HomeSideProjects';
 import HomeAbout from '../components/home/HomeAbout';
+import HomeBlogSection from '../components/home/HomeBlogSection';
+
 
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
@@ -130,6 +132,7 @@ const Portfolio = () => {
               <Link to="/about" className="hover:text-[var(--text-primary)] transition-colors">{t('nav.about')}</Link>
               <a href="#work" className="hover:text-[var(--text-primary)] transition-colors">{t('nav.work')}</a>
               <a href="#side-projects" className="hover:text-[var(--text-primary)] transition-colors">Projects</a>
+              <a href="#writing" className="hover:text-[var(--text-primary)] transition-colors">Writing</a>
               <Link to="/process" className="hover:text-[var(--text-primary)] transition-colors">{t('nav.process')}</Link>
               <Link to="/contact" className="hover:text-[var(--text-primary)] transition-colors">{t('nav.contact')}</Link>
             </nav>
@@ -183,6 +186,10 @@ const Portfolio = () => {
 
           {/* SECTION 3: ABOUT ME */}
           <HomeAbout t={t} />
+
+          {/* SECTION 4: BLOG / WRITING */}
+          <HomeBlogSection t={t} />
+
 
           {/* SECTION 4: NOTES (HIDDEN) */}
           {/* Notes section intentionally left out as it was commented in original */}
