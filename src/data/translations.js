@@ -318,7 +318,7 @@ export const translations = {
             process: "Proses"
         },
         home: {
-            role: "Product Designer",
+            role: "Product Designer // Design Engineer",
             role_sub: "Systems Thinker",
             intro_title: "FADLY UZZAKI.",
             intro_desc: "Menjembatani logika Ilmu Komputer dengan Sains Kognitif. Saya merancang sistem yang mengoptimalkan beban kognitif—membuat alur kerja kompleks terasa inevitabel.",
