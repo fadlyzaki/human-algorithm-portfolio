@@ -131,6 +131,48 @@ export const stoqo = {
                     { label: "Repeat Order", value: "Improved Retention" }
                 ],
                 learnings: "Transparency is cheaper than speed. Users will wait if they know why. This project wasn't about UI; it was about selling 'peace of mind' as a feature.",
+                designProcess: [
+                    {
+                        type: "research",
+                        title: "Methodology",
+                        desc: "I didn't trust the Jira tickets, so I rode in the delivery trucks. I saw drivers struggling to text while driving. The 'system' wasn't broken; it was dangerous.",
+                        title_id: "Metodologi",
+                        desc_id: "Saya tidak percaya tiket Jira, jadi saya ikut naik truk pengiriman. Saya melihat sopir kesulitan SMS sambil menyetir. Sistemnya bukan rusak; tapi berbahaya.",
+                        image: "airy:timeline"
+                    },
+                    {
+                        type: "insight",
+                        title: "The Insight",
+                        desc: "Talking to 5 owners, I found the real conflict: It wasn't about speed. It was about silence. They could handle a late truck; they couldn't handle not knowing.",
+                        title_id: "Insight Utama",
+                        desc_id: "Setelah bicara dengan 5 pemilik warung, saya temukan konflik aslinya: Masalahnya bukan kecepatan. Tapi kesunyian (ketidaktahuan). Mereka bisa terima telat; tapi nggak bisa terima kalau nggak dikabarin.",
+                        image: "airy:venn"
+                    },
+                    {
+                        type: "design",
+                        title: "Ideation",
+                        desc: "The focus shifted to: 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks'—it was 'better information'.",
+                        title_id: "Ideasi",
+                        desc_id: "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Jawabannya bukan 'truk lebih cepat'—tapi 'informasi yang lebih baik'.",
+                        image: "airy:architecture"
+                    },
+                    {
+                        type: "ship",
+                        title: "Co-Creation",
+                        desc: "I didn't design in a silo. I led a full-day workshop with the Engineering and Ops leads to ensure technical feasibility wasn't an afterthought.",
+                        title_id: "Ko-Kreasi",
+                        desc_id: "Saya tidak mendesain sendirian. Saya pimpin workshop seharian bareng Lead Engineering dan Ops untuk memastikan desain ini bisa dibangun (feasible).",
+                        image: "airy:flow"
+                    },
+                    {
+                        type: "measure",
+                        title: "Validation",
+                        desc: "I took the high-fidelity prototypes back to the users for a 3-day testing sprint. Watching them struggle is the best validity test.",
+                        title_id: "Validasi",
+                        desc_id: "Saya bawa high-fidelity prototype kembali ke user untuk testing sprint 3 hari. Melihat mereka bingung adalah validasi terbaik.",
+                        image: "airy:chart"
+                    }
+                ],
 
                 aiHypotheses: [
                     {
