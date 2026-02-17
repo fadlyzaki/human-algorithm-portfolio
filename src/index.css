@@ -5,6 +5,30 @@
 :root {
   --cursor-x: -100px;
   --cursor-y: -100px;
+
+  /* LIGHT MODE DEFAULTS */
+  --bg-void: #ffffff;
+  --bg-surface: #f9fafb;
+  --bg-card: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+
+  --accent-red: #ef4444;
+  --accent-blue: #3b82f6;
+  --accent-amber: #f59e0b;
+  --accent-green: #10b981;
+  --accent-purple: #8b5cf6;
+}
+
+.dark {
+  /* DARK MODE OVERRIDES */
+  --bg-void: #050505;
+  --bg-surface: #111111;
+  --bg-card: #1a1a1a;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --border-color: #374151;
 }
 
 /* Optional: Smooth scrolling for anchor links */
