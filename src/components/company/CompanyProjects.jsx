@@ -33,7 +33,7 @@ const CompanyProjects = ({ cluster, t, isId }) => {
                                 {/* WIP Label */}
                                 {(!['stoqo-logistics', 'stoqo-sales'].includes(project.id)) && (
                                     <div className="bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 px-3 py-1.5 rounded-full border border-amber-200 dark:border-amber-700/50 text-[10px] font-mono font-bold uppercase tracking-widest shadow-sm backdrop-blur-md">
-                                        WORK IN PROGRESS
+                                        {t('company.wip')}
                                     </div>
                                 )}
                                 {/* Project Type Badge */}

@@ -65,11 +65,11 @@ const CompanyHero = ({ cluster, t, isId, InteractionComponent, brandColor }) => 
                                 className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 font-mono text-[10px] uppercase tracking-widest ${showNarrative ? 'bg-[var(--brand)] text-white border-[var(--brand)]' : 'bg-black/50 text-white/70 border-white/20 hover:border-white/40'}`}
                             >
                                 {showNarrative ? <Cpu size={12} /> : <Scan size={12} />}
-                                {showNarrative ? 'System_View' : 'Human_Narrative'}
+                                {showNarrative ? t('company.system_view') : t('company.human_narrative')}
                             </button>
                         </div>
 
-                        <Suspense fallback={<div className="flex items-center justify-center h-full text-[var(--brand)] animate-pulse">LOADING_SIMULATION...</div>}>
+                        <Suspense fallback={<div className="flex items-center justify-center h-full text-[var(--brand)] animate-pulse">{t('company.loading_simulation')}</div>}>
                             <div className={`relative h-full w-full transition-all duration-700 ${showNarrative ? 'blur-xl scale-110 opacity-30 px-12' : 'blur-0 scale-100 opacity-100'}`}>
                                 <InteractionComponent color={brandColor} />
                             </div>
@@ -79,14 +79,14 @@ const CompanyHero = ({ cluster, t, isId, InteractionComponent, brandColor }) => 
                                     <div className="max-w-md bg-black/40 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-3xl">
                                         <div className="flex items-center gap-3 mb-6">
                                             <div className="w-8 h-px bg-[var(--brand)]"></div>
-                                            <span className="font-mono text-[10px] text-[var(--brand)] uppercase tracking-[0.3em]">The_Motivation</span>
+                                            <span className="font-mono text-[10px] text-[var(--brand)] uppercase tracking-[0.3em]">{t('company.motivation')}</span>
                                         </div>
                                         <p className="text-lg md:text-xl font-serif italic text-white leading-relaxed mb-6">
                                             "{isId ? (cluster.motivation_id || cluster.motivation) : cluster.motivation}"
                                         </p>
                                         <div className="flex items-center gap-4 text-[10px] font-mono text-white/40 uppercase tracking-widest">
-                                            <span>LOG_SOURCE: INTERNAL_MEMO</span>
-                                            <span>STATUS: DECLASSIFIED</span>
+                                            <span>{t('company.log_source')}</span>
+                                            <span>{t('company.status_declassified')}</span>
                                         </div>
                                     </div>
                                 </div>

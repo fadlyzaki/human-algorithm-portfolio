@@ -38,7 +38,7 @@ const CompanySidebar = ({ cluster, t, isId, id }) => {
                 <div className="relative p-6 pt-10 border border-[var(--border-color)] rounded-lg bg-[var(--bg-card)] overflow-hidden group">
                     <div className="absolute top-0 left-0 right-0 h-1 bg-[var(--brand)] opacity-50 group-hover:h-full group-hover:opacity-[0.03] transition-all duration-500"></div>
                     <div className="absolute top-3 left-4 font-mono text-[8px] uppercase tracking-[0.2em] text-[var(--text-secondary)] flex items-center gap-2">
-                        <Scan size={10} className="text-[var(--brand)]" /> Designer's_Log // {id}
+                        <Scan size={10} className="text-[var(--brand)]" /> {t('company.designer_log')} // {id}
                     </div>
 
                     <blockquote className="relative">

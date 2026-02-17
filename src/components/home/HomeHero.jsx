@@ -19,7 +19,7 @@ const HomeHero = ({ t }) => {
                             className="-top-8 left-0"
                             type="gem"
                         >
-                            HIDDEN GEM FOUND!
+                            {t('home.hidden_gem')}
                         </Treasure>
 
                         <h1 className="font-mono text-3xl sm:text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">

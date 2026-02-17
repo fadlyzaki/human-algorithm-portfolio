@@ -10,10 +10,10 @@ const HomeWorkSection = ({ t }) => {
         <section id="work" className="mb-40 scroll-mt-24 relative">
             <Treasure
                 id="home-work"
-                className="top-0 left-0"
+                className="-top-6 right-12 rotate-12"
                 type="crown"
             >
-                ROYAL TREASURE!
+                {t('home.royal_treasure')}
             </Treasure>
             <ScrollReveal>
                 <SectionTitle number="1" title={t('home.section_work')} />
