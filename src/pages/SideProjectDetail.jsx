@@ -129,7 +129,20 @@ const SideProjectDetail = () => {
          <SEO
             title={activeTitle}
             description={activeTldr}
-         // image={project.coverImage} // If available
+            // image={project.coverImage} // If available
+            schema={{
+               "@context": "https://schema.org",
+               "@type": "SoftwareApplication",
+               "name": activeTitle,
+               "description": activeTldr,
+               "applicationCategory": "misc",
+               "operatingSystem": "Web",
+               "offers": {
+                  "@type": "Offer",
+                  "price": "0",
+                  "priceCurrency": "USD"
+               }
+            }}
          />
 
          {/* --- 0. AMBIENCE --- */}

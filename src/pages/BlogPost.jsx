@@ -5,6 +5,7 @@ import {
   Highlighter, Terminal, MessageSquare, ImageIcon, User, Hash, ChevronRight
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import SEO from '../components/SEO';
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Digital Editorial"
@@ -88,6 +89,22 @@ const BlogPost = () => {
 
   return (
     <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-500 font-sans selection:bg-[var(--accent-color)] selection:text-white">
+      <SEO
+        title={post.title}
+        description={post.subtitle}
+        type="article"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.subtitle,
+          "author": {
+            "@type": "Person",
+            "name": "Fadly Uzzaki"
+          },
+          "datePublished": "2025-10-12" // Ideally parse post.date
+        }}
+      />
 
       {/* Scroll Progress */}
       <div className="fixed top-0 left-0 w-full h-1 z-50 bg-[var(--bg-void)]">

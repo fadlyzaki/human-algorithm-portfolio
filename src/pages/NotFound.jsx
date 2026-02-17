@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AlertTriangle, Terminal, Home, RefreshCcw, WifiOff, Activity } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import SEO from '../components/SEO';
 
 const NotFound = () => {
   const { isDark } = useTheme();
@@ -27,6 +28,9 @@ const NotFound = () => {
     <div className="min-h-screen flex flex-col font-mono selection:bg-[var(--accent-error)] selection:text-white bg-[var(--bg-void)] transition-colors duration-500" style={themeStyles}>
 
       {/* MAIN CONTENT CENTERED */}
+      <SEO title="404 Not Found" description="Page not found">
+        <meta name="robots" content="noindex, nofollow" />
+      </SEO>
       <div className="flex-1 flex flex-col items-center justify-center p-6 relative overflow-hidden">
 
         {/* BACKGROUND NOISE */}
