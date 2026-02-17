@@ -6,25 +6,25 @@ A comprehensive design system for Fadly Zaki's portfolio, embodying a cyberpunk 
 
 ## 🎨 Color Palette
 
-### Core Colors (CSS Variables)
+### Core Colors (from `useThemeStyles.js`)
 
 | Token | Dark Mode | Light Mode | Usage |
 |-------|-----------|------------|-------|
-| `--bg-primary` | `#0a0a0a` | `#F0F0F3` | Main background |
-| `--bg-surface` | `#1a1a1c` | `#FFFFFF` | Cards, modals |
-| `--bg-backdrop` | `rgba(10,10,10,0.8)` | `rgba(240,240,243,0.8)` | Overlay backgrounds |
-| `--text-primary` | `#FFFFFF` | `#0a0a0a` | Headings, body |
-| `--text-secondary` | `#888888` | `#666666` | Muted text |
-| `--border-color` | `rgba(255,255,255,0.1)` | `rgba(0,0,0,0.1)` | Dividers, borders |
+| `--bg-void` | `#111111` | `#F0F0F3` | Main background (Void) |
+| `--bg-surface` | `#1F1F1F` | `#FFFFFF` | Secondary background |
+| `--bg-card` | `#181818` | `#FFFFFF` | Card background |
+| `--text-primary` | `#F4F4F5` | `#18181B` | Primary content (Zinc-100/900) |
+| `--text-secondary` | `#A1A1AA` | `#52525B` | Muted content (Zinc-400/600) |
+| `--border-color` | `#262626` | `#E4E4E7` | UI Boundaries |
 
 ### Accent Colors
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--accent-amber` | `#F59E0B` | Primary CTA, highlights |
-| `--accent-blue` | `#3B82F6` | Links, listening status |
-| `--accent-red` | `#EF4444` | Location pin, warnings |
-| `--accent-green` | `#10B981` | Success, active status |
+| Token | Dark Mode | Light Mode | Usage |
+|-------|-----------|------------|-------|
+| `--accent-amber` | `#F59E0B` | `#D97706` | Primary Brand/Warning |
+| `--accent-blue` | `#3B82F6` | `#2563EB` | Links, Actions |
+| `--accent-green` | `#10B981` | `#059669` | Success, Systems Go |
+| `--accent-red` | `#EF4444` | `#DC2626` | Errors, Critical |
 
 ### Treasure Hunt Colors
 
@@ -90,73 +90,33 @@ Based on Tailwind defaults:
 
 ## 🧩 Components
 
-### 1. ID Card (DraggablePhoto)
+### 1. Atomic UI (`src/components/ui`)
+*   **IconMapper**: Centralized icon registry using Lucide React.
+    *   Usage: `<IconMapper name="Code" className="w-4 h-4" />`
+*   **SkeletonLine**: Loading state placeholder.
+*   **WindowControls**: Mac-style window buttons (Red/Yellow/Green).
+*   **DotGrid**: Background pattern generator.
 
-```
-┌─────────────────────────────────┐
-│ ○ PUNCH HOLE                    │
-├─────────────────────────────────┤
-│ ACCESS_LEVEL_4                  │
-│ HUMAN BY DESIGN         [👤]   │
-├─────────────────────────────────┤
-│ ┌─────────┐            [CHIP]   │
-│ │  PHOTO  │                     │
-│ │ (B&W)   │   UZZAKI, FADLY 🧢  │
-│ └─────────┘   Product Designer  │
-│                                 │
-│ ID_NO: 1407-1995   EXP: ∞      │
-├─────────────────────────────────┤
-│ ▌▌▌▌  ▌▌  ▌▌▌▌▌▌  ▌▌▌ ▌       │
-└─────────────────────────────────┘
-```
+### 2. Core Layout Components
+*   **BackButton**: Standard navigation return with hover animation.
+*   **SectionTitle**: Standardized heading with numbering (e.g., "01 / WORK").
+*   **ScrollReveal**: Wrapper for scroll-triggered fade-in animations.
 
-**Interactions:**
-- Draggable (±100px constraint)
-- Click to flip between 4 cards
-- Holographic sheen on hover
+### 3. Feature Components
+*   **AiryDiagram**: Clean, technical diagrams for case studies. Uses React Flow or SVG.
+*   **ProfileScanner**: Interactive "Identity Scan" effect in About page.
+*   **Treasure**: Gamified hidden item component (Gems, Coins, Crowns).
+*   **StickyNote**: Rotated, playful annotations.
 
-### 2. Sticky Notes
+### 4. ID Card (DraggablePhoto)
+*   **Path**: `src/components/DraggablePhoto.jsx`
+*   **Behavior**: Physics-based drag interaction with holographic sheen.
+*   **Data**: Displays user identity and "Access Level 4".
 
-```jsx
-<StickyNote 
-  text="Antidote to digital fatigue." 
-  className="text-[var(--accent-blue)]" 
-  rotate="lg:-rotate-2" 
-/>
-```
+### 5. Running Ticker
+*   **Path**: `src/components/SystemMonitor.jsx` (and Footer)
+*   **Behavior**: Infinite scrolling text for status updates (Location, Reading, Listening).
 
-**Styling:**
-- Background: `bg-[var(--bg-surface)]`
-- Border: `border border-[var(--border-color)]`
-- Shadow: `shadow-xl`
-- Rotation: `-2°` to `+2°`
-- Hover: Straightens to 0°
-
-### 3. Running Ticker
-
-```
-┌────────────────────────────────────────────┐
-│ 📍 Jakarta • 📖 Reading... • 🎧 Listening │
-│ ─────────────────────────────────────────→ │
-└────────────────────────────────────────────┘
-```
-
-**Configuration:**
-- Animation: `60s linear infinite marquee`
-- Pause on hover
-- Edge gradients fade content
-- All items clickable (external links)
-
-### 4. Treasure Hunt Items
-
-**States:**
-- Unfound: Glowing orb with pulse animation
-- Revealed: Holographic message box
-- Found: Green badge with checkmark
-
-**Positioning:**
-- Random within 10-70% viewport
-- Re-randomizes on reset trigger
 
 ---
 
@@ -322,5 +282,5 @@ EXP: INDEFINITE
 
 ---
 
-*Last updated: February 2026*
-*Version: 2.0 (Human By Design)*
+*Last updated: February 17, 2026*
+*Version: 2.1 (Human By Design - Refactored)*

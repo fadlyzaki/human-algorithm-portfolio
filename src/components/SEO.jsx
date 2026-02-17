@@ -7,6 +7,7 @@ const SEO = ({
     description,
     image = '/og-id-card.png',
     type = 'website',
+    schema = null,
     children
 }) => {
     const { pathname } = useLocation();
@@ -18,19 +19,17 @@ const SEO = ({
     const metaImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 
     // Structured Data (JSON-LD)
-    const structuredData = {
+    // Use provided schema, or fallback to default Person schema (for backward compatibility if needed, though we should pass it explicitly)
+    const structuredData = schema || {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Fadly Uzzaki",
+        "@type": "WebSite",
+        "name": "Fadlyzaki Portfolio",
         "url": siteUrl,
-        "sameAs": [
-            "https://www.linkedin.com/in/fadlyzaki/",
-            "https://github.com/fadlyzaki",
-            "https://dribbble.com/fadlyzaki",
-            "https://medium.com/@fadlyzaki"
-        ],
-        "jobTitle": "Product Designer",
-        "description": defaultDesc
+        "description": defaultDesc,
+        "author": {
+            "@type": "Person",
+            "name": "Fadly Uzzaki"
+        }
     };
 
     return (

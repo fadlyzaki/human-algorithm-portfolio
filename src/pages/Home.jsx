@@ -73,7 +73,22 @@ const Portfolio = () => {
       style={themeStyles}
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] overflow-x-hidden transition-colors duration-500"
     >
-      <SEO />
+      <SEO
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Fadly Uzzaki",
+          "url": "https://fadlyzaki-design.vercel.app",
+          "sameAs": [
+            "https://www.linkedin.com/in/fadlyzaki/",
+            "https://github.com/fadlyzaki",
+            "https://dribbble.com/fadlyzaki",
+            "https://medium.com/@fadlyzaki"
+          ],
+          "jobTitle": "Product Designer",
+          "description": "Product Designer · Systems Thinker. I don't chase chaos—I contain it."
+        }}
+      />
 
       {/* 1. TEXTURE */}
       <div className={`fixed inset-0 z-0 pointer-events-none opacity-[0.15] ${isDark ? 'mix-blend-overlay' : 'mix-blend-multiply'}`}

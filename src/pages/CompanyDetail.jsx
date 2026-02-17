@@ -56,6 +56,20 @@ const CompanyDetail = () => {
                 title={`${cluster.company} — ${cluster.title}`}
                 description={isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
                 image={cluster.logo}
+                type="article"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "Project",
+                    "name": `${cluster.company}`,
+                    "headline": cluster.title,
+                    "description": cluster.hook,
+                    "image": cluster.logo,
+                    "url": window.location.href,
+                    "creator": {
+                        "@type": "Person",
+                        "name": "Fadly Uzzaki"
+                    }
+                }}
             />
 
             {/* BACKGROUND NOISE TEXTURE */}
