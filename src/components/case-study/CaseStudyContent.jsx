@@ -10,6 +10,7 @@ import ProjectCard from '../ProjectCard';
 import ZoomableImage from '../ZoomableImage';
 import AiryDiagram from '../AiryDiagram';
 import AIBrainstorm from '../AIBrainstorm';
+import { DESIGN_PROCESS_STEPS } from '../../data/processSteps';
 
 const CaseStudyContent = ({ project, parentCluster }) => {
     const { t, language, toggleLanguage } = useLanguage();
@@ -168,113 +169,126 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                             <span className="font-mono text-[10px] md:text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t('protected.process_subtitle') || "Evolution of Thought"}</span>
                         </div>
 
-                        {/* Steps Loop */}
-                        {caseData.designProcess.map((step, i) => {
-                            // Step Configuration based on Type
-                            const isOdd = i % 2 !== 0;
-                            const stepNumber = `0${i + 1}`;
+                        {/* Steps Loop - SYSTEM STACK IMPLEMENTATION */}
+                        {DESIGN_PROCESS_STEPS.map((globalStep, i) => {
+                            // Match global framework step with local project data
+                            const localStep = caseData.designProcess && caseData.designProcess[i];
+
+                            // If no local data for this step, skip it (or render placeholder if needed)
+                            if (!localStep) return null;
 
                             return (
-                                <div key={i} className={`relative ${step.type === 'insight' || step.type === 'measure' ? 'max-w-4xl mx-auto' : ''}`}>
-                                    {/* Connecting Line (Desktop) */}
-                                    {i !== caseData.designProcess.length - 1 && (
-                                        <div className={`absolute left-4 md:left-1/2 top-20 bottom-[-128px] w-px bg-gradient-to-b from-[var(--border-color)] to-transparent -translate-x-1/2 z-0 hidden md:block opacity-50`}></div>
+                                <div key={globalStep.id} className="relative group">
+                                    {/* Connecting Line */}
+                                    {i !== DESIGN_PROCESS_STEPS.length - 1 && (
+                                        <div className="absolute left-8 top-24 bottom-[-128px] w-px bg-gradient-to-b from-[var(--border-color)] to-transparent z-0 hidden md:block opacity-50 border-l border-dashed border-[var(--border-color)]"></div>
                                     )}
 
-                                    {/* RENDER: RESEARCH / SHIP (Standard Text + Image Layout) */}
-                                    {(step.type === 'research' || step.type === 'ship' || step.type === 'design') && (
-                                        <div className={`flex flex-col md:flex-row gap-12 items-center relative z-10 ${isOdd ? 'md:flex-row-reverse' : ''}`}>
+                                    <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-500">
 
-                                            {/* Visual Evidence */}
-                                            <div className="w-full md:w-1/2 group">
-                                                <div className={`relative bg-[var(--bg-card)] border border-[var(--border-color)] p-2 shadow-2xl transform transition-transform duration-500 hover:scale-[1.01] ${isOdd ? 'rotate-1 hover:rotate-0' : '-rotate-1 hover:rotate-0'}`}>
-                                                    {/* Tape/Pin */}
-                                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[var(--brand)] shadow-lg border-2 border-[var(--bg-card)] z-20 opacity-80"></div>
-
-                                                    <div className="min-h-[200px] md:min-h-[250px] bg-[var(--bg-surface)] overflow-hidden relative border border-[var(--border-color)]/50 flex items-center justify-center">
-                                                        {step.image && step.image.startsWith('airy:') ? (
-                                                            <div className="w-full h-[250px] md:h-[300px] bg-[var(--bg-surface)] p-4">
-                                                                <AiryDiagram type={step.image.split(':')[1]} />
-                                                            </div>
-                                                        ) : step.image ? (
-                                                            <ZoomableImage src={step.image} alt={step.title} className="max-w-full max-h-[400px] object-cover" />
-                                                        ) : (
-                                                            <div className="p-12 opacity-10">
-                                                                {step.type === 'ship' ? <Rocket size={48} /> : <Search size={48} />}
-                                                            </div>
-                                                        )}
+                                        {/* HEADER: GLOBAL FRAMEWORK CONTEXT */}
+                                        <div className="border-b border-[var(--border-color)] p-6 md:p-8 bg-[var(--bg-void)]/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                            <div className="flex items-center gap-4">
+                                                <div className={`w-10 h-10 rounded-lg ${globalStep.bg} flex items-center justify-center text-[var(--bg-void)] shadow-lg`}>
+                                                    <globalStep.icon size={20} />
+                                                </div>
+                                                <div>
+                                                    <div className={`font-mono text-[10px] uppercase tracking-widest ${globalStep.color} font-bold mb-1`}>
+                                                        PHASE_{globalStep.id} // {globalStep.phase}
                                                     </div>
-                                                    <div className="mt-2 flex justify-between items-center px-2">
-                                                        <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">{step.type} EVIDENCE</span>
-                                                        <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] opacity-50">REF: {stepNumber}</span>
+                                                    <div className="text-sm text-[var(--text-secondary)]">
+                                                        {globalStep.objective}
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            {/* Narrative */}
-                                            <div className={`w-full md:w-1/2 ${isOdd ? 'text-right md:pr-12' : 'md:pl-12'}`}>
-                                                <div className="flex items-center gap-4 mb-6">
-                                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full border border-[var(--brand)] text-[var(--brand)] flex items-center justify-center font-mono text-xs`}>
-                                                        {i + 1}
-                                                    </div>
-                                                    <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">{t(`process.steps.${step.type}.title`) || step.type}</span>
-                                                </div>
-                                                <h3 className="text-2xl md:text-3xl font-bold font-serif mb-4 md:mb-6">{step.title}</h3>
-                                                <div className="prose prose-sm dark:prose-invert font-mono text-[var(--text-secondary)] leading-relaxed">
-                                                    {step.desc}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {/* RENDER: INSIGHT (Highlight Card) */}
-                                    {step.type === 'insight' && (
-                                        <div className="bg-[var(--bg-card)] border border-[var(--brand)]/30 rounded-2xl p-8 md:p-12 relative overflow-hidden text-center group hover:border-[var(--brand)] transition-colors">
-                                            <div className="absolute top-0 left-0 w-full h-1 bg-[var(--brand)]"></div>
-                                            <Lightbulb size={32} className="mx-auto text-[var(--brand)] mb-6" />
-                                            <h3 className="text-2xl md:text-3xl font-serif italic mb-6 leading-tight text-[var(--text-primary)]">
-                                                "{step.title}"
-                                            </h3>
-                                            <p className="text-[var(--text-secondary)] font-mono text-sm leading-relaxed max-w-2xl mx-auto">
-                                                {step.desc}
-                                            </p>
-                                            <div className="mt-8 flex justify-center">
-                                                <span className="px-3 py-1 bg-[var(--brand)]/10 text-[var(--brand)] text-[10px] font-mono uppercase tracking-widest rounded-full">
-                                                    Key Insight
+                                            {/* Risk Indicator (Right Side) */}
+                                            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded bg-[var(--bg-card)] border border-[var(--border-color)]">
+                                                <AlertTriangle size={12} className="text-[var(--accent-red)]" />
+                                                <span className="font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-wider">
+                                                    RISK: {globalStep.risk.substring(0, 30)}...
                                                 </span>
                                             </div>
                                         </div>
-                                    )}
 
-                                    {/* RENDER: MEASURE (Metrics Grid) */}
-                                    {step.type === 'measure' && (
-                                        <div className="bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl overflow-hidden">
-                                            <div className="p-8 md:p-12 text-center border-b border-[var(--border-color)]">
-                                                <div className="max-w-2xl mx-auto">
-                                                    <h3 className="text-2xl font-bold font-serif mb-4 flex items-center justify-center gap-3">
-                                                        <BarChart size={24} className="text-[var(--accent-red)]" />
-                                                        {step.title}
-                                                    </h3>
-                                                    <p className="text-[var(--text-secondary)] mb-0 leading-relaxed">
-                                                        {step.desc}
-                                                    </p>
+                                        <div className="flex flex-col lg:flex-row">
+
+                                            {/* LEFT COL: THE EXECUTION (Local Story) */}
+                                            <div className="lg:w-2/3 p-6 md:p-8 lg:p-10 lg:border-r border-[var(--border-color)]">
+                                                <div className="flex items-start gap-4 mb-6">
+                                                    <span className="font-serif italic text-2xl md:text-3xl font-bold text-[var(--text-primary)]">
+                                                        {localStep.title}
+                                                    </span>
+                                                </div>
+
+                                                <p className="text-lg text-[var(--text-secondary)] leading-relaxed mb-8 prose prose-invert max-w-none">
+                                                    {localStep.desc}
+                                                </p>
+
+                                                {/* Visual Evidence Area */}
+                                                <div className="relative bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] overflow-hidden">
+                                                    {localStep.image && localStep.image.startsWith('airy:') ? (
+                                                        <div className="w-full h-[250px] md:h-[350px] bg-[var(--bg-surface)] p-6 flex items-center justify-center">
+                                                            <div className="w-full h-full max-w-lg mx-auto">
+                                                                <AiryDiagram type={localStep.image.split(':')[1]} />
+                                                            </div>
+                                                        </div>
+                                                    ) : localStep.image ? (
+                                                        <ZoomableImage
+                                                            src={localStep.image}
+                                                            alt={localStep.title}
+                                                            className="w-full h-auto max-h-[500px] object-cover"
+                                                        />
+                                                    ) : (
+                                                        <div className="w-full h-[200px] flex items-center justify-center opacity-10">
+                                                            <globalStep.icon size={48} />
+                                                        </div>
+                                                    )}
+
+                                                    {/* Evidence Tag */}
+                                                    <div className="absolute bottom-4 right-4 bg-[var(--bg-void)]/90 backdrop-blur border border-[var(--border-color)] px-3 py-1 rounded-full flex items-center gap-2 shadow-lg">
+                                                        <ScanEye size={12} className={globalStep.color} />
+                                                        <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-primary)]">
+                                                            Evidence_Log_0{i + 1}
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            {/* Render Metrics Grid if data exists */}
-                                            {caseData.metrics && caseData.metrics.length > 0 && (
-                                                <div className="mx-6 mb-8 md:mx-12 md:mb-12 border border-[var(--border-color)] rounded-lg overflow-hidden flex flex-col md:flex-row bg-[var(--bg-surface)]">
-                                                    {caseData.metrics.map((m, i) => (
-                                                        <div key={i} className="flex-1 p-6 md:p-8 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-[var(--border-color)] last:border-0 hover:bg-[var(--bg-card)] transition-colors group">
-                                                            <div className="text-2xl md:text-4xl font-mono font-bold tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors mb-2 break-words max-w-full leading-tight">{m.value}</div>
-                                                            <div className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-[var(--text-secondary)] opacity-70">{m.label}</div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
+                                            {/* RIGHT COL: SYSTEM SPECS (Global Framework) */}
+                                            <div className="lg:w-1/3 bg-[var(--bg-card)]/30">
 
+                                                <div className="p-6 md:p-8 border-b border-[var(--border-color)]">
+                                                    <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-2">
+                                                        <globalStep.icon size={12} /> Input Vectors
+                                                    </div>
+                                                    <ul className="space-y-3">
+                                                        {globalStep.inputs.slice(0, 3).map((input, idx) => (
+                                                            <li key={idx} className="text-xs text-[var(--text-secondary)] flex items-start gap-2">
+                                                                <span className="mt-1 w-1 h-1 bg-[var(--text-secondary)] rounded-full shrink-0 opacity-50"></span>
+                                                                {input}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+
+                                                <div className="p-6 md:p-8">
+                                                    <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-2">
+                                                        <Rocket size={12} /> System Outputs
+                                                    </div>
+                                                    <ul className="space-y-3">
+                                                        {globalStep.outputs.slice(0, 3).map((output, idx) => (
+                                                            <li key={idx} className="text-xs text-[var(--text-primary)] font-medium flex items-start gap-2">
+                                                                <ArrowRight size={12} className={`mt-0.5 ${globalStep.color} shrink-0`} />
+                                                                {output}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             );
                         })}
