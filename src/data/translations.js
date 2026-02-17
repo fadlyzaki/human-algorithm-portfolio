@@ -197,6 +197,7 @@ export const translations = {
             company_page: "Company Page",
             view_case: "View Case",
             problem: "The Problem",
+            fix: "The Solution",
             teams: "Squads",
         },
         id_card: {
