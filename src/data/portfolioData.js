@@ -39,3 +39,24 @@ export const WORK_CLUSTERS = [
 }));
 
 export const NOTES = RAW_NOTES;
+
+export const SUBSTACK_POSTS = [
+    {
+        title: "Why Reducing Steps Is Better Than Adding Delight",
+        description: "Delight is often a mask for poor usability. In this log, I explore why removing friction is the highest form of respect for the user.",
+        pubDate: "2026-01-28",
+        link: "https://fadlyzaki.substack.com"
+    },
+    {
+        title: "The Human Algorithm: Designing for Resilience",
+        description: "Resilient systems aren't the ones that never break—they're the ones designed to hold you when you do. A deep dive into my design philosophy.",
+        pubDate: "2026-01-15",
+        link: "https://fadlyzaki.substack.com"
+    },
+    {
+        title: "Cognitive Load and the Paradox of Choice",
+        description: "Every unnecessary feature is a tax on the user's attention. How we can build more focused, purposeful tools.",
+        pubDate: "2026-01-05",
+        link: "https://fadlyzaki.substack.com"
+    }
+];
