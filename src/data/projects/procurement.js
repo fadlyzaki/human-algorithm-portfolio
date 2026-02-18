@@ -19,7 +19,7 @@ export const procurement = {
     featured: false,
     coverImage: "airy:ecosystem",
     snapshot: {
-        tagline: { en: "(Civic Transparency v2.0)", id: "(Transparansi Sipil v2.0)" },
+        tagline: { en: "Civic Transparency v2.0", id: "Transparansi Sipil v2.0" },
         heroImage: "airy:ecosystem"
     },
     context: {

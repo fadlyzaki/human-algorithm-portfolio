@@ -18,7 +18,7 @@ export const yearInReview = {
     date: "December 2025",
     coverImage: "airy:data",
     snapshot: {
-        tagline: { en: "(Manual Memory v4.2)", id: "(Ingatan Manual v4.2)" },
+        tagline: { en: "Manual Memory v4.2", id: "Ingatan Manual v4.2" },
         heroImage: "airy:data"
     },
     context: {

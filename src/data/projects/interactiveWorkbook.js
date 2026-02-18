@@ -20,7 +20,7 @@ export const interactiveWorkbook = {
     date: "August 2025",
     coverImage: "airy:flow",
     snapshot: {
-        tagline: { en: "(Psychological Safety v3.1)", id: "(Keamanan Psikologis v3.1)" },
+        tagline: { en: "Psychological Safety v3.1", id: "Keamanan Psikologis v3.1" },
         heroImage: "airy:flow"
     },
     context: {
