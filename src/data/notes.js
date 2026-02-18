@@ -1,6 +1,158 @@
 
 export const NOTES = [
     {
+        id: 'agency-pivot',
+        title: 'The "Agency" Pivot',
+        subtitle: 'Redesigning Algorithms',
+        desc: 'We stopped treating users like dopamine junkies and started treating them like pilots.',
+        tldr: "Giving the steering wheel back to your own attention span.",
+        tldr_id: "Mengembalikan kemudi setir kepada atensi Anda sendiri.",
+        desc_id: "Kami berhenti memperlakukan user seperti pecandu dopamin dan mulai memperlakukan mereka sebagai pilot.",
+        sections_id: {
+            challenge: "Medsos sekarang cuma mau nyuri perhatian kita. Akibatnya user gak punya kendali, cuma dikasih konten sampah biar terus scroll.",
+            approach: "Kita sadar user itu mood-nya berubah-ubah. Jadi kita pindahin kontrolnya langsung ke Feed, pake cara yang halus (Stealth UX)."
+        },
+        stack: ["UX Research", "Behavioral Psych", "Figma"],
+        links: { demo: "#", repo: "#" },
+        iconName: 'Brain',
+        type: 'Case Study',
+        date: "March 2026",
+        brandColor: "#8B5CF6", // Pivot Purple
+        coverImage: "airy:hierarchy",
+        snapshot: {
+            tagline: "Redesigning Algorithms",
+            heroImage: "airy:hierarchy"
+        },
+        context: {
+            role: "Product Owner",
+            timeline: "Mar 2026",
+            team: "Social Media Giant",
+            client: "Internal Research"
+        },
+        challenge: "Social media transitioned from Connecting People to Retaining Attention. This stripped users of agency, creating a 'Feed of Slop' that prioritizes cheap dopamine. Users feel manipulated and anxious.",
+        process: [
+            {
+                title: "The Protagonist: Sarah",
+                desc: "Sarah wants updates from friends but gets ads and viral screamers. She feels 'digital loneliness' even while scrolling. Our goal: Give her back the steering wheel.",
+                image: "airy:hierarchy"
+            },
+            {
+                title: "Failed Attempt: The Cockpit",
+                desc: "We tried a complex settings panel with sliders. Users hated it. 'This looks like work. I don't want to calibrate my feed like a sound engineer.'",
+                image: "airy:kanban"
+            }
+        ],
+        insights: [
+            {
+                title: "From Settings to Vibes",
+                desc: "Users don't have static preferences; they have Contextual Moods. Sometimes they want 'Doom Scroll', sometimes 'Friends Only'.",
+                image: "airy:venn"
+            }
+        ],
+        solution: [
+            {
+                title: "Stealth Mode Switcher",
+                desc: "Turned the 'For You' header into a dropdown. Sarah can switch to 'Friends Only' instantly. Noise vanishes.",
+                image: "airy:ui"
+            },
+            {
+                title: "Chill Mode",
+                desc: "Filters out high-BPM audio and rapid cuts. The feed becomes a digital magazine, not a slot machine.",
+                image: "airy:layers"
+            },
+            {
+                title: "Micro-Blocking",
+                desc: "One-tap removal of AI/spam content via tags, training the algorithm without leaving the feed.",
+                image: "airy:radar"
+            }
+        ],
+        metrics: [
+            { label: "Trust Score", value: "High Increase" },
+            { label: "Friend Interaction", value: "Tripled" }
+        ],
+        learnings: "Technology should be a bicycle for the mind, not a conveyor belt for the eyes.",
+        designProcess: [
+            {
+                type: "research",
+                title: "The Attention Trap",
+                desc: "Social media transitioned from Connecting People to Retaining Attention. Ideally, users should be pilots, not passengers.",
+                title_id: "Perangkap Atensi",
+                desc_id: "Medsos beralih dari Koneksi ke Retensi Atensi. Idealnya, user harus jadi pilot, bukan penumpang.",
+                image: "airy:hierarchy"
+            },
+            {
+                type: "insight",
+                title: "Mood Kontekstual",
+                desc: "Users don't have static preferences; they have moods. Sometimes 'Doom Scroll', sometimes 'Friends Only'. Settings menus are too rigid.",
+                title_id: "Mood Kontekstual",
+                desc_id: "User gak punya preferensi statis; punya mood. Kadang 'Doom Scroll', kadang 'Hanya Teman'. Menu setting terlalu kaku.",
+                image: "airy:venn"
+            },
+            {
+                type: "design",
+                title: "Stealth Mode Switcher",
+                desc: "Turned the 'For You' header into a dropdown. Users can switch to 'Friends Only' instantly. Noise vanishes.",
+                title_id: "Stealth Mode Switcher",
+                desc_id: "Ubah header 'For You' jadi dropdown. User bisa switch ke 'Hanya Teman' instan. Bising hilang.",
+                image: "airy:ui"
+            },
+            {
+                type: "ship",
+                title: "Chill Mode",
+                desc: "Implemented filters for high-BPM audio and rapid cuts. The feed becomes a digital magazine, not a slot machine.",
+                title_id: "Mode Santai",
+                desc_id: "Implementasi filter audio cepat dan potongan kasar. Feed jadi majalah digital, bukan mesin slot.",
+                image: "airy:layers"
+            },
+            {
+                type: "measure",
+                title: "Trust Score",
+                desc: "Giving control back increased trust. Friend interactions tripled when the noise was removed.",
+                title_id: "Skor Kepercayaan",
+                desc_id: "Memberi kontrol balik meningkatkan kepercayaan. Interaksi teman naik 3x lipat saat noise hilang.",
+                image: "airy:radar"
+            }
+        ],
+        challenge_id: "Medsos beralih dari Koneksi ke Retensi Atensi. Ini mencuri agensi user, menciptakan 'Feed Sampah' demi dopamin murah. User merasa dimanipulasi.",
+        process_id: [
+            {
+                title: "Protagonis: Sarah",
+                desc: "Sarah mau update teman tapi dapet iklan dan video teriak. Dia merasa kesepian digital. Goal kami: Kembalikan kemudi ke dia.",
+                image: "airy:hierarchy"
+            },
+            {
+                title: "Gagal: Kokpit",
+                desc: "Kami coba panel setting rumit. User benci. 'Ini kayak kerjaan. Gue gak mau kalibrasi feed kayak sound engineer.'",
+                image: "airy:kanban"
+            }
+        ],
+        insights_id: [
+            {
+                title: "Dari Setting ke Vibe",
+                desc: "User gak punya preferensi statis; mereka punya Mood Kontekstual. Kadang mau 'Doom Scroll', kadang 'Hanya Teman'.",
+                image: "airy:venn"
+            }
+        ],
+        solution_id: [
+            {
+                title: "Stealth Mode Switcher",
+                desc: "Ubah header 'For You' jadi dropdown. Bisa switch ke 'Hanya Teman' instan. Bising hilang.",
+                image: "airy:ui"
+            },
+            {
+                title: "Mode Santai",
+                desc: "Filter audio cepat dan potongan kasar. Feed jadi majalah digital, bukan mesin slot.",
+                image: "airy:layers"
+            },
+            {
+                title: "Micro-Blocking",
+                desc: "Hapus konten AI/spam sekali tap lewat tag, melatih algoritma tanpa keluar feed.",
+                image: "airy:radar"
+            }
+        ],
+        learnings_id: "Teknologi harusnya jadi sepeda buat pikiran, bukan ban berjalan buat mata."
+    },
+    {
         id: 'price-lock',
         title: 'Price Lock',
         subtitle: 'Fintech Feature for OTA',
@@ -256,158 +408,6 @@ export const NOTES = [
         learnings_id: "Saya bawa ide ini bukan hanya karena mengerti API atau cara menghitung GTV. Saya membawanya karena merasakan sendiri sakitnya jarak. Saya ingin membangun Grab yang memindahkan kasih sayang."
     },
     {
-        id: 'agency-pivot',
-        title: 'The "Agency" Pivot',
-        subtitle: 'Redesigning Algorithms',
-        desc: 'We stopped treating users like dopamine junkies and started treating them like pilots.',
-        tldr: "Giving the steering wheel back to your own attention span.",
-        tldr_id: "Mengembalikan kemudi setir kepada atensi Anda sendiri.",
-        desc_id: "Kami berhenti memperlakukan user seperti pecandu dopamin dan mulai memperlakukan mereka sebagai pilot.",
-        sections_id: {
-            challenge: "Medsos sekarang cuma mau nyuri perhatian kita. Akibatnya user gak punya kendali, cuma dikasih konten sampah biar terus scroll.",
-            approach: "Kita sadar user itu mood-nya berubah-ubah. Jadi kita pindahin kontrolnya langsung ke Feed, pake cara yang halus (Stealth UX)."
-        },
-        stack: ["UX Research", "Behavioral Psych", "Figma"],
-        links: { demo: "#", repo: "#" },
-        iconName: 'Brain',
-        type: 'Case Study',
-        date: "March 2026",
-        brandColor: "#8B5CF6", // Pivot Purple
-        coverImage: "airy:hierarchy",
-        snapshot: {
-            tagline: "Redesigning Algorithms",
-            heroImage: "airy:hierarchy"
-        },
-        context: {
-            role: "Product Owner",
-            timeline: "Mar 2026",
-            team: "Social Media Giant",
-            client: "Internal Research"
-        },
-        challenge: "Social media transitioned from Connecting People to Retaining Attention. This stripped users of agency, creating a 'Feed of Slop' that prioritizes cheap dopamine. Users feel manipulated and anxious.",
-        process: [
-            {
-                title: "The Protagonist: Sarah",
-                desc: "Sarah wants updates from friends but gets ads and viral screamers. She feels 'digital loneliness' even while scrolling. Our goal: Give her back the steering wheel.",
-                image: "airy:hierarchy"
-            },
-            {
-                title: "Failed Attempt: The Cockpit",
-                desc: "We tried a complex settings panel with sliders. Users hated it. 'This looks like work. I don't want to calibrate my feed like a sound engineer.'",
-                image: "airy:kanban"
-            }
-        ],
-        insights: [
-            {
-                title: "From Settings to Vibes",
-                desc: "Users don't have static preferences; they have Contextual Moods. Sometimes they want 'Doom Scroll', sometimes 'Friends Only'.",
-                image: "airy:venn"
-            }
-        ],
-        solution: [
-            {
-                title: "Stealth Mode Switcher",
-                desc: "Turned the 'For You' header into a dropdown. Sarah can switch to 'Friends Only' instantly. Noise vanishes.",
-                image: "airy:ui"
-            },
-            {
-                title: "Chill Mode",
-                desc: "Filters out high-BPM audio and rapid cuts. The feed becomes a digital magazine, not a slot machine.",
-                image: "airy:layers"
-            },
-            {
-                title: "Micro-Blocking",
-                desc: "One-tap removal of AI/spam content via tags, training the algorithm without leaving the feed.",
-                image: "airy:radar"
-            }
-        ],
-        metrics: [
-            { label: "Trust Score", value: "High Increase" },
-            { label: "Friend Interaction", value: "Tripled" }
-        ],
-        learnings: "Technology should be a bicycle for the mind, not a conveyor belt for the eyes.",
-        designProcess: [
-            {
-                type: "research",
-                title: "The Attention Trap",
-                desc: "Social media transitioned from Connecting People to Retaining Attention. Ideally, users should be pilots, not passengers.",
-                title_id: "Perangkap Atensi",
-                desc_id: "Medsos beralih dari Koneksi ke Retensi Atensi. Idealnya, user harus jadi pilot, bukan penumpang.",
-                image: "airy:hierarchy"
-            },
-            {
-                type: "insight",
-                title: "Contextual Moods",
-                desc: "Users don't have static preferences; they have moods. Sometimes 'Doom Scroll', sometimes 'Friends Only'. Settings menus are too rigid.",
-                title_id: "Mood Kontekstual",
-                desc_id: "User gak punya preferensi statis; punya mood. Kadang 'Doom Scroll', kadang 'Hanya Teman'. Menu setting terlalu kaku.",
-                image: "airy:venn"
-            },
-            {
-                type: "design",
-                title: "Stealth Mode Switcher",
-                desc: "Turned the 'For You' header into a dropdown. Users can switch to 'Friends Only' instantly. Noise vanishes.",
-                title_id: "Stealth Mode Switcher",
-                desc_id: "Ubah header 'For You' jadi dropdown. User bisa switch ke 'Hanya Teman' instan. Bising hilang.",
-                image: "airy:ui"
-            },
-            {
-                type: "ship",
-                title: "Chill Mode",
-                desc: "Implemented filters for high-BPM audio and rapid cuts. The feed becomes a digital magazine, not a slot machine.",
-                title_id: "Mode Santai",
-                desc_id: "Implementasi filter audio cepat dan potongan kasar. Feed jadi majalah digital, bukan mesin slot.",
-                image: "airy:layers"
-            },
-            {
-                type: "measure",
-                title: "Trust Score",
-                desc: "Giving control back increased trust. Friend interactions tripled when the noise was removed.",
-                title_id: "Skor Kepercayaan",
-                desc_id: "Memberi kontrol balik meningkatkan kepercayaan. Interaksi teman naik 3x lipat saat noise hilang.",
-                image: "airy:radar"
-            }
-        ],
-        challenge_id: "Medsos beralih dari Koneksi ke Retensi Atensi. Ini mencuri agensi user, menciptakan 'Feed Sampah' demi dopamin murah. User merasa dimanipulasi.",
-        process_id: [
-            {
-                title: "Protagonis: Sarah",
-                desc: "Sarah mau update teman tapi dapet iklan dan video teriak. Dia merasa kesepian digital. Goal kami: Kembalikan kemudi ke dia.",
-                image: "airy:hierarchy"
-            },
-            {
-                title: "Gagal: Kokpit",
-                desc: "Kami coba panel setting rumit. User benci. 'Ini kayak kerjaan. Gue gak mau kalibrasi feed kayak sound engineer.'",
-                image: "airy:kanban"
-            }
-        ],
-        insights_id: [
-            {
-                title: "Dari Setting ke Vibe",
-                desc: "User gak punya preferensi statis; mereka punya Mood Kontekstual. Kadang mau 'Doom Scroll', kadang 'Hanya Teman'.",
-                image: "airy:venn"
-            }
-        ],
-        solution_id: [
-            {
-                title: "Stealth Mode Switcher",
-                desc: "Ubah header 'For You' jadi dropdown. Bisa switch ke 'Hanya Teman' instan. Bising hilang.",
-                image: "airy:ui"
-            },
-            {
-                title: "Mode Santai",
-                desc: "Filter audio cepat dan potongan kasar. Feed jadi majalah digital, bukan mesin slot.",
-                image: "airy:layers"
-            },
-            {
-                title: "Micro-Blocking",
-                desc: "Hapus konten AI/spam sekali tap lewat tag, melatih algoritma tanpa keluar feed.",
-                image: "airy:radar"
-            }
-        ],
-        learnings_id: "Teknologi harusnya jadi sepeda buat pikiran, bukan ban berjalan buat mata."
-    },
-    {
         id: 'flood-alert',
         title: 'Flood Alert',
         subtitle: 'Civic Resilience System',
@@ -479,7 +479,7 @@ export const NOTES = [
             },
             {
                 type: "ship",
-                title: "Real-time Alerting",
+                title: "Peringatan Real-time",
                 desc: "Built using PostGIS & Node.js for geospatial accuracy. Alerts are pushed in real-time to affected neighborhoods.",
                 title_id: "Peringatan Real-time",
                 desc_id: "Dibangun pakai PostGIS & Node.js untuk akurasi spasial. Peringatan di-push real-time ke warga terdampak.",
@@ -524,102 +524,6 @@ export const NOTES = [
         coverImage: "airy:map",
         hidden: false,
         featured: false
-    },
-    {
-        id: 'filter-me',
-        title: 'FilterMe',
-        subtitle: 'AR Commerce Experiment',
-        desc: 'The moment of hesitation before clicking "Buy"—"Will this actually look good on me?"',
-        tldr: "Using AR to kill the 'Trust Gap' in online cosmetics shopping.",
-        tldr_id: "Menggunakan AR untuk membunuh 'Celah Kepercayaan' dalam belanja kosmetik online.",
-        desc_id: "Momen keraguan sebelum klik 'Beli'—'Ini beneran bagus gak ya di muka gue?'",
-        title_id: 'FilterMe',
-        subtitle_id: 'Eksperimen AR Commerce',
-        stack: ["Sketch", "Principle", "AR Design"],
-        links: { demo: "https://uxdesign.cc/enhancing-online-shopping-experience-fbdbd76438e8", repo: "#" },
-        iconName: 'Camera',
-        featured: false,
-        type: 'AR Camera',
-        date: "January 2018",
-        coverImage: "airy:face",
-        snapshot: {
-            tagline: "AR Commerce Experiment",
-            heroImage: "airy:face"
-        },
-        context: {
-            role: "Product Designer",
-            timeline: "Jan 2018 (3 Weeks)",
-            team: "SUX Team (Ifa, Kevin, Zaki)",
-            client: "CHIuXID 2018 Design Challenge"
-        },
-        challenge: "The 'Trust Gap' in online shopping is real. Users hesitate to buy because they can't physically try products on. In the CHIuXID 2018 challenge, we explored how 'Intelligence' could solve this lack of 'Realness' in the digital journey.",
-        challenge_id: "'Celah Kepercayaan' dalam belanja online itu nyata. User ragu beli karena gak bisa coba fisik. Di CHIuXID 2018, kami cari tahu gimana 'Intelligence' bisa kasih rasa 'Realness' di perjalanan digital.",
-        metrics: [
-            { label: "Confidence", value: "Boosted" },
-            { label: "Return Rate", value: "Lowered" }
-        ],
-        designProcess: [
-            {
-                type: "research",
-                title: "Understanding Realness",
-                desc: "Surveying users revealed the most painful problem: they can't touch or try the product. We needed a technology to bridge this physical gap.",
-                title_id: "Memahami Realitas",
-                desc_id: "Survei user mengungkap masalah paling perih: mereka gak bisa pegang atau coba produknya. Butuh teknologi buat jembatanin celah fisik ini.",
-                image: "airy:radar"
-            },
-            {
-                type: "insight",
-                title: "Social Filter Inspiration",
-                desc: "Social media 'Filters' (Snapchat/IG) were already familiar to millennials. We hypothesized: what if we used this familiar interaction for commerce?",
-                title_id: "Inspirasi Filter Sosial",
-                desc_id: "Filter media sosial (Snapchat/IG) udah akrab buat milenial. Hipotesis kami: gimana kalau interaksi akrab ini dipake buat belanja?",
-                image: "airy:venn"
-            },
-            {
-                type: "design",
-                title: "The Google Design Sprint",
-                desc: "We used the Google Design Sprint framework to condense the journey into 3 weeks. Sketching flows specifically for 'facial' products to test our AR hypothesis.",
-                title_id: "Google Design Sprint",
-                desc_id: "Kami pake framework Google Design Sprint buat padetin journey dalam 3 minggu. Sketsa flow khusus buat produk wajah buat tes hipotesis AR.",
-                image: "airy:layers"
-            },
-            {
-                type: "ship",
-                title: "Prototyping & Iteration",
-                desc: "Built with Sketch and Principle. We iterated twice, conducting usability testing with 4 participants per iteration to refine the AR interaction.",
-                title_id: "Prototipe & Iterasi",
-                desc_id: "Dibangun pake Sketch dan Principle. Kami iterasi dua kali, tes usability ke 4 partisipan per iterasi buat poles interaksi AR.",
-                image: "airy:ui"
-            },
-            {
-                type: "measure",
-                title: "Lesson Learned",
-                desc: "Participants loved the interaction (engagement), but still questioned color accuracy. Conclusion: AR solves for 'Form', but trust still needs 'Texture' validation.",
-                title_id: "Pelajaran Berharga",
-                desc_id: "Partisipan suka interaksinya (engagement), tapi masih nanya soal akurasi warna. Kesimpulan: AR beresin soal 'Bentuk', tapi trust butuh validasi 'Tekstur'.",
-                image: "airy:chart"
-            }
-        ],
-        modules: [
-            {
-                title: "The CHIuXID 2018 Journey",
-                content: "Participating in CHIuXID 2018 theme 'Designing for Intelligences'. Our SUX Team (Ifa, Kevin, Zaki) used a high-intensity Google Design Sprint to transform the 'social filter' behavior into a functional commerce tool called FilterMe."
-            },
-            {
-                title: "Closing the Trust Gap",
-                content: "FilterMe changes the question from 'Is this product good?' to 'Is this product good *on me*?'. While we didn't win first place, the process taught us that fun and engagement are only the first steps toward building technical trust."
-            }
-        ],
-        modules_id: [
-            {
-                title: "Perjalanan CHIuXID 2018",
-                content: "Ikut CHIuXID 2018 tema 'Designing for Intelligences'. Tim SUX kami (Ifa, Kevin, Zaki) pake Google Design Sprint intensitas tinggi buat ubah perilaku 'filter sosial' jadi alat belanja fungsional bernama FilterMe."
-            },
-            {
-                title: "Menutup Celah Kepercayaan",
-                content: "FilterMe ubah pertanyaan dari 'Produk ini bagus gak?' jadi 'Produk ini bagus gak *di saya*?'. Meski gak juara satu, prosesnya ngajarin kalau seru dan engagement baru langkah awal buat bangun trust teknis."
-            }
-        ]
     },
     {
         id: 'project-zen',
@@ -764,5 +668,101 @@ export const NOTES = [
             }
         ],
         learnings_id: "Dengan memunculkan metadata durasi dan energi sebelum klik, kita menyelaraskan perpustakaan dengan realitas pengguna."
+    },
+    {
+        id: 'filter-me',
+        title: 'FilterMe',
+        subtitle: 'AR Commerce Experiment',
+        desc: 'The moment of hesitation before clicking "Buy"—"Will this actually look good on me?"',
+        tldr: "Using AR to kill the 'Trust Gap' in online cosmetics shopping.",
+        tldr_id: "Menggunakan AR untuk membunuh 'Celah Kepercayaan' dalam belanja kosmetik online.",
+        desc_id: "Momen keraguan sebelum klik 'Beli'—'Ini beneran bagus gak ya di muka gue?'",
+        title_id: 'FilterMe',
+        subtitle_id: 'Eksperimen AR Commerce',
+        stack: ["Sketch", "Principle", "AR Design"],
+        links: { demo: "https://uxdesign.cc/enhancing-online-shopping-experience-fbdbd76438e8", repo: "#" },
+        iconName: 'Camera',
+        featured: false,
+        type: 'AR Camera',
+        date: "January 2018",
+        coverImage: "airy:face",
+        snapshot: {
+            tagline: "AR Commerce Experiment",
+            heroImage: "airy:face"
+        },
+        context: {
+            role: "Product Designer",
+            timeline: "Jan 2018 (3 Weeks)",
+            team: "SUX Team (Ifa, Kevin, Zaki)",
+            client: "CHIuXID 2018 Design Challenge"
+        },
+        challenge: "The 'Trust Gap' in online shopping is real. Users hesitate to buy because they can't physically try products on. In the CHIuXID 2018 challenge, we explored how 'Intelligence' could solve this lack of 'Realness' in the digital journey.",
+        challenge_id: "'Celah Kepercayaan' dalam belanja online itu nyata. User ragu beli karena gak bisa coba fisik. Di CHIuXID 2018, kami cari tahu gimana 'Intelligence' bisa kasih rasa 'Realness' di perjalanan digital.",
+        metrics: [
+            { label: "Confidence", value: "Boosted" },
+            { label: "Return Rate", value: "Lowered" }
+        ],
+        designProcess: [
+            {
+                type: "research",
+                title: "Understanding Realness",
+                desc: "Surveying users revealed the most painful problem: they can't touch or try the product. We needed a technology to bridge this physical gap.",
+                title_id: "Memahami Realitas",
+                desc_id: "Survei user mengungkap masalah paling perih: mereka gak bisa pegang atau coba produknya. Butuh teknologi buat jembatanin celah fisik ini.",
+                image: "airy:radar"
+            },
+            {
+                type: "insight",
+                title: "Social Filter Inspiration",
+                desc: "Social media 'Filters' (Snapchat/IG) were already familiar to millennials. We hypothesized: what if we used this familiar interaction for commerce?",
+                title_id: "Inspirasi Filter Sosial",
+                desc_id: "Filter media sosial (Snapchat/IG) udah akrab buat milenial. Hipotesis kami: gimana kalau interaksi akrab ini dipake buat belanja?",
+                image: "airy:venn"
+            },
+            {
+                type: "design",
+                title: "The Google Design Sprint",
+                desc: "We used the Google Design Sprint framework to condense the journey into 3 weeks. Sketching flows specifically for 'facial' products to test our AR hypothesis.",
+                title_id: "Google Design Sprint",
+                desc_id: "Kami pake framework Google Design Sprint buat padetin journey dalam 3 minggu. Sketsa flow khusus buat produk wajah buat tes hipotesis AR.",
+                image: "airy:layers"
+            },
+            {
+                type: "ship",
+                title: "Prototyping & Iteration",
+                desc: "Built with Sketch and Principle. We iterated twice, conducting usability testing with 4 participants per iteration to refine the AR interaction.",
+                title_id: "Prototipe & Iterasi",
+                desc_id: "Dibangun pake Sketch dan Principle. Kami iterasi dua kali, tes usability ke 4 partisipan per iterasi buat poles interaksi AR.",
+                image: "airy:ui"
+            },
+            {
+                type: "measure",
+                title: "Lesson Learned",
+                desc: "Participants loved the interaction (engagement), but still questioned color accuracy. Conclusion: AR solves for 'Form', but trust still needs 'Texture' validation.",
+                title_id: "Pelajaran Berharga",
+                desc_id: "Partisipan suka interaksinya (engagement), tapi masih nanya soal akurasi warna. Kesimpulan: AR beresin soal 'Bentuk', tapi trust butuh validasi 'Tekstur'.",
+                image: "airy:chart"
+            }
+        ],
+        modules: [
+            {
+                title: "The CHIuXID 2018 Journey",
+                content: "Participating in CHIuXID 2018 theme 'Designing for Intelligences'. Our SUX Team (Ifa, Kevin, Zaki) used a high-intensity Google Design Sprint to transform the 'social filter' behavior into a functional commerce tool called FilterMe."
+            },
+            {
+                title: "Closing the Trust Gap",
+                content: "FilterMe changes the question from 'Is this product good?' to 'Is this product good *on me*?'. While we didn't win first place, the process taught us that fun and engagement are only the first steps toward building technical trust."
+            }
+        ],
+        modules_id: [
+            {
+                title: "Perjalanan CHIuXID 2018",
+                content: "Ikut CHIuXID 2018 tema 'Designing for Intelligences'. Tim SUX kami (Ifa, Kevin, Zaki) pake Google Design Sprint intensitas tinggi buat ubah perilaku 'filter sosial' jadi alat belanja fungsional bernama FilterMe."
+            },
+            {
+                title: "Menutup Celah Kepercayaan",
+                content: "FilterMe ubah pertanyaan dari 'Produk ini bagus gak?' jadi 'Produk ini bagus gak *di saya*?'. Meski gak juara satu, prosesnya ngajarin kalau seru dan engagement baru langkah awal buat bangun trust teknis."
+            }
+        ]
     }
 ];
