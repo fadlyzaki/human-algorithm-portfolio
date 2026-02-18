@@ -27,6 +27,7 @@ const FloodAlert = React.lazy(() => import('../components/interactions/FloodAler
 const PriceLock = React.lazy(() => import('../components/interactions/PriceLock'));
 const ProjectKinship = React.lazy(() => import('../components/interactions/ProjectKinship'));
 const ProjectZen = React.lazy(() => import('../components/interactions/ProjectZen'));
+const FilterMeApp = React.lazy(() => import('../components/interactions/FilterMeApp'));
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
@@ -125,7 +126,8 @@ const SideProjectDetail = () => {
       'flood-alert': FloodAlert,
       'price-lock': PriceLock,
       'project-kinship': ProjectKinship,
-      'project-zen': ProjectZen
+      'project-zen': ProjectZen,
+      'filter-me': FilterMeApp
    }[project.id] || null;
 
 

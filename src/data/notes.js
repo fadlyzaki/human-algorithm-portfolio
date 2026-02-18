@@ -680,7 +680,7 @@ export const NOTES = [
         title_id: 'FilterMe',
         subtitle_id: 'Eksperimen AR Commerce',
         stack: ["Sketch", "Principle", "AR Design"],
-        links: { demo: "https://uxdesign.cc/enhancing-online-shopping-experience-fbdbd76438e8", repo: "#" },
+        links: { demo: "", repo: "#" },
         iconName: 'Camera',
         featured: false,
         type: 'AR Camera',
