@@ -2,7 +2,7 @@
 export const productivityIllusion = {
     id: 'productivity-illusion',
     title: { en: 'The Productivity Illusion', id: 'The Productivity Illusion' },
-    subtitle: { en: 'Human Algorithms', id: 'Algoritma Manusia' },
+    subtitle: { en: 'Gamification vs. Cognitive Mastery', id: 'Gamifikasi vs. Penguasaan Kognitif' },
     desc: {
         en: 'Decoding the Gap Between Gamified Engagement and Cognitive Mastery.',
         id: "Mendekode Kesenjangan Antara Keterlibatan Gamifikasi dan Penguasaan Kognitif."
