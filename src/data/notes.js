@@ -547,12 +547,13 @@ export const NOTES = [
             heroImage: "airy:face"
         },
         context: {
-            role: "Product Owner",
-            timeline: "Jan 2018",
-            team: "Solo Project",
-            client: "Personal Experiment"
+            role: "Product Designer",
+            timeline: "Jan 2018 (3 Weeks)",
+            team: "SUX Team (Ifa, Kevin, Zaki)",
+            client: "CHIuXID 2018 Design Challenge"
         },
-        challenge: " The 'Trust Gap' in online shopping is real. Users hesitate to buy because they can't physically try products on. 'Pixel Perfection' in photos rarely matches 'Physical Reality', leading to high return rates and low conversion.",
+        challenge: "The 'Trust Gap' in online shopping is real. Users hesitate to buy because they can't physically try products on. In the CHIuXID 2018 challenge, we explored how 'Intelligence' could solve this lack of 'Realness' in the digital journey.",
+        challenge_id: "'Celah Kepercayaan' dalam belanja online itu nyata. User ragu beli karena gak bisa coba fisik. Di CHIuXID 2018, kami cari tahu gimana 'Intelligence' bisa kasih rasa 'Realness' di perjalanan digital.",
         metrics: [
             { label: "Confidence", value: "Boosted" },
             { label: "Return Rate", value: "Lowered" }
@@ -560,79 +561,63 @@ export const NOTES = [
         designProcess: [
             {
                 type: "research",
-                title: "The Mirror Test",
-                desc: "We've all been there: You buy sunglasses online, they arrive, you put them on, and you look ridiculous. This is the 'Trust Gap'.",
-                title_id: "Ujian Cermin",
-                desc_id: "Kita semua pernah alami: Beli kacamata online, sampai, dipakai, kelihatan konyol. Ini adalah 'Celah Kepercayaan'.",
-                image: "airy:ui"
+                title: "Understanding Realness",
+                desc: "Surveying users revealed the most painful problem: they can't touch or try the product. We needed a technology to bridge this physical gap.",
+                title_id: "Memahami Realitas",
+                desc_id: "Survei user mengungkap masalah paling perih: mereka gak bisa pegang atau coba produknya. Butuh teknologi buat jembatanin celah fisik ini.",
+                image: "airy:radar"
             },
             {
                 type: "insight",
-                title: "Social Proof",
-                desc: "Shopping is inherently social. 'Does this look good?' is a question we ask friends, not algorithms.",
-                title_id: "Bukti Sosial",
-                desc_id: "Belanja itu kegiatan sosial. 'Ini cakep gak?' itu pertanyaan buat teman, bukan algoritma.",
+                title: "Social Filter Inspiration",
+                desc: "Social media 'Filters' (Snapchat/IG) were already familiar to millennials. We hypothesized: what if we used this familiar interaction for commerce?",
+                title_id: "Inspirasi Filter Sosial",
+                desc_id: "Filter media sosial (Snapchat/IG) udah akrab buat milenial. Hipotesis kami: gimana kalau interaksi akrab ini dipake buat belanja?",
                 image: "airy:venn"
             },
             {
                 type: "design",
-                title: "Trying It On",
-                desc: "FilterMe isn't a catalog; it's a mirror. Using AR, we let users 'wear' the product before they buy it.",
-                title_id: "Mencoba Digital",
-                desc_id: "FilterMe bukan katalog; ini cermin. Pakai AR, kami biarkan user 'pakai' produk sebelum beli.",
+                title: "The Google Design Sprint",
+                desc: "We used the Google Design Sprint framework to condense the journey into 3 weeks. Sketching flows specifically for 'facial' products to test our AR hypothesis.",
+                title_id: "Google Design Sprint",
+                desc_id: "Kami pake framework Google Design Sprint buat padetin journey dalam 3 minggu. Sketsa flow khusus buat produk wajah buat tes hipotesis AR.",
                 image: "airy:layers"
             },
             {
                 type: "ship",
-                title: "Share to Story",
-                desc: "We integrated 'Share to Story'. Users snap an AR selfie and get real-time validation from friends before spending a dime.",
-                title_id: "Share ke Story",
-                desc_id: "Kami integrasi 'Share to Story'. User selfie AR dan dapat validasi real-time dari teman sebelum bayar.",
-                image: "airy:network"
+                title: "Prototyping & Iteration",
+                desc: "Built with Sketch and Principle. We iterated twice, conducting usability testing with 4 participants per iteration to refine the AR interaction.",
+                title_id: "Prototipe & Iterasi",
+                desc_id: "Dibangun pake Sketch dan Principle. Kami iterasi dua kali, tes usability ke 4 partisipan per iterasi buat poles interaksi AR.",
+                image: "airy:ui"
             },
             {
                 type: "measure",
-                title: "Limits of Tech",
-                desc: "Fun does not equal Trust. AR solves for 'Shape' and 'Vibe', but struggles with 'Texture' and 'Shade'.",
-                title_id: "Batas Teknologi",
-                desc_id: "Seru bukan berarti Percaya. AR selesaikan 'Bentuk' dan 'Vibe', tapi susah di 'Tekstur' dan 'Warna'.",
+                title: "Lesson Learned",
+                desc: "Participants loved the interaction (engagement), but still questioned color accuracy. Conclusion: AR solves for 'Form', but trust still needs 'Texture' validation.",
+                title_id: "Pelajaran Berharga",
+                desc_id: "Partisipan suka interaksinya (engagement), tapi masih nanya soal akurasi warna. Kesimpulan: AR beresin soal 'Bentuk', tapi trust butuh validasi 'Tekstur'.",
                 image: "airy:chart"
             }
         ],
         modules: [
             {
-                title: "The Mirror Test",
-                content: "We've all been there: You see sunglasses online. They look cool on the model. You buy them. They arrive. You put them on. You look ridiculous.\n\nThis gap between 'Pixel Perfection' and 'Physical Reality' is why 40% of fashion e-commerce is returned. It's a trust deficit."
+                title: "The CHIuXID 2018 Journey",
+                content: "Participating in CHIuXID 2018 theme 'Designing for Intelligences'. Our SUX Team (Ifa, Kevin, Zaki) used a high-intensity Google Design Sprint to transform the 'social filter' behavior into a functional commerce tool called FilterMe."
             },
             {
-                title: "Trying It On (Digitally)",
-                content: "We asked: Why do we trust a mirror? Because it moves with us.\n\nFilterMe isn't a catalog; it's a mirror. using AR, we let users 'wear' the product before they buy it. It changes the question from \"Is this product good?\" to \"Is this product good *on me*?\""
-            },
-            {
-                title: "The Social Proof",
-                content: "Shopping is inherently social. \"Does this look good?\" is a question we ask friends, not algorithms.\n\nWe integrated 'Share to Story'. Users could snap a selfie wearing the AR lipstick, post it to Instagram, and get real-time validation from their friends before spending a dime."
-            },
-            {
-                title: "The Limits of Tech",
-                content: "We learned a hard lesson: Fun does not equal Trust.\n\nUsers loved playing with the filters (Engagement), but they still hesitated to buy (Conversion). Why? Because they didn't trust the color accuracy of their phone screen.\n\nConclusion: AR can solve for 'Shape' and 'Vibe', but it struggles to solve for 'Texture' and 'Shade'."
+                title: "Closing the Trust Gap",
+                content: "FilterMe changes the question from 'Is this product good?' to 'Is this product good *on me*?'. While we didn't win first place, the process taught us that fun and engagement are only the first steps toward building technical trust."
             }
         ],
         modules_id: [
             {
-                title: "Ujian Cermin",
-                content: "Kita semua pernah mengalaminya: Lihat kacamata online. Keren di model. Beli. Sampai rumah. Pakai. Kelihatan konyol.\n\nJarak antara 'Kesempurnaan Piksel' dan 'Realitas Fisik' inilah alasan kenapa 40% barang fashion dikembalikan. Ini adalah defisit kepercayaan."
+                title: "Perjalanan CHIuXID 2018",
+                content: "Ikut CHIuXID 2018 tema 'Designing for Intelligences'. Tim SUX kami (Ifa, Kevin, Zaki) pake Google Design Sprint intensitas tinggi buat ubah perilaku 'filter sosial' jadi alat belanja fungsional bernama FilterMe."
             },
             {
-                title: "Mencoba Secara Digital",
-                content: "Kami bertanya: Kenapa kita percaya cermin? Karena dia bergerak mengikuti kita.\n\nFilterMe bukan katalog; ini cermin. Pakai AR, kami biarkan user 'memakai' produk sebelum beli. Ini mengubah pertanyaan dari \"Produk ini bagus gak?\" jadi \"Produk ini bagus gak *di gue*?\""
-            },
-            {
-                title: "Bukti Sosial",
-                content: "Belanja itu kegiatan sosial. \"Ini cocok gak?\" adalah pertanyaan buat teman, bukan algoritma.\n\nKami integrasikan 'Share to Story'. User bisa selfie pakai lipstik AR, post ke Instagram, dan dapat validasi real-time dari teman sebelum keluar uang."
-            },
-            {
-                title: "Batas Teknologi",
-                content: "Kami belajar hal sulit: Seru bukan berarti Percaya.\n\nUser suka main filter (Engagement), tapi masih ragu beli (Konversi). Kenapa? Karena mereka gak percaya akurasi warna layar HP mereka.\n\nKesimpulan: AR bisa selesaikan masalah 'Bentuk' dan 'Vibe', tapi kesulitan selesaikan 'Tekstur' dan 'Warna Asli'."
+                title: "Menutup Celah Kepercayaan",
+                content: "FilterMe ubah pertanyaan dari 'Produk ini bagus gak?' jadi 'Produk ini bagus gak *di saya*?'. Meski gak juara satu, prosesnya ngajarin kalau seru dan engagement baru langkah awal buat bangun trust teknis."
             }
         ]
     },
