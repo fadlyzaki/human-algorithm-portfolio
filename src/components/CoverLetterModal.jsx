@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 import { X, ArrowRight, FileText } from 'lucide-react';
 
 const CoverLetterModal = ({ isOpen, onClose }) => {
+    const { t } = useLanguage();
     return ReactDOM.createPortal(
         <AnimatePresence>
             {isOpen && (
@@ -31,7 +33,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800 shrink-0">
                                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
                                     <FileText size={14} />
-                                    <span>Cover Letter</span>
+                                    <span>{t('cover_letter.title')}</span>
                                 </div>
                                 <button
                                     onClick={onClose}
@@ -45,42 +47,30 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                             <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar">
                                 <div className="prose dark:prose-invert max-w-none font-sans leading-relaxed text-gray-800 dark:text-gray-200">
                                     <p className="font-serif italic text-xl mb-6 text-gray-900 dark:text-white">
-                                        To the Hiring Manager & Future Teammates,
+                                        {t('cover_letter.greeting')}
                                     </p>
 
-                                    <p className="mb-4">
-                                        We often talk about "User Experience," but we rarely talk about <strong>"User Agency."</strong>
-                                    </p>
+                                    <p className="mb-4" dangerouslySetInnerHTML={{ __html: t('cover_letter.p1') }}></p>
 
-                                    <p className="mb-4">
-                                        In the last 5 years, I’ve watched our industry drift. We went from building tools that empower people to building feeds that entrap them. We optimized for "Time on Site" instead of "Time Well Spent." We started treating users like data points instead of people.
-                                    </p>
+                                    <p className="mb-4" dangerouslySetInnerHTML={{ __html: t('cover_letter.p2') }}></p>
 
-                                    <p className="mb-6 font-medium text-emerald-600 dark:text-emerald-400">
-                                        I’m looking for a team that wants to reverse that drift.
-                                    </p>
+                                    <p className="mb-6 font-medium text-emerald-600 dark:text-emerald-400" dangerouslySetInnerHTML={{ __html: t('cover_letter.p3') }}></p>
 
-                                    <p className="mb-4">
-                                        Whether I was designing for <strong>Lumina</strong> (helping blue-collar workers find dignity, not just jobs) or <strong>GudangAda</strong> (building trust in a $100B supply chain), my goal has always been the same: <strong>To hand the steering wheel back to the user.</strong>
-                                    </p>
+                                    <p className="mb-4" dangerouslySetInnerHTML={{ __html: t('cover_letter.p4') }}></p>
 
-                                    <p className="mb-6">
-                                        I don't just want to "increase conversion." I want to increase confidence. I want to build software that respects the human on the other side of the screen.
-                                    </p>
+                                    <p className="mb-6" dangerouslySetInnerHTML={{ __html: t('cover_letter.p5') }}></p>
 
-                                    <p className="mb-8 border-l-2 border-emerald-500 pl-4 py-1 italic text-gray-600 dark:text-gray-400">
-                                        If you’re building something that actually solves a problem—not just an engagement loop—then I’d love to help you build it.
-                                    </p>
+                                    <p className="mb-8 border-l-2 border-emerald-500 pl-4 py-1 italic text-gray-600 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: t('cover_letter.p6') }}></p>
 
                                     <div className="flex items-center gap-4 mt-8 pt-8 border-t border-gray-100 dark:border-gray-800 font-mono text-sm text-gray-500">
                                         <div>
-                                            <div className="uppercase tracking-widest text-xs mb-1">Authorized By</div>
+                                            <div className="uppercase tracking-widest text-xs mb-1">{t('cover_letter.authorized_by')}</div>
                                             <div className="font-bold text-gray-900 dark:text-white">Fadly Uzzaki</div>
                                         </div>
                                         <div className="h-8 w-px bg-gray-200 dark:bg-gray-700 mx-2"></div>
                                         <div>
-                                            <div className="uppercase tracking-widest text-xs mb-1">Status</div>
-                                            <div className="text-emerald-500">Ready to Build</div>
+                                            <div className="uppercase tracking-widest text-xs mb-1">{t('cover_letter.status_label')}</div>
+                                            <div className="text-emerald-500">{t('cover_letter.status_ready')}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +82,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                                     onClick={onClose}
                                     className="flex items-center gap-2 bg-gray-900 dark:bg-white text-white dark:text-black px-6 py-3 rounded-none uppercase font-mono text-xs tracking-wider font-bold hover:opacity-90 transition-opacity"
                                 >
-                                    <span>Proceed to System Directory</span>
+                                    <span>{t('cover_letter.cta_proceed')}</span>
                                     <ArrowRight size={14} />
                                 </button>
                             </div>

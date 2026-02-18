@@ -301,6 +301,20 @@ export const translations = {
                     desc: "Feedback loops. Analytics, user testing, iteration. 'Data is the voice of the user'. We launch, we learn, and we improve."
                 }
             }
+        },
+        cover_letter: {
+            title: "Cover Letter",
+            greeting: "To the Hiring Manager & Future Teammates,",
+            p1: "We often talk about \"User Experience,\" but we rarely talk about <strong>\"User Agency.\"</strong>",
+            p2: "In the last 5 years, I’ve watched our industry drift. We went from building tools that empower people to building feeds that entrap them. We optimized for \"Time on Site\" instead of \"Time Well Spent.\" We started treating users like data points instead of people.",
+            p3: "<strong>I’m looking for a team that wants to reverse that drift.</strong>",
+            p4: "Whether I was designing for <strong>Lumina</strong> (helping blue-collar workers find dignity, not just jobs) or <strong>GudangAda</strong> (building trust in a $100B supply chain), my goal has always been the same: <strong>To hand the steering wheel back to the user.</strong>",
+            p5: "I don't just want to \"increase conversion.\" I want to increase confidence. I want to build software that respects the human on the other side of the screen.",
+            p6: "If you’re building something that actually solves a problem—not just an engagement loop—then I’d love to help you build it.",
+            authorized_by: "Authorized By",
+            status_label: "Status",
+            status_ready: "Ready to Build",
+            cta_proceed: "Proceed to System Directory"
         }
     },
     id: {
@@ -604,6 +618,20 @@ export const translations = {
                     desc: "Umpan balik. Analitik, pengujian pengguna, iterasi. 'Data adalah suara pengguna'. Kita luncurkan, kita belajar, dan kita perbaiki."
                 }
             }
+        },
+        cover_letter: {
+            title: "Surat Lamaran",
+            greeting: "Kepada Manajer Perekrutan & Rekan Tim Masa Depan,",
+            p1: "Kita sering bicara soal \"User Experience,\" tapi jarang bicara soal <strong>\"Agensi Pengguna.\"</strong>",
+            p2: "Dalam 5 tahun terakhir, saya melihat industri kita hanyut. Kita beralih dari membangun alat yang memberdayakan orang menjadi feed yang menjebak mereka. Kita mengoptimalkan \"Durasi di Situs\" alih-alih \"Waktu yang Berkualitas.\" Kita mulai memperlakukan pengguna sebagai titik data, bukan manusia.",
+            p3: "<strong>Saya mencari tim yang ingin membalikkan arus itu.</strong>",
+            p4: "Baik saat mendesain untuk <strong>Lumina</strong> (membantu pekerja kerah biru menemukan martabat, bukan sekadar pekerjaan) atau <strong>GudangAda</strong> (membangun kepercayaan dalam rantai pasok $100M), tujuan saya selalu sama: <strong>Mengembalikan kendali kepada pengguna.</strong>",
+            p5: "Saya tidak hanya ingin \"meningkatkan konversi.\" Saya ingin meningkatkan kepercayaan diri. Saya ingin membangun perangkat lunak yang menghargai manusia di balik layar.",
+            p6: "Jika Anda membangun sesuatu yang benar-benar memecahkan masalah—bukan sekadar loop keterlibatan—maka saya ingin membantu Anda membangunnya.",
+            authorized_by: "Diotorisasi Oleh",
+            status_label: "Status",
+            status_ready: "Siap Membangun",
+            cta_proceed: "Lanjut ke Direktori Sistem"
         }
     }
 };

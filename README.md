@@ -32,9 +32,11 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 *   **Decision**: Replaced static PNGs with `AiryDiagram.jsx`, a custom SVG engine.
 *   **Benefit**: Renders localized, responsive, and animated technical schematics (Flow, Cycle, Architecture) at <5KB payload, replacing MBs of raster assets.
 
-### 5. Localization: Context-Driven Internationalization
+### 5. Localization & System Context
 *   **Architecture**: A lightweight `LanguageContext` provider wrapping the application root.
-*   **Optimization**: Translations are stored in a centralized `translations.js` data structure, enabling instant O(1) lookup without network waterfalls common in CMS-based i18n solutions.
+*   **Localized Clock**: Real-time `HH:MM:SS` with dynamic timezone detection (e.g., `WIB`, `EST`, `JST`).
+*   **Subpage Navigation**: Contextual `Navbar` that switches from brand-focused (Home) to navigation-focused (Subpage) with a back button and page title.
+*   **Optimization**: Centralized O(1) linguistic database in `translations.js`.
 
 ---
 
