@@ -13,6 +13,7 @@ const Navbar = ({ onOpenMenu, title, backPath }) => {
     const { isGestureMode, toggleGestureMode } = useHandCursor();
     const [showNav, setShowNav] = useState(true);
     const [time, setTime] = useState(new Date());
+    const [timeZone, setTimeZone] = useState('LOC');
     const lastScrollY = useRef(0);
     const location = useLocation();
 
@@ -34,9 +35,18 @@ const Navbar = ({ onOpenMenu, title, backPath }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isGestureMode]);
 
-    // 2. LIVE CLOCK
+    // 2. LIVE CLOCK & TIMEZONE
     useEffect(() => {
         const timer = setInterval(() => setTime(new Date()), 1000);
+
+        // Detect Timezone
+        try {
+            const short = new Date().toLocaleTimeString('en-US', { timeZoneName: 'short' }).split(' ').pop();
+            setTimeZone(short);
+        } catch (e) {
+            setTimeZone('LOC');
+        }
+
         return () => clearInterval(timer);
     }, []);
 
@@ -126,7 +136,7 @@ const Navbar = ({ onOpenMenu, title, backPath }) => {
                         <div className="hidden lg:flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] border-r border-[var(--border-color)] pr-4 mr-1">
                             <Clock size={12} className="opacity-70" />
                             <span>{formatTime(time)}</span>
-                            <span className="text-[9px] opacity-50">WIB</span>
+                            <span className="text-[9px] opacity-50">{timeZone}</span>
                         </div>
 
                         <div className="flex items-center gap-2">
