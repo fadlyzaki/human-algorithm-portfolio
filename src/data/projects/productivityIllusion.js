@@ -19,7 +19,7 @@ export const productivityIllusion = {
     date: "2025-2026",
     coverImage: "airy:radar",
     snapshot: {
-        tagline: { en: "Human Algorithms", id: "Human Algorithms" },
+        tagline: { en: "(Cognitive Mastery v1.0)", id: "(Cognitive Mastery v1.0)" },
         heroImage: "airy:radar"
     },
     context: {

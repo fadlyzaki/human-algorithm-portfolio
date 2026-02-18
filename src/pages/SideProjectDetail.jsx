@@ -94,7 +94,10 @@ const SideProjectDetail = () => {
    // Framework Data
    const rawSnapshot = project.snapshot || {};
    const activeSnapshot = {
-      tagline: (isIndonesian && project.snapshot_id?.tagline) || rawSnapshot.tagline || activeSubtitle,
+      tagline: (isIndonesian
+         ? (project.snapshot_id?.tagline || (typeof rawSnapshot.tagline === 'object' ? rawSnapshot.tagline.id : rawSnapshot.tagline))
+         : (typeof rawSnapshot.tagline === 'object' ? rawSnapshot.tagline.en : rawSnapshot.tagline))
+         || activeSubtitle,
       heroImage: rawSnapshot.heroImage || project.coverImage
    };
 
@@ -203,7 +206,7 @@ const SideProjectDetail = () => {
             </header>
 
             {/* --- 3. VENTURE SPECS --- */}
-            <section className="border-b border-[var(--border-color)] bg-[var(--bg-surface)] sticky top-0 z-40 backdrop-blur-md bg-opacity-90">
+            <section className="border-b border-[var(--border-color)] bg-[var(--bg-surface)] relative z-20">
                <div className="max-w-7xl mx-auto px-6 py-6 overflow-x-auto no-scrollbar">
                   <div className="flex items-center justify-between min-w-max gap-12">
 

@@ -20,7 +20,7 @@ export const dolphi = {
     coverImage: "airy:ui",
     brandColor: "#00C2FF",
     snapshot: {
-        tagline: { en: "Cosmic Pop Tracker", id: "Cosmic Pop Tracker" },
+        tagline: { en: "(Gamified Habits v1.5)", id: "(Kebiasaan Gamifikasi v1.5)" },
         heroImage: "airy:ui"
     },
     context: {
