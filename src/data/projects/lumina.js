@@ -35,13 +35,13 @@ export const lumina = {
         title: "The Arena",
         description: "High volume, low margin, fast pace. We shipped daily. I also established Design Ops practices: mentoring interns, conducting design reviews, and interviewing new hires. We weren't just building an app; we were building a livelihood. I also managed freelance designers to scale our assets. Every design decision was tested in the field, not just in Figma.",
         layout: "masonry",
+        layout: "symmetric-grid",
         images: [
-            { src: "/work/lumina_arena_1.jpg", caption: "Lumina at JobFair", pos: "object-center" },
-            { src: "/work/lumina_arena_4.jpg", caption: "Field Research & Career Clinic", pos: "object-center" },
-            { src: "/work/lumina_arena_2.jpg", caption: "Me at JobFair", pos: "object-center" },
-            { src: "/work/lumina_arena_5.jpg", caption: "Late Night Innovation", pos: "object-center" },
-            { src: "/work/lumina_arena_3.jpg", caption: "Community Engagement", pos: "object-center" },
-            { src: "/work/lumina_arena_6.jpg", caption: "Badminton Team Building", pos: "object-center" }
+            { src: "/work/lumina_arena_4.jpg", caption: "Field Research & Career Clinic", span: "md:col-start-1 md:row-start-1" },
+            { src: "/work/lumina_arena_5.jpg", caption: "Late Night Innovation", span: "md:col-start-1 md:row-start-2" },
+            { src: "/work/lumina_arena_2.jpg", caption: "Me at JobFair", span: "md:col-start-2 md:row-start-1 md:row-span-2 h-full", pos: "object-center" },
+            { src: "/work/lumina_arena_3.jpg", caption: "Community Engagement", span: "md:col-start-3 md:row-start-1" },
+            { src: "/work/lumina_arena_6.jpg", caption: "Badminton Team Building", span: "md:col-start-3 md:row-start-2" }
         ]
     },
     culture_id: {
