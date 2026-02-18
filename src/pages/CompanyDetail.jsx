@@ -1,10 +1,11 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ScanEye, Sun, Moon, Globe } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
+import Navbar from '../components/Navbar';
 import useProjectData from '../hooks/useProjectData';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
@@ -28,6 +29,8 @@ const CompanyDetail = () => {
     const { isGestureMode, toggleGestureMode } = useHandCursor();
     const { id } = useParams();
     const navigate = useNavigate();
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const { project: cluster, loading } = useProjectData(id);
 
@@ -77,37 +80,10 @@ const CompanyDetail = () => {
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
             ></div>
 
-            {/* NAVIGATION */}
-            <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-[var(--bg-void)]/80 backdrop-blur-md border-b border-transparent hover:border-[var(--border-color)] transition-all">
-                <BackButton to="/" label={t('company.index')} />
+            {/* --- NAVIGATION SYSTEM --- */}
+            <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
 
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest hidden md:block">
-                    {cluster.company} {t('company.case_study')}
-                </div>
-
-                <div className="flex items-center gap-4">
-                    <button
-                        onClick={toggleGestureMode}
-                        className={`transition-colors p-1 ${isGestureMode ? 'text-[var(--brand)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
-                        title="Toggle Hand Tracking"
-                    >
-                        <ScanEye size={16} />
-                    </button>
-                    <button
-                        onClick={() => setIsDark(!isDark)}
-                        className="text-[var(--text-secondary)] hover:text-[var(--brand)] transition-colors p-1"
-                        aria-label="Toggle Theme"
-                    >
-                        {isDark ? <Sun size={16} /> : <Moon size={16} />}
-                    </button>
-                    <button
-                        onClick={toggleLanguage}
-                        className="flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] uppercase tracking-widest transition-colors"
-                    >
-                        <Globe size={14} /> {language}
-                    </button>
-                </div>
-            </nav>
+            {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
 
             <main className="relative z-10 w-full">
 

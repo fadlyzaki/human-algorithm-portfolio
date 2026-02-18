@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
+import Navbar from '../components/Navbar';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
@@ -17,12 +18,14 @@ import BackButton from '../components/BackButton';
 import ScrollProgressBar from '../components/ScrollProgressBar';
 import AiryDiagram from '../components/AiryDiagram';
 import { DESIGN_PROCESS_STEPS } from '../data/processSteps';
+import NavigationMenu from '../components/NavigationMenu'; // Added based on usage in diff
 
 const DesignProcess = () => {
     const { isDark, setIsDark } = useTheme();
     const themeStyles = useThemeStyles();
     const { t, language, toggleLanguage } = useLanguage();
     const { isGestureMode, toggleGestureMode } = useHandCursor();
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // Added based on usage in diff
 
     // --- DATA: SYSTEMATIC DESIGN FRAMEWORK ---
     const processSteps = DESIGN_PROCESS_STEPS;
@@ -40,23 +43,10 @@ const DesignProcess = () => {
 
             <ScrollProgressBar />
 
-            {/* HEADER */}
-            <div className="fixed top-0 left-0 w-full z-50">
-                <header className="relative flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)]">
-                    <BackButton to="/" label="Main Terminal" />
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-xs uppercase tracking-[0.2em] text-[var(--text-secondary)] hidden md:block opacity-70">
-                        // OPERATING_MANUAL
-                    </div>
-                    <div className="flex items-center gap-4">
-                        <button onClick={toggleGestureMode} className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}>
-                            <ScanEye size={18} />
-                        </button>
-                        <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors">
-                            {isDark ? <Sun size={18} /> : <Moon size={18} />}
-                        </button>
-                    </div>
-                </header>
-            </div>
+            {/* --- NAVIGATION SYSTEM --- */}
+            <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
+
+            <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
             <main className="relative z-10 max-w-7xl mx-auto px-6 py-24 min-h-screen">
 

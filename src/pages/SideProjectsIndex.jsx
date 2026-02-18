@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Filter, Sun, Moon, Globe, ScanEye } from 'lucide-react';
+import Navbar from '../components/Navbar';
+import NavigationMenu from '../components/NavigationMenu';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
@@ -27,6 +29,8 @@ const SideProjectsIndex = () => {
     const { language, toggleLanguage, isIndonesian } = useLanguage();
     const { isGestureMode, toggleGestureMode } = useHandCursor();
     const navigate = useNavigate();
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // Interaction Refs
     const canvasRef = useRef(null);
@@ -162,41 +166,10 @@ const SideProjectsIndex = () => {
                 className="fixed inset-0 pointer-events-none z-50 mix-blend-difference" // z-50 but pointer-events-none allows clicks through
             />
 
-            {/* Nav */}
-            <nav className="fixed top-0 left-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-white">
-                <BackButton to="/" label="Index" className="text-white hover:text-white/80 mix-blend-difference" />
+            {/* --- NAVIGATION SYSTEM --- */}
+            <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
 
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-sm uppercase tracking-widest mix-blend-difference text-white hidden md:block">
-                    ARCHIVES
-                </div>
-
-                <div className="flex items-center gap-4">
-                    <button
-                        onClick={toggleGestureMode}
-                        className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-white/80 hover:text-white mix-blend-difference'}`}
-                        title="Toggle Hand Tracking"
-                    >
-                        <ScanEye size={20} />
-                    </button>
-
-                    <button
-                        onClick={() => setIsDark(!isDark)}
-                        className="p-2 hover:bg-white/10 rounded-full transition-colors mix-blend-difference text-white"
-                        aria-label="Toggle Theme"
-                    >
-                        {isDark ? <Sun size={20} /> : <Moon size={20} />}
-                    </button>
-
-                    <button
-                        onClick={toggleLanguage}
-                        className="flex items-center gap-2 text-sm font-mono uppercase tracking-widest hover:opacity-80 transition-opacity mix-blend-difference text-white"
-                        aria-label="Toggle Language"
-                    >
-                        <Globe size={14} />
-                        <span>{language}</span>
-                    </button>
-                </div>
-            </nav>
+            <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
             <main className="max-w-6xl mx-auto px-6 pt-32 pb-24" ref={containerRef}>
                 <header className="mb-32 relative min-h-[50vh] flex flex-col justify-center text-center md:text-left">

@@ -13,8 +13,6 @@ import {
   Terminal,
   BookOpen,
   User,
-  Sun,
-  Moon,
   Phone
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
@@ -22,7 +20,8 @@ import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import { WORK_CLUSTERS } from '../data/portfolioData';
 import CoverLetterModal from '../components/CoverLetterModal';
-import BackButton from '../components/BackButton';
+import Navbar from '../components/Navbar';
+import NavigationMenu from '../components/NavigationMenu';
 
 /* --- THEME CONFIGURATION ---
    A 'High Contrast' mode designed for readability and printing.
@@ -33,6 +32,7 @@ const SystemManifest = () => {
   const { isDark, setIsDark } = useTheme();
   const { t, language, toggleLanguage } = useLanguage();
   const [showCoverLetter, setShowCoverLetter] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // --- DATA: RAW SPECS ---
   const header = {
@@ -109,47 +109,16 @@ const SystemManifest = () => {
         description="System Manifest: Professional experience validation and skill inventory."
       />
 
-      {/* FIXED NAVBAR - HIDDEN IN PRINT */}
-      <div className="fixed top-0 left-0 w-full z-50 print:hidden">
-        <header className="flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)]">
-          <BackButton to="/about" label={t('manifest.back')} />
-
-          <div className="flex items-center gap-4">
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-              title="Switch Language"
-            >
-              <Globe size={18} />
-              <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
-            </button>
-
-            <button
-              onClick={() => setShowCoverLetter(true)}
-              className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-              title="View Cover Letter"
-            >
-              <Mail size={18} />
-            </button>
-
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className="text-[var(--text-secondary)] hover:text-[var(--accent-mono)] transition-colors"
-              aria-label="Toggle Theme"
-            >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-
-            <button
-              onClick={() => window.print()}
-              className="px-4 py-2 bg-[var(--text-primary)] text-[var(--bg-void)] font-mono text-xs uppercase font-bold rounded-lg hover:opacity-90 flex items-center gap-2 transition-opacity"
-            >
-              <Printer size={14} />
-              <span className="hidden md:inline">{t('manifest.print')}</span>
-            </button>
-          </div>
-        </header>
-      </div>
+      {/* --- NAVIGATION SYSTEM --- */}
+      <Navbar
+        onOpenMenu={() => setIsMenuOpen(true)}
+        onToggleTheme={() => setIsDark(!isDark)}
+        onToggleLanguage={toggleLanguage}
+        onViewCoverLetter={() => setShowCoverLetter(true)}
+        isDark={isDark}
+        language={language}
+      />
+      <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
       {/* SPACER FOR FIXED HEADER & DOCUMENT SHEET */}
       <div className="h-24 md:h-32 print:hidden"></div>

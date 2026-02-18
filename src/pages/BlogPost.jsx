@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import SEO from '../components/SEO';
+import Navbar from '../components/Navbar';
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Digital Editorial"
@@ -111,18 +112,10 @@ const BlogPost = () => {
         <div className="h-full bg-[var(--accent-color)] transition-all duration-100 ease-out" style={{ width: `${scrolled}%` }}></div>
       </div>
 
-      {/* Navbar */}
-      <nav className="fixed top-0 w-full bg-[var(--bg-void)]/90 backdrop-blur z-40 border-b border-[var(--border-color)] px-6 py-4 flex justify-between items-center transition-colors duration-500">
-        <Link to="/" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider group">
-          <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-          <span>Return to Terminal</span>
-        </Link>
-        <div className="flex gap-4">
-          <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-color)] transition-colors" aria-label="Toggle Theme">
-            {isDark ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-        </div>
-      </nav>
+      {/* --- NAVIGATION SYSTEM --- */}
+      <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
+
+      {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
 
       <main className="pt-32 pb-24 max-w-3xl mx-auto px-6">
 

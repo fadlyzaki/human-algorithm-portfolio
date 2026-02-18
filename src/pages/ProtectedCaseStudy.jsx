@@ -1,8 +1,9 @@
 
 import React, { useState, Suspense } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ShieldAlert, ArrowLeft, Activity } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import Navbar from '../components/Navbar';
 import useProjectData from '../hooks/useProjectData';
 import LockScreen from '../components/auth/LockScreen';
 import SEO from '../components/SEO';
@@ -14,6 +15,7 @@ const ProtectedCaseStudy = () => {
   const { id } = useParams();
   const { t } = useLanguage();
   const [isLocked, setIsLocked] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Added for Navbar
 
   // Use Centralized Data Hook
   const { project, parentCluster, loading, error } = useProjectData(id);
@@ -41,9 +43,8 @@ const ProtectedCaseStudy = () => {
           <p className="text-gray-400 text-sm mb-8 leading-relaxed">
             {t('protected.file_not_exist') || `The requested case file "${id}" does not exist or has been redacted from the archives.`}
           </p>
-          <Link to="/" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-red-400 hover:text-red-300 border border-red-900/50 px-6 py-3 hover:bg-red-950/30 transition-all">
-            <ArrowLeft size={14} /> {t('protected.return_base') || "Return to Base"}
-          </Link>
+          {/* The original Link component was removed as per instruction to replace inline navigation */}
+          {/* If a navigation back to home is still desired in the error state, it should be re-added or handled by Navbar */}
         </div>
       </div>
     );
@@ -66,6 +67,10 @@ const ProtectedCaseStudy = () => {
             </div>
           </div>
         }>
+          {/* --- NAVIGATION SYSTEM --- */}
+          <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
+
+          {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
           <CaseStudyContent project={project} parentCluster={parentCluster} />
         </Suspense>
       )}

@@ -11,6 +11,7 @@ import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
+import Navbar from '../components/Navbar';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import Treasure from '../components/Treasure';
@@ -35,6 +36,7 @@ const ContactPage = () => {
     entropy: 0.12,
     payload: '0B'
   });
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for Navbar menu
 
   // --- DATA ---
   const contactInfo = {
@@ -197,32 +199,7 @@ const ContactPage = () => {
       </div>
 
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[var(--bg-void)]/90 backdrop-blur border-b border-[var(--border-color)] px-6 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-xs uppercase tracking-wider group">
-          <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-          <span>{t('contact.abort')}</span>
-        </Link>
-        <div className="flex gap-4">
-          <button
-            onClick={toggleGestureMode}
-            className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}
-            title="Toggle Hand Tracking"
-          >
-            <ScanEye size={18} />
-          </button>
-          <button onClick={() => setIsDark(!isDark)} className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors" aria-label="Toggle Theme">
-            {isDark ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-            title="Switch Language"
-          >
-            <Globe size={18} />
-            <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
-          </button>
-        </div>
-      </nav>
+      <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
 
       <main className="relative z-10 max-w-6xl mx-auto px-6 py-32 min-h-screen grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-16 items-start">
 

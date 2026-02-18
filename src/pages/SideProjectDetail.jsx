@@ -4,6 +4,7 @@ import {
    Sun, Moon, ArrowUpRight, Code, Cpu, Link as LinkIcon, AlertTriangle,
    Terminal, Share2, Box, ArrowLeft, Monitor, Layers, FileText, Globe, ScanEye
 } from 'lucide-react';
+import Navbar from '../components/Navbar';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
@@ -42,6 +43,7 @@ const SideProjectDetail = () => {
    const { project, loading } = useProjectData(id);
 
    const [showLivePreview, setShowLivePreview] = useState(true);
+   const [isMenuOpen, setIsMenuOpen] = useState(false); // Added for Navbar
 
    if (loading) {
       return (
@@ -152,40 +154,10 @@ const SideProjectDetail = () => {
          {/* Vignette */}
          <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
-         {/* --- 1. NAVIGATION --- */}
-         <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-[var(--bg-void)]/80 backdrop-blur-md border-b border-[var(--border-color)]">
-            <div className="flex items-center gap-4">
-               <BackButton to="/side-projects" label="Archives" />
-            </div>
+         {/* --- NAVIGATION SYSTEM --- */}
+         <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
 
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-2 font-mono text-[10px] uppercase text-[var(--text-secondary)]">
-               <Terminal size={12} />
-               <span>PROJECT_{project.id.toUpperCase()}</span>
-            </div>
-
-            <div className="flex items-center gap-4">
-               <button
-                  onClick={toggleGestureMode}
-                  className={`transition-colors ${isGestureMode ? 'text-[var(--brand)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
-                  title="Toggle Hand Tracking"
-               >
-                  <ScanEye size={18} />
-               </button>
-
-               <button onClick={() => setIsDark(!isDark)} className="p-2 hover:bg-[var(--bg-surface)] rounded-full transition-colors text-[var(--text-primary)]" aria-label="Toggle Theme">
-                  {isDark ? <Sun size={18} /> : <Moon size={18} />}
-               </button>
-
-               <button
-                  onClick={toggleLanguage}
-                  className="flex items-center gap-2 text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-                  aria-label="Toggle Language"
-               >
-                  <Globe size={14} />
-                  <span>{language}</span>
-               </button>
-            </div>
-         </nav>
+         {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
 
          <main className="relative z-10">
 

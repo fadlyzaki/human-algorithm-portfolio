@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
+import Navbar from '../components/Navbar';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
@@ -22,6 +23,7 @@ import RichText from '../components/RichText';
 import ProfileScanner from '../components/ProfileScanner';
 import BackButton from '../components/BackButton';
 import ScrollProgressBar from '../components/ScrollProgressBar';
+import NavigationMenu from '../components/NavigationMenu'; // Assuming this is also a new component
 
 /* --- THEME CONFIGURATION ---
    Consistent with Human By Design System v2.0
@@ -33,7 +35,7 @@ const AboutPage = () => {
   const { t, language, toggleLanguage } = useLanguage();
   const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [chaosStrength, setChaosStrength] = useState(0);
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for menu
 
   // JSON Config State
 
@@ -243,43 +245,11 @@ const AboutPage = () => {
       {/* Progress Bar (Isolated Component) */}
       <ScrollProgressBar />
 
-      {/* HEADER */}
-      <div className="fixed top-0 left-0 w-full z-50">
-        <header className="relative flex justify-between items-center px-6 py-6 bg-[var(--bg-void)]/95 backdrop-blur border-b border-[var(--border-color)]">
-          <BackButton to="/" label={t('about.main_terminal')} />
+      {/* --- NAVIGATION SYSTEM --- */}
+      <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
 
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] hidden md:flex items-center gap-4">
-            <span className="opacity-50">ABOUT</span>
-            <span className="opacity-20">/</span>
-            <Link to="/process" className="hover:text-[var(--text-primary)] transition-colors">PROCESS</Link>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button
-              onClick={toggleGestureMode}
-              className={`transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}
-              title="Toggle Hand Tracking"
-            >
-              <ScanEye size={18} />
-            </button>
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors"
-              aria-label="Toggle Theme"
-            >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-              title="Switch Language"
-            >
-              <Globe size={18} />
-              <span className="font-mono text-xs uppercase tracking-widest">{language}</span>
-            </button>
-          </div>
-        </header>
-      </div>
+      {/* Mobile Menu Overlay */}
+      <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
       {/* --- CONTENT --- */}
       <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-20 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-void)]/80 backdrop-blur-sm shadow-2xl overflow-x-hidden">
