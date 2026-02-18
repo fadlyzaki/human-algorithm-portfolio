@@ -39,9 +39,9 @@ export const lumina = {
             { src: "/work/lumina_arena_1.jpg", caption: "Field Research", pos: "object-center" },
             { src: "/work/lumina_arena_4.jpg", caption: "Job Fair Engagement", pos: "object-center" },
             { src: "/work/lumina_arena_2.jpg", caption: "Townhall Discussions", pos: "object-center" },
-            { src: "/work/lumina_arena_5.jpg", caption: "Badminton Team Building", pos: "object-center" },
+            { src: "/work/lumina_arena_5.jpg", caption: "Late Night Innovation", pos: "object-center" },
             { src: "/work/lumina_arena_3.jpg", caption: "Design Reviews", pos: "object-center" },
-            { src: "/work/lumina_arena_6.jpg", caption: "Late Night Innovation", pos: "object-center" }
+            { src: "/work/lumina_arena_6.jpg", caption: "Badminton Team Building", pos: "object-center" }
         ]
     },
     culture_id: {
