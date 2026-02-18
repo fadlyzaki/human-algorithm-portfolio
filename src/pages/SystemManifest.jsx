@@ -117,6 +117,7 @@ const SystemManifest = () => {
         onToggleTheme={() => setIsDark(!isDark)}
         onToggleLanguage={toggleLanguage}
         onViewCoverLetter={() => setShowCoverLetter(true)}
+        onPrint={() => window.print()}
         isDark={isDark}
         language={language}
       />
