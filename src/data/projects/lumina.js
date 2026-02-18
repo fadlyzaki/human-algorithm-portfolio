@@ -36,11 +36,11 @@ export const lumina = {
         description: "High volume, low margin, fast pace. We shipped daily. I also established Design Ops practices: mentoring interns, conducting design reviews, and interviewing new hires. We weren't just building an app; we were building a livelihood. I also managed freelance designers to scale our assets. Every design decision was tested in the field, not just in Figma.",
         layout: "masonry",
         images: [
-            { src: "/work/lumina_arena_1.jpg", caption: "Field Research", pos: "object-center" },
-            { src: "/work/lumina_arena_4.jpg", caption: "Job Fair Engagement", pos: "object-center" },
-            { src: "/work/lumina_arena_2.jpg", caption: "Townhall Discussions", pos: "object-center" },
+            { src: "/work/lumina_arena_1.jpg", caption: "Lumina at JobFair", pos: "object-center" },
+            { src: "/work/lumina_arena_4.jpg", caption: "Field Research & Career Clinic", pos: "object-center" },
+            { src: "/work/lumina_arena_2.jpg", caption: "Me at JobFair", pos: "object-center" },
             { src: "/work/lumina_arena_5.jpg", caption: "Late Night Innovation", pos: "object-center" },
-            { src: "/work/lumina_arena_3.jpg", caption: "Design Reviews", pos: "object-center" },
+            { src: "/work/lumina_arena_3.jpg", caption: "Community Engagement", pos: "object-center" },
             { src: "/work/lumina_arena_6.jpg", caption: "Badminton Team Building", pos: "object-center" }
         ]
     },
