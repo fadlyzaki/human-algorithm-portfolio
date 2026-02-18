@@ -44,7 +44,7 @@ const DesignProcess = () => {
             <ScrollProgressBar />
 
             {/* --- NAVIGATION SYSTEM --- */}
-            <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
+            <Navbar onOpenMenu={() => setIsMenuOpen(true)} title="Design Process" backPath="/" />
 
             <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 

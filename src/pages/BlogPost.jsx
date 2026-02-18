@@ -113,7 +113,7 @@ const BlogPost = () => {
       </div>
 
       {/* --- NAVIGATION SYSTEM --- */}
-      <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
+      <Navbar onOpenMenu={() => setIsMenuOpen(true)} title="Editorial" backPath="/" />
 
       {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
 

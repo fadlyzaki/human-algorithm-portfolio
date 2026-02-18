@@ -112,6 +112,8 @@ const SystemManifest = () => {
       {/* --- NAVIGATION SYSTEM --- */}
       <Navbar
         onOpenMenu={() => setIsMenuOpen(true)}
+        title="System Manifest"
+        backPath="/"
         onToggleTheme={() => setIsDark(!isDark)}
         onToggleLanguage={toggleLanguage}
         onViewCoverLetter={() => setShowCoverLetter(true)}

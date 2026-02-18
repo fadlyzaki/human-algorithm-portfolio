@@ -198,8 +198,8 @@ const ContactPage = () => {
         style={{ backgroundImage: `linear-gradient(${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px)`, backgroundSize: '40px 40px' }}>
       </div>
 
-      {/* NAVBAR */}
-      <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
+      {/* ---NAVIGATION SYSTEM --- */}
+      <Navbar onOpenMenu={() => setIsMenuOpen(true)} title="Communication" backPath="/" />
 
       <main className="relative z-10 max-w-6xl mx-auto px-6 py-32 min-h-screen grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-16 items-start">
 

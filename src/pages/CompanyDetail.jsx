@@ -81,7 +81,7 @@ const CompanyDetail = () => {
             ></div>
 
             {/* --- NAVIGATION SYSTEM --- */}
-            <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
+            <Navbar onOpenMenu={() => setIsMenuOpen(true)} title={cluster.company} backPath="/" />
 
             {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
 

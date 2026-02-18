@@ -167,7 +167,7 @@ const SideProjectsIndex = () => {
             />
 
             {/* --- NAVIGATION SYSTEM --- */}
-            <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
+            <Navbar onOpenMenu={() => setIsMenuOpen(true)} title="Project Archives" backPath="/" />
 
             <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 

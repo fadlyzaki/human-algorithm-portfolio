@@ -246,7 +246,7 @@ const AboutPage = () => {
       <ScrollProgressBar />
 
       {/* --- NAVIGATION SYSTEM --- */}
-      <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
+      <Navbar onOpenMenu={() => setIsMenuOpen(true)} title="About System" backPath="/" />
 
       {/* Mobile Menu Overlay */}
       <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />

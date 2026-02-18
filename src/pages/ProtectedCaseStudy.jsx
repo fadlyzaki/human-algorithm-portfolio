@@ -68,7 +68,11 @@ const ProtectedCaseStudy = () => {
           </div>
         }>
           {/* --- NAVIGATION SYSTEM --- */}
-          <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
+          <Navbar
+            onOpenMenu={() => setIsMenuOpen(true)}
+            title="Restricted Access"
+            backPath={`/work/${parentCluster?.id || ''}`}
+          />
 
           {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
           <CaseStudyContent project={project} parentCluster={parentCluster} />

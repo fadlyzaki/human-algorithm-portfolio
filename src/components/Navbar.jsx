@@ -5,7 +5,9 @@ import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 
-const Navbar = ({ onOpenMenu }) => {
+import BackButton from './BackButton';
+
+const Navbar = ({ onOpenMenu, title, backPath }) => {
     const { isDark, setIsDark } = useTheme();
     const { t, language, toggleLanguage } = useLanguage();
     const { isGestureMode, toggleGestureMode } = useHandCursor();
@@ -54,55 +56,69 @@ const Navbar = ({ onOpenMenu }) => {
             <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 transform ${showNav ? 'translate-y-0' : '-translate-y-full'}`}>
                 <div className="bg-[var(--bg-surface)]/80 backdrop-blur-md border-b border-[var(--border-color)] px-6 py-3 flex justify-between items-center shadow-sm">
 
-                    {/* LEFT: IDENTITY & STATUS */}
+                    {/* LEFT: IDENTITY or BACK BUTTON */}
                     <div className="flex items-center gap-6">
-                        <Link to="/" className="flex items-center gap-3 group">
-                            {/* Logo / Glitch Text */}
-                            <span className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
-                                FADLY.ZAKI<span className="animate-pulse">_</span>
-                            </span>
-                        </Link>
+                        {title ? (
+                            <BackButton to={backPath} label="Back" className="hover:bg-[var(--text-secondary)]/10 px-3 py-1.5 rounded-md !text-[var(--text-secondary)] hover:!text-[var(--text-primary)] transition-colors border-r border-[var(--border-color)] pr-6" />
+                        ) : (
+                            <div className="flex items-center gap-6">
+                                <Link to="/" className="flex items-center gap-3 group">
+                                    {/* Logo / Glitch Text */}
+                                    <span className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
+                                        FADLY.ZAKI<span className="animate-pulse">_</span>
+                                    </span>
+                                </Link>
 
-                        {/* System Status Indicator */}
-                        <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)]">
-                            <div className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                {/* System Status Indicator */}
+                                <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)]">
+                                    <div className="relative flex h-2 w-2">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                    </div>
+                                    <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
+                                        Sys: Normal
+                                    </span>
+                                </div>
                             </div>
-                            <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
-                                Sys: Normal
-                            </span>
-                        </div>
+                        )}
                     </div>
 
-                    {/* CENTER: PROCESS LINKS (Desktop) */}
-                    <nav className="hidden md:flex items-center gap-1">
-                        {[
-                            { path: '/about', label: t('nav.about') },
-                            { path: '#work', label: t('nav.work'), external: true },
-                            { path: '#side-projects', label: 'Projects', external: true },
-                            { path: '/process', label: t('nav.process') },
-                            { path: '/contact', label: t('nav.contact') }
-                        ].map((link) => (
-                            link.external ? (
-                                <a
-                                    key={link.path}
-                                    href={link.path}
-                                    className="px-4 py-1.5 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--text-secondary)]/10 rounded transition-all duration-300 relative group overflow-hidden"
-                                >
-                                    <span className="relative z-10">{link.label}</span>
-                                </a>
-                            ) : (
-                                <Link
-                                    key={link.path}
-                                    to={link.path}
-                                    className="px-4 py-1.5 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--text-secondary)]/10 rounded transition-all duration-300 relative group overflow-hidden"
-                                >
-                                    <span className="relative z-10">{link.label}</span>
-                                </Link>
-                            )
-                        ))}
-                    </nav>
+                    {/* CENTER: PROCESS LINKS (Home) or TITLE (Subpage) */}
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                        {title ? (
+                            <h1 className="font-mono text-sm uppercase tracking-widest text-[var(--text-primary)] font-bold">
+                                {title}
+                            </h1>
+                        ) : (
+                            <nav className="hidden md:flex items-center gap-1">
+                                {[
+                                    { path: '/about', label: t('nav.about') },
+                                    { path: '#work', label: t('nav.work'), external: true },
+                                    { path: '#side-projects', label: 'Projects', external: true },
+                                    { path: '/process', label: t('nav.process') },
+                                    { path: '/contact', label: t('nav.contact') }
+                                ].map((link) => (
+                                    link.external ? (
+                                        <a
+                                            key={link.path}
+                                            href={link.path}
+                                            className="px-4 py-1.5 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--text-secondary)]/10 rounded transition-all duration-300 relative group overflow-hidden"
+                                        >
+                                            <span className="relative z-10">{link.label}</span>
+                                        </a>
+                                    ) : (
+                                        <Link
+                                            key={link.path}
+                                            to={link.path}
+                                            className="px-4 py-1.5 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--text-secondary)]/10 rounded transition-all duration-300 relative group overflow-hidden"
+                                        >
+                                            <span className="relative z-10">{link.label}</span>
+                                        </Link>
+                                    )
+                                ))}
+                            </nav>
+                        )}
+                    </div>
 
                     {/* RIGHT: UTILITIES & CLOCK */}
                     <div className="flex items-center gap-4">
