@@ -190,6 +190,22 @@ const AboutPage = () => {
       id: "35436",
       icon: Shield,
       url: "https://www.interaction-design.org/members/muhammad-fadly-uzzaki/certificate/course/PjL4tmJSJ"
+    },
+    {
+      title: "Top 25 Finalist: Espriex Business Model ASEAN",
+      issuer: "Univ. Brawijaya / Harvard / Stanford",
+      date: "Mar 2017",
+      skills: ["Business Modeling", "Entrepreneurship", "Product Strategy"],
+      icon: Award,
+      url: "https://www.linkedin.com/in/fadlyzaki/details/honors/"
+    },
+    {
+      title: "Gold Medal (1st Winner): GEMASTIK9 ICT Business Development",
+      issuer: "GEMASTIK / Kemendikbud",
+      date: "Oct 2016",
+      skills: ["ICT Development", "Startup Pitching", "Product MVP"],
+      icon: Award,
+      url: "https://www.linkedin.com/in/fadlyzaki/details/honors/"
     }
   ];
 
