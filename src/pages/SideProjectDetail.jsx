@@ -110,11 +110,12 @@ const SideProjectDetail = () => {
    };
 
    const activeChallenge = (isIndonesian && project.challenge_id) ? project.challenge_id : (project.challenge || project.desc);
-   const activeProcess = (isIndonesian && project.process_id) ? project.process_id : project.process;
+   const activeProcess = (isIndonesian && (project.designProcess_id || project.process_id)) ? (project.designProcess_id || project.process_id) : (project.designProcess || project.process);
    const activeInsights = (isIndonesian && project.insights_id) ? project.insights_id : project.insights;
    const activeSolution = (isIndonesian && project.solution_id) ? project.solution_id : project.solution;
    const activeMetrics = (isIndonesian && project.metrics_id) ? project.metrics_id : project.metrics;
    const activeLearnings = (isIndonesian && project.learnings_id) ? project.learnings_id : project.learnings;
+   const activeModules = (isIndonesian && project.modules_id) ? project.modules_id : project.modules;
 
    // Interaction Mapping
    const InteractionComponent = {
@@ -304,6 +305,27 @@ const SideProjectDetail = () => {
                                  )}
                               </div>
                            )}
+                        </article>
+                     ))}
+                  </div>
+               )}
+
+               {/* B. NARRATIVE MODULES (Optional Long-form Story) */}
+               {activeModules && activeModules.length > 0 && (
+                  <div className="space-y-24">
+                     {activeModules.map((module, idx) => (
+                        <article key={idx} className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                           <div className="flex items-center gap-4">
+                              <div className="w-10 h-[1px] bg-[var(--accent)]"></div>
+                              <h3 className="text-xl font-bold uppercase tracking-widest text-[var(--text-primary)]">
+                                 {module.title}
+                              </h3>
+                           </div>
+                           <div className="text-xl md:text-2xl text-[var(--text-secondary)] leading-relaxed font-light">
+                              {module.content.split('\n\n').map((para, pIdx) => (
+                                 <p key={pIdx} className={pIdx > 0 ? "mt-6" : ""}>{para}</p>
+                              ))}
+                           </div>
                         </article>
                      ))}
                   </div>
