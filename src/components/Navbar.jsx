@@ -86,7 +86,7 @@ const Navbar = ({ onOpenMenu, title, backPath }) => {
                                         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                                     </div>
                                     <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
-                                        Sys: Normal
+                                        Open to Work
                                     </span>
                                 </div>
                             </div>
