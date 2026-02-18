@@ -209,15 +209,8 @@ const SideProjectDetail = () => {
             <section className="border-b border-[var(--border-color)] bg-[var(--bg-surface)] relative z-20">
                <div className="max-w-7xl mx-auto px-6 py-6 overflow-x-auto no-scrollbar text-[var(--text-secondary)]">
                   {type === 'prototype' ? (
-                     /* PROTOTYPE DESIGN: Unified Inline Specs */
-                     <div className="flex items-center gap-x-8 gap-y-4 flex-wrap text-xs">
-                        {project.links.demo && project.links.demo !== '#' && (
-                           <div className="flex items-center gap-2 pr-6 border-r border-[var(--border-color)]">
-                              <a href={project.links.demo} target="_blank" rel="noreferrer" className="font-bold text-[var(--text-primary)] hover:text-[var(--accent)] uppercase tracking-widest flex items-center gap-1.5 transition-colors">
-                                 Launch Product <ArrowUpRight size={14} />
-                              </a>
-                           </div>
-                        )}
+                     /* PROTOTYPE DESIGN: Unified Centered Inline Specs */
+                     <div className="flex items-center justify-center gap-x-8 gap-y-2 flex-wrap text-xs">
                         <div className="flex items-center gap-2">
                            <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Role:</span>
                            <span className="font-bold text-[var(--text-primary)]">{activeContext.role}</span>
