@@ -34,7 +34,6 @@ export const lumina = {
     culture: {
         title: "The Arena",
         description: "High volume, low margin, fast pace. We shipped daily. I also established Design Ops practices: mentoring interns, conducting design reviews, and interviewing new hires. We weren't just building an app; we were building a livelihood. I also managed freelance designers to scale our assets. Every design decision was tested in the field, not just in Figma.",
-        layout: "masonry",
         layout: "symmetric-grid",
         images: [
             { src: "/work/lumina_arena_4.jpg", caption: "Field Research & Career Clinic", span: "md:col-start-1 md:row-start-1" },
