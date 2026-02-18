@@ -40,7 +40,7 @@ const SideProjectDetail = () => {
    const { id } = useParams();
 
    // Use Centralized Data Hook
-   const { project, loading } = useProjectData(id);
+   const { project, loading, type } = useProjectData(id);
 
    const [showLivePreview, setShowLivePreview] = useState(true);
    const [isMenuOpen, setIsMenuOpen] = useState(false); // Added for Navbar
@@ -207,39 +207,70 @@ const SideProjectDetail = () => {
 
             {/* --- 3. VENTURE SPECS --- */}
             <section className="border-b border-[var(--border-color)] bg-[var(--bg-surface)] relative z-20">
-               <div className="max-w-7xl mx-auto px-6 py-6 overflow-x-auto no-scrollbar">
-                  <div className="flex items-center justify-between min-w-max gap-12">
-
-                     {/* Links (Primary CTA) */}
-                     <div className="flex items-center gap-4">
+               <div className="max-w-7xl mx-auto px-6 py-6 overflow-x-auto no-scrollbar text-[var(--text-secondary)]">
+                  {type === 'prototype' ? (
+                     /* PROTOTYPE DESIGN: Unified Inline Specs */
+                     <div className="flex items-center gap-x-8 gap-y-4 flex-wrap text-xs">
                         {project.links.demo && project.links.demo !== '#' && (
-                           <a href={project.links.demo} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg-card)] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">
-                              Launch Product <ArrowUpRight size={14} />
-                           </a>
+                           <div className="flex items-center gap-2 pr-6 border-r border-[var(--border-color)]">
+                              <a href={project.links.demo} target="_blank" rel="noreferrer" className="font-bold text-[var(--text-primary)] hover:text-[var(--accent)] uppercase tracking-widest flex items-center gap-1.5 transition-colors">
+                                 Launch Product <ArrowUpRight size={14} />
+                              </a>
+                           </div>
                         )}
-                        {project.links.repo && project.links.repo !== '#' && (
-                           <a href={`https://${project.links.repo}`} target="_blank" rel="noreferrer" className="flex items-center gap-2 border border-[var(--border-color)] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[var(--bg-void)] transition-colors">
-                              <Code size={14} /> Source
-                           </a>
+                        <div className="flex items-center gap-2">
+                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Role:</span>
+                           <span className="font-bold text-[var(--text-primary)]">{activeContext.role}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Timeline:</span>
+                           <span className="font-bold text-[var(--text-primary)]">{activeContext.timeline}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Tech Stack:</span>
+                           <span className="font-bold text-[var(--text-primary)]">{project.stack.join(', ')}</span>
+                        </div>
+                        {project.type && (
+                           <div className="flex items-center gap-2">
+                              <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Type:</span>
+                              <span className="font-bold text-[var(--text-primary)]">{project.type}</span>
+                           </div>
                         )}
                      </div>
+                  ) : (
+                     /* SIDE PROJECT DESIGN: Original Split CTA/Stats */
+                     <div className="flex items-center justify-between min-w-max gap-12">
+                        {/* Links (Primary CTA) */}
+                        <div className="flex items-center gap-4">
+                           {project.links.demo && project.links.demo !== '#' && (
+                              <a href={project.links.demo} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg-card)] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">
+                                 Launch Product <ArrowUpRight size={14} />
+                              </a>
+                           )}
+                           {project.links.repo && project.links.repo !== '#' && (
+                              <a href={`https://${project.links.repo}`} target="_blank" rel="noreferrer" className="flex items-center gap-2 border border-[var(--border-color)] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[var(--bg-void)] transition-colors">
+                                 <Code size={14} /> Source
+                              </a>
+                           )}
+                        </div>
 
-                     {/* Stats/Meta */}
-                     <div className="flex items-center gap-8 text-[var(--text-secondary)]">
-                        <div className="flex flex-col">
-                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Role</span>
-                           <span className="text-xs font-bold text-[var(--text-primary)]">{activeContext.role}</span>
-                        </div>
-                        <div className="flex flex-col">
-                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Timeline</span>
-                           <span className="text-xs font-bold text-[var(--text-primary)]">{activeContext.timeline}</span>
-                        </div>
-                        <div className="flex flex-col">
-                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Tech Stack</span>
-                           <span className="text-xs font-bold text-[var(--text-primary)]">{project.stack.slice(0, 3).join(', ')}</span>
+                        {/* Stats/Meta */}
+                        <div className="flex items-center gap-8 text-[var(--text-secondary)]">
+                           <div className="flex flex-col">
+                              <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Role</span>
+                              <span className="text-xs font-bold text-[var(--text-primary)]">{activeContext.role}</span>
+                           </div>
+                           <div className="flex flex-col">
+                              <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Timeline</span>
+                              <span className="text-xs font-bold text-[var(--text-primary)]">{activeContext.timeline}</span>
+                           </div>
+                           <div className="flex flex-col">
+                              <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Tech Stack</span>
+                              <span className="text-xs font-bold text-[var(--text-primary)]">{project.stack.slice(0, 3).join(', ')}</span>
+                           </div>
                         </div>
                      </div>
-                  </div>
+                  )}
                </div>
             </section>
 
