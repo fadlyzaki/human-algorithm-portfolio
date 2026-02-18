@@ -17,7 +17,48 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint }) => 
     const lastScrollY = useRef(0);
     const location = useLocation();
 
-    // ... (rest of the logic remains the same)
+    // 1. SCROLL LOGIC
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            if (Math.abs(currentScrollY - lastScrollY.current) > 10) {
+                if (currentScrollY > lastScrollY.current && currentScrollY > 50 && !isGestureMode) {
+                    setShowNav(false);
+                } else {
+                    setShowNav(true);
+                }
+                lastScrollY.current = currentScrollY;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isGestureMode]);
+
+    // 2. LIVE CLOCK & TIMEZONE
+    useEffect(() => {
+        const timer = setInterval(() => setTime(new Date()), 1000);
+
+        // Detect Timezone
+        try {
+            const short = new Date().toLocaleTimeString('en-US', { timeZoneName: 'short' }).split(' ').pop();
+            setTimeZone(short);
+        } catch (e) {
+            setTimeZone('LOC');
+        }
+
+        return () => clearInterval(timer);
+    }, []);
+
+    // Format time as HH:MM:SS
+    const formatTime = (date) => {
+        return date.toLocaleTimeString('en-GB', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        });
+    };
 
     return (
         <>
@@ -129,7 +170,7 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint }) => 
 
                             <button
                                 onClick={() => setIsDark(!isDark)}
-                                className="p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-amber)] hover:bg-[var(--text-secondary)]/10 transition-colors"
+                                className="p-2 rounded text-[var(--text-secondary)] hover:text(--accent-amber)] hover:bg-[var(--text-secondary)]/10 transition-colors"
                                 aria-label="Toggle Theme"
                             >
                                 {isDark ? <Sun size={16} /> : <Moon size={16} />}
