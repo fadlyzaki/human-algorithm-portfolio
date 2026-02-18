@@ -35,7 +35,7 @@ const FrequencyVisualizer = () => {
             const currentScrollY = window.scrollY;
             const delta = Math.abs(currentScrollY - lastScrollY);
             // Smoothly decay or spike scroll speed
-            scrollSpeed = scrollSpeed * 0.9 + delta * 0.1;
+            scrollSpeed = scrollSpeed * 0.9 + delta * 0.3; // Increased sensitivity (0.1 -> 0.3)
             lastScrollY = currentScrollY;
 
             const width = canvas.width / (window.devicePixelRatio || 1);
@@ -67,8 +67,8 @@ const FrequencyVisualizer = () => {
                 const activeNoise = Math.random() * scrollSpeed * 2;
 
                 // Combined height
-                // Base height of 4px + idle wave + scroll excitement
-                let barHeight = 4 + Math.abs(idleWave) + activeNoise;
+                // Base height of 10px (was 4) + idle wave + scroll excitement
+                let barHeight = 10 + Math.abs(idleWave) * 2 + activeNoise;
 
                 // Clamp height
                 barHeight = Math.min(height, Math.max(2, barHeight));
@@ -78,7 +78,7 @@ const FrequencyVisualizer = () => {
                 const y = height - barHeight;
 
                 // Opacity based on height (taller = more opaque)
-                const opacity = Math.min(1, 0.2 + (barHeight / height));
+                const opacity = Math.min(1, 0.3 + (barHeight / height)); // Base opacity 0.3 (was 0.2)
                 ctx.globalAlpha = opacity;
 
                 ctx.fillRect(x, y, barWidth, barHeight);

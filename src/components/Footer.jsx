@@ -20,7 +20,7 @@ const Footer = () => {
         <footer style={themeStyles} className="w-full pt-32 pb-6 px-6 md:px-12 bg-[var(--bg-footer)] text-[var(--text-primary)] font-sans transition-colors duration-500 relative overflow-hidden">
 
             {/* 0. FREQUENCY VISUALIZER BACKGROUND */}
-            <div className="absolute bottom-0 left-0 right-0 z-0 opacity-20 pointer-events-none">
+            <div className="absolute bottom-0 left-0 right-0 z-0 opacity-40 pointer-events-none">
                 <FrequencyVisualizer />
             </div>
 
