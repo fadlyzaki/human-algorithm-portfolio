@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { ShieldAlert, ArrowLeft, Activity } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import Navbar from '../components/Navbar';
+import NavigationMenu from '../components/NavigationMenu';
 import useProjectData from '../hooks/useProjectData';
 import LockScreen from '../components/auth/LockScreen';
 import SEO from '../components/SEO';

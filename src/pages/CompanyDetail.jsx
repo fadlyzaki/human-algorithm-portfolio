@@ -6,6 +6,7 @@ import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
 // import { useHandCursor } from '../context/HandCursorContext';
 import Navbar from '../components/Navbar';
+import NavigationMenu from '../components/NavigationMenu';
 import useProjectData from '../hooks/useProjectData';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
