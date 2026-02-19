@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import {
     Terminal, Type, Grid3X3, Cpu,
     Hash, MoveRight, Layers, Box,
-    Activity, ShieldAlert, ShieldCheck
+    Activity, ShieldAlert, ShieldCheck,
+    Fingerprint, Scale, Zap, Eye, Lock,
+    UserCheck, AlertTriangle
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -14,6 +16,8 @@ const DesignSystemViewer = () => {
         { id: 'CHROMATICS', label: '01 // CHROMATICS', icon: Hash },
         { id: 'TYPOGRAPHY', label: '02 // TYPOGRAPHY', icon: Type },
         { id: 'COMPONENTS', label: '03 // MODULES', icon: Grid3X3 },
+        { id: 'BRAND', label: '04 // IDENTITY', icon: Fingerprint },
+        { id: 'UX', label: '05 // PRINCIPLES', icon: Scale },
     ];
 
     return (
@@ -63,6 +67,8 @@ const DesignSystemViewer = () => {
                     {activeSector === 'CHROMATICS' && <ChromaticsGrid />}
                     {activeSector === 'TYPOGRAPHY' && <TypographyLab />}
                     {activeSector === 'COMPONENTS' && <ComponentForge />}
+                    {activeSector === 'BRAND' && <BrandIdentity />}
+                    {activeSector === 'UX' && <UXPrinciples />}
                 </div>
 
                 {/* Footer Data Line */}
@@ -261,3 +267,141 @@ const ComponentForge = () => (
 );
 
 export default DesignSystemViewer;
+
+const BrandIdentity = () => (
+    <div className="space-y-16 animate-in slide-in-from-bottom-8 duration-500">
+        <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+                <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                    <Fingerprint size={14} /> Persona Architecture
+                </h3>
+                <div className="space-y-4">
+                    <PersonaCard
+                        role="The Architect"
+                        icon={Cpu}
+                        color="var(--accent-red)"
+                        desc="Enforces system scalability and data integrity. Veto power over schema changes."
+                        quote="Adding this state to Root will trigger a re-render. Blocked."
+                    />
+                    <PersonaCard
+                        role="The Warden"
+                        icon={ShieldAlert}
+                        color="var(--accent-red)"
+                        desc="Platform integrity and security. Zero-trust policy on instance isolation."
+                        quote="This resolver bypasses the Default Deny policy. Essential breach."
+                    />
+                    <PersonaCard
+                        role="Linus"
+                        icon={Terminal}
+                        color="var(--accent-green)"
+                        desc="Curator of code purity. Anti-entropy agent."
+                        quote="This abstraction is a solution looking for a problem."
+                    />
+                </div>
+            </div>
+
+            <div className="space-y-6">
+                <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                    <UserCheck size={14} /> Visual Identity
+                </h3>
+                <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-8 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-10">
+                        <Fingerprint size={120} />
+                    </div>
+
+                    <div>
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">Logomark</span>
+                        <div className="text-4xl mt-2">🧢 Fadlyzaki</div>
+                    </div>
+
+                    <div className="space-y-2">
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">ID Card Data</span>
+                        <div className="font-mono text-xs text-[var(--text-primary)] leading-relaxed p-4 bg-[var(--bg-void)] border border-[var(--border-color)]">
+                            ACCESS_LEVEL_4<br />
+                            HUMAN BY DESIGN<br />
+                            UZZAKI, FADLY 🧢<br />
+                            Product Designer // SysOp<br />
+                            ID_NO: 1407-1995
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
+const UXPrinciples = () => (
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in zoom-in-95 duration-500">
+        <PrincipleCard
+            num="01"
+            title="Privacy First"
+            icon={Lock}
+            desc="All processing is local. Hand tracking uses MediaPipe on-device. No data leaves the client."
+        />
+        <PrincipleCard
+            num="02"
+            title="Graceful Degradation"
+            icon={Activity}
+            desc="Features fall back safely. If WebGL fails, we show static images. If cameras fail, we use mouse."
+        />
+        <PrincipleCard
+            num="03"
+            title="Accessible Defaults"
+            icon={UserCheck}
+            desc="ESC to close. Keyboard navigation first. High contrast text ratios enforced."
+        />
+        <PrincipleCard
+            num="04"
+            title="Performance"
+            icon={Zap}
+            desc="Lazy loading everywhere. Lite models for AI. 0ms layout shift targets."
+        />
+        <PrincipleCard
+            num="05"
+            title="Human-Centered"
+            icon={Eye}
+            desc="Built for users at their limit. Minimal cognitive load. No unnecessary motion."
+        />
+        <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6 flex flex-col justify-center items-center text-center opacity-50">
+            <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+                More principles compiling...
+            </span>
+        </div>
+    </div>
+);
+
+const PersonaCard = ({ role, icon: Icon, color, MKdesc, desc, quote }) => (
+    <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent)] transition-colors group">
+        <div className="flex items-center justify-between mb-2">
+            <h4 className="font-bold text-sm text-[var(--text-primary)] flex items-center gap-2">
+                <Icon size={14} style={{ color }} /> {role}
+            </h4>
+            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color }}></div>
+        </div>
+        <p className="text-xs text-[var(--text-secondary)] mb-3 leading-relaxed">
+            {desc}
+        </p>
+        <div className="pl-3 border-l-2 border-[var(--border-color)] group-hover:border-[var(--accent)] transition-colors">
+            <p className="font-mono text-[10px] text-[var(--text-secondary)] italic">
+                "{quote}"
+            </p>
+        </div>
+    </div>
+);
+
+const PrincipleCard = ({ num, title, icon: Icon, desc }) => (
+    <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-card)] hover:translate-y-[-2px] transition-transform duration-300">
+        <div className="flex justify-between items-start mb-4">
+            <div className="p-3 bg-[var(--bg-surface)] rounded-lg border border-[var(--border-color)] text-[var(--accent)]">
+                <Icon size={20} />
+            </div>
+            <span className="font-mono text-4xl font-bold text-[var(--bg-surface)] text-stroke">
+                {num}
+            </span>
+        </div>
+        <h3 className="font-bold text-lg text-[var(--text-primary)] mb-2">{title}</h3>
+        <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+            {desc}
+        </p>
+    </div>
+);
