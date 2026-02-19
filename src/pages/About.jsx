@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, Suspense, lazy } from 'react';
+import React, { useState, useMemo, Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft, Terminal, Cpu, BookOpen, Coffee, MapPin, Headphones,
@@ -31,10 +31,10 @@ import NavigationMenu from '../components/NavigationMenu'; // Assuming this is a
 */
 
 const AboutPage = () => {
-  const { isDark, setIsDark } = useTheme();
+  const { isDark } = useTheme();
   const themeStyles = useThemeStyles();
-  const { t, language, toggleLanguage } = useLanguage();
-  const { isGestureMode, toggleGestureMode } = useHandCursor();
+  const { t } = useLanguage();
+  const { } = useHandCursor();
   const [chaosStrength, setChaosStrength] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for menu
 
@@ -72,7 +72,7 @@ const AboutPage = () => {
 
     return {
       transform: `translate(${randomX}px, ${randomY}px) skew(${skew}deg)`,
-      filter: `blur(${blur}px) contrast(${100 + s}%)`,
+      filter: `blur(${blur}px) contrast(${100 + s} %)`,
       transition: 'all 0.1s ease'
     };
   }, [chaosStrength]);
@@ -92,15 +92,15 @@ const AboutPage = () => {
       />
 
       {/* 1. TEXTURE & LIGHTING */}
-      <div className={`fixed inset-0 z-0 pointer-events-none opacity-[0.15] ${isDark ? 'mix-blend-overlay' : 'mix-blend-multiply'}`}
+      <div className={`fixed inset - 0 z - 0 pointer - events - none opacity - [0.15] ${isDark ? 'mix-blend-overlay' : 'mix-blend-multiply'} `}
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
       ></div>
-      <div className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-500 ${isDark ? 'opacity-100' : 'opacity-0'}`}
+      <div className={`fixed inset - 0 z - 0 pointer - events - none transition - opacity duration - 500 ${isDark ? 'opacity-100' : 'opacity-0'} `}
         style={{ background: 'radial-gradient(circle at 70% 20%, rgba(50,50,50,0.4), rgba(17,17,17,1) 80%)' }}>
       </div>
       <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]"
         style={{
-          backgroundImage: `linear-gradient(${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px)`,
+          backgroundImage: `linear - gradient(${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px), linear - gradient(90deg, ${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}>
       </div>
@@ -198,19 +198,19 @@ const AboutPage = () => {
               <ScrollReveal key={index} delay={index * 100}>
                 <div className="relative pl-8 md:pl-12 group">
                   {/* Timeline Node */}
-                  <div className={`absolute -left-[5px] md:-left-[5px] top-1 w-[11px] h-[11px] rounded-full bg-[var(--bg-void)] border-2 ${item.highlight ? 'border-[var(--accent-red)] animate-pulse' : 'border-[var(--border-color)] group-hover:border-[var(--accent-blue)]'} transition-colors z-10`}></div>
+                  <div className={`absolute - left - [5px] md: -left - [5px] top - 1 w - [11px] h - [11px] rounded - full bg - [var(--bg - void)]border - 2 ${item.highlight ? 'border-[var(--accent-red)] animate-pulse' : 'border-[var(--border-color)] group-hover:border-[var(--accent-blue)]'} transition - colors z - 10`}></div>
 
                   <div className="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-4 md:gap-12">
                     {/* Date & Type */}
                     <div className="font-mono text-xs">
                       <span className="block text-[var(--text-secondary)] mb-1">{item.year}</span>
-                      <span className={`block font-bold ${item.color}`}>{item.type}</span>
+                      <span className={`block font - bold ${item.color} `}>{item.type}</span>
                     </div>
 
                     {/* Content */}
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <item.icon size={18} className={`${item.color} opacity-80`} />
+                        <item.icon size={18} className={`${item.color} opacity - 80`} />
                         <h3 className="text-xl text-[var(--text-primary)] font-medium">{item.title}</h3>
                       </div>
 
@@ -231,7 +231,7 @@ const AboutPage = () => {
 
                       {item.link && (
                         <Link
-                          to={item.linkType === 'side-project' ? `/side-project/${item.link}` : `/work/${item.link}`}
+                          to={item.linkType === 'side-project' ? `/ side - project / ${item.link} ` : ` / work / ${item.link} `}
                           className="inline-flex items-center gap-2 text-xs font-mono text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors border-b border-[var(--text-primary)] hover:border-[var(--accent-blue)] pb-0.5 mb-2"
                         >
                           {t('about.log_explore')}
@@ -323,7 +323,7 @@ const AboutPage = () => {
                           href={cert.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2.5 md:py-2 bg-[var(--bg-void)]/20 border border-[var(--border-color)] hover:border-[var(--accent-blue)] hover:bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] rounded-lg transition-all font-mono text-[11px] md:text-[10px] uppercase tracking-widest font-bold ${(!cert.id || cert.id === 'N/A') ? 'md:ml-auto' : ''}`}
+                          className={`w - full md: w - auto flex items - center justify - center gap - 2 px - 4 py - 2.5 md: py - 2 bg - [var(--bg - void)]/20 border border-[var(--border-color)] hover:border-[var(--accent-blue)] hover:bg-[var(--accent-blue)]/10 text - [var(--accent - blue)]rounded - lg transition - all font - mono text - [11px] md: text - [10px] uppercase tracking - widest font - bold ${(!cert.id || cert.id === 'N/A') ? 'md:ml-auto' : ''} `}
                         >
                           {t('about.show_credential')}
                           <ArrowUpRight size={12} />
@@ -359,7 +359,7 @@ const AboutPage = () => {
                   rel="noopener noreferrer"
                   className="bg-[var(--bg-card)] border border-[var(--border-color)] p-6 text-center group hover:border-[var(--accent-green)] hover:bg-[var(--accent-green)]/5 transition-all rounded-lg cursor-pointer"
                 >
-                  <habit.icon size={28} className={`mx-auto mb-3 ${habit.color} opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all`} />
+                  <habit.icon size={28} className={`mx - auto mb - 3 ${habit.color} opacity - 80 group - hover: opacity - 100 group - hover: scale - 110 transition - all`} />
                   <div className="font-mono text-sm text-[var(--text-card)] font-bold mb-1">{habit.label}</div>
                   <div className="font-mono text-[10px] text-[var(--text-card-secondary)] uppercase tracking-widest mb-3 opacity-60">{habit.frequency}</div>
                   <div className="font-serif italic text-xs text-[var(--text-card-secondary)] border-t border-[var(--border-color)]/20 pt-3 mt-2 opacity-60 group-hover:opacity-100 transition-opacity">

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { X, Globe, FileText, Mail } from 'lucide-react';
+import { X, Globe } from 'lucide-react';
+import { getNavLinks, getMetaLinks } from '../data/navigationData';
 import { useLanguage } from '../context/LanguageContext';
 
 const NavigationMenu = ({ isOpen, onClose }) => {
@@ -19,18 +20,8 @@ const NavigationMenu = ({ isOpen, onClose }) => {
 
     if (!isOpen) return null;
 
-    const links = [
-        { label: t('nav.home'), href: "/" },
-        { label: t('nav.about'), href: "#about" },
-        { label: t('nav.work'), href: "#work" },
-        { label: t('nav.side_projects'), href: "/side-projects" },
-        { label: t('nav.process'), href: "/process" },
-        { label: 'PROJECTS', href: "#side-projects" },
-    ];
-    const metaLinks = [
-        { label: t('nav.cv'), icon: FileText, href: "/cv" },
-        { label: t('nav.contact'), icon: Mail, href: "/contact" },
-    ];
+    const links = getNavLinks(t);
+    const metaLinks = getMetaLinks(t);
 
     const isActive = (path) => {
         if (path.startsWith('#')) return false; // Hash links handled by scroll or manual check

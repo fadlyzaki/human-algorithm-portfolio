@@ -7,7 +7,7 @@ import {
 import Navbar from '../components/Navbar';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
-import { useHandCursor } from '../context/HandCursorContext';
+// import { useHandCursor } from '../context/HandCursorContext';
 import BackButton from '../components/BackButton';
 import useProjectData from '../hooks/useProjectData';
 import SEO from '../components/SEO';
@@ -35,16 +35,16 @@ const FilterMeApp = React.lazy(() => import('../components/interactions/FilterMe
 */
 
 const SideProjectDetail = () => {
-   const { isDark, setIsDark } = useTheme();
-   const { language, toggleLanguage, isIndonesian } = useLanguage();
-   const { isGestureMode, toggleGestureMode } = useHandCursor();
+   const { isDark } = useTheme();
+   const { isIndonesian } = useLanguage();
+   // const { isGestureMode, toggleGestureMode } = useHandCursor();
    const { id } = useParams();
 
    // Use Centralized Data Hook
    const { project, loading, type } = useProjectData(id);
 
    const [showLivePreview, setShowLivePreview] = useState(true);
-   const [isMenuOpen, setIsMenuOpen] = useState(false); // Added for Navbar
+   const [, setIsMenuOpen] = useState(false); // Added for Navbar
 
    if (loading) {
       return (

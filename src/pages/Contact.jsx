@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import {
-  ArrowLeft, Mail, Linkedin, Twitter, Send, Copy, Check, Sun, Moon,
-  MapPin, Clock, Wifi, Globe, Dribbble, Facebook, Instagram, FileText,
-  Activity, BookOpen, PenTool, Terminal, ScanEye
+  ArrowLeft, Mail, Send, Copy, Check, Sun, Moon,
+  MapPin, Clock, Wifi, Globe, Terminal, ScanEye
 } from 'lucide-react';
+import { contactInfo, socialMatrix } from '../data/contactData';
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
@@ -38,46 +38,11 @@ const ContactPage = () => {
   });
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for Navbar menu
 
-  // --- DATA ---
-  const contactInfo = {
-    email: "fadly.uzzaki@gmail.com",
-    location: "Jakarta, Indonesia",
-    timezone: "GMT+7 (WIB)",
-    availability: "OPEN_FOR_OPPORTUNITIES"
-  };
+  const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
 
-  // --- SOCIAL CHANNELS (Organized by Protocol) ---
-  const socialMatrix = [
-    {
-      category: "CORE_UPLINK (Professional)",
-      items: [
-        { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/fadlyzaki/", color: "hover:text-blue-500" },
-        { name: "Dribbble", icon: Dribbble, url: "https://dribbble.com/fadlyzaki", color: "hover:text-pink-500" },
-        { name: "GitHub", icon: FileText, url: "https://github.com/fadlyzaki/", color: "hover:text-gray-500" }
-      ]
-    },
-    {
-      category: "BROADCAST_LAYER (Social)",
-      items: [
-        { name: "Twitter / X", icon: Twitter, url: "https://x.com/Fadlyzaki", color: "hover:text-sky-500" },
-        { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/fadlyzaki", color: "hover:text-purple-500" },
-        { name: "Facebook", icon: Facebook, url: "https://web.facebook.com/fadly.uzzaki", color: "hover:text-blue-600" }
-      ]
-    },
-    {
-      category: "DATA_LOGS (Writing)",
-      items: [
-        { name: "Medium", icon: BookOpen, url: "https://medium.com/@fadlyzaki", color: "hover:text-green-500" },
-        { name: "Substack", icon: PenTool, url: "https://substack.com/@fadlyzaki?", color: "hover:text-orange-500" }
-      ]
-    },
-    {
-      category: "TELEMETRY (Physical)",
-      items: [
-        { name: "Strava", icon: Activity, url: "https://www.strava.com/athletes/129304799", color: "hover:text-orange-600" }
-      ]
-    }
-  ];
+
+  // --- DATA ---
+
 
   // --- HANDLERS ---
 
@@ -199,7 +164,7 @@ const ContactPage = () => {
       </div>
 
       {/* ---NAVIGATION SYSTEM --- */}
-      <Navbar onOpenMenu={() => setIsMenuOpen(true)} title="Communication" backPath="/" />
+      <Navbar onOpenMenu={handleOpenMenu} title="Communication" backPath="/" />
 
       <main className="relative z-10 max-w-6xl mx-auto px-6 py-32 min-h-screen grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-16 items-start">
 

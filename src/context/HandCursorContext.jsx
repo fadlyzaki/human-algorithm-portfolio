@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 
 const HandCursorContext = createContext();
 
@@ -74,26 +74,36 @@ export const HandCursorProvider = ({ children }) => {
         setResetTrigger(prev => prev + 1);
     };
 
+    const value = useMemo(() => ({
+        isGestureMode,
+        setIsGestureMode,
+        toggleGestureMode,
+        activateGestureMode,
+        cursorPosition,
+        setCursorPosition,
+        isClicking,
+        setIsClicking,
+        showWelcomeModal,
+        closeWelcomeModal,
+        foundEggs,
+        collectEgg,
+        resetCollection,
+        totalEggs: TOTAL_EGGS,
+        showCongratsModal,
+        setShowCongratsModal,
+        resetTrigger
+    }), [
+        isGestureMode,
+        cursorPosition,
+        isClicking,
+        showWelcomeModal,
+        foundEggs,
+        showCongratsModal,
+        resetTrigger
+    ]);
+
     return (
-        <HandCursorContext.Provider value={{
-            isGestureMode,
-            setIsGestureMode,
-            toggleGestureMode,
-            activateGestureMode,
-            cursorPosition,
-            setCursorPosition,
-            isClicking,
-            setIsClicking,
-            showWelcomeModal,
-            closeWelcomeModal,
-            foundEggs,
-            collectEgg,
-            resetCollection,
-            totalEggs: TOTAL_EGGS,
-            showCongratsModal,
-            setShowCongratsModal,
-            resetTrigger
-        }}>
+        <HandCursorContext.Provider value={value}>
             {children}
         </HandCursorContext.Provider>
     );

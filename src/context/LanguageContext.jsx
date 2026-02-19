@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { translations } from '../data/translations';
 
 const LanguageContext = createContext();
@@ -26,7 +26,7 @@ export const LanguageProvider = ({ children }) => {
     const isIndonesian = language === 'id';
 
     // Translation Helper
-    const t = (key) => {
+    const t = useCallback((key) => {
         const keys = key.split('.');
         let value = translations[language];
         for (const k of keys) {
@@ -42,10 +42,14 @@ export const LanguageProvider = ({ children }) => {
         }
 
         return value || key;
-    };
+    }, [language]);
+
+    const value = useMemo(() => ({
+        language, setLanguage, toggleLanguage, isIndonesian, t
+    }), [language, setLanguage, toggleLanguage, isIndonesian, t]);
 
     return (
-        <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, isIndonesian, t }}>
+        <LanguageContext.Provider value={value}>
             {children}
         </LanguageContext.Provider>
     );

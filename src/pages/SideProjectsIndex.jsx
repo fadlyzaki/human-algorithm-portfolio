@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import NavigationMenu from '../components/NavigationMenu';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
-import { useHandCursor } from '../context/HandCursorContext';
+// import { useHandCursor } from '../context/HandCursorContext';
 import { SIDE_PROJECTS, NOTES } from '../data/portfolioData';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
@@ -25,9 +25,9 @@ const CONFIG = {
 };
 
 const SideProjectsIndex = () => {
-    const { isDark, setIsDark } = useTheme();
-    const { language, toggleLanguage, isIndonesian } = useLanguage();
-    const { isGestureMode, toggleGestureMode } = useHandCursor();
+    const { isDark } = useTheme();
+    const { isIndonesian } = useLanguage();
+    // const { isGestureMode, toggleGestureMode } = useHandCursor();
     const navigate = useNavigate();
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);

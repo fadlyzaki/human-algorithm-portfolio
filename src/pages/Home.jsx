@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useLocation, Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import {
   Sun, Moon, Grid, ArrowUp, ScanEye
 } from 'lucide-react';
@@ -19,39 +19,22 @@ import HomeBlogSection from '../components/home/HomeBlogSection';
 
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
+import useScrollDirection from '../hooks/useScrollDirection';
 import { useHandCursor } from '../context/HandCursorContext';
 import { useLanguage } from '../context/LanguageContext';
 
 const Portfolio = () => {
   /* --- STATE & HOOKS --- */
-  const { isDark, setIsDark } = useTheme();
+  const { isDark } = useTheme();
   const themeStyles = useThemeStyles();
-  const { isGestureMode, toggleGestureMode } = useHandCursor();
-  const { t, language, toggleLanguage } = useLanguage();
+  const { isGestureMode } = useHandCursor();
+  const { t, language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showNav, setShowNav] = useState(true);
-  const lastScrollY = useRef(0);
+  const showNav = useScrollDirection(isGestureMode);
+
+  const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
+
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Smart Navbar Logic
-      // Only trigger if difference is substantial to avoid flicker
-      if (Math.abs(currentScrollY - lastScrollY.current) > 10) {
-        if (currentScrollY > lastScrollY.current && currentScrollY > 50 && !isGestureMode) {
-          setShowNav(false); // Scrolling DOWN -> HIDE (Only if NOT in gesture mode)
-        } else {
-          setShowNav(true);  // Scrolling UP -> SHOW
-        }
-        lastScrollY.current = currentScrollY;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isGestureMode]);
 
   // Handle Hash Scrolling on Mount
   useEffect(() => {
@@ -64,10 +47,6 @@ const Portfolio = () => {
       }, 100); // Small delay to ensure rendering
     }
   }, [location.hash]);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const isId = language === 'id';
 
@@ -115,7 +94,7 @@ const Portfolio = () => {
       <ProgressBar />
 
       {/* --- NAVIGATION SYSTEM --- */}
-      <Navbar onOpenMenu={() => setIsMenuOpen(true)} />
+      <Navbar onOpenMenu={handleOpenMenu} showNavOverride={showNav} />
 
       <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 

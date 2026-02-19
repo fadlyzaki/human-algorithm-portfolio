@@ -15,7 +15,7 @@ const ProtectedCaseStudy = () => {
   const { id } = useParams();
   const { t } = useLanguage();
   const [isLocked, setIsLocked] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Added for Navbar
+  const [, setIsMenuOpen] = useState(false); // Added for Navbar
 
   // Use Centralized Data Hook
   const { project, parentCluster, loading, error } = useProjectData(id);

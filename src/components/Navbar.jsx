@@ -6,34 +6,26 @@ import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 
 import BackButton from './BackButton';
+import useScrollDirection from '../hooks/useScrollDirection';
 
-const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint }) => {
+const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showNavOverride }) => {
     const { isDark, setIsDark } = useTheme();
     const { t, language, toggleLanguage } = useLanguage();
     const { isGestureMode, toggleGestureMode } = useHandCursor();
-    const [showNav, setShowNav] = useState(true);
+
+    // Use duplicated logic hook, but allow external override if parent manages it (e.g. HomeHero constraints?)
+    // Actually, Home.jsx was managing `showNav` state but passing it nowhere? 
+    // Wait, Home.jsx passed it... nowhere in original code? 
+    // Re-reading Home.jsx original:
+    // It calculated `showNav` but didn't pass it to `<Navbar />`.
+    // Navbar had its OWN internal `showNav` state.
+    // So both were calculating it independently? Yes.
+    // We should use the hook here. If `showNavOverride` is provided (e.g. from Home which might have specific needs), use it.
+
+    const hookShowNav = useScrollDirection(isGestureMode);
+    const showNav = showNavOverride !== undefined ? showNavOverride : hookShowNav;
+
     const [time, setTime] = useState(new Date());
-    const [timeZone, setTimeZone] = useState('LOC');
-    const lastScrollY = useRef(0);
-    const location = useLocation();
-
-    // 1. SCROLL LOGIC
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            if (Math.abs(currentScrollY - lastScrollY.current) > 10) {
-                if (currentScrollY > lastScrollY.current && currentScrollY > 50 && !isGestureMode) {
-                    setShowNav(false);
-                } else {
-                    setShowNav(true);
-                }
-                lastScrollY.current = currentScrollY;
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [isGestureMode]);
 
     // 2. LIVE CLOCK & TIMEZONE
     useEffect(() => {
