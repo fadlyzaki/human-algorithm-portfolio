@@ -34,6 +34,7 @@ export const lumina = {
     culture: {
         title: "The Arena",
         description: "High volume, low margin, fast pace. We shipped daily. I also established Design Ops practices: mentoring interns, conducting design reviews, and interviewing new hires. We weren't just building an app; we were building a livelihood. I also managed freelance designers to scale our assets. Every design decision was tested in the field, not just in Figma.",
+        disclaimer: "If anyone on the team is uncomfortable with their image being featured here, please reach out to me and I'll remove it immediately.",
         layout: "symmetric-grid",
         images: [
             { src: "/work/lumina_arena_4.jpg", caption: "Field Research & Career Clinic", span: "md:col-start-1 md:row-start-1", pos: "object-center" },
@@ -45,7 +46,8 @@ export const lumina = {
     },
     culture_id: {
         title: "Medan Juang",
-        description: "Volume tinggi, margin rendah, cepat. Kami ship tiap hari. Saya juga membangun Design Ops: mementori magang, review desain, dan interview karyawan baru. Kami bukan cuma bikin aplikasi; kami bikin mata pencarian. Saya juga mengelola desainer freelance untuk skala aset. Setiap keputusan desain diuji di lapangan, bukan cuma di Figma."
+        description: "Volume tinggi, margin rendah, cepat. Kami ship tiap hari. Saya juga membangun Design Ops: mementori magang, review desain, dan interview karyawan baru. Kami bukan cuma bikin aplikasi; kami bikin mata pencarian. Saya juga mengelola desainer freelance untuk skala aset. Setiap keputusan desain diuji di lapangan, bukan cuma di Figma.",
+        disclaimer: "Jika ada anggota tim yang tidak nyaman dengan fotonya ditampilkan di sini, silakan hubungi saya dan saya akan segera menghapusnya."
     },
     projects: [
         {
