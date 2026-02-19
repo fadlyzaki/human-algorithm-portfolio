@@ -1,4 +1,4 @@
-# Product Requirements Document (PRD): Human Algorithm Portfolio v2.9.1
+# Product Requirements Document (PRD): Human Algorithm Portfolio v3.0
 
 ## 1. Executive Summary
 The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity.
@@ -52,7 +52,6 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Status Indicators**: "OPEN TO WORK" badges synced with local deployment states to drive conversion.
 
 ### 3.4 Technical Foundations
-### 3.4 Technical Foundations
 *   **Performance**: Vite-powered React engine with lazy loading via `React.lazy()` and `Suspense` for near-instant transitions.
 *   **Performance Monitoring**: integrated `@vercel/speed-insights` for real-time Core Web Vitals tracking.
 *   **SEO/Crawler Resilience**: Implemented static HTML fallbacks in `index.html` to ensure SEO indexing for SPA content. SEO component (`SEO.jsx`) for dynamic meta tags.
@@ -71,9 +70,9 @@ The homepage follows a "Priority-First" narrative flow:
 
 #### Interactive Experiences
 *   **Adaptive Summaries**: Polymorphic text engine that rewrites case study summaries based on viewer persona (`ELI5`, `Recruiter`, `System`).
-*   **Localization Strategy**: Full `en`/`id` (English/Indonesian) duality toggle via `LanguageContext`, enabling global reach.
-*   **Hand Gesture Control**: Experimental "Decryption Lens" (`HandCursorOverlay.jsx`) using MediaPipe-based hand tracking with welcome modal (`HandTrackerWelcome.jsx`).
-*   **Treasure Hunt Gamification**: Hidden collectibles (`Treasure.jsx`) that appear during gesture mode. Progress tracked via `TreasureProgress.jsx` with completion celebration (`TreasureCongrats.jsx`).
+*   **Localization Strategy**: Full `en`/`id` (English/Indonesian) duality toggle via `LanguageContext` with smooth CSS fade transition (`lang-switching` class), enabling global reach.
+*   **Hand Gesture Control**: Experimental "Decryption Lens" (`HandCursorOverlay.jsx`) using MediaPipe-based hand tracking with welcome modal (`HandTrackerWelcome.jsx`). Eagerly loaded for zero-latency activation. Full lifecycle cleanup (camera stop, media stream track release, `encrypted-mode` class removal) on deactivation.
+*   **Treasure Hunt Gamification**: Hidden collectibles (`Treasure.jsx`) that appear during gesture mode. Progress tracked via `TreasureProgress.jsx` with completion celebration (`TreasureCongrats.jsx`). `TreasureCongrats` renders independently of gesture mode (always available for Easter eggs).
 *   **Semantic Memory AI**: RAG-styled Q&A module (`SemanticMemory.jsx`) with typewriter streaming effect for recruiter-friendly self-interrogation.
 *   **ChaosSlider**: Interactive personality dial on About page for dynamic content revelation.
 *   **ProfileScanner (Identity Scan)**: High-fidelity component (`ProfileScanner.jsx`) featuring blur-to-clear "boot-up" scan animation with `useInView` viewport detection, interactive 3D tilt physics, and real-time HUD overlay. Animation triggers only when scrolled into view.
@@ -100,8 +99,10 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Project Categorization**: `FilterMe` (AR Experiment) moves to "Notes" to reflect its status as a conceptual study rather than a production ship.
 *   **Substack Intel-Matrix**: Automated (or mock-fallback) professional logs integrated into the homepage using RSS-to-JSON protocols.
 *   **Knowledge Upgrades (Certifications)**: Technical "System Upgrade" modules on the About page documenting professional growth via verifiable external credentials. Implements a "Visual ID" card system with verifiable links.
+*   **Achievements (Awards & Competitions)**: Separated competition awards (Espriex ASEAN, GEMASTIK Gold Medal) into a distinct amber-accented section on the About page, differentiated from certifications.
+*   **Company Disclaimers**: All company culture galleries (Lumina, GudangAda, Stoqo) include bilingual (`en`/`id`) team photo disclaimers rendered via `CompanyCulture.jsx`.
 
-### 3.6 UI/UX Refinements (v2.3–2.4)
+### 3.6 UI/UX Refinements (v2.3–v3.0)
 *   **Profile Scanner (v2.4)**: Replaced static About page photo with interactive 3D scanner. Features "Blur-to-Clear" reveal animation on load.
 *   **Navbar Standardization**: Unified navigation interaction across all pages (Introduction of `BackButton` in About page and fixed scroll positioning).
 *   **Mobile-Responsive Work Cards**: Title text wraps naturally on mobile with optimized font sizing (`text-2xl` mobile, `text-6xl` desktop).
@@ -114,6 +115,18 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Stoqo Logistics Localization (v2.7)**: Full Indonesian translation support added to Stoqo Logistics, matching the bilingual capabilities of Stoqo Sales.
 *   **Standardized Case Study Layout (v2.9)**: Unified all case studies (Stoqo, GudangAda, Lumina) to a strict 5-step `designProcess` structure (Research → Insight → Design → Ship → Measure), ensuring consistent narrative rhythm.
 *   **Interactive Solution Modules (v2.9)**: "Paper-to-Paperless" concept now features fully interactive `StoqoPickerApp` and `StoqoCheckerApp` prototypes replacing static images.
+
+### 3.7 UX Audit & Kill-Switch Fixes (v3.0)
+Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Rams, Jony Ive, Don Norman). 7 critical issues resolved:
+*   **Mobile FAB Expansion**: Added "Work" and "Contact" quick-access labels to the mobile floating action button for direct wayfinding.
+*   **DOM Consolidation**: Collapsed 3 separate atmosphere background layers into a single composite `div` on the homepage.
+*   **Consistent Hash Navigation**: Converted all desktop hash links from `<a>` tags to React Router `<Link to>` for SPA-consistent behavior.
+*   **Status Dot Polish**: Removed `animate-ping` from "Open to Work" status indicators to reduce visual noise.
+*   **Featured Work Flag**: Added `featured: true` to Lumina work cluster with a subtle "FEATURED" monospace tag on the card.
+*   **Language Toggle Transition**: Wrapped `toggleLanguage` in `useCallback` with a brief CSS fade transition (`.lang-switching`) for smoother content swap.
+*   **Branding Update (v3.0)**: Navbar branding updated from `FADLY.ZAKI_` to `Fadlyzaki🧢`.
+*   **Homepage Spacing (v3.0)**: Reduced About-to-Footer gap from `mb-40` (160px) to `mb-20` (80px).
+*   **Credential Button Fix (v3.0)**: Repaired broken Tailwind classNames on About page credential buttons (spaces in utility names).
 
 ## 4. Functional Specifications
 
@@ -155,11 +168,13 @@ The homepage follows a "Priority-First" narrative flow:
     *   **Media Resilience**: `ProjectCard` implements `onError` handlers to swap broken images for technical diagrams (`ABSTRACT_COMPOSITION`).
     *   **List Rendering**: `SideProjectsIndex` and other lists conditionally render headers to avoid "empty shelf" UI states.
 *   **Camera Privacy**: `HandCursorOverlay` gracefully downgrades to standard mouse interaction if camera permissions are denied or initialization fails.
+*   **Camera Lifecycle**: Full cleanup on deactivation—MediaPipe camera stop, webcam media stream track release (`track.stop()`), and `encrypted-mode` CSS class removal ensures no lingering hardware access.
 
 ### 5.2 Architectural Components (v2.8+)
 *   **`AiryDiagram.jsx`**: A specialized SVG engine for rendering "technical schematic" visualizations (Flow, Cycle, Hierarchy, UI, Data, Venn, Kanban, Chart, Radar, Ecosystem). Used as the primary visual language for case studies.
 *   **`AIBrainstorm.jsx`**: A conversational interface component simulating a dialogue between the user and an AI collaborator, used to present "If I built this today" hypotheses.
 *   **`NavigationMenu.jsx`**: A unified, responsive navigation drawer for consistent site-wide wayfinding.
+*   **`GestureOverlays` (App.jsx)**: Conditional wrapper component that renders `HandCursorOverlay` (when gesture mode active) and `HandTrackerWelcome` (when welcome modal shown). Gates rendering on `isGestureMode || showWelcomeModal` to avoid deadlock.
 
 ## 6. Roadmap & Future Iterations
 
@@ -181,6 +196,11 @@ The homepage follows a "Priority-First" narrative flow:
 *   **[COMPLETED]** GudangAda Gallery Refinement (v2.9.1): Symmetric grid layout with center-focused imagery.
 *   **[COMPLETED]** Global Visual Polish (v2.9.1): "Frameless" full-bleed project cards across all detail pages.
 *   **[COMPLETED]** Role Synchronization (v2.9.1): Historical accuracy alignment ("Product Designer 2") for GudangAda.
+*   **[COMPLETED]** UX Kill-Switch Audit (v3.0): 7 critical UX fixes from adversarial expert review.
+*   **[COMPLETED]** Achievements Section (v3.0): Separated awards from certifications on About page.
+*   **[COMPLETED]** Company Disclaimers (v3.0): Bilingual team photo disclaimers for all company galleries.
+*   **[COMPLETED]** Hand Tracker Lifecycle Fix (v3.0): Full camera/stream cleanup on deactivation.
+*   **[COMPLETED]** Branding Update (v3.0): Navbar branding to `Fadlyzaki🧢`.
 
 ### Phase 3: Intelligence & Expansion (Q2-Q4 2026)
 *   **[Q2 2026]** Enhanced AI Agent: Expand semantic memory with real RAG backend.
