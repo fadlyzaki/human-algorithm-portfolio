@@ -212,6 +212,11 @@ const HandCursorOverlay = () => {
                 cameraRef.current.stop();
                 cameraRef.current = null;
             }
+            // Explicitly kill the webcam media stream
+            if (webcamRef.current?.video?.srcObject) {
+                webcamRef.current.video.srcObject.getTracks().forEach(track => track.stop());
+                webcamRef.current.video.srcObject = null;
+            }
             document.documentElement.classList.remove('encrypted-mode');
             document.documentElement.style.setProperty('--cursor-x', '-1000px');
             document.documentElement.style.setProperty('--cursor-y', '-1000px');
