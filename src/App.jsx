@@ -29,11 +29,13 @@ const HandTrackerWelcome = React.lazy(() => import('./components/HandTrackerWelc
 import TreasureCongrats from './components/TreasureCongrats';
 
 const GestureOverlays = () => {
-  const { isGestureMode } = useHandCursor();
-  if (!isGestureMode) return null;
+  const { isGestureMode, showWelcomeModal } = useHandCursor();
+  // HandTrackerWelcome needs to render for the welcome modal (before gesture activates)
+  // HandCursorOverlay only renders when gesture mode is fully active
+  if (!isGestureMode && !showWelcomeModal) return null;
   return (
     <React.Suspense fallback={null}>
-      <HandCursorOverlay />
+      {isGestureMode && <HandCursorOverlay />}
       <HandTrackerWelcome />
     </React.Suspense>
   );
