@@ -21,8 +21,9 @@ import ScrollToTop from './components/ScrollToTop';
 
 import AnalyticsTracker from './components/AnalyticsTracker';
 
-// Lazy-load gesture overlays (only render when gesture mode activated)
-const HandCursorOverlay = React.lazy(() => import('./components/HandCursorOverlay'));
+// HandCursorOverlay eagerly loaded for zero-latency gesture tracking
+import HandCursorOverlay from './components/HandCursorOverlay';
+// Welcome modal lazy-loaded (one-time use)
 const HandTrackerWelcome = React.lazy(() => import('./components/HandTrackerWelcome'));
 
 // TreasureCongrats is for Easter eggs — always available
