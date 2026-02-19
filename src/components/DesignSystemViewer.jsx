@@ -206,80 +206,125 @@ const TypographyLab = () => (
 );
 
 const ComponentForge = () => (
-    <div className="grid md:grid-cols-2 gap-12 animate-in slide-in-from-right-4 duration-500">
-        <div className="space-y-8">
-            <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
-                <Layers size={14} /> UI Primitives
-            </h3>
+    <div className="space-y-16 animate-in slide-in-from-right-4 duration-500">
 
-            <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-8">
-                {/* Buttons */}
-                <div className="space-y-4">
-                    <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Action_Control_V1</label>
-                    <div className="flex flex-wrap gap-4">
-                        <button className="bg-[var(--text-primary)] text-[var(--bg-void)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">
-                            Execute
-                        </button>
-                        <button className="border border-[var(--border-color)] text-[var(--text-primary)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[var(--bg-surface)] transition-colors">
-                            Refactor
-                        </button>
-                        <button className="text-[var(--accent-blue)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
-                            Hyperlink <MoveRight size={12} />
-                        </button>
+        {/* SECTION 1: INTERFACE CONTROLS */}
+        <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+                <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                    <Layers size={14} /> Interface Controls
+                </h3>
+
+                <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-8">
+                    {/* Primary Actions */}
+                    <div className="space-y-4">
+                        <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Primary_Directives</label>
+                        <div className="flex flex-wrap gap-4">
+                            <button className="bg-[var(--text-primary)] text-[var(--bg-void)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">
+                                Initialize
+                            </button>
+                            <button className="border border-[var(--border-color)] text-[var(--text-primary)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[var(--bg-surface)] transition-colors">
+                                Cancel_Op
+                            </button>
+                            <button className="text-[var(--accent-blue)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
+                                Data_Link <MoveRight size={12} />
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Inputs */}
+                    <div className="space-y-4">
+                        <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Terminal_Input</label>
+                        <div className="relative">
+                            <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-[var(--accent)] text-xs">&gt;</span>
+                            <input
+                                type="text"
+                                placeholder="Awaiting command..."
+                                className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] p-3 pl-8 font-mono text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] transition-colors placeholder:text-[var(--text-secondary)]/50"
+                                readOnly
+                            />
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                {/* Inputs */}
-                <div className="space-y-4">
-                    <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Data_Entry_Point</label>
-                    <input
-                        type="text"
-                        placeholder="Enter system command..."
-                        className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] p-3 px-4 font-mono text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                        readOnly
-                    />
+            <div className="space-y-6">
+                <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                    <Box size={14} /> Status Indicators
+                </h3>
+
+                <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-6">
+                    {/* Status Badges */}
+                    <div className="space-y-4">
+                        <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">System_States</label>
+                        <div className="flex flex-wrap gap-3">
+                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-green)]/10 text-[var(--accent-green)] border border-[var(--accent-green)]/20 font-mono text-[10px] uppercase tracking-widest">
+                                <ShieldCheck size={10} /> Operational
+                            </span>
+                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-amber)]/10 text-[var(--accent-amber)] border border-[var(--accent-amber)]/20 font-mono text-[10px] uppercase tracking-widest">
+                                <ShieldAlert size={10} /> Warning
+                            </span>
+                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-red)]/10 text-[var(--accent-red)] border border-[var(--accent-red)]/20 font-mono text-[10px] uppercase tracking-widest">
+                                <AlertTriangle size={10} /> Critical
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Progress Bars */}
+                    <div className="space-y-3">
+                        <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Load_Sequence</label>
+                        <div className="flex justify-between font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
+                            <span>Compiling Assets</span>
+                            <span className="text-[var(--accent)]">84%</span>
+                        </div>
+                        <div className="h-1 w-full bg-[var(--bg-void)] overflow-hidden">
+                            <div className="h-full bg-[var(--accent)] w-[84%] relative animate-pulse">
+                                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-[var(--accent)] shadow-[0_0_10px_var(--accent)]"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div className="space-y-8">
-            <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
-                <Box size={14} /> Status Protocols
+        {/* SECTION 2: CONTAINERS & CARDS */}
+        <div className="space-y-6">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                <Grid3X3 size={14} /> Structural Units
             </h3>
 
-            <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-6">
-                {/* Status Row */}
-                {[
-                    { label: 'System_Ready', color: 'var(--accent-green)', icon: ShieldCheck },
-                    { label: 'Warning_01', color: 'var(--accent-amber)', icon: ShieldAlert },
-                    { label: 'Critical_Fail', color: 'var(--accent-red)', icon: Activity }
-                ].map((status, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-3 border border-[var(--border-color)] bg-[var(--bg-surface)]">
-                        <div className="flex items-center gap-3">
-                            <status.icon size={14} style={{ color: status.color }} />
-                            <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
-                                {status.label}
-                            </span>
-                        </div>
-                        <div className="flex gap-1">
-                            {[...Array(3)].map((_, i) => (
-                                <div key={i} className="w-1 h-3 bg-[var(--border-color)]" style={{ backgroundColor: i === 2 ? status.color : undefined, opacity: i === 2 ? 1 : 0.3 }}></div>
-                            ))}
-                        </div>
+            <div className="grid md:grid-cols-3 gap-6">
+                {/* Standard Card */}
+                <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-card)]">
+                    <div className="w-8 h-8 bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center mb-4 text-[var(--text-secondary)]">
+                        <Box size={16} />
                     </div>
-                ))}
+                    <h4 className="font-bold text-sm text-[var(--text-primary)] mb-2">Standard Module</h4>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                        Default container for content blocks. Uses <code className="bg-[var(--bg-surface)] px-1">--bg-card</code> token.
+                    </p>
+                </div>
 
-                {/* Progress */}
-                <div className="space-y-2 mt-8">
-                    <div className="flex justify-between font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
-                        <span>Compilation</span>
-                        <span>84%</span>
+                {/* Feature Card */}
+                <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent)] transition-colors group">
+                    <div className="w-8 h-8 bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center mb-4 text-[var(--accent)]">
+                        <Zap size={16} />
                     </div>
-                    <div className="h-1 w-full bg-[var(--bg-void)]">
-                        <div className="h-full bg-[var(--accent)] w-[84%] relative">
-                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-[var(--accent)] shadow-[0_0_10px_var(--accent)]"></div>
-                        </div>
+                    <h4 className="font-bold text-sm text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent)] transition-colors">Interactive Unit</h4>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                        Responsive container with hover states. Used for clickable features.
+                    </p>
+                </div>
+
+                {/* System Message */}
+                <div className="p-6 border border-[var(--accent)]/30 bg-[var(--accent)]/5 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-2 opacity-10">
+                        <Activity size={64} />
                     </div>
+                    <h4 className="font-mono text-xs font-bold text-[var(--accent)] uppercase tracking-widest mb-2">System Notification</h4>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                        High-priority alerts using accent color overlays.
+                    </p>
                 </div>
             </div>
         </div>
