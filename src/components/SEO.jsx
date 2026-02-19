@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 const SEO = ({
     title,
     description,
-    image = '/og-id-card.png',
+    image = '/og-square.png',
     type = 'website',
     schema = null,
     children
