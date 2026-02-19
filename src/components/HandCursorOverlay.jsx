@@ -206,11 +206,15 @@ const HandCursorOverlay = () => {
         cameraRef.current = camera;
         document.documentElement.classList.add('encrypted-mode');
 
-        // Cleanup on unmount or toggle off handled by logic above/below
+        // Cleanup on unmount or toggle off
         return () => {
-            // We rely on the if(!isGestureMode) block to stop it, 
-            // but technically this cleanup runs on re-render too. 
-            // Ideally we only stop if isGestureMode becomes false.
+            if (cameraRef.current) {
+                cameraRef.current.stop();
+                cameraRef.current = null;
+            }
+            document.documentElement.classList.remove('encrypted-mode');
+            document.documentElement.style.setProperty('--cursor-x', '-1000px');
+            document.documentElement.style.setProperty('--cursor-y', '-1000px');
         };
     }, [isGestureMode, modelReady]);
 
