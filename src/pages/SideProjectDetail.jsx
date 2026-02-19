@@ -29,6 +29,7 @@ const PriceLock = React.lazy(() => import('../components/interactions/PriceLock'
 const ProjectKinship = React.lazy(() => import('../components/interactions/ProjectKinship'));
 const ProjectZen = React.lazy(() => import('../components/interactions/ProjectZen'));
 const FilterMeApp = React.lazy(() => import('../components/interactions/FilterMeApp'));
+const DesignSystemViewer = React.lazy(() => import('../components/DesignSystemViewer'));
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
@@ -486,6 +487,22 @@ const SideProjectDetail = () => {
                            <InteractionComponent />
                         </Suspense>
                      </div>
+                  </div>
+               )}
+
+               {/* --- C.7. DESIGN SYSTEM VIEWER (Human Algorithm Exclusive) --- */}
+               {project.id === 'human-algorithm' && (
+                  <div className="mb-24 animate-in fade-in slide-in-from-bottom-8 duration-700">
+                     <Suspense fallback={
+                        <div className="w-full h-96 flex items-center justify-center border border-[var(--border-color)] bg-[var(--bg-card)]">
+                           <div className="flex flex-col items-center gap-4">
+                              <SkeletonLine className="w-12 h-12 rounded-full" />
+                              <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] animate-pulse">Initializing System Diagnostic...</span>
+                           </div>
+                        </div>
+                     }>
+                        <DesignSystemViewer />
+                     </Suspense>
                   </div>
                )}
 
