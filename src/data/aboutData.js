@@ -150,7 +150,10 @@ export const certifications = [
         id: "35436",
         icon: Shield,
         url: "https://www.interaction-design.org/members/muhammad-fadly-uzzaki/certificate/course/PjL4tmJSJ"
-    },
+    }
+];
+
+export const achievements = [
     {
         title: "Top 25 Finalist: Espriex Business Model ASEAN",
         issuer: "Univ. Brawijaya / Harvard / Stanford",
