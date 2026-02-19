@@ -69,7 +69,7 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showN
                                 <Link to="/" className="flex items-center gap-3 group">
                                     {/* Logo / Glitch Text */}
                                     <span className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
-                                        FADLY.ZAKI<span className="animate-pulse">_</span>
+                                        FadlyZaki🧢
                                     </span>
                                 </Link>
 
