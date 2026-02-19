@@ -29,41 +29,52 @@ const DesignSystemViewer = () => {
 
             <div className="max-w-7xl mx-auto border-x border-[var(--border-color)] bg-[var(--bg-void)]/50 backdrop-blur-sm relative z-10">
                 {/* Header Terminal */}
-                <div className="border-b border-[var(--border-color)] p-8 md:p-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-                    <div className="space-y-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent)] text-[var(--bg-void)] font-mono text-[10px] uppercase tracking-widest font-bold">
-                            <Terminal size={12} />
-                            <span>System_Diagnostic_Mode</span>
+                <div className="border-b border-[var(--border-color)] p-8 md:p-12 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none">
+                        <Grid3X3 size={400} strokeWidth={0.5} />
+                    </div>
+
+                    <div className="space-y-6 relative z-10">
+                        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-[var(--accent)] font-mono text-[10px] uppercase tracking-widest font-bold backdrop-blur-md">
+                            <div className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
+                            <span>System_Diagnostic_Mode_active</span>
                         </div>
-                        <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-[var(--text-primary)]">
-                            DESIGN_KERNEL<span className="text-[var(--accent)]">.SYS</span>
-                        </h2>
-                        <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest max-w-md">
-                            Executing visual language protocols. v3.0.1<br />
-                            Target: Human_Cognition_Optimization
+                        <div>
+                            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-[var(--text-primary)] mb-2">
+                                DESIGN_KERNEL<span className="text-[var(--accent)]">.SYS</span>
+                            </h2>
+                            <div className="h-1 w-24 bg-[var(--accent)]"></div>
+                        </div>
+                        <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest max-w-xl leading-relaxed">
+                            &gt; Executing visual language protocols v3.0.1<br />
+                            &gt; Target: Human_Cognition_Optimization<br />
+                            &gt; Status: <span className="text-[var(--accent-green)]">NOMINAL</span>
                         </p>
                     </div>
 
                     {/* Sector Navigation */}
-                    <div className="flex flex-col sm:flex-row border border-[var(--border-color)] bg-[var(--bg-card)]">
+                    <div className="flex flex-wrap gap-2 w-full lg:w-auto relative z-10">
                         {sectors.map((sector) => (
                             <button
                                 key={sector.id}
                                 onClick={() => setActiveSector(sector.id)}
-                                className={`flex items-center gap-3 px-6 py-4 text-xs font-mono font-bold uppercase tracking-widest transition-all border-b sm:border-b-0 sm:border-r border-[var(--border-color)] last:border-0 hover:bg-[var(--bg-surface)] ${activeSector === sector.id
-                                    ? 'bg-[var(--bg-surface)] text-[var(--accent)] box-shadow-inner'
-                                    : 'text-[var(--text-secondary)] grayscale'
+                                className={`group flex items-center gap-3 px-6 py-4 text-xs font-mono font-bold uppercase tracking-widest transition-all border border-[var(--border-color)] hover:border-[var(--accent)] hover:bg-[var(--bg-card)] ${activeSector === sector.id
+                                    ? 'bg-[var(--bg-surface)] text-[var(--text-primary)] border-[var(--accent)] shadow-[0_0_20px_-10px_var(--accent)]'
+                                    : 'text-[var(--text-secondary)] bg-[var(--bg-void)]'
                                     }`}
                             >
-                                <sector.icon size={14} />
-                                {sector.label}
+                                <sector.icon size={14} className={`transition-colors ${activeSector === sector.id ? 'text-[var(--accent)]' : 'text-[var(--text-secondary)] group-hover:text-[var(--accent)]'}`} />
+                                {sector.label.split(' // ')[1]}
                             </button>
                         ))}
                     </div>
                 </div>
 
                 {/* Content Area */}
-                <div className="p-8 md:p-12 min-h-[600px]">
+                <div className="p-8 md:p-12 min-h-[800px] relative">
+                    <div className="absolute top-0 left-8 md:left-12 w-px h-full bg-[var(--border-color)] opacity-50" />
+                    <div className="absolute top-0 right-8 md:right-12 w-px h-full bg-[var(--border-color)] opacity-50" />
+
                     {activeSector === 'CHROMATICS' && <ChromaticsGrid />}
                     {activeSector === 'TYPOGRAPHY' && <TypographyLab />}
                     {activeSector === 'COMPONENTS' && <ComponentForge />}
@@ -72,9 +83,15 @@ const DesignSystemViewer = () => {
                 </div>
 
                 {/* Footer Data Line */}
-                <div className="border-t border-[var(--border-color)] p-4 flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
-                    <span>Mem: 240MB // Threads: 12</span>
-                    <span>Status: Nominal</span>
+                <div className="border-t border-[var(--border-color)] p-6 flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest bg-[var(--bg-surface)]">
+                    <div className="flex gap-8">
+                        <span>Mem: 240MB // Threads: 12</span>
+                        <span>Uptime: 99.98%</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-green)]" />
+                        <span>System Nominal</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -110,23 +127,26 @@ const ChromaticsGrid = () => (
 );
 
 const ColorCard = ({ name, token, hex }) => (
-    <div className="group border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent)] transition-colors p-1">
-        <div className="h-24 w-full bg-[var(--bg-surface)] relative overflow-hidden" style={{ backgroundColor: `var(${token})` }}>
-            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-[length:250%_250%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shine" />
-        </div>
-        <div className="p-4 space-y-2">
-            <div className="flex justify-between items-baseline">
-                <h4 className="font-mono text-xs font-bold text-[var(--text-primary)]">{name}</h4>
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: `var(${token})` }}></div>
+    <div className="group border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent)] transition-all duration-300 p-1 hover:shadow-[0_0_30px_-10px_rgba(0,0,0,0.1)] hover:-translate-y-1">
+        <div className="h-32 w-full bg-[var(--bg-surface)] relative overflow-hidden" style={{ backgroundColor: `var(${token})` }}>
+            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-[length:250%_250%] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-shine" />
+            <div className="absolute bottom-2 right-2 font-mono text-[9px] text-white/50 opacity-0 group-hover:opacity-100 transition-opacity">
+                {hex}
             </div>
-            <div className="space-y-1">
-                <div className="flex justify-between font-mono text-[10px] text-[var(--text-secondary)]">
-                    <span className="opacity-50">TOKEN</span>
-                    <span>{token}</span>
+        </div>
+        <div className="p-5 space-y-3">
+            <div className="flex justify-between items-center">
+                <h4 className="font-mono text-xs font-bold text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">{name}</h4>
+                <div className="w-1.5 h-1.5 rounded-full shadow-sm" style={{ backgroundColor: `var(${token})` }}></div>
+            </div>
+            <div className="space-y-1.5 border-t border-[var(--border-color)] pt-2">
+                <div className="flex justify-between font-mono text-[9px] text-[var(--text-secondary)]">
+                    <span className="opacity-40">TOKEN</span>
+                    <span className="bg-[var(--bg-surface)] px-1 rounded">{token}</span>
                 </div>
-                <div className="flex justify-between font-mono text-[10px] text-[var(--text-secondary)]">
-                    <span className="opacity-50">HEX</span>
-                    <span>{hex}</span>
+                <div className="flex justify-between font-mono text-[9px] text-[var(--text-secondary)]">
+                    <span className="opacity-40">HEX</span>
+                    <span className="select-all hover:text-[var(--text-primary)] cursor-text">{hex}</span>
                 </div>
             </div>
         </div>
@@ -370,19 +390,22 @@ const UXPrinciples = () => (
     </div>
 );
 
-const PersonaCard = ({ role, icon: Icon, color, MKdesc, desc, quote }) => (
-    <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent)] transition-colors group">
-        <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-sm text-[var(--text-primary)] flex items-center gap-2">
-                <Icon size={14} style={{ color }} /> {role}
+const PersonaCard = ({ role, icon: Icon, color, desc, quote }) => (
+    <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent)] transition-all duration-300 group hover:shadow-lg hover:-translate-x-1">
+        <div className="flex items-center justify-between mb-4">
+            <h4 className="font-bold text-sm text-[var(--text-primary)] flex items-center gap-3">
+                <div className="p-2 rounded bg-[var(--bg-void)] border border-[var(--border-color)] group-hover:border-[var(--accent)] transition-colors">
+                    <Icon size={16} style={{ color }} />
+                </div>
+                {role}
             </h4>
-            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color }}></div>
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: color }}></div>
         </div>
-        <p className="text-xs text-[var(--text-secondary)] mb-3 leading-relaxed">
+        <p className="text-xs text-[var(--text-secondary)] mb-4 leading-relaxed h-12">
             {desc}
         </p>
-        <div className="pl-3 border-l-2 border-[var(--border-color)] group-hover:border-[var(--accent)] transition-colors">
-            <p className="font-mono text-[10px] text-[var(--text-secondary)] italic">
+        <div className="pl-4 border-l-2 border-[var(--border-color)] group-hover:border-[var(--accent)] transition-colors bg-[var(--bg-void)] p-3 italic rounded-r-lg">
+            <p className="font-mono text-[10px] text-[var(--text-secondary)]">
                 "{quote}"
             </p>
         </div>
