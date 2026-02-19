@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+```
+import React, { useState } from 'react';
 import {
     Signal, Wifi, Battery, ArrowLeft,
     Camera, CheckCircle, Box, Scan, X,
@@ -10,7 +11,7 @@ import {
 const StatusBar = ({ variant = "dark" }) => {
     const textColor = variant === "light" ? "text-white" : "text-black dark:text-white";
     return (
-        <div className={`w-full px-4 py-2 flex justify-between items-center ${textColor} text-xs font-medium z-50`}>
+        <div className={`w - full px - 4 py - 2 flex justify - between items - center ${ textColor } text - xs font - medium z - 50`}>
             <div className="flex flex-col">
                 <span>10:42 AM</span>
             </div>

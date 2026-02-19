@@ -12,7 +12,7 @@ import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import Navbar from '../components/Navbar';
 import { useLanguage } from '../context/LanguageContext';
-import { useHandCursor } from '../context/HandCursorContext';
+// import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
 import ScrollReveal from '../components/ScrollReveal';
 import Treasure from '../components/Treasure';
@@ -34,7 +34,7 @@ const AboutPage = () => {
   const { isDark } = useTheme();
   const themeStyles = useThemeStyles();
   const { t } = useLanguage();
-  const { } = useHandCursor();
+  // const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [chaosStrength, setChaosStrength] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for menu
 

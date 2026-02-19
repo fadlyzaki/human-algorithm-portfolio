@@ -201,9 +201,88 @@ const TaskManagementPage = ({ onNavigate }) => {
     );
 };
 
+// Screen 5: Web Tracking View
+const TrackingScreen = () => (
+    <div className="h-full flex flex-col bg-slate-100">
+        <div className="px-4 pt-2 pb-2 bg-white shadow-sm flex justify-between items-center z-10">
+            <div className="flex items-center space-x-3">
+                <button className="hover:bg-gray-100 rounded-full p-1 transition text-gray-600">
+                    <ArrowLeft size={20} />
+                </button>
+                <div className="flex flex-col">
+                    <span className="text-[10px] text-gray-500 font-medium">F10R1</span>
+                    <h1 className="text-sm font-bold text-gray-900 leading-none">Warteg Jaya Bahari</h1>
+                </div>
+            </div>
+            <div className="flex items-center space-x-2">
+                <span className="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Live</span>
+            </div>
+        </div>
+
+        <div className="flex-1 overflow-y-auto p-4 space-y-4 relative">
+            {/* Map Placeholder */}
+            <div className="bg-gray-200 rounded-lg h-48 w-full flex items-center justify-center relative overflow-hidden border border-white shadow-inner">
+                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#ec5b13_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div className="bg-white p-2 rounded-full shadow-lg z-10">
+                    <Truck className="text-[#ec5b13]" size={24} />
+                </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm p-4 space-y-4">
+                <div className="flex items-start space-x-3">
+                    <div className="mt-1">
+                        <div className="w-2 h-2 rounded-full bg-green-500 ring-4 ring-green-100"></div>
+                        <div className="w-0.5 h-full bg-gray-200 ml-[3px] mt-1"></div>
+                    </div>
+                    <div className="flex-1 pb-4">
+                        <h3 className="text-sm font-bold text-gray-900">Pesanan Diterima</h3>
+                        <p className="text-xs text-gray-500">10:30 AM • Gudang TANGKOT 1</p>
+                    </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                    <div className="mt-1">
+                        <div className="w-2 h-2 rounded-full bg-[#ec5b13] ring-4 ring-orange-100 animate-pulse"></div>
+                    </div>
+                    <div className="flex-1">
+                        <h3 className="text-sm font-bold text-gray-900">Sedang Diantar</h3>
+                        <p className="text-xs text-gray-500">Estimasi tiba 11:15 AM</p>
+                        <div className="mt-2 bg-blue-50 text-blue-700 text-xs p-2 rounded border border-blue-100 flex items-start gap-2">
+                            <Clock size={14} className="mt-0.5 shrink-0" />
+                            <span>Driver sedang dalam perjalanan menuju lokasi Anda. Mohon pastikan ada penerima.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+                <div className="px-3 pt-2 pb-2 bg-gray-50 border-b flex justify-between items-center">
+                    <span className="text-[10px] uppercase font-bold text-gray-500">Driver Info</span>
+                    <div className="flex space-x-1">
+                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+                    </div>
+                </div>
+                <div className="p-3 flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden border border-white shadow-sm">
+                        <User size={20} className="text-gray-400" />
+                    </div>
+                    <div>
+                        <h3 className="text-sm font-bold text-gray-900">Budi Santoso</h3>
+                        <p className="text-xs text-gray-500">B 1234 XYZ • Van</p>
+                    </div>
+                    <button className="ml-auto bg-green-100 hover:bg-green-200 text-green-700 p-2 rounded-full transition-colors">
+                        <Signal size={18} />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
 const CheckingDetailPage = ({ onNavigate }) => {
     const [showSuccess, setShowSuccess] = useState(false);
-    const [items, setItems] = useState([
+    const [items] = useState([
         { id: 1, name: 'Cabe Merah Keriting (Ekonomis)', qty: '20 Pak', sub: '1 kg/Pak', status: 'problem', icon: Package, iconColor: 'text-red-500', bgColor: 'bg-red-50 dark:bg-red-900/20' },
         { id: 2, name: 'Sawi Putih', qty: '20 Pak', sub: '1 kg/Pak', status: 'pending', icon: Package, iconColor: 'text-green-600', bgColor: 'bg-green-50 dark:bg-green-900/20' },
         { id: 3, name: 'Kentang Dieng', qty: '10 Pak', sub: '500 g/Pak', status: 'checked', icon: Package, iconColor: 'text-yellow-700', bgColor: 'bg-yellow-50 dark:bg-yellow-900/20' }

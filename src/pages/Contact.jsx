@@ -10,8 +10,10 @@ import { contactInfo, socialMatrix } from '../data/contactData';
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
-import { useHandCursor } from '../context/HandCursorContext';
+
+// import { useHandCursor } from '../context/HandCursorContext';
 import Navbar from '../components/Navbar';
+import NavigationMenu from '../components/NavigationMenu';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import Treasure from '../components/Treasure';
@@ -24,10 +26,9 @@ import NeuralDecryption from '../components/interactions/NeuralDecryption';
 */
 
 const ContactPage = () => {
-  const { isDark, setIsDark } = useTheme();
+  const { isDark } = useTheme();
   const themeStyles = useThemeStyles();
-  const { t, language, toggleLanguage } = useLanguage();
-  const { isGestureMode, toggleGestureMode } = useHandCursor();
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
   const [formStatus, setFormStatus] = useState('idle'); // idle, sending, success, error
   const [pingCount, setPingCount] = useState(0);
@@ -165,6 +166,7 @@ const ContactPage = () => {
 
       {/* ---NAVIGATION SYSTEM --- */}
       <Navbar onOpenMenu={handleOpenMenu} title="Communication" backPath="/" />
+      <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
       <main className="relative z-10 max-w-6xl mx-auto px-6 py-32 min-h-screen grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-16 items-start">
 

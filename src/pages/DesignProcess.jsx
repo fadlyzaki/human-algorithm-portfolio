@@ -6,11 +6,11 @@ import {
     Layers, Command, Zap, Target, FileText, MousePointer2,
     CheckCircle, AlertTriangle
 } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+// import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import Navbar from '../components/Navbar';
-import { useLanguage } from '../context/LanguageContext';
-import { useHandCursor } from '../context/HandCursorContext';
+// import { useLanguage } from '../context/LanguageContext';
+// import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
 import ScrollReveal from '../components/ScrollReveal';
 import Footer from '../components/Footer';
@@ -21,10 +21,10 @@ import { DESIGN_PROCESS_STEPS } from '../data/processSteps';
 import NavigationMenu from '../components/NavigationMenu'; // Added based on usage in diff
 
 const DesignProcess = () => {
-    const { isDark, setIsDark } = useTheme();
+    // const { isDark } = useTheme();
     const themeStyles = useThemeStyles();
-    const { t, language, toggleLanguage } = useLanguage();
-    const { isGestureMode, toggleGestureMode } = useHandCursor();
+    // const { t, language, toggleLanguage } = useLanguage();
+    // const { isGestureMode } = useHandCursor();
     const [isMenuOpen, setIsMenuOpen] = useState(false); // Added based on usage in diff
 
     // --- DATA: SYSTEMATIC DESIGN FRAMEWORK ---

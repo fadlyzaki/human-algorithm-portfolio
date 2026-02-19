@@ -1,10 +1,10 @@
 import React, { Suspense, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ScanEye, Sun, Moon, Globe } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
-import { useHandCursor } from '../context/HandCursorContext';
+// import { useHandCursor } from '../context/HandCursorContext';
 import Navbar from '../components/Navbar';
 import useProjectData from '../hooks/useProjectData';
 import SEO from '../components/SEO';
@@ -24,13 +24,14 @@ const CommerceAI = React.lazy(() => import('../components/interactions/CommerceA
 const EfficiencyAI = React.lazy(() => import('../components/interactions/EfficiencyAI'));
 
 const CompanyDetail = () => {
-    const { isDark, setIsDark } = useTheme();
-    const { t, language, toggleLanguage } = useLanguage();
-    const { isGestureMode, toggleGestureMode } = useHandCursor();
+    const { isDark } = useTheme();
+    const { t, language } = useLanguage();
+    // const { isGestureMode, toggleGestureMode } = useHandCursor();
     const { id } = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const baseThemeStyles = useThemeStyles();
 
     const { project: cluster, loading } = useProjectData(id);
 
@@ -47,14 +48,13 @@ const CompanyDetail = () => {
         'efficiency': EfficiencyAI
     }[cluster.id] || WorkforceAI; // Fallback
 
-    const baseThemeStyles = useThemeStyles();
     const themeStyles = {
         ...baseThemeStyles,
         '--brand': brandColor,
     };
 
     return (
-        <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--brand)] selection:text-white">
+        <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--brand)] selection:text-white" >
             <SEO
                 title={`${cluster.company} — ${cluster.title}`}
                 description={isId ? (cluster.hook_id || cluster.hook) : cluster.hook}
@@ -77,13 +77,14 @@ const CompanyDetail = () => {
 
             {/* BACKGROUND NOISE TEXTURE */}
             <div className={`fixed inset-0 z-0 pointer-events-none opacity-[0.05] ${isDark ? 'mix-blend-overlay' : 'mix-blend-multiply'}`}
-                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
-            ></div>
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }
+                }
+            ></div >
 
             {/* --- NAVIGATION SYSTEM --- */}
-            <Navbar onOpenMenu={() => setIsMenuOpen(true)} title={cluster.company} backPath="/" />
+            < Navbar onOpenMenu={() => setIsMenuOpen(true)} title={cluster.company} backPath="/" />
 
-            {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
+            <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
             <main className="relative z-10 w-full">
 
@@ -130,7 +131,7 @@ const CompanyDetail = () => {
 
             </main>
             <Footer />
-        </div>
+        </div >
     );
 };
 

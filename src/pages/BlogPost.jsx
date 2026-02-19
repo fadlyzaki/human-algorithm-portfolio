@@ -7,6 +7,7 @@ import {
 import { useTheme } from '../context/ThemeContext';
 import SEO from '../components/SEO';
 import Navbar from '../components/Navbar';
+import NavigationMenu from '../components/NavigationMenu';
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Digital Editorial"
@@ -14,8 +15,9 @@ import Navbar from '../components/Navbar';
 */
 
 const BlogPost = () => {
-  const { isDark, setIsDark } = useTheme();
+  const { isDark } = useTheme();
   const [scrolled, setScrolled] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { id } = useParams();
 
   // --- MOCK DATABASE ---
@@ -115,7 +117,7 @@ const BlogPost = () => {
       {/* --- NAVIGATION SYSTEM --- */}
       <Navbar onOpenMenu={() => setIsMenuOpen(true)} title="Editorial" backPath="/" />
 
-      {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
+      <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
       <main className="pt-32 pb-24 max-w-3xl mx-auto px-6">
 
