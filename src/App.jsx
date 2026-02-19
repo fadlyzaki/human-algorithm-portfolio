@@ -21,10 +21,12 @@ import ScrollToTop from './components/ScrollToTop';
 
 import AnalyticsTracker from './components/AnalyticsTracker';
 
-// Lazy-load gesture overlays (Fix 7: only render when activated)
+// Lazy-load gesture overlays (only render when gesture mode activated)
 const HandCursorOverlay = React.lazy(() => import('./components/HandCursorOverlay'));
 const HandTrackerWelcome = React.lazy(() => import('./components/HandTrackerWelcome'));
-const TreasureCongrats = React.lazy(() => import('./components/TreasureCongrats'));
+
+// TreasureCongrats is for Easter eggs — always available
+import TreasureCongrats from './components/TreasureCongrats';
 
 const GestureOverlays = () => {
   const { isGestureMode } = useHandCursor();
@@ -33,7 +35,6 @@ const GestureOverlays = () => {
     <React.Suspense fallback={null}>
       <HandCursorOverlay />
       <HandTrackerWelcome />
-      <TreasureCongrats />
     </React.Suspense>
   );
 };
@@ -51,6 +52,7 @@ function App() {
     <LanguageProvider>
       <HandCursorProvider>
         <GestureOverlays />
+        <TreasureCongrats />
         <Router>
           <AnalyticsTracker />
           <ScrollToTop />
