@@ -16,10 +16,10 @@ const DesignSystemViewer = () => {
         { id: 'CHROMATICS', label: '01 // CHROMATICS', icon: Hash },
         { id: 'TYPOGRAPHY', label: '02 // TYPOGRAPHY', icon: Type },
         { id: 'COMPONENTS', label: '03 // MODULES', icon: Grid3X3 },
-        { id: 'COMPONENTS', label: '03 // MODULES', icon: Grid3X3 },
         { id: 'LAYOUT', label: '04 // GRID & MOTION', icon: MoveRight },
         { id: 'BRAND', label: '05 // IDENTITY', icon: Fingerprint },
         { id: 'UX', label: '06 // PRINCIPLES', icon: Scale },
+        { id: 'GOVERNANCE', label: '07 // GOVERNANCE', icon: Lock },
     ];
 
     return (
@@ -80,10 +80,10 @@ const DesignSystemViewer = () => {
                     {activeSector === 'CHROMATICS' && <ChromaticsGrid />}
                     {activeSector === 'TYPOGRAPHY' && <TypographyLab />}
                     {activeSector === 'COMPONENTS' && <ComponentForge />}
-                    {activeSector === 'COMPONENTS' && <ComponentForge />}
                     {activeSector === 'LAYOUT' && <LayoutLab />}
                     {activeSector === 'BRAND' && <BrandIdentity />}
                     {activeSector === 'UX' && <UXPrinciples />}
+                    {activeSector === 'GOVERNANCE' && <GovernanceLab />}
                 </div>
 
                 {/* Footer Data Line */}
@@ -107,10 +107,10 @@ const DesignSystemViewer = () => {
 const ChromaticsGrid = () => (
     <div className="space-y-16 animate-in fade-in zoom-in-95 duration-500">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <ColorCard name="VOID" token="--bg-void" hex="#111111" />
-            <ColorCard name="SURFACE" token="--bg-surface" hex="#1F1F1F" />
-            <ColorCard name="TEXT_PRI" token="--text-primary" hex="#F4F4F5" />
-            <ColorCard name="TEXT_SEC" token="--text-secondary" hex="#A1A1AA" />
+            <ColorCard name="VOID" token="--bg-void" hex="#050505" />
+            <ColorCard name="SURFACE" token="--bg-surface" hex="#111111" />
+            <ColorCard name="TEXT_PRI" token="--text-primary" hex="#F3F4F6" />
+            <ColorCard name="TEXT_SEC" token="--text-secondary" hex="#9CA3AF" />
         </div>
 
         <div className="space-y-4">
@@ -254,10 +254,10 @@ const ComponentForge = () => (
                         <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Primary_Directives</label>
                         <div className="flex flex-wrap gap-4">
                             <button className="bg-[var(--text-primary)] text-[var(--bg-void)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">
-                                Initialize
+                                Primary Action
                             </button>
-                            <button className="border border-[var(--border-color)] text-[var(--text-primary)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[var(--bg-surface)] transition-colors">
-                                Cancel_Op
+                            <button className="px-4 py-1.5 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--text-secondary)]/10 rounded transition-all duration-300 border border-transparent hover:border-[var(--border-color)]">
+                                Nav_Link
                             </button>
                             <button className="text-[var(--accent-blue)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
                                 Data_Link <MoveRight size={12} />
@@ -294,9 +294,14 @@ const ComponentForge = () => (
                             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-green)]/10 text-[var(--accent-green)] border border-[var(--accent-green)]/20 font-mono text-[10px] uppercase tracking-widest">
                                 <ShieldCheck size={10} /> Operational
                             </span>
-                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-amber)]/10 text-[var(--accent-amber)] border border-[var(--accent-amber)]/20 font-mono text-[10px] uppercase tracking-widest">
-                                <ShieldAlert size={10} /> Warning
-                            </span>
+                            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)]">
+                                <div className="relative flex h-2 w-2">
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                </div>
+                                <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
+                                    Open to Work
+                                </span>
+                            </div>
                             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-red)]/10 text-[var(--accent-red)] border border-[var(--accent-red)]/20 font-mono text-[10px] uppercase tracking-widest">
                                 <AlertTriangle size={10} /> Critical
                             </span>
@@ -360,8 +365,71 @@ const ComponentForge = () => (
                     </p>
                 </div>
             </div>
+
+            {/* Bento Grid Pattern */}
+            <div className="p-6 border border-black/5 dark:border-white/10 bg-[var(--bg-card)] rounded-3xl relative overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                <div className="flex flex-col h-full justify-between relative z-10">
+                    <div className="w-12 h-12 rounded-full bg-[var(--bg-surface)] flex items-center justify-center mb-4">
+                        <Grid3X3 size={20} className="text-[var(--text-primary)]" />
+                    </div>
+                    <div>
+                        <span className="font-mono text-[9px] uppercase tracking-[0.2em] mb-2 px-1.5 py-0.5 rounded border text-[var(--accent-blue)] border-[var(--accent-blue)]/30 inline-block">
+                            Featured
+                        </span>
+                        <h4 className="font-bold text-sm text-[var(--text-primary)]">Bento Card Module</h4>
+                    </div>
+                </div>
+                {/* Hover Reveal */}
+                <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <div className="bg-[var(--text-primary)] text-[var(--bg-void)] px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
+                        View <MoveRight size={12} />
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+
+        {/* USAGE GUIDELINES - PRINCIPAL LEVEL ADDITION */}
+        <div className="border-t border-[var(--border-color)] pt-12">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 mb-8">
+                <AlertTriangle size={14} /> Usage Protocols
+            </h3>
+
+            <div className="grid md:grid-cols-2 gap-8">
+                {/* DO */}
+                <div className="space-y-4">
+                    <div className="p-1 bg-[var(--accent-green)]/10 border border-[var(--accent-green)]/20 text-[var(--accent-green)] font-mono text-[10px] uppercase tracking-widest text-center">
+                        Correct Usage
+                    </div>
+                    <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col items-center gap-4">
+                        <button className="bg-[var(--text-primary)] text-[var(--bg-void)] px-6 py-3 text-xs font-bold uppercase tracking-widest">
+                            Initialize
+                        </button>
+                        <p className="text-xs text-[var(--text-secondary)] text-center">
+                            Use solid fill for primary "happy path" actions only.
+                        </p>
+                    </div>
+                </div>
+
+                {/* DON'T */}
+                <div className="space-y-4">
+                    <div className="p-1 bg-[var(--accent-red)]/10 border border-[var(--accent-red)]/20 text-[var(--accent-red)] font-mono text-[10px] uppercase tracking-widest text-center">
+                        Violations
+                    </div>
+                    <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col items-center gap-4 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-[var(--bg-void)]/80 flex items-center justify-center z-10">
+                            <AlertTriangle size={32} className="text-[var(--accent-red)]" />
+                        </div>
+                        <button className="bg-[var(--accent-red)] text-white px-6 py-3 text-xs font-bold uppercase tracking-widest shadow-xl">
+                            Initialize
+                        </button>
+                        <p className="text-xs text-[var(--text-secondary)] text-center blur-sm">
+                            Never use semantic system colors for primary actions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div >
 );
 
 export default DesignSystemViewer;
@@ -593,6 +661,92 @@ const LayoutLab = () => (
                         <code className="text-xs text-[var(--text-secondary)]">linear // infinite</code>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+);
+
+const GovernanceLab = () => (
+    <div className="space-y-16 animate-in slide-in-from-right-4 duration-500">
+        <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+                <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                    <Activity size={14} /> System Health
+                </h3>
+
+                <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6 space-y-6">
+                    <div className="flex justify-between items-center">
+                        <div>
+                            <h4 className="font-bold text-sm text-[var(--text-primary)]">Current Version</h4>
+                            <p className="text-xs text-[var(--text-secondary)]">v3.0.1 (Kernel Update)</p>
+                        </div>
+                        <div className="px-3 py-1 bg-[var(--accent-green)]/10 text-[var(--accent-green)] border border-[var(--accent-green)]/20 font-mono text-[10px] uppercase tracking-widest rounded-full">
+                            Stable
+                        </div>
+                    </div>
+
+                    <div className="space-y-2">
+                        <div className="flex justify-between font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+                            <span>Coverage</span>
+                            <span>98%</span>
+                        </div>
+                        <div className="h-1 w-full bg-[var(--bg-surface)]">
+                            <div className="h-full bg-[var(--accent)] w-[98%]"></div>
+                        </div>
+                    </div>
+
+                    <div className="pt-4 border-t border-[var(--border-color)] flex gap-4">
+                        <div className="flex-1">
+                            <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-1">Maintainer</span>
+                            <div className="flex items-center gap-2">
+                                <div className="w-5 h-5 rounded-full bg-[var(--text-primary)]"></div>
+                                <span className="text-xs font-bold text-[var(--text-primary)]">Fadly Zaki</span>
+                            </div>
+                        </div>
+                        <div className="flex-1">
+                            <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-1">Last Deploy</span>
+                            <div className="text-xs font-bold text-[var(--text-primary)]">Today, 19:23</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="space-y-6">
+                <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                    <Lock size={14} /> Contribution Protocol
+                </h3>
+
+                <div className="space-y-4">
+                    <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent)] transition-colors cursor-pointer group">
+                        <div className="flex justify-between items-start">
+                            <h4 className="font-bold text-sm text-[var(--text-primary)] mb-1 group-hover:text-[var(--accent)]">RFC Process</h4>
+                            <MoveRight size={14} className="text-[var(--text-secondary)] group-hover:text-[var(--accent)]" />
+                        </div>
+                        <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                            All token changes require a Request for Comment document.
+                        </p>
+                    </div>
+
+                    <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent)] transition-colors cursor-pointer group">
+                        <div className="flex justify-between items-start">
+                            <h4 className="font-bold text-sm text-[var(--text-primary)] mb-1 group-hover:text-[var(--accent)]">Token Naming</h4>
+                            <MoveRight size={14} className="text-[var(--text-secondary)] group-hover:text-[var(--accent)]" />
+                        </div>
+                        <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                            Follows <code>category-property-variant</code> BEM-style syntax.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div className="border border-[var(--border-color)] bg-[var(--bg-surface)] p-8 text-center space-y-4">
+            <h4 className="text-sm font-bold text-[var(--text-primary)]">Design System Roadmap</h4>
+            <div className="flex justify-center gap-12 font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+                <span className="text-[var(--text-primary)]">Q1: Modules</span>
+                <span>Q2: Accessibility</span>
+                <span>Q3: Dark Mode v2</span>
+                <span>Q4: Mobile Patterns</span>
             </div>
         </div>
     </div>
