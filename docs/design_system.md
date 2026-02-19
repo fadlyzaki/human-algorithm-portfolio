@@ -1,4 +1,4 @@
-# 🧢 Human By Design - Design System
+# 🧢 Human By Design - Design System v3.0
 
 A comprehensive design system for Fadly Zaki's portfolio, embodying a cyberpunk aesthetic with human-centered design principles.
 
@@ -23,8 +23,9 @@ A comprehensive design system for Fadly Zaki's portfolio, embodying a cyberpunk 
 |-------|-----------|------------|-------|
 | `--accent-amber` | `#F59E0B` | `#D97706` | Primary Brand/Warning |
 | `--accent-blue` | `#3B82F6` | `#2563EB` | Links, Actions |
-| `--accent-green` | `#10B981` | `#059669` | Success, Systems Go |
+| `--accent-green` | `#10B981` | `#059669` | Success, Systems Go, Open to Work |
 | `--accent-red` | `#EF4444` | `#DC2626` | Errors, Critical |
+| `--accent-amber` | `#F59E0B` | `#D97706` | Achievements, Awards, Warnings |
 
 ### Treasure Hunt Colors
 
@@ -116,6 +117,16 @@ Based on Tailwind defaults:
 ### 5. Running Ticker
 *   **Path**: `src/components/SystemMonitor.jsx` (and Footer)
 *   **Behavior**: Infinite scrolling text for status updates (Location, Reading, Listening).
+
+### 6. Mobile Navigation (FAB)
+*   **Structure**: `[ Work | ☰ Menu | Contact ]`
+*   **Behavior**: Quick access to primary conversion points without determining menu state.
+*   **Status**: Static green dot (no pulses) to reduce cognitive load.
+
+### 7. Achievements Section
+*   **Path**: `src/pages/About.jsx`
+*   **Style**: Amber-accented cards in 2-column grid.
+*   **Differentiation**: Distinct from "Certifications" (Blue/Green) to highlight competitive awards.
 
 
 ---
@@ -245,8 +256,9 @@ const [isDark, setIsDark] = useState(() => {
 
 ### Logo/Identity
 
-- **Emoji:** 🧢 (Billed Cap)
-- **Tagline:** "Human By Design"
+- **Emoji:** 🧢 (Billed Cap) - *Always precedes name*
+- **Wordmark:** `🧢 Fadlyzaki`
+- **Tagline:** "Human By Design" / "Systems Thinker"
 - **Favicon:** 🧢 SVG emoji
 
 ### ID Card Data
@@ -257,7 +269,9 @@ HUMAN BY DESIGN
 UZZAKI, FADLY 🧢
 Product Designer // SysOp
 ID_NO: 1407-1995
+ID_NO: 1407-1995
 EXP: INDEFINITE
+STATUS: ACTIVE
 ```
 
 ---
@@ -265,8 +279,8 @@ EXP: INDEFINITE
 ## 📄 Open Graph / SEO
 
 ```html
-<title>Fadlyzaki 🧢 Human By Design</title>
-<meta property="og:image" content="/og-preview.png" />
+<title>Fadlyzaki Portfolio</title>
+<meta property="og:image" content="/og-square.png" />
 <meta property="og:description" content="Product Designer · Systems Thinker. I don't chase chaos—I contain it." />
 ```
 
@@ -282,5 +296,5 @@ EXP: INDEFINITE
 
 ---
 
-*Last updated: February 17, 2026*
-*Version: 2.1 (Human By Design - Refactored)*
+*Last updated: February 19, 2026*
+*Version: 3.0 (Kill-Switch & Achievements Update)*
