@@ -16,8 +16,10 @@ const DesignSystemViewer = () => {
         { id: 'CHROMATICS', label: '01 // CHROMATICS', icon: Hash },
         { id: 'TYPOGRAPHY', label: '02 // TYPOGRAPHY', icon: Type },
         { id: 'COMPONENTS', label: '03 // MODULES', icon: Grid3X3 },
-        { id: 'BRAND', label: '04 // IDENTITY', icon: Fingerprint },
-        { id: 'UX', label: '05 // PRINCIPLES', icon: Scale },
+        { id: 'COMPONENTS', label: '03 // MODULES', icon: Grid3X3 },
+        { id: 'LAYOUT', label: '04 // GRID & MOTION', icon: MoveRight },
+        { id: 'BRAND', label: '05 // IDENTITY', icon: Fingerprint },
+        { id: 'UX', label: '06 // PRINCIPLES', icon: Scale },
     ];
 
     return (
@@ -78,6 +80,8 @@ const DesignSystemViewer = () => {
                     {activeSector === 'CHROMATICS' && <ChromaticsGrid />}
                     {activeSector === 'TYPOGRAPHY' && <TypographyLab />}
                     {activeSector === 'COMPONENTS' && <ComponentForge />}
+                    {activeSector === 'COMPONENTS' && <ComponentForge />}
+                    {activeSector === 'LAYOUT' && <LayoutLab />}
                     {activeSector === 'BRAND' && <BrandIdentity />}
                     {activeSector === 'UX' && <UXPrinciples />}
                 </div>
@@ -155,14 +159,22 @@ const ColorCard = ({ name, token, hex }) => (
 
 const TypographyLab = () => (
     <div className="space-y-12 animate-in slide-in-from-left-4 duration-500">
-        <div className="border border-[var(--border-color)] p-8 md:p-12 relative overflow-hidden bg-[var(--bg-card)]">
-            <div className="absolute top-4 right-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border border-[var(--text-secondary)] px-2 py-1 rounded">
-                Sans-Serif // Inter
+        <div className="border border-[var(--border-color)] p-8 md:p-12 relative overflow-hidden bg-[var(--bg-card)] group hover:border-[var(--accent)] transition-colors">
+            <div className="absolute top-4 right-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border border-[var(--text-secondary)] px-2 py-1 rounded flex items-center gap-2">
+                <Type size={10} /> Sans-Serif // Inter
             </div>
-            <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.9]">
-                Human<br />
-                Algorithm<span className="text-[var(--accent)]">.</span>
-            </h1>
+
+            <div className="relative">
+                <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.9]">
+                    Human<br />
+                    Algorithm<span className="text-[var(--accent)]">.</span>
+                </h1>
+
+                {/* Spec Annotations */}
+                <div className="absolute -left-6 top-0 h-full w-px bg-[var(--accent)]/30 hidden group-hover:block"></div>
+                <div className="absolute top-1/2 -left-12 -translate-y-1/2 font-mono text-[9px] text-[var(--accent)] hidden group-hover:block rotate-[-90deg]">Line-Height: 0.9</div>
+            </div>
+
             <p className="text-xl md:text-3xl font-light text-[var(--text-secondary)] max-w-3xl leading-relaxed">
                 The quick brown fox jumps over the lazy dog.
                 <span className="text-[var(--text-primary)]"> System architecture requiring resilience vs efficiency.</span>
@@ -170,36 +182,57 @@ const TypographyLab = () => (
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-            <div className="border border-[var(--border-color)] p-8 bg-[var(--bg-card)] space-y-4">
-                <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border-b border-[var(--border-color)] pb-2 mb-4">
-                    Monospace // JetBrains Mono
+            <div className="border border-[var(--border-color)] p-8 bg-[var(--bg-card)] space-y-4 relative overflow-hidden group hover:border-[var(--accent)] transition-colors">
+                <div className="absolute top-0 right-0 p-4 opacity-[0.03]">
+                    <Terminal size={120} />
                 </div>
-                <p className="font-mono text-sm text-[var(--text-primary)] leading-relaxed">
-                    function initiateSequence() {'{'}<br />
-                    &nbsp;&nbsp;const status = "NOMINAL";<br />
-                    &nbsp;&nbsp;return system.boot(status);<br />
+                <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border-b border-[var(--border-color)] pb-2 mb-4 flex justify-between">
+                    <span>Monospace // JetBrains Mono</span>
+                    <span className="text-[var(--accent)] opacity-0 group-hover:opacity-100 transition-opacity">Tracking: 0em</span>
+                </div>
+                <p className="font-mono text-sm text-[var(--text-primary)] leading-relaxed relative z-10">
+                    <span className="text-[var(--accent-purple)]">function</span> <span className="text-[var(--accent-blue)]">initiateSequence</span>() {'{'}<br />
+                    &nbsp;&nbsp;<span className="text-[var(--accent-purple)]">const</span> status = <span className="text-[var(--accent-green)]">"NOMINAL"</span>;<br />
+                    &nbsp;&nbsp;<span className="text-[var(--accent-purple)]">return</span> system.<span className="text-[var(--accent-blue)]">boot</span>(status);<br />
                     {'}'}
                 </p>
-                <div className="flex gap-2 mt-4">
-                    <span className="px-2 py-1 bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-[10px] uppercase tracking-widest text-[var(--accent)]">
-                        Label_01
-                    </span>
-                    <span className="px-2 py-1 bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
-                        Label_02
-                    </span>
+                <div className="flex gap-2 mt-4 pt-4 border-t border-[var(--border-color)] border-dashed">
+                    <div className="space-y-1">
+                        <div className="text-[8px] font-mono uppercase text-[var(--text-secondary)]">Size</div>
+                        <div className="text-xs font-mono font-bold text-[var(--text-primary)]">14px</div>
+                    </div>
+                    <div className="w-px bg-[var(--border-color)] h-8 mx-2"></div>
+                    <div className="space-y-1">
+                        <div className="text-[8px] font-mono uppercase text-[var(--text-secondary)]">Weight</div>
+                        <div className="text-xs font-mono font-bold text-[var(--text-primary)]">400</div>
+                    </div>
                 </div>
             </div>
 
-            <div className="border border-[var(--border-color)] p-8 bg-[var(--bg-card)] flex flex-col justify-center items-center text-center space-y-4">
-                <div className="w-full font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border-b border-[var(--border-color)] pb-2 mb-4 text-left">
-                    Stats & Metrics
+            <div className="border border-[var(--border-color)] p-8 bg-[var(--bg-card)] flex flex-col justify-center space-y-6">
+                <div className="w-full font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border-b border-[var(--border-color)] pb-2 mb-2">
+                    Metric Display // H1-Variable
                 </div>
-                <div className="text-6xl font-bold tracking-tighter text-[var(--text-primary)]">
-                    98.4<span className="text-3xl text-[var(--accent)]">%</span>
+
+                <div className="space-y-2">
+                    <div className="text-6xl font-bold tracking-tighter text-[var(--text-primary)]">
+                        98.4<span className="text-3xl text-[var(--accent)]">%</span>
+                    </div>
+                    <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] block">
+                        System Efficiency
+                    </span>
                 </div>
-                <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-                    System Efficiency
-                </span>
+
+                <div className="grid grid-cols-2 gap-4 text-[9px] font-mono text-[var(--text-secondary)] pt-4 border-t border-[var(--border-color)]">
+                    <div>
+                        <span className="block opacity-50">Letter Spacing</span>
+                        <span className="text-[var(--text-primary)]">-0.05em</span>
+                    </div>
+                    <div>
+                        <span className="block opacity-50">Font Selection</span>
+                        <span className="text-[var(--text-primary)]">Inter Tight</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -471,5 +504,96 @@ const PrincipleCard = ({ num, title, icon: Icon, desc }) => (
         <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
             {desc}
         </p>
+    </div>
+);
+
+const LayoutLab = () => (
+    <div className="space-y-16 animate-in slide-in-from-bottom-8 duration-500">
+        {/* GRID SYSTEM */}
+        <div className="space-y-6">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                <Grid3X3 size={14} /> 12-Column Grid System
+            </h3>
+
+            <div className="relative border border-[var(--border-color)] bg-[var(--bg-surface)] h-48 overflow-hidden">
+                {/* Visual Grid Layer */}
+                <div className="absolute inset-0 grid grid-cols-12 gap-4 px-4 md:px-12 pointer-events-none opacity-20">
+                    {[...Array(12)].map((_, i) => (
+                        <div key={i} className="h-full bg-[var(--accent-red)]/20 border-x border-[var(--accent-red)]/30 flex flex-col justify-between py-2 items-center">
+                            <span className="text-[6px] font-mono text-[var(--accent-red)]">{i + 1}</span>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Content Simulation */}
+                <div className="absolute inset-0 grid grid-cols-12 gap-4 px-4 md:px-12 items-center">
+                    <div className="col-span-12 md:col-span-3 h-24 bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center font-mono text-xs text-[var(--text-secondary)]">Sidebar</div>
+                    <div className="col-span-12 md:col-span-9 h-24 bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center font-mono text-xs text-[var(--text-secondary)]">Main Content Area</div>
+                </div>
+
+                {/* Measurements */}
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 font-mono text-[9px] text-[var(--text-secondary)] bg-[var(--bg-void)] px-2 border border-[var(--border-color)] rounded">
+                    Max-Width: 1280px // Class: max-w-7xl
+                </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
+                    <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">Gutters</span>
+                    <div className="text-xl font-bold text-[var(--text-primary)]">24px</div>
+                    <code className="text-xs text-[var(--accent)]">gap-6</code>
+                </div>
+                <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
+                    <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">Margins</span>
+                    <div className="text-xl font-bold text-[var(--text-primary)]">48px</div>
+                    <code className="text-xs text-[var(--accent)]">px-12</code>
+                </div>
+            </div>
+        </div>
+
+        {/* MOTION CURVES */}
+        <div className="space-y-6">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                <Activity size={14} /> Motion Physics
+            </h3>
+
+            <div className="grid md:grid-cols-3 gap-8">
+                {/* Curve 1: Default */}
+                <div className="space-y-4 group cursor-pointer">
+                    <div className="h-32 border border-[var(--border-color)] bg-[var(--bg-card)] relative overflow-hidden flex items-center justify-center">
+                        <div className="w-8 h-8 bg-[var(--accent-blue)] rounded shadow-lg group-hover:translate-x-32 transition-transform duration-500 ease-out"></div>
+                        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" preserveAspectRatio="none">
+                            <path d="M0,128 C50,128 50,0 200,0" fill="none" stroke="currentColor" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 className="font-bold text-sm text-[var(--text-primary)]">Soft Out</h4>
+                        <code className="text-xs text-[var(--text-secondary)]">ease-out // 500ms</code>
+                    </div>
+                </div>
+
+                {/* Curve 2: Elastic */}
+                <div className="space-y-4 group cursor-pointer">
+                    <div className="h-32 border border-[var(--border-color)] bg-[var(--bg-card)] relative overflow-hidden flex items-center justify-center">
+                        <div className="w-8 h-8 bg-[var(--accent-green)] rounded shadow-lg group-hover:scale-150 transition-transform duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]"></div>
+                    </div>
+                    <div>
+                        <h4 className="font-bold text-sm text-[var(--text-primary)]">Elastic Pop</h4>
+                        <code className="text-xs text-[var(--text-secondary)]">cubic-bezier(.34,1.56,...)</code>
+                    </div>
+                </div>
+
+                {/* Curve 3: Linear/Glitch */}
+                <div className="space-y-4 group cursor-pointer">
+                    <div className="h-32 border border-[var(--border-color)] bg-[var(--bg-card)] relative overflow-hidden flex items-center justify-center">
+                        <div className="w-full h-1 bg-[var(--accent-red)] group-hover:opacity-0 animate-pulse"></div>
+                    </div>
+                    <div>
+                        <h4 className="font-bold text-sm text-[var(--text-primary)]">Signal Pulse</h4>
+                        <code className="text-xs text-[var(--text-secondary)]">linear // infinite</code>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 );
