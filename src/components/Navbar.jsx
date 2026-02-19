@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Sun, Moon, ScanEye, Grid, Clock, FileText, Printer } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
@@ -26,6 +26,8 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showN
     const showNav = showNavOverride !== undefined ? showNavOverride : hookShowNav;
 
     const [time, setTime] = useState(new Date());
+    const [timeZone, setTimeZone] = useState('LOC');
+
 
     // 2. LIVE CLOCK & TIMEZONE
     useEffect(() => {
