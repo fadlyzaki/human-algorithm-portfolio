@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   ArrowLeft, Mail, Send, Copy, Check, Sun, Moon,
-  MapPin, Clock, Wifi, Globe, Terminal, ScanEye
+  MapPin, Clock, Wifi, Globe, Terminal, ScanEye, Activity
 } from 'lucide-react';
 import { contactInfo, socialMatrix } from '../data/contactData';
 import { useTheme } from '../context/ThemeContext';
