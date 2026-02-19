@@ -29,7 +29,6 @@ const PriceLock = React.lazy(() => import('../components/interactions/PriceLock'
 const ProjectKinship = React.lazy(() => import('../components/interactions/ProjectKinship'));
 const ProjectZen = React.lazy(() => import('../components/interactions/ProjectZen'));
 const FilterMeApp = React.lazy(() => import('../components/interactions/FilterMeApp'));
-const DesignSystemViewer = React.lazy(() => import('../components/DesignSystemViewer'));
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
@@ -490,19 +489,25 @@ const SideProjectDetail = () => {
                   </div>
                )}
 
-               {/* --- C.7. DESIGN SYSTEM VIEWER (Human Algorithm Exclusive) --- */}
+               {/* --- C.7. DESIGN SYSTEM LINK (Human Algorithm Exclusive) --- */}
                {project.id === 'human-algorithm' && (
-                  <div className="mb-24 animate-in fade-in slide-in-from-bottom-8 duration-700">
-                     <Suspense fallback={
-                        <div className="w-full h-96 flex items-center justify-center border border-[var(--border-color)] bg-[var(--bg-card)]">
-                           <div className="flex flex-col items-center gap-4">
-                              <SkeletonLine className="w-12 h-12 rounded-full" />
-                              <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] animate-pulse">Initializing System Diagnostic...</span>
-                           </div>
+                  <div className="flex justify-center mb-24 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
+                     <Link to="/design-system" className="group relative flex flex-col items-center gap-4 p-8 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent)] transition-all rounded-xl w-full max-w-2xl text-center">
+                        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shine pointer-events-none" />
+
+                        <div className="w-12 h-12 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center text-[var(--text-secondary)] group-hover:text-[var(--accent)] group-hover:border-[var(--accent)] transition-colors shadow-sm">
+                           <Terminal size={20} />
                         </div>
-                     }>
-                        <DesignSystemViewer />
-                     </Suspense>
+
+                        <div>
+                           <h3 className="font-mono text-sm uppercase tracking-widest font-bold mb-1 text-[var(--accent)]">
+                              System_Diagnostic
+                           </h3>
+                           <p className="text-[var(--text-secondary)] text-sm max-w-md">
+                              Access raw design tokens, typography scales, and component status via the internal diagnostic console.
+                           </p>
+                        </div>
+                     </Link>
                   </div>
                )}
 

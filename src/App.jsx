@@ -14,6 +14,7 @@ const CompanyDetail = React.lazy(() => import('./pages/CompanyDetail'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 const DesignProcess = React.lazy(() => import('./pages/DesignProcess'));
+const DesignSystem = React.lazy(() => import('./pages/DesignSystem'));
 
 import { LanguageProvider } from './context/LanguageContext';
 import { HandCursorProvider, useHandCursor } from './context/HandCursorContext';
@@ -67,6 +68,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/cv" element={<SystemManifest />} />
               <Route path="/process" element={<DesignProcess />} />
+              <Route path="/design-system" element={<DesignSystem />} />
 
               {/* Index Pages */}
               <Route path="/side-projects" element={<SideProjectsIndex />} />
