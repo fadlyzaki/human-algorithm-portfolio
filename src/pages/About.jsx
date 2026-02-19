@@ -323,7 +323,7 @@ const AboutPage = () => {
                           href={cert.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`w - full md: w - auto flex items - center justify - center gap - 2 px - 4 py - 2.5 md: py - 2 bg - [var(--bg - void)]/20 border border-[var(--border-color)] hover:border-[var(--accent-blue)] hover:bg-[var(--accent-blue)]/10 text - [var(--accent - blue)]rounded - lg transition - all font - mono text - [11px] md: text - [10px] uppercase tracking - widest font - bold ${(!cert.id || cert.id === 'N/A') ? 'md:ml-auto' : ''} `}
+                          className={`w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2.5 md:py-2 bg-[var(--bg-void)]/20 border border-[var(--border-color)] hover:border-[var(--accent-blue)] hover:bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] rounded-lg transition-all font-mono text-[11px] md:text-[10px] uppercase tracking-widest font-bold ${(!cert.id || cert.id === 'N/A') ? 'md:ml-auto' : ''}`}
                         >
                           {t('about.show_credential')}
                           <ArrowUpRight size={12} />
