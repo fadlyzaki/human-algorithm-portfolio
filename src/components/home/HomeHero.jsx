@@ -35,9 +35,9 @@ const HomeHero = ({ t }) => {
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <a href="#work" className="px-8 py-4 bg-zinc-900 text-white dark:bg-white dark:text-black font-mono text-sm font-bold uppercase tracking-wider hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-all flex items-center justify-center gap-3 shadow-[4px_4px_0px_var(--accent-blue)] hover:shadow-[2px_2px_0px_var(--accent-blue)] hover:translate-x-[2px] hover:translate-y-[2px] rounded-lg">
+                            <Link to="/#work" className="px-8 py-4 bg-zinc-900 text-white dark:bg-white dark:text-black font-mono text-sm font-bold uppercase tracking-wider hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-all flex items-center justify-center gap-3 shadow-[4px_4px_0px_var(--accent-blue)] hover:shadow-[2px_2px_0px_var(--accent-blue)] hover:translate-x-[2px] hover:translate-y-[2px] rounded-lg">
                                 {t('home.cta_work')} <ArrowRight size={16} />
-                            </a>
+                            </Link>
                             <Link to="/cv" className="px-8 py-4 border border-[var(--border-tag)] text-[var(--text-secondary)] font-mono text-sm uppercase tracking-wide hover:border-[var(--accent-amber)] hover:text-[var(--accent-amber)] transition-all flex items-center justify-center gap-3 rounded-lg">
                                 <FileText size={16} /> {t('home.cta_cv')}
                             </Link>

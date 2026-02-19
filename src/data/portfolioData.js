@@ -32,8 +32,9 @@ export const WORK_CLUSTERS = [
     lumina,
     gudangAda,
     stoqo
-].map(cluster => ({
+].map((cluster, idx) => ({
     ...cluster,
+    featured: idx === 0, // First cluster is the featured project
     // Normalize nested projects within the work cluster
     projects: cluster.projects.map(normalizeProject)
 }));

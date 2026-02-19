@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Sun, Moon, ScanEye, Grid, Clock, FileText, Printer } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
@@ -76,7 +76,6 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showN
                                 {/* System Status Indicator */}
                                 <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)]">
                                     <div className="relative flex h-2 w-2">
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                                     </div>
                                     <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
@@ -97,28 +96,18 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showN
                             <nav className="hidden md:flex items-center gap-1">
                                 {[
                                     { path: '/about', label: t('nav.about') },
-                                    { path: '#work', label: t('nav.work'), external: true },
-                                    { path: '#side-projects', label: 'Projects', external: true },
+                                    { path: '/#work', label: t('nav.work') },
+                                    { path: '/#side-projects', label: 'Projects' },
                                     { path: '/process', label: t('nav.process') },
                                     { path: '/contact', label: t('nav.contact') }
                                 ].map((link) => (
-                                    link.external ? (
-                                        <a
-                                            key={link.path}
-                                            href={link.path}
-                                            className="px-4 py-1.5 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--text-secondary)]/10 rounded transition-all duration-300 relative group overflow-hidden"
-                                        >
-                                            <span className="relative z-10">{link.label}</span>
-                                        </a>
-                                    ) : (
-                                        <Link
-                                            key={link.path}
-                                            to={link.path}
-                                            className="px-4 py-1.5 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--text-secondary)]/10 rounded transition-all duration-300 relative group overflow-hidden"
-                                        >
-                                            <span className="relative z-10">{link.label}</span>
-                                        </Link>
-                                    )
+                                    <Link
+                                        key={link.path}
+                                        to={link.path}
+                                        className="px-4 py-1.5 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--text-secondary)]/10 rounded transition-all duration-300 relative group overflow-hidden"
+                                    >
+                                        <span className="relative z-10">{link.label}</span>
+                                    </Link>
                                 ))}
                             </nav>
                         )}
@@ -184,25 +173,35 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showN
 
             {/* MOBILE CONTROL DECK (Floating Bottom) */}
             <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 md:hidden animate-in slide-in-from-bottom-10 fade-in duration-700">
-                <div className="bg-[var(--bg-surface)]/90 backdrop-blur-xl border border-[var(--border-color)] rounded-full px-6 py-3 shadow-2xl flex items-center gap-6">
+                <div className="bg-[var(--bg-surface)]/90 backdrop-blur-xl border border-[var(--border-color)] rounded-full px-4 py-2.5 shadow-2xl flex items-center gap-3">
+                    {/* Quick: Work */}
+                    <Link
+                        to="/#work"
+                        className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors px-2 py-1"
+                    >
+                        Work
+                    </Link>
+
+                    <div className="w-px h-5 bg-[var(--border-color)]"></div>
+
+                    {/* Menu */}
                     <button
                         onClick={onOpenMenu}
-                        className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex flex-col items-center gap-1"
+                        className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors p-1"
                         aria-label="Open Menu"
                     >
-                        <Grid size={20} />
+                        <Grid size={18} />
                     </button>
 
-                    <div className="w-px h-6 bg-[var(--border-color)]"></div>
+                    <div className="w-px h-5 bg-[var(--border-color)]"></div>
 
-                    {/* Mobile System Status */}
-                    <div className="flex items-center gap-2">
-                        <div className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                        </div>
-                        <span className="font-mono text-[10px] text-[var(--text-secondary)]">{formatTime(time)}</span>
-                    </div>
+                    {/* Quick: Contact */}
+                    <Link
+                        to="/contact"
+                        className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors px-2 py-1"
+                    >
+                        Contact
+                    </Link>
                 </div>
             </div>
         </>

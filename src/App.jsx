@@ -16,13 +16,27 @@ const NotFound = React.lazy(() => import('./pages/NotFound'));
 const DesignProcess = React.lazy(() => import('./pages/DesignProcess'));
 
 import { LanguageProvider } from './context/LanguageContext';
-import { HandCursorProvider } from './context/HandCursorContext';
-import HandCursorOverlay from './components/HandCursorOverlay';
-import HandTrackerWelcome from './components/HandTrackerWelcome';
-import TreasureCongrats from './components/TreasureCongrats';
+import { HandCursorProvider, useHandCursor } from './context/HandCursorContext';
 import ScrollToTop from './components/ScrollToTop';
 
 import AnalyticsTracker from './components/AnalyticsTracker';
+
+// Lazy-load gesture overlays (Fix 7: only render when activated)
+const HandCursorOverlay = React.lazy(() => import('./components/HandCursorOverlay'));
+const HandTrackerWelcome = React.lazy(() => import('./components/HandTrackerWelcome'));
+const TreasureCongrats = React.lazy(() => import('./components/TreasureCongrats'));
+
+const GestureOverlays = () => {
+  const { isGestureMode } = useHandCursor();
+  if (!isGestureMode) return null;
+  return (
+    <React.Suspense fallback={null}>
+      <HandCursorOverlay />
+      <HandTrackerWelcome />
+      <TreasureCongrats />
+    </React.Suspense>
+  );
+};
 
 // Loading Fallback Component
 const PageLoader = () => (
@@ -36,9 +50,7 @@ function App() {
   return (
     <LanguageProvider>
       <HandCursorProvider>
-        <HandCursorOverlay />
-        <HandTrackerWelcome />
-        <TreasureCongrats />
+        <GestureOverlays />
         <Router>
           <AnalyticsTracker />
           <ScrollToTop />

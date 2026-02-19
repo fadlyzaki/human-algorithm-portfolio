@@ -17,11 +17,16 @@ export const LanguageProvider = ({ children }) => {
         }
     }, []);
 
-    const toggleLanguage = () => {
+    const toggleLanguage = useCallback(() => {
+        // Brief fade for smooth content transition
+        document.documentElement.classList.add('lang-switching');
         const newLang = language === 'en' ? 'id' : 'en';
         setLanguage(newLang);
         localStorage.setItem('portfolio-lang-v1', newLang);
-    };
+        setTimeout(() => {
+            document.documentElement.classList.remove('lang-switching');
+        }, 150);
+    }, [language]);
 
     const isIndonesian = language === 'id';
 

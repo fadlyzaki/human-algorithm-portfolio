@@ -66,6 +66,12 @@ const WorkBento = ({ cluster }) => {
 
                 {/* Right Side: Role + Period (Right Aligned on desktop, Left on mobile) */}
                 <div className="flex flex-col items-start sm:items-end text-left sm:text-right transition-colors duration-300 sm:max-w-[140px]">
+                    {/* Featured Tag */}
+                    {cluster.featured && (
+                        <span className={`font-mono text-[9px] uppercase tracking-[0.2em] mb-1.5 px-1.5 py-0.5 rounded border transition-colors duration-300 ${isHovered ? 'text-white/90 border-white/30' : 'text-[var(--accent-blue)] border-[var(--accent-blue)]/30'}`}>
+                            Featured
+                        </span>
+                    )}
                     {/* Role (Top) */}
                     <p className={`text-sm font-bold leading-tight line-clamp-2 transition-colors duration-300 ${isHovered ? 'text-white' : 'text-gray-900 dark:text-gray-100'}`}>
                         {role}

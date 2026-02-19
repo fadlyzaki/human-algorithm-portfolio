@@ -36,6 +36,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Fix 6: Language toggle smooth transition */
+.lang-switching * {
+  transition: opacity 0.15s ease !important;
+  opacity: 0.6;
+}
+
 /* --- DECRYPTION LENS EFFECT --- */
 .encrypted-mode {
   position: relative;
