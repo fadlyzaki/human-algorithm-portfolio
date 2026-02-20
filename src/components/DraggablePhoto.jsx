@@ -61,7 +61,7 @@ const DraggablePhoto = () => {
           <div className="w-2.5 h-3 border border-yellow-800/20 rounded-bl-sm"></div>
           <div className="w-2.5 h-3 border border-yellow-800/20 rounded-br-sm"></div>
         </div>
-        <div className="w-28 h-36 bg-gray-300 border border-black/10 shadow-inner mb-4 relative overflow-hidden grayscale contrast-125 brightness-110">
+        <div className="w-28 h-36 bg-gray-300 border border-black/10 shadow-inner mb-4 relative overflow-hidden contrast-125 brightness-110">
           <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
         </div>
         <div className="space-y-3">
