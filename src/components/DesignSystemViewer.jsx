@@ -552,7 +552,7 @@ const BrandIdentity = () => (
                     <div className="space-y-2">
                         <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">ID Card Data</span>
                         <div className="font-mono text-xs text-[var(--text-primary)] leading-relaxed p-4 bg-[var(--bg-void)] border border-[var(--border-color)]">
-                            ACCESS_LEVEL_4<br />
+                            ROOT_ACCESS<br />
                             HUMAN BY DESIGN<br />
                             UZZAKI, FADLY 🧢<br />
                             Product Designer // System Thinker<br />

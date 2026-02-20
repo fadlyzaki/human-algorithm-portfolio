@@ -45,7 +45,7 @@ const DraggablePhoto = () => {
       {/* Header */}
       <div className="h-24 bg-white dark:bg-black relative flex items-center justify-between px-4 pt-4 border-b-2 border-[var(--accent)]">
         <div className="flex flex-col">
-          <span className="text-[var(--accent)] font-mono text-[10px] font-bold tracking-[0.2em]">{t('id_card.access_level') || 'ACCESS_LEVEL_4'}</span>
+          <span className="text-[var(--accent)] font-mono text-[10px] font-bold tracking-[0.2em]">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
           <span className="text-black dark:text-white font-sans text-xs font-bold tracking-wide mt-1">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
         </div>
         <div className="w-8 h-8 rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center">
@@ -100,7 +100,7 @@ const DraggablePhoto = () => {
       {/* Header */}
       <div className="h-20 bg-cyan-950/30 flex items-center justify-between px-4 border-b border-cyan-500/50 backdrop-blur-sm z-10">
         <div className="flex flex-col">
-          <span className="text-cyan-400 font-mono text-xs font-bold animate-pulse uppercase">{t('id_card.access_level') || 'ACCESS_LEVEL_4'}</span>
+          <span className="text-cyan-400 font-mono text-xs font-bold animate-pulse uppercase">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
           <span className="text-white font-mono text-[10px] opacity-70">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
         </div>
         <div className="w-8 h-8 border border-cyan-400 rotate-45 flex items-center justify-center">
@@ -187,7 +187,7 @@ const DraggablePhoto = () => {
       {/* Header */}
       <div className="h-20 flex items-center justify-between px-6 pt-4 border-b border-[var(--border-color)]/50">
         <div className="flex flex-col">
-          <span className="text-[var(--text-secondary)] font-mono text-xs tracking-widest">{t('id_card.access_level') || 'ACCESS_LEVEL_4'}</span>
+          <span className="text-[var(--text-secondary)] font-mono text-xs tracking-widest">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
           <span className="text-[var(--text-primary)] font-sans text-xs font-medium tracking-tight mt-1">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
         </div>
         <div className="w-8 h-8 rounded-full bg-[var(--bg-void)]/50 flex items-center justify-center border border-[var(--border-color)] shadow-sm">
@@ -250,7 +250,7 @@ const DraggablePhoto = () => {
       <div className="h-14 bg-black flex items-center justify-between px-4 mt-auto">
         <h2 className="text-xl font-black text-white font-mono tracking-tighter">FADLY.U 🧢</h2>
         <div className="px-2 py-1 bg-white border border-black text-[10px] font-bold font-mono">
-          {t('id_card.access_level') || 'ACCESS_LEVEL_4'}
+          {t('id_card.access_level') || 'ROOT_ACCESS'}
         </div>
       </div>
     </div>

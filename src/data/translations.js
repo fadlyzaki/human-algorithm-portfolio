@@ -213,7 +213,7 @@ export const translations = {
             default_tech: "React Ecosystem",
         },
         id_card: {
-            access_level: "ACCESS_LEVEL_4",
+            access_level: "ROOT_ACCESS",
             human: "HUMAN BY DESIGN",
             role: "Product Designer // System Thinker",
             id_no: "ID_NO",
@@ -530,7 +530,7 @@ export const translations = {
             default_tech: "Ekosistem React",
         },
         id_card: {
-            access_level: "AKSES_LEVEL_4",
+            access_level: "ROOT_ACCESS",
             human: "HUMAN BY DESIGN",
             role: "Product Designer // System Thinker", // Keep English for industry standard
             id_no: "NO_ID",
