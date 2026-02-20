@@ -183,35 +183,35 @@ const DraggablePhoto = () => {
   );
 
   const RenderGlassmorphism = () => (
-    <div className="w-full h-full bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 backdrop-blur-xl border border-white/30 relative group overflow-hidden rounded-2xl flex flex-col shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+    <div className="w-full h-full bg-[var(--bg-surface)]/40 dark:bg-black/40 backdrop-blur-2xl border border-[var(--border-color)] relative group overflow-hidden rounded-2xl flex flex-col shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
       {/* Header */}
-      <div className="h-20 flex items-center justify-between px-6 pt-4 border-b border-white/20">
+      <div className="h-20 flex items-center justify-between px-6 pt-4 border-b border-[var(--border-color)]/50">
         <div className="flex flex-col">
-          <span className="text-white/80 font-mono text-xs tracking-widest">{t('id_card.access_level') || 'ACCESS_LEVEL_4'}</span>
-          <span className="text-white font-sans text-xs font-medium tracking-tight mt-1">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+          <span className="text-[var(--text-secondary)] font-mono text-xs tracking-widest">{t('id_card.access_level') || 'ACCESS_LEVEL_4'}</span>
+          <span className="text-[var(--text-primary)] font-sans text-xs font-medium tracking-tight mt-1">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
         </div>
-        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center border border-white/40 shadow-inner">
-          <User size={14} className="text-white" />
+        <div className="w-8 h-8 rounded-full bg-[var(--bg-void)]/50 flex items-center justify-center border border-[var(--border-color)] shadow-sm">
+          <User size={14} className="text-[var(--text-secondary)]" />
         </div>
       </div>
 
       {/* Content */}
       <div className="flex-grow p-6 relative flex flex-col items-center">
-        <div className="w-24 h-24 rounded-full border-4 border-white/40 shadow-xl mb-4 relative overflow-hidden ring-4 ring-cyan-500/20">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover" fetchPriority="high" loading="eager" />
+        <div className="w-24 h-24 rounded-full shadow-lg mb-4 relative overflow-hidden ring-1 ring-[var(--border-color)] bg-[var(--bg-void)]">
+          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale" fetchPriority="high" loading="eager" />
         </div>
         <div className="text-center space-y-2 w-full">
-          <h2 className="text-2xl font-bold text-white tracking-tight drop-shadow-md">UZZAKI, FADLY</h2>
-          <span className="text-xs font-medium text-white/80 bg-white/10 px-3 py-1 rounded-full border border-white/10 inline-block">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
+          <h2 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">UZZAKI, FADLY</h2>
+          <span className="text-xs font-medium text-[var(--text-secondary)] bg-[var(--bg-void)]/50 px-3 py-1 rounded-full border border-[var(--border-color)] inline-block">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
 
-          <div className="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-white/20">
+          <div className="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-[var(--border-color)]/50">
             <div>
-              <span className="text-[9px] text-white/60 uppercase block">{t('id_card.id_no') || 'ID_NO'}</span>
-              <span className="text-sm font-mono text-white drop-shadow-sm">1407-1995</span>
+              <span className="text-[9px] text-[var(--text-secondary)] uppercase block">{t('id_card.id_no') || 'ID_NO'}</span>
+              <span className="text-sm font-mono text-[var(--text-primary)] font-medium">1407-1995</span>
             </div>
             <div>
-              <span className="text-[9px] text-white/60 uppercase block">{t('id_card.exp') || 'EXP'}</span>
-              <span className="text-sm font-mono text-white drop-shadow-sm">{t('id_card.indefinite') || 'INDEFINITE'}</span>
+              <span className="text-[9px] text-[var(--text-secondary)] uppercase block">{t('id_card.exp') || 'EXP'}</span>
+              <span className="text-sm font-mono text-[var(--text-primary)] font-medium">{t('id_card.indefinite') || 'INDEFINITE'}</span>
             </div>
           </div>
         </div>
