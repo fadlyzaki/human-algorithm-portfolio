@@ -4,15 +4,25 @@ const ProgressBar = () => {
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            if (height > 0) {
-                setWidth((winScroll / height) * 100);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+                    if (height > 0) {
+                        setWidth((winScroll / height) * 100);
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
+
         // Trigger once on mount
         handleScroll();
 
