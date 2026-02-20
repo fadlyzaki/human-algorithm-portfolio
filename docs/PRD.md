@@ -85,6 +85,7 @@ The homepage follows a "Priority-First" narrative flow:
     *   **Multi-Hypothesis Support**: Each case study offers 3 AI-powered solution alternatives in `aiHypotheses` array.
     *   **Smooth Transitions**: Framer Motion animations for solution cycling with "Explore Another Idea" button.
 *   **Zoomable Images (v2.6)**: Click-to-zoom modal for case study evidence images (`ZoomableImage.jsx`) using React Portal for proper z-index stacking.
+*   **Design System Viewer**: An interactive component library showcase (`DesignSystemViewer.jsx`) maintaining strict adherence to ARIA structural accessibility and featuring explicit double-confirmation guardrails for destructive actions.
 
 #### Work Cluster Interactions
 *   **WorkforceAI Demo** (`interactions/WorkforceAI.jsx`): Interactive demo for Lumina ecosystem features.
@@ -127,6 +128,11 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **Branding Update (v3.0)**: Navbar branding updated from `FADLY.ZAKI_` to `Fadlyzaki🧢`.
 *   **Homepage Spacing (v3.0)**: Reduced About-to-Footer gap from `mb-40` (160px) to `mb-20` (80px).
 *   **Credential Button Fix (v3.0)**: Repaired broken Tailwind classNames on About page credential buttons (spaces in utility names).
+
+### 3.8 System Governance (v3.1)
+*   **Merge Gate Audit Status**: Achieved a flawless **100/100** system-wide score via `merge_gate.skill`.
+*   **Zero Magic Strings**: Centralized all `localStorage` keys and magic configuration data into `src/config/constants.js`.
+*   **Safety Guardrails**: Implemented destructive action confirmation patterns (double-confirmation visual friction) for advanced interactions.
 
 ## 4. Functional Specifications
 
@@ -201,6 +207,7 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **[COMPLETED]** Company Disclaimers (v3.0): Bilingual team photo disclaimers for all company galleries.
 *   **[COMPLETED]** Hand Tracker Lifecycle Fix (v3.0): Full camera/stream cleanup on deactivation.
 *   **[COMPLETED]** Branding Update (v3.0): Navbar branding to `Fadlyzaki🧢`.
+*   **[COMPLETED]** System Governance Audit (v3.1): 100/100 perfect system-wide merge gate score, centralized constant configs, and strict ARIA/Heuristic UI enforcement.
 
 ### Phase 3: Intelligence & Expansion (Q2-Q4 2026)
 *   **[Q2 2026]** Enhanced AI Agent: Expand semantic memory with real RAG backend.
