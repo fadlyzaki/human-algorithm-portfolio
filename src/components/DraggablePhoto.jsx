@@ -183,37 +183,60 @@ const DraggablePhoto = () => {
   );
 
   const RenderGlassmorphism = () => (
-    <div className="w-full h-full bg-gradient-to-br from-white/60 to-white/20 dark:from-black/60 dark:to-black/20 backdrop-blur-2xl border border-white/50 dark:border-white/10 relative group overflow-hidden rounded-2xl flex flex-col shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
+    <div className="w-full h-full bg-white/10 dark:bg-black/10 backdrop-blur-2xl border border-white/40 dark:border-white/10 relative group overflow-hidden rounded-xl flex flex-col shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
+      {/* Punch Hole */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-black/20 dark:bg-black/80 rounded-full shadow-inner z-30 flex items-center justify-center backdrop-blur-md border border-white/20 dark:border-white/5">
+        <div className="w-6 h-0.5 bg-black/40 rounded-full"></div>
+      </div>
+
+      {/* Glassmorphism Sheen/Noise */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-white/40 via-transparent to-white/10 dark:from-white/10 dark:via-transparent dark:to-transparent opacity-70 pointer-events-none z-20"></div>
+
       {/* Header */}
-      <div className="h-20 flex items-center justify-between px-6 pt-4 border-b border-black/5 dark:border-white/10">
-        <div className="flex flex-col">
-          <span className="text-black/60 dark:text-white/60 font-mono text-xs tracking-widest">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
-          <span className="text-black/90 dark:text-white/90 font-sans text-xs font-bold tracking-tight mt-1">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+      <div className="h-24 relative flex items-center justify-between px-4 pt-4 border-b border-black/10 dark:border-white/10 bg-white/30 dark:bg-black/30 backdrop-blur-md">
+        <div className="flex flex-col relative z-30">
+          <span className="text-black/60 dark:text-[var(--accent)] font-mono text-[10px] font-bold tracking-[0.2em]">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
+          <span className="text-black dark:text-white font-sans text-xs font-bold tracking-wide mt-1 drop-shadow-sm">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
         </div>
-        <div className="w-8 h-8 rounded-full bg-white/50 dark:bg-black/50 flex items-center justify-center border border-black/10 dark:border-white/10 shadow-sm">
+        <div className="w-8 h-8 rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center bg-white/20 dark:bg-black/20 backdrop-blur-sm relative z-30">
           <User size={14} className="text-black/70 dark:text-white/70" />
         </div>
       </div>
 
       {/* Content */}
-      <div className="flex-grow p-6 relative flex flex-col items-center">
-        <div className="w-24 h-24 rounded-full shadow-lg mb-4 relative overflow-hidden ring-2 ring-white/50 dark:ring-white/10 bg-white/20 dark:bg-black/20">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
+      <div className="flex-grow p-4 relative z-30">
+        <div className="absolute top-4 right-4 w-10 h-8 bg-black/5 dark:bg-white/5 rounded-md border border-black/10 dark:border-white/10 shadow-sm flex flex-wrap gap-[1px] content-center justify-center p-[2px] backdrop-blur-sm">
+          <div className="w-2.5 h-3 border border-black/10 dark:border-white/10 rounded-tl-sm"></div>
+          <div className="w-2.5 h-3 border border-black/10 dark:border-white/10 rounded-tr-sm"></div>
+          <div className="w-2.5 h-3 border border-black/10 dark:border-white/10 rounded-bl-sm"></div>
+          <div className="w-2.5 h-3 border border-black/10 dark:border-white/10 rounded-br-sm"></div>
         </div>
-        <div className="text-center space-y-2 w-full">
-          <h2 className="text-3xl font-black text-black/90 dark:text-white/90 tracking-tighter">UZZAKI, FADLY</h2>
-          <span className="text-xs font-bold text-black/70 dark:text-white/70 bg-white/40 dark:bg-black/40 px-3 py-1 rounded-full border border-black/5 dark:border-white/10 inline-block">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
-
-          <div className="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-black/5 dark:border-white/10">
+        <div className="w-28 h-36 bg-black/5 dark:bg-white/5 border border-black/10 shadow-inner mb-4 relative overflow-hidden contrast-125 brightness-110 backdrop-blur-md ring-1 ring-white/30 dark:ring-white/5">
+          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-out mix-blend-multiply dark:mix-blend-normal" fetchPriority="high" loading="eager" />
+        </div>
+        <div className="space-y-3">
+          <div className="flex flex-col">
+            <h2 className="text-xl font-bold text-black drop-shadow-md dark:text-white dark:drop-shadow-none leading-none uppercase tracking-tight">UZZAKI, FADLY 🧢</h2>
+            <span className="text-[10px] font-mono text-black/60 dark:text-gray-400 uppercase tracking-widest mt-1 font-bold">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
+          </div>
+          <div className="grid grid-cols-2 gap-4 mt-2">
             <div>
-              <span className="text-[9px] text-black/50 dark:text-white/50 uppercase block font-bold">{t('id_card.id_no') || 'ID_NO'}</span>
-              <span className="text-sm font-mono text-black/80 dark:text-white/80 font-bold">1407-1995</span>
+              <label className="text-[8px] font-mono text-black/50 dark:text-gray-500 uppercase block font-bold">{t('id_card.id_no') || 'ID_NO'}</label>
+              <span className="text-xs font-mono font-bold text-black dark:text-white">1407-1995</span>
             </div>
             <div>
-              <span className="text-[9px] text-black/50 dark:text-white/50 uppercase block font-bold">{t('id_card.exp') || 'EXP'}</span>
-              <span className="text-sm font-mono text-black/80 dark:text-white/80 font-bold">{t('id_card.indefinite') || 'INDEFINITE'}</span>
+              <label className="text-[8px] font-mono text-black/50 dark:text-gray-500 uppercase block font-bold">{t('id_card.exp') || 'EXP'}</label>
+              <span className="text-xs font-mono font-bold text-black dark:text-white">{t('id_card.indefinite') || 'INDEFINITE'}</span>
             </div>
           </div>
+        </div>
+      </div>
+      {/* Footer */}
+      <div className="h-12 border-t border-black/10 dark:border-white/10 flex items-center justify-between px-4 relative overflow-hidden bg-white/10 dark:bg-black/20 backdrop-blur-md">
+        <div className="flex items-center gap-[2px] h-6 opacity-40 mix-blend-multiply dark:mix-blend-screen w-full">
+          {[...Array(24)].map((_, i) => (
+            <div key={i} className="bg-black/70 dark:bg-white/70" style={{ width: (i * 13) % 7 > 3 ? '2px' : '4px', height: '100%' }}></div>
+          ))}
         </div>
       </div>
     </div>
