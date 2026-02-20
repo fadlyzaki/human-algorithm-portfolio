@@ -183,7 +183,7 @@ const DraggablePhoto = () => {
   );
 
   const RenderGlassmorphism = () => (
-    <div className="w-full h-full bg-gradient-to-br from-indigo-500/30 to-purple-500/30 backdrop-blur-xl border border-white/30 relative group overflow-hidden rounded-2xl flex flex-col shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+    <div className="w-full h-full bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 backdrop-blur-xl border border-white/30 relative group overflow-hidden rounded-2xl flex flex-col shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
       {/* Header */}
       <div className="h-20 flex items-center justify-between px-6 pt-4 border-b border-white/20">
         <div className="flex flex-col">
@@ -197,7 +197,7 @@ const DraggablePhoto = () => {
 
       {/* Content */}
       <div className="flex-grow p-6 relative flex flex-col items-center">
-        <div className="w-24 h-24 rounded-full border-4 border-white/40 shadow-xl mb-4 relative overflow-hidden ring-4 ring-purple-500/20">
+        <div className="w-24 h-24 rounded-full border-4 border-white/40 shadow-xl mb-4 relative overflow-hidden ring-4 ring-cyan-500/20">
           <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover" fetchPriority="high" loading="eager" />
         </div>
         <div className="text-center space-y-2 w-full">
