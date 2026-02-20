@@ -555,7 +555,7 @@ const BrandIdentity = () => (
                             ACCESS_LEVEL_4<br />
                             HUMAN BY DESIGN<br />
                             UZZAKI, FADLY 🧢<br />
-                            Product Designer // SysOp<br />
+                            Product Designer // System Thinker<br />
                             ID_NO: 1407-1995
                         </div>
                     </div>

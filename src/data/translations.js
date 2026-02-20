@@ -215,7 +215,7 @@ export const translations = {
         id_card: {
             access_level: "ACCESS_LEVEL_4",
             human: "HUMAN BY DESIGN",
-            role: "Product Designer // SysOp",
+            role: "Product Designer // System Thinker",
             id_no: "ID_NO",
             exp: "EXP",
             indefinite: "INDEFINITE",
@@ -532,7 +532,7 @@ export const translations = {
         id_card: {
             access_level: "AKSES_LEVEL_4",
             human: "HUMAN BY DESIGN",
-            role: "Product Designer // SysOp", // Keep English for industry standard
+            role: "Product Designer // System Thinker", // Keep English for industry standard
             id_no: "NO_ID",
             exp: "EXP",
             indefinite: "SELAMANYA",

@@ -67,7 +67,7 @@ const DraggablePhoto = () => {
         <div className="space-y-3">
           <div className="flex flex-col">
             <h2 className="text-xl font-bold text-white dark:text-black leading-none uppercase tracking-tight">UZZAKI, FADLY 🧢</h2>
-            <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600 uppercase tracking-widest mt-1">{t('id_card.role') || 'Product Designer // SysOp'}</span>
+            <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600 uppercase tracking-widest mt-1">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
           </div>
           <div className="grid grid-cols-2 gap-4 mt-2">
             <div>
@@ -122,7 +122,7 @@ const DraggablePhoto = () => {
             </div>
             <div>
               <label className="text-[9px] text-cyan-700 font-mono block">{t('company.role') || 'ROLE'}</label>
-              <span className="text-xs text-cyan-100 font-mono">{t('id_card.role') || 'Product Designer // SysOp'}</span>
+              <span className="text-xs text-cyan-100 font-mono">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
             </div>
             <div className="pt-2">
               <span className="text-[8px] text-cyan-500 font-mono block mb-1">{t('id_card.exp')}: {t('id_card.indefinite')}</span>
@@ -174,7 +174,7 @@ const DraggablePhoto = () => {
             </div>
             <div>
               <label className="font-bold text-xs block mb-1 text-black">{t('company.role') || 'Role'}</label>
-              <span className="font-mono text-sm leading-tight block text-black">{t('id_card.role') || 'Product Designer // SysOp'}</span>
+              <span className="font-mono text-sm leading-tight block text-black">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
             </div>
           </div>
         </div>
