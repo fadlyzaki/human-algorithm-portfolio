@@ -1,137 +1,147 @@
-
 export const interactiveWorkbook = {
     id: 'interactive-workbook',
     title: { en: 'Interactive Workbook', id: 'Buku Kerja Interaktif' },
-    subtitle: { en: 'Bimbel Geera Platform', id: 'Platform Bimbel Geera' },
+    subtitle: { en: 'Bilingual Learning Platform', id: 'Platform Pembelajaran Bilingual' },
     desc: {
-        en: 'A digital safe space for students to fail without fear. Reducing cognitive load in language learning.',
-        id: "Ruang aman digital bagi siswa untuk gagal tanpa rasa takut. Mengurangi beban kognitif dalam pembelajaran bahasa."
+        en: 'A web-based, bilingual learning platform designed for secondary school students. It combines structured English conversation lessons with gamified progress tracking.',
+        id: "Platform pembelajaran bilingual berbasis web untuk siswa sekolah menengah. Menggabungkan pelajaran percakapan bahasa Inggris terstruktur dengan pelacakan kemajuan yang digamifikasi."
     },
     tldr: {
-        en: "Turning 'Silence' into 'Signal'. A tool that helps teachers identify struggling students before they quit.",
-        id: "Mengubah kebisuan siswa menjadi data. Alat yang membantu guru mengidentifikasi siswa yang kesulitan sebelum mereka menyerah."
+        en: "A single-page web app delivering 8 learning units with interactive exercises, real-time Firebase tracking, and a teacher dashboard.",
+        id: "Aplikasi web satu halaman yang menyajikan 8 unit pembelajaran dengan latihan interaktif, pelacakan Firebase real-time, dan dasbor guru."
     },
-    stack: ["React", "Firebase", "Realtime DB"],
+    stack: ["Vanilla JS", "Tailwind", "Firebase", "Chart.js"],
     links: { demo: "https://buku-kerja-interaktif.web.app/", repo: "github.com/fadlyzaki/interactive-workbook" },
     prototypeLink: "https://buku-kerja-interaktif.web.app/",
     iconName: 'BookOpen',
     featured: true,
     type: 'Education',
-    date: "August 2025",
+    date: "February 2026",
     coverImage: "airy:flow",
     snapshot: {
-        tagline: { en: "Psychological Safety v3.1", id: "Keamanan Psikologis v3.1" },
+        tagline: { en: "Gamified Learning", id: "Pembelajaran Digamifikasi" },
         heroImage: "airy:flow"
     },
     context: {
         role: "Product Owner",
-        timeline: "Aug 2025",
-        team: "Geera Education Team",
-        client: "Internal Venture"
+        timeline: "Feb 2026",
+        team: "Solo / Internal",
+        client: "Rumbel Geera"
     },
     challenge: {
-        en: "The Silent Failure: In every classroom, there are students who know the answer but are terrified of public failure. They disengage to protect their ego. Traditional LMS tools track 'grades', but they fail to track 'struggle' or 'confidence'. We needed a way to make the invisible struggle visible.",
-        id: "Kebisuan yang Gagal: Di setiap kelas, ada siswa yang tahu jawabannya tetapi takut gagal di depan umum. Kami membutuhkan cara untuk membuat perjuangan yang tak terlihat menjadi terlihat."
+        en: "Traditional English workbooks lack interactivity, real-time progress tracking, and personalized feedback. Students struggle with motivation, and teachers have no centralized way to monitor individual performance across activities.",
+        id: "Buku kerja bahasa Inggris tradisional kurang interaktif, tidak memiliki pelacakan kemajuan real-time, dan umpan balik yang dipersonalisasi. Siswa kesulitan dengan motivasi, dan guru tidak memiliki cara terpusat untuk memantau kinerja individu di seluruh aktivitas."
     },
     process: [
         {
-            title: { en: "Product Strategy: Psychological Safety", id: "Strategi Produk: Keamanan Psikologis" },
+            title: { en: "1. Core Experience: Dual Dashboards", id: "1. Pengalaman Inti: Dasbor Ganda" },
             desc: {
-                en: "We hypothesized that if we removed the 'Audience', we would increase the 'Attempts'. We built a 'Private Mode' where students could record themselves and self-correct before hitting submit. This shifted the UX from 'Performance' to 'Practice'.",
-                id: "Kami membangun 'Mode Pribadi' di mana siswa dapat merekam diri mereka sendiri dan mengoreksi diri sebelum mengirimkan. Ini menggeser UX dari 'Pertunjukan' ke 'Latihan'."
+                en: "We divided the app into two modes: A Student Mode without passwords for frictionless entry via Anonymous Auth, and a Password-Protected Teacher Mode with manual grading and observation tools.",
+                id: "Kami membagi aplikasi menjadi dua mode: Akses Siswa tanpa kata sandi untuk masuk tanpa hambatan melalui Autentikasi Anonim, dan Mode Guru yang dilindungi kata sandi dengan alat penilaian dan observasi manual."
+            },
+            image: "airy:ui"
+        },
+        {
+            title: { en: "2. The 6-Step Pedagogical Flow", id: "2. Alur Pedagogis 6 Langkah" },
+            desc: {
+                en: "Each of the 8 units follows a structured pedagogical path: Sing Along (YouTube integration), Vocabulary, Dialogue Reading, Speaking Practice, Duolingo Play (recording XP and Streak), and a 5-star Self Reflection.",
+                id: "Setiap dari 8 unit mengikuti jalur pedagogis yang terstruktur: Bernyanyi (Integrasi YouTube), Kosakata, Membaca Dialog, Latihan Berbicara, Bermain Duolingo (mencatat XP dan Streak), dan Refleksi Diri 5 Bintang."
             },
             image: "airy:flow"
         },
         {
-            title: { en: "Technical Execution: Latency as Feedback", id: "Eksekusi Teknis: Latensi sebagai Umpan Balik" },
+            title: { en: "3. Real-Time Tracking Architecture", id: "3. Arsitektur Pelacakan Real-Time" },
             desc: {
-                en: "We used Firebase Realtime Database to provide millisecond-level feedback. The 'Ding!' sound effect wasn't just polish; it was a dopamine trigger to reinforce the behavior of 'trying'. We optimized for low-bandwidth environments common in our target demographic.",
-                id: "Kami menggunakan Firebase Realtime Database untuk memberikan umpan balik tingkat milidetik. Efek suara 'Ding!' adalah pemicu dopamin untuk memperkuat perilaku 'mencoba'."
+                en: "Built using Vanilla JS as a Single Page App. Student contextual data (Pre-tests, Post-tests, Motivation surveys, and Session snapshots) are saved directly to Firestore in real-time.",
+                id: "Dibangun menggunakan Vanilla JS sebagai Single Page App. Data kontekstual siswa (Pra-tes, Pasca-tes, Survei motivasi, dan Cuplikan sesi) disimpan langsung ke Firestore secara real-time."
             },
             image: "airy:network"
         }
     ],
     insights: [
         {
-            title: { en: "Confidence Monitor", id: "Dashboard 'Monitor Kepercayaan Diri'" },
+            title: { en: "AI Conversation Tutor (Planned)", id: "Tutor Percakapan AI (Direncanakan)" },
             desc: {
-                en: "Teachers prefer a simple pulse check over complex analytics.",
-                id: "Guru membutuhkan nadi langsung kelas. Kami membangun dashboard yang menyoroti siswa yang *berusaha* tetapi *gagal* sehingga guru dapat melakukan intervensi dengan dorongan."
+                en: "A planned high-priority feature using an AI-powered chatbot (Web Speech API + LLM) to simulate real English conversations, providing pronunciation accuracy and grammar feedback dynamically.",
+                id: "Fitur prioritas tinggi yang direncanakan menggunakan chatbot bertenaga AI (Web Speech API + LLM) untuk mensimulasikan percakapan bahasa Inggris asli, memberikan akurasi pengucapan dan umpan balik tata bahasa secara dinamis."
             },
             image: "airy:radar"
         },
         {
-            title: { en: "Singing Bypass", id: "Jalur Bernyanyi" },
+            title: { en: "Adaptive Learning Engine (Planned)", id: "Mesin Pembelajaran Adaptif (Direncanakan)" },
             desc: {
-                en: "Karaoke mode uses melody to bypass stuttering blocks.",
-                id: "Kami menemukan bahwa siswa yang gagap dalam berbicara dapat bernyanyi dengan lancar. Kami beralih untuk menyertakan 'Mode Karaoke' untuk latihan kosakata."
+                en: "Using student pre-test and unit performance data to automatically adjust question difficulty, combined with spaced repetition algorithms (SM-2) for vocabulary review scheduling.",
+                id: "Menggunakan data pra-tes dan kinerja unit siswa untuk secara otomatis menyesuaikan kesulitan pertanyaan, dikombinasikan dengan algoritma pengulangan berjarak (SM-2) untuk penjadwalan tinjauan kosakata."
             },
             image: "airy:venn"
+        },
+        {
+            title: { en: "Automated Assessment (Planned)", id: "Penilaian Otomatis (Direncanakan)" },
+            desc: {
+                en: "Implementing AI to evaluate free-text sentence examples for grammar, relevance, and creativity. Generating pre/post-test analytics and AI-driven individual student report cards.",
+                id: "Mengimplementasikan AI untuk mengevaluasi contoh kalimat teks bebas untuk tata bahasa, relevansi, dan kreativitas. Menghasilkan analitik pra/pasca-tes dan kartu laporan siswa individu yang digerakkan oleh AI."
+            },
+            image: "airy:network"
         }
     ],
     solution: [
         {
-            title: { en: "The Product", id: "The Product" }, // ID Content not distinctly translated in file, fallback to EN or implied
+            title: { en: "Seamless Language Switching", id: "Pergantian Bahasa Mulus" },
             desc: {
-                en: "A realtime interactive workbook that rewards 'Start' not just 'Finish'.",
-                id: "A realtime interactive workbook that rewards 'Start' not just 'Finish'."
+                en: "A full Indonesia-English language toggle integrated deeply into all parts of the app to assist secondary school learners.",
+                id: "Fitur pergantian bahasa Indonesia-Inggris yang terintegrasi secara mendalam di seluruh bagian aplikasi untuk membantu siswa sekolah menengah."
             },
             image: "airy:ui"
+        },
+        {
+            title: { en: "Duolingo for Schools Integration", id: "Integrasi Duolingo for Schools" },
+            desc: {
+                en: "Connecting app sessions directly with Duolingo classroom codes (wuyzyz) to track Streak and XP progression visually with Chart.js.",
+                id: "Menghubungkan sesi aplikasi dengan kode kelas Duolingo (wuyzyz) untuk melacak kemajuan Streak dan XP secara visual menggunakan Chart.js."
+            },
+            image: "airy:flow"
         }
     ],
     metrics: [
-        { label: "Participation", value: "Surged" },
-        { label: "Anxiety Rpt", value: "Minimized" }
+        { label: "Learning Units", value: "8" },
+        { label: "Target Audience", value: "7th-11th" }
     ],
-    learnings: {
-        en: "Technology shouldn't just digitize the textbook; it should fix the psychology of the classroom. Lowering the stakes of failure raises the rate of learning.",
-        id: "Teknologi tidak boleh sekadar mendigitalkan buku teks; itu harus memperbaiki psikologi kelas. Menurunkan taruhan kegagalan meningkatkan tingkat pembelajaran."
-    },
     designProcess: [
         {
             type: "research",
-            title: { en: "The Silent Failure", id: "Kebisuan yang Gagal" },
+            title: { en: "Motivation & Measurement", id: "Motivasi & Pengukuran" },
             desc: {
-                en: "In every classroom, students who know the answer remain silent due to fear of public failure. Traditional tools track grades, not confidence.",
-                id: "Di setiap kelas, siswa yang tahu jawabannya tetap diam karena takut gagal di depan umum. Alat tradisional melacak nilai, bukan kepercayaan diri."
+                en: "Classrooms struggle to baseline and track student motivation. We built a 12-question Likert-scale survey integrated directly into the onboarding flow, saving real-time measurements per student.",
+                id: "Kelas kesulitan melacak motivasi siswa. Kami membangun survei skala Likert 12 pertanyaan yang diintegrasikan secara langsung ke dalam alur orientasi, menyimpan pengukuran real-time per siswa."
+            },
+            image: "airy:radar"
+        },
+        {
+            type: "design",
+            title: { en: "Pedagogical Structure", id: "Struktur Pedagogis" },
+            desc: {
+                en: "We standardized the learning flow: Introduction through Music -> Vocabulary Building -> Contextual Dialogue -> Speaking Practice -> Gamified Output (Duolingo) -> Self Reflection.",
+                id: "Kami menstandarkan alur pembelajaran: Pengenalan melalui Musik -> Membangun Kosakata -> Dialog Kontekstual -> Latihan Berbicara -> Output Gamifikasi (Duolingo) -> Refleksi Diri."
             },
             image: "airy:flow"
         },
         {
-            type: "insight",
-            title: { en: "Singing Bypass", id: "Jalur Bernyanyi" },
+            type: "ship",
+            title: { en: "Frictionless Onboarding", id: "Orientasi Tanpa Hambatan" },
             desc: {
-                en: "We found that students who stutter when speaking can often sing fluently. Melody bypasses the neural blockages of anxiety.",
-                id: "Kami menemukan bahwa siswa yang gagap saat berbicara seringkali bisa bernyanyi dengan lancar. Melodi memintas hambatan saraf kecemasan."
-            },
-            image: "airy:venn"
-        },
-        {
-            type: "design",
-            title: { en: "Private Mode", id: "Mode Pribadi" },
-            desc: {
-                en: "We removed the 'Audience'. Students record themselves in a safe space, self-correcting before they submit. UX shifted from 'Performance' to 'Practice'.",
-                id: "Kami menghapus 'Penonton'. Siswa merekam diri di ruang aman, mengoreksi diri sebelum mengirim. UX bergeser dari 'Pertunjukan' ke 'Latihan'."
+                en: "Students can register via dropdowns (name & class) using Firebase Anonymous Auth, bypassing password fatigue and ensuring high participation rates.",
+                id: "Siswa dapat mendaftar melalui dropdown (nama & kelas) menggunakan Autentikasi Anonim Firebase, menghindari kelelahan kata sandi dan memastikan tingkat partisipasi yang tinggi."
             },
             image: "airy:ui"
         },
         {
-            type: "ship",
-            title: { en: "Latency as Feedback", id: "Latensi sebagai Umpan Balik" },
+            type: "measure",
+            title: { en: "Automated Assessment Future", id: "Masa Depan Penilaian Otomatis" },
             desc: {
-                en: "Used Firebase for millisecond-level feedback. The 'Ding!' sound became a dopamine trigger to reinforce the behavior of 'trying'.",
-                id: "Menggunakan Firebase untuk umpan balik milidetik. Suara 'Ding!' menjadi pemicu dopamin untuk memperkuat perilaku 'mencoba'."
+                en: "While Phase 1 allows for Teacher Manual Grading via a dashboard, Phase 2 implements AI models (Gemini/OpenAI) to autograde written sentences and generate personalized insight report cards.",
+                id: "Sementara Fase 1 memungkinkan Penilaian Manual Guru melalui dasbor, Fase 2 mengimplementasikan model AI (Gemini/OpenAI) untuk menilai kalimat tertulis secara otomatis dan menghasilkan kartu laporan wawasan pribadi."
             },
             image: "airy:network"
-        },
-        {
-            type: "measure",
-            title: { en: "Psychological Safety", id: "Keamanan Psikologis" },
-            desc: {
-                en: "lowering the stakes of failure raises the rate of learning. Participation surged when the fear of judgment was removed.",
-                id: "Menurunkan taruhan kegagalan meningkatkan tingkat pembelajaran. Partisipasi melonjak saat ketakutan akan penghakiman dihilangkan."
-            },
-            image: "airy:radar"
         }
     ]
 };
