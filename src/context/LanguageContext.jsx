@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { translations } from '../data/translations';
+import { STORAGE_KEYS } from '../config/constants';
 
 const LanguageContext = createContext();
 
@@ -11,7 +12,7 @@ export const LanguageProvider = ({ children }) => {
 
     // Persist language preference
     useEffect(() => {
-        const savedLang = localStorage.getItem('portfolio-lang-v1');
+        const savedLang = localStorage.getItem(STORAGE_KEYS.LANGUAGE);
         if (savedLang) {
             setTimeout(() => setLanguage(savedLang), 0);
         }
@@ -22,7 +23,7 @@ export const LanguageProvider = ({ children }) => {
         document.documentElement.classList.add('lang-switching');
         const newLang = language === 'en' ? 'id' : 'en';
         setLanguage(newLang);
-        localStorage.setItem('portfolio-lang-v1', newLang);
+        localStorage.setItem(STORAGE_KEYS.LANGUAGE, newLang);
         setTimeout(() => {
             document.documentElement.classList.remove('lang-switching');
         }, 150);

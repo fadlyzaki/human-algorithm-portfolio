@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import { STORAGE_KEYS } from '../config/constants';
 
 const HandCursorContext = createContext();
 
@@ -9,7 +10,7 @@ export const HandCursorProvider = ({ children }) => {
     const [showWelcomeModal, setShowWelcomeModal] = useState(false);
     const [foundEggs, setFoundEggs] = useState(() => {
         // Load from localStorage on init
-        const saved = localStorage.getItem('foundEasterEggs');
+        const saved = localStorage.getItem(STORAGE_KEYS.EASTER_EGGS);
         return saved ? JSON.parse(saved) : [];
     });
     const [showCongratsModal, setShowCongratsModal] = useState(false);
@@ -22,7 +23,7 @@ export const HandCursorProvider = ({ children }) => {
 
     // Save to localStorage whenever foundEggs changes
     useEffect(() => {
-        localStorage.setItem('foundEasterEggs', JSON.stringify(foundEggs));
+        localStorage.setItem(STORAGE_KEYS.EASTER_EGGS, JSON.stringify(foundEggs));
     }, [foundEggs]);
 
     const toggleGestureMode = () => {
@@ -34,14 +35,14 @@ export const HandCursorProvider = ({ children }) => {
             setIsGestureMode(false);
             // Reset collection when deactivating
             setFoundEggs([]);
-            localStorage.removeItem('foundEasterEggs');
+            localStorage.removeItem(STORAGE_KEYS.EASTER_EGGS);
         }
     };
 
     const activateGestureMode = () => {
         // Start fresh with empty collection
         setFoundEggs([]);
-        localStorage.removeItem('foundEasterEggs');
+        localStorage.removeItem(STORAGE_KEYS.EASTER_EGGS);
         setResetTrigger(prev => prev + 1); // Trigger new positions
         setIsGestureMode(true);
         setShowWelcomeModal(false);
@@ -68,7 +69,7 @@ export const HandCursorProvider = ({ children }) => {
 
     const resetCollection = () => {
         setFoundEggs([]);
-        localStorage.removeItem('foundEasterEggs');
+        localStorage.removeItem(STORAGE_KEYS.EASTER_EGGS);
         setShowCongratsModal(false);
         // Trigger position re-randomization
         setResetTrigger(prev => prev + 1);

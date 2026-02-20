@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, useContext, useMemo } from 'react';
+import { STORAGE_KEYS } from '../config/constants';
 
 const ThemeContext = createContext();
 
@@ -6,7 +7,7 @@ export const ThemeProvider = ({ children }) => {
     // Initialize from localStorage or default to true (Dark Mode)
     // Initialize from localStorage or default to system preference
     const [isDark, setIsDark] = useState(() => {
-        const savedTheme = localStorage.getItem('theme');
+        const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME);
         if (savedTheme !== null) {
             return JSON.parse(savedTheme);
         }
@@ -20,7 +21,7 @@ export const ThemeProvider = ({ children }) => {
     useEffect(() => {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         const handleChange = (e) => {
-            if (localStorage.getItem('theme') === null) {
+            if (localStorage.getItem(STORAGE_KEYS.THEME) === null) {
                 setIsDark(e.matches);
             }
         };
@@ -55,7 +56,7 @@ export const ThemeProvider = ({ children }) => {
     const toggleTheme = () => {
         setIsDark(prev => {
             const newValue = !prev;
-            localStorage.setItem('theme', JSON.stringify(newValue));
+            localStorage.setItem(STORAGE_KEYS.THEME, JSON.stringify(newValue));
             return newValue;
         });
     };
