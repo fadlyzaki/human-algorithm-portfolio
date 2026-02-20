@@ -188,19 +188,23 @@ const DraggablePhoto = () => {
       {/* Glassmorphism Sheen/Noise */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-black/5 dark:from-white/10 dark:via-transparent dark:to-transparent opacity-70 pointer-events-none z-20"></div>
 
-      {/* Top Half: Full Width Image */}
-      <div className="w-full h-[55%] relative z-10 p-2">
-        <div className="w-full h-full rounded-lg overflow-hidden relative shadow-inner border border-black/5 dark:border-white/10">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-out mix-blend-multiply dark:mix-blend-normal" fetchPriority="high" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+      {/* Floating Header badge over image */}
+      <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-30 px-1">
+        <div className="flex flex-col bg-white/40 dark:bg-black/40 backdrop-blur-md px-2 py-1 rounded border border-white/40 dark:border-white/10 shadow-sm">
+          <span className="text-black/90 dark:text-white/90 font-mono text-[9px] font-bold tracking-[0.1em]">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
         </div>
-        {/* Floating Header badge over image */}
-        <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-30 px-1">
-          <div className="flex flex-col bg-white/40 dark:bg-black/40 backdrop-blur-md px-2 py-1 rounded border border-white/40 dark:border-white/10 shadow-sm">
-            <span className="text-black/90 dark:text-white/90 font-mono text-[9px] font-bold tracking-[0.1em]">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
-          </div>
-          <div className="w-8 h-8 rounded-full border border-white/40 dark:border-white/20 flex items-center justify-center bg-white/40 dark:bg-black/40 backdrop-blur-md shadow-sm">
-            <User size={14} className="text-black/80 dark:text-white/80" />
+        <div className="w-8 h-8 rounded-full border border-white/40 dark:border-white/20 flex items-center justify-center bg-white/40 dark:bg-black/40 backdrop-blur-md shadow-sm">
+          <User size={14} className="text-black/80 dark:text-white/80" />
+        </div>
+      </div>
+
+      {/* Floating Photo Frame */}
+      <div className="w-full mt-14 flex items-center justify-center relative z-10 p-2">
+        {/* Beautiful frosted frame for photo */}
+        <div className="w-28 h-36 p-1.5 rounded-2xl bg-white/30 dark:bg-black/40 backdrop-blur-xl border-t border-l border-white/60 dark:border-white/20 border-r border-b border-black/5 dark:border-black/40 shadow-xl relative overflow-hidden group/frame transition-transform hover:scale-105 duration-300">
+          <div className="w-full h-full rounded-xl overflow-hidden relative shadow-inner">
+            <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover/frame:grayscale-0 transition-all duration-500 ease-out mix-blend-multiply dark:mix-blend-normal" fetchPriority="high" loading="eager" />
+            <div className="absolute inset-0 border border-black/10 dark:border-white/10 rounded-xl pointer-events-none"></div>
           </div>
         </div>
       </div>
