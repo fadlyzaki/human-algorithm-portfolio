@@ -62,7 +62,7 @@ const DraggablePhoto = () => {
           <div className="w-2.5 h-3 border border-yellow-800/20 rounded-br-sm"></div>
         </div>
         <div className="w-28 h-36 bg-gray-300 border border-black/10 shadow-inner mb-4 relative overflow-hidden grayscale contrast-125 brightness-110">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover" fetchPriority="high" loading="eager" />
+          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
         </div>
         <div className="space-y-3">
           <div className="flex flex-col">
@@ -112,7 +112,7 @@ const DraggablePhoto = () => {
       <div className="flex-grow p-4 relative z-10">
         <div className="flex gap-4">
           <div className="w-24 h-32 border border-cyan-500/50 relative overflow-hidden">
-            <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale contrast-150 mix-blend-luminosity" fetchPriority="high" loading="eager" />
+            <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale contrast-150 mix-blend-luminosity group-hover:grayscale-0 group-hover:mix-blend-normal transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
             <div className="absolute inset-0 bg-cyan-500/20 mix-blend-overlay"></div>
           </div>
           <div className="flex-1 space-y-2">
@@ -159,7 +159,7 @@ const DraggablePhoto = () => {
       {/* Content */}
       <div className="flex-grow p-4 bg-white relative">
         <div className="absolute -top-12 right-4 w-24 h-32 bg-gray-200 border-4 border-white shadow-lg z-10">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale" fetchPriority="high" loading="eager" />
+          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
         </div>
 
         <div className="mt-8 space-y-4">
@@ -198,7 +198,7 @@ const DraggablePhoto = () => {
       {/* Content */}
       <div className="flex-grow p-6 relative flex flex-col items-center">
         <div className="w-24 h-24 rounded-full shadow-lg mb-4 relative overflow-hidden ring-1 ring-[var(--border-color)] bg-[var(--bg-void)]">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale" fetchPriority="high" loading="eager" />
+          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
         </div>
         <div className="text-center space-y-2 w-full">
           <h2 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">UZZAKI, FADLY</h2>
@@ -232,7 +232,7 @@ const DraggablePhoto = () => {
       {/* Content */}
       <div className="flex-grow p-2 relative flex gap-4 items-start">
         <div className="w-24 h-28 border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-10 p-1">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale contrast-200" fetchPriority="high" loading="eager" />
+          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale contrast-200 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
         </div>
         <div className="flex-1 space-y-2 pt-2">
           <div>
