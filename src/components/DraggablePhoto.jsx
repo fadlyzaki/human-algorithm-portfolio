@@ -22,7 +22,7 @@ const DraggablePhoto = () => {
 
   const toggleVariant = (e) => {
     e.stopPropagation();
-    const variants = ['industrial', 'cyberpunk', 'swiss'];
+    const variants = ['industrial', 'cyberpunk', 'swiss', 'glassmorphism', 'retro'];
     const nextIndex = (variants.indexOf(designVariant) + 1) % variants.length;
     setDesignVariant(variants[nextIndex]);
   };
@@ -182,10 +182,86 @@ const DraggablePhoto = () => {
     </div>
   );
 
+  const RenderGlassmorphism = () => (
+    <div className="w-full h-full bg-gradient-to-br from-indigo-500/30 to-purple-500/30 backdrop-blur-xl border border-white/30 relative group overflow-hidden rounded-2xl flex flex-col shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+      {/* Header */}
+      <div className="h-20 flex items-center justify-between px-6 pt-4 border-b border-white/20">
+        <div className="flex flex-col">
+          <span className="text-white/80 font-mono text-xs tracking-widest">{t('id_card.access_level') || 'ACCESS_LEVEL_4'}</span>
+          <span className="text-white font-sans text-xs font-medium tracking-tight mt-1">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+        </div>
+        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center border border-white/40 shadow-inner">
+          <User size={14} className="text-white" />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="flex-grow p-6 relative flex flex-col items-center">
+        <div className="w-24 h-24 rounded-full border-4 border-white/40 shadow-xl mb-4 relative overflow-hidden ring-4 ring-purple-500/20">
+          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover" fetchPriority="high" loading="eager" />
+        </div>
+        <div className="text-center space-y-2 w-full">
+          <h2 className="text-2xl font-bold text-white tracking-tight drop-shadow-md">UZZAKI, FADLY</h2>
+          <span className="text-xs font-medium text-white/80 bg-white/10 px-3 py-1 rounded-full border border-white/10 inline-block">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
+
+          <div className="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-white/20">
+            <div>
+              <span className="text-[9px] text-white/60 uppercase block">{t('id_card.id_no') || 'ID_NO'}</span>
+              <span className="text-sm font-mono text-white drop-shadow-sm">1407-1995</span>
+            </div>
+            <div>
+              <span className="text-[9px] text-white/60 uppercase block">{t('id_card.exp') || 'EXP'}</span>
+              <span className="text-sm font-mono text-white drop-shadow-sm">{t('id_card.indefinite') || 'INDEFINITE'}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const RenderRetro = () => (
+    <div className="w-full h-full bg-[#E8E8E8] border-4 border-black border-t-8 border-b-8 relative group overflow-hidden rounded-md flex flex-col shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-1">
+      {/* Header */}
+      <div className="h-16 flex items-center justify-center border-b-2 border-black border-dashed mb-2">
+        <span className="text-black font-mono text-xl font-bold uppercase tracking-widest leading-none text-center">
+          * IDENTITY *<br />
+          <span className="text-[10px] tracking-normal">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+        </span>
+      </div>
+
+      {/* Content */}
+      <div className="flex-grow p-2 relative flex gap-4 items-start">
+        <div className="w-24 h-28 border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-10 p-1">
+          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale contrast-200" fetchPriority="high" loading="eager" />
+        </div>
+        <div className="flex-1 space-y-2 pt-2">
+          <div>
+            <label className="text-[9px] text-black font-mono block uppercase underline">{t('id_card.id_no') || 'ID_NO'}</label>
+            <span className="text-sm font-mono text-black font-bold">1407-1995</span>
+          </div>
+          <div>
+            <label className="text-[9px] text-black font-mono block uppercase underline">{t('company.role') || 'ROLE'}</label>
+            <span className="text-[10px] leading-tight text-black font-mono font-bold block">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="h-14 bg-black flex items-center justify-between px-4 mt-auto">
+        <h2 className="text-xl font-black text-white font-mono tracking-tighter">FADLY.U 🧢</h2>
+        <div className="px-2 py-1 bg-white border border-black text-[10px] font-bold font-mono">
+          {t('id_card.access_level') || 'ACCESS_LEVEL_4'}
+        </div>
+      </div>
+    </div>
+  );
+
   const renderCard = () => {
     switch (designVariant) {
       case 'cyberpunk': return <RenderCyberpunk />;
       case 'swiss': return <RenderSwiss />;
+      case 'glassmorphism': return <RenderGlassmorphism />;
+      case 'retro': return <RenderRetro />;
       default: return <RenderIndustrial />;
     }
   };
