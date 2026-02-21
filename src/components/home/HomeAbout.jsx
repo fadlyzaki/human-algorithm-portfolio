@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, User, Heart, Cpu, Activity, Flame, BookOpen, PenLine } from 'lucide-react';
+import { ArrowRight, User, Heart, Cpu, Activity, Flame, BookOpen, PenLine, Palette } from 'lucide-react';
 import SectionTitle from '../SectionTitle';
 import ProfileScanner from '../ProfileScanner';
 import RichText from '../RichText';
@@ -87,6 +87,40 @@ const HomeAbout = ({ t }) => {
                         ))}
                     </div>
                 </div>
+
+                {/* 6. SKETCHES TEASER (Span 3 cols — Full Width) */}
+                <Link
+                    to="/sketches"
+                    className="md:col-span-3 group relative overflow-hidden rounded-2xl border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer"
+                >
+                    {/* Background Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-amber-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+                    <div className="relative z-10 flex items-center justify-between p-6 md:p-8">
+                        <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors">
+                                <Palette size={20} className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity" />
+                            </div>
+                            <div>
+                                <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                                    Sketches
+                                </h4>
+                                <p className="text-[var(--text-primary)] text-sm md:text-base font-light">
+                                    Before the pixels, there were pencils.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            <span className="hidden md:inline-block font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                Explore the raw side →
+                            </span>
+                            <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)]">
+                                90+ pieces
+                            </div>
+                        </div>
+                    </div>
+                </Link>
 
             </div>
         </section>
