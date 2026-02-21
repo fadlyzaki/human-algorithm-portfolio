@@ -315,6 +315,14 @@ export const translations = {
             status_label: "Status",
             status_ready: "Ready to Build",
             cta_proceed: "Proceed to System Directory"
+        },
+        sketches: {
+            title: "Constellation Map",
+            digital: "Digital",
+            pencil: "Pencil",
+            drag_to_explore: "DRAG TO EXPLORE",
+            scroll_to_zoom: "SCROLL TO ZOOM",
+            nodes_found: "NODES FOUND"
         }
     },
     id: {
@@ -632,6 +640,14 @@ export const translations = {
             status_label: "Status",
             status_ready: "Siap Membangun",
             cta_proceed: "Lanjut ke Direktori Sistem"
+        },
+        sketches: {
+            title: "Peta Konstelasi",
+            digital: "Digital",
+            pencil: "Pensil",
+            drag_to_explore: "GESER UNTUK EKSPLORASI",
+            scroll_to_zoom: "GULIR UNTUK ZOOM",
+            nodes_found: "NODE DITEMUKAN"
         }
     }
 };

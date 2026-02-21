@@ -2,6 +2,8 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import { X, ZoomIn, ZoomOut, Maximize, Activity } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 import sketchesData from '../../data/sketches.json';
 
 // --- Data Prep & Positioning ---
@@ -80,7 +82,9 @@ const Lightbox = ({ image, onClose }) => {
 
 // --- Main Component ---
 const NodeGraphGallery = () => {
-  const [activeMedium, setActiveMedium] = useState('digital');
+  const { isDark } = useTheme();
+  const { t } = useLanguage();
+  const [activeMedium, setActiveMedium] = useState(isDark ? 'digital' : 'pencil');
   const [selectedImage, setSelectedImage] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isNodeDragging, setIsNodeDragging] = useState(false);
@@ -131,7 +135,7 @@ const NodeGraphGallery = () => {
             >
               <Activity size={18} className={isDigital ? 'text-zinc-500' : 'text-zinc-400'} />
               <span className={`font-mono text-xs tracking-[0.2em] uppercase ${isDigital ? 'text-zinc-500' : 'text-zinc-500'}`}>
-                Constellation Map
+                {t('sketches.title')}
               </span>
             </motion.div>
 
@@ -140,7 +144,7 @@ const NodeGraphGallery = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-6xl font-bold tracking-tight pointer-events-auto"
             >
-              Sketches.
+              {t('nav.sketches') || 'Sketches'}.
             </motion.h1>
           </div>
 
@@ -159,7 +163,7 @@ const NodeGraphGallery = () => {
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 />
               )}
-              Digital
+              {t('sketches.digital')}
             </button>
             <button
               onClick={() => setActiveMedium('pencil')}
@@ -174,7 +178,7 @@ const NodeGraphGallery = () => {
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 />
               )}
-              Pencil
+              {t('sketches.pencil')}
             </button>
           </div>
         </div>
@@ -182,9 +186,9 @@ const NodeGraphGallery = () => {
         {/* --- MAP LEGEND --- */}
         <div className="absolute bottom-8 left-6 md:left-12 z-50 pointer-events-none">
           <div className={`font-mono text-xs tracking-widest flex flex-col gap-2 ${isDigital ? 'text-zinc-600' : 'text-zinc-400'}`}>
-            <p>[ DRAG TO EXPLORE ]</p>
-            <p>[ SCROLL TO ZOOM ]</p>
-            <p>NODES FOUND: {nodes.length}</p>
+            <p>[ {t('sketches.drag_to_explore')} ]</p>
+            <p>[ {t('sketches.scroll_to_zoom')} ]</p>
+            <p>{t('sketches.nodes_found')}: {nodes.length}</p>
           </div>
         </div>
 

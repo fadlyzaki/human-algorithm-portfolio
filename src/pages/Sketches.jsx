@@ -55,7 +55,7 @@ const Sketches = () => {
       <Navbar onOpenMenu={handleOpenMenu} title="SKETCHES" backPath="/" />
       <NavigationMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />
 
-      <main className="relative z-10 w-full min-h-screen pt-24 pb-12 px-4 md:px-12 overflow-x-hidden">
+      <main className="relative z-10 w-full min-h-screen overflow-hidden">
         <MasonryGallery />
       </main>
     </div>
