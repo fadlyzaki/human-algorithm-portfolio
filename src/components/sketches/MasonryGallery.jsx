@@ -101,74 +101,110 @@ const NodeGraphGallery = () => {
 
   const isDigital = activeMedium === 'digital';
 
-  // --- Shape Shifting Logic ---
-  const [currentWordIndex, setCurrentWordIndex] = useState(-1);
-  const words = ['DESIGN', 'LOVE', 'AI', 'CHAOS', 'ORDER'];
+  // --- Shape Shifting Logic (Constellations) ---
+  const [currentShapeIndex, setCurrentShapeIndex] = useState(-1);
 
-  const getWordPoints = (word, numNodes) => {
-    const canvas = document.createElement('canvas');
-    // High res canvas for better sampling
-    canvas.width = 1200;
-    canvas.height = 800;
-    const ctx = canvas.getContext('2d');
+  // Real constellation approximate coordinate maps (centered around 0,0)
+  const CONSTELLATIONS = [
+    {
+      name: 'ORION',
+      points: [
+        { x: -50, y: -100 }, // Betelgeuse
+        { x: 50, y: -80 },   // Bellatrix
+        { x: -20, y: 0 },    // Alnitak (Belt)
+        { x: 0, y: 10 },     // Alnilam (Belt)
+        { x: 20, y: 20 },    // Mintaka (Belt)
+        { x: -40, y: 120 },  // Saiph
+        { x: 60, y: 100 },   // Rigel
+        { x: 0, y: -140 }, // Head
+        { x: -80, y: -60 }, // Bow top
+        { x: -100, y: 0 }, // Bow mid
+        { x: -70, y: 60 }, // Bow bottom
+      ]
+    },
+    {
+      name: 'URSA MAJOR',
+      points: [
+        { x: -120, y: -20 }, // Alkaid (handle tip)
+        { x: -70, y: -10 },  // Mizar
+        { x: -20, y: 10 },   // Alioth
+        { x: 20, y: 40 },    // Megrez (bowl corner)
+        { x: 80, y: 80 },    // Phecda (bowl bottom)
+        { x: 120, y: 20 },   // Merak (bowl bottom front)
+        { x: 90, y: -40 },   // Dubhe (bowl top front)
+      ]
+    },
+    {
+      name: 'CASSIOPEIA',
+      points: [
+        { x: -100, y: -50 }, // Caph
+        { x: -40, y: 20 },   // Schedar
+        { x: 0, y: -80 },    // Gamma Cas
+        { x: 50, y: 10 },    // Ruchbah
+        { x: 100, y: -40 },  // Segin
+      ]
+    },
+    {
+      name: 'CYGNUS',
+      points: [
+        { x: 0, y: -100 },   // Deneb (tail)
+        { x: 0, y: -30 },    // Sadr (center)
+        { x: 0, y: 100 },    // Albireo (head)
+        { x: -80, y: -10 },  // Wing tip left
+        { x: -40, y: -20 },  // Wing mid left
+        { x: 40, y: -20 },   // Wing mid right
+        { x: 80, y: -10 },   // Wing tip right
+      ]
+    }
+  ];
 
-    // Draw the word
-    ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = 'black';
-    ctx.font = 'bold 300px Inter, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(word, canvas.width / 2, canvas.height / 2);
+  const getConstellationPoints = (shape, numNodes) => {
+    const scale = 8; // Scale up the local coordinates
 
-    // Get pixel data
-    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-    const points = [];
+    // Base points for the main constellation structure
+    const basePoints = shape.points.map(p => ({
+      x: (CANVAS_SIZE / 2) + p.x * scale,
+      y: (CANVAS_SIZE / 2) + p.y * scale
+    }));
 
-    // Grid sampling to find black pixels
-    const step = 8;
-    for (let y = 0; y < canvas.height; y += step) {
-      for (let x = 0; x < canvas.width; x += step) {
-        const i = (y * canvas.width + x) * 4;
-        // If it's a black pixel (r < 128)
-        if (imgData[i] < 128) {
-          points.push({ x, y });
-        }
-      }
+    // If we have more nodes than the constellation points, we scatter the rest
+    // as "background stars" but clustered around the constellation
+    const points = [...basePoints];
+
+    for (let i = basePoints.length; i < numNodes; i++) {
+      // Random point near the constellation center but scattered wider
+      const angle = Math.random() * Math.PI * 2;
+      const radius = Math.random() * 800 + 100; // Scatter radius
+      points.push({
+        x: (CANVAS_SIZE / 2) + Math.cos(angle) * radius,
+        y: (CANVAS_SIZE / 2) + Math.sin(angle) * radius
+      });
     }
 
-    // If we don't have enough points, just return random
-    if (points.length < numNodes) return null;
-
-    // Shuffle and pick exactly numNodes points
-    // Fisher-Yates shuffle
+    // Shuffle the points so the images map randomly to the structure vs background
     for (let i = points.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [points[i], points[j]] = [points[j], points[i]];
     }
 
-    return points.slice(0, numNodes).map(p => ({
-      // Center the word coordinates onto our CANVAS_SIZE
-      x: (CANVAS_SIZE / 2) + (p.x - canvas.width / 2) * 3, // scale up by 3
-      y: (CANVAS_SIZE / 2) + (p.y - canvas.height / 2) * 3
-    }));
+    return points;
   };
 
   const handleShapeShift = () => {
-    const nextIndex = (currentWordIndex + 1) % words.length;
-    setCurrentWordIndex(nextIndex);
+    const nextIndex = (currentShapeIndex + 1) % CONSTELLATIONS.length;
+    setCurrentShapeIndex(nextIndex);
   };
 
   const handleResetShape = () => {
-    setCurrentWordIndex(-1);
+    setCurrentShapeIndex(-1);
   }
 
   // Determine current effective nodes based on scatter vs shape-shift
   const displayNodes = useMemo(() => {
-    if (currentWordIndex === -1) return nodes;
+    if (currentShapeIndex === -1) return nodes;
 
-    const word = words[currentWordIndex];
-    const targetPoints = getWordPoints(word, nodes.length);
+    const shape = CONSTELLATIONS[currentShapeIndex];
+    const targetPoints = getConstellationPoints(shape, nodes.length);
 
     if (!targetPoints) return nodes;
 
@@ -177,9 +213,9 @@ const NodeGraphGallery = () => {
       x: targetPoints[i].x,
       y: targetPoints[i].y,
       rotation: 0, // Keep straight when in shape
-      size: node.size * 0.5 // Make them a bit smaller to form the word better
+      size: node.size * 0.5 // Make them a bit smaller to form the structure better
     }));
-  }, [nodes, currentWordIndex]);
+  }, [nodes, currentShapeIndex]);
 
   const handleNodeClick = (img, e) => {
     // Prevent click if the user was just dragging the canvas or the node itself
@@ -232,21 +268,6 @@ const NodeGraphGallery = () => {
             {/* Toggle controls */}
             <div className="pointer-events-auto flex items-center gap-4 bg-white/5 backdrop-blur-md p-1.5 rounded-full border border-white/10 shadow-2xl">
               <button
-                onClick={() => setActiveMedium('digital')}
-                className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${isDigital ? 'text-white' : 'text-zinc-400 hover:text-white'
-                  }`}
-              >
-                {isDigital && (
-                  <motion.div
-                    layoutId="node-pill"
-                    className="absolute inset-0 bg-blue-600/20 border border-blue-500/30 rounded-full"
-                    style={{ zIndex: -1 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                  />
-                )}
-                {t('sketches.digital')}
-              </button>
-              <button
                 onClick={() => setActiveMedium('pencil')}
                 className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${!isDigital ? 'text-zinc-900' : 'text-zinc-400 hover:text-white'
                   }`}
@@ -260,6 +281,21 @@ const NodeGraphGallery = () => {
                   />
                 )}
                 {t('sketches.pencil')}
+              </button>
+              <button
+                onClick={() => setActiveMedium('digital')}
+                className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${isDigital ? 'text-white' : 'text-zinc-400 hover:text-white'
+                  }`}
+              >
+                {isDigital && (
+                  <motion.div
+                    layoutId="node-pill"
+                    className="absolute inset-0 bg-blue-600/20 border border-blue-500/30 rounded-full"
+                    style={{ zIndex: -1 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+                {t('sketches.digital')}
               </button>
             </div>
           </div>
@@ -282,14 +318,14 @@ const NodeGraphGallery = () => {
           <div className="pointer-events-auto mt-4">
             <button
               onClick={handleShapeShift}
-              className={`px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all mr-2 ${currentWordIndex !== -1
+              className={`px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all mr-2 ${currentShapeIndex !== -1
                 ? 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]'
                 : 'bg-white/5 border-white/10 text-zinc-400 hover:text-white'
                 }`}
             >
-              {currentWordIndex === -1 ? 'FORM: CHAOS' : `FORM: ${words[currentWordIndex]}`}
+              {currentShapeIndex === -1 ? 'FORM: CHAOS' : `FORM: ${CONSTELLATIONS[currentShapeIndex].name}`}
             </button>
-            {currentWordIndex !== -1 && (
+            {currentShapeIndex !== -1 && (
               <button
                 onClick={handleResetShape}
                 className="px-4 py-2 text-xs font-mono uppercase tracking-widest border bg-white/5 border-white/10 text-zinc-400 hover:text-white transition-all"
