@@ -66,7 +66,11 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showN
                             <BackButton to={backPath} label="Back" className="hover:bg-[var(--text-secondary)]/10 px-3 py-1.5 rounded-md !text-[var(--text-secondary)] hover:!text-[var(--text-primary)] transition-colors border-r border-[var(--border-color)] pr-6" />
                         ) : (
                             <div className="flex items-center gap-6">
-                                <Link to="/" className="flex items-center gap-3 group">
+                                <Link
+                                    to="/"
+                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                    className="flex items-center gap-3 group"
+                                >
                                     {/* Logo / Glitch Text */}
                                     <span className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
                                         🧢 Fadlyzaki
