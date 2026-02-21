@@ -239,13 +239,21 @@ const NodeGraphGallery = () => {
                     {/* SVG Connecting Lines (Constellation Effect) */}
                     <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
                       {nodes.map((node, i) => {
-                        // Connect to the next 2 nodes to form a web
                         const next1 = nodes[i + 1];
                         const next2 = nodes[i + 2];
                         return (
                           <g key={`lines-${i}`}>
                             {next1 && (
-                              <line
+                              <motion.line
+                                initial={{ pathLength: 0, strokeDashoffset: 0 }}
+                                animate={{
+                                  pathLength: 1,
+                                  strokeDashoffset: isDigital ? [0, -20] : 0
+                                }}
+                                transition={{
+                                  pathLength: { duration: 1.5, ease: "easeOut" },
+                                  strokeDashoffset: { duration: 2, repeat: Infinity, ease: "linear" }
+                                }}
                                 x1={node.x + node.size / 2} y1={node.y + node.size / 2}
                                 x2={next1.x + next1.size / 2} y2={next1.y + next1.size / 2}
                                 stroke={isDigital ? '#3b82f6' : '#71717a'}
@@ -254,12 +262,13 @@ const NodeGraphGallery = () => {
                               />
                             )}
                             {next2 && i % 3 === 0 && (
-                              <line
+                              <motion.line
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 0.5 }}
                                 x1={node.x + node.size / 2} y1={node.y + node.size / 2}
                                 x2={next2.x + next2.size / 2} y2={next2.y + next2.size / 2}
                                 stroke={isDigital ? '#3b82f6' : '#71717a'}
                                 strokeWidth={1}
-                                opacity={0.5}
                               />
                             )}
                           </g>
@@ -269,24 +278,43 @@ const NodeGraphGallery = () => {
 
                     {/* Image Nodes */}
                     <AnimatePresence>
-                      {nodes.map((node) => (
+                      {nodes.map((node, i) => (
                         <motion.div
                           key={node.id}
                           initial={{ scale: 0, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 1 }}
+                          animate={{
+                            scale: 1,
+                            opacity: 1,
+                            y: [0, Math.sin(i) * 15, 0], // Floating effect
+                            x: [0, Math.cos(i) * 15, 0]
+                          }}
                           exit={{ scale: 0, opacity: 0 }}
-                          transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                          transition={{
+                            type: 'spring',
+                            stiffness: 200,
+                            damping: 20,
+                            y: {
+                              duration: 4 + (i % 3),
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            },
+                            x: {
+                              duration: 5 + (i % 2),
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            }
+                          }}
                           style={{
                             position: 'absolute',
                             left: node.x,
                             top: node.y,
                             width: node.size,
-                            height: node.size,
+                            // Removed height: node.size to allow natural aspect ratio
                             rotate: node.rotation,
                           }}
                           className={`group cursor-pointer pointer-events-auto ${isDigital
-                              ? 'rounded-lg border border-blue-500/50 bg-black overflow-hidden hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-shadow duration-300'
-                              : 'bg-white p-2 shadow-xl hover:shadow-2xl transition-shadow duration-300'
+                            ? 'rounded-lg border border-blue-500/50 bg-black overflow-hidden hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-shadow duration-300'
+                            : 'bg-white p-2 shadow-xl hover:shadow-2xl transition-shadow duration-300'
                             }`}
                           onClick={(e) => handleNodeClick(node, e)}
                         >
@@ -295,12 +323,12 @@ const NodeGraphGallery = () => {
                             alt={node.title}
                             draggable="false"
                             loading="lazy"
-                            className={`w-full h-full object-cover transition-transform duration-500 ${isDigital ? 'opacity-90 group-hover:scale-110 group-hover:opacity-100' : 'contrast-125 sepia-[0.1]'
+                            className={`w-full h-auto block transition-transform duration-500 scale-[1.01] ${isDigital ? 'opacity-90 group-hover:scale-110 group-hover:opacity-100' : 'contrast-125 sepia-[0.1]'
                               }`}
                           />
 
-                          {/* Node Label Tooltip */}
-                          <div className={`absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono text-[10px] uppercase tracking-wider px-2 py-1 rounded ${isDigital ? 'bg-blue-600 outline outline-1 outline-blue-400 text-white' : 'bg-black text-white'
+                          {/* Node Label Tooltip - adjusted position for variable height */}
+                          <div className={`absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono text-[10px] uppercase tracking-wider px-2 py-1 rounded ${isDigital ? 'bg-blue-600 outline outline-1 outline-blue-400 text-white' : 'bg-black text-white'
                             }`}>
                             {node.title}
                           </div>
