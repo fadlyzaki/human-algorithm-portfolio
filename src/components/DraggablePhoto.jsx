@@ -7,7 +7,10 @@ import { useLanguage } from '../context/LanguageContext';
 const DraggablePhoto = () => {
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
-  const [designVariant, setDesignVariant] = useState('industrial'); // industrial, cyberpunk, swiss
+  const [designVariant, setDesignVariant] = useState(() => {
+    const variants = ['industrial', 'cyberpunk', 'swiss', 'glassmorphism', 'retro'];
+    return variants[Math.floor(Math.random() * variants.length)];
+  });
 
   const items = [
     { type: 'identity', src: '/hero-id-v2.jpg' },

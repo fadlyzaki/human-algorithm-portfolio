@@ -84,7 +84,7 @@ const Lightbox = ({ image, onClose }) => {
 const NodeGraphGallery = () => {
   const { isDark } = useTheme();
   const { t } = useLanguage();
-  const [activeMedium, setActiveMedium] = useState(isDark ? 'digital' : 'pencil');
+  const [activeMedium, setActiveMedium] = useState('pencil');
   const [selectedImage, setSelectedImage] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isNodeDragging, setIsNodeDragging] = useState(false);

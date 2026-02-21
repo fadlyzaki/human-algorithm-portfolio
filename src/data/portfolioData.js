@@ -34,7 +34,7 @@ export const WORK_CLUSTERS = [
     stoqo
 ].map((cluster, idx) => ({
     ...cluster,
-    featured: idx === 0, // First cluster is the featured project
+    featured: false, // Ensure no cluster is marked as featured to remove the label
     // Normalize nested projects within the work cluster
     projects: cluster.projects.map(normalizeProject)
 }));

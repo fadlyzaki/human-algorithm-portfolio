@@ -74,16 +74,22 @@ const HomeAbout = ({ t }) => {
                     </h4>
                     <div className="grid grid-cols-2 gap-3">
                         {[
-                            { label: "Duolingo", val: "Daily", icon: Flame, color: "text-orange-500" },
-                            { label: "Strava", val: "5K/Wk", icon: Activity, color: "text-orange-600" },
-                            { label: "Goodreads", val: "Daily", icon: BookOpen, color: "text-amber-200" },
-                            { label: "Substack", val: "Weekly", icon: PenLine, color: "text-purple-400" }
+                            { label: "Duolingo", val: "Daily", icon: Flame, color: "text-orange-500", url: "https://www.duolingo.com/profile/fadlyzaki" },
+                            { label: "Strava", val: "5K/Wk", icon: Activity, color: "text-orange-600", url: "https://www.strava.com/athletes/129304799" },
+                            { label: "Goodreads", val: "Daily", icon: BookOpen, color: "text-amber-200", url: "https://www.goodreads.com/user/show/32928962-fadlyzaki" },
+                            { label: "Substack", val: "Weekly", icon: PenLine, color: "text-purple-400", url: "https://substack.com/@fadlyzaki" }
                         ].map((interest, i) => (
-                            <div key={i} className="flex flex-col p-2 bg-[var(--bg-surface)] rounded border border-[var(--border-color)]">
+                            <a
+                                key={i}
+                                href={interest.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col p-2 bg-[var(--bg-surface)] rounded border border-[var(--border-color)] hover:border-[var(--text-primary)] hover:-translate-y-0.5 transition-all"
+                            >
                                 <interest.icon size={16} className={`mb-2 ${interest.color}`} />
                                 <span className="text-xs font-bold text-[var(--text-primary)]">{interest.label}</span>
                                 <span className="text-[10px] font-mono text-[var(--text-secondary)] opacity-70">{interest.val}</span>
-                            </div>
+                            </a>
                         ))}
                     </div>
                 </div>
@@ -91,7 +97,7 @@ const HomeAbout = ({ t }) => {
                 {/* 6. SKETCHES TEASER (Span 3 cols — Full Width) */}
                 <Link
                     to="/sketches"
-                    className="md:col-span-3 group relative overflow-hidden rounded-2xl border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer"
+                    className="md:col-span-3 group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer"
                 >
                     {/* Background Glow */}
                     <div className="absolute inset-0 bg-gradient-to-r from-amber-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
