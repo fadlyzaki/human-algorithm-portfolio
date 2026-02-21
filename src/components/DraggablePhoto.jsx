@@ -8,7 +8,7 @@ const DraggablePhoto = () => {
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
   const [designVariant, setDesignVariant] = useState(() => {
-    const variants = ['industrial', 'cyberpunk', 'swiss', 'glassmorphism', 'retro'];
+    const variants = ['industrial', 'cyberpunk', 'swiss', 'glassmorphism', 'retro', 'neo-brutalism', 'holographic'];
     return variants[Math.floor(Math.random() * variants.length)];
   });
 
@@ -25,7 +25,7 @@ const DraggablePhoto = () => {
 
   const toggleVariant = (e) => {
     e.stopPropagation();
-    const variants = ['industrial', 'cyberpunk', 'swiss', 'glassmorphism', 'retro'];
+    const variants = ['industrial', 'cyberpunk', 'swiss', 'glassmorphism', 'retro', 'neo-brutalism', 'holographic'];
     const nextIndex = (variants.indexOf(designVariant) + 1) % variants.length;
     setDesignVariant(variants[nextIndex]);
   };
@@ -274,12 +274,101 @@ const DraggablePhoto = () => {
     </div>
   );
 
+  const RenderNeoBrutalism = () => (
+    <div className="w-full h-full bg-[#fbbc04] border-[6px] border-black relative group overflow-hidden rounded-none flex flex-col shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-2">
+      {/* Header */}
+      <div className="h-16 flex items-center justify-between border-b-4 border-black pb-2 mb-2">
+        <span className="text-black font-mono text-2xl font-black uppercase tracking-tighter leading-none">
+          ID_CARD<br />
+          <span className="text-[10px] tracking-normal font-bold">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+        </span>
+        <div className="w-8 h-8 rounded-full border-4 border-black bg-white flex items-center justify-center">
+          <User size={16} className="text-black" />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="flex-grow relative flex flex-col items-center">
+        <div className="w-[120px] h-[160px] border-[4px] border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-10 p-1 mb-4 rotate-2 group-hover:-rotate-2 transition-transform duration-300">
+          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale contrast-200 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-300" fetchPriority="high" loading="eager" />
+        </div>
+        <div className="w-full bg-white border-4 border-black p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <h2 className="text-2xl font-black text-black tracking-tighter leading-none mb-1 uppercase">FADLY UZZAKI</h2>
+          <span className="text-[10px] leading-tight text-black font-mono font-bold block uppercase">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="h-12 border-t-4 border-black flex items-center justify-between mt-auto pt-2">
+        <span className="text-sm font-mono text-black font-black uppercase">{t('id_card.id_no') || 'ID_NO'}: 1407-1995</span>
+        <div className="px-2 py-1 bg-[#ea4335] text-white border-2 border-black text-[10px] font-black font-mono uppercase">
+          {t('id_card.access_level') || 'ROOT_ACCESS'}
+        </div>
+      </div>
+    </div>
+  );
+
+  const RenderHolographic = () => (
+    <div className="w-full h-full relative group overflow-hidden rounded-2xl flex flex-col p-[2px]">
+      {/* Animated gradient border wrapper */}
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-300 via-purple-300 to-cyan-300 dark:from-pink-600 dark:via-purple-600 dark:to-cyan-600 group-hover:opacity-100 opacity-80 duration-1000"></div>
+
+      {/* Inner card */}
+      <div className="w-full h-full bg-white/40 dark:bg-black/40 backdrop-blur-xl relative rounded-[14px] flex flex-col overflow-hidden">
+        {/* Holographic Sheen */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent opacity-30 group-hover:opacity-60 transition-duration-700 pointer-events-none z-20 mix-blend-overlay"></div>
+
+        {/* Header */}
+        <div className="h-16 flex items-center justify-between px-4 z-10 pt-2">
+          <div className="flex flex-col">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-cyan-500 font-mono text-[10px] font-black tracking-widest uppercase">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
+            <span className="text-gray-800 dark:text-gray-100 font-sans text-[10px] font-bold mt-1 opacity-70">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+          </div>
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400/20 to-cyan-400/20 border border-white/40 flex items-center justify-center backdrop-blur-md">
+            <User size={14} className="text-gray-700 dark:text-gray-200" />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="flex-grow p-4 relative z-10 flex flex-col items-center justify-center">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gradient-to-tr from-pink-300 via-purple-300 to-cyan-300 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[40px] opacity-40 group-hover:opacity-60 transition-opacity duration-1000"></div>
+
+          <div className="w-28 h-36 rounded-2xl p-1 bg-gradient-to-br from-white/60 to-white/10 dark:from-white/20 dark:to-white/5 border border-white/40 dark:border-white/10 shadow-2xl relative overflow-hidden group/frame">
+            <div className="w-full h-full rounded-xl overflow-hidden relative">
+              <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover mix-blend-overlay contrast-125 saturate-50 group-hover/frame:saturate-100 group-hover/frame:mix-blend-normal transition-all duration-700 ease-out" fetchPriority="high" loading="eager" />
+            </div>
+            {/* Iridescent overlay on photo */}
+            <div className="absolute inset-0 bg-gradient-to-br from-pink-300/20 via-purple-300/20 to-cyan-300/20 mix-blend-color-dodge opacity-50 pointer-events-none rounded-xl"></div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="p-4 z-10 bg-white/20 dark:bg-black/20 backdrop-blur-md border-t border-white/20 dark:border-white/10">
+          <div className="flex justify-between items-end mb-2">
+            <div>
+              <h2 className="text-2xl font-black text-gray-800 dark:text-gray-100 tracking-tighter leading-none mb-1">FADLY U.</h2>
+              <span className="text-[9px] font-mono text-gray-600 dark:text-gray-300 uppercase tracking-widest block">{t('id_card.role') || 'Product Designer'}</span>
+            </div>
+            <div className="text-right">
+              <span className="text-[10px] font-mono font-bold text-gray-700 dark:text-gray-200">1407-1995</span>
+            </div>
+          </div>
+          <div className="h-1 w-full bg-black/5 dark:bg-white/5 rounded-full overflow-hidden mt-2">
+            <div className="h-full bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 w-full animate-pulse opacity-80"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   const renderCard = () => {
     switch (designVariant) {
       case 'cyberpunk': return <RenderCyberpunk />;
       case 'swiss': return <RenderSwiss />;
       case 'glassmorphism': return <RenderGlassmorphism />;
       case 'retro': return <RenderRetro />;
+      case 'neo-brutalism': return <RenderNeoBrutalism />;
+      case 'holographic': return <RenderHolographic />;
       default: return <RenderIndustrial />;
     }
   };
