@@ -101,6 +101,86 @@ const NodeGraphGallery = () => {
 
   const isDigital = activeMedium === 'digital';
 
+  // --- Shape Shifting Logic ---
+  const [currentWordIndex, setCurrentWordIndex] = useState(-1);
+  const words = ['DESIGN', 'LOVE', 'AI', 'CHAOS', 'ORDER'];
+
+  const getWordPoints = (word, numNodes) => {
+    const canvas = document.createElement('canvas');
+    // High res canvas for better sampling
+    canvas.width = 1200;
+    canvas.height = 800;
+    const ctx = canvas.getContext('2d');
+
+    // Draw the word
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'black';
+    ctx.font = 'bold 300px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(word, canvas.width / 2, canvas.height / 2);
+
+    // Get pixel data
+    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    const points = [];
+
+    // Grid sampling to find black pixels
+    const step = 8;
+    for (let y = 0; y < canvas.height; y += step) {
+      for (let x = 0; x < canvas.width; x += step) {
+        const i = (y * canvas.width + x) * 4;
+        // If it's a black pixel (r < 128)
+        if (imgData[i] < 128) {
+          points.push({ x, y });
+        }
+      }
+    }
+
+    // If we don't have enough points, just return random
+    if (points.length < numNodes) return null;
+
+    // Shuffle and pick exactly numNodes points
+    // Fisher-Yates shuffle
+    for (let i = points.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [points[i], points[j]] = [points[j], points[i]];
+    }
+
+    return points.slice(0, numNodes).map(p => ({
+      // Center the word coordinates onto our CANVAS_SIZE
+      x: (CANVAS_SIZE / 2) + (p.x - canvas.width / 2) * 3, // scale up by 3
+      y: (CANVAS_SIZE / 2) + (p.y - canvas.height / 2) * 3
+    }));
+  };
+
+  const handleShapeShift = () => {
+    const nextIndex = (currentWordIndex + 1) % words.length;
+    setCurrentWordIndex(nextIndex);
+  };
+
+  const handleResetShape = () => {
+    setCurrentWordIndex(-1);
+  }
+
+  // Determine current effective nodes based on scatter vs shape-shift
+  const displayNodes = useMemo(() => {
+    if (currentWordIndex === -1) return nodes;
+
+    const word = words[currentWordIndex];
+    const targetPoints = getWordPoints(word, nodes.length);
+
+    if (!targetPoints) return nodes;
+
+    return nodes.map((node, i) => ({
+      ...node,
+      x: targetPoints[i].x,
+      y: targetPoints[i].y,
+      rotation: 0, // Keep straight when in shape
+      size: node.size * 0.5 // Make them a bit smaller to form the word better
+    }));
+  }, [nodes, currentWordIndex]);
+
   const handleNodeClick = (img, e) => {
     // Prevent click if the user was just dragging the canvas or the node itself
     if (isDragging || isNodeDragging) return;
@@ -197,6 +277,27 @@ const NodeGraphGallery = () => {
               </motion.p>
             )}
           </AnimatePresence>
+
+          {/* Shape Shifter Controls */}
+          <div className="pointer-events-auto mt-4">
+            <button
+              onClick={handleShapeShift}
+              className={`px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all mr-2 ${currentWordIndex !== -1
+                ? 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]'
+                : 'bg-white/5 border-white/10 text-zinc-400 hover:text-white'
+                }`}
+            >
+              {currentWordIndex === -1 ? 'FORM: CHAOS' : `FORM: ${words[currentWordIndex]}`}
+            </button>
+            {currentWordIndex !== -1 && (
+              <button
+                onClick={handleResetShape}
+                className="px-4 py-2 text-xs font-mono uppercase tracking-widest border bg-white/5 border-white/10 text-zinc-400 hover:text-white transition-all"
+              >
+                RESET
+              </button>
+            )}
+          </div>
         </div>
 
         {/* --- MAP LEGEND --- */}
@@ -204,7 +305,7 @@ const NodeGraphGallery = () => {
           <div className={`font-mono text-xs tracking-widest flex flex-col gap-2 ${isDigital ? 'text-zinc-600' : 'text-zinc-400'}`}>
             <p>[ {t('sketches.drag_to_explore')} ]</p>
             <p>[ {t('sketches.scroll_to_zoom')} ]</p>
-            <p>{t('sketches.nodes_found')}: {nodes.length}</p>
+            <p>{t('sketches.nodes_found')}: {displayNodes.length}</p>
           </div>
         </div>
 
@@ -259,9 +360,9 @@ const NodeGraphGallery = () => {
                   >
                     {/* SVG Connecting Lines (Constellation Effect) */}
                     <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
-                      {nodes.map((node, i) => {
-                        const next1 = nodes[i + 1];
-                        const next2 = nodes[i + 2];
+                      {displayNodes.map((node, i) => {
+                        const next1 = displayNodes[i + 1];
+                        const next2 = displayNodes[i + 2];
                         return (
                           <g key={`lines-${i}`}>
                             {next1 && (
@@ -299,7 +400,7 @@ const NodeGraphGallery = () => {
 
                     {/* Image Nodes */}
                     <AnimatePresence>
-                      {nodes.map((node, i) => (
+                      {displayNodes.map((node, i) => (
                         <motion.div
                           key={node.id}
                           drag
