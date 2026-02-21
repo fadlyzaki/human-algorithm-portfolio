@@ -210,28 +210,21 @@ const NodeGraphGallery = () => {
     const shape = CONSTELLATIONS[currentShapeIndex];
 
     if (shape.isGrid) {
-      // Grid logic based on original order (chronological)
+      // Horizontal Timeline logic (chronological timeline spreading to the right)
       const nodeWidth = isDigital ? 160 : 160;
       const gap = 60;
 
-      const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
-      const padding = 100; // side padding so it doesn't touch the very edges
-      const availableWidth = screenWidth > padding * 2 ? screenWidth - padding * 2 : screenWidth;
-      const cols = Math.max(1, Math.floor((availableWidth + gap) / (nodeWidth + gap)));
-
-      // Calculate center offsets so the grid sits in the middle of CANVAS_SIZE
-      const gridWidth = cols * (nodeWidth + gap) - gap;
-      const gridHeight = Math.ceil(nodes.length / cols) * (nodeWidth + gap) - gap;
-      const startX = (CANVAS_SIZE / 2) - (gridWidth / 2);
-      const startY = (CANVAS_SIZE / 2) - (gridHeight / 2);
+      const startX = (CANVAS_SIZE / 2) - (nodeWidth / 2);
+      const startY = (CANVAS_SIZE / 2) - (nodeWidth / 2);
 
       return nodes.map((node, i) => {
-        const row = Math.floor(i / cols);
-        const col = i % cols;
+        // Slight vertical stagger for a more dynamic timeline feel
+        const staggerY = (i % 2 === 0) ? -30 : 30;
+
         return {
           ...node,
-          x: startX + col * (nodeWidth + gap),
-          y: startY + row * (nodeWidth + gap),
+          x: startX + i * (nodeWidth + gap),
+          y: startY + staggerY,
           rotation: 0,
           size: nodeWidth
         };
@@ -262,6 +255,17 @@ const NodeGraphGallery = () => {
     setSelectedImage(null);
     document.body.style.overflow = '';
   };
+
+  // Dynamically extend canvas width if the timeline goes far to the right
+  const dynamicCanvasWidth = useMemo(() => {
+    if (currentShapeIndex !== -1 && CONSTELLATIONS[currentShapeIndex].isGrid) {
+      const nodeWidth = 160;
+      const gap = 60;
+      const timelineWidth = nodes.length * (nodeWidth + gap);
+      return Math.max(CANVAS_SIZE, (CANVAS_SIZE / 2) + timelineWidth + 1000);
+    }
+    return CANVAS_SIZE;
+  }, [currentShapeIndex, nodes.length]);
 
   if (!mounted) return null;
 
@@ -423,7 +427,7 @@ const NodeGraphGallery = () => {
                 <TransformComponent wrapperStyle={{ width: '100vw', height: '100vh' }}>
                   <div
                     style={{
-                      width: CANVAS_SIZE,
+                      width: dynamicCanvasWidth,
                       height: CANVAS_SIZE,
                       position: 'relative'
                     }}
