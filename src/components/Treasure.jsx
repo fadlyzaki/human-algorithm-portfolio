@@ -8,7 +8,7 @@ const Treasure = ({
     className = "",
     type = "gem" // gem, coins, crown, anchor
 }) => {
-    const { isGestureMode, collectEgg, foundEggs, cursorPosition, resetTrigger } = useHandCursor();
+    const { isGestureMode, collectEgg, foundEggs, resetTrigger } = useHandCursor();
     const [isRevealed, setIsRevealed] = useState(false);
     const [showCollectedFeedback, setShowCollectedFeedback] = useState(false);
     const [randomPosition, setRandomPosition] = useState({ top: 0, left: 0 });
@@ -35,10 +35,10 @@ const Treasure = ({
     useEffect(() => {
         if (!isGestureMode || !treasureRef.current) return;
 
-        const checkCollision = () => {
+        const handleMove = (e) => {
+            const cursorX = e.detail.x;
+            const cursorY = e.detail.y;
             const rect = treasureRef.current.getBoundingClientRect();
-            const cursorX = cursorPosition.x;
-            const cursorY = cursorPosition.y;
 
             // Check if cursor is within the treasure's bounds
             const isHovering =
@@ -60,9 +60,9 @@ const Treasure = ({
             }
         };
 
-        // Check collision on every cursor move
-        checkCollision();
-    }, [cursorPosition, isGestureMode, isFound, collectEgg, id]);
+        window.addEventListener('handCursorMove', handleMove);
+        return () => window.removeEventListener('handCursorMove', handleMove);
+    }, [isGestureMode, isFound, collectEgg, id]);
 
     // If gesture mode is OFF, return nothing (hidden)
     if (!isGestureMode) return null;

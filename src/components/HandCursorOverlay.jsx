@@ -8,7 +8,7 @@ import { AlertTriangle } from 'lucide-react';
 
 const HandCursorOverlay = () => {
     const webcamRef = useRef(null);
-    const { isGestureMode, setCursorPosition, cursorPosition, setIsGestureMode } = useHandCursor();
+    const { isGestureMode, setIsGestureMode } = useHandCursor();
     const [isModelLoading, setIsModelLoading] = useState(false);
     const [modelReady, setModelReady] = useState(false);
     const [loadError, setLoadError] = useState(null);
@@ -51,14 +51,14 @@ const HandCursorOverlay = () => {
         document.documentElement.style.setProperty('--cursor-x', `${smoothX}px`);
         document.documentElement.style.setProperty('--cursor-y', `${smoothY}px`);
 
-        // 2. STATE UPDATE (Throttled - 10fps)
-        // Only trigger React Context updates for game logic (collisions) occasionally
+        // 2. STATE UPDATE (Throttled Custom DOM Event)
+        // Dispatch event for game logic (collisions) occasionally without App re-rendering
         const now = Date.now();
-        if (now - lastStateUpdate.current > 100) {
-            setCursorPosition({ x: smoothX, y: smoothY });
+        if (now - lastStateUpdate.current > 50) {
+            window.dispatchEvent(new CustomEvent('handCursorMove', { detail: { x: smoothX, y: smoothY } }));
             lastStateUpdate.current = now;
         }
-    }, [setCursorPosition]);
+    }, []);
 
     // --- 1. INITIALIZE MODEL (Once or Lazy) WITH ERROR HANDLING ---
     useEffect(() => {
@@ -269,8 +269,8 @@ const HandCursorOverlay = () => {
                     ref={lensRef}
                     className="fixed w-32 h-32 border border-emerald-500/50 rounded-full flex items-center justify-center -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 mix-blend-screen"
                     style={{
-                        left: cursorPosition.x, // Initial placement / Fallback
-                        top: cursorPosition.y,
+                        left: -1000, // Initial placement / Fallback
+                        top: -1000,
                         boxShadow: '0 0 40px rgba(16, 185, 129, 0.2)'
                     }}
                 >

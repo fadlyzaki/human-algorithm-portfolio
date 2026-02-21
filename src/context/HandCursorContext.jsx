@@ -5,7 +5,6 @@ const HandCursorContext = createContext();
 
 export const HandCursorProvider = ({ children }) => {
     const [isGestureMode, setIsGestureMode] = useState(false);
-    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     const [isClicking, setIsClicking] = useState(false);
     const [showWelcomeModal, setShowWelcomeModal] = useState(false);
     const [foundEggs, setFoundEggs] = useState(() => {
@@ -80,8 +79,6 @@ export const HandCursorProvider = ({ children }) => {
         setIsGestureMode,
         toggleGestureMode,
         activateGestureMode,
-        cursorPosition,
-        setCursorPosition,
         isClicking,
         setIsClicking,
         showWelcomeModal,
@@ -95,7 +92,6 @@ export const HandCursorProvider = ({ children }) => {
         resetTrigger
     }), [
         isGestureMode,
-        cursorPosition,
         isClicking,
         showWelcomeModal,
         foundEggs,
