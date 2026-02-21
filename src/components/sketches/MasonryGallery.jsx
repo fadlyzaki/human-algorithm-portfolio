@@ -83,6 +83,7 @@ const NodeGraphGallery = () => {
   const [activeMedium, setActiveMedium] = useState('digital');
   const [selectedImage, setSelectedImage] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [isNodeDragging, setIsNodeDragging] = useState(false);
 
   // We mount the nodes after client-side hydration to avoid SSR mismatch, 
   // though Vercel builds might be fine.
@@ -97,8 +98,8 @@ const NodeGraphGallery = () => {
   const isDigital = activeMedium === 'digital';
 
   const handleNodeClick = (img, e) => {
-    // Prevent click if the user was just dragging the canvas
-    if (isDragging) return;
+    // Prevent click if the user was just dragging the canvas or the node itself
+    if (isDragging || isNodeDragging) return;
     setSelectedImage(img);
     document.body.style.overflow = 'hidden';
   };
@@ -281,6 +282,18 @@ const NodeGraphGallery = () => {
                       {nodes.map((node, i) => (
                         <motion.div
                           key={node.id}
+                          drag
+                          dragMomentum={false}
+                          dragTransition={{ power: 0, timeConstant: 0 }}
+                          onDragStart={() => setIsNodeDragging(true)}
+                          onDragEnd={() => {
+                            setTimeout(() => setIsNodeDragging(false), 100);
+                          }}
+                          whileDrag={{
+                            scale: 1.1,
+                            zIndex: 100,
+                            cursor: 'grabbing'
+                          }}
                           initial={{ scale: 0, opacity: 0 }}
                           animate={{
                             scale: 1,
