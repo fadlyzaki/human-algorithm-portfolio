@@ -193,8 +193,7 @@ const HandCursorOverlay = () => {
                 if (handsRef.current) {
                     try {
                         await handsRef.current.send({ image: videoElement });
-                    } catch (err) { // eslint-disable-line no-unused-vars
-                        // Ignore internal pipe errors during rapid toggles
+                    } catch (_) { // Ignore internal pipe errors during rapid toggles
                     }
                 }
             },

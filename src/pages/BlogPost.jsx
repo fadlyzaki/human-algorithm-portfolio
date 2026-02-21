@@ -158,46 +158,42 @@ const BlogPost = () => {
         {/* Content Body */}
         <article className="prose prose-lg md:prose-xl max-w-none">
           {post.content.map((block, i) => {
-            switch (block.type) {
-              case 'paragraph':
-                return (
-                  <p key={i} className="mb-8 leading-relaxed text-[var(--text-primary)] font-serif">
-                    {block.text}
-                  </p>
-                );
-              case 'heading':
-                return (
-                  <h2 key={i} className="text-2xl font-bold mt-12 mb-6 font-sans tracking-tight text-[var(--text-primary)] flex items-center gap-3">
-                    <Hash size={20} className="text-[var(--accent-color)]" />
-                    {block.text}
-                  </h2>
-                );
-              case 'blockquote':
-                return (
-                  <blockquote key={i} className="my-10 pl-8 italic border-l-4 border-[var(--accent-color)] text-2xl text-[var(--text-primary)] font-serif bg-[var(--bg-paper)] py-6 pr-4 rounded-r-lg relative">
-                    <QuoteIcon />
-                    "{block.text}"
-                  </blockquote>
-                );
-              case 'code':
-                return (
-                  <div key={i} className="my-8 rounded-lg overflow-hidden border border-[var(--border-color)] bg-[#0d1117]">
-                    <div className="flex items-center justify-between px-4 py-2 bg-[#161b22] border-b border-[#30363d]">
-                      <div className="flex gap-1.5">
-                        <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                        <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                        <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-                      </div>
-                      <span className="font-mono text-xs text-gray-400 uppercase">{block.lang}</span>
+            const RenderMap = {
+              paragraph: () => (
+                <p key={i} className="mb-8 leading-relaxed text-[var(--text-primary)] font-serif">
+                  {block.text}
+                </p>
+              ),
+              heading: () => (
+                <h2 key={i} className="text-2xl font-bold mt-12 mb-6 font-sans tracking-tight text-[var(--text-primary)] flex items-center gap-3">
+                  <Hash size={20} className="text-[var(--accent-color)]" />
+                  {block.text}
+                </h2>
+              ),
+              blockquote: () => (
+                <blockquote key={i} className="my-10 pl-8 italic border-l-4 border-[var(--accent-color)] text-2xl text-[var(--text-primary)] font-serif bg-[var(--bg-paper)] py-6 pr-4 rounded-r-lg relative">
+                  <QuoteIcon />
+                  "{block.text}"
+                </blockquote>
+              ),
+              code: () => (
+                <div key={i} className="my-8 rounded-lg overflow-hidden border border-[var(--border-color)] bg-[#0d1117]">
+                  <div className="flex items-center justify-between px-4 py-2 bg-[#161b22] border-b border-[#30363d]">
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
                     </div>
-                    <pre className="p-4 overflow-x-auto text-sm font-mono text-gray-300">
-                      <code>{block.code}</code>
-                    </pre>
+                    <span className="font-mono text-xs text-gray-400 uppercase">{block.lang}</span>
                   </div>
-                );
-              default:
-                return null;
-            }
+                  <pre className="p-4 overflow-x-auto text-sm font-mono text-gray-300">
+                    <code>{block.code}</code>
+                  </pre>
+                </div>
+              )
+            };
+            const RenderBlock = RenderMap[block.type];
+            return RenderBlock ? <RenderBlock key={i} /> : null;
           })}
         </article>
 

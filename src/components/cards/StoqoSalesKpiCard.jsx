@@ -7,12 +7,12 @@ const StoqoSalesKpiCard = ({ expanded, showChrome }) => (
             {/* Filter Stream */}
             <div className="flex gap-2">
                 {/* Noise Item */}
-                <div className="w-16 h-12 border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-white/5 rounded flex flex-col justify-center items-center opacity-30">
+                <div className="w-16 h-12 border border-[var(--kpi-border)] bg-[var(--kpi-bg)] rounded flex flex-col justify-center items-center opacity-30">
                     <div className="w-8 h-1 bg-slate-300 rounded mb-1"></div>
                     <div className="w-4 h-1 bg-slate-200 rounded"></div>
                 </div>
                 {/* SIGNAL Item (KPI) */}
-                <div className="w-16 h-12 border border-[var(--brand)] bg-white dark:bg-white/10 rounded flex flex-col justify-center items-center shadow-[0_4px_12px_rgba(0,0,0,0.1)] relative overflow-hidden group-hover:-translate-y-1 transition-transform">
+                <div className="w-16 h-12 border border-[var(--brand)] bg-white dark:bg-white/10 rounded flex flex-col justify-center items-center shadow-[var(--kpi-shadow)] relative overflow-hidden group-hover:-translate-y-1 transition-transform">
                     <div className="absolute top-0 right-0 w-4 h-4 bg-[var(--brand)] flex items-center justify-center">
                         <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
                     </div>
@@ -20,7 +20,7 @@ const StoqoSalesKpiCard = ({ expanded, showChrome }) => (
                     <div className="w-4 h-1 bg-[var(--brand)] rounded opacity-50"></div>
                 </div>
                 {/* Noise Item */}
-                <div className="w-16 h-12 border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-white/5 rounded flex flex-col justify-center items-center opacity-30">
+                <div className="w-16 h-12 border border-[var(--kpi-border)] bg-[var(--kpi-bg)] rounded flex flex-col justify-center items-center opacity-30">
                     <div className="w-8 h-1 bg-slate-300 rounded mb-1"></div>
                     <div className="w-4 h-1 bg-slate-200 rounded"></div>
                 </div>

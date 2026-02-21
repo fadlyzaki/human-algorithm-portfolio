@@ -438,15 +438,16 @@ const StoqoLogisticsApp = () => {
     const [currentScreen, setCurrentScreen] = useState('home');
 
     const renderScreen = () => {
-        switch (currentScreen) {
-            case 'home': return <NotificationHome onNavigate={setCurrentScreen} />;
-            case 'details-processing': return <DetailsProcessing onNavigate={setCurrentScreen} />;
-            case 'details-ready': return <DetailsReady onNavigate={setCurrentScreen} />;
-            case 'details-ontheway': return <DetailsOnTheWay onNavigate={setCurrentScreen} />;
-            case 'details-delayed': return <DetailsDelayed onNavigate={setCurrentScreen} />;
-            case 'details-delivered': return <DetailsDelivered onNavigate={setCurrentScreen} />;
-            default: return <NotificationHome onNavigate={setCurrentScreen} />;
-        }
+        const ScreenMap = {
+            home: NotificationHome,
+            'details-processing': DetailsProcessing,
+            'details-ready': DetailsReady,
+            'details-ontheway': DetailsOnTheWay,
+            'details-delayed': DetailsDelayed,
+            'details-delivered': DetailsDelivered
+        };
+        const CurrentScreenRef = ScreenMap[currentScreen] || ScreenMap.home;
+        return <CurrentScreenRef onNavigate={setCurrentScreen} />;
     };
 
     return (

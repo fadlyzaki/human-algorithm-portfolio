@@ -279,12 +279,13 @@ const StoqoPickerApp = () => {
     };
 
     const renderScreen = () => {
-        switch (screen) {
-            case 'list': return <PickListScreen onNavigate={handleNavigate} />;
-            case 'scan': return <ScanScreen onNavigate={handleNavigate} item={selectedItem} />;
-            case 'details': return <DetailScreen onNavigate={handleNavigate} item={selectedItem} />;
-            default: return <PickListScreen onNavigate={handleNavigate} />;
-        }
+        const ScreenMap = {
+            list: PickListScreen,
+            scan: ScanScreen,
+            details: DetailScreen
+        };
+        const CurrentScreenRef = ScreenMap[screen] || ScreenMap.list;
+        return <CurrentScreenRef onNavigate={handleNavigate} item={selectedItem} />;
     };
 
     return (

@@ -374,16 +374,13 @@ const StoqoApp = () => {
     const [currentScreen, setCurrentScreen] = useState('home');
 
     const renderScreen = () => {
-        switch (currentScreen) {
-            case 'home':
-                return <OnboardingScreen onNavigate={setCurrentScreen} />;
-            case 'dashboard':
-                return <DashboardScreen onNavigate={setCurrentScreen} />;
-            case 'orders':
-                return <OrderScreen onNavigate={setCurrentScreen} />;
-            default:
-                return <OnboardingScreen onNavigate={setCurrentScreen} />;
-        }
+        const ScreenMap = {
+            home: OnboardingScreen,
+            dashboard: DashboardScreen,
+            orders: OrderScreen
+        };
+        const CurrentScreenRef = ScreenMap[currentScreen] || ScreenMap.home;
+        return <CurrentScreenRef onNavigate={setCurrentScreen} />;
     };
 
     return (

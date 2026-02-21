@@ -361,15 +361,19 @@ const DraggablePhoto = () => {
   );
 
   const renderCard = () => {
-    switch (designVariant) {
-      case 'cyberpunk': return <RenderCyberpunk />;
-      case 'swiss': return <RenderSwiss />;
-      case 'glassmorphism': return <RenderGlassmorphism />;
-      case 'retro': return <RenderRetro />;
-      case 'neo-brutalism': return <RenderNeoBrutalism />;
-      case 'holographic': return <RenderHolographic />;
-      default: return <RenderIndustrial />;
-    }
+    const VariantMap = {
+      cyberpunk: RenderCyberpunk,
+      swiss: RenderSwiss,
+      glassmorphism: RenderGlassmorphism,
+      retro: RenderRetro,
+      'neo-brutalism': RenderNeoBrutalism,
+      holographic: RenderHolographic,
+      industrial: RenderIndustrial
+    };
+
+    // Fallback to industrial if variant not found
+    const SelectedVariant = VariantMap[designVariant] || VariantMap.industrial;
+    return <SelectedVariant />;
   };
 
   return (

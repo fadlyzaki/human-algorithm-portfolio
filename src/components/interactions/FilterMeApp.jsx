@@ -140,118 +140,69 @@ const FilterMeApp = () => {
             zIndex: 10,
         };
 
-        switch (activeProduct.type) {
-            case 'lipstick':
-                return (
+        const RenderMap = {
+            lipstick: () => (
+                <div style={{
+                    ...commonStyle,
+                    bottom: '27%',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '22%',
+                    height: '5%',
+                    backgroundColor: activeProduct.hex,
+                    opacity: activeProduct.opacity,
+                    mixBlendMode: activeProduct.blendMode,
+                    filter: 'blur(3px)',
+                    borderRadius: '40% 40% 60% 60% / 30% 30% 70% 70%'
+                }} />
+            ),
+            blush: () => (
+                <>
                     <div style={{
-                        ...commonStyle,
-                        bottom: '27%', // Adjusted from 31% to sit correctly on lips
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        width: '22%', // Slightly wider
-                        height: '5%',
-                        backgroundColor: activeProduct.hex,
-                        opacity: activeProduct.opacity,
-                        mixBlendMode: activeProduct.blendMode,
-                        filter: 'blur(3px)', // Increased blur for better blending
-                        borderRadius: '40% 40% 60% 60% / 30% 30% 70% 70%' // More organic lip shape
+                        ...commonStyle, bottom: '36%', left: '28%', width: '18%', height: '12%',
+                        backgroundColor: activeProduct.hex, opacity: activeProduct.opacity, mixBlendMode: activeProduct.blendMode,
+                        filter: 'blur(20px)', borderRadius: '50%'
                     }} />
-                );
-            case 'blush':
-                return (
-                    <>
-                        {/* Left Cheek */}
-                        <div style={{
-                            ...commonStyle,
-                            bottom: '36%', // Lowered slightly to sit on cheek apple
-                            left: '28%', // Moved slightly outwards
-                            width: '18%',
-                            height: '12%',
-                            backgroundColor: activeProduct.hex,
-                            opacity: activeProduct.opacity,
-                            mixBlendMode: activeProduct.blendMode,
-                            filter: 'blur(20px)', // Softer blend
-                            borderRadius: '50%'
-                        }} />
-                        {/* Right Cheek */}
-                        <div style={{
-                            ...commonStyle,
-                            bottom: '36%',
-                            right: '28%',
-                            width: '18%',
-                            height: '12%',
-                            backgroundColor: activeProduct.hex,
-                            opacity: activeProduct.opacity,
-                            mixBlendMode: activeProduct.blendMode,
-                            filter: 'blur(20px)',
-                            borderRadius: '50%'
-                        }} />
-                    </>
-                );
-            case 'highlighter':
-                return (
-                    <>
-                        {/* Nose Bridge */}
-                        <div style={{
-                            ...commonStyle,
-                            bottom: '42%',
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            width: '3%',
-                            height: '15%',
-                            backgroundColor: activeProduct.hex,
-                            opacity: activeProduct.opacity,
-                            mixBlendMode: activeProduct.blendMode,
-                            filter: 'blur(5px)',
-                        }} />
-                        {/* Cheekbones */}
-                        <div style={{
-                            ...commonStyle,
-                            bottom: '43%', // Aligned with upper cheekbone
-                            left: '25%',
-                            width: '12%',
-                            height: '4%',
-                            backgroundColor: activeProduct.hex,
-                            opacity: activeProduct.opacity,
-                            mixBlendMode: activeProduct.blendMode,
-                            filter: 'blur(8px)',
-                            transform: 'rotate(-25deg)'
-                        }} />
-                        <div style={{
-                            ...commonStyle,
-                            bottom: '43%',
-                            right: '25%',
-                            width: '12%',
-                            height: '4%',
-                            backgroundColor: activeProduct.hex,
-                            opacity: activeProduct.opacity,
-                            mixBlendMode: activeProduct.blendMode,
-                            filter: 'blur(8px)',
-                            transform: 'rotate(25deg)'
-                        }} />
-                    </>
-                );
-            case 'glasses':
-                return (
-                    // Adjusted Position: Moved UP to 35% (Eye Level) and widened to 70%
-                    <div className="absolute top-[35%] left-1/2 -translate-x-1/2 w-[70%] animate-in fade-in duration-500 z-20 pointer-events-none">
-                        {/* SVG Illustration of Sunglasses */}
-                        <svg viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            {/* Left Lens */}
-                            <path d="M10 20 C 10 20, 30 10, 50 10 C 70 10, 90 20, 90 40 C 90 60, 70 70, 50 70 C 30 70, 10 60, 10 40 Z" fill="black" fillOpacity="0.8" />
-                            {/* Right Lens */}
-                            <path d="M110 20 C 110 20, 130 10, 150 10 C 170 10, 190 20, 190 40 C 190 60, 170 70, 150 70 C 130 70, 110 60, 110 40 Z" fill="black" fillOpacity="0.8" />
-                            {/* Bridge */}
-                            <path d="M90 30 Q 100 20 110 30" stroke="gold" strokeWidth="3" fill="none" />
-                            {/* Frame Rims */}
-                            <path d="M10 20 C 10 20, 30 10, 50 10 C 70 10, 90 20, 90 40 C 90 60, 70 70, 50 70 C 30 70, 10 60, 10 40 Z" stroke="gold" strokeWidth="2" />
-                            <path d="M110 20 C 110 20, 130 10, 150 10 C 170 10, 190 20, 190 40 C 190 60, 170 70, 150 70 C 130 70, 110 60, 110 40 Z" stroke="gold" strokeWidth="2" />
-                        </svg>
-                    </div>
-                );
-            default:
-                return null;
-        }
+                    <div style={{
+                        ...commonStyle, bottom: '36%', right: '28%', width: '18%', height: '12%',
+                        backgroundColor: activeProduct.hex, opacity: activeProduct.opacity, mixBlendMode: activeProduct.blendMode,
+                        filter: 'blur(20px)', borderRadius: '50%'
+                    }} />
+                </>
+            ),
+            highlighter: () => (
+                <>
+                    <div style={{
+                        ...commonStyle, bottom: '42%', left: '50%', transform: 'translateX(-50%)',
+                        width: '3%', height: '15%', backgroundColor: activeProduct.hex, opacity: activeProduct.opacity,
+                        mixBlendMode: activeProduct.blendMode, filter: 'blur(5px)'
+                    }} />
+                    <div style={{
+                        ...commonStyle, bottom: '43%', left: '25%', width: '12%', height: '4%',
+                        backgroundColor: activeProduct.hex, opacity: activeProduct.opacity, mixBlendMode: activeProduct.blendMode,
+                        filter: 'blur(8px)', transform: 'rotate(-25deg)'
+                    }} />
+                    <div style={{
+                        ...commonStyle, bottom: '43%', right: '25%', width: '12%', height: '4%',
+                        backgroundColor: activeProduct.hex, opacity: activeProduct.opacity, mixBlendMode: activeProduct.blendMode,
+                        filter: 'blur(8px)', transform: 'rotate(25deg)'
+                    }} />
+                </>
+            ),
+            glasses: () => (
+                <div className="absolute top-[35%] left-1/2 -translate-x-1/2 w-[70%] animate-in fade-in duration-500 z-20 pointer-events-none">
+                    <svg viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 20 C 10 20, 30 10, 50 10 C 70 10, 90 20, 90 40 C 90 60, 70 70, 50 70 C 30 70, 10 60, 10 40 Z" fill="black" fillOpacity="0.8" />
+                        <path d="M110 20 C 110 20, 130 10, 150 10 C 170 10, 190 20, 190 40 C 190 60, 170 70, 150 70 C 130 70, 110 60, 110 40 Z" fill="black" fillOpacity="0.8" />
+                        <path d="M90 30 Q 100 20 110 30" stroke="gold" strokeWidth="3" fill="none" />
+                        <path d="M10 20 C 10 20, 30 10, 50 10 C 70 10, 90 20, 90 40 C 90 60, 70 70, 50 70 C 30 70, 10 60, 10 40 Z" stroke="gold" strokeWidth="2" />
+                        <path d="M110 20 C 110 20, 130 10, 150 10 C 170 10, 190 20, 190 40 C 190 60, 170 70, 150 70 C 130 70, 110 60, 110 40 Z" stroke="gold" strokeWidth="2" />
+                    </svg>
+                </div>
+            )
+        };
+        const RenderComponent = RenderMap[activeProduct.type];
+        return RenderComponent ? <RenderComponent /> : null;
     };
 
     // --- Main Render ---
