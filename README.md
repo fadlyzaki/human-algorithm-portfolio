@@ -22,6 +22,7 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 ### 2. Physics & Interaction: Framer Motion
 *   **Decision**: Used `framer-motion` over CSS transitions for state-driven physics (springs, drag constraints).
 *   **Rationale**: The "Human Algorithm" requires interfaces that feel organic, not linear. Spring physics mimic the natural resistance and elasticity of real-world objects, reinforcing the "Tactile" UX pillar.
+*   **Tactile ID Cards**: The `DraggablePhoto` component supports 7 distinct physics-enabled ID card variants (Industrial, Cyberpunk, Swiss, Glassmorphism, Retro, Neo-Brutalism, Holographic), unified by a strict monochrome aesthetic and interactive grayscale-to-color reveals.
 
 ### 3. Vision System: MediaPipe (Client-Side AI)
 *   **Decision**: Implemented `HandCursorOverlay` using Google's MediaPipe on the Edge (Client-Side).
