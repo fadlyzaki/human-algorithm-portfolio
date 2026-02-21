@@ -210,21 +210,28 @@ const NodeGraphGallery = () => {
     const shape = CONSTELLATIONS[currentShapeIndex];
 
     if (shape.isGrid) {
-      // Horizontal Timeline logic (chronological timeline spreading to the right)
+      // Grid logic based on original order (chronological)
       const nodeWidth = isDigital ? 160 : 160;
       const gap = 60;
 
-      const startX = (CANVAS_SIZE / 2) - (nodeWidth / 2);
-      const startY = (CANVAS_SIZE / 2) - (nodeWidth / 2);
+      const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
+      const padding = 100; // side padding so it doesn't touch the very edges
+      const availableWidth = screenWidth > padding * 2 ? screenWidth - padding * 2 : screenWidth;
+      const cols = Math.max(1, Math.floor((availableWidth + gap) / (nodeWidth + gap)));
+
+      // Calculate center offsets so the grid sits in the middle of CANVAS_SIZE
+      const gridWidth = cols * (nodeWidth + gap) - gap;
+      const gridHeight = Math.ceil(nodes.length / cols) * (nodeWidth + gap) - gap;
+      const startX = (CANVAS_SIZE / 2) - (gridWidth / 2);
+      const startY = (CANVAS_SIZE / 2) - (gridHeight / 2);
 
       return nodes.map((node, i) => {
-        // Slight vertical stagger for a more dynamic timeline feel
-        const staggerY = (i % 2 === 0) ? -30 : 30;
-
+        const row = Math.floor(i / cols);
+        const col = i % cols;
         return {
           ...node,
-          x: startX + i * (nodeWidth + gap),
-          y: startY + staggerY,
+          x: startX + col * (nodeWidth + gap),
+          y: startY + row * (nodeWidth + gap),
           rotation: 0,
           size: nodeWidth
         };
@@ -256,13 +263,16 @@ const NodeGraphGallery = () => {
     document.body.style.overflow = '';
   };
 
-  // Dynamically extend canvas width if the timeline goes far to the right
-  const dynamicCanvasWidth = useMemo(() => {
+  // Dynamically extend canvas height if the wrapped grid goes downwards
+  const dynamicCanvasHeight = useMemo(() => {
     if (currentShapeIndex !== -1 && CONSTELLATIONS[currentShapeIndex].isGrid) {
       const nodeWidth = 160;
       const gap = 60;
-      const timelineWidth = nodes.length * (nodeWidth + gap);
-      return Math.max(CANVAS_SIZE, (CANVAS_SIZE / 2) + timelineWidth + 1000);
+      const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
+      const cols = Math.max(1, Math.floor(((screenWidth - 200) + gap) / (nodeWidth + gap)));
+      const rows = Math.ceil(nodes.length / cols);
+      const gridHeight = rows * (nodeWidth + gap);
+      return Math.max(CANVAS_SIZE, (CANVAS_SIZE / 2) + gridHeight + 1000);
     }
     return CANVAS_SIZE;
   }, [currentShapeIndex, nodes.length]);
@@ -427,8 +437,8 @@ const NodeGraphGallery = () => {
                 <TransformComponent wrapperStyle={{ width: '100vw', height: '100vh' }}>
                   <div
                     style={{
-                      width: dynamicCanvasWidth,
-                      height: CANVAS_SIZE,
+                      width: CANVAS_SIZE,
+                      height: dynamicCanvasHeight,
                       position: 'relative'
                     }}
                   >
