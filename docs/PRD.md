@@ -229,6 +229,27 @@ To maintain the "Apple-style" minimalist aesthetic, assets for the Work grid mus
 *   **Hero Images**: Avoid text. Focus on UI screens, device mockups (phones, laptops), or abstract product representations.
 *   **Logos**: Use the standalone logomark (icon) rather than the full logotype if possible, for better scalability on mobile.
 
+### 7.2 The Archive (/sketches)
+The `/sketches` route utilizes a dynamic Masonry grid (`MasonryGallery.jsx`) that splits content between two distinct mediums. 
+
+**How to Add Images:**
+1.  **Storage Location:** All physical image files must be placed into one of two dedicated directories:
+    *   Digital: `public/assets/sketches/digital/`
+    *   Pencil: `public/assets/sketches/pencil/`
+2.  **Data Location:** All sketch metadata is currently managed via the `images` state array in `src/components/sketches/MasonryGallery.jsx`. *(Future iteration: Move to a dedicated `data/sketches.js` file)*.
+3.  **Data Structure:** Each image object requires the following properties:
+    ```javascript
+    {
+      id: "unique-string-identifier",
+      url: "/assets/sketches/digital/filename.jpg", // The public path to the image
+      medium: "digital" | "pencil",                 // CRITICAL: determines which tab it appears under
+      title: "Title of the Sketch"                  // Appears on hover
+    }
+    ```
+3.  **Image Formats & Optimization:**
+    *   **Digital:** High-res PNG or WebP. Transparent backgrounds work well with the dark mode glow effects.
+    *   **Pencil:** High-res JPEG or WebP. **Do not pre-filter them.** Upload raw scans or photos. The `MasonryGallery` component automatically applies CSS filters (`mix-blend-multiply contrast-125 grayscale-[0.2]`) when viewed in "Raw Pencil" mode to mimic authentic graphite on physical paper.
+
 ---
 **Document Status**: *ACTIVE*  
 **Product Owner**: Fadly Uzzaki  
