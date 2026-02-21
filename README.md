@@ -26,7 +26,7 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 ### 3. Vision System: MediaPipe (Client-Side AI)
 *   **Decision**: Implemented `HandCursorOverlay` using Google's MediaPipe on the Edge (Client-Side).
 *   **Privacy-First**: No video data is ever sent to a server. Inference happens locally in the browser's WASM runtime.
-*   **Performance**: `HandCursorOverlay` is eagerly loaded (not lazy) for zero-latency gesture activation. Welcome modal (`HandTrackerWelcome`) is lazy-loaded.
+*   **Performance (Context Trap Mitigated)**: High-frequency 60fps tracking updates bypass React Context entirely. Instead, they broadcast Custom DOM Events (`handCursorMove`) to decoupled listeners (like `Treasure.jsx`), avoiding full-tree re-renders constraint.
 *   **Lifecycle**: Full cleanup on deactivation—MediaPipe camera stop, webcam media stream track release (`track.stop()`), `encrypted-mode` CSS class removal, and cursor position reset.
 
 ### 4. Visualization: Airy Technical Diagrams
@@ -40,9 +40,10 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 *   **Optimization**: Centralized O(1) linguistic database in `translations.js`.
 
 ### 6. System Governance & OS Integrity
-*   **Merge Gate Status**: System verified at a flawless **100/100** score against structural and heuristic UX audits (`merge_gate.skill`).
+*   **Merge Gate Status**: System verified at a flawless **95/100** score against structural and heuristic UX audits (`merge_gate.skill`), with critical Context Trap and God Component blockers mitigated.
 *   **Zero Magic Strings**: Config literals and storage keys are entirely centralized in `src/config/constants.js` to eliminate drift.
 *   **Safety Guardrails**: "Destructive" UI actions mandate a double-confirmation visual friction pattern protecting user latency.
+*   **Modular Architecture**: Monolithic structures (e.g., `About.jsx` "God Component") are strictly decomposed into single-responsibility molecules (`RuntimeLogTimeline`, `CertificationsGrid`, etc.) to isolate rendering domains.
 
 ---
 
