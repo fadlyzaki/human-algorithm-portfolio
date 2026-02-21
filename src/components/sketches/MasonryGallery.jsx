@@ -210,18 +210,28 @@ const NodeGraphGallery = () => {
     const shape = CONSTELLATIONS[currentShapeIndex];
 
     if (shape.isGrid) {
-      // Grid logic based on original order (chronological)
-      const nodeWidth = isDigital ? 160 : 160;
-      const gap = 60;
-
+      // Full screen neat collage grid logic
+      const gap = 4; // Tiny gap for neatness resembling a tight photo wall
       const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
-      const padding = 100; // side padding so it doesn't touch the very edges
-      const availableWidth = screenWidth > padding * 2 ? screenWidth - padding * 2 : screenWidth;
-      const cols = Math.max(1, Math.floor((availableWidth + gap) / (nodeWidth + gap)));
 
-      // Calculate center offsets so the grid sits in the middle of CANVAS_SIZE
-      const gridWidth = cols * (nodeWidth + gap) - gap;
-      const gridHeight = Math.ceil(nodes.length / cols) * (nodeWidth + gap) - gap;
+      // Let's decide on a clean number of columns based on screen width
+      // Mobile: 3, Tablet: 4, Desktop: 6, Wide: 8
+      let cols = 6;
+      if (screenWidth < 640) cols = 3;
+      else if (screenWidth < 1024) cols = 4;
+      else if (screenWidth > 1600) cols = 8;
+
+      const padding = 24; // Small padding around the whole grid edges
+      const availableWidth = screenWidth - (padding * 2);
+
+      // Width of each node is perfectly divided into the space minus the gaps
+      const nodeWidth = (availableWidth - (gap * (cols - 1))) / cols;
+
+      // Calculate center offsets so the grid sits perfectly in the center of CANVAS_SIZE
+      const gridWidth = cols * nodeWidth + (cols - 1) * gap;
+      const rows = Math.ceil(nodes.length / cols);
+      const gridHeight = rows * nodeWidth + (rows - 1) * gap;
+
       const startX = (CANVAS_SIZE / 2) - (gridWidth / 2);
       const startY = (CANVAS_SIZE / 2) - (gridHeight / 2);
 
@@ -266,12 +276,21 @@ const NodeGraphGallery = () => {
   // Dynamically extend canvas height if the wrapped grid goes downwards
   const dynamicCanvasHeight = useMemo(() => {
     if (currentShapeIndex !== -1 && CONSTELLATIONS[currentShapeIndex].isGrid) {
-      const nodeWidth = 160;
-      const gap = 60;
+      const gap = 4;
       const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
-      const cols = Math.max(1, Math.floor(((screenWidth - 200) + gap) / (nodeWidth + gap)));
+
+      let cols = 6;
+      if (screenWidth < 640) cols = 3;
+      else if (screenWidth < 1024) cols = 4;
+      else if (screenWidth > 1600) cols = 8;
+
+      const padding = 24;
+      const availableWidth = screenWidth - (padding * 2);
+      const nodeWidth = (availableWidth - (gap * (cols - 1))) / cols;
+
       const rows = Math.ceil(nodes.length / cols);
-      const gridHeight = rows * (nodeWidth + gap);
+      const gridHeight = rows * nodeWidth + (rows - 1) * gap;
+
       return Math.max(CANVAS_SIZE, (CANVAS_SIZE / 2) + gridHeight + 1000);
     }
     return CANVAS_SIZE;
