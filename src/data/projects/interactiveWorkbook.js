@@ -106,6 +106,10 @@ export const interactiveWorkbook = {
         { label: "Learning Units", value: "8" },
         { label: "Target Audience", value: "7th-11th" }
     ],
+    learnings: {
+        en: "Digitizing education isn't about replacing the teacher—it's about automating the administrative overhead so the teacher can focus on the human connection. Phase 1 proved that frictionless entry is the gatekeeper of student engagement.",
+        id: "Mendigitalkan pendidikan bukan tentang mengganti guru—ini tentang mengotomatiskan beban administratif sehingga guru dapat fokus pada koneksi manusia. Fase 1 membuktikan bahwa orientasi tanpa hambatan adalah kunci keterlibatan siswa."
+    },
     designProcess: [
         {
             type: "research",
