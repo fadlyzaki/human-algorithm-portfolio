@@ -126,61 +126,77 @@ const NodeGraphGallery = () => {
           }`}
       >
         {/* --- UI OVERLAY --- */}
-        <div className="absolute top-28 md:top-36 left-0 right-0 z-50 px-6 md:px-12 pointer-events-none flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3 mb-4"
-            >
-              <Activity size={18} className={isDigital ? 'text-zinc-500' : 'text-zinc-400'} />
-              <span className={`font-mono text-xs tracking-[0.2em] uppercase ${isDigital ? 'text-zinc-500' : 'text-zinc-500'}`}>
-                {t('sketches.title')}
-              </span>
-            </motion.div>
+        <div className="absolute top-28 md:top-36 left-0 right-0 z-50 px-6 md:px-12 pointer-events-none flex flex-col items-start gap-6">
+          <div className="flex flex-col md:flex-row items-start md:items-end gap-6">
+            <div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="flex items-center gap-3 mb-4"
+              >
+                <Activity size={18} className={isDigital ? 'text-zinc-500' : 'text-zinc-400'} />
+                <span className={`font-mono text-xs tracking-[0.2em] uppercase ${isDigital ? 'text-zinc-500' : 'text-zinc-500'}`}>
+                  {t('sketches.title')}
+                </span>
+              </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl font-bold tracking-tight pointer-events-auto"
-            >
-              {t('nav.sketches') || 'Sketches'}.
-            </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-4xl md:text-6xl font-bold tracking-tight pointer-events-auto"
+              >
+                {t('nav.sketches') || 'Sketches'}.
+              </motion.h1>
+            </div>
+
+            {/* Toggle controls */}
+            <div className="pointer-events-auto flex items-center gap-4 bg-white/5 backdrop-blur-md p-1.5 rounded-full border border-white/10 shadow-2xl">
+              <button
+                onClick={() => setActiveMedium('digital')}
+                className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${isDigital ? 'text-white' : 'text-zinc-400 hover:text-white'
+                  }`}
+              >
+                {isDigital && (
+                  <motion.div
+                    layoutId="node-pill"
+                    className="absolute inset-0 bg-blue-600/20 border border-blue-500/30 rounded-full"
+                    style={{ zIndex: -1 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+                {t('sketches.digital')}
+              </button>
+              <button
+                onClick={() => setActiveMedium('pencil')}
+                className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${!isDigital ? 'text-zinc-900' : 'text-zinc-400 hover:text-white'
+                  }`}
+              >
+                {!isDigital && (
+                  <motion.div
+                    layoutId="node-pill"
+                    className="absolute inset-0 bg-white shadow-sm rounded-full"
+                    style={{ zIndex: -1 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+                {t('sketches.pencil')}
+              </button>
+            </div>
           </div>
 
-          {/* Toggle controls */}
-          <div className="pointer-events-auto flex items-center gap-4 bg-white/5 backdrop-blur-md p-1.5 rounded-full border border-white/10 shadow-2xl">
-            <button
-              onClick={() => setActiveMedium('digital')}
-              className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${isDigital ? 'text-white' : 'text-zinc-400 hover:text-white'
-                }`}
-            >
-              {isDigital && (
-                <motion.div
-                  layoutId="node-pill"
-                  className="absolute inset-0 bg-blue-600/20 border border-blue-500/30 rounded-full"
-                  style={{ zIndex: -1 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                />
-              )}
-              {t('sketches.digital')}
-            </button>
-            <button
-              onClick={() => setActiveMedium('pencil')}
-              className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${!isDigital ? 'text-zinc-900' : 'text-zinc-400 hover:text-white'
-                }`}
-            >
-              {!isDigital && (
-                <motion.div
-                  layoutId="node-pill"
-                  className="absolute inset-0 bg-white shadow-sm rounded-full"
-                  style={{ zIndex: -1 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                />
-              )}
-              {t('sketches.pencil')}
-            </button>
-          </div>
+          {/* Disclaimer - only for digital */}
+          <AnimatePresence>
+            {isDigital && (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="max-w-md text-zinc-500 font-mono text-[10px] uppercase tracking-widest leading-relaxed pointer-events-auto"
+              >
+                [ NOTICE ]: {t('sketches.digital_disclaimer')}
+              </motion.p>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* --- MAP LEGEND --- */}
@@ -196,7 +212,7 @@ const NodeGraphGallery = () => {
         {/* --- INTERACTIVE CANVAS --- */}
         <div className="absolute inset-0 z-10 cursor-grab active:cursor-grabbing">
           <TransformWrapper
-            initialScale={1}
+            initialScale={0.5}
             initialPositionX={-(CANVAS_SIZE / 2) + (window.innerWidth / 2)}
             initialPositionY={-(CANVAS_SIZE / 2) + (window.innerHeight / 2)}
             minScale={0.3}

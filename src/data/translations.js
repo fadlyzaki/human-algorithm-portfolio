@@ -11,7 +11,8 @@ export const translations = {
             system_directory: "System Directory",
             index: "Index",
             archives: "Archives",
-            process: "Process"
+            process: "Process",
+            sketches: "Sketches"
         },
         home: {
             role: "Product Designer // Design Engineer",
@@ -322,7 +323,8 @@ export const translations = {
             pencil: "Pencil",
             drag_to_explore: "DRAG TO EXPLORE",
             scroll_to_zoom: "SCROLL TO ZOOM",
-            nodes_found: "NODES FOUND"
+            nodes_found: "NODES FOUND",
+            digital_disclaimer: "I am currently not sketching digitally since last year because my Apple Pencil is broken."
         }
     },
     id: {
@@ -337,7 +339,8 @@ export const translations = {
             system_directory: "Direktori Sistem",
             index: "Indeks",
             archives: "Arsip",
-            process: "Proses"
+            process: "Proses",
+            sketches: "Sketsa"
         },
         home: {
             role: "Product Designer // Design Engineer",
@@ -647,7 +650,8 @@ export const translations = {
             pencil: "Pensil",
             drag_to_explore: "GESER UNTUK EKSPLORASI",
             scroll_to_zoom: "GULIR UNTUK ZOOM",
-            nodes_found: "NODE DITEMUKAN"
+            nodes_found: "NODE DITEMUKAN",
+            digital_disclaimer: "Saya sedang tidak melakukan sketsa digital sejak tahun lalu karena Apple Pencil saya rusak."
         }
     }
 };
