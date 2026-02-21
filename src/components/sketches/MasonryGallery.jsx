@@ -155,6 +155,10 @@ const NodeGraphGallery = () => {
         { x: 40, y: -20 },   // Wing mid right
         { x: 80, y: -10 },   // Wing tip right
       ]
+    },
+    {
+      name: 'ORDER',
+      isGrid: true
     }
   ];
 
@@ -204,6 +208,36 @@ const NodeGraphGallery = () => {
     if (currentShapeIndex === -1) return nodes;
 
     const shape = CONSTELLATIONS[currentShapeIndex];
+
+    if (shape.isGrid) {
+      // Grid logic based on original order (chronological)
+      const nodeWidth = isDigital ? 160 : 160;
+      const gap = 60;
+
+      const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
+      const padding = 100; // side padding so it doesn't touch the very edges
+      const availableWidth = screenWidth > padding * 2 ? screenWidth - padding * 2 : screenWidth;
+      const cols = Math.max(1, Math.floor((availableWidth + gap) / (nodeWidth + gap)));
+
+      // Calculate center offsets so the grid sits in the middle of CANVAS_SIZE
+      const gridWidth = cols * (nodeWidth + gap) - gap;
+      const gridHeight = Math.ceil(nodes.length / cols) * (nodeWidth + gap) - gap;
+      const startX = (CANVAS_SIZE / 2) - (gridWidth / 2);
+      const startY = (CANVAS_SIZE / 2) - (gridHeight / 2);
+
+      return nodes.map((node, i) => {
+        const row = Math.floor(i / cols);
+        const col = i % cols;
+        return {
+          ...node,
+          x: startX + col * (nodeWidth + gap),
+          y: startY + row * (nodeWidth + gap),
+          rotation: 0,
+          size: nodeWidth
+        };
+      });
+    }
+
     const targetPoints = getConstellationPoints(shape, nodes.length);
 
     if (!targetPoints) return nodes;
@@ -215,7 +249,7 @@ const NodeGraphGallery = () => {
       rotation: 0, // Keep straight when in shape
       size: node.size * 0.5 // Make them a bit smaller to form the structure better
     }));
-  }, [nodes, currentShapeIndex]);
+  }, [nodes, currentShapeIndex, isDigital]);
 
   const handleNodeClick = (img, e) => {
     // Prevent click if the user was just dragging the canvas or the node itself
@@ -238,7 +272,7 @@ const NodeGraphGallery = () => {
       </AnimatePresence>
 
       <div
-        className={`relative w-full h-screen overflow-hidden transition-colors duration-1000 ${isDigital ? 'bg-[#050505] text-white' : 'bg-[#e5e1d5] text-zinc-900'
+        className={`relative w-full h-screen overflow-hidden transition-colors duration-1000 ${isDark ? 'bg-[#050505] text-white' : 'bg-[#e5e1d5] text-zinc-900'
           }`}
       >
         {/* --- UI OVERLAY --- */}
@@ -250,8 +284,8 @@ const NodeGraphGallery = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="flex items-center gap-3 mb-4"
               >
-                <Activity size={18} className={isDigital ? 'text-zinc-500' : 'text-zinc-400'} />
-                <span className={`font-mono text-xs tracking-[0.2em] uppercase ${isDigital ? 'text-zinc-500' : 'text-zinc-500'}`}>
+                <Activity size={18} className={isDark ? 'text-zinc-500' : 'text-zinc-400'} />
+                <span className={`font-mono text-xs tracking-[0.2em] uppercase text-zinc-500`}>
                   {t('sketches.title')}
                 </span>
               </motion.div>
@@ -266,10 +300,10 @@ const NodeGraphGallery = () => {
             </div>
 
             {/* Toggle controls */}
-            <div className="pointer-events-auto flex items-center gap-4 bg-white/5 backdrop-blur-md p-1.5 rounded-full border border-white/10 shadow-2xl">
+            <div className={`pointer-events-auto flex items-center gap-4 backdrop-blur-md p-1.5 rounded-full border shadow-2xl ${isDark ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}>
               <button
                 onClick={() => setActiveMedium('pencil')}
-                className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${!isDigital ? 'text-zinc-900' : 'text-zinc-400 hover:text-white'
+                className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${!isDigital ? 'text-zinc-900' : (isDark ? 'text-zinc-400 hover:text-white' : 'text-zinc-500 hover:text-black')
                   }`}
               >
                 {!isDigital && (
@@ -284,7 +318,7 @@ const NodeGraphGallery = () => {
               </button>
               <button
                 onClick={() => setActiveMedium('digital')}
-                className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${isDigital ? 'text-white' : 'text-zinc-400 hover:text-white'
+                className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${isDigital ? (isDark ? 'text-white' : 'text-blue-900') : (isDark ? 'text-zinc-400 hover:text-white' : 'text-zinc-500 hover:text-black')
                   }`}
               >
                 {isDigital && (
@@ -320,7 +354,7 @@ const NodeGraphGallery = () => {
               onClick={handleShapeShift}
               className={`px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all mr-2 ${currentShapeIndex !== -1
                 ? 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]'
-                : 'bg-white/5 border-white/10 text-zinc-400 hover:text-white'
+                : (isDark ? 'bg-white/5 border-white/10 text-zinc-400 hover:text-white' : 'bg-black/5 border-black/10 text-zinc-500 hover:text-black')
                 }`}
             >
               {currentShapeIndex === -1 ? 'FORM: CHAOS' : `FORM: ${CONSTELLATIONS[currentShapeIndex].name}`}
@@ -328,7 +362,7 @@ const NodeGraphGallery = () => {
             {currentShapeIndex !== -1 && (
               <button
                 onClick={handleResetShape}
-                className="px-4 py-2 text-xs font-mono uppercase tracking-widest border bg-white/5 border-white/10 text-zinc-400 hover:text-white transition-all"
+                className={`px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all ${isDark ? 'bg-white/5 border-white/10 text-zinc-400 hover:text-white' : 'bg-black/5 border-black/10 text-zinc-500 hover:text-black'}`}
               >
                 RESET
               </button>
@@ -338,7 +372,7 @@ const NodeGraphGallery = () => {
 
         {/* --- MAP LEGEND --- */}
         <div className="absolute bottom-8 left-6 md:left-12 z-50 pointer-events-none">
-          <div className={`font-mono text-xs tracking-widest flex flex-col gap-2 ${isDigital ? 'text-zinc-600' : 'text-zinc-400'}`}>
+          <div className="font-mono text-xs tracking-widest flex flex-col gap-2 text-zinc-500">
             <p>[ {t('sketches.drag_to_explore')} ]</p>
             <p>[ {t('sketches.scroll_to_zoom')} ]</p>
             <p>{t('sketches.nodes_found')}: {displayNodes.length}</p>
@@ -368,20 +402,20 @@ const NodeGraphGallery = () => {
                 <div
                   className="absolute inset-0 pointer-events-none opacity-20"
                   style={{
-                    backgroundImage: `linear-gradient(${isDigital ? '#333' : '#a1a1aa'} 1px, transparent 1px), linear-gradient(90deg, ${isDigital ? '#333' : '#a1a1aa'} 1px, transparent 1px)`,
+                    backgroundImage: `linear-gradient(${isDark ? '#333' : '#a1a1aa'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#333' : '#a1a1aa'} 1px, transparent 1px)`,
                     backgroundSize: '100px 100px'
                   }}
                 />
 
                 {/* Map Controls */}
                 <div className="absolute bottom-8 right-6 md:right-12 z-50 flex flex-col gap-2 pointer-events-auto">
-                  <button onClick={() => zoomIn()} className={`p-3 rounded-xl backdrop-blur-md border transition-all ${isDigital ? 'bg-zinc-900/50 border-white/10 text-white hover:bg-zinc-800' : 'bg-white/50 border-black/10 text-black hover:bg-white'}`}>
+                  <button onClick={() => zoomIn()} className={`p-3 rounded-xl backdrop-blur-md border transition-all ${isDark ? 'bg-zinc-900/50 border-white/10 text-white hover:bg-zinc-800' : 'bg-white/50 border-black/10 text-black hover:bg-white'}`}>
                     <ZoomIn size={18} />
                   </button>
-                  <button onClick={() => zoomOut()} className={`p-3 rounded-xl backdrop-blur-md border transition-all ${isDigital ? 'bg-zinc-900/50 border-white/10 text-white hover:bg-zinc-800' : 'bg-white/50 border-black/10 text-black hover:bg-white'}`}>
+                  <button onClick={() => zoomOut()} className={`p-3 rounded-xl backdrop-blur-md border transition-all ${isDark ? 'bg-zinc-900/50 border-white/10 text-white hover:bg-zinc-800' : 'bg-white/50 border-black/10 text-black hover:bg-white'}`}>
                     <ZoomOut size={18} />
                   </button>
-                  <button onClick={() => resetTransform()} className={`p-3 rounded-xl backdrop-blur-md border transition-all ${isDigital ? 'bg-zinc-900/50 border-white/10 text-white hover:bg-zinc-800' : 'bg-white/50 border-black/10 text-black hover:bg-white'}`}>
+                  <button onClick={() => resetTransform()} className={`p-3 rounded-xl backdrop-blur-md border transition-all ${isDark ? 'bg-zinc-900/50 border-white/10 text-white hover:bg-zinc-800' : 'bg-white/50 border-black/10 text-black hover:bg-white'}`}>
                     <Maximize size={18} />
                   </button>
                 </div>
