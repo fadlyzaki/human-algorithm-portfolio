@@ -55,13 +55,9 @@ const Sketches = () => {
       <Navbar onOpenMenu={handleOpenMenu} title="SKETCHES" backPath="/" />
       <NavigationMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />
 
-      <main className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-20 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-void)]/80 backdrop-blur-sm shadow-2xl overflow-x-hidden px-4 md:px-8">
-        {/* Padding for fixed header */}
-        <div className="h-16 md:h-24"></div>
+      <main className="relative z-10 w-full min-h-screen pt-24 pb-12 px-4 md:px-12 overflow-x-hidden">
         <MasonryGallery />
       </main>
-
-      <Footer />
     </div>
   );
 };
