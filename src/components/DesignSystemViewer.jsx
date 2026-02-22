@@ -4,7 +4,7 @@ import {
     Hash, MoveRight, Layers, Box,
     Activity, ShieldAlert, ShieldCheck,
     Fingerprint, Scale, Zap, Eye, Lock,
-    UserCheck, AlertTriangle
+    UserCheck, AlertTriangle, Target
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -29,8 +29,9 @@ const DesignSystemViewer = () => {
         { id: 'COMPONENTS', label: '03 // MODULES', icon: Grid3X3 },
         { id: 'LAYOUT', label: '04 // GRID & MOTION', icon: MoveRight },
         { id: 'BRAND', label: '05 // IDENTITY', icon: Fingerprint },
-        { id: 'UX', label: '06 // PRINCIPLES', icon: Scale },
-        { id: 'GOVERNANCE', label: '07 // GOVERNANCE', icon: Lock },
+        { id: 'STRATEGY', label: '06 // STRATEGY', icon: Target },
+        { id: 'UX', label: '07 // PRINCIPLES', icon: Scale },
+        { id: 'GOVERNANCE', label: '08 // GOVERNANCE', icon: Lock },
     ];
 
     return (
@@ -98,6 +99,7 @@ const DesignSystemViewer = () => {
                     {activeSector === 'COMPONENTS' && <ComponentForge />}
                     {activeSector === 'LAYOUT' && <LayoutLab />}
                     {activeSector === 'BRAND' && <BrandIdentity />}
+                    {activeSector === 'STRATEGY' && <BrandStrategy />}
                     {activeSector === 'UX' && <UXPrinciples />}
                     {activeSector === 'GOVERNANCE' && <GovernanceLab />}
                 </div>
@@ -820,3 +822,91 @@ const GovernanceLab = () => (
         </div>
     </div>
 );
+
+const BrandStrategy = () => {
+    const renderNode = (title, items) => (
+        <div className="flex flex-col items-center group">
+            {/* Connection Line & Node */}
+            <div className="hidden lg:block w-px h-6 bg-[var(--border-color)] group-hover:bg-[var(--accent)] transition-colors relative">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[var(--bg-void)] border border-[var(--border-color)] group-hover:bg-[var(--accent)] group-hover:border-[var(--accent)] transition-all"></div>
+            </div>
+
+            <h4 className="font-bold text-xs md:text-sm text-[var(--text-primary)] mt-3 mb-2 whitespace-nowrap group-hover:text-[var(--accent)] transition-colors">{title}</h4>
+            <div className="w-4 h-px bg-[var(--border-color)] mb-3 group-hover:bg-[var(--accent)] transition-colors"></div>
+
+            <div className="flex flex-col items-center gap-1.5">
+                {items.map((item, idx) => (
+                    <span key={idx} className="text-[10px] md:text-xs text-[var(--text-secondary)] tracking-wide group-hover:text-[var(--text-primary)] transition-colors">{item}</span>
+                ))}
+            </div>
+        </div>
+    );
+
+    return (
+        <div className="space-y-24 animate-in slide-in-from-bottom-8 duration-500 py-12">
+
+            {/* Header Area */}
+            <div className="text-center space-y-4 max-w-2xl mx-auto">
+                <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.3em] text-[var(--text-secondary)]">Positioning Meets Execution</span>
+                <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-[var(--text-primary)]">Brand Strategy</h2>
+                <div className="h-1 w-16 bg-[var(--accent)] mx-auto mt-6"></div>
+            </div>
+
+            {/* BRAND FOUNDATION */}
+            <div className="space-y-12">
+                <div className="text-center">
+                    <h3 className="text-3xl font-bold text-[var(--text-primary)] inline-block relative">
+                        Brand Foundation
+                        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[var(--accent-amber)] shadow-[0_0_10px_var(--accent-amber)]"></div>
+                        <div className="hidden lg:block absolute -bottom-12 left-1/2 -translate-x-1/2 w-px h-8 bg-[var(--border-color)]"></div>
+                    </h3>
+                </div>
+
+                <div className="relative pt-8 lg:pt-16">
+                    {/* Horizontal connector */}
+                    <div className="hidden lg:block absolute top-0 left-[7%] right-[7%] h-px bg-[var(--border-color)]"></div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-x-4 gap-y-12">
+                        {renderNode("Mission", ["Purpose", "Impact", "Direction"])}
+                        {renderNode("Vision", ["Future State", "Ambition", "Destination"])}
+                        {renderNode("Values", ["Principles", "Beliefs", "Standards"])}
+                        {renderNode("Positioning", ["Audience", "Category", "Difference"])}
+                        {renderNode("Brand Voice", ["Tone", "Language", "Personality"])}
+                        {renderNode("Messaging", ["Promise", "Proof", "Benefit"])}
+                        {renderNode("Brand Story", ["Origin", "Journey", "Meaning"])}
+                    </div>
+                </div>
+            </div>
+
+            {/* Separator */}
+            <div className="border-t border-dashed border-[var(--border-color)] w-full opacity-50 relative"></div>
+
+            {/* BRAND ACTIVATION */}
+            <div className="space-y-12">
+                <div className="text-center">
+                    <h3 className="text-3xl font-bold text-[var(--text-primary)] inline-block relative">
+                        Brand Activation
+                        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[var(--accent-amber)] shadow-[0_0_10px_var(--accent-amber)]"></div>
+                        <div className="hidden lg:block absolute -bottom-12 left-1/2 -translate-x-1/2 w-px h-8 bg-[var(--border-color)]"></div>
+                    </h3>
+                </div>
+
+                <div className="relative pt-8 lg:pt-16">
+                    {/* Horizontal connector */}
+                    <div className="hidden lg:block absolute top-0 left-[7%] right-[7%] h-px bg-[var(--border-color)]"></div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-x-4 gap-y-12">
+                        {renderNode("Campaigns", ["Launches", "Promotions", "Awareness"])}
+                        {renderNode("Channels", ["Owned", "Paid", "Earned"])}
+                        {renderNode("Partnerships", ["Collabs", "Influencers", "Affiliates"])}
+                        {renderNode("Content", ["Themes", "Formats", "Frequency"])}
+                        {renderNode("Metrics", ["Reach", "Engagement", "Conversion"])}
+                        {renderNode("Sales", ["Offers", "Funnels", "Timing"])}
+                        {renderNode("Optimisation", ["Testing", "Insights", "Refinement"])}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    );
+};
