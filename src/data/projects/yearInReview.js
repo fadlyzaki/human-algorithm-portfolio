@@ -1,125 +1,78 @@
-
 export const yearInReview = {
     id: 'year-in-review',
     title: { en: 'Year in Review', id: 'Year in Review' },
-    subtitle: { en: 'Manual Data Visualization', id: 'Visualisasi Data Manual' },
+    subtitle: { en: 'Privacy-First wrapped generator', id: 'Generator wrapped berbasis privasi' },
     desc: {
-        en: 'Your memories shouldn\'t be held hostage by an algorithm. A manual celebration of the life you actually lived.',
-        id: "Kenanganmu tak seharusnya disandera algoritma. Perayaan manual atas hidup yang benar-benar kamu jalani."
+        en: 'A privacy-first, client-side web application that empowers users to create aesthetic, shareable stories of their yearly milestones. Inspired by the "Spotify Wrapped" format, it allows manual input of stats, memories, and photos without sending data to a backend.',
+        id: "Aplikasi web client-side yang mengutamakan privasi untuk memberdayakan pengguna membuat cerita pencapaian tahunan mereka yang estetik dan dapat dibagikan. Terinspirasi format 'Spotify Wrapped', aplikasi ini memungkinkan input manual tanpa mengirim data ke backend."
     },
     tldr: {
-        en: "Reclaiming the joy of 'remembering' from the automated feed.",
-        id: "Merebut kembali kegembiraan 'mengenang' dari feed otomatis."
+        en: "A secure, zero-backend tool to generate aesthetic yearly summaries, putting privacy and creative control in the user's hands.",
+        id: "Alat tanpa backend yang aman untuk membuat ringkasan tahunan estetik, menempatkan privasi dan kontrol kreatif di tangan pengguna."
     },
-    stack: ["React", "TypeScript", "Canvas API"],
+    stack: ["React 18", "Tailwind CSS", "Vite", "Lucide React"],
     links: { demo: "https://year-in-review-jak.vercel.app/", repo: "github.com/fadlyzaki/manual-wrapped" },
     iconName: 'Calendar',
-    type: 'DataViz',
+    type: 'Web App',
     date: "December 2025",
     coverImage: "airy:data",
     snapshot: {
-        tagline: { en: "Manual Memory v4.2", id: "Ingatan Manual v4.2" },
+        tagline: { en: "Your Year, Your Data", id: "Tahunmu, Datamu" },
         heroImage: "airy:data"
     },
     context: {
-        role: "Product Owner",
+        role: "Product Owner / Developer",
         timeline: "Dec 2025",
         team: "Solo Project",
         client: "Public"
     },
     challenge: {
-        en: "Spotify Wrapped is fun, but it's a corporate summary of your consumption. It doesn't know about the breakup, the new puppy, or the night you quit your job. We outsourced our memories to platforms that optimize for engagement, not reflection.",
-        id: "Spotify Wrapped itu seru, tapi itu sekadar rangkuman korporat konsumsimu. Ia tak tahu soal putus cinta atau anjing barumu. Kita menyerahkan ingatan pada platform yang peduli engagement, bukan refleksi."
-    },
-    process: [
-        {
-            title: { en: "Designing for Nostalgia", id: "Mendesain Nostalgia" },
-            desc: {
-                en: "We built a tool that asks: 'What actually happened?' The Input is manual—no APIs. The Friction is the point; typing forces reflection.",
-                id: "Alat yang bertanya: 'Apa yang sebenarnya terjadi?' Input manual, tanpa API. Friksi mengetik itu memaksa refleksi."
-            },
-            image: "airy:timeline"
-        },
-        {
-            title: { en: "Visualizing the Invisible", id: "Memvisualisasikan yang Tak Terlihat" },
-            desc: {
-                en: "How do you visualize 'Heartbreak'? We created abstract 'Aura Themes'. Neon for chaos, Blueprint for structure, Soft Focus for healing.",
-                id: "Gimana visualisasi 'Patah Hati'? Kami buat 'Tema Aura': Neon untuk chaos, Blueprint untuk struktur, Soft Focus untuk penyembuhan."
-            },
-            image: "airy:layers"
-        }
-    ],
-    insights: [
-        {
-            title: { en: "The 'Share' Paradox", id: "Paradoks 'Share'" },
-            desc: {
-                en: "People want privacy but love to perform. 'Screenshot Mode' strips the UI, allowing users to perform vulnerability on Instagram Stories while reclaiming the aesthetic for their own narrative.",
-                id: "Orang ingin privasi tapi suka tampil. 'Screenshot Mode' membuang UI, memvalidasi user untuk memamerkan kerentanan mereka dengan estetika yang mereka kontrol."
-            },
-            image: "airy:venn"
-        }
-    ],
-    solution: [
-        {
-            title: { en: "Manual Entry Interface", id: "Manual Entry Interface" },
-            desc: { en: "A quiet space to remember.", id: "A quiet space to remember." },
-            image: "airy:ui",
-            link: "https://year-in-review-jak.vercel.app/",
-            linkLabel: "Launch Wrapped"
-        },
-        { title: { en: "The Output", id: "The Output" }, desc: { en: "Shareable artifacts of personal history.", id: "Shareable artifacts of personal history." }, image: "airy:data" }
-    ],
-    metrics: [
-        { label: "Nostalgia", value: "Reclaimed" },
-        { label: "Privacy", value: "100% Local" }
-    ],
-    learnings: {
-        en: "Your memories shouldn't be held hostage by an algorithm.",
-        id: "Kenanganmu tak seharusnya disandera algoritma."
+        en: "Users want to summarize and share their yearly achievements creatively like 'Spotify Wrapped', but hesitate to use third-party apps that demand excessive backend data access. The challenge was building an engaging, aesthetic, mobile-first generator that runs entirely locally in the browser.",
+        id: "Pengguna ingin merangkum dan membagikan pencapaian tahunan mereka secara kreatif, tetapi ragu menggunakan aplikasi pihak ketiga yang meminta akses data berlebih. Tantangannya adalah membangun generator estetik dan mobile-first yang berjalan sepenuhnya secara lokal di browser."
     },
     designProcess: [
         {
             type: "research",
-            title: { en: "Designing for Nostalgia", id: "Mendesain Nostalgia" },
+            title: { en: "Privacy First Concept", id: "Konsep Mengutamakan Privasi" },
             desc: {
-                en: "Spotify Wrapped is a corporate summary. We wanted to verify 'What actually happened?'. The friction of manual entry forces reflection.",
-                id: "Spotify Wrapped adalah rangkuman korporat. Kami ingin memverifikasi 'Apa yang sebenarnya terjadi?'. Friksi input manual memaksa refleksi."
+                en: "The target audience wants a way to share their personal year without sacrificing privacy. We designed a zero-backend architecture where all inputs, including stats and base64 photo data, auto-save to local storage.",
+                id: "Audiens target menginginkan cara untuk membagikan tahun pribadi mereka tanpa mengorbankan privasi. Kami merancang arsitektur tanpa backend di mana semua input tersimpan otomatis di penyimpanan lokal."
             },
             image: "airy:timeline"
         },
         {
             type: "insight",
-            title: { en: "The 'Share' Paradox", id: "Paradoks 'Share'" },
+            title: { en: "Aesthetic Customization", id: "Kustomisasi Estetika" },
             desc: {
-                en: "People want privacy but love to perform. They needed a way to share the 'aesthetic' of their year without exposing the raw data.",
-                id: "Orang ingin privasi tapi suka tampil. Mereka butuh cara untuk membagikan 'estetika' tahun mereka tanpa mengekspos data mentah."
-            },
-            image: "airy:venn"
-        },
-        {
-            type: "design",
-            title: { en: "Aura Themes", id: "Tema Aura" },
-            desc: {
-                en: "Visualizing the invisible. We created abstract themes like 'Neon Chaos' or 'Blueprint Structure' to represent the feeling of the year.",
-                id: "Memvisualisasikan yang tak terlihat. Kami membuat tema abstrak seperti 'Neon Chaos' atau 'Blueprint Structure' untuk mewakili perasaan tahun itu."
+                en: "To cater to different personal brands, we implemented 12 distinct stylistic themes (from 8-Bit Retro to Cyberpunk Neon and Dark Academia) with native support for English and Indonesian languages.",
+                id: "Untuk memenuhi beragam personal brand, kami mengimplementasikan 12 tema gaya berbeda (dari 8-Bit Retro hingga Cyberpunk Neon) dengan dukungan bahasa Inggris dan Indonesia."
             },
             image: "airy:layers"
         },
         {
-            type: "ship",
-            title: { en: "Manual Entry UI", id: "UI Input Manual" },
+            type: "design",
+            title: { en: "Split-Pane Interface", id: "Antarmuka Split-Pane" },
             desc: {
-                en: "A quiet, focused interface. No APIs, no automation. Just you and your memories.",
-                id: "Antarmuka yang tenang dan fokus. Tanpa API, tanpa otomatisasi. Hanya kamu dan kenanganmu."
+                en: "We created a mobile-first, intuitive split-pane layout featuring an interactive editor for entering personalized stats and core memories next to a real-time live preview.",
+                id: "Kami membuat tata letak split-pane mobile-first yang intuitif, menampilkan editor interaktif untuk memasukkan statistik dan memori di sebelah pratinjau langsung secara real-time."
             },
             image: "airy:ui"
         },
         {
-            type: "measure",
-            title: { en: "Reclaimed Memory", id: "Ingatan yang Direbut Kembali" },
+            type: "ship",
+            title: { en: "Export & Shareability", id: "Ekspor & Kemampuan Berbagi" },
             desc: {
-                en: "Users reported a deeper sense of closure compared to automated summaries. The act of remembering is valuable.",
-                id: "Pengguna melaporkan rasa penutupan yang lebih dalam dibandingkan rangkuman otomatis. Tindakan mengingat itu berharga."
+                en: "Since canvas-based downloads often fail on mobile webviews, we built a 'Screenshot Mode' that hides all UI elements, prompting users to take high-quality native device screenshots.",
+                id: "Karena unduhan kanvas sering gagal di mobile webview, kami membuat 'Screenshot Mode' yang menyembunyikan semua elemen UI agar pengguna dapat mengambil screenshot berkualitas tinggi."
+            },
+            image: "airy:venn"
+        },
+        {
+            type: "measure",
+            title: { en: "Smart Generation & AI", id: "Generasi Cerdas & AI" },
+            desc: {
+                en: "Introduced a 'Magic Write' algorithm for instant personalized summaries. The future roadmap includes LLM integration for adaptive tone, AI vibe matching, and smart photo framing.",
+                id: "Memperkenalkan algoritma 'Tulis Ajaib' untuk ringkasan personal. Peta jalan masa depan mencakup integrasi LLM untuk nada adaptif, pencocokan getaran (vibe) AI, dan pembingkaian foto pintar."
             },
             image: "airy:data"
         }
