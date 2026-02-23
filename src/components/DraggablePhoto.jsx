@@ -70,7 +70,7 @@ const DraggablePhoto = () => {
         <div className="space-y-3">
           <div className="flex flex-col">
             <h2 className="text-xl font-bold text-white dark:text-black leading-none uppercase tracking-tight">UZZAKI, FADLY 🧢</h2>
-            <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600 uppercase tracking-widest mt-1">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
+            <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600 uppercase tracking-widest mt-1">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
           </div>
           <div className="grid grid-cols-2 gap-4 mt-2">
             <div>
@@ -125,7 +125,7 @@ const DraggablePhoto = () => {
             </div>
             <div>
               <label className="text-[9px] text-gray-400 dark:text-gray-500 font-mono block">{t('company.role') || 'ROLE'}</label>
-              <span className="text-xs text-gray-300 dark:text-gray-600 font-mono">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
+              <span className="text-xs text-gray-300 dark:text-gray-600 font-mono">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
             </div>
             <div className="pt-2">
               <span className="text-[8px] text-gray-500 dark:text-gray-400 font-mono block mb-1">{t('id_card.exp')}: {t('id_card.indefinite')}</span>
@@ -177,7 +177,7 @@ const DraggablePhoto = () => {
             </div>
             <div>
               <label className="font-bold text-xs block mb-1 text-black dark:text-white">{t('company.role') || 'Role'}</label>
-              <span className="font-mono text-sm leading-tight block text-black dark:text-white">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
+              <span className="font-mono text-sm leading-tight block text-black dark:text-white">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
             </div>
           </div>
         </div>
@@ -217,7 +217,7 @@ const DraggablePhoto = () => {
         <div className="space-y-4">
           <div className="flex flex-col">
             <h2 className="text-3xl font-black text-black drop-shadow-sm dark:text-white dark:drop-shadow-none leading-[0.9] tracking-tighter">UZZAKI<br />FADLY</h2>
-            <span className="text-[9px] font-mono text-black/70 dark:text-white/60 uppercase tracking-widest mt-2 font-bold">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
+            <span className="text-[9px] font-mono text-black/70 dark:text-white/60 uppercase tracking-widest mt-2 font-bold">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
           </div>
 
           <div className="h-[1px] w-full bg-gradient-to-r from-black/20 via-black/10 to-transparent dark:from-white/20 dark:via-white/10 dark:to-transparent"></div>
@@ -259,7 +259,7 @@ const DraggablePhoto = () => {
           </div>
           <div>
             <label className="text-[9px] text-black dark:text-white font-mono block uppercase underline">{t('company.role') || 'ROLE'}</label>
-            <span className="text-[10px] leading-tight text-black dark:text-white font-mono font-bold block">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
+            <span className="text-[10px] leading-tight text-black dark:text-white font-mono font-bold block">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
           </div>
         </div>
       </div>
@@ -294,7 +294,7 @@ const DraggablePhoto = () => {
         </div>
         <div className="w-full bg-white dark:bg-black border-4 border-black dark:border-white p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
           <h2 className="text-2xl font-black text-black dark:text-white tracking-tighter leading-none mb-1 uppercase">FADLY UZZAKI</h2>
-          <span className="text-[10px] leading-tight text-black dark:text-white font-mono font-bold block uppercase">{t('id_card.role') || 'Product Designer // System Thinker'}</span>
+          <span className="text-[10px] leading-tight text-black dark:text-white font-mono font-bold block uppercase">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
         </div>
       </div>
 

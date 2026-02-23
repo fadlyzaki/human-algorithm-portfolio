@@ -29,12 +29,12 @@ A comprehensive design system for Fadly Zaki's portfolio, embodying a cyberpunk 
 
 ### Treasure Hunt Colors
 
-| Type | Primary | Glow |
-|------|---------|------|
-| Gem | `#A855F7` (Purple) | Purple radial glow |
-| Coins | `#F59E0B` (Gold) | Amber radial glow |
-| Crown | `#EAB308` (Yellow) | Yellow radial glow |
-| Anchor | `#14B8A6` (Teal) | Cyan radial glow |
+| Type | Primary | Glow | Label |
+|------|---------|------|-------|
+| Gem | `#8B5CF6` (Purple) | Purple radial glow | GEM |
+| Coins | `#F59E0B` (Gold) | Amber radial glow | COINS |
+| Crown | `#EF4444` (Red) | Red radial glow | CROWN |
+| Anchor | `#3B82F6` (Blue) | Blue radial glow | RELIC |
 
 ---
 
@@ -105,6 +105,13 @@ Based on Tailwind defaults:
 
 ### 3. Feature Components
 *   **AiryDiagram**: Clean, technical diagrams for case studies. Uses React Flow or SVG.
+*   **Diagrams Library**: A comprehensive set of specialized technical diagrams located in `src/components/diagrams/`, including:
+    *   **ArchitectureDiagram**: System component relationships.
+    *   **FlowDiagram**: Sequence and logic flows.
+    *   **FunnelDiagram**: User conversion paths.
+    *   **HierarchyDiagram**: Organizational or data structures.
+    *   **TimelineDiagram**: Chronological events and roadmaps.
+    *   **UI/Data/Ecosystem**: Specialized context diagrams.
 *   **ProfileScanner**: Interactive "Identity Scan" effect in About page.
 *   **Treasure**: Gamified hidden item component (Gems, Coins, Crowns).
 *   **StickyNote**: Rotated, playful annotations.
@@ -256,18 +263,17 @@ const [isDark, setIsDark] = useState(() => {
 
 ### Logo/Identity
 
-- **Emoji:** 🧢 (Billed Cap) - *Always precedes name*
-- **Wordmark:** `🧢 Fadlyzaki`
+- **Logo/Identity:** 🧢 Fadlyzaki
 - **Tagline:** "Human By Design" / "Systems Thinker"
 - **Favicon:** 🧢 SVG emoji
 
 ### ID Card Data
 
 ```
-ACCESS_LEVEL_4
+ROOT_ACCESS
 HUMAN BY DESIGN
 UZZAKI, FADLY 🧢
-Product Designer // SysOp
+Product Designer // Systems Thinker
 ID_NO: 1407-1995
 ID_NO: 1407-1995
 EXP: INDEFINITE

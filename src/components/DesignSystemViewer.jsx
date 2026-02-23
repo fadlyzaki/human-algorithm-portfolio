@@ -111,6 +111,7 @@ const DesignSystemViewer = () => {
                                     <p>&gt; Executing visual language protocols {SYSTEM_CONFIG.VERSION}</p>
                                     <p>&gt; Target: Human_Cognition_Optimization</p>
                                     <p>&gt; Status: <span className="text-[var(--accent-green)]">{SYSTEM_CONFIG.STATUS}</span></p>
+                                    <p>&gt; Architect: Systems Thinker</p>
                                 </div>
                             </div>
                         </div>
@@ -213,10 +214,10 @@ const ChromaticsGrid = ({ isXRayMode }) => (
     <div className={`space-y-16 animate-in fade-in zoom-in-95 duration-500 relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
         {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">ChromaticsGrid.jsx // Core_Tokens</span>}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
-            <ColorCard name="VOID" token="--bg-void" hex="#050505" />
-            <ColorCard name="SURFACE" token="--bg-surface" hex="#111111" />
-            <ColorCard name="TEXT_PRI" token="--text-primary" hex="#F3F4F6" />
-            <ColorCard name="TEXT_SEC" token="--text-secondary" hex="#9CA3AF" />
+            <ColorCard name="VOID" token="--bg-void" hex="#111111" />
+            <ColorCard name="SURFACE" token="--bg-surface" hex="#1F1F1F" />
+            <ColorCard name="TEXT_PRI" token="--text-primary" hex="#F4F4F5" />
+            <ColorCard name="TEXT_SEC" token="--text-secondary" hex="#A1A1AA" />
         </div>
 
         <div className="space-y-4">
@@ -658,7 +659,7 @@ const BrandIdentity = ({ isXRayMode }) => (
                             ROOT_ACCESS<br />
                             HUMAN BY DESIGN<br />
                             UZZAKI, FADLY 🧢<br />
-                            Product Designer // System Thinker<br />
+                            Product Designer // Systems Thinker<br />
                             ID_NO: 1407-1995
                         </div>
                     </div>
