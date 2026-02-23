@@ -127,10 +127,16 @@ const BlueprintDetail = ({ project, activeContext, activeChallenge, activeProces
                         )}
 
                         {/* Interaction Demo Box */}
-                        {InteractionComponent && (
+                        {(project.prototypeLink || InteractionComponent) && (
                             <section className="border-2 border-blue-600 p-8 shadow-[8px_8px_0_rgba(37,99,235,0.2)] bg-white dark:bg-[#060F2B]">
                                 <h3 className="text-xl font-bold mb-8 uppercase flex items-center gap-3"><BookOpen /> User_Testing_Interface</h3>
-                                <InteractionComponent />
+                                {project.prototypeLink ? (
+                                    <div className="w-full h-[600px] border-2 border-blue-600/30 bg-[#F0F7FF] dark:bg-[#060F2B]">
+                                        <iframe src={project.prototypeLink} title={`${activeTitle} Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
+                                    </div>
+                                ) : (
+                                    <InteractionComponent />
+                                )}
                             </section>
                         )}
 

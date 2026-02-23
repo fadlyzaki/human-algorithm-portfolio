@@ -216,11 +216,7 @@ const SideProjectDetail = () => {
                   case 'interactive-workbook':
                      return <BlueprintDetail {...commonProps} />;
                   default:
-                     return (
-                        <div className="pt-32 text-center text-red-500 font-mono">
-                           Error: Layout architecture missing for '{project.id}'
-                        </div>
-                     );
+                     return <BentoDetail {...commonProps} />;
                }
             })()}
          </main>

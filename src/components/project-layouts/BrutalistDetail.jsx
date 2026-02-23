@@ -99,13 +99,21 @@ const BrutalistDetail = ({ project, activeContext, activeChallenge, activeProces
                     )}
 
                     {/* Interaction / Demo */}
-                    {InteractionComponent && (
+                    {(project.prototypeLink || InteractionComponent) && (
                         <div className="mb-32 border-4 border-black dark:border-white p-8 md:p-16 bg-[#FF3B30] text-white">
                             <h3 className="text-4xl font-black uppercase mb-12 flex items-center gap-4">
                                 <Square /> Widget_Demo
                             </h3>
-                            <div className="bg-white dark:bg-[#111] border-4 border-black dark:border-white text-black dark:text-white p-8 max-w-md shadow-[16px_16px_0px_0px_black] dark:shadow-[16px_16px_0px_0px_white]">
-                                <InteractionComponent />
+                            <div className="bg-white dark:bg-[#111] border-4 border-black dark:border-white text-black dark:text-white p-8 shadow-[16px_16px_0px_0px_black] dark:shadow-[16px_16px_0px_0px_white]">
+                                {project.prototypeLink ? (
+                                    <div className="w-full h-[600px] bg-black">
+                                        <iframe src={project.prototypeLink} title={`${activeTitle} Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
+                                    </div>
+                                ) : (
+                                    <div className="max-w-md">
+                                        <InteractionComponent />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     )}

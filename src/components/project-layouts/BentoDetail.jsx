@@ -95,6 +95,25 @@ const BentoDetail = ({ project, activeContext, activeChallenge, activeProcess, a
                     </section>
                 )}
 
+                {/* INTERACTION / PROTOTYPE */}
+                {(project.prototypeLink || InteractionComponent) && (
+                    <section className="mb-24">
+                        <div className="flex items-center gap-3 mb-10 pl-4">
+                            <Layout className="text-pink-400" />
+                            <h2 className="text-2xl font-serif italic">Live Preview</h2>
+                        </div>
+                        <div className="bg-white dark:bg-[#1A1A1A] rounded-[2rem] border border-black/5 dark:border-white/5 overflow-hidden p-8 hover:shadow-xl transition-shadow duration-500">
+                            {project.prototypeLink ? (
+                                <div className="w-full h-[600px] rounded-[1rem] overflow-hidden border border-black/10 dark:border-white/10">
+                                    <iframe src={project.prototypeLink} title={`${activeTitle} Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
+                                </div>
+                            ) : (
+                                <InteractionComponent />
+                            )}
+                        </div>
+                    </section>
+                )}
+
                 {/* METRICS & LEARNINGS */}
                 {(activeMetrics || activeLearnings) && (
                     <section className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">

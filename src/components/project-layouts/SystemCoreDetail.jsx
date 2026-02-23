@@ -159,7 +159,7 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
                     )}
 
                     {/* Diagnostics / Interaction */}
-                    {InteractionComponent && (
+                    {(project.prototypeLink || InteractionComponent) && (
                         <div className="bg-blue-900/10 border border-blue-500/20 p-8 rounded-sm animate-pulse-slow">
                             <div className="flex items-center justify-between mb-8 border-b border-blue-500/20 pb-4">
                                 <h3 className="font-mono text-xs text-blue-400 uppercase tracking-widest">Interactive_Console</h3>
@@ -169,7 +169,13 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
                                     <span className="w-2 h-2 rounded-full bg-green-500"></span>
                                 </div>
                             </div>
-                            <InteractionComponent />
+                            {project.prototypeLink ? (
+                                <div className="w-full h-[600px] border border-blue-500/30 bg-black">
+                                    <iframe src={project.prototypeLink} title={`${activeTitle} Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
+                                </div>
+                            ) : (
+                                <InteractionComponent />
+                            )}
                         </div>
                     )}
 

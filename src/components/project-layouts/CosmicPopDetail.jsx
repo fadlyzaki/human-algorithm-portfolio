@@ -104,13 +104,21 @@ const CosmicPopDetail = ({ project, activeContext, activeChallenge, activeProces
                     )}
 
                     {/* Interaction / Demo */}
-                    {InteractionComponent && (
-                        <div className="py-24 border-y border-white/10 flex flex-col items-center justify-center">
+                    {(project.prototypeLink || InteractionComponent) && (
+                        <div className="py-24 border-y border-white/10 flex flex-col items-center justify-center w-full">
                             <h3 className="text-2xl font-black italic text-center mb-12 text-[#00C2FF] flex items-center gap-3">
                                 <Rocket /> LIVE ARENA
                             </h3>
-                            <div className="w-full max-w-sm rounded-[3rem] overflow-hidden shadow-[0_20px_60px_rgba(0,194,255,0.15)] ring-4 ring-white/5">
-                                <InteractionComponent />
+                            <div className="w-full rounded-[3rem] overflow-hidden shadow-[0_20px_60px_rgba(0,194,255,0.15)] ring-4 ring-white/5 bg-black">
+                                {project.prototypeLink ? (
+                                    <div className="w-full h-[600px]">
+                                        <iframe src={project.prototypeLink} title={`${activeTitle} Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
+                                    </div>
+                                ) : (
+                                    <div className="max-w-sm mx-auto">
+                                        <InteractionComponent />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     )}
