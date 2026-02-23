@@ -134,7 +134,7 @@ const ChromaticsGrid = () => (
         <div className="space-y-4">
             <div className="flex items-center gap-2 mb-8">
                 <div className="h-px bg-[var(--border-color)] flex-grow"></div>
-                <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">Signal_Processing</span>
+                <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">Semantic_Tokens</span>
                 <div className="h-px bg-[var(--border-color)] flex-grow"></div>
             </div>
 
@@ -229,7 +229,7 @@ const TypographyLab = () => (
 
             <div className="border border-[var(--border-color)] p-8 bg-[var(--bg-card)] flex flex-col justify-center space-y-6">
                 <div className="w-full font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border-b border-[var(--border-color)] pb-2 mb-2">
-                    Metric Display // H1-Variable
+                    Data Visualization // Tabular Numerals
                 </div>
 
                 <div className="space-y-2">
@@ -237,7 +237,7 @@ const TypographyLab = () => (
                         98.4<span className="text-3xl text-[var(--accent)]">%</span>
                     </div>
                     <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] block">
-                        System Efficiency
+                        System Efficiency Metric
                     </span>
                 </div>
 
@@ -580,11 +580,11 @@ const BrandIdentity = () => (
                         quote="This resolver bypasses the Default Deny policy. Essential breach."
                     />
                     <PersonaCard
-                        role="Linus"
+                        role="The Auditor"
                         icon={Terminal}
                         color="var(--accent-green)"
-                        desc="Curator of code purity. Anti-entropy agent."
-                        quote="This abstraction is a solution looking for a problem."
+                        desc="Enforces technical budgets and token semantics. Anti-entropy agent."
+                        quote="This hardcoded value increases bundle size risk. Rejected."
                     />
                 </div>
             </div>
@@ -703,7 +703,7 @@ const LayoutLab = () => (
         {/* GRID SYSTEM */}
         <div className="space-y-6">
             <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
-                <Grid3X3 size={14} /> 12-Column Grid System
+                <Grid3X3 size={14} /> Spatial Architecture (12-Col)
             </h3>
 
             <div className="relative border border-[var(--border-color)] bg-[var(--bg-surface)] h-48 overflow-hidden">
@@ -745,7 +745,7 @@ const LayoutLab = () => (
         {/* MOTION CURVES */}
         <div className="space-y-6">
             <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
-                <Activity size={14} /> Motion Physics
+                <Activity size={14} /> Kinetic Architecture & Physics
             </h3>
 
             <div className="grid md:grid-cols-3 gap-8">
