@@ -162,7 +162,7 @@ const SideProjectDetail = () => {
          <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
          {/* --- NAVIGATION SYSTEM --- */}
-         <Navbar onOpenMenu={() => setIsMenuOpen(true)} title={project.id} backPath="/side-projects" />
+         <Navbar onOpenMenu={() => setIsMenuOpen(true)} title={activeTitle} backPath="/side-projects" />
 
          {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
 
