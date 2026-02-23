@@ -116,22 +116,22 @@ const BentoDetail = ({ project, activeContext, activeChallenge, activeProcess, a
 
                 {/* METRICS & LEARNINGS */}
                 {(activeMetrics || activeLearnings) && (
-                    <section className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
+                    <section className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12 items-stretch">
                         {activeLearnings && (
-                            <div className="bg-[#2D2D2D] text-[#FAF9F6] rounded-[2rem] p-12 md:p-16 flex flex-col justify-center relative overflow-hidden">
+                            <div className="bg-[#2D2D2D] text-[#FAF9F6] rounded-[2rem] p-12 md:p-16 flex flex-col justify-center relative overflow-hidden h-full min-h-[300px]">
                                 <Music className="absolute -bottom-8 -right-8 w-48 h-48 opacity-10 text-white" />
                                 <div className="font-mono text-xs uppercase tracking-widest text-white/50 mb-8 border border-white/20 inline-block px-3 py-1 rounded-full w-max">
                                     Developer Note
                                 </div>
-                                <p className="text-2xl md:text-3xl font-serif italic leading-relaxed relative z-10">
+                                <p className="text-2xl md:text-3xl font-serif italic leading-relaxed relative z-10 flex-1 flex items-center">
                                     "{activeLearnings}"
                                 </p>
                             </div>
                         )}
                         {activeMetrics && (
-                            <div className="grid grid-cols-2 gap-6 content-start">
+                            <div className="grid grid-cols-2 gap-6 h-full min-h-[300px]">
                                 {activeMetrics.map((m, i) => (
-                                    <div key={i} className="bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-[2rem] p-8 flex flex-col justify-center aspect-square">
+                                    <div key={i} className="bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-[2rem] p-8 flex flex-col justify-center h-full w-full">
                                         <Hash className="text-purple-400 mb-4 opacity-50" />
                                         <div className="text-4xl lg:text-5xl font-bold mb-2 text-black dark:text-white">{m.value}</div>
                                         <div className="text-sm text-gray-600 dark:text-gray-300 uppercase tracking-widest font-mono">{m.label}</div>
