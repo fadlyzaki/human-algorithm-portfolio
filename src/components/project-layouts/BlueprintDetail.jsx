@@ -8,7 +8,7 @@ const BlueprintDetail = ({ project, activeContext, activeChallenge, activeProces
     // Aesthetic: Civil/Architectural Blueprint, Blue Graph Paper, Precise Lines, Technical Fonts
 
     return (
-        <div className="bg-[#F0F7FF] dark:bg-[#060F2B] text-[#0A2540] dark:text-[#E0EFFF] font-mono min-h-screen selection:bg-blue-300/40 relative overflow-hidden pb-32">
+        <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-mono min-h-screen selection:bg-blue-300/40 relative overflow-hidden pb-32">
 
             {/* Grid Background */}
             <div className="absolute inset-0 blueprint-grid opacity-30 dark:opacity-20 pointer-events-none z-0"></div>
@@ -20,27 +20,27 @@ const BlueprintDetail = ({ project, activeContext, activeChallenge, activeProces
             <main className="relative z-10 max-w-7xl mx-auto px-6 lg:px-24 pt-24">
 
                 {/* 1. BLUEPRINT HEADER */}
-                <header className="border-2 border-blue-900/20 dark:border-blue-300/20 bg-white/50 dark:bg-black/20 backdrop-blur-sm p-8 md:p-16 mb-24 relative">
+                <header className="border-2 border-blue-900/20 dark:border-blue-300/20 bg-[var(--bg-card)] backdrop-blur-sm p-8 md:p-16 mb-24 relative">
 
                     {/* Corner Marks */}
-                    <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-blue-600 dark:border-blue-400 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-black"></div>
-                    <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-blue-600 dark:border-blue-400 translate-x-1/2 -translate-y-1/2 bg-white dark:bg-black"></div>
-                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-blue-600 dark:border-blue-400 -translate-x-1/2 translate-y-1/2 bg-white dark:bg-black"></div>
-                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-blue-600 dark:border-blue-400 translate-x-1/2 translate-y-1/2 bg-white dark:bg-black"></div>
+                    <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-blue-600 dark:border-blue-400 -translate-x-1/2 -translate-y-1/2 bg-[var(--bg-surface)]"></div>
+                    <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-blue-600 dark:border-blue-400 translate-x-1/2 -translate-y-1/2 bg-[var(--bg-surface)]"></div>
+                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-blue-600 dark:border-blue-400 -translate-x-1/2 translate-y-1/2 bg-[var(--bg-surface)]"></div>
+                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-blue-600 dark:border-blue-400 translate-x-1/2 translate-y-1/2 bg-[var(--bg-surface)]"></div>
 
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8 border-b-2 border-blue-900/10 dark:border-blue-300/10 pb-8">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8 border-b-2 border-[var(--border-color)] pb-8">
                         <div>
                             <div className="flex items-center gap-4 text-blue-600 dark:text-blue-400 mb-6">
                                 <BookOpen size={24} />
-                                <h1 className="text-4xl md:text-6xl font-serif italic tracking-tight text-[#0A2540] dark:text-[#E0EFFF]">{activeTitle}</h1>
+                                <h1 className="text-4xl md:text-6xl font-serif italic tracking-tight text-[var(--text-primary)]">{activeTitle}</h1>
                             </div>
-                            <p className="text-xl md:text-2xl font-light text-blue-800/70 dark:text-blue-200/70 max-w-3xl leading-relaxed">
+                            <p className="text-xl md:text-2xl font-light text-[var(--text-secondary)] max-w-3xl leading-relaxed">
                                 {activeTldr}
                             </p>
                         </div>
 
                         {/* Title Block Specs */}
-                        <div className="border border-blue-900/20 dark:border-blue-300/20 p-4 text-[10px] uppercase tracking-widest grid grid-cols-2 gap-4 w-full md:w-auto shrink-0 bg-blue-50/50 dark:bg-blue-950/50">
+                        <div className="border border-[var(--border-color)] p-4 text-[10px] uppercase tracking-widest grid grid-cols-2 gap-4 w-full md:w-auto shrink-0 bg-[var(--bg-void)]">
                             <div>
                                 <span className="text-blue-500/60 block mb-1">Project_Type</span>
                                 <strong>{project.type}</strong>
@@ -94,19 +94,19 @@ const BlueprintDetail = ({ project, activeContext, activeChallenge, activeProces
                                         <div key={idx} className="relative">
                                             {/* Connecting node line */}
                                             {idx !== activeProcess.length - 1 && (
-                                                <div className="absolute left-[31px] top-16 bottom-[-64px] w-px border-l-2 border-dashed border-blue-900/10 dark:border-blue-300/10"></div>
+                                                <div className="absolute left-[31px] top-16 bottom-[-64px] w-px border-l-2 border-dashed border-[var(--border-color)]"></div>
                                             )}
 
                                             <div className="flex gap-8">
                                                 {/* Node */}
-                                                <div className="w-16 h-16 shrink-0 rounded-full border-2 border-blue-600 dark:border-blue-400 bg-white dark:bg-[#060F2B] flex items-center justify-center text-xl font-serif italic text-blue-600 dark:text-blue-400 z-10 shadow-[0_0_15px_rgba(37,99,235,0.2)]">
+                                                <div className="w-16 h-16 shrink-0 rounded-full border-2 border-blue-600 dark:border-blue-400 bg-[var(--bg-card)] flex items-center justify-center text-xl font-serif italic text-blue-600 dark:text-blue-400 z-10 shadow-[0_0_15px_rgba(37,99,235,0.2)]">
                                                     {idx + 1}
                                                 </div>
 
                                                 {/* Content */}
                                                 <div className="flex-1 pt-4">
-                                                    <h3 className="font-sans text-2xl font-bold mb-4">{step.title}</h3>
-                                                    <p className="font-sans text-lg text-blue-900/60 dark:text-blue-100/60 leading-relaxed mb-6">{step.desc}</p>
+                                                    <h3 className="font-sans text-2xl font-bold mb-4 text-[var(--text-primary)]">{step.title}</h3>
+                                                    <p className="font-sans text-lg text-[var(--text-secondary)] leading-relaxed mb-6">{step.desc}</p>
 
                                                     {step.image && (
                                                         <div className="border border-blue-900/20 dark:border-blue-300/20 bg-blue-50/50 dark:bg-blue-950/30 p-4 relative">
@@ -128,10 +128,10 @@ const BlueprintDetail = ({ project, activeContext, activeChallenge, activeProces
 
                         {/* Interaction Demo Box */}
                         {(project.prototypeLink || InteractionComponent) && (
-                            <section className="border-2 border-blue-600 p-8 shadow-[8px_8px_0_rgba(37,99,235,0.2)] bg-white dark:bg-[#060F2B]">
+                            <section className="border-2 border-blue-600 p-8 shadow-[8px_8px_0_rgba(37,99,235,0.2)] bg-[var(--bg-card)]">
                                 <h3 className="text-xl font-bold mb-8 uppercase flex items-center gap-3"><BookOpen /> User_Testing_Interface</h3>
                                 {project.prototypeLink ? (
-                                    <div className="w-full h-[600px] border-2 border-blue-600/30 bg-[#F0F7FF] dark:bg-[#060F2B]">
+                                    <div className="w-full h-[600px] border-2 border-[var(--border-color)] bg-[var(--bg-void)]">
                                         <iframe src={project.prototypeLink} title={`${activeTitle} Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
                                     </div>
                                 ) : (
@@ -146,27 +146,27 @@ const BlueprintDetail = ({ project, activeContext, activeChallenge, activeProces
                     <aside className="lg:col-span-4 space-y-12 shrink-0">
 
                         {(activeMetrics || activeInsights) && (
-                            <div className="border-2 border-blue-900/20 dark:border-blue-300/20 p-8 bg-white/50 dark:bg-black/20 backdrop-blur-sm sticky top-32">
-                                <h4 className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-8 pb-4 border-b border-blue-900/10 dark:border-blue-300/10">Specification_Data</h4>
+                            <div className="border border-[var(--border-color)] p-8 bg-[var(--bg-card)] backdrop-blur-sm sticky top-32 shadow-sm">
+                                <h4 className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-8 pb-4 border-b border-[var(--border-color)]">Specification_Data</h4>
 
                                 {activeMetrics && (
                                     <div className="space-y-6 mb-12">
                                         {activeMetrics.map((m, i) => (
                                             <div key={i}>
-                                                <div className="font-sans text-4xl font-bold text-blue-900 dark:text-white mb-1">{m.value}</div>
-                                                <div className="text-[10px] uppercase font-bold text-blue-500/70">{m.label}</div>
+                                                <div className="font-sans text-4xl font-bold text-[var(--text-primary)] mb-1">{m.value}</div>
+                                                <div className="text-[10px] uppercase font-bold text-[var(--text-secondary)]">{m.label}</div>
                                             </div>
                                         ))}
                                     </div>
                                 )}
 
                                 {activeInsights && (
-                                    <div className="space-y-8 border-t border-blue-900/10 dark:border-blue-300/10 pt-8">
+                                    <div className="space-y-8 border-t border-[var(--border-color)] pt-8">
                                         <h4 className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-6">Planned_Features</h4>
                                         {activeInsights.map((insight, idx) => (
                                             <div key={idx}>
-                                                <h5 className="font-bold text-sm mb-2 font-sans">{insight.title}</h5>
-                                                <p className="text-xs text-blue-900/60 dark:text-blue-100/60 font-sans leading-relaxed">{insight.desc}</p>
+                                                <h5 className="font-bold text-sm mb-2 font-sans text-[var(--text-primary)]">{insight.title}</h5>
+                                                <p className="text-xs text-[var(--text-secondary)] font-sans leading-relaxed">{insight.desc}</p>
                                             </div>
                                         ))}
                                     </div>

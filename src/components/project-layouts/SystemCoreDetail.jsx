@@ -9,7 +9,7 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
     // Aesthetic: Terminal Data, Scanning Lines, Dark Void, High Contrast Blue/Green Monospace
 
     return (
-        <div className="bg-[#050505] text-white font-sans min-h-screen selection:bg-blue-500/30">
+        <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-sans min-h-screen selection:bg-blue-500/30">
 
             {/* Terminal Grid Background */}
             <div className="fixed inset-0 z-0 pointer-events-none opacity-10"
@@ -17,12 +17,12 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
             </div>
 
             {/* Ambient Shadow */}
-            <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#050505_120%)]"></div>
+            <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
             <main className="relative z-10 pt-24 pb-32">
 
                 {/* 1. HERO BANNER */}
-                <header className="relative border-b border-white/10 overflow-hidden min-h-[70vh] flex flex-col justify-center px-6 text-center">
+                <header className="relative border-b border-[var(--border-color)] overflow-hidden min-h-[70vh] flex flex-col justify-center px-6 text-center">
 
                     {/* Scanning Line */}
                     <motion.div
@@ -40,26 +40,26 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
                         ))}
                     </div>
 
-                    <div className="max-w-5xl mx-auto relative z-30 space-y-8 backdrop-blur-sm p-8 border border-white/5 bg-black/40">
-                        <div className="inline-flex items-center gap-3 px-4 py-2 border border-blue-500/30 bg-blue-500/10">
+                    <div className="max-w-5xl mx-auto relative z-30 space-y-8 backdrop-blur-sm p-8 border border-[var(--border-color)] bg-[var(--bg-surface)] opacity-95">
+                        <div className="inline-flex items-center gap-3 px-4 py-2 border border-blue-500/30 bg-[var(--bg-void)]">
                             <Cpu size={14} className="text-blue-400 animate-pulse" />
                             <span className="font-mono text-[10px] uppercase tracking-widest text-blue-400 text-shadow-glow">
                                 {activeSnapshot.tagline} // SYSTEM PROTOCOL
                             </span>
                         </div>
 
-                        <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif italic text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                        <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif italic text-[var(--text-primary)] drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
                             {activeTitle}
                         </h1>
 
-                        <p className="text-xl md:text-2xl font-light text-gray-400 max-w-3xl mx-auto leading-relaxed border-l-2 border-blue-500/50 pl-6 text-left">
+                        <p className="text-xl md:text-2xl font-light text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed border-l-2 border-blue-500/50 pl-6 text-left">
                             {activeTldr}
                         </p>
                     </div>
                 </header>
 
                 {/* 2. SPECS TERMINAL */}
-                <section className="border-b border-white/10 bg-black/80 relative z-20">
+                <section className="border-b border-[var(--border-color)] bg-[var(--bg-void)] relative z-20">
                     <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-[10px] md:text-xs">
 
                         <div className="flex items-center gap-4">
@@ -75,20 +75,20 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
                             )}
                         </div>
 
-                        <div className="flex flex-wrap items-center gap-8 text-gray-400">
+                        <div className="flex flex-wrap items-center gap-8 text-[var(--text-secondary)]">
                             <div className="flex flex-col">
                                 <span className="opacity-50 mb-1">ROLE_ASSIGNMENT</span>
-                                <span className="text-white">{activeContext.role}</span>
+                                <span className="text-[var(--text-primary)]">{activeContext.role}</span>
                             </div>
-                            <div className="hidden md:block w-px h-6 bg-white/20"></div>
+                            <div className="hidden md:block w-px h-6 bg-[var(--border-color)]"></div>
                             <div className="flex flex-col">
                                 <span className="opacity-50 mb-1">TEMP_MARKER</span>
-                                <span className="text-white">{activeContext.timeline}</span>
+                                <span className="text-[var(--text-primary)]">{activeContext.timeline}</span>
                             </div>
-                            <div className="hidden md:block w-px h-6 bg-white/20"></div>
+                            <div className="hidden md:block w-px h-6 bg-[var(--border-color)]"></div>
                             <div className="flex flex-col">
                                 <span className="opacity-50 mb-1">LOADED_MODULES</span>
-                                <span className="text-white">{project.stack.slice(0, 3).join(' / ')}</span>
+                                <span className="text-[var(--text-primary)]">{project.stack.slice(0, 3).join(' / ')}</span>
                             </div>
                         </div>
                     </div>
@@ -98,13 +98,13 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
                 <section className="max-w-4xl mx-auto px-6 py-24 space-y-32">
 
                     {/* The Challenge */}
-                    <article className="border border-white/10 p-8 md:p-12 bg-[#0A0A0A] shadow-2xl relative overflow-hidden group">
+                    <article className="border border-[var(--border-color)] p-8 md:p-12 bg-[var(--bg-card)] shadow-2xl relative overflow-hidden group">
                         <div className="absolute top-0 left-0 w-full h-1 bg-red-500/50"></div>
                         <div className="flex items-center gap-4 mb-8">
                             <Terminal size={16} className="text-red-400" />
                             <span className="font-mono text-xs uppercase tracking-widest text-red-400">System.Err // The Challenge</span>
                         </div>
-                        <h2 className="text-2xl md:text-4xl font-sans font-medium text-gray-200 leading-tight">
+                        <h2 className="text-2xl md:text-4xl font-sans font-medium text-[var(--text-primary)] leading-tight">
                             {activeChallenge}
                         </h2>
                     </article>
@@ -119,15 +119,15 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
                             {activeProcess.map((step, idx) => (
                                 <article key={idx} className="grid md:grid-cols-5 gap-8 items-start">
                                     <div className="md:col-span-2 space-y-4">
-                                        <div className="font-mono text-[10px] text-gray-500">STEP_0{idx + 1}</div>
-                                        <h3 className="text-xl font-bold text-white border-l-2 border-blue-500 pl-4">
+                                        <div className="font-mono text-[10px] text-[var(--text-secondary)]">STEP_0{idx + 1}</div>
+                                        <h3 className="text-xl font-bold text-[var(--text-primary)] border-l-2 border-blue-500 pl-4">
                                             {step.title}
                                         </h3>
                                     </div>
                                     <div className="md:col-span-3 space-y-6">
-                                        <p className="text-gray-400 leading-relaxed">{step.desc}</p>
+                                        <p className="text-[var(--text-secondary)] leading-relaxed">{step.desc}</p>
                                         {step.image && (
-                                            <div className="border border-white/10 bg-black p-4">
+                                            <div className="border border-[var(--border-color)] bg-[var(--bg-void)] p-4">
                                                 {step.image.startsWith('airy:') ? (
                                                     <div className="w-full h-[250px]"><AiryDiagram type={step.image.split(':')[1]} /></div>
                                                 ) : (
@@ -149,10 +149,10 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
                                 <span className="font-mono text-xs uppercase tracking-widest text-purple-400">Data_Extraction</span>
                             </div>
                             {activeInsights.map((insight, idx) => (
-                                <div key={idx} className="bg-[#111] border border-white/5 p-8 relative">
+                                <div key={idx} className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 relative">
                                     <div className="absolute top-4 right-4 text-purple-500/20 font-mono text-4xl font-bold">0{idx + 1}</div>
-                                    <h3 className="text-xl font-bold mb-4 text-white">{insight.title}</h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed relative z-10">{insight.desc}</p>
+                                    <h3 className="text-xl font-bold mb-4 text-[var(--text-primary)]">{insight.title}</h3>
+                                    <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">{insight.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -170,7 +170,7 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
                                 </div>
                             </div>
                             {project.prototypeLink ? (
-                                <div className="w-full h-[600px] border border-blue-500/30 bg-black">
+                                <div className="w-full h-[600px] border border-blue-500/30 bg-[var(--bg-void)]">
                                     <iframe src={project.prototypeLink} title={`${activeTitle} Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
                                 </div>
                             ) : (
@@ -181,23 +181,23 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
 
                     {/* Metrics Footer */}
                     {(activeMetrics || activeLearnings) && (
-                        <div className="border-t border-white/10 pt-16 grid md:grid-cols-2 gap-16">
+                        <div className="border-t border-[var(--border-color)] pt-16 grid md:grid-cols-2 gap-16">
                             {activeMetrics && (
                                 <div>
-                                    <h4 className="font-mono text-xs uppercase tracking-widest text-gray-500 mb-8">Telemetry_Output</h4>
+                                    <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-8">Telemetry_Output</h4>
                                     <div className="space-y-6">
                                         {activeMetrics.map((m, i) => (
-                                            <div key={i} className="flex justify-between items-end border-b border-white/5 pb-2">
-                                                <span className="text-sm text-gray-400 uppercase tracking-wide font-mono">{m.label}</span>
-                                                <span className="text-2xl font-bold text-white font-mono">{m.value}</span>
+                                            <div key={i} className="flex justify-between items-end border-b border-[var(--border-color)] pb-2">
+                                                <span className="text-sm text-[var(--text-secondary)] uppercase tracking-wide font-mono">{m.label}</span>
+                                                <span className="text-2xl font-bold text-[var(--text-primary)] font-mono">{m.value}</span>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             )}
                             {activeLearnings && (
-                                <div className="bg-white text-black p-8 font-serif italic text-xl leading-relaxed relative">
-                                    <div className="absolute -top-3 -left-3 bg-blue-500 text-white font-mono text-[10px] px-2 py-1 uppercase font-bold">Human_Input</div>
+                                <div className="bg-[var(--text-primary)] text-[var(--bg-void)] p-8 font-serif italic text-xl leading-relaxed relative">
+                                    <div className="absolute -top-3 -left-3 bg-blue-500 text-[var(--bg-void)] font-mono text-[10px] px-2 py-1 uppercase font-bold">Human_Input</div>
                                     "{activeLearnings}"
                                 </div>
                             )}

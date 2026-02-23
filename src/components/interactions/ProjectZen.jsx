@@ -134,10 +134,10 @@ export default function NetflixContextUI() {
     const isCalmMode = activeFilter === 'chill' || activeFilter === 'quick';
 
     return (
-        <div className="bg-[#141414] min-h-screen text-white font-sans overflow-x-hidden pb-20">
+        <div className="bg-[#141414] min-h-screen text-white font-sans overflow-x-hidden pb-20 relative">
 
             {/* --- HEADER --- */}
-            <div className={`fixed top-0 w-full z-50 transition-all duration-300 px-4 md:px-12 py-4 flex justify-between items-center ${isScrolled ? 'bg-[#141414]/95 shadow-lg' : 'bg-gradient-to-b from-black/80 to-transparent'}`}>
+            <div className={`absolute top-0 w-full z-50 transition-all duration-300 px-4 md:px-12 py-4 flex justify-between items-center ${isScrolled ? 'bg-[#141414]/95 shadow-lg' : 'bg-gradient-to-b from-black/80 to-transparent'}`}>
                 <div className="flex items-center gap-8">
                     <h1 className="text-[#E50914] text-2xl md:text-4xl font-black tracking-tighter cursor-pointer">NETFLIX <span className="hidden md:inline text-white font-thin text-sm ml-2 opacity-70">ZEN</span></h1>
                     <ul className="hidden md:flex gap-5 text-sm font-medium text-gray-300">

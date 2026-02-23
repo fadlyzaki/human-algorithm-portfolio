@@ -77,6 +77,7 @@ const FilterMeApp = () => {
     const [showCart, setShowCart] = useState(false);
     const [notification, setNotification] = useState(null);
     const [cameraError, setCameraError] = useState(null);
+    const [cameraRequested, setCameraRequested] = useState(false);
     const videoRef = useRef(null);
 
     const activeProduct = PRODUCTS.find(p => p.id === activeFilterId);
@@ -106,7 +107,7 @@ const FilterMeApp = () => {
             }
         };
 
-        if (!showCart) {
+        if (!showCart && cameraRequested) {
             startCamera();
         }
 
@@ -115,7 +116,7 @@ const FilterMeApp = () => {
                 stream.getTracks().forEach(track => track.stop());
             }
         };
-    }, [showCart]);
+    }, [showCart, cameraRequested]);
 
     const addToCart = (product) => {
         if (product.id === 'none') return;
@@ -273,7 +274,18 @@ const FilterMeApp = () => {
 
                         {/* 1. The Camera Feed */}
                         <div className="absolute inset-0 z-0 bg-black flex items-center justify-center overflow-hidden">
-                            {cameraError ? (
+                            {!cameraRequested ? (
+                                <div className="text-white text-center p-8 flex flex-col items-center">
+                                    <Camera size={48} className="mb-4 text-gray-500" />
+                                    <p className="mb-6 font-medium text-lg">Experience AR Try-On</p>
+                                    <button
+                                        onClick={() => setCameraRequested(true)}
+                                        className="bg-white text-black px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform"
+                                    >
+                                        Enable Camera
+                                    </button>
+                                </div>
+                            ) : cameraError ? (
                                 <div className="text-white text-center p-8">
                                     <Video size={48} className="mx-auto mb-4 text-gray-500" />
                                     <p className="mb-4">{cameraError}</p>
