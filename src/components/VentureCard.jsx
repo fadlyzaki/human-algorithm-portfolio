@@ -51,7 +51,7 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
         />
 
         {/* Top Image Section (Replacing right side layout) */}
-        <div className="h-1/2 relative overflow-hidden bg-black/40 border-b border-white/5">
+        <div className="h-[40%] relative overflow-hidden bg-black/40 border-b border-white/5 flex-shrink-0">
             <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100 scale-110 group-hover:scale-100">
                 <ProjectCard id={project.id} expanded={true} image={project.coverImage} backgroundOnly />
             </div>
@@ -61,9 +61,9 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
         </div>
 
         {/* Bottom Content Section */}
-        <div className="h-1/2 p-6 md:p-8 relative z-20 flex flex-col justify-between">
+        <div className="flex-1 p-6 relative z-20 flex flex-col justify-between">
             <div>
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-3">
                     <div className="p-1.5 border border-blue-500/30 rounded bg-blue-500/10">
                         <Cpu size={14} className="text-blue-400" />
                     </div>
