@@ -30,8 +30,8 @@ const VentureCard = ({ project, index, isIndonesian, onClick }) => {
 const SystemCoreCard = ({ project, title, desc, onClick }) => (
     <motion.div
         onClick={onClick}
-        className="group relative col-span-1 md:col-span-2 lg:col-span-3 h-[500px] border border-[var(--border-color)] bg-[#0A0A0A] overflow-hidden cursor-pointer flex flex-col md:flex-row"
-        whileHover={{ borderColor: 'rgba(255,255,255,0.4)' }}
+        className="group relative h-[450px] border-2 border-[var(--border-color)] bg-[#0A0A0A] overflow-hidden cursor-pointer flex flex-col"
+        whileHover={{ borderColor: 'rgba(255,255,255,0.4)', scale: 0.98 }}
     >
         {/* Terminal Text Background */}
         <div className="absolute inset-0 opacity-5 font-mono text-[8px] leading-none pointer-events-none select-none overflow-hidden p-4">
@@ -50,40 +50,46 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
         />
 
-        <div className="flex-1 p-8 md:p-12 relative z-20 flex flex-col justify-center">
-            <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 border border-blue-500/30 rounded bg-blue-500/10">
-                    <Cpu size={20} className="text-blue-400" />
+        {/* Top Image Section (Replacing right side layout) */}
+        <div className="h-1/2 relative overflow-hidden bg-black/40 border-b border-white/5">
+            <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100 scale-110 group-hover:scale-100">
+                <ProjectCard id={project.id} expanded={true} image={project.coverImage} backgroundOnly />
+            </div>
+            {/* Visual Redactions */}
+            <div className="absolute top-4 left-4 w-16 h-1 bg-blue-500/30 blur-md"></div>
+            <div className="absolute bottom-4 right-4 w-16 h-1 bg-purple-500/30 blur-md"></div>
+        </div>
+
+        {/* Bottom Content Section */}
+        <div className="h-1/2 p-6 md:p-8 relative z-20 flex flex-col justify-between">
+            <div>
+                <div className="flex items-center gap-2 mb-4">
+                    <div className="p-1.5 border border-blue-500/30 rounded bg-blue-500/10">
+                        <Cpu size={14} className="text-blue-400" />
+                    </div>
+                    <span className="font-mono text-[9px] tracking-widest text-blue-400 uppercase">System Core // Agentic Workflow</span>
                 </div>
-                <span className="font-mono text-[10px] tracking-widest text-blue-400 uppercase">System Core // Agentic Workflow</span>
+
+                <h3 className="text-3xl font-serif italic mb-3 text-white group-hover:text-blue-100 transition-colors">
+                    {title}
+                </h3>
+                <p className="text-gray-400 text-sm font-light mb-4 line-clamp-3">
+                    {desc}
+                </p>
             </div>
 
-            <h3 className="text-4xl md:text-6xl font-serif italic mb-6 text-white group-hover:text-blue-100 transition-colors">
-                {title}
-            </h3>
-            <p className="text-gray-400 text-lg md:text-xl font-light mb-8 max-w-xl leading-relaxed">
-                {desc}
-            </p>
-
-            <div className="flex gap-3 flex-wrap">
-                {project.stack.map((tech) => (
-                    <span key={tech} className="px-3 py-1 border border-white/10 rounded-full font-mono text-[10px] text-gray-500 uppercase">
+            <div className="flex gap-2 flex-wrap">
+                {project.stack.slice(0, 3).map((tech) => (
+                    <span key={tech} className="px-2 py-0.5 border border-white/10 rounded-full font-mono text-[8px] text-gray-500 uppercase">
                         {tech}
                     </span>
                 ))}
             </div>
         </div>
-
-        <div className="flex-1 relative overflow-hidden bg-black/40 border-l border-white/5">
-            <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100 scale-110 group-hover:scale-100">
-                <ProjectCard id={project.id} expanded={true} image={project.coverImage} backgroundOnly />
-            </div>
-            {/* Visual Redactions */}
-            <div className="absolute top-12 left-12 w-32 h-2 bg-blue-500/30 blur-xl"></div>
-            <div className="absolute bottom-12 right-12 w-32 h-2 bg-purple-500/30 blur-xl"></div>
-        </div>
     </motion.div>
 );
+
+
 
 // 2. THE COSMIC POP (Dolphi)
 const CosmicPopCard = ({ project, title, desc, onClick }) => (
@@ -109,7 +115,7 @@ const CosmicPopCard = ({ project, title, desc, onClick }) => (
             <h3 className="text-3xl font-serif italic mb-4 text-white">
                 {title}
             </h3>
-            <p className="text-blue-100/60 font-light text-sm mb-6 leading-relaxed line-clamp-2">
+            <p className="text-blue-100/60 font-light text-sm mb-6 leading-relaxed line-clamp-3">
                 {desc}
             </p>
             <div className="flex gap-2">
@@ -144,13 +150,13 @@ const BrutalistCard = ({ project, title, desc, onClick }) => (
                 <div className="inline-block bg-[#FF3B30] text-white px-3 py-1 font-mono text-[10px] uppercase font-bold mb-4">
                     Research // Cognitive Mastery
                 </div>
-                <h3 className="text-4xl font-serif font-black italic uppercase leading-[0.85] text-black dark:text-white mb-6">
+                <h3 className="text-3xl md:text-2xl font-serif font-black italic uppercase leading-tight text-black dark:text-white mb-6">
                     {title}
                 </h3>
             </div>
 
             <div className="mt-auto">
-                <p className="text-black dark:text-white font-bold text-sm mb-6 leading-tight border-l-4 border-[#FF3B30] pl-4">
+                <p className="text-black dark:text-white font-bold text-sm mb-6 leading-tight border-l-4 border-[#FF3B30] pl-4 line-clamp-3">
                     {desc}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -192,7 +198,7 @@ const BentoCard = ({ project, title, desc, onClick }) => (
             <h3 className="text-3xl font-serif italic mb-3 text-[var(--text-primary)]">
                 {title}
             </h3>
-            <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-2">
+            <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-3">
                 {desc}
             </p>
             <div className="flex justify-between items-center">
@@ -239,7 +245,7 @@ const BlueprintCard = ({ project, title, desc, onClick }) => (
                     {title}
                 </h3>
                 <div className="w-full h-px bg-blue-500/30"></div>
-                <p className="text-blue-700/70 dark:text-blue-300/60 text-sm font-light leading-relaxed">
+                <p className="text-blue-700/70 dark:text-blue-300/60 text-sm font-light leading-relaxed line-clamp-3">
                     {desc}
                 </p>
                 <div className="flex gap-4 font-mono text-[9px] text-blue-500/60">

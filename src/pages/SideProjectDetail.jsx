@@ -18,6 +18,13 @@ import ZoomableImage from '../components/ZoomableImage';
 import AiryDiagram from '../components/AiryDiagram';
 import SkeletonLine from '../components/ui/SkeletonLine';
 
+// Import New Layout Architectures
+import SystemCoreDetail from '../components/project-layouts/SystemCoreDetail';
+import CosmicPopDetail from '../components/project-layouts/CosmicPopDetail';
+import BrutalistDetail from '../components/project-layouts/BrutalistDetail';
+import BentoDetail from '../components/project-layouts/BentoDetail';
+import BlueprintDetail from '../components/project-layouts/BlueprintDetail';
+
 // Lazy Load Interaction Components
 const WorkforceAI = React.lazy(() => import('../components/interactions/WorkforceAI'));
 const CommerceAI = React.lazy(() => import('../components/interactions/CommerceAI'));
@@ -167,389 +174,64 @@ const SideProjectDetail = () => {
          {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
 
          <main className="relative z-10">
-
-            {/* --- 2. PRODUCT HERO --- */}
-            <header className="min-h-[85vh] flex flex-col justify-center items-center px-6 pt-24 md:pt-32 text-center relative overflow-hidden bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-500 border-b border-[var(--border-color)]">
-               {/* Product Visual Background (Airy Diagram) */}
-               <div className="absolute inset-0 z-0 pointer-events-none">
-                  <div className="w-full h-full opacity-[0.15] dark:opacity-[0.25] grayscale hover:grayscale-0 transition-all duration-1000 scale-105">
-                     <ProjectCard
-                        id={project.id}
-                        type={project.type || 'Web'}
-                        expanded={true}
-                        backgroundOnly={true}
-                     />
-                  </div>
-                  {/* Gradient Overlay for Text Readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-void)] via-[var(--bg-void)]/80 to-transparent"></div>
-                  <div className="absolute inset-0 bg-[var(--bg-void)]/20 backdrop-blur-[1px]"></div>
-               </div>
-
-               <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 space-y-8 max-w-5xl mx-auto relative z-20">
-                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)]/80 backdrop-blur-md shadow-sm">
-                     <span className="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
-                     <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-primary)]">
-                        {activeSnapshot.tagline}
-                     </span>
-                  </div>
-
-                  <h1 className="text-5xl md:text-8xl lg:text-9xl font-sans font-bold tracking-tighter text-[var(--text-primary)]">
-                     {activeTitle}
-                  </h1>
-
-                  <p className="text-xl md:text-3xl font-light text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed">
-                     {activeTldr}
-                  </p>
-               </div>
-
-               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce text-[var(--text-secondary)]">
-                  <span className="font-mono text-[10px] uppercase tracking-widest">{t('project_detail.scroll_down')}</span>
-                  <div className="w-px h-8 bg-current"></div>
-               </div>
-            </header>
-
-            {/* --- 3. VENTURE SPECS --- */}
-            <section className="border-b border-[var(--border-color)] bg-[var(--bg-surface)] relative z-20">
-               <div className="max-w-7xl mx-auto px-6 py-6 overflow-x-auto no-scrollbar text-[var(--text-secondary)]">
-                  {type === 'prototype' ? (
-                     /* PROTOTYPE DESIGN: Unified Centered Inline Specs */
-                     <div className="flex items-center justify-center gap-x-8 gap-y-2 flex-wrap text-xs">
-                        <div className="flex items-center gap-2">
-                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Role:</span>
-                           <span className="font-bold text-[var(--text-primary)]">{activeContext.role}</span>
+            {/* --- LAYOUT ORCHESTRATOR --- */}
+            {(() => {
+               const commonProps = {
+                  project,
+                  activeContext,
+                  activeChallenge,
+                  activeProcess,
+                  activeInsights,
+                  activeSolution,
+                  activeMetrics,
+                  activeLearnings,
+                  InteractionComponent: InteractionComponent ? () => (
+                     <Suspense fallback={
+                        <div className="p-8 space-y-4">
+                           <SkeletonLine className="w-1/2 h-6" />
+                           <SkeletonLine className="w-full h-32" />
                         </div>
-                        <div className="flex items-center gap-2">
-                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Timeline:</span>
-                           <span className="font-bold text-[var(--text-primary)]">{activeContext.timeline}</span>
+                     }>
+                        <InteractionComponent />
+                     </Suspense>
+                  ) : null,
+                  showLivePreview,
+                  setShowLivePreview,
+                  t,
+                  isIndonesian,
+                  activeTitle,
+                  activeTldr,
+                  activeSnapshot,
+               };
+
+               switch (project.id) {
+                  case 'human-algorithm':
+                     return <SystemCoreDetail {...commonProps} />;
+                  case 'dolphi':
+                     return <CosmicPopDetail {...commonProps} />;
+                  case 'productivity-illusion':
+                     return <BrutalistDetail {...commonProps} />;
+                  case 'year-in-review':
+                     return <BentoDetail {...commonProps} />;
+                  case 'interactive-workbook':
+                     return <BlueprintDetail {...commonProps} />;
+                  default:
+                     return (
+                        <div className="pt-32 text-center text-red-500 font-mono">
+                           Error: Layout architecture missing for '{project.id}'
                         </div>
-                        <div className="flex items-center gap-2">
-                           <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Tech Stack:</span>
-                           <span className="font-bold text-[var(--text-primary)]">{project.stack.join(', ')}</span>
-                        </div>
-                        {project.type && (
-                           <div className="flex items-center gap-2">
-                              <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Type:</span>
-                              <span className="font-bold text-[var(--text-primary)]">{project.type}</span>
-                           </div>
-                        )}
-                     </div>
-                  ) : (
-                     /* SIDE PROJECT DESIGN: Original Split CTA/Stats */
-                     <div className="flex items-center justify-between min-w-max gap-12">
-                        {/* Links (Primary CTA) */}
-                        <div className="flex items-center gap-4">
-                           {project.links.demo && project.links.demo !== '#' && (
-                              <a href={project.links.demo} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg-card)] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">
-                                 Launch Product <ArrowUpRight size={14} />
-                              </a>
-                           )}
-                           {project.links.repo && project.links.repo !== '#' && (
-                              <a href={`https://${project.links.repo}`} target="_blank" rel="noreferrer" className="flex items-center gap-2 border border-[var(--border-color)] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[var(--bg-void)] transition-colors">
-                                 <Code size={14} /> Source
-                              </a>
-                           )}
-                        </div>
-
-                        {/* Stats/Meta */}
-                        <div className="flex items-center gap-8 text-[var(--text-secondary)]">
-                           <div className="flex flex-col">
-                              <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Role</span>
-                              <span className="text-xs font-bold text-[var(--text-primary)]">{activeContext.role}</span>
-                           </div>
-                           <div className="flex flex-col">
-                              <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Timeline</span>
-                              <span className="text-xs font-bold text-[var(--text-primary)]">{activeContext.timeline}</span>
-                           </div>
-                           <div className="flex flex-col">
-                              <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">Tech Stack</span>
-                              <span className="text-xs font-bold text-[var(--text-primary)]">{project.stack.slice(0, 3).join(', ')}</span>
-                           </div>
-                        </div>
-                     </div>
-                  )}
-               </div>
-            </section>
-
-            {/* --- 4. PRODUCT NARRATIVE --- */}
-            <section className="max-w-4xl mx-auto px-6 py-24 space-y-32">
-
-               {/* A. OPPORTUNITY (The "Why") */}
-               <article>
-                  <div className="flex items-center gap-4 mb-8">
-                     <div className="w-8 h-8 rounded-full bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)]">
-                        <ScanEye size={16} />
-                     </div>
-                     <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">The Opportunity</span>
-                  </div>
-                  <h2 className="text-3xl md:text-5xl font-sans font-bold mb-8 leading-tight">
-                     {activeChallenge}
-                  </h2>
-               </article>
-
-               {/* B. STRATEGY (The "How" & "What") */}
-               {activeProcess && (
-                  <div className="border-l-2 border-[var(--border-color)] pl-8 md:pl-12 space-y-16">
-                     {activeProcess.map((step, idx) => (
-                        <article key={idx} className="relative group">
-                           <span className="absolute -left-[41px] md:-left-[57px] top-0 w-4 h-4 rounded-full bg-[var(--bg-void)] border-2 border-[var(--border-color)] group-hover:border-[var(--accent)] transition-colors"></span>
-                           <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
-                              {step.title}
-                           </h3>
-                           <p className="text-lg text-[var(--text-secondary)] leading-relaxed mb-6">{step.desc}</p>
-                           {step.image && (
-                              <div className="rounded-xl overflow-hidden border border-[var(--border-color)] shadow-sm bg-[var(--bg-surface)]">
-                                 {step.image.startsWith('airy:') ? (
-                                    <div className="w-full h-[300px] p-8">
-                                       <AiryDiagram type={step.image.split(':')[1]} />
-                                    </div>
-                                 ) : (
-                                    <ZoomableImage src={step.image} alt={step.title} className="w-full h-auto" />
-                                 )}
-                              </div>
-                           )}
-                        </article>
-                     ))}
-                  </div>
-               )}
-
-               {/* B. NARRATIVE MODULES (Optional Long-form Story) */}
-               {activeModules && activeModules.length > 0 && (
-                  <div className="space-y-24">
-                     {activeModules.map((module, idx) => (
-                        <article key={idx} className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                           <div className="flex items-center gap-4">
-                              <div className="w-10 h-[1px] bg-[var(--accent)]"></div>
-                              <h3 className="text-xl font-bold uppercase tracking-widest text-[var(--text-primary)]">
-                                 {module.title}
-                              </h3>
-                           </div>
-                           <div className="text-xl md:text-2xl text-[var(--text-secondary)] leading-relaxed font-light">
-                              {module.content.split('\n\n').map((para, pIdx) => (
-                                 <p key={pIdx} className={pIdx > 0 ? "mt-6" : ""}>{para}</p>
-                              ))}
-                           </div>
-                        </article>
-                     ))}
-                  </div>
-               )}
-
-               {/* B.5. KEY INSIGHTS */}
-               {activeInsights && activeInsights.length > 0 && (
-                  <div className="space-y-8">
-                     <div className="flex items-center gap-4 mb-4">
-                        <div className="w-8 h-8 rounded-full bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)]">
-                           <Layers size={16} />
-                        </div>
-                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">Key Insights</span>
-                     </div>
-                     <div className="grid gap-6">
-                        {activeInsights.map((insight, idx) => (
-                           <div key={idx} className="bg-[var(--bg-surface)] border-l-4 border-[var(--accent)] rounded-r-xl p-6 md:p-8 space-y-4">
-                              <h3 className="text-xl font-bold">{insight.title}</h3>
-                              <p className="text-[var(--text-secondary)] leading-relaxed">{insight.desc}</p>
-                              {insight.image && (
-                                 <div className="rounded-xl overflow-hidden border border-[var(--border-color)] shadow-sm bg-[var(--bg-surface)] mt-4">
-                                    {insight.image.startsWith('airy:') ? (
-                                       <div className="w-full h-[300px] p-8">
-                                          <AiryDiagram type={insight.image.split(':')[1]} />
-                                       </div>
-                                    ) : (
-                                       <ZoomableImage src={insight.image} alt={insight.title} className="w-full h-auto" />
-                                    )}
-                                 </div>
-                              )}
-                           </div>
-                        ))}
-                     </div>
-                  </div>
-               )}
-
-               {/* C. PRODUCT SHOWCASE - CONDITIONAL RENDER */}
-               {activeSolution && (!project.prototypeLink || !showLivePreview) && (
-                  <div className="space-y-16 bg-[var(--bg-surface)] p-8 md:p-12 rounded-3xl border border-[var(--border-color)] animate-in fade-in zoom-in duration-500">
-                     <div className="text-center max-w-2xl mx-auto mb-12">
-                        <h2 className="text-3xl font-bold mb-4">The Solution</h2>
-                        <p className="text-[var(--text-secondary)]">Delivered as a robust, scalable product.</p>
-                     </div>
-
-                     <div className="grid gap-12">
-                        {activeSolution.map((sol, idx) => (
-                           <div key={idx} className="space-y-6">
-                              {sol.image && (
-                                 <div className="w-full rounded-xl overflow-hidden shadow-2xlring-1 ring-black/5 bg-[var(--bg-surface)]">
-                                    {sol.image.startsWith('airy:') ? (
-                                       <div className="w-full h-[300px] p-8">
-                                          <AiryDiagram type={sol.image.split(':')[1]} />
-                                       </div>
-                                    ) : (
-                                       <ZoomableImage src={sol.image} alt={sol.title} className="w-full h-auto" />
-                                    )}
-                                 </div>
-                              )}
-                              <div className="text-left">
-                                 <h3 className="text-xl font-bold mb-2">{sol.title}</h3>
-                                 <p className="text-[var(--text-secondary)] mb-4">{sol.desc}</p>
-                                 {sol.link && (
-                                    <a
-                                       href={sol.link}
-                                       target="_blank"
-                                       rel="noreferrer"
-                                       className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand)] hover:underline"
-                                    >
-                                       {sol.linkLabel || (isIndonesian ? "Lihat Demo" : "View Live Demo")} <ArrowUpRight size={14} />
-                                    </a>
-                                 )}
-                              </div>
-                           </div>
-                        ))}
-                     </div>
-                  </div>
-               )}
-
-
-               {/* C.5. LIVE PREVIEW */}
-               {project.prototypeLink && showLivePreview && (
-                  <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
-                     <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-4">
-                           <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
-                              <Monitor size={16} />
-                           </div>
-                           <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-                              {isIndonesian ? "Pratinjau Langsung" : "Live Preview"}
-                           </span>
-                        </div>
-                        <div className="flex items-center gap-4">
-                           <button
-                              onClick={() => setShowLivePreview(false)}
-                              className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-                           >
-                              {isIndonesian ? "Ganti ke Galeri Statis" : "Switch to Static Gallery"}
-                           </button>
-                           <a
-                              href={project.prototypeLink}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand)] hover:underline"
-                           >
-                              {isIndonesian ? "Buka di Tab Baru" : "Open in New Tab"} <ArrowUpRight size={14} />
-                           </a>
-                        </div>
-                     </div>
-
-                     <div className="w-full h-[600px] bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative group">
-                        <iframe
-                           src={project.prototypeLink}
-                           title="Live Preview"
-                           className="w-full h-full"
-                           loading="lazy"
-                        />
-                     </div>
-                  </div>
-               )}
-
-
-               {/* Toggle Back to Live Preview Button (If in Static Mode and Prototype Exists) */}
-               {project.prototypeLink && !showLivePreview && (
-                  <div className="flex justify-center mb-12">
-                     <button
-                        onClick={() => setShowLivePreview(true)}
-                        className="flex items-center gap-2 mx-auto px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--bg-card)] transition-colors text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]"
-                     >
-                        <Monitor size={14} />
-                        {isIndonesian ? "Tampilkan Pratinjau Langsung" : "Show Live Preview"}
-                     </button>
-                  </div>
-               )}
-
-
-               {/* C.6. LIVE INTERACTION COMPONENT (Fallback if no external link) */}
-               {!project.prototypeLink && InteractionComponent && (
-                  <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700 mb-24">
-                     <div className="flex items-center gap-4 mb-4">
-                        <div className="w-8 h-8 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-500">
-                           <Cpu size={16} />
-                        </div>
-                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-                           {isIndonesian ? "Demo Interaktif" : "Interactive Demo"}
-                        </span>
-                     </div>
-
-                     <div className={`mx-auto bg-[var(--bg-card)] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative ${project.id === 'project-zen' ? 'max-w-5xl' : 'max-w-sm'}`}>
-                        <Suspense fallback={
-                           <div className="p-8 space-y-4">
-                              <SkeletonLine className="w-1/2 h-6" />
-                              <SkeletonLine className="w-full h-32" />
-                           </div>
-                        }>
-                           <InteractionComponent />
-                        </Suspense>
-                     </div>
-                  </div>
-               )}
-
-               {/* --- C.7. DESIGN SYSTEM LINK (Human Algorithm Exclusive) --- */}
-               {project.id === 'human-algorithm' && (
-                  <div className="flex justify-center mb-24 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
-                     <Link to="/design-system" className="group relative flex flex-col items-center gap-4 p-8 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent)] transition-all rounded-xl w-full max-w-2xl text-center">
-                        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shine pointer-events-none" />
-
-                        <div className="w-12 h-12 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center text-[var(--text-secondary)] group-hover:text-[var(--accent)] group-hover:border-[var(--accent)] transition-colors shadow-sm">
-                           <Terminal size={20} />
-                        </div>
-
-                        <div>
-                           <h3 className="font-mono text-sm uppercase tracking-widest font-bold mb-1 text-[var(--accent)]">
-                              System_Diagnostic
-                           </h3>
-                           <p className="text-[var(--text-secondary)] text-sm max-w-md">
-                              Access raw design tokens, typography scales, and component status via the internal diagnostic console.
-                           </p>
-                        </div>
-                     </Link>
-                  </div>
-               )}
-
-               {/* D. TRACTION & METRICS */}
-               {(activeMetrics || activeLearnings) && (
-                  <div className="grid md:grid-cols-2 gap-8 md:gap-16">
-                     {activeMetrics && (
-                        <div className="bg-[var(--bg-surface)] p-8 rounded-2xl border border-[var(--border-color)]">
-                           <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-8 flex items-center gap-2">
-                              <Box size={14} /> Key Metrics
-                           </h4>
-                           <div className="space-y-8">
-                              {activeMetrics.map((m, i) => (
-                                 <div key={i}>
-                                    <div className="text-4xl font-bold text-[var(--text-primary)] mb-1">{m.value}</div>
-                                    <div className="text-sm text-[var(--text-secondary)] uppercase tracking-wide opacity-80">{m.label}</div>
-                                 </div>
-                              ))}
-                           </div>
-                        </div>
-                     )}
-
-                     {activeLearnings && (
-                        <div className="bg-[var(--accent)] text-white p-8 rounded-2xl flex flex-col justify-between">
-                           <h4 className="font-mono text-xs uppercase tracking-widest opacity-70 mb-8">Founder's Note</h4>
-                           <p className="text-xl md:text-2xl font-serif italic leading-relaxed">
-                              "{activeLearnings}"
-                           </p>
-                        </div>
-                     )}
-                  </div>
-               )}
-
-            </section>
-
-            {/* --- 5. FOOTER STAMP --- */}
-            <footer className="text-center py-24 opacity-60">
-               <FileText size={24} className="mx-auto mb-4 text-[var(--text-secondary)]" />
-               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">End of Record</p>
-            </footer>
-
+                     );
+               }
+            })()}
          </main>
-      </div >
+
+         {/* --- 5. FOOTER STAMP --- */}
+         <footer className="text-center py-24 opacity-60 relative z-10">
+            <FileText size={24} className="mx-auto mb-4 text-[var(--text-secondary)]" />
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">End of Record</p>
+         </footer>
+
+      </div>
    );
 };
 
