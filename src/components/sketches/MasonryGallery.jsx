@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
-import { X, ZoomIn, ZoomOut, Maximize, Activity } from 'lucide-react';
+import { X, ZoomIn, ZoomOut, Maximize, Activity, ImageOff } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
 import sketchesData from '../../data/sketches.json';
@@ -36,8 +36,37 @@ const generateNodes = (data, isDigital) => {
 const allDigital = generateNodes(sketchesData.filter(s => s.medium === 'digital'), true);
 const allPencil = generateNodes(sketchesData.filter(s => s.medium === 'pencil'), false);
 
+// --- Image Component with Fallback ---
+const NodeImage = ({ node, isDigital }) => {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return (
+      <div className={`flex flex-col items-center justify-center p-4 text-center ${isDigital ? 'bg-blue-900/10' : 'bg-zinc-100'} aspect-[4/3] w-full`}>
+        <ImageOff size={24} className={isDigital ? 'text-blue-500/30' : 'text-zinc-300'} />
+        <p className={`mt-2 font-mono text-[8px] uppercase tracking-tighter ${isDigital ? 'text-blue-500/40' : 'text-zinc-400'}`}>
+          Failed to load
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={node.url}
+      alt={node.title}
+      draggable="false"
+      loading="lazy"
+      onError={() => setHasError(true)}
+      className={`w-full h-auto block transition-transform duration-500 scale-[1.01] ${isDigital ? 'opacity-90 group-hover:scale-110 group-hover:opacity-100' : 'contrast-125 sepia-[0.1]'
+        }`}
+    />
+  );
+};
+
 // --- Lightbox Component ---
 const Lightbox = ({ image, onClose }) => {
+  const [hasError, setHasError] = useState(false);
   if (!image) return null;
   return (
     <motion.div
@@ -53,16 +82,27 @@ const Lightbox = ({ image, onClose }) => {
       >
         <X size={24} />
       </button>
-      <motion.img
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        src={image.url}
-        alt={image.title}
-        className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-[0_0_100px_rgba(255,255,255,0.05)]"
-        onClick={(e) => e.stopPropagation()}
-      />
+
+      {hasError ? (
+        <div className="flex flex-col items-center justify-center p-12 bg-white/5 border border-white/10 rounded-2xl max-w-lg w-full aspect-video">
+          <ImageOff size={48} className="text-white/20 mb-4" />
+          <p className="text-white/60 font-mono text-xs uppercase tracking-[0.2em]">Image Unavailable</p>
+          <p className="text-white/30 text-[10px] mt-2 text-center">{image.title}</p>
+        </div>
+      ) : (
+        <motion.img
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          src={image.url}
+          alt={image.title}
+          onError={() => setHasError(true)}
+          className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-[0_0_100px_rgba(255,255,255,0.05)]"
+          onClick={(e) => e.stopPropagation()}
+        />
+      )}
+
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -555,14 +595,7 @@ const NodeGraphGallery = () => {
                             }`}
                           onClick={(e) => handleNodeClick(node, e)}
                         >
-                          <img
-                            src={node.url}
-                            alt={node.title}
-                            draggable="false"
-                            loading="lazy"
-                            className={`w-full h-auto block transition-transform duration-500 scale-[1.01] ${isDigital ? 'opacity-90 group-hover:scale-110 group-hover:opacity-100' : 'contrast-125 sepia-[0.1]'
-                              }`}
-                          />
+                          <NodeImage node={node} isDigital={isDigital} />
 
                           {/* Node Label Tooltip - adjusted position for variable height */}
                           <div className={`absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono text-[10px] uppercase tracking-wider px-2 py-1 rounded ${isDigital ? 'bg-blue-600 outline outline-1 outline-blue-400 text-white' : 'bg-black text-white'
