@@ -104,14 +104,14 @@ const DesignSystemViewer = () => {
                                 <span>System_Diagnostic_Mode_active</span>
                             </div>
                             <div>
-                                <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-[var(--text-primary)] mb-2">
+                                <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-[var(--text-primary)] mb-8">
                                     DESIGN_KERNEL<span className="text-[var(--accent)]">.SYS</span>
                                 </h1>
-                                <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest max-w-xl leading-relaxed">
-                                    &gt; Executing visual language protocols {SYSTEM_CONFIG.VERSION}<br />
-                                    &gt; Target: Human_Cognition_Optimization<br />
-                                    &gt; Status: <span className="text-[var(--accent-green)]">{SYSTEM_CONFIG.STATUS}</span>
-                                </p>
+                                <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest max-w-xl space-y-3">
+                                    <p>&gt; Executing visual language protocols {SYSTEM_CONFIG.VERSION}</p>
+                                    <p>&gt; Target: Human_Cognition_Optimization</p>
+                                    <p>&gt; Status: <span className="text-[var(--accent-green)]">{SYSTEM_CONFIG.STATUS}</span></p>
+                                </div>
                             </div>
                         </div>
                     </header>
@@ -122,7 +122,7 @@ const DesignSystemViewer = () => {
                                 <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
                                     <Hash size={14} /> [01] Chromatics_Architecture
                                 </h2>
-                                <ChromaticsGrid />
+                                <ChromaticsGrid isXRayMode={isXRayMode} />
                             </section>
                         )}
 
@@ -131,7 +131,7 @@ const DesignSystemViewer = () => {
                                 <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
                                     <Type size={14} /> [02] Typographic_Protocols
                                 </h2>
-                                <TypographyLab />
+                                <TypographyLab isXRayMode={isXRayMode} />
                             </section>
                         )}
 
@@ -149,7 +149,7 @@ const DesignSystemViewer = () => {
                                 <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
                                     <MoveRight size={14} /> [04] Grid_&_Motion_Physics
                                 </h2>
-                                <LayoutLab />
+                                <LayoutLab isXRayMode={isXRayMode} />
                             </section>
                         )}
 
@@ -158,7 +158,7 @@ const DesignSystemViewer = () => {
                                 <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
                                     <Fingerprint size={14} /> [05] Persona_Identity
                                 </h2>
-                                <BrandIdentity />
+                                <BrandIdentity isXRayMode={isXRayMode} />
                             </section>
                         )}
 
@@ -167,7 +167,7 @@ const DesignSystemViewer = () => {
                                 <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
                                     <Target size={14} /> [06] Strategic_Manifesto
                                 </h2>
-                                <BrandStrategy />
+                                <BrandStrategy isXRayMode={isXRayMode} />
                             </section>
                         )}
 
@@ -176,7 +176,7 @@ const DesignSystemViewer = () => {
                                 <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
                                     <Scale size={14} /> [07] Interaction_Axioms
                                 </h2>
-                                <UXPrinciples />
+                                <UXPrinciples isXRayMode={isXRayMode} />
                             </section>
                         )}
 
@@ -185,7 +185,7 @@ const DesignSystemViewer = () => {
                                 <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
                                     <Lock size={14} /> [08] System_Governance
                                 </h2>
-                                <GovernanceLab />
+                                <GovernanceLab isXRayMode={isXRayMode} />
                             </section>
                         )}
                     </div>
@@ -209,9 +209,10 @@ const DesignSystemViewer = () => {
 
 // --- SECTORS ---
 
-const ChromaticsGrid = () => (
-    <div className="space-y-16 animate-in fade-in zoom-in-95 duration-500">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+const ChromaticsGrid = ({ isXRayMode }) => (
+    <div className={`space-y-16 animate-in fade-in zoom-in-95 duration-500 relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+        {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">ChromaticsGrid.jsx // Core_Tokens</span>}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
             <ColorCard name="VOID" token="--bg-void" hex="#050505" />
             <ColorCard name="SURFACE" token="--bg-surface" hex="#111111" />
             <ColorCard name="TEXT_PRI" token="--text-primary" hex="#F3F4F6" />
@@ -262,9 +263,11 @@ const ColorCard = ({ name, token, hex }) => (
     </div>
 );
 
-const TypographyLab = () => (
-    <div className="space-y-12 animate-in slide-in-from-left-4 duration-500">
-        <div className="border border-[var(--border-color)] p-8 md:p-12 relative overflow-hidden bg-[var(--bg-card)] group hover:border-[var(--accent)] transition-colors">
+const TypographyLab = ({ isXRayMode }) => (
+    <div className={`space-y-12 animate-in slide-in-from-left-4 duration-500 relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+        {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">TypographyLab.jsx // Scales</span>}
+        <div className={`border border-[var(--border-color)] p-8 md:p-12 relative overflow-hidden bg-[var(--bg-card)] group hover:border-[var(--accent)] transition-colors ${isXRayMode ? 'border-dashed border-[var(--text-secondary)]/50' : ''}`}>
+            {isXRayMode && <span className="absolute top-2 left-2 z-20 font-mono text-[8px] text-[var(--text-secondary)]">Section // DisplayHero</span>}
             <div className="absolute top-4 right-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border border-[var(--text-secondary)] px-2 py-1 rounded flex items-center gap-2">
                 <Type size={10} /> Sans-Serif // Inter
             </div>
@@ -286,8 +289,9 @@ const TypographyLab = () => (
             </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-            <div className="border border-[var(--border-color)] p-8 bg-[var(--bg-card)] space-y-4 relative overflow-hidden group hover:border-[var(--accent)] transition-colors">
+        <div className="grid md:grid-cols-2 gap-8 relative z-10">
+            <div className={`border border-[var(--border-color)] p-8 bg-[var(--bg-card)] space-y-4 relative overflow-hidden group hover:border-[var(--accent)] transition-colors ${isXRayMode ? 'border-dashed border-[var(--text-secondary)]/50' : ''}`}>
+                {isXRayMode && <span className="absolute top-2 left-2 z-20 font-mono text-[8px] text-[var(--text-secondary)]">Section // Mono_Specs</span>}
                 <div className="absolute top-0 right-0 p-4 opacity-[0.03]">
                     <Terminal size={120} />
                 </div>
@@ -314,7 +318,8 @@ const TypographyLab = () => (
                 </div>
             </div>
 
-            <div className="border border-[var(--border-color)] p-8 bg-[var(--bg-card)] flex flex-col justify-center space-y-6">
+            <div className={`border border-[var(--border-color)] p-8 bg-[var(--bg-card)] flex flex-col justify-center space-y-6 relative ${isXRayMode ? 'border-dashed border-[var(--text-secondary)]/50' : ''}`}>
+                {isXRayMode && <span className="absolute top-2 left-2 z-20 font-mono text-[8px] text-[var(--text-secondary)]">Section // Data_Viz_Specs</span>}
                 <div className="w-full font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border-b border-[var(--border-color)] pb-2 mb-2">
                     Data Visualization // Tabular Numerals
                 </div>
@@ -489,46 +494,52 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
                 </h3>
 
                 <div className="grid md:grid-cols-2 gap-8">
-                    <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-8">
-                        {/* Button Variants */}
-                        <div className="space-y-4">
-                            <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Primary_Directives</label>
-                            <div className="flex flex-wrap gap-4">
-                                <button className="bg-[var(--text-primary)] text-[var(--bg-void)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">
-                                    Primary Action
-                                </button>
-                                <button className="px-6 py-3 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] text-xs font-bold uppercase tracking-widest transition-all">
-                                    Secondary
-                                </button>
+                    <div className={`relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : 'p-8 border border-[var(--border-color)] bg-[var(--bg-card)]'}`}>
+                        {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">button // Atoms</span>}
+                        <div className="space-y-8 relative z-10">
+                            {/* Button Variants */}
+                            <div className="space-y-4">
+                                <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Primary_Directives</label>
+                                <div className="flex flex-wrap gap-4">
+                                    <button className="bg-[var(--text-primary)] text-[var(--bg-void)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">
+                                        Primary Action
+                                    </button>
+                                    <button className="px-6 py-3 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] text-xs font-bold uppercase tracking-widest transition-all">
+                                        Secondary
+                                    </button>
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Terminal Input */}
-                        <div className="space-y-4">
-                            <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Terminal_Input</label>
-                            <div className="relative">
-                                <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-[var(--accent)] text-xs">&gt;</span>
-                                <input
-                                    type="text"
-                                    placeholder="Awaiting command..."
-                                    className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] p-3 pl-8 font-mono text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] transition-colors placeholder:text-[var(--text-secondary)]/50"
-                                    readOnly
-                                />
+                            {/* Terminal Input */}
+                            <div className="space-y-4">
+                                <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Terminal_Input</label>
+                                <div className="relative">
+                                    <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-[var(--accent)] text-xs">&gt;</span>
+                                    <input
+                                        type="text"
+                                        placeholder="Awaiting command..."
+                                        className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] p-3 pl-8 font-mono text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] transition-colors placeholder:text-[var(--text-secondary)]/50"
+                                        readOnly
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-8">
-                        {/* Status Badges */}
-                        <div className="space-y-4">
-                            <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">System_States</label>
-                            <div className="flex flex-wrap gap-3">
-                                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-green)]/10 text-[var(--accent-green)] border border-[var(--accent-green)]/20 font-mono text-[10px] uppercase tracking-widest">
-                                    <ShieldCheck size={10} /> Operational
-                                </span>
-                                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-red)]/10 text-[var(--accent-red)] border border-[var(--accent-red)]/20 font-mono text-[10px] uppercase tracking-widest">
-                                    <AlertTriangle size={10} /> Critical
-                                </span>
+                    <div className={`relative flex flex-col justify-between ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : 'p-8 border border-[var(--border-color)] bg-[var(--bg-card)]'}`}>
+                        {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">span // Badges</span>}
+                        <div className="space-y-8 relative z-10">
+                            {/* Status Badges */}
+                            <div className="space-y-4">
+                                <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">System_States</label>
+                                <div className="flex flex-wrap gap-3">
+                                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-green)]/10 text-[var(--accent-green)] border border-[var(--accent-green)]/20 font-mono text-[10px] uppercase tracking-widest">
+                                        <ShieldCheck size={10} /> Operational
+                                    </span>
+                                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-red)]/10 text-[var(--accent-red)] border border-[var(--accent-red)]/20 font-mono text-[10px] uppercase tracking-widest">
+                                        <AlertTriangle size={10} /> Critical
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -541,7 +552,9 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
                     <ShieldAlert size={14} /> Destructive Action Guardrails
                 </h3>
 
-                <div className="p-8 border border-[var(--accent-red)]/20 bg-[var(--bg-card)] flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+                <div className={`relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : 'p-8 border border-[var(--accent-red)]/20 bg-[var(--bg-card)]'}`}>
+                    {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">Guardrail // Double-Confirm Pattern</span>}
+
                     <div className="absolute top-0 right-0 p-8 opacity-[0.03]">
                         <ShieldAlert size={120} className="text-[var(--accent-red)]" />
                     </div>
@@ -590,10 +603,12 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
 
 export default DesignSystemViewer;
 
-const BrandIdentity = () => (
-    <div className="space-y-16 animate-in slide-in-from-bottom-8 duration-500">
-        <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-6">
+const BrandIdentity = ({ isXRayMode }) => (
+    <div className={`space-y-16 animate-in slide-in-from-bottom-8 duration-500 relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+        {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">BrandIdentity.jsx // Grid.2Col</span>}
+        <div className="grid md:grid-cols-2 gap-12 relative z-10">
+            <div className={`space-y-6 relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--text-secondary)]/50' : ''}`}>
+                {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--text-secondary)]">Col 1 // PersonaCards</span>}
                 <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
                     <Fingerprint size={14} /> Persona Architecture
                 </h3>
@@ -622,7 +637,8 @@ const BrandIdentity = () => (
                 </div>
             </div>
 
-            <div className="space-y-6">
+            <div className={`space-y-6 relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--text-secondary)]/50' : ''}`}>
+                {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--text-secondary)]">Col 2 // VisualIdentity</span>}
                 <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
                     <UserCheck size={14} /> Visual Identity
                 </h3>
@@ -652,42 +668,46 @@ const BrandIdentity = () => (
     </div>
 );
 
-const UXPrinciples = () => (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in zoom-in-95 duration-500">
-        <PrincipleCard
-            num="01"
-            title="Zero Trust Data"
-            icon={Lock}
-            desc="Assume all external data is hostile. Processing stays local. Client-side sanitization enforced before DOM injection."
-        />
-        <PrincipleCard
-            num="02"
-            title="Graceful Degradation"
-            icon={Activity}
-            desc="Core workflows must survive sub-optimal conditions. If WebGL fails, fallback to SVG. If JS fails, SSR must deliver root content."
-        />
-        <PrincipleCard
-            num="03"
-            title="Inherent Accessibility"
-            icon={UserCheck}
-            desc="A11y is not a checklist, it's a foundation. Keyboard navigation is required to pass Merge Gate. WCAG AA contrast is hardcoded into tokens."
-        />
-        <PrincipleCard
-            num="04"
-            title="Performance Budgets"
-            icon={Zap}
-            desc="Strict adherence to 15kb CSS limits. Interaction-to-Next-Paint (INP) capped at 200ms. Code-splitting by route is mandatory."
-        />
-        <PrincipleCard
-            num="05"
-            title="Cognitive Ergonomics"
-            icon={Eye}
-            desc="Designed for high-stress, low-attention environments. Minimize visual noise. Leverage progressive disclosure for complex configuration."
-        />
-        <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6 flex flex-col justify-center items-center text-center opacity-50">
-            <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-                Fetching deeper axioms...
-            </span>
+const UXPrinciples = ({ isXRayMode }) => (
+    <div className={`relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+        {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">UXPrinciples.jsx // Grid.3Col</span>}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in zoom-in-95 duration-500 relative z-10">
+            <PrincipleCard
+                num="01"
+                title="Zero Trust Data"
+                icon={Lock}
+                desc="Assume all external data is hostile. Processing stays local. Client-side sanitization enforced before DOM injection."
+            />
+            <PrincipleCard
+                num="02"
+                title="Graceful Degradation"
+                icon={Activity}
+                desc="Core workflows must survive sub-optimal conditions. If WebGL fails, fallback to SVG. If JS fails, SSR must deliver root content."
+            />
+            <PrincipleCard
+                num="03"
+                title="Inherent Accessibility"
+                icon={UserCheck}
+                desc="A11y is not a checklist, it's a foundation. Keyboard navigation is required to pass Merge Gate. WCAG AA contrast is hardcoded into tokens."
+            />
+            <PrincipleCard
+                num="04"
+                title="Performance Budgets"
+                icon={Zap}
+                desc="Strict adherence to 15kb CSS limits. Interaction-to-Next-Paint (INP) capped at 200ms. Code-splitting by route is mandatory."
+            />
+            <PrincipleCard
+                num="05"
+                title="Cognitive Ergonomics"
+                icon={Eye}
+                desc="Designed for high-stress, low-attention environments. Minimize visual noise. Leverage progressive disclosure for complex configuration."
+            />
+            <div className={`border border-[var(--border-color)] bg-[var(--bg-card)] p-6 flex flex-col justify-center items-center text-center opacity-50 relative ${isXRayMode ? 'border-dashed border-[var(--text-secondary)]' : ''}`}>
+                {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--text-secondary)]">Placeholder</span>}
+                <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+                    Fetching deeper axioms...
+                </span>
+            </div>
         </div>
     </div>
 );
@@ -731,10 +751,13 @@ const PrincipleCard = ({ num, title, icon: Icon, desc }) => (
     </div>
 );
 
-const LayoutLab = () => (
-    <div className="space-y-16 animate-in slide-in-from-bottom-8 duration-500">
+const LayoutLab = ({ isXRayMode }) => (
+    <div className={`space-y-16 animate-in slide-in-from-bottom-8 duration-500 relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+        {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">LayoutLab.jsx // Stack</span>}
+
         {/* GRID SYSTEM */}
-        <div className="space-y-6">
+        <div className={`space-y-6 relative z-10 ${isXRayMode ? 'p-4 border border-dashed border-[var(--text-secondary)]/50' : ''}`}>
+            {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--text-secondary)]">Section // GridSystem</span>}
             <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
                 <Grid3X3 size={14} /> Spatial Architecture (12-Col)
             </h3>
@@ -776,7 +799,8 @@ const LayoutLab = () => (
         </div>
 
         {/* MOTION CURVES */}
-        <div className="space-y-6">
+        <div className={`space-y-6 relative z-10 ${isXRayMode ? 'p-4 border border-dashed border-[var(--text-secondary)]/50' : ''}`}>
+            {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--text-secondary)]">Section // MotionCurves</span>}
             <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
                 <Activity size={14} /> Kinetic Architecture & Physics
             </h3>
@@ -822,12 +846,14 @@ const LayoutLab = () => (
     </div>
 );
 
-const GovernanceLab = () => (
-    <div className="space-y-16 animate-in slide-in-from-right-4 duration-500">
-        <div className="grid lg:grid-cols-2 gap-12">
+const GovernanceLab = ({ isXRayMode }) => (
+    <div className={`space-y-16 animate-in slide-in-from-right-4 duration-500 relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+        {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">GovernanceLab.jsx // Grid.2Col</span>}
+        <div className="grid lg:grid-cols-2 gap-12 relative z-10">
 
             {/* TELEMETRY DASHBOARD */}
-            <div className="space-y-6">
+            <div className={`space-y-6 relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--text-secondary)]/50' : ''}`}>
+                {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--text-secondary)]">Col 1 // TelemetryDashboard</span>}
                 <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
                     <Activity size={14} /> System Telemetry & Health
                 </h3>
@@ -976,7 +1002,7 @@ const GovernanceLab = () => (
     </div>
 );
 
-const BrandStrategy = () => {
+const BrandStrategy = ({ isXRayMode }) => {
     const renderNode = (title, items) => (
         <div className="flex flex-col items-center group">
             {/* Connection Line & Node */}
@@ -996,7 +1022,8 @@ const BrandStrategy = () => {
     );
 
     return (
-        <div className="space-y-24 animate-in slide-in-from-bottom-8 duration-500 py-12">
+        <div className={`space-y-24 animate-in slide-in-from-bottom-8 duration-500 py-12 relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+            {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">BrandStrategy.jsx // ComponentTree</span>}
 
             {/* Header Area */}
             <div className="text-center space-y-4 max-w-2xl mx-auto">
