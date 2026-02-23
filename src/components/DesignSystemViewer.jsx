@@ -9,7 +9,6 @@ import {
 import { useTheme } from '../context/ThemeContext';
 import DefaultCard from './cards/DefaultCard';
 import SystemMonitor from './SystemMonitor';
-import ProgressBar from './ProgressBar';
 import UIDiagram from './diagrams/UIDiagram';
 
 const SYSTEM_CONFIG = {
@@ -40,30 +39,12 @@ const DesignSystemViewer = () => {
     ];
 
     const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            setActiveSection(id);
-        }
+        setActiveSection(id);
+        // Optional: Reset scroll to top of the main container when switching tabs
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    // Intersection Observer for sticky sidebar active state
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setActiveSection(entry.target.id);
-                }
-            });
-        }, { rootMargin: '-20% 0px -80% 0px' });
-
-        sectors.forEach(sector => {
-            const el = document.getElementById(sector.id);
-            if (el) observer.observe(el);
-        });
-
-        return () => observer.disconnect();
-    }, []);
+    // Note: IntersectionObserver removed, as we are no longer using continuous scrolling.
 
     return (
         <section className="w-full border-t border-[var(--border-color)] bg-[var(--bg-void)] relative overflow-hidden">
@@ -135,62 +116,78 @@ const DesignSystemViewer = () => {
                         </div>
                     </header>
 
-                    <div className="p-8 md:p-12 space-y-32">
-                        <section id="chromatics" className="scroll-mt-32">
-                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
-                                <Hash size={14} /> [01] Chromatics_Architecture
-                            </h2>
-                            <ChromaticsGrid />
-                        </section>
+                    <div className="p-8 md:p-12 min-h-[800px] relative">
+                        {activeSection === 'chromatics' && (
+                            <section id="chromatics" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                    <Hash size={14} /> [01] Chromatics_Architecture
+                                </h2>
+                                <ChromaticsGrid />
+                            </section>
+                        )}
 
-                        <section id="typography" className="scroll-mt-32">
-                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
-                                <Type size={14} /> [02] Typographic_Protocols
-                            </h2>
-                            <TypographyLab />
-                        </section>
+                        {activeSection === 'typography' && (
+                            <section id="typography" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                    <Type size={14} /> [02] Typographic_Protocols
+                                </h2>
+                                <TypographyLab />
+                            </section>
+                        )}
 
-                        <section id="components" className="scroll-mt-32">
-                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
-                                <Grid3X3 size={14} /> [03] Module_Forge
-                            </h2>
-                            <ComponentForge isXRayMode={isXRayMode} />
-                        </section>
+                        {activeSection === 'components' && (
+                            <section id="components" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                    <Grid3X3 size={14} /> [03] Module_Forge
+                                </h2>
+                                <ComponentForge isXRayMode={isXRayMode} setIsXRayMode={setIsXRayMode} />
+                            </section>
+                        )}
 
-                        <section id="layout" className="scroll-mt-32">
-                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
-                                <MoveRight size={14} /> [04] Grid_&_Motion_Physics
-                            </h2>
-                            <LayoutLab />
-                        </section>
+                        {activeSection === 'layout' && (
+                            <section id="layout" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                    <MoveRight size={14} /> [04] Grid_&_Motion_Physics
+                                </h2>
+                                <LayoutLab />
+                            </section>
+                        )}
 
-                        <section id="brand" className="scroll-mt-32">
-                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
-                                <Fingerprint size={14} /> [05] Persona_Identity
-                            </h2>
-                            <BrandIdentity />
-                        </section>
+                        {activeSection === 'brand' && (
+                            <section id="brand" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                    <Fingerprint size={14} /> [05] Persona_Identity
+                                </h2>
+                                <BrandIdentity />
+                            </section>
+                        )}
 
-                        <section id="strategy" className="scroll-mt-32">
-                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
-                                <Target size={14} /> [06] Strategic_Manifesto
-                            </h2>
-                            <BrandStrategy />
-                        </section>
+                        {activeSection === 'strategy' && (
+                            <section id="strategy" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                    <Target size={14} /> [06] Strategic_Manifesto
+                                </h2>
+                                <BrandStrategy />
+                            </section>
+                        )}
 
-                        <section id="ux" className="scroll-mt-32">
-                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
-                                <Scale size={14} /> [07] Interaction_Axioms
-                            </h2>
-                            <UXPrinciples />
-                        </section>
+                        {activeSection === 'ux' && (
+                            <section id="ux" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                    <Scale size={14} /> [07] Interaction_Axioms
+                                </h2>
+                                <UXPrinciples />
+                            </section>
+                        )}
 
-                        <section id="governance" className="scroll-mt-32">
-                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
-                                <Lock size={14} /> [08] System_Governance
-                            </h2>
-                            <GovernanceLab />
-                        </section>
+                        {activeSection === 'governance' && (
+                            <section id="governance" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                    <Lock size={14} /> [08] System_Governance
+                                </h2>
+                                <GovernanceLab />
+                            </section>
+                        )}
                     </div>
 
                     {/* Footer Data Line */}
@@ -346,17 +343,40 @@ const TypographyLab = () => (
     </div>
 );
 
-const ComponentForge = ({ isXRayMode }) => {
+const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
     const [isConfirmingDestructive, setIsConfirmingDestructive] = useState(false);
 
     return (
         <div className="space-y-16 animate-in slide-in-from-right-4 duration-500">
 
+            {/* X-RAY TOGGLE CONTROLS FOR THIS SECTION */}
+            <div className="flex justify-between items-end border-b border-[var(--border-color)] pb-4">
+                <div>
+                    <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-accent)] flex items-center gap-2 mb-2">
+                        <Terminal size={14} /> Spec Testing Crucible
+                    </h3>
+                    <p className="text-xs text-[var(--text-secondary)]">Toggle X-Ray to inspect CSS construction classes and structural bounding boxes.</p>
+                </div>
+                <button
+                    onClick={() => setIsXRayMode(!isXRayMode)}
+                    className={`flex items-center gap-2 px-4 py-3 font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? 'bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]' : 'bg-[var(--bg-void)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]'}`}
+                >
+                    <Eye size={12} className={isXRayMode ? 'animate-pulse' : ''} />
+                    {isXRayMode ? 'X-Ray Active' : 'Enable X-Ray'}
+                </button>
+            </div>
+
             {/* SECTION 1: SYSTEM COMPONENTS */}
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="flex justify-between items-end border-b border-[var(--border-color)] pb-4">
+                <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                    <Layers size={14} /> Production_Ready_Modules
+                </h3>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 mt-8">
                 <div className="space-y-6">
                     <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
-                        <Layers size={14} /> Production_Ready_Modules
+                        <Box size={14} /> Containers
                     </h3>
 
                     <div className="space-y-8">
@@ -399,12 +419,63 @@ const ComponentForge = ({ isXRayMode }) => {
                             </div>
                         </div>
 
-                        {/* Real Component 4: ProgressBar */}
+                        {/* Real Component 4: Static Progress Bars */}
                         <div className={`relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
-                            {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">ProgressBar.jsx // Kinetic_Load</span>}
+                            {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">div // Kinetic_Load</span>}
                             <div className="space-y-4 relative z-10">
-                                <ProgressBar progress={84} label="System Load" />
-                                <ProgressBar progress={62} label="Network Flux" color="var(--accent-blue)" />
+                                <div className="space-y-2">
+                                    <div className="flex justify-between font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
+                                        <span>System Load</span>
+                                        <span className="text-[var(--accent)]">84%</span>
+                                    </div>
+                                    <div className="h-1 w-full bg-[var(--bg-void)] overflow-hidden">
+                                        <div className="h-full bg-[var(--accent)] w-[84%] relative animate-pulse">
+                                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-[var(--accent)] shadow-[0_0_10px_var(--accent)]"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="flex justify-between font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
+                                        <span>Network Flux</span>
+                                        <span className="text-[var(--accent-blue)]">62%</span>
+                                    </div>
+                                    <div className="h-1 w-full bg-[var(--bg-void)] overflow-hidden">
+                                        <div className="h-full bg-[var(--accent-blue)] w-[62%] relative opacity-70">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Missing Bento Grid Component restored */}
+                <div className="col-span-1 md:col-span-2 space-y-6 mt-8">
+                    <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                        <Grid3X3 size={14} /> Bento_Grid_Pattern
+                    </h3>
+                    <div className={`relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+                        {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">Grid.Layout // BentoGrid</span>}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                            {/* Feature Card 1 */}
+                            <div className="md:col-span-2 p-8 border border-[var(--border-color)] bg-[var(--bg-card)] group hover:border-[var(--accent)] transition-colors relative overflow-hidden">
+                                <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                                    <Activity size={80} />
+                                </div>
+                                <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent)] mb-4">Core Module</h4>
+                                <h3 className="text-2xl font-bold tracking-tight mb-2">Primary Payload</h3>
+                                <p className="text-[var(--text-secondary)] text-sm max-w-md">
+                                    High-density data visualization components. Designed to render complex metrics within severe spatial constraints.
+                                </p>
+                            </div>
+
+                            {/* Feature Card 2 */}
+                            <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col justify-between group hover:border-[var(--text-primary)] transition-colors">
+                                <ShieldAlert size={24} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors" />
+                                <div className="mt-8">
+                                    <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-1">Status</h4>
+                                    <p className="font-bold text-lg">Secure Auth</p>
+                                </div>
                             </div>
                         </div>
                     </div>
