@@ -46,6 +46,9 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 *   **Safety Guardrails**: "Destructive" UI actions mandate a double-confirmation visual friction pattern protecting user latency.
 *   **Modular Architecture**: Monolithic structures (e.g., `About.jsx` "God Component") are strictly decomposed into single-responsibility molecules (`RuntimeLogTimeline`, `CertificationsGrid`, etc.) to isolate rendering domains.
 
+### 7. UI/UX Polish (v3.4)
+*   **System Core Card Alignment**: Fixed the flex distribution in the `SystemCoreCard` component, optimizing height ratios to `40/60` to ensure content properly fits on mobile and tablet without overlapping.
+
 ---
 
 ## ⚡ Performance Strategy
