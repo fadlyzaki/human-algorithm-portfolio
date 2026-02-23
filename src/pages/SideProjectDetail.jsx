@@ -24,6 +24,7 @@ import CosmicPopDetail from '../components/project-layouts/CosmicPopDetail';
 import BrutalistDetail from '../components/project-layouts/BrutalistDetail';
 import BentoDetail from '../components/project-layouts/BentoDetail';
 import BlueprintDetail from '../components/project-layouts/BlueprintDetail';
+import PrototypeDetail from '../components/project-layouts/PrototypeDetail';
 
 // Lazy Load Interaction Components
 const WorkforceAI = React.lazy(() => import('../components/interactions/WorkforceAI'));
@@ -203,6 +204,10 @@ const SideProjectDetail = () => {
                   activeTldr,
                   activeSnapshot,
                };
+
+               if (type === 'prototype') {
+                  return <PrototypeDetail {...commonProps} />;
+               }
 
                switch (project.id) {
                   case 'human-algorithm':
