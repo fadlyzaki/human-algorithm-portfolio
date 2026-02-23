@@ -52,7 +52,7 @@ const Footer = () => {
                         <Link to="/#work" className="hover:underline text-sm">{t('nav.work')}</Link>
                         <Link to="/side-projects" className="hover:underline text-sm">{t('nav.side_projects')}</Link>
                         <Link to="/about" className="hover:underline text-sm">{t('nav.about')}</Link>
-                        <Link to="/design-system" className="hover:underline text-sm text-[var(--text-secondary)]">Design System</Link>
+                        <Link to="/design-system" className="hover:underline text-sm">Design System</Link>
                         <Link to="/contact" className="hover:underline text-sm">{t('nav.contact')}</Link>
                     </div>
 
