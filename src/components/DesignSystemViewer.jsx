@@ -372,7 +372,12 @@ const ComponentForge = ({ isXRayMode }) => {
                         <div className={`relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
                             {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">SystemMonitor.jsx</span>}
                             <div className="relative z-10">
-                                <SystemMonitor />
+                                <SystemMonitor skills={[
+                                    { name: 'Figma', icon: Layers },
+                                    { name: 'React', icon: Cpu },
+                                    { name: 'Tailwind CSS', icon: Activity },
+                                    { name: 'Vite & Build Tools', icon: Zap }
+                                ]} />
                             </div>
                         </div>
                     </div>
