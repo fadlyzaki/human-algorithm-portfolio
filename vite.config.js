@@ -11,7 +11,7 @@ export default defineConfig({
           vendor: ['react', 'react-dom', 'react-router-dom'],
           animations: ['framer-motion'],
           icons: ['lucide-react'],
-          vision: ['@mediapipe/hands', '@mediapipe/camera_utils', '@mediapipe/drawing_utils', 'react-webcam']
+          vision: ['@mediapipe/hands', '@mediapipe/camera_utils', 'react-webcam']
         }
       }
     }
