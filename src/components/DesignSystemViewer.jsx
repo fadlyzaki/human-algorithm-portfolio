@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Terminal, Type, Grid3X3, Cpu,
     Hash, MoveRight, Layers, Box,
@@ -7,6 +7,10 @@ import {
     UserCheck, AlertTriangle, Target
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import DefaultCard from './cards/DefaultCard';
+import SystemMonitor from './SystemMonitor';
+import ProgressBar from './ProgressBar';
+import UIDiagram from './diagrams/UIDiagram';
 
 const SYSTEM_CONFIG = {
     VERSION: 'v3.0.1',
@@ -21,18 +25,45 @@ const SYSTEM_CONFIG = {
 
 const DesignSystemViewer = () => {
     const { isDark } = useTheme();
-    const [activeSector, setActiveSector] = useState('CHROMATICS');
+    const [isXRayMode, setIsXRayMode] = useState(false);
+    const [activeSection, setActiveSection] = useState('chromatics');
 
     const sectors = [
-        { id: 'CHROMATICS', label: '01 // CHROMATICS', icon: Hash },
-        { id: 'TYPOGRAPHY', label: '02 // TYPOGRAPHY', icon: Type },
-        { id: 'COMPONENTS', label: '03 // MODULES', icon: Grid3X3 },
-        { id: 'LAYOUT', label: '04 // GRID & MOTION', icon: MoveRight },
-        { id: 'BRAND', label: '05 // IDENTITY', icon: Fingerprint },
-        { id: 'STRATEGY', label: '06 // STRATEGY', icon: Target },
-        { id: 'UX', label: '07 // PRINCIPLES', icon: Scale },
-        { id: 'GOVERNANCE', label: '08 // GOVERNANCE', icon: Lock },
+        { id: 'chromatics', label: '01 // CHROMATICS', icon: Hash },
+        { id: 'typography', label: '02 // TYPOGRAPHY', icon: Type },
+        { id: 'components', label: '03 // MODULES', icon: Grid3X3 },
+        { id: 'layout', label: '04 // GRID & MOTION', icon: MoveRight },
+        { id: 'brand', label: '05 // IDENTITY', icon: Fingerprint },
+        { id: 'strategy', label: '06 // STRATEGY', icon: Target },
+        { id: 'ux', label: '07 // PRINCIPLES', icon: Scale },
+        { id: 'governance', label: '08 // GOVERNANCE', icon: Lock },
     ];
+
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setActiveSection(id);
+        }
+    };
+
+    // Intersection Observer for sticky sidebar active state
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        }, { rootMargin: '-20% 0px -80% 0px' });
+
+        sectors.forEach(sector => {
+            const el = document.getElementById(sector.id);
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <section className="w-full border-t border-[var(--border-color)] bg-[var(--bg-void)] relative overflow-hidden">
@@ -41,80 +72,139 @@ const DesignSystemViewer = () => {
                 style={{ backgroundImage: `linear-gradient(${isDark ? '#FFF' : '#000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#FFF' : '#000'} 1px, transparent 1px)`, backgroundSize: '20px 20px' }}>
             </div>
 
-            <div className="max-w-7xl mx-auto border-x border-[var(--border-color)] bg-[var(--bg-void)]/50 backdrop-blur-sm relative z-10">
-                {/* Header Terminal */}
-                <div className="border-b border-[var(--border-color)] p-8 md:p-12 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none">
-                        <Grid3X3 size={400} strokeWidth={0.5} />
-                    </div>
+            <div className="max-w-7xl mx-auto border-x border-[var(--border-color)] bg-[var(--bg-void)]/50 backdrop-blur-sm relative z-10 flex flex-col md:flex-row">
 
-                    <div className="space-y-6 relative z-10">
-                        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-[var(--accent)] font-mono text-[10px] uppercase tracking-widest font-bold backdrop-blur-md">
-                            <div className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
-                            <span>System_Diagnostic_Mode_active</span>
-                        </div>
+                {/* Sticky Sidebar */}
+                <aside className="w-full md:w-64 border-r border-[var(--border-color)] bg-[var(--bg-void)]/80 backdrop-blur-md z-40 md:sticky md:top-[72px] md:h-[calc(100vh-72px)] overflow-y-auto">
+                    <div className="p-8 space-y-8">
                         <div>
-                            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-[var(--text-primary)] mb-2">
-                                DESIGN_KERNEL<span className="text-[var(--accent)]">.SYS</span>
+                            <h2 className="text-xl font-bold tracking-tighter text-[var(--text-primary)] mb-1">
+                                KERNEL<span className="text-[var(--accent)]">.SYS</span>
                             </h2>
-                            <div className="h-1 w-24 bg-[var(--accent)]"></div>
+                            <div className="h-0.5 w-12 bg-[var(--accent)]"></div>
                         </div>
-                        <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest max-w-xl leading-relaxed">
-                            &gt; Executing visual language protocols {SYSTEM_CONFIG.VERSION}<br />
-                            &gt; Target: Human_Cognition_Optimization<br />
-                            &gt; Status: <span className="text-[var(--accent-green)]">{SYSTEM_CONFIG.STATUS}</span>
-                        </p>
-                    </div>
 
-                    {/* Sector Navigation */}
-                    <div className="flex flex-wrap gap-2 w-full lg:w-auto relative z-10" role="tablist" aria-label="System Sectors">
-                        {sectors.map((sector) => (
+                        <div className="space-y-1">
+                            {sectors.map((sector) => (
+                                <button
+                                    key={sector.id}
+                                    onClick={() => scrollToSection(sector.id)}
+                                    className={`w-full group flex items-center gap-3 px-4 py-3 text-[10px] font-mono font-bold uppercase tracking-widest transition-all text-left border-l-2 ${activeSection === sector.id ? 'border-[var(--accent)] text-[var(--accent)] bg-[var(--accent)]/10' : 'border-transparent text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5'}`}
+                                >
+                                    <sector.icon size={12} className={`transition-colors ${activeSection === sector.id ? 'text-[var(--accent)]' : 'text-[var(--text-secondary)] group-hover:text-[var(--accent)]'}`} />
+                                    {sector.label.split(' // ')[1]}
+                                </button>
+                            ))}
+                        </div>
+
+                        <div className="pt-8 border-t border-[var(--border-color)]">
                             <button
-                                key={sector.id}
-                                onClick={() => setActiveSector(sector.id)}
-                                className={`group flex items-center gap-3 px-6 py-4 text-xs font-mono font-bold uppercase tracking-widest transition-all border border-[var(--border-color)] hover:border-[var(--accent)] hover:bg-[var(--bg-card)] ${activeSector === sector.id
-                                    ? 'bg-[var(--bg-surface)] text-[var(--text-primary)] border-[var(--accent)] shadow-[0_0_20px_-10px_var(--accent)]'
-                                    : 'text-[var(--text-secondary)] bg-[var(--bg-void)]'
-                                    }`}
-                                role="tab"
-                                aria-selected={activeSector === sector.id}
-                                aria-controls={`${sector.id.toLowerCase()}-panel`}
-                                id={`${sector.id.toLowerCase()}-tab`}
-                                tabIndex={activeSector === sector.id ? 0 : -1}
+                                onClick={() => setIsXRayMode(!isXRayMode)}
+                                className={`w-full flex items-center justify-center gap-2 px-4 py-3 font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? 'bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]' : 'bg-[var(--bg-void)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]'}`}
                             >
-                                <sector.icon size={14} className={`transition-colors ${activeSector === sector.id ? 'text-[var(--accent)]' : 'text-[var(--text-secondary)] group-hover:text-[var(--accent)]'}`} aria-hidden="true" />
-                                {sector.label.split(' // ')[1]}
+                                <Eye size={12} className={isXRayMode ? 'animate-pulse' : ''} />
+                                {isXRayMode ? 'X-Ray Active' : 'Enable X-Ray'}
                             </button>
-                        ))}
+                        </div>
                     </div>
-                </div>
+                </aside>
 
-                {/* Content Area */}
-                <div className="p-8 md:p-12 min-h-[800px] relative" role="tabpanel" id={`${activeSector.toLowerCase()}-panel`} aria-labelledby={`${activeSector.toLowerCase()}-tab`}>
-                    <div className="absolute top-0 left-8 md:left-12 w-px h-full bg-[var(--border-color)] opacity-50" />
-                    <div className="absolute top-0 right-8 md:right-12 w-px h-full bg-[var(--border-color)] opacity-50" />
+                {/* Main Content Area */}
+                <main className="flex-1 min-h-screen">
+                    {/* Header Terminal */}
+                    <header className="border-b border-[var(--border-color)] p-8 md:p-12 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none">
+                            <Grid3X3 size={400} strokeWidth={0.5} />
+                        </div>
 
-                    {activeSector === 'CHROMATICS' && <ChromaticsGrid />}
-                    {activeSector === 'TYPOGRAPHY' && <TypographyLab />}
-                    {activeSector === 'COMPONENTS' && <ComponentForge />}
-                    {activeSector === 'LAYOUT' && <LayoutLab />}
-                    {activeSector === 'BRAND' && <BrandIdentity />}
-                    {activeSector === 'STRATEGY' && <BrandStrategy />}
-                    {activeSector === 'UX' && <UXPrinciples />}
-                    {activeSector === 'GOVERNANCE' && <GovernanceLab />}
-                </div>
+                        <div className="space-y-6 relative z-10">
+                            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-[var(--accent)] font-mono text-[10px] uppercase tracking-widest font-bold backdrop-blur-md">
+                                <div className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
+                                <span>System_Diagnostic_Mode_active</span>
+                            </div>
+                            <div>
+                                <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-[var(--text-primary)] mb-2">
+                                    DESIGN_KERNEL<span className="text-[var(--accent)]">.SYS</span>
+                                </h1>
+                                <p className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest max-w-xl leading-relaxed">
+                                    &gt; Executing visual language protocols {SYSTEM_CONFIG.VERSION}<br />
+                                    &gt; Target: Human_Cognition_Optimization<br />
+                                    &gt; Status: <span className="text-[var(--accent-green)]">{SYSTEM_CONFIG.STATUS}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </header>
 
-                {/* Footer Data Line */}
-                <div className="border-t border-[var(--border-color)] p-6 flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest bg-[var(--bg-surface)]">
-                    <div className="flex gap-8">
-                        <span>Mem: {SYSTEM_CONFIG.MEM_USAGE} // Threads: {SYSTEM_CONFIG.THREADS}</span>
-                        <span>Uptime: {SYSTEM_CONFIG.UPTIME}</span>
+                    <div className="p-8 md:p-12 space-y-32">
+                        <section id="chromatics" className="scroll-mt-32">
+                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                <Hash size={14} /> [01] Chromatics_Architecture
+                            </h2>
+                            <ChromaticsGrid />
+                        </section>
+
+                        <section id="typography" className="scroll-mt-32">
+                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                <Type size={14} /> [02] Typographic_Protocols
+                            </h2>
+                            <TypographyLab />
+                        </section>
+
+                        <section id="components" className="scroll-mt-32">
+                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                <Grid3X3 size={14} /> [03] Module_Forge
+                            </h2>
+                            <ComponentForge isXRayMode={isXRayMode} />
+                        </section>
+
+                        <section id="layout" className="scroll-mt-32">
+                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                <MoveRight size={14} /> [04] Grid_&_Motion_Physics
+                            </h2>
+                            <LayoutLab />
+                        </section>
+
+                        <section id="brand" className="scroll-mt-32">
+                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                <Fingerprint size={14} /> [05] Persona_Identity
+                            </h2>
+                            <BrandIdentity />
+                        </section>
+
+                        <section id="strategy" className="scroll-mt-32">
+                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                <Target size={14} /> [06] Strategic_Manifesto
+                            </h2>
+                            <BrandStrategy />
+                        </section>
+
+                        <section id="ux" className="scroll-mt-32">
+                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                <Scale size={14} /> [07] Interaction_Axioms
+                            </h2>
+                            <UXPrinciples />
+                        </section>
+
+                        <section id="governance" className="scroll-mt-32">
+                            <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                                <Lock size={14} /> [08] System_Governance
+                            </h2>
+                            <GovernanceLab />
+                        </section>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-green)]" />
-                        <span>System {SYSTEM_CONFIG.STATUS}</span>
-                    </div>
-                </div>
+
+                    {/* Footer Data Line */}
+                    <footer className="border-t border-[var(--border-color)] p-6 flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest bg-[var(--bg-surface)]">
+                        <div className="flex gap-8">
+                            <span>Mem: {SYSTEM_CONFIG.MEM_USAGE} // Threads: {SYSTEM_CONFIG.THREADS}</span>
+                            <span>Uptime: {SYSTEM_CONFIG.UPTIME}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-green)]" />
+                            <span>System {SYSTEM_CONFIG.STATUS}</span>
+                        </div>
+                    </footer>
+                </main>
             </div>
         </section>
     );
@@ -256,84 +346,89 @@ const TypographyLab = () => (
     </div>
 );
 
-const ComponentForge = () => {
+const ComponentForge = ({ isXRayMode }) => {
     const [isConfirmingDestructive, setIsConfirmingDestructive] = useState(false);
-    const [isXRayMode, setIsXRayMode] = useState(false);
 
     return (
         <div className="space-y-16 animate-in slide-in-from-right-4 duration-500">
 
-            {/* X-RAY TOGGLE CONTROLS */}
-            <div className="flex justify-between items-end border-b border-[var(--border-color)] pb-4">
-                <div>
-                    <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] flex items-center gap-2 mb-2">
-                        <Terminal size={14} /> Spec Testing Crucible
-                    </h3>
-                    <p className="font-mono text-[10px] text-[var(--text-secondary)]">Interact with modules or enable X-Ray to view structural topology.</p>
-                </div>
-                <button
-                    onClick={() => setIsXRayMode(!isXRayMode)}
-                    className={`flex items-center gap-2 px-4 py-2 font-mono text-[10px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? 'bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]' : 'bg-[var(--bg-void)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]'}`}
-                >
-                    <Eye size={12} className={isXRayMode ? 'animate-pulse' : ''} />
-                    {isXRayMode ? 'X-Ray Active' : 'Enable X-Ray'}
-                </button>
-            </div>
-
-            {/* SECTION 1: INTERFACE CONTROLS */}
+            {/* SECTION 1: SYSTEM COMPONENTS */}
             <div className="grid md:grid-cols-2 gap-12">
                 <div className="space-y-6">
                     <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
-                        <Layers size={14} /> Interface Controls
+                        <Layers size={14} /> Production_Ready_Modules
+                    </h3>
+
+                    <div className="space-y-8">
+                        {/* Real Component 1: DefaultCard */}
+                        <div className={`relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+                            {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">DefaultCard.jsx // Container.jsx</span>}
+                            <div className="h-64 relative z-10">
+                                <DefaultCard type="SYSTEM_AUDIT" expanded={true} showChrome={true} />
+                            </div>
+                        </div>
+
+                        {/* Real Component 2: SystemMonitor */}
+                        <div className={`relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+                            {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">SystemMonitor.jsx</span>}
+                            <div className="relative z-10">
+                                <SystemMonitor />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="space-y-6">
+                    <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                        <Activity size={14} /> Data_Visualization
                     </h3>
 
                     <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-8">
-                        {/* Primary Actions */}
+                        {/* Real Component 3: UIDiagram */}
+                        <div className={`relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+                            {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">UIDiagram.jsx // Node Architecture</span>}
+                            <div className="h-48 overflow-hidden bg-[var(--bg-void)] border border-[var(--border-color)] relative z-10 flex items-center justify-center">
+                                <div className="scale-75 origin-center w-full h-full flex items-center justify-center">
+                                    <UIDiagram />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Real Component 4: ProgressBar */}
+                        <div className={`relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
+                            {isXRayMode && <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">ProgressBar.jsx // Kinetic_Load</span>}
+                            <div className="space-y-4 relative z-10">
+                                <ProgressBar progress={84} label="System Load" />
+                                <ProgressBar progress={62} label="Network Flux" color="var(--accent-blue)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* SECTION 2: ATOMIC ELEMENTS */}
+            <div className="space-y-6">
+                <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+                    <Box size={14} /> Core_Input_Atoms
+                </h3>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                    <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-8">
+                        {/* Button Variants */}
                         <div className="space-y-4">
                             <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Primary_Directives</label>
                             <div className="flex flex-wrap gap-4">
-                                <div className={`relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
-                                    {isXRayMode && <span className="absolute -top-3 left-2 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">px-6 py-3</span>}
-                                    <button className="bg-[var(--text-primary)] text-[var(--bg-void)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">
-                                        Primary Action
-                                    </button>
-                                </div>
-                                <div className={`relative ${isXRayMode ? 'p-2 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
-                                    {isXRayMode && <span className="absolute -top-3 left-2 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">px-4 py-1.5</span>}
-                                    <button className="px-4 py-1.5 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--text-secondary)]/10 rounded transition-all duration-300 border border-transparent hover:border-[var(--border-color)]">
-                                        Nav_Link
-                                    </button>
-                                </div>
-                                <div className={`relative ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5' : ''}`}>
-                                    {isXRayMode && <span className="absolute -top-3 left-2 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">flex gap-2</span>}
-                                    <button className="text-[var(--accent-blue)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
-                                        Data_Link <MoveRight size={12} />
-                                    </button>
-                                </div>
+                                <button className="bg-[var(--text-primary)] text-[var(--bg-void)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">
+                                    Primary Action
+                                </button>
+                                <button className="px-6 py-3 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] text-xs font-bold uppercase tracking-widest transition-all">
+                                    Secondary
+                                </button>
                             </div>
-
-                            {/* Spec Table */}
-                            {isXRayMode && (
-                                <div className="mt-4 pt-4 border-t border-[var(--border-color)] border-dashed animate-in fade-in duration-300">
-                                    <table className="w-full font-mono text-[9px] text-[var(--text-secondary)]">
-                                        <tbody>
-                                            <tr className="border-b border-[var(--border-color)]/30">
-                                                <td className="py-1">Figma: `Variant: Primary`</td>
-                                                <td className="text-[var(--text-primary)]">React: `variant="primary"`</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="py-1">Figma: `Variant: Ghost`</td>
-                                                <td className="text-[var(--text-primary)]">React: `variant="ghost"`</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            )}
                         </div>
 
-                        {/* Inputs */}
-                        <div className={`space-y-4 ${isXRayMode ? 'p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5 relative' : ''}`}>
-                            {isXRayMode && <span className="absolute -top-3 left-2 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">w-full relative</span>}
+                        {/* Terminal Input */}
+                        <div className="space-y-4">
                             <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Terminal_Input</label>
                             <div className="relative">
                                 <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-[var(--accent)] text-xs">&gt;</span>
@@ -343,20 +438,11 @@ const ComponentForge = () => {
                                     className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] p-3 pl-8 font-mono text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] transition-colors placeholder:text-[var(--text-secondary)]/50"
                                     readOnly
                                 />
-                                {isXRayMode && (
-                                    <div className="absolute top-1/2 -translate-y-1/2 -right-16 font-mono text-[8px] text-[var(--accent)]">pl-8</div>
-                                )}
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="space-y-6">
-                    <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
-                        <Box size={14} /> Status Indicators
-                    </h3>
-
-                    <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-6">
+                    <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-8">
                         {/* Status Badges */}
                         <div className="space-y-4">
                             <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">System_States</label>
@@ -364,140 +450,10 @@ const ComponentForge = () => {
                                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-green)]/10 text-[var(--accent-green)] border border-[var(--accent-green)]/20 font-mono text-[10px] uppercase tracking-widest">
                                     <ShieldCheck size={10} /> Operational
                                 </span>
-                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)]">
-                                    <div className="relative flex h-2 w-2">
-                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                                    </div>
-                                    <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
-                                        Open to Work
-                                    </span>
-                                </div>
                                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-red)]/10 text-[var(--accent-red)] border border-[var(--accent-red)]/20 font-mono text-[10px] uppercase tracking-widest">
                                     <AlertTriangle size={10} /> Critical
                                 </span>
                             </div>
-                        </div>
-
-                        {/* Progress Bars */}
-                        <div className="space-y-3">
-                            <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">Load_Sequence</label>
-                            <div className="flex justify-between font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
-                                <span>Compiling Assets</span>
-                                <span className="text-[var(--accent)]">84%</span>
-                            </div>
-                            <div className="h-1 w-full bg-[var(--bg-void)] overflow-hidden">
-                                <div className="h-full bg-[var(--accent)] w-[84%] relative animate-pulse">
-                                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-[var(--accent)] shadow-[0_0_10px_var(--accent)]"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* SECTION 2: CONTAINERS & CARDS */}
-            <div className="space-y-6">
-                <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
-                    <Grid3X3 size={14} /> Structural Units
-                </h3>
-
-                <div className="grid md:grid-cols-3 gap-6">
-                    {/* Standard Card */}
-                    <div className={`p-6 border border-[var(--border-color)] bg-[var(--bg-card)] ${isXRayMode ? 'relative' : ''}`}>
-                        {isXRayMode && <div className="absolute inset-0 border-2 border-dashed border-[var(--accent)]/50 pointer-events-none"></div>}
-                        {isXRayMode && <span className="absolute top-2 right-2 font-mono text-[8px] text-[var(--accent)] bg-[var(--bg-void)] px-1">p-6</span>}
-                        <div className="w-8 h-8 bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center mb-4 text-[var(--text-secondary)]">
-                            <Box size={16} />
-                        </div>
-                        <h4 className="font-bold text-sm text-[var(--text-primary)] mb-2">Standard Module</h4>
-                        <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                            Default container for content blocks. Uses <code className="bg-[var(--bg-surface)] px-1">--bg-card</code> token.
-                        </p>
-                    </div>
-
-                    {/* Feature Card */}
-                    <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent)] transition-colors group">
-                        <div className="w-8 h-8 bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center mb-4 text-[var(--accent)]">
-                            <Zap size={16} />
-                        </div>
-                        <h4 className="font-bold text-sm text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent)] transition-colors">Interactive Unit</h4>
-                        <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                            Responsive container with hover states. Used for clickable features.
-                        </p>
-                    </div>
-
-                    {/* System Message */}
-                    <div className="p-6 border border-[var(--accent)]/30 bg-[var(--accent)]/5 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 p-2 opacity-10">
-                            <Activity size={64} />
-                        </div>
-                        <h4 className="font-mono text-xs font-bold text-[var(--accent)] uppercase tracking-widest mb-2">System Notification</h4>
-                        <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                            High-priority alerts using accent color overlays.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Bento Grid Pattern */}
-                <div className={`p-6 border border-black/5 dark:border-white/10 bg-[var(--bg-card)] rounded-3xl relative overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 ${isXRayMode ? 'ring-2 ring-dashed ring-[var(--accent)]/50' : ''}`}>
-                    {isXRayMode && <span className="absolute top-2 left-2 z-30 font-mono text-[8px] text-[var(--accent)] bg-[var(--bg-void)] px-1 rounded">rounded-3xl hover:-translate-y-1</span>}
-                    <div className="flex flex-col h-full justify-between relative z-10">
-                        <div className="w-12 h-12 rounded-full bg-[var(--bg-surface)] flex items-center justify-center mb-4">
-                            <Grid3X3 size={20} className="text-[var(--text-primary)]" />
-                        </div>
-                        <div>
-                            <span className="font-mono text-[9px] uppercase tracking-[0.2em] mb-2 px-1.5 py-0.5 rounded border text-[var(--accent-blue)] border-[var(--accent-blue)]/30 inline-block">
-                                Featured
-                            </span>
-                            <h4 className="font-bold text-sm text-[var(--text-primary)]">Bento Card Module</h4>
-                        </div>
-                    </div>
-                    {/* Hover Reveal */}
-                    <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                        <div className="bg-[var(--text-primary)] text-[var(--bg-void)] px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
-                            View <MoveRight size={12} />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* USAGE GUIDELINES - PRINCIPAL LEVEL ADDITION */}
-            <div className="border-t border-[var(--border-color)] pt-12">
-                <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 mb-8">
-                    <AlertTriangle size={14} /> Usage Protocols
-                </h3>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                    {/* DO */}
-                    <div className="space-y-4">
-                        <div className="p-1 bg-[var(--accent-green)]/10 border border-[var(--accent-green)]/20 text-[var(--accent-green)] font-mono text-[10px] uppercase tracking-widest text-center">
-                            Correct Usage
-                        </div>
-                        <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col items-center gap-4">
-                            <button className="bg-[var(--text-primary)] text-[var(--bg-void)] px-6 py-3 text-xs font-bold uppercase tracking-widest">
-                                Initialize
-                            </button>
-                            <p className="text-xs text-[var(--text-secondary)] text-center">
-                                Use solid fill for primary "happy path" actions only.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* DON'T */}
-                    <div className="space-y-4">
-                        <div className="p-1 bg-[var(--accent-red)]/10 border border-[var(--accent-red)]/20 text-[var(--accent-red)] font-mono text-[10px] uppercase tracking-widest text-center">
-                            Violations
-                        </div>
-                        <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col items-center gap-4 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-[var(--bg-void)]/80 flex items-center justify-center z-10">
-                                <AlertTriangle size={32} className="text-[var(--accent-red)]" />
-                            </div>
-                            <button className="bg-[var(--accent-red)] text-white px-6 py-3 text-xs font-bold uppercase tracking-widest shadow-xl" tabIndex={-1}>
-                                Initialize
-                            </button>
-                            <p className="text-xs text-[var(--text-secondary)] text-center blur-sm">
-                                Never use semantic system colors for primary actions.
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -534,6 +490,7 @@ const ComponentForge = () => {
                                     type="text"
                                     placeholder="Type 'PURGE' to confirm"
                                     className="bg-[var(--bg-void)] border border-[var(--accent-red)]/50 p-3 font-mono text-xs text-[var(--accent-red)] focus:outline-none focus:border-[var(--accent-red)] transition-colors placeholder:text-[var(--accent-red)]/50"
+                                    readOnly
                                 />
                                 <div className="flex gap-2">
                                     <button className="flex-1 bg-[var(--accent-red)] text-white px-6 py-3 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity whitespace-nowrap">
