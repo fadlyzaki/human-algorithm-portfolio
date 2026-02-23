@@ -30,3 +30,4 @@ docs/
 *.skill
 .vercel
 .env*.local
+unused_report.txt
