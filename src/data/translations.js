@@ -325,6 +325,12 @@ export const translations = {
             scroll_to_zoom: "SCROLL TO ZOOM",
             nodes_found: "NODES FOUND",
             digital_disclaimer: "I am currently not sketching digitally since last year because my Apple Pencil is broken."
+        },
+        project_detail: {
+            scroll_down: "Scroll down"
+        },
+        project_archive: {
+            subtitle: "Strategy, Execution, and Wild Ideas"
         }
     },
     id: {
@@ -652,6 +658,12 @@ export const translations = {
             scroll_to_zoom: "GULIR UNTUK ZOOM",
             nodes_found: "NODE DITEMUKAN",
             digital_disclaimer: "Saya sedang tidak melakukan sketsa digital sejak tahun lalu karena Apple Pencil saya rusak."
+        },
+        project_detail: {
+            scroll_down: "Scroll ke bawah"
+        },
+        project_archive: {
+            subtitle: "Strategi, Eksekusi, dan Ide Liar"
         }
     }
 };

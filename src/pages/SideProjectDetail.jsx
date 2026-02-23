@@ -37,7 +37,7 @@ const FilterMeApp = React.lazy(() => import('../components/interactions/FilterMe
 
 const SideProjectDetail = () => {
    const { isDark } = useTheme();
-   const { isIndonesian } = useLanguage();
+   const { isIndonesian, t } = useLanguage();
    // const { isGestureMode, toggleGestureMode } = useHandCursor();
    const { id } = useParams();
 
@@ -202,9 +202,8 @@ const SideProjectDetail = () => {
                   </p>
                </div>
 
-               {/* Scroll Indicator */}
                <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce text-[var(--text-secondary)]">
-                  <span className="font-mono text-[10px] uppercase tracking-widest">Market Analysis</span>
+                  <span className="font-mono text-[10px] uppercase tracking-widest">{t('project_detail.scroll_down')}</span>
                   <div className="w-px h-8 bg-current"></div>
                </div>
             </header>

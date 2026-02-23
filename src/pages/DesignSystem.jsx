@@ -27,7 +27,7 @@ const DesignSystem = () => {
             {/* Navbar for navigation back */}
             <Navbar backPath="/side-project/human-algorithm" title="design_kernel.sys" />
 
-            <main className="pt-24 px-6 md:px-0">
+            <main className="pt-[72px]">
                 <DesignSystemViewer />
             </main>
         </div>

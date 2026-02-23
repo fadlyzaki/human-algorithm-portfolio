@@ -47,7 +47,7 @@ const DesignSystemViewer = () => {
     // Note: IntersectionObserver removed, as we are no longer using continuous scrolling.
 
     return (
-        <section className="w-full border-t border-[var(--border-color)] bg-[var(--bg-void)] relative overflow-hidden">
+        <section className="w-full bg-[var(--bg-void)] relative overflow-hidden">
             {/* Background Grid */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.05]"
                 style={{ backgroundImage: `linear-gradient(${isDark ? '#FFF' : '#000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#FFF' : '#000'} 1px, transparent 1px)`, backgroundSize: '20px 20px' }}>

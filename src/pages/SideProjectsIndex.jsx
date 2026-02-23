@@ -26,7 +26,7 @@ const CONFIG = {
 
 const SideProjectsIndex = () => {
     const { isDark } = useTheme();
-    const { isIndonesian } = useLanguage();
+    const { isIndonesian, t } = useLanguage();
     // const { isGestureMode, toggleGestureMode } = useHandCursor();
     const navigate = useNavigate();
 
@@ -195,7 +195,7 @@ const SideProjectsIndex = () => {
                         </h1>
                         <p className="text-xl md:text-2xl text-[var(--text-secondary)] font-light leading-relaxed max-w-2xl">
                             A showcase of independent products, from 0 to 1. <br className="hidden md:block" />
-                            <span className="opacity-80 text-lg">Strategy, Execution, and Market Reality.</span>
+                            <span className="opacity-80 text-lg">{t('project_archive.subtitle')}</span>
                         </p>
                     </div>
                 </header>
