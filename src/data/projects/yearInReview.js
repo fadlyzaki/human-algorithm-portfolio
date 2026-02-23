@@ -3,8 +3,8 @@ export const yearInReview = {
     title: { en: 'Year in Review', id: 'Year in Review' },
     subtitle: { en: 'Privacy-First wrapped generator', id: 'Generator wrapped berbasis privasi' },
     desc: {
-        en: 'A privacy-first, client-side web application that empowers users to create aesthetic, shareable stories of their yearly milestones. Inspired by the "Spotify Wrapped" format, it allows manual input of stats, memories, and photos without sending data to a backend.',
-        id: "Aplikasi web client-side yang mengutamakan privasi untuk memberdayakan pengguna membuat cerita pencapaian tahunan mereka yang estetik dan dapat dibagikan. Terinspirasi format 'Spotify Wrapped', aplikasi ini memungkinkan input manual tanpa mengirim data ke backend."
+        en: 'A privacy-first, client-side yearly wrap generator. Inspired by Spotify Wrapped, it creates aesthetic milestone stories entirely in the browser without backend tracking.',
+        id: "Generator ringkasan tahunan berbasis privasi. Terinspirasi Spotify Wrapped, membuat cerita pencapaian estetik langsung di browser tanpa pelacakan data."
     },
     tldr: {
         en: "A secure, zero-backend tool to generate aesthetic yearly summaries, putting privacy and creative control in the user's hands.",

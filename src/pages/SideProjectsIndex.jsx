@@ -11,6 +11,7 @@ import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import BackButton from '../components/BackButton';
 import ProjectCard from '../components/ProjectCard';
+import VentureCard from '../components/VentureCard';
 import Treasure from '../components/Treasure';
 
 // Interaction Components
@@ -207,39 +208,15 @@ const SideProjectsIndex = () => {
                             Launched Ventures
                             <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
                         </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000 auto-rows-auto">
                             {SIDE_PROJECTS.filter(p => !p.hidden).map((project, idx) => (
-                                <div
+                                <VentureCard
                                     key={project.id}
-                                    ref={el => cardsRef.current[idx] = el}
+                                    project={project}
+                                    index={idx}
+                                    isIndonesian={isIndonesian}
                                     onClick={() => navigate(`/side-project/${project.id}`)}
-                                    className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform"
-                                >
-                                    <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] mb-6 overflow-hidden relative">
-                                        <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
-                                            <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} image={project.coverImage} />
-                                        </div>
-                                        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
-                                        <div className="absolute bottom-4 left-4 font-mono text-[11px] text-black dark:text-white bg-white/90 dark:bg-black/90 px-2 py-1 backdrop-blur-sm rounded border border-black/10 dark:border-white/10">
-                                            0{idx + 1}
-                                        </div>
-                                        <ArrowUpRight className="absolute top-4 right-4 text-white dark:text-black opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" size={20} />
-                                    </div>
-
-                                    <h3 className="text-2xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4">
-                                        {(isIndonesian && project.title_id) ? project.title_id : project.title}
-                                    </h3>
-                                    <p className="text-[var(--text-secondary)] font-light text-sm leading-relaxed mb-4">
-                                        {(isIndonesian && project.desc_id) ? project.desc_id : project.desc}
-                                    </p>
-                                    <div className="flex gap-2 flex-wrap">
-                                        {project.stack.map((tech, tIdx) => (
-                                            <span key={tIdx} className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider">
-                                                {tech}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
+                                />
                             ))}
                         </div>
                     </div>
