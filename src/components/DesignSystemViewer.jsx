@@ -847,8 +847,8 @@ const BrandStrategy = () => {
 
             {/* Header Area */}
             <div className="text-center space-y-4 max-w-2xl mx-auto">
-                <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.3em] text-[var(--text-secondary)]">Positioning Meets Execution</span>
-                <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-[var(--text-primary)]">Brand Strategy</h2>
+                <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Scientific Design Engineer</span>
+                <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-[var(--text-primary)]">System Strategy</h2>
                 <div className="h-1 w-16 bg-[var(--accent)] mx-auto mt-6"></div>
             </div>
 
@@ -867,13 +867,13 @@ const BrandStrategy = () => {
                     <div className="hidden lg:block absolute top-0 left-[7%] right-[7%] h-px bg-[var(--border-color)]"></div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-x-4 gap-y-12">
-                        {renderNode("Mission", ["Purpose", "Impact", "Direction"])}
-                        {renderNode("Vision", ["Future State", "Ambition", "Destination"])}
-                        {renderNode("Values", ["Principles", "Beliefs", "Standards"])}
-                        {renderNode("Positioning", ["Audience", "Category", "Difference"])}
-                        {renderNode("Brand Voice", ["Tone", "Language", "Personality"])}
-                        {renderNode("Messaging", ["Promise", "Proof", "Benefit"])}
-                        {renderNode("Brand Story", ["Origin", "Journey", "Meaning"])}
+                        {renderNode("Archetype", ["Scientist", "Engineer", "Designer"])}
+                        {renderNode("Directive", ["Contain Chaos", "Build Resilience", "Optimize Load"])}
+                        {renderNode("Principles", ["Privacy First", "Graceful Degradation", "A11y Defaults"])}
+                        {renderNode("Positioning", ["0 to 1 Speed", "B2B Scale", "Blue Collar Empathy"])}
+                        {renderNode("System Voice", ["Clinical", "Direct", "Instructional"])}
+                        {renderNode("Manifesto", ["Data over Dogma", "Friction is Risk", "Delivery > Delight"])}
+                        {renderNode("Origin", ["Startup Trenches", "Supply Chain", "Growth Hack"])}
                     </div>
                 </div>
             </div>
@@ -885,7 +885,7 @@ const BrandStrategy = () => {
             <div className="space-y-12">
                 <div className="text-center">
                     <h3 className="text-3xl font-bold text-[var(--text-primary)] inline-block relative">
-                        Brand Activation
+                        Strategic Execution
                         <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[var(--accent-amber)] shadow-[0_0_10px_var(--accent-amber)]"></div>
                         <div className="hidden lg:block absolute -bottom-12 left-1/2 -translate-x-1/2 w-px h-8 bg-[var(--border-color)]"></div>
                     </h3>
@@ -896,13 +896,13 @@ const BrandStrategy = () => {
                     <div className="hidden lg:block absolute top-0 left-[7%] right-[7%] h-px bg-[var(--border-color)]"></div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-x-4 gap-y-12">
-                        {renderNode("Campaigns", ["Launches", "Promotions", "Awareness"])}
-                        {renderNode("Channels", ["Owned", "Paid", "Earned"])}
-                        {renderNode("Partnerships", ["Collabs", "Influencers", "Affiliates"])}
-                        {renderNode("Content", ["Themes", "Formats", "Frequency"])}
-                        {renderNode("Metrics", ["Reach", "Engagement", "Conversion"])}
-                        {renderNode("Sales", ["Offers", "Funnels", "Timing"])}
-                        {renderNode("Optimisation", ["Testing", "Insights", "Refinement"])}
+                        {renderNode("Artifacts", ["Airy Diagrams", "Terminal Hooks", "Monochrome UI"])}
+                        {renderNode("Capabilities", ["React / Vite", "Framer Physics", "AI Integration"])}
+                        {renderNode("Research", ["Field Studies", "Shadowing", "Telemetry"])}
+                        {renderNode("Methodology", ["Hypothesis", "Prototyping", "Validation"])}
+                        {renderNode("Impact", ["Reduced Latency", "Adoption Rate", "Retention"])}
+                        {renderNode("Advocacy", ["Design Ops", "Mentorship", "Process Standards"])}
+                        {renderNode("Evolution", ["AI Agents", "Spatial UI", "Local Compute"])}
                     </div>
                 </div>
             </div>
