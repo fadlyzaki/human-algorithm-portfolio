@@ -1,7 +1,23 @@
 /**
  * Centralized route-to-metadata mapping for OG tags.
  * Used by both og-html.js (meta tags) and og.js (image generation).
+ *
+ * IMPORTANT: Dynamic route data (side projects, companies, case studies)
+ * is imported directly from the source data files to prevent data drift.
+ * Static page OG descriptions are curated separately since they serve
+ * a different purpose (social sharing vs. page content).
  */
+
+import { NOTES } from '../src/data/notes.js';
+import { stoqo } from '../src/data/projects/stoqo.js';
+import { gudangAda } from '../src/data/projects/gudangAda.js';
+import { lumina } from '../src/data/projects/lumina.js';
+import { humanAlgorithm } from '../src/data/projects/humanAlgorithm.js';
+import { dolphi } from '../src/data/projects/dolphi.js';
+import { yearInReview } from '../src/data/projects/yearInReview.js';
+import { interactiveWorkbook } from '../src/data/projects/interactiveWorkbook.js';
+import { productivityIllusion } from '../src/data/projects/productivityIllusion.js';
+import { procurement } from '../src/data/projects/procurement.js';
 
 const SITE_URL = 'https://fadlyzaki-design.vercel.app';
 const DEFAULT_OG = {
@@ -11,7 +27,7 @@ const DEFAULT_OG = {
     emoji: '🧢'
 };
 
-// --- Static Pages ---
+// --- Static Pages (curated OG descriptions) ---
 const STATIC_ROUTES = {
     '/': {
         title: 'Fadlyzaki Portfolio',
@@ -55,158 +71,72 @@ const STATIC_ROUTES = {
     }
 };
 
-// --- Dynamic: Company Work Pages (/work/:id) ---
-const WORK_ROUTES = {
-    'commerce': {
-        title: 'GudangAda — THE COMMERCE ENGINE',
-        description: "Systematizing trust in a chaotic market. Designing fail-safe transaction flows for the $100B B2B supply chain.",
-        color: '#2563EB'
-    },
-    'efficiency': {
-        title: 'Stoqo — OPERATIONAL EFFICIENCY',
-        description: "Designing for Operational Resilience. Ensuring the people who feed Jakarta have the information bandwidth to sleep until the truck arrives.",
-        color: '#FA6130'
-    },
-    'workforce': {
-        title: 'Lumina — THE WORKFORCE ECOSYSTEM',
-        description: "Engineering dignity into the blue-collar job hunt. Reducing the cognitive load of application forms for millions of workers.",
-        color: '#7C3AED'
-    }
+// --- Build dynamic routes from source data (Single Source of Truth) ---
+
+// Company brand colors
+const COMPANY_COLORS = {
+    'efficiency': '#FA6130',  // Stoqo
+    'commerce': '#2563EB',    // GudangAda
+    'workforce': '#7C3AED',   // Lumina
 };
 
-// --- Dynamic: Case Studies (/case-study/:id) ---
-const CASE_STUDY_ROUTES = {
-    'stoqo-logistics': {
-        title: 'Transforming Logistics Delivery',
-        description: "Solving the 'Where is my truck?' anxiety loop with real-time tracking.",
-        color: '#FA6130',
-        company: 'Stoqo'
-    },
-    'stoqo-sales': {
-        title: 'Incentive Sales Agent',
-        description: "Converting 'Confusion' into 'Commitment' via Clarity. Behavior design for field agents.",
-        color: '#FA6130',
-        company: 'Stoqo'
-    },
-    'paper-to-paperless': {
-        title: 'Paper-to-Paperless',
-        description: "Killing the filing cabinet, one scan at a time. OCR-powered operational digitization.",
-        color: '#FA6130',
-        company: 'Stoqo'
-    },
-    'marketplace-checkout': {
-        title: 'Marketplace Checkout',
-        description: "Designing the checkout flow for Indonesia's largest B2B supply chain marketplace.",
-        color: '#2563EB',
-        company: 'GudangAda'
-    },
-    'brand-official-store': {
-        title: 'Brand Official Store',
-        description: "Building trust between brands and retailers in a digital marketplace.",
-        color: '#2563EB',
-        company: 'GudangAda'
-    },
-    'promo-engine': {
-        title: 'Promo Engine',
-        description: "Designing a scalable promotion system for B2B commerce.",
-        color: '#2563EB',
-        company: 'GudangAda'
-    },
-    'design-system-gudangada': {
-        title: 'Design System',
-        description: "Building the atomic component library for GudangAda's product ecosystem.",
-        color: '#2563EB',
-        company: 'GudangAda'
-    },
-    'workforce-chat': {
-        title: 'Workforce Chat',
-        description: "Designing communication tools for blue-collar workers in the gig economy.",
-        color: '#7C3AED',
-        company: 'Lumina'
-    },
-    'ats-dashboard': {
-        title: 'ATS Dashboard',
-        description: "Applicant Tracking System redesign for high-volume hiring.",
-        color: '#7C3AED',
-        company: 'Lumina'
-    },
-    'direct-apply': {
-        title: 'Direct Apply',
-        description: "Reducing friction in blue-collar job applications.",
-        color: '#7C3AED',
-        company: 'Lumina'
-    },
-    'app-navigation': {
-        title: 'App Navigation',
-        description: "Redesigning the information architecture for a workforce platform.",
-        color: '#7C3AED',
-        company: 'Lumina'
-    }
+const COMPANY_NAMES = {
+    'efficiency': 'Stoqo',
+    'commerce': 'GudangAda',
+    'workforce': 'Lumina',
 };
 
-// --- Dynamic: Side Projects (/side-project/:id) ---
-const SIDE_PROJECT_ROUTES = {
-    'agency-pivot': {
-        title: 'The "Agency" Pivot',
-        description: "Giving the steering wheel back to your own attention span. Redesigning algorithms for user agency.",
-        color: '#8B5CF6'
-    },
-    'price-lock': {
-        title: 'Price Lock',
-        description: "A 'pause button' for flight price inflation. Fintech feature for OTA.",
-        color: '#F59E0B'
-    },
-    'project-kinship': {
-        title: 'Project Kinship',
-        description: "Bridging the gap between diaspora communities and their roots through technology.",
-        color: '#EC4899'
-    },
-    'flood-alert': {
-        title: 'Flood Alert',
-        description: "A citizen-powered real-time flood warning system for Jakarta.",
-        color: '#3B82F6'
-    },
-    'project-zen': {
-        title: 'Project Zen',
-        description: "Designing for digital well-being. A mindful content consumption experience.",
-        color: '#10b981'
-    },
-    'filter-me': {
-        title: 'FilterMe',
-        description: "Fixing the 'Trust Gap' in cosmetics with AR. CHIuXID 2018 Design Challenge.",
-        color: '#F97316'
-    },
-    'human-algorithm': {
-        title: 'The Human Algorithm',
-        description: "A self-aware portfolio built by AI agents. From 'Pixel Pushing' to 'System Orchestration'.",
-        color: '#10b981'
-    },
-    'dolphi': {
-        title: 'Dolphi',
-        description: "AI-powered design exploration tool.",
-        color: '#06B6D4'
-    },
-    'year-in-review': {
-        title: 'Year In Review',
-        description: "A data-driven annual reflection generator.",
-        color: '#F59E0B'
-    },
-    'interactive-workbook': {
-        title: 'Interactive Workbook',
-        description: "A digital workbook for interactive learning experiences.",
-        color: '#EC4899'
-    },
-    'productivity-illusion': {
-        title: 'The Productivity Illusion',
-        description: "Exposing the gap between perceived and actual productivity through data visualization.",
-        color: '#EF4444'
-    },
-    'procurement': {
-        title: 'Procurement System',
-        description: "Designing a procurement ecosystem for operational efficiency.",
-        color: '#8B5CF6'
+// Build WORK_ROUTES from source data
+const COMPANIES = [stoqo, gudangAda, lumina];
+const WORK_ROUTES = {};
+for (const company of COMPANIES) {
+    WORK_ROUTES[company.id] = {
+        title: `${COMPANY_NAMES[company.id] || company.id} — ${company.title}`,
+        description: company.hook || company.miniDesc || DEFAULT_OG.description,
+        color: COMPANY_COLORS[company.id] || DEFAULT_OG.color,
+    };
+}
+
+// Build CASE_STUDY_ROUTES from source data (projects inside companies)
+const CASE_STUDY_ROUTES = {};
+for (const company of COMPANIES) {
+    if (!company.projects) continue;
+    for (const project of company.projects) {
+        CASE_STUDY_ROUTES[project.id] = {
+            title: project.title,
+            description: project.caseStudy?.snapshot?.tagline || project.desc || '',
+            color: COMPANY_COLORS[company.id] || DEFAULT_OG.color,
+            company: COMPANY_NAMES[company.id] || company.id,
+        };
     }
-};
+}
+
+// Build SIDE_PROJECT_ROUTES from NOTES + standalone side-project data
+const SIDE_PROJECT_SOURCES = [
+    ...NOTES,
+    humanAlgorithm,
+    dolphi,
+    yearInReview,
+    interactiveWorkbook,
+    productivityIllusion,
+    procurement,
+];
+
+const SIDE_PROJECT_ROUTES = {};
+for (const sp of SIDE_PROJECT_SOURCES) {
+    const id = sp.id;
+    if (!id) continue;
+    // Handle titles that may be objects { en, id } or plain strings
+    const titleStr = typeof sp.title === 'object' ? (sp.title.en || sp.title.id) : sp.title;
+    const descStr = sp.tldr || sp.desc || sp.hook ||
+        (typeof sp.miniDesc === 'string' ? sp.miniDesc : '') ||
+        DEFAULT_OG.description;
+    SIDE_PROJECT_ROUTES[id] = {
+        title: titleStr,
+        description: typeof descStr === 'object' ? (descStr.en || '') : descStr,
+        color: sp.brandColor || DEFAULT_OG.color,
+    };
+}
 
 /**
  * Resolve a URL pathname to its OG metadata.

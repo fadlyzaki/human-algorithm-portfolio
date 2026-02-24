@@ -164,6 +164,16 @@ html {
   transition: opacity 0.5s ease-out;
 }
 
-.group:hover .pixel-overlay {
-  opacity: 0;
+/* Only show pixel art on devices with proper hover (mouse/trackpad) */
+@media (hover: hover) {
+  .group:hover .pixel-overlay {
+    opacity: 0;
+  }
+}
+
+/* Touch devices: skip pixel art entirely, always show normal photo */
+@media (hover: none) {
+  .pixel-overlay {
+    display: none;
+  }
 }
