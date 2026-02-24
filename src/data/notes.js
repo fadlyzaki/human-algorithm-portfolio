@@ -736,6 +736,28 @@ export const NOTES = [
                 image: "airy:chart"
             }
         ],
+        insights: [
+            {
+                title: "The 'AR as a Toy' Trap",
+                desc: "We realized that AR can easily become a gimmick. Users play with it, but don't convert. The trajectory shifted to making AR functional rather than just playful."
+            },
+            {
+                title: "Environmental Variables",
+                desc: "Physical trust requires physical accuracy. Poor room lighting ruined the cosmetic color matching, highlighting that AR commerce depends heavily on the user's environment."
+            }
+        ],
+        insights_id: [
+            {
+                title: "Jebakan 'AR sebagai Mainan'",
+                desc: "Kami sadar AR gampang banget jadi sekadar gimmick. User main-main aja, tapi gak beli. Lintasannya berubah dari sekadar lucu-lucuan jadi bikin AR yang fungsional."
+            },
+            {
+                title: "Variabel Lingkungan",
+                desc: "Kepercayaan fisik butuh akurasi fisik. Cahaya ruangan yang jelek ngerusak warna kosmetik, ini nunjukkin kalau AR commerce sangat bergantung sama lingkungan user."
+            }
+        ],
+        learnings: "A flashy interface isn't enough to build trust. When bridging physical products into a digital space, users need 'Texture' validation—proof that the digital translation exactly matches the physical reality.",
+        learnings_id: "Tampilan keren aja gak cukup buat ngebangun rasa percaya. Saat ngebawa produk fisik ke dunia digital, user butuh validasi 'Tekstur'—bukti kalau versi digital itu sama persis dengan aslinya.",
         modules: [
             {
                 title: "The CHIuXID 2018 Journey",
