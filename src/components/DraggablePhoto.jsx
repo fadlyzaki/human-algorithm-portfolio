@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { User } from 'lucide-react';
+import PixelImage from './PixelImage';
 import { useLanguage } from '../context/LanguageContext';
 
 const DraggablePhoto = () => {
@@ -65,7 +66,7 @@ const DraggablePhoto = () => {
           <div className="w-2.5 h-3 border border-gray-400/50 dark:border-gray-500/50 rounded-br-sm"></div>
         </div>
         <div className="w-28 h-36 bg-gray-300 border border-black/10 shadow-inner mb-4 relative overflow-hidden contrast-125 brightness-110">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
+          <PixelImage src={currentItem.src} alt="Fadly" />
         </div>
         <div className="space-y-3">
           <div className="flex flex-col">
@@ -115,7 +116,7 @@ const DraggablePhoto = () => {
       <div className="flex-grow p-4 relative z-10">
         <div className="flex gap-4">
           <div className="w-24 h-32 border border-white/20 dark:border-black/20 relative overflow-hidden bg-gray-900">
-            <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 group-hover:mix-blend-normal transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
+            <PixelImage src={currentItem.src} alt="Fadly" />
             <div className="absolute inset-0 bg-white/5 dark:bg-black/5 mix-blend-overlay"></div>
           </div>
           <div className="flex-1 space-y-2">
@@ -162,7 +163,7 @@ const DraggablePhoto = () => {
       {/* Content */}
       <div className="flex-grow p-4 bg-white dark:bg-black relative">
         <div className="absolute -top-12 right-4 w-24 h-32 bg-gray-200 dark:bg-gray-800 border-4 border-white dark:border-black shadow-lg z-10">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
+          <PixelImage src={currentItem.src} alt="Fadly" />
         </div>
 
         <div className="mt-8 space-y-4">
@@ -206,7 +207,7 @@ const DraggablePhoto = () => {
         {/* Beautiful frosted frame for photo */}
         <div className="w-28 h-36 p-1.5 rounded-2xl bg-white/30 dark:bg-black/40 backdrop-blur-xl border-t border-l border-white/60 dark:border-white/20 border-r border-b border-black/5 dark:border-black/40 shadow-xl relative overflow-hidden group/frame transition-transform hover:scale-105 duration-300">
           <div className="w-full h-full rounded-xl overflow-hidden relative shadow-inner">
-            <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover/frame:grayscale-0 transition-all duration-500 ease-out mix-blend-multiply dark:mix-blend-normal" fetchPriority="high" loading="eager" />
+            <PixelImage src={currentItem.src} alt="Fadly" />
             <div className="absolute inset-0 border border-black/10 dark:border-white/10 rounded-xl pointer-events-none"></div>
           </div>
         </div>
@@ -250,7 +251,7 @@ const DraggablePhoto = () => {
       {/* Content */}
       <div className="flex-grow p-2 relative flex gap-4 items-start">
         <div className="w-24 h-28 border-2 border-black dark:border-white bg-white dark:bg-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] z-10 p-1">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
+          <PixelImage src={currentItem.src} alt="Fadly" />
         </div>
         <div className="flex-1 space-y-2 pt-2">
           <div>
@@ -290,7 +291,7 @@ const DraggablePhoto = () => {
       {/* Content */}
       <div className="flex-grow relative flex flex-col items-center">
         <div className="w-[120px] h-[160px] border-[4px] border-black dark:border-white bg-white dark:bg-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] z-10 p-1 mb-4 rotate-2 group-hover:-rotate-2 transition-transform duration-300">
-          <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" fetchPriority="high" loading="eager" />
+          <PixelImage src={currentItem.src} alt="Fadly" />
         </div>
         <div className="w-full bg-white dark:bg-black border-4 border-black dark:border-white p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
           <h2 className="text-2xl font-black text-black dark:text-white tracking-tighter leading-none mb-1 uppercase">FADLY UZZAKI</h2>
@@ -331,7 +332,7 @@ const DraggablePhoto = () => {
         <div className="flex-grow p-4 relative z-10 flex flex-col items-center justify-center">
           <div className="w-28 h-36 rounded-2xl p-[2px] bg-gradient-to-br from-white/60 to-black/10 dark:from-white/20 dark:to-white/5 border border-white/60 dark:border-white/20 shadow-xl relative overflow-hidden group/frame">
             <div className="w-full h-full rounded-xl overflow-hidden relative">
-              <img src={currentItem.src} alt="Fadly" className="w-full h-full object-cover grayscale group-hover/frame:grayscale-0 transition-all duration-500 ease-out" fetchPriority="high" loading="eager" />
+              <PixelImage src={currentItem.src} alt="Fadly" />
             </div>
             {/* Gloss overlay on photo */}
             <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent dark:from-white/10 pointer-events-none rounded-xl"></div>
