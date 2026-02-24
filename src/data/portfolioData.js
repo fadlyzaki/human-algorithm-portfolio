@@ -21,11 +21,11 @@ import { stoqo } from './projects/stoqo';
 
 export const SIDE_PROJECTS = [
     humanAlgorithm,         // Feb 2026
-    dolphi,                 // 2026
     productivityIllusion,   // 2025-2026
     yearInReview,           // Dec 2025
     interactiveWorkbook,    // Aug 2025
-    procurement             // 2024
+    procurement,            // 2024
+    dolphi                  // 2026
 ].map(normalizeProject);
 
 export const WORK_CLUSTERS = [
