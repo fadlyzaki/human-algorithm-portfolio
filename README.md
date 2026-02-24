@@ -55,6 +55,11 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 *   **Navbar Contextualization**: Re-architected the `Navbar` to dynamically display context-aware page titles across all subpages, replacing static fallbacks with route-aware headers.
 *   **Hardware Fallbacks**: Hardened experimental AR components (e.g., `FilterMe`) with explicit media stream permission handling to prevent silent camera activation failures.
 
+### 8. Social & Distribution (v3.5)
+*   **Interactive Folder Cards**: Redesigned case study project cards as "Classified Folder" cards with peek-on-hover animation revealing Problem/Outcome and a "VIEW CASE" CTA.
+*   **Hero Image Failsafe**: Added loading skeleton + error fallback to homepage `WorkBento` cards to prevent empty states during slow loads or image failures.
+*   **Dynamic OpenGraph Images**: Vercel Edge Middleware (`middleware.js`) detects 20+ social crawler bots and serves per-page OG meta tags via serverless API. Dynamic 1200×630 branded preview images generated on-the-fly via `@vercel/og`.
+
 ---
 
 ## ⚡ Performance Strategy
@@ -86,6 +91,11 @@ src/
 │   ├── contactData.js    # Contact Information & Social Matrix
 │   └── translations.js   # Linguistic Database
 └── pages/                # THE ROUTING LAYER
+
+api/                      # VERCEL SERVERLESS LAYER
+├── _ogRoutes.js          # Centralized route-to-metadata mapping (30+ pages)
+├── og.js                 # Dynamic OG image generation (@vercel/og)
+└── og-html.js            # Crawler-facing HTML with correct meta tags
     ├── SystemManifest    # ATS-Optimized CV Generation
     └── ...
 ```

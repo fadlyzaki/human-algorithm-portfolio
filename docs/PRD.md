@@ -55,6 +55,7 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Performance**: Vite-powered React engine with lazy loading via `React.lazy()` and `Suspense` for near-instant transitions.
 *   **Performance Monitoring**: integrated `@vercel/speed-insights` for real-time Core Web Vitals tracking.
 *   **SEO/Crawler Resilience**: Implemented static HTML fallbacks in `index.html` to ensure SEO indexing for SPA content. SEO component (`SEO.jsx`) for dynamic meta tags.
+*   **Dynamic OpenGraph (v3.5)**: Vercel Edge Middleware (`middleware.js`) detects 20+ social crawler bots and serves page-specific meta tags via `/api/og-html`. Dynamic 1200×630 branded images generated on-the-fly via `@vercel/og` (`/api/og`). Centralized route metadata in `api/_ogRoutes.js` covers 30+ pages.
 *   **Theme Management**: Dark Mode (The Void) by default, with persistent user-mode selection via `ThemeContext`.
 *   **Error Handling**: Custom `ErrorBoundary` component with themed 404 page (`NotFound.jsx`) for graceful failure states.
 *   **Security & Sanitization**:
@@ -157,6 +158,9 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 | `/about` | `About.jsx` | Personality synthesis, Certifications, and ChaosSlider |
 | `/contact` | `Contact.jsx` | Contact form and information |
 | `/cv` | `SystemManifest.jsx` | ATS-optimized printable CV |
+| `/process` | `DesignProcess.jsx` | Design process methodology |
+| `/design-system` | `DesignSystem.jsx` | Interactive design system viewer |
+| `/sketches` | `Sketches.jsx` | Interactive constellation map archive |
 | `/work/:id` | `CompanyDetail.jsx` | Company cluster detail with brand theming |
 | `/case-study/:id` | `ProtectedCaseStudy.jsx` | Password-protected case studies |
 | `/side-projects` | `SideProjectsIndex.jsx` | Archive of all side projects |
@@ -225,6 +229,11 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **[COMPLETED]** Prototype Hardening (v3.4): Refactored the `FilterMe` AR prototype to handle camera permissions explicitly before initializing local video streams, preventing silent failures.
 *   **[COMPLETED]** Data Integrity (v3.4): Restored missing structural data (e.g., `founder note` in *Interactive Workbook*) and finalized live preview component mappings across all interactive projects.
 *   **[COMPLETED]** Side Project Descriptions (v3.4): Shortened and refined bilingual (`en`/`id`) prototype descriptions in `notes.js` for conciseness (KISS principle) and language accuracy.
+*   **[COMPLETED]** Interactive Folder Cards (v3.5): Redesigned case study project cards inside company detail pages into interactive "Classified Folder" cards with peek animation revealing Problem/Outcome on hover, stacked paper depth effects, and "VIEW CASE" CTA.
+*   **[COMPLETED]** Hero Image Failsafe (v3.5): Added loading skeleton and error fallback to homepage `WorkBento` hero images — shows animated pulse during load, falls back to Airy diagram on image failure.
+*   **[COMPLETED]** FilterMe Content (v3.5): Added missing Trajectory (insights) and Synthesis (learnings) sections to the FilterMe side project with bilingual translations.
+*   **[COMPLETED]** Case Study Exports (v3.5): Converted non-WIP case studies (Stoqo Logistics, Stoqo Sales) into standalone Markdown documents in `docs/case-studies/`.
+*   **[COMPLETED]** Dynamic OpenGraph (v3.5): Implemented Vercel Edge Middleware + `@vercel/og` for per-page OG image generation covering 30+ routes. Social crawlers now receive correct titles, descriptions, and branded preview images.
 
 ### Phase 3: Intelligence & Expansion (Q2-Q4 2026)
 *   **[Q2 2026]** Enhanced AI Agent: Expand semantic memory with real RAG backend.
