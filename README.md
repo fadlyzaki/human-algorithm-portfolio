@@ -48,6 +48,9 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 
 ### 7. UI/UX Polish (v3.4)
 *   **System Core Card Alignment**: Fixed the flex distribution in the `SystemCoreCard` component, optimizing height ratios to `40/60` to ensure content properly fits on mobile and tablet without overlapping.
+*   **Prototype Embedding**: Migrated static prototype representations (like Project Kinship) to live, interactive `iframe` HTML mounts.
+*   **Side Project Ordering**: Adjusted `portfolioData.js` object arrays to dynamically deprioritize older/archived ventures (e.g. Dolphi) from the primary Homepage view.
+*   **Dynamic Visuals for Data**: Replaced static raster images in the Price Lock "Evolution" timeline with responsive `AiryDiagram` components (`airy:timeline`, `airy:search`, `airy:ui`, `airy:chart`) and completed the 4-step UX narrative.
 
 ---
 
