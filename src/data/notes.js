@@ -225,35 +225,7 @@ export const NOTES = [
             { label: "Trust Score", value: "Elevated" }
         ],
         learnings: "Price Lock is not a fintech product; it's an anxiety medication.",
-        designProcess: [
-            {
-                type: "research",
-                title: "Anxiety in Pricing",
-                desc: "The specific anxiety of watching a flight price jump $50 while you wait for your boss\'s approval. In a world of dynamic pricing, the user is always the loser.",
-                image: "/price-lock-cover.png"
-            },
-            {
-                type: "insight",
-                title: "Buying Time",
-                desc: "Users weren't paying for the ticket; they were paying for the *option* to wait. The ability to ask their boss for leave without risking a price hike."
-            },
-            {
-                type: "design",
-                title: "The Pause Button",
-                desc: "A small fee ($2) to freeze the algorithm for 24 hours. Shifts user state from Panic to Control. A simple toggle that buys peace of mind.",
-                image: "/price-lock-cover.png"
-            },
-            {
-                type: "ship",
-                title: "The Honest Algorithm",
-                desc: "To build trust, we showed our work: 'AI Prediction: 85% chance this price rises tomorrow.' This turned a 'Hidden Fee' into 'Insurance'."
-            },
-            {
-                type: "measure",
-                title: "Emotional ROI",
-                desc: "Price Lock is not a fintech product; it's an anxiety medication. We measured success not just in revenue, but in the reduction of user panic."
-            }
-        ],
+
         challenge_id: "Kecemasan spesifik saat melihat tiket naik 500rb sambil menunggu izin cuti bos. Di dunia 'dynamic pricing', user selalu kalah.",
         process_id: [
             {
