@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ArrowUpRight, Lock, FileText } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,6 +8,14 @@ import IconMapper from '../ui/IconMapper';
 
 const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const innerRef = useRef(null);
+    const [innerHeight, setInnerHeight] = useState(0);
+
+    useEffect(() => {
+        if (innerRef.current) {
+            setInnerHeight(innerRef.current.offsetHeight);
+        }
+    }, []);
 
     const title = isId ? (project.title_id || project.title) : project.title;
     const problem = isId ? (project.details_id?.problem || project.details.problem) : project.details.problem;
@@ -48,7 +56,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
                     <div className="absolute -bottom-[6px] left-6 right-6 h-[3px] rounded-b-xl bg-[var(--bg-card)] border border-t-0 border-[var(--border-color)] opacity-30" />
 
                     {/* Inner Content — problem/outcome at bottom so it's revealed by cover lift */}
-                    <div className="h-full flex flex-col justify-end p-5 pb-6">
+                    <div ref={innerRef} className="absolute bottom-0 left-0 right-0 p-5 pb-6">
 
                         {/* Problem / Outcome Grid (bottom area — visible when cover peeks) */}
                         <div className="grid grid-cols-2 gap-5 mb-4">
@@ -90,7 +98,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
                     }}
                     animate={{
                         rotateX: isHovered ? -8 : 0,
-                        y: isHovered ? -120 : 0,
+                        y: isHovered ? -(innerHeight + 16) : 0,
                         scale: isHovered ? 0.97 : 1,
                     }}
                     transition={{

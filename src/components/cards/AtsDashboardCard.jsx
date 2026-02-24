@@ -8,10 +8,10 @@ const AtsDashboardCard = ({ expanded, showChrome }) => (
             <div className="flex justify-between items-center mb-10">
                 {[1, 2, 3, 4].map(i => (
                     <React.Fragment key={i}>
-                        <div className={`w-8 h-8 rounded-full border-2 ${i === 1 ? 'border-[var(--brand)] bg-[var(--brand)]/5' : 'border-slate-100 dark:border-white/10 bg-white dark:bg-white/5'} flex items-center justify-center`}>
+                        <div className={`w-8 h-8 rounded-full border-2 ${i === 1 ? 'border-[var(--brand)] bg-[var(--brand)]/5 animate-pulse' : 'border-slate-100 dark:border-white/10 bg-white dark:bg-white/5'} flex items-center justify-center`}>
                             <Users size={12} className={i === 1 ? 'text-[var(--brand)]' : 'text-slate-300'} />
                         </div>
-                        {i < 4 && <div className="flex-1 h-px bg-slate-100 mx-2 border-t-2 border-dashed border-slate-100"></div>}
+                        {i < 4 && <div className={`flex-1 h-px mx-2 border-t-2 border-dashed ${i === 1 ? 'border-[var(--brand)]/30 animate-[pulse_3s_ease-in-out_infinite]' : 'border-slate-100'}`}></div>}
                     </React.Fragment>
                 ))}
             </div>

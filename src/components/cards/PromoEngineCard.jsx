@@ -12,7 +12,7 @@ const PromoEngineCard = ({ expanded, showChrome }) => (
             <div className="h-4 w-px bg-slate-300"></div>
 
             {/* Decision Diamond */}
-            <div className="w-8 h-8 rotate-45 border border-[var(--brand)] bg-[var(--brand)]/5 flex items-center justify-center mb-2 z-10 relative">
+            <div className="w-8 h-8 rotate-45 border border-[var(--brand)] bg-[var(--brand)]/5 flex items-center justify-center mb-2 z-10 relative animate-[pulse_2s_ease-in-out_infinite]">
                 <div className="w-1 h-1 bg-[var(--brand)] -rotate-45"></div>
             </div>
 
@@ -33,8 +33,9 @@ const PromoEngineCard = ({ expanded, showChrome }) => (
 
                 {/* Yes Path */}
                 <div className="flex flex-col items-center pt-6 gap-2">
-                    <div className="px-3 py-1 bg-[var(--brand)] text-white rounded shadow-md text-[8px] font-mono flex items-center gap-1">
+                    <div className="px-3 py-1 bg-[var(--brand)] text-white rounded shadow-md text-[8px] font-mono flex items-center gap-1 relative">
                         <CheckCircle2 size={8} /> APPLY_DISC
+                        <div className="absolute inset-0 rounded bg-[var(--brand)] animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite] opacity-20"></div>
                     </div>
                 </div>
             </div>
