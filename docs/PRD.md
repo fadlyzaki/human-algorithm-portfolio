@@ -220,6 +220,11 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **[COMPLETED]** Interaction Deepening (v3.4): Embedded live HTML prototypes for experimental side-ventures (Project Kinship) directly into the UI via secure `iframe`s.
 *   **[COMPLETED]** IA Rebalancing (v3.4): Reordered portfolio side-projects to automatically filter out older ventures (Dolphi) from the Homepage preview while retaining them in the Archive.
 *   **[COMPLETED]** Dynamic Storytelling (v3.4): Refactored the Price Lock case study "Evolution" timeline, completing the 4-step UX narrative and replacing static imagery with dynamic, responsive `AiryDiagram` SVGs.
+*   **[COMPLETED]** Component Standardization (v3.4): Unified dynamic page titles across the global `Navbar` component, replacing static fallbacks with context-aware routing headers for every subpage.
+*   **[COMPLETED]** Interactive Node Physics (v3.4): Upgraded the `/sketches` constellation map with responsive grid-wrapping (`ORDER` mode), preserved natural image aspect ratios, and added subtle `framer-motion` node breathing animations.
+*   **[COMPLETED]** Prototype Hardening (v3.4): Refactored the `FilterMe` AR prototype to handle camera permissions explicitly before initializing local video streams, preventing silent failures.
+*   **[COMPLETED]** Data Integrity (v3.4): Restored missing structural data (e.g., `founder note` in *Interactive Workbook*) and finalized live preview component mappings across all interactive projects.
+*   **[COMPLETED]** Side Project Descriptions (v3.4): Shortened and refined bilingual (`en`/`id`) prototype descriptions in `notes.js` for conciseness (KISS principle) and language accuracy.
 
 ### Phase 3: Intelligence & Expansion (Q2-Q4 2026)
 *   **[Q2 2026]** Enhanced AI Agent: Expand semantic memory with real RAG backend.

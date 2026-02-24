@@ -51,6 +51,9 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 *   **Prototype Embedding**: Migrated static prototype representations (like Project Kinship) to live, interactive `iframe` HTML mounts.
 *   **Side Project Ordering**: Adjusted `portfolioData.js` object arrays to dynamically deprioritize older/archived ventures (e.g. Dolphi) from the primary Homepage view.
 *   **Dynamic Visuals for Data**: Replaced static raster images in the Price Lock "Evolution" timeline with responsive `AiryDiagram` components (`airy:timeline`, `airy:search`, `airy:ui`, `airy:chart`) and completed the 4-step UX narrative.
+*   **Interactive Node Physics**: Enhanced the `/sketches` archive with a dual-mode layout (Chaos/Order) featuring responsive grid-wrapping, collision-aware node routing, natural-aspect image popovers, and subtle breathing animations.
+*   **Navbar Contextualization**: Re-architected the `Navbar` to dynamically display context-aware page titles across all subpages, replacing static fallbacks with route-aware headers.
+*   **Hardware Fallbacks**: Hardened experimental AR components (e.g., `FilterMe`) with explicit media stream permission handling to prevent silent camera activation failures.
 
 ---
 
