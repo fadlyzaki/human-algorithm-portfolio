@@ -186,14 +186,24 @@ export const NOTES = [
         challenge: "The specific anxiety of watching a flight price jump $50 while you wait for your boss\'s approval. In a world of dynamic pricing, the user is always the loser.",
         process: [
             {
-                title: "The $50 Heartbeat Skip",
-                desc: "You find the perfect flight. You text friends. They take 3 hours. You refresh. Price went up. That regret is what we designed against.",
+                title: "The Anxiety Trigger",
+                desc: "The specific anxiety of watching a flight price jump $50 while waiting for leave approval. In dynamic pricing, users always lose.",
                 image: "airy:timeline"
             },
             {
                 title: "Buying Time, Not Tickets",
-                desc: "Users weren't paying for the ticket; they were paying for the *option* to wait. The ability to ask their boss for leave without risking a price hike.",
-                image: "airy:funnel"
+                desc: "We realized users aren't paying for the ticket; they're paying for the option to wait without risking a sudden price hike.",
+                image: "airy:search"
+            },
+            {
+                title: "The Pause Button",
+                desc: "A small fee ($2) freezes the algorithm for 24 hours. This simple toggle shifts the user's emotional state from panic to control.",
+                image: "airy:ui"
+            },
+            {
+                title: "The Honest Algorithm",
+                desc: "To build trust, we exposed the prediction: '85% chance this price rises tomorrow.' It turned a hidden fee into perceived insurance.",
+                image: "airy:chart"
             }
         ],
         insights: [
@@ -247,14 +257,24 @@ export const NOTES = [
         challenge_id: "Kecemasan spesifik saat melihat tiket naik 500rb sambil menunggu izin cuti bos. Di dunia 'dynamic pricing', user selalu kalah.",
         process_id: [
             {
-                title: "Jantung Copot Karena 500 Ribu",
-                desc: "Nemu tiket pas. Chat temen. Lama bales. Refresh. Harga naik. Rasa nyesek itu musuh desain kami.",
+                title: "Pemicu Kecemasan",
+                desc: "Kecemasan saat melihat tiket naik 500rb sambil menunggu izin cuti bos. Di era harga dinamis, pengguna selalu dirugikan.",
                 image: "airy:timeline"
             },
             {
                 title: "Beli Waktu, Bukan Tiket",
-                desc: "User bayar bukan buat tiket, tapi buat *opsi* nunggu. Kemampuan minta izin bos tanpa takut harga naik.",
-                image: "airy:funnel"
+                desc: "Kami sadar pengguna bayar bukan untuk tiket, tapi untuk opsi menunggu tanpa risiko harga melonjak tiba-tiba.",
+                image: "airy:search"
+            },
+            {
+                title: "Tombol Jeda",
+                desc: "Biaya kecil (Rp30.000) menunda algoritma selama 24 jam. Ini merubah keadaan emosi pengguna dari panik menjadi pegang kendali.",
+                image: "airy:ui"
+            },
+            {
+                title: "Algoritma Jujur",
+                desc: "Untuk membangun kepercayaan, kami memunculkan prediksi: 'Prediksi AI: 85% harga naik besok'. Mengubah biaya tersembunyi menjadi asuransi.",
+                image: "airy:chart"
             }
         ],
         insights_id: [
