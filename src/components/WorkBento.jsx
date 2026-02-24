@@ -9,6 +9,8 @@ const WorkBento = ({ cluster }) => {
     const { language } = useLanguage();
     const isId = language === 'id';
     const [isHovered, setIsHovered] = useState(false);
+    const [imgLoaded, setImgLoaded] = useState(false);
+    const [imgError, setImgError] = useState(false);
 
     // Extract data
     const title = isId ? (cluster.title_id || cluster.title) : cluster.title;
@@ -102,8 +104,8 @@ const WorkBento = ({ cluster }) => {
 
 
                 {/* Device / Visual Frame */}
-                <div className={`relative transform transition-transform duration-700 ${cluster.heroImage && cluster.heroImage.startsWith('/') ? 'w-[200px] mx-auto' : 'w-full max-w-[90%] group-hover:scale-105 origin-bottom'}`}>
-                    {cluster.heroImage && cluster.heroImage.startsWith('/') ? (
+                <div className={`relative transform transition-transform duration-700 ${cluster.heroImage && cluster.heroImage.startsWith('/') && !imgError ? 'w-[200px] mx-auto' : 'w-full max-w-[90%] group-hover:scale-105 origin-bottom'}`}>
+                    {cluster.heroImage && cluster.heroImage.startsWith('/') && !imgError ? (
                         <div className="relative rounded-t-[28px] overflow-hidden shadow-[0_12px_50px_-12px_rgba(0,0,0,0.5)] border-t-[6px] border-x-[6px] border-white/20 dark:border-white/10 bg-white dark:bg-neutral-800 aspect-[9/14] flex flex-col">
                             {/* Device Header/Notch Area - Protects mockup headers from card rounding */}
                             <div className="h-7 w-full flex items-center justify-center shrink-0 bg-white dark:bg-neutral-800 relative z-20">
@@ -114,11 +116,17 @@ const WorkBento = ({ cluster }) => {
 
                             {/* Inner Screen Container */}
                             <div className="relative flex-grow overflow-hidden rounded-t-lg">
+                                {/* Loading skeleton */}
+                                {!imgLoaded && (
+                                    <div className="absolute inset-0 bg-gray-200 dark:bg-neutral-700 animate-pulse" />
+                                )}
                                 <img
                                     src={cluster.heroImage}
                                     alt={title}
-                                    className="w-full h-auto object-top transition-transform duration-[5000ms] ease-in-out group-hover:translate-y-[calc(-100%+280px)]"
+                                    className={`w-full h-auto object-top transition-all duration-[5000ms] ease-in-out group-hover:translate-y-[calc(-100%+280px)] ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
                                     style={{ transformOrigin: 'top' }}
+                                    onLoad={() => setImgLoaded(true)}
+                                    onError={() => setImgError(true)}
                                 />
                                 {/* Gloss/Reflection */}
                                 <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none mix-blend-overlay"></div>
