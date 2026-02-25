@@ -206,6 +206,8 @@ const NodeGraphGallery = () => {
 
   // Determine current effective nodes based on scatter vs shape-shift
   const displayNodes = useMemo(() => {
+    const layout = LAYOUTS[currentLayoutIndex];
+
     // Unstructured fallback (though we default to SALON)
     if (layout === undefined) {
       return nodes.map((node, i) => ({
