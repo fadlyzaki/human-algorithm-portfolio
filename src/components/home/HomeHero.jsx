@@ -8,7 +8,10 @@ import ScrollReveal from '../ScrollReveal';
 import StickyNote from '../StickyNote';
 import RichText from '../RichText';
 
-const TypewriterText = ({ text }) => {
+const CHAR_SPEED = 0.015;
+const LINE_GAP = 0.3;
+
+const TypewriterText = ({ text, delay = 0 }) => {
     if (!text) return null;
     const characters = Array.from(text);
 
@@ -17,7 +20,7 @@ const TypewriterText = ({ text }) => {
             initial="hidden"
             animate="visible"
             variants={{
-                visible: { transition: { staggerChildren: 0.015 } },
+                visible: { transition: { staggerChildren: CHAR_SPEED, delayChildren: delay } },
                 hidden: {}
             }}
             aria-label={text}
@@ -37,7 +40,22 @@ const TypewriterText = ({ text }) => {
     );
 };
 
+const getDelay = (lines) => {
+    let total = 0;
+    return lines.map((text) => {
+        const d = total;
+        total += Array.from(text).length * CHAR_SPEED + LINE_GAP;
+        return d;
+    });
+};
+
 const HomeHero = ({ t }) => {
+    const roleLine = `${t('home.role')} ·`;
+    const roleSubLine = t('home.role_sub');
+    const titleLine = t('home.intro_title');
+    const descLine = t('home.intro_desc');
+    const delays = getDelay([roleLine, roleSubLine, titleLine, descLine]);
+
     return (
         <>
             <section className="relative mb-16">
@@ -53,15 +71,18 @@ const HomeHero = ({ t }) => {
                         </Treasure>
 
                         <h1 className="font-mono text-3xl sm:text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
-                            {t('home.role')} · <br />
-                            <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">{t('home.role_sub')}</span>
+                            <TypewriterText text={roleLine} delay={delays[0]} />
+                            <br />
+                            <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">
+                                <TypewriterText text={roleSubLine} delay={delays[1]} />
+                            </span>
                         </h1>
                         <h2 className="text-xl md:text-2xl font-mono text-[var(--text-primary)] mb-8 pb-4 inline-block border-b-2 border-[var(--accent-amber)]">
-                            {t('home.intro_title')}
+                            <TypewriterText text={titleLine} delay={delays[2]} />
                         </h2>
                         <div className="text-[var(--text-secondary)] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
                             <p className="inline-block">
-                                <TypewriterText text={t('home.intro_desc')} />
+                                <TypewriterText text={descLine} delay={delays[3]} />
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">
