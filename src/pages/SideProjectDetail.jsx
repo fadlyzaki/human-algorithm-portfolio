@@ -124,11 +124,19 @@ const SideProjectDetail = () => {
       if (typeof field === 'object' && field.en) return isIndonesian ? (field.id || field.en) : field.en;
       return field;
    };
+   const resolveArray = (arr) => {
+      if (!arr) return null;
+      return arr.map(item => ({
+         ...item,
+         title: resolveText(item.title),
+         desc: resolveText(item.desc),
+      }));
+   };
    const activeChallenge = resolveText(project.challenge, project.desc);
-   const activeProcess = (isIndonesian && (project.designProcess_id || project.process_id)) ? (project.designProcess_id || project.process_id) : (project.designProcess || project.process);
-   const activeInsights = (isIndonesian && project.insights_id) ? project.insights_id : project.insights;
-   const activeSolution = (isIndonesian && project.solution_id) ? project.solution_id : project.solution;
-   const activeMetrics = (isIndonesian && project.metrics_id) ? project.metrics_id : project.metrics;
+   const activeProcess = resolveArray(project.designProcess || project.process);
+   const activeInsights = resolveArray(project.insights);
+   const activeSolution = resolveArray(project.solution);
+   const activeMetrics = project.metrics;
    const activeLearnings = resolveText(project.learnings);
    const activeModules = (isIndonesian && project.modules_id) ? project.modules_id : project.modules;
 

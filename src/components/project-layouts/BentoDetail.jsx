@@ -71,13 +71,13 @@ const BentoDetail = ({ project, activeContext, activeChallenge, activeProcess, a
                             <Layout className="text-pink-400" />
                             <h2 className="text-2xl font-serif italic">Methodology</h2>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[350px]">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {activeProcess.map((step, idx) => (
                                 <article key={idx} className={`bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-500
-                                    ${idx === 0 || idx === 3 ? 'md:col-span-2' : ''}
+                                    ${idx === 0 ? 'md:col-span-2' : ''}
                                 `}>
                                     {step.image && (
-                                        <div className="flex-1 overflow-hidden bg-black/5 dark:bg-white/5 flex items-center justify-center p-6 border-b border-[var(--border-color)]">
+                                        <div className={`overflow-hidden bg-black/5 dark:bg-white/5 flex items-center justify-center p-6 border-b border-[var(--border-color)] ${idx === 0 ? 'h-[280px]' : 'h-[200px]'}`}>
                                             {step.image.startsWith('airy:') ? (
                                                 <AiryDiagram type={step.image.split(':')[1]} />
                                             ) : (
@@ -85,9 +85,9 @@ const BentoDetail = ({ project, activeContext, activeChallenge, activeProcess, a
                                             )}
                                         </div>
                                     )}
-                                    <div className="p-8 h-[160px] flex flex-col justify-center">
+                                    <div className="p-8 flex-1 flex flex-col justify-center">
                                         <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                                        <p className="text-sm text-[var(--text-secondary)] line-clamp-2">{step.desc}</p>
+                                        <p className="text-sm text-[var(--text-secondary)] line-clamp-3">{step.desc}</p>
                                     </div>
                                 </article>
                             ))}
