@@ -62,6 +62,11 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 *   **Hero Image Failsafe**: Added loading skeleton + error fallback to homepage `WorkBento` cards to prevent empty states during slow loads or image failures.
 *   **Dynamic OpenGraph Images**: Vercel Edge Middleware (`middleware.js`) detects 20+ social crawler bots and serves per-page OG meta tags via serverless API. Dynamic 1200×630 branded preview images generated on-the-fly via `@vercel/og`.
 
+### 9. Systems Hardening (v3.6)
+*   **Methodology Grid Optimization**: Re-architected 5-item methodology grids (Year In Review, Dolphi, Productivity Illusion) from awkward 3-col layouts to a clean 2-column model with a full-width hero card for improved visual rhythm.
+*   **Brand Intelligence Sync**: Standardized the `🧢 Fadly Uzzaki` naming convention across all 7 generative ID card variants (Industrial to Holographic), fixing name abbreviated drift.
+*   **Data Integrity Protocol**: Restored missing structural metadata (Metrics, Researcher Notes) across the side-project ecosystem and fixed bilingual data resolvers.
+
 ---
 
 ## ⚡ Performance Strategy
