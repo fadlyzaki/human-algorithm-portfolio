@@ -15,7 +15,7 @@ export const translations = {
             sketches: "Sketches"
         },
         home: {
-            role: "Product Designer // Design Engineer",
+            role: "Product Designer",
             role_sub: "Systems Thinker",
             intro_title: "FADLY UZZAKI.",
             intro_desc: "Combining software logic with human-centered design. I architect resilient workflows that organize the noise, reducing cognitive overhead when it matters most.",
@@ -351,7 +351,7 @@ export const translations = {
             sketches: "Sketsa"
         },
         home: {
-            role: "Product Designer // Design Engineer",
+            role: "Product Designer",
             role_sub: "Systems Thinker",
             intro_title: "FADLY UZZAKI.",
             intro_desc: "Menggabungkan logika perangkat lunak dengan desain berpusat pada manusia. Saya merancang alur kerja tangguh yang menata kebisingan, mengurangi beban kognitif saat paling dibutuhkan.",
