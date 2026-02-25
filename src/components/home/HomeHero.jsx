@@ -6,7 +6,6 @@ import Treasure from '../Treasure';
 import DraggablePhoto from '../DraggablePhoto';
 import ScrollReveal from '../ScrollReveal';
 import StickyNote from '../StickyNote';
-import StickyNote from '../StickyNote';
 import RichText from '../RichText';
 
 const TypewriterText = ({ text }) => {
