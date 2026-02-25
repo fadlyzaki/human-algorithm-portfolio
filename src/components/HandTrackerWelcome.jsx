@@ -13,7 +13,7 @@ const HandTrackerWelcome = () => {
 
     return (
         <div className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-300">
-            <div className="bg-[#1a1a1a] border-2 border-amber-500 rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-in zoom-in-95 duration-300">
+            <div className="bg-[var(--bg-surface)] border-2 border-[var(--accent-amber)] rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-in zoom-in-95 duration-300">
                 {/* Close Button */}
                 <button
                     onClick={closeWelcomeModal}
@@ -26,9 +26,9 @@ const HandTrackerWelcome = () => {
                 {/* Icon */}
                 <div className="flex justify-center mb-6">
                     <div className="relative">
-                        <ScanEye size={56} className="text-amber-500 animate-pulse" />
-                        <Map className="absolute -top-2 -right-2 text-amber-400 animate-bounce" size={20} />
-                        <Compass className="absolute -bottom-1 -left-1 text-amber-300 animate-spin" size={16} style={{ animationDuration: '3s' }} />
+                        <ScanEye size={56} className="text-[var(--accent-amber)] animate-pulse" />
+                        <Map className="absolute -top-2 -right-2 text-[var(--accent-amber)] opacity-70 animate-bounce" size={20} />
+                        <Compass className="absolute -bottom-1 -left-1 text-[var(--accent-amber)] opacity-50 animate-spin" size={16} style={{ animationDuration: '3s' }} />
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@ const HandTrackerWelcome = () => {
                     </button>
                     <button
                         onClick={handleActivate}
-                        className="flex-1 px-6 py-3.5 bg-amber-600 text-white hover:bg-amber-500 transition-all rounded-xl font-mono text-sm uppercase tracking-wider shadow-lg hover:shadow-xl flex items-center justify-center gap-2 font-bold"
+                        className="flex-1 px-6 py-3.5 bg-[var(--accent-amber)] text-white hover:opacity-90 transition-all rounded-xl font-mono text-sm uppercase tracking-wider shadow-lg hover:shadow-xl flex items-center justify-center gap-2 font-bold"
                     >
                         <Compass size={18} />
                         Start Hunt

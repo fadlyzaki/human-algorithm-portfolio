@@ -13,15 +13,6 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showN
     const { t, language, toggleLanguage } = useLanguage();
     const { isGestureMode, toggleGestureMode } = useHandCursor();
 
-    // Use duplicated logic hook, but allow external override if parent manages it (e.g. HomeHero constraints?)
-    // Actually, Home.jsx was managing `showNav` state but passing it nowhere? 
-    // Wait, Home.jsx passed it... nowhere in original code? 
-    // Re-reading Home.jsx original:
-    // It calculated `showNav` but didn't pass it to `<Navbar />`.
-    // Navbar had its OWN internal `showNav` state.
-    // So both were calculating it independently? Yes.
-    // We should use the hook here. If `showNavOverride` is provided (e.g. from Home which might have specific needs), use it.
-
     const hookShowNav = useScrollDirection(isGestureMode);
     const showNav = showNavOverride !== undefined ? showNavOverride : hookShowNav;
 

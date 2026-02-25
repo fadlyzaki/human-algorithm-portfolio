@@ -5,7 +5,6 @@ const HandCursorContext = createContext();
 
 export const HandCursorProvider = ({ children }) => {
     const [isGestureMode, setIsGestureMode] = useState(false);
-    const [isClicking, setIsClicking] = useState(false);
     const [showWelcomeModal, setShowWelcomeModal] = useState(false);
     const [foundEggs, setFoundEggs] = useState(() => {
         // Load from localStorage on init
@@ -79,8 +78,6 @@ export const HandCursorProvider = ({ children }) => {
         setIsGestureMode,
         toggleGestureMode,
         activateGestureMode,
-        isClicking,
-        setIsClicking,
         showWelcomeModal,
         closeWelcomeModal,
         foundEggs,
@@ -92,7 +89,6 @@ export const HandCursorProvider = ({ children }) => {
         resetTrigger
     }), [
         isGestureMode,
-        isClicking,
         showWelcomeModal,
         foundEggs,
         showCongratsModal,
