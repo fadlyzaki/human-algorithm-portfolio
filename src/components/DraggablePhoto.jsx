@@ -218,7 +218,7 @@ const DraggablePhoto = () => {
         <div className="space-y-4">
           <div className="flex flex-col">
             <h2 className="text-3xl font-black text-black drop-shadow-sm dark:text-white dark:drop-shadow-none leading-[0.9] tracking-tighter">UZZAKI<br />FADLY 🧢</h2>
-            <span className="text-[9px] font-mono text-black/70 dark:text-white/60 uppercase tracking-widest mt-2 font-bold">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
+            <span className="text-[9px] font-mono text-black/80 dark:text-white/90 uppercase tracking-widest mt-2 font-bold">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
           </div>
 
           <div className="h-[1px] w-full bg-gradient-to-r from-black/20 via-black/10 to-transparent dark:from-white/20 dark:via-white/10 dark:to-transparent"></div>
@@ -343,7 +343,7 @@ const DraggablePhoto = () => {
         <div className="p-4 z-10 bg-white/30 dark:bg-black/30 backdrop-blur-md border-t border-gray-400/20 dark:border-gray-500/20">
           <div className="flex justify-between items-end mb-2">
             <div>
-              <h2 className="text-2xl font-black text-gray-900 dark:text-gray-100 tracking-tighter leading-none mb-1">🧢 FADLY UZZAKI</h2>
+              <h2 className="text-2xl font-black tracking-tighter leading-none mb-1 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-300 dark:to-gray-500">🧢 FADLY UZZAKI</h2>
               <span className="text-[9px] font-mono text-gray-700 dark:text-gray-400 uppercase tracking-widest block font-bold">{t('id_card.role') || 'Product Designer'}</span>
             </div>
             <div className="text-right">
