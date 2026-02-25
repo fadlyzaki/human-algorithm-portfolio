@@ -299,11 +299,11 @@ const HorizontalGallery = () => {
           <div className="flex h-full items-center justify-start gap-12 md:gap-32 min-w-max">
 
             {/* --- TITLE CARD (Now inside the carousel) --- */}
-            <div className="flex flex-col items-start justify-center h-full px-12 md:px-32 w-[90vw] md:w-[60vw] shrink-0 snap-center pointer-events-auto">
+            <div className="flex flex-col items-center text-center justify-center h-full px-12 w-[80vw] shrink-0 snap-center pointer-events-auto">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="flex items-center gap-3 mb-6"
+                className="flex justify-center items-center gap-3 mb-6"
               >
                 <Activity size={18} className={isDark ? 'text-zinc-500' : 'text-zinc-400'} />
                 <span className={`font-mono text-xs tracking-[0.2em] uppercase text-zinc-500`}>
@@ -326,7 +326,7 @@ const HorizontalGallery = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="max-w-md text-zinc-500 font-mono text-[10px] md:text-xs uppercase tracking-widest leading-relaxed"
+                  className="max-w-md text-zinc-500 font-mono text-[10px] md:text-xs uppercase tracking-widest leading-relaxed text-center"
                 >
                   [ CURATOR: {isDigital
                     ? 'SYSTEM NODES REPRESENT POLISHED STRUCTURALLY RIGID DIGITAL ASSETS. DISPLAYED RECENT FIRST.'
