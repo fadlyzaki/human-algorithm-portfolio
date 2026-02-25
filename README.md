@@ -1,8 +1,10 @@
 # The Human Algorithm: System Architecture v3.0
 
-> **Engineering Philosophy**: "Chaos contained within a grid."
+> **Engineering Philosophy**: *"I design where software logic meets human intuition."*
 
-This repository houses the source code for [fadlyzaki.com](https://fadlyzaki.com)—a high-performance, single-page application (SPA) architected to demonstrate the intersection of **Computer Science logic** and **Human-Centered Design**.
+This repository houses the source code for [fadlyzaki.com](https://fadlyzaki.com)—a high-performance, single-page application (SPA) built to demonstrate resilient workflows that tame complexity and free up mental bandwidth when it matters most.
+
+> 📄 **[Brand Copy — Living Doc](docs/brand_copy.md)** — Centralized, reusable copy for LinkedIn, Dribbble, job apps, and beyond.
 
 [![Status](https://img.shields.io/badge/SYSTEM-NOMINAL-green?style=flat-square&logo=react)](https://fadlyzaki.com)
 [![Build](https://img.shields.io/badge/BUILD-PASSING-blue?style=flat-square&logo=vercel)](https://vercel.com)
@@ -12,7 +14,7 @@ This repository houses the source code for [fadlyzaki.com](https://fadlyzaki.com
 
 ## 🏗 Architectural Decisions
 
-As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a production-grade product. Every technology choice balances **Creative Expression** (WebGL, Framer Motion) with **Engineering Rigor** (Performance, Accessibility, Type Safety).
+As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a production-grade product. Every technology choice balances **Creative Expression** (Framer Motion, MediaPipe) with **Engineering Rigor** (Performance, Accessibility, Resilience).
 
 ### 1. The Core Engine: React 18 + Vite
 *   **Decision**: Migrated from CRA to Vite for O(1) HMR (Hot Module Replacement) and optimized Rollup builds.

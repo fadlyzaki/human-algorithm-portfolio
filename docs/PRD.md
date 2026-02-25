@@ -1,9 +1,9 @@
 # Product Requirements Document (PRD): Human Algorithm Portfolio v3.0
 
 ## 1. Executive Summary
-The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that bridges the gap between Computer Science rigor and human emotional complexity.
+The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that demonstrates where software logic meets human intuition.
 
-**Strategic Goal**: Establish the user as a "Scientific Design Engineer"—a hybrid professional who combines "Engineering Logic" with "Cognitive Science" to build resilient systems. This platform must demonstrate this duality through both its *content* (case studies) and its *code* (interactive physics, efficient rendering).
+**Strategic Goal**: Establish the user as a Design Engineer who builds resilient workflows that tame complexity and free up mental bandwidth when it matters most. This platform must demonstrate this duality through both its *content* (case studies) and its *code* (interactive physics, efficient rendering).
 
 ## 2. Success Metrics (KPIs)
 *   **Performance**: Core Web Vitals (LCP < 2.5s, FID < 100ms) on mobile networks.
@@ -46,8 +46,9 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Dynamic Outcomes**: Experience bullets are automatically generated from project-level metrics (e.g., "+37% Conversion," "Latency Reduced").
 *   **Cover Letter Modal**: Quick-access modal (`CoverLetterModal.jsx`) for generating contextual cover letter content.
 
-### 3.3 The "Contain Chaos" Messaging Layer
-*   **Consistency**: Unified messaging across `index.html` (SEO Meta), Home, and About pages.
+### 3.3 The "Tame Complexity" Messaging Layer
+*   **Core Tagline**: *"I design where software logic meets human intuition. My focus: resilient workflows that tame complexity and free up mental bandwidth when it matters most."*
+*   **Consistency**: Unified messaging across `index.html` (SEO Meta), Home, About pages, and `brand_copy.md` living doc.
 *   **Visual Logic**: Grayscale profile imagery, scanline effects, and industrial iconography to maintain the "Systems Specialist" persona.
 *   **Status Indicators**: "OPEN TO WORK" badges synced with local deployment states to drive conversion.
 

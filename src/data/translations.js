@@ -354,7 +354,7 @@ export const translations = {
             role: "Product Designer",
             role_sub: "Systems Thinker",
             intro_title: "FADLY UZZAKI.",
-            intro_desc: "Menggabungkan logika perangkat lunak dengan desain berpusat pada manusia. Saya merancang alur kerja tangguh yang menata kebisingan, mengurangi beban kognitif saat paling dibutuhkan.",
+            intro_desc: "Saya mendesain di pertemuan logika perangkat lunak dan intuisi manusia. Fokus saya: alur kerja tangguh yang menjinakkan kompleksitas dan membebaskan ruang mental saat paling dibutuhkan.",
             cta_work: "Lihat Studi Kasus",
             cta_cv: "Lihat CV",
             sticky_note: "Penawar kelelahan digital.",
