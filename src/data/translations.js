@@ -18,7 +18,7 @@ export const translations = {
             role: "Product Designer",
             role_sub: "Systems Thinker",
             intro_title: "FADLY UZZAKI.",
-            intro_desc: "Combining software logic with human-centered design. I architect resilient workflows that organize the noise, reducing cognitive overhead when it matters most.",
+            intro_desc: "I design where software logic meets human intuition. My focus: resilient workflows that tame complexity and free up mental bandwidth when it matters most.",
             cta_work: "View Case Studies",
             cta_cv: "CV",
             sticky_note: "Antidote to digital fatigue.",
