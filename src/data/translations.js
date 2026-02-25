@@ -318,10 +318,10 @@ export const translations = {
             cta_proceed: "Proceed to System Directory"
         },
         sketches: {
-            title: "Constellation Map",
+            title: "Archive",
+            pencil: "Graphite",
             digital: "Digital",
-            pencil: "Pencil",
-            drag_to_explore: "DRAG TO EXPLORE",
+            drag_to_explore: "Scroll to explore hallway",
             scroll_to_zoom: "SCROLL TO ZOOM",
             nodes_found: "NODES FOUND",
             digital_disclaimer: "I am currently not sketching digitally since last year because my Apple Pencil is broken."
@@ -651,12 +651,12 @@ export const translations = {
             cta_proceed: "Lanjut ke Direktori Sistem"
         },
         sketches: {
-            title: "Peta Konstelasi",
+            title: "Arsip",
             digital: "Digital",
-            pencil: "Pensil",
-            drag_to_explore: "GESER UNTUK EKSPLORASI",
+            pencil: "Grafit",
+            drag_to_explore: "Gulir untuk eksplorasi",
             scroll_to_zoom: "GULIR UNTUK ZOOM",
-            nodes_found: "NODE DITEMUKAN",
+            nodes_found: "KARYA DITEMUKAN",
             digital_disclaimer: "Saya sedang tidak melakukan sketsa digital sejak tahun lalu karena Apple Pencil saya rusak."
         },
         project_detail: {

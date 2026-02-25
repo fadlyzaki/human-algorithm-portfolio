@@ -59,8 +59,8 @@ const ArtworkFrame = ({ node, isDigital, onClick, index, scrollYProgress }) => {
     >
       <div
         className={`relative transition-all duration-700 ${isDigital
-            ? 'p-4 bg-white shadow-2xl hover:shadow-[0_30px_60px_rgba(0,0,0,0.3)] ring-1 ring-zinc-200/50'
-            : 'p-6 bg-[#f8f6f0] shadow-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] border border-[#e8e4d9]'
+          ? 'p-4 bg-white shadow-2xl hover:shadow-[0_30px_60px_rgba(0,0,0,0.3)] ring-1 ring-zinc-200/50'
+          : 'p-6 bg-[#f8f6f0] shadow-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] border border-[#e8e4d9]'
           }`}
       >
         <NodeImage node={node} isDigital={isDigital} />
@@ -232,14 +232,55 @@ const HorizontalGallery = () => {
 
 
 
-        {/* --- HORIZONTAL NAVIGATION ARROWS --- */}
-        <div className="absolute right-6 md:right-12 bottom-8 z-50 flex gap-2 pointer-events-auto">
+        {/* --- HORIZONTAL NAVIGATION ARROWS & FORMAT TOGGLE --- */}
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-8 z-50 flex items-center gap-6 pointer-events-auto">
+          {/* Scroll Left Button */}
           <button
             onClick={scrollLeft}
             className={`p-3 rounded-full backdrop-blur-md border transition-all ${isDark ? 'bg-zinc-900/50 border-white/10 text-white hover:bg-zinc-800' : 'bg-white/50 border-black/10 text-black hover:bg-white'}`}
           >
             <ChevronLeft size={18} />
           </button>
+
+          {/* Fixed Toggle controls */}
+          <div className={`flex items-center gap-2 md:gap-4 backdrop-blur-md p-1.5 rounded-full border shadow-2xl ${isDark ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}>
+            <button
+              onClick={() => {
+                setActiveMedium('pencil');
+                if (scrollContainerRef.current) scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+              }}
+              className={`relative px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-mono uppercase tracking-widest transition-colors ${!isDigital ? 'text-zinc-900' : (isDark ? 'text-zinc-400 hover:text-white' : 'text-zinc-500 hover:text-black')}`}
+            >
+              {!isDigital && (
+                <motion.div
+                  layoutId="node-pill"
+                  className="absolute inset-0 bg-white shadow-sm rounded-full"
+                  style={{ zIndex: -1 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                />
+              )}
+              {t('sketches.pencil') || 'GRAPHITE'}
+            </button>
+            <button
+              onClick={() => {
+                setActiveMedium('digital');
+                if (scrollContainerRef.current) scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+              }}
+              className={`relative px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-mono uppercase tracking-widest transition-colors ${isDigital ? (isDark ? 'text-white' : 'text-blue-900') : (isDark ? 'text-zinc-400 hover:text-white' : 'text-zinc-500 hover:text-black')}`}
+            >
+              {isDigital && (
+                <motion.div
+                  layoutId="node-pill"
+                  className="absolute inset-0 bg-blue-600/20 border border-blue-500/30 rounded-full"
+                  style={{ zIndex: -1 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                />
+              )}
+              {t('sketches.digital') || 'DIGITAL'}
+            </button>
+          </div>
+
+          {/* Scroll Right Button */}
           <button
             onClick={scrollRight}
             className={`p-3 rounded-full backdrop-blur-md border transition-all ${isDark ? 'bg-zinc-900/50 border-white/10 text-white hover:bg-zinc-800' : 'bg-white/50 border-black/10 text-black hover:bg-white'}`}
@@ -273,42 +314,10 @@ const HorizontalGallery = () => {
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-5xl md:text-8xl font-bold tracking-tight mb-12"
+                className="text-5xl md:text-8xl font-bold tracking-tight mb-8"
               >
                 {t('nav.sketches') || 'Exhibition'}.
               </motion.h1>
-
-              {/* Toggle controls */}
-              <div className={`flex items-center gap-4 backdrop-blur-md p-1.5 rounded-full border shadow-2xl mb-8 ${isDark ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}>
-                <button
-                  onClick={() => setActiveMedium('pencil')}
-                  className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${!isDigital ? 'text-zinc-900' : (isDark ? 'text-zinc-400 hover:text-white' : 'text-zinc-500 hover:text-black')}`}
-                >
-                  {!isDigital && (
-                    <motion.div
-                      layoutId="node-pill"
-                      className="absolute inset-0 bg-white shadow-sm rounded-full"
-                      style={{ zIndex: -1 }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                  {t('sketches.pencil') || 'GRAPHITE'}
-                </button>
-                <button
-                  onClick={() => setActiveMedium('digital')}
-                  className={`relative px-6 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-colors ${isDigital ? (isDark ? 'text-white' : 'text-blue-900') : (isDark ? 'text-zinc-400 hover:text-white' : 'text-zinc-500 hover:text-black')}`}
-                >
-                  {isDigital && (
-                    <motion.div
-                      layoutId="node-pill"
-                      className="absolute inset-0 bg-blue-600/20 border border-blue-500/30 rounded-full"
-                      style={{ zIndex: -1 }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                  {t('sketches.digital') || 'DIGITAL'}
-                </button>
-              </div>
 
               {/* Curation Note */}
               <AnimatePresence mode="wait">
