@@ -47,7 +47,7 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Cover Letter Modal**: Quick-access modal (`CoverLetterModal.jsx`) for generating contextual cover letter content.
 
 ### 3.3 The "Tame Complexity" Messaging Layer
-*   **Core Tagline**: *"I design where software logic meets human intuition. My focus: resilient workflows that tame complexity and free up mental bandwidth when it matters most."*
+*   **Core Tagline**: *"I design where software logic meets human intuition. My current focus is about resilient workflows that tame complexity and free up mental bandwidth when it matters most."*
 *   **Consistency**: Unified messaging across `index.html` (SEO Meta), Home, About pages, and `brand_copy.md` living doc.
 *   **Visual Logic**: Grayscale profile imagery, scanline effects, and industrial iconography to maintain the "Systems Specialist" persona.
 *   **Status Indicators**: "OPEN TO WORK" badges synced with local deployment states to drive conversion.
