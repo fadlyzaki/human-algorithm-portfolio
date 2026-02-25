@@ -4,6 +4,8 @@ import { motion, useSpring, useTransform, useInView } from 'framer-motion';
 import { Scan, Shield, Fingerprint, Activity, Zap } from 'lucide-react';
 import Treasure from './Treasure';
 
+const PIXEL_RESOLUTION = 24; // Pixels wide for the pixel art look
+
 const ProfileScanner = ({
     imageSrc = "/about-portrait-new.jpg",
     aspectRatio = "aspect-[3/4]",
@@ -14,6 +16,23 @@ const ProfileScanner = ({
     const [isHovered, setIsHovered] = useState(false);
     const [hasScanned, setHasScanned] = useState(false);
     const isInView = useInView(containerRef, { once: true, amount: 0.3 });
+    const [pixelSrc, setPixelSrc] = useState(null);
+
+    // Pixelation effect logic
+    useEffect(() => {
+        const img = new Image();
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ratio = img.naturalHeight / img.naturalWidth;
+            canvas.width = PIXEL_RESOLUTION;
+            canvas.height = Math.round(PIXEL_RESOLUTION * ratio);
+            const ctx = canvas.getContext('2d');
+            ctx.imageSmoothingEnabled = false;
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            setPixelSrc(canvas.toDataURL('image/png'));
+        };
+        img.src = imageSrc;
+    }, [imageSrc]);
 
     // Trigger "scanned" state after animation completes (2.5s + 0.5s delay = 3s)
     useEffect(() => {
@@ -95,13 +114,18 @@ const ProfileScanner = ({
                 {/* LAYERS CONTAINER */}
                 <div className="absolute inset-0 z-0">
 
-                    {/* 1. BASE LAYER (BLURRED & GRAYSCALE) - Always visible underneath */}
+                    {/* 1. BASE LAYER (PIXELATED & GRAYSCALE) - Always visible underneath */}
                     <div className="absolute inset-0">
-                        <img
-                            src={imageSrc}
-                            alt="Scan Target"
-                            className="w-full h-full object-cover grayscale opacity-50 blur-[4px] scale-105"
-                        />
+                        {pixelSrc ? (
+                            <img
+                                src={pixelSrc}
+                                alt="Scan Target Pixelated"
+                                className="w-full h-full object-cover grayscale opacity-50 scale-105"
+                                style={{ imageRendering: 'pixelated' }}
+                            />
+                        ) : (
+                            <div className="w-full h-full bg-[var(--bg-surface)] animate-pulse" />
+                        )}
                         <div className="absolute inset-0 bg-black/20"></div>
                     </div>
 
