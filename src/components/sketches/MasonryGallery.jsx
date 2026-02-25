@@ -7,14 +7,12 @@ import { useLanguage } from '../../context/LanguageContext';
 import sketchesData from '../../data/sketches.json';
 
 // --- Data Prep & Positioning ---
-// We create a massive virtual canvas. 
-// Digital nodes are crisp, neat. Pencil nodes are slightly scattered.
+// We create a massive virtual gallery wall
 const CANVAS_SIZE = 4000;
 
 const generateNodes = (data, isDigital) => {
-  // Use a seeded or consistent spread so it doesn't jump every render
   return data.map((item, index) => {
-    // Golden ratio spiral for organic but even distribution
+    // Initial organic but structured distribution (base scatter)
     const golden_angle = 137.508 * (Math.PI / 180);
     const r = 80 * Math.sqrt(index) + 200; // Spread factor
     const theta = index * golden_angle;
@@ -26,10 +24,10 @@ const generateNodes = (data, isDigital) => {
     const x = (CANVAS_SIZE / 2) + r * Math.cos(theta) + noise;
     const y = (CANVAS_SIZE / 2) + r * Math.sin(theta) + noise;
 
-    // Node size: pencil pieces vary more in size
-    const size = isDigital ? 160 : Math.random() * 80 + 120;
+    // Node size matches physical artworks (digital are consistent, pencil vary)
+    const size = isDigital ? 240 : Math.random() * 80 + 160;
 
-    return { ...item, x, y, size, rotation: isDigital ? 0 : (Math.random() - 0.5) * 15 };
+    return { ...item, x, y, size, rotation: isDigital ? 0 : (Math.random() - 0.5) * 5 };
   });
 };
 
@@ -52,15 +50,21 @@ const NodeImage = ({ node, isDigital }) => {
   }
 
   return (
-    <img
-      src={node.url}
-      alt={node.title}
-      draggable="false"
-      loading="lazy"
-      onError={() => setHasError(true)}
-      className={`w-full h-auto block transition-transform duration-500 scale-[1.01] ${isDigital ? 'opacity-90 group-hover:scale-110 group-hover:opacity-100' : 'contrast-125 sepia-[0.1]'
-        }`}
-    />
+    <div className="relative w-full h-full">
+      <img
+        src={node.url}
+        alt={node.title}
+        draggable="false"
+        loading="lazy"
+        onError={() => setHasError(true)}
+        className={`w-full h-auto block transition-transform duration-500 z-10 relative ${
+          // Removed the scale-on-hover from the image itself, moving it to the container interactions
+          isDigital ? 'opacity-95' : 'contrast-110 sepia-[0.05]'
+          }`}
+      />
+      {/* Matte/Shadow effects are applied to the wrapper, but we can add inner frame details here */}
+      <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_10px_rgba(0,0,0,0.1)] z-20 mix-blend-multiply"></div>
+    </div>
   );
 };
 
@@ -107,13 +111,16 @@ const Lightbox = ({ image, onClose }) => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center bg-white text-zinc-900 px-6 py-4 shadow-xl border border-zinc-200"
       >
-        <p className="text-white font-mono tracking-widest text-sm uppercase mb-1">
-          {image.medium === 'digital' ? 'SYSTEM_NODE' : 'RAW_DATA'} // {image.id.slice(-4)}
-        </p>
-        <p className="text-white/60 text-xs font-light tracking-wide">
+        <p className="font-serif italic text-lg mb-1 whitespace-nowrap">
           {image.title}
+        </p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500 mb-2">
+          {image.medium === 'digital' ? 'DIGITAL MEDIA' : 'GRAPHITE ON PAPER'}
+        </p>
+        <p className="text-zinc-400 font-mono text-[8px] tracking-widest">
+          ID: {image.id.slice(-6).toUpperCase()}
         </p>
       </motion.div>
     </motion.div>
@@ -141,133 +148,80 @@ const NodeGraphGallery = () => {
 
   const isDigital = activeMedium === 'digital';
 
-  // --- Shape Shifting Logic (Constellations) ---
-  const [currentShapeIndex, setCurrentShapeIndex] = useState(-1);
+  // --- Exhibition Layout Logic ---
+  const [currentLayoutIndex, setCurrentLayoutIndex] = useState(-1);
 
-  // Real constellation approximate coordinate maps (centered around 0,0)
-  const CONSTELLATIONS = [
+  const LAYOUTS = [
     {
-      name: 'ORION',
-      points: [
-        { x: -50, y: -100 }, // Betelgeuse
-        { x: 50, y: -80 },   // Bellatrix
-        { x: -20, y: 0 },    // Alnitak (Belt)
-        { x: 0, y: 10 },     // Alnilam (Belt)
-        { x: 20, y: 20 },    // Mintaka (Belt)
-        { x: -40, y: 120 },  // Saiph
-        { x: 60, y: 100 },   // Rigel
-        { x: 0, y: -140 }, // Head
-        { x: -80, y: -60 }, // Bow top
-        { x: -100, y: 0 }, // Bow mid
-        { x: -70, y: 60 }, // Bow bottom
-      ]
+      name: 'SALON',
+      isGrid: false,
+      algorithm: 'salon'
     },
     {
-      name: 'URSA MAJOR',
-      points: [
-        { x: -120, y: -20 }, // Alkaid (handle tip)
-        { x: -70, y: -10 },  // Mizar
-        { x: -20, y: 10 },   // Alioth
-        { x: 20, y: 40 },    // Megrez (bowl corner)
-        { x: 80, y: 80 },    // Phecda (bowl bottom)
-        { x: 120, y: 20 },   // Merak (bowl bottom front)
-        { x: 90, y: -40 },   // Dubhe (bowl top front)
-      ]
-    },
-    {
-      name: 'CASSIOPEIA',
-      points: [
-        { x: -100, y: -50 }, // Caph
-        { x: -40, y: 20 },   // Schedar
-        { x: 0, y: -80 },    // Gamma Cas
-        { x: 50, y: 10 },    // Ruchbah
-        { x: 100, y: -40 },  // Segin
-      ]
-    },
-    {
-      name: 'CYGNUS',
-      points: [
-        { x: 0, y: -100 },   // Deneb (tail)
-        { x: 0, y: -30 },    // Sadr (center)
-        { x: 0, y: 100 },    // Albireo (head)
-        { x: -80, y: -10 },  // Wing tip left
-        { x: -40, y: -20 },  // Wing mid left
-        { x: 40, y: -20 },   // Wing mid right
-        { x: 80, y: -10 },   // Wing tip right
-      ]
-    },
-    {
-      name: 'ORDER',
-      isGrid: true
+      name: 'GALLERY',
+      isGrid: true,
+      algorithm: 'grid'
     }
   ];
 
-  const getConstellationPoints = (shape, numNodes) => {
-    const scale = 8; // Scale up the local coordinates
+  const getSalonPoints = (numNodes, sizes) => {
+    // A simple clustering algorithm for an asymmetrical "Salon" style wall
+    const points = [];
+    const centerX = CANVAS_SIZE / 2;
+    const centerY = CANVAS_SIZE / 2;
 
-    // Base points for the main constellation structure
-    const basePoints = shape.points.map(p => ({
-      x: (CANVAS_SIZE / 2) + p.x * scale,
-      y: (CANVAS_SIZE / 2) + p.y * scale
-    }));
+    // Grid-based collision detection roughly
+    let angle = 0;
+    let radius = 100;
 
-    // If we have more nodes than the constellation points, we scatter the rest
-    // as "background stars" but clustered around the constellation
-    const points = [...basePoints];
+    for (let i = 0; i < numNodes; i++) {
+      // Create a slightly chaotic but packed arrangement
+      const r = radius + (Math.random() * 50);
+      const theta = angle + (Math.random() * 0.5 - 0.25);
 
-    for (let i = basePoints.length; i < numNodes; i++) {
-      // Random point near the constellation center but scattered wider
-      const angle = Math.random() * Math.PI * 2;
-      const radius = Math.random() * 800 + 100; // Scatter radius
       points.push({
-        x: (CANVAS_SIZE / 2) + Math.cos(angle) * radius,
-        y: (CANVAS_SIZE / 2) + Math.sin(angle) * radius
+        x: centerX + r * Math.cos(theta),
+        y: centerY + r * Math.sin(theta)
       });
-    }
 
-    // Shuffle the points so the images map randomly to the structure vs background
-    for (let i = points.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [points[i], points[j]] = [points[j], points[i]];
+      angle += 0.8;
+      if (angle >= Math.PI * 2) {
+        angle = 0;
+        radius += 150; // Expand ring
+      }
     }
 
     return points;
   };
 
-  const handleShapeShift = () => {
-    const nextIndex = (currentShapeIndex + 1) % CONSTELLATIONS.length;
-    setCurrentShapeIndex(nextIndex);
+  const handleLayoutChange = () => {
+    const nextIndex = (currentLayoutIndex + 1) % LAYOUTS.length;
+    setCurrentLayoutIndex(nextIndex);
   };
 
-  const handleResetShape = () => {
-    setCurrentShapeIndex(-1);
+  const handleResetLayout = () => {
+    setCurrentLayoutIndex(-1);
   }
 
   // Determine current effective nodes based on scatter vs shape-shift
   const displayNodes = useMemo(() => {
-    if (currentShapeIndex === -1) return nodes;
+    if (currentLayoutIndex === -1) return nodes;
 
-    const shape = CONSTELLATIONS[currentShapeIndex];
+    const layout = LAYOUTS[currentLayoutIndex];
 
-    if (shape.isGrid) {
-      // Full screen neat collage grid logic
-      const gap = 4; // Tiny gap for neatness resembling a tight photo wall
+    if (layout.isGrid) {
+      // Uniform Gallery Grid Logic
+      const gap = 120; // Wide gallery spacing
       const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
 
-      // Let's decide on a clean number of columns based on screen width
-      // Mobile: 3, Tablet: 4, Desktop: 6, Wide: 8
-      let cols = 6;
-      if (screenWidth < 640) cols = 3;
-      else if (screenWidth < 1024) cols = 4;
-      else if (screenWidth > 1600) cols = 8;
+      // Generous columns
+      let cols = 4;
+      if (screenWidth < 640) cols = 2;
+      else if (screenWidth < 1024) cols = 3;
+      else if (screenWidth > 1600) cols = 6;
 
-      const padding = 24; // Small padding around the whole grid edges
-      const availableWidth = screenWidth - (padding * 2);
+      const nodeWidth = isDigital ? 280 : 200;
 
-      // Width of each node is perfectly divided into the space minus the gaps
-      const nodeWidth = (availableWidth - (gap * (cols - 1))) / cols;
-
-      // Calculate center offsets so the grid sits perfectly in the center of CANVAS_SIZE
       const gridWidth = cols * nodeWidth + (cols - 1) * gap;
       const rows = Math.ceil(nodes.length / cols);
       const gridHeight = rows * nodeWidth + (rows - 1) * gap;
@@ -288,7 +242,8 @@ const NodeGraphGallery = () => {
       });
     }
 
-    const targetPoints = getConstellationPoints(shape, nodes.length);
+    // Salon Layout
+    const targetPoints = getSalonPoints(nodes.length);
 
     if (!targetPoints) return nodes;
 
@@ -296,10 +251,10 @@ const NodeGraphGallery = () => {
       ...node,
       x: targetPoints[i].x,
       y: targetPoints[i].y,
-      rotation: 0, // Keep straight when in shape
-      size: node.size * 0.5 // Make them a bit smaller to form the structure better
+      rotation: isDigital ? 0 : (Math.random() - 0.5) * 4, // Slight tilt for authenticity
+      size: node.size * 0.8 // A bit smaller for clustering
     }));
-  }, [nodes, currentShapeIndex, isDigital]);
+  }, [nodes, currentLayoutIndex, isDigital]);
 
   const handleNodeClick = (img, e) => {
     // Prevent click if the user was just dragging the canvas or the node itself
@@ -315,26 +270,23 @@ const NodeGraphGallery = () => {
 
   // Dynamically extend canvas height if the wrapped grid goes downwards
   const dynamicCanvasHeight = useMemo(() => {
-    if (currentShapeIndex !== -1 && CONSTELLATIONS[currentShapeIndex].isGrid) {
-      const gap = 4;
+    if (currentLayoutIndex !== -1 && LAYOUTS[currentLayoutIndex].isGrid) {
+      const gap = 120;
       const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
 
-      let cols = 6;
-      if (screenWidth < 640) cols = 3;
-      else if (screenWidth < 1024) cols = 4;
-      else if (screenWidth > 1600) cols = 8;
+      let cols = 4;
+      if (screenWidth < 640) cols = 2;
+      else if (screenWidth < 1024) cols = 3;
+      else if (screenWidth > 1600) cols = 6;
 
-      const padding = 24;
-      const availableWidth = screenWidth - (padding * 2);
-      const nodeWidth = (availableWidth - (gap * (cols - 1))) / cols;
-
+      const nodeWidth = isDigital ? 280 : 200;
       const rows = Math.ceil(nodes.length / cols);
       const gridHeight = rows * nodeWidth + (rows - 1) * gap;
 
       return Math.max(CANVAS_SIZE, (CANVAS_SIZE / 2) + gridHeight + 1000);
     }
     return CANVAS_SIZE;
-  }, [currentShapeIndex, nodes.length]);
+  }, [currentLayoutIndex, nodes.length, isDigital]);
 
   if (!mounted) return null;
 
@@ -345,7 +297,7 @@ const NodeGraphGallery = () => {
       </AnimatePresence>
 
       <div
-        className={`relative w-full h-screen overflow-hidden transition-colors duration-1000 ${isDark ? 'bg-[#050505] text-white' : 'bg-[#e5e1d5] text-zinc-900'
+        className={`relative w-full h-screen overflow-hidden transition-colors duration-1000 ${isDark ? 'bg-[#1a1a1c] text-white' : 'bg-[#f4f4f6] text-zinc-900'
           }`}
       >
         {/* --- UI OVERLAY --- */}
@@ -416,28 +368,28 @@ const NodeGraphGallery = () => {
                 exit={{ opacity: 0, y: 10 }}
                 className="max-w-md text-zinc-500 font-mono text-[10px] uppercase tracking-widest leading-relaxed pointer-events-auto"
               >
-                [ NOTICE ]: {t('sketches.digital_disclaimer')}
+                [ CURATOR'S NOTE ]: THESE SYSTEM NODES REPRESENT POLISHED, STRUCTURALLY RIGID DIGITAL ASSETS.
               </motion.p>
             )}
           </AnimatePresence>
 
-          {/* Shape Shifter Controls */}
+          {/* Layout Controls */}
           <div className="pointer-events-auto mt-4">
             <button
-              onClick={handleShapeShift}
-              className={`px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all mr-2 ${currentShapeIndex !== -1
-                ? 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]'
+              onClick={handleLayoutChange}
+              className={`px-4 py-2 text-[10px] font-mono uppercase tracking-[0.2em] border transition-all mr-2 ${currentLayoutIndex !== -1
+                ? 'bg-zinc-900 text-white border-zinc-800 shadow-lg'
                 : (isDark ? 'bg-white/5 border-white/10 text-zinc-400 hover:text-white' : 'bg-black/5 border-black/10 text-zinc-500 hover:text-black')
                 }`}
             >
-              {currentShapeIndex === -1 ? 'FORM: CHAOS' : `FORM: ${CONSTELLATIONS[currentShapeIndex].name}`}
+              [ {currentLayoutIndex === -1 ? 'CURATION: UNSTRUCTURED' : `CURATION: ${LAYOUTS[currentLayoutIndex].name}`} ]
             </button>
-            {currentShapeIndex !== -1 && (
+            {currentLayoutIndex !== -1 && (
               <button
-                onClick={handleResetShape}
-                className={`px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all ${isDark ? 'bg-white/5 border-white/10 text-zinc-400 hover:text-white' : 'bg-black/5 border-black/10 text-zinc-500 hover:text-black'}`}
+                onClick={handleResetLayout}
+                className={`px-4 py-2 text-[10px] font-mono uppercase tracking-[0.2em] border transition-all ${isDark ? 'bg-white/5 border-white/10 text-zinc-400 hover:text-white' : 'bg-black/5 border-black/10 text-zinc-500 hover:text-black'}`}
               >
-                RESET
+                [ RESET ]
               </button>
             )}
           </div>
@@ -445,10 +397,10 @@ const NodeGraphGallery = () => {
 
         {/* --- MAP LEGEND --- */}
         <div className="absolute bottom-8 left-6 md:left-12 z-50 pointer-events-none">
-          <div className="font-mono text-xs tracking-widest flex flex-col gap-2 text-zinc-500">
-            <p>[ {t('sketches.drag_to_explore')} ]</p>
-            <p>[ {t('sketches.scroll_to_zoom')} ]</p>
-            <p>{t('sketches.nodes_found')}: {displayNodes.length}</p>
+          <div className="font-mono text-[10px] tracking-[0.2em] flex flex-col gap-2 text-zinc-500 uppercase">
+            <p>[ {t('sketches.drag_to_explore') || 'DRAG WALL TO EXPLORE'} ]</p>
+            <p>[ {t('sketches.scroll_to_zoom') || 'SCROLL TO INSPECT'} ]</p>
+            <p>{t('sketches.nodes_found') || 'ARTWORKS'}: {displayNodes.length}</p>
           </div>
         </div>
 
@@ -471,12 +423,12 @@ const NodeGraphGallery = () => {
           >
             {({ zoomIn, zoomOut, resetTransform }) => (
               <>
-                {/* Visual grid background */}
+                {/* Visual wall texture background */}
                 <div
-                  className="absolute inset-0 pointer-events-none opacity-20"
+                  className={`absolute inset-0 pointer-events-none ${isDark ? 'opacity-[0.03]' : 'opacity-[0.05]'}`}
                   style={{
-                    backgroundImage: `linear-gradient(${isDark ? '#333' : '#a1a1aa'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#333' : '#a1a1aa'} 1px, transparent 1px)`,
-                    backgroundSize: '100px 100px'
+                    backgroundImage: `linear-gradient(${isDark ? '#fff' : '#000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#fff' : '#000'} 1px, transparent 1px)`,
+                    backgroundSize: '40px 40px'
                   }}
                 />
 
@@ -501,47 +453,7 @@ const NodeGraphGallery = () => {
                       position: 'relative'
                     }}
                   >
-                    {/* SVG Connecting Lines (Constellation Effect) */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
-                      {displayNodes.map((node, i) => {
-                        const next1 = displayNodes[i + 1];
-                        const next2 = displayNodes[i + 2];
-                        return (
-                          <g key={`lines-${i}`}>
-                            {next1 && (
-                              <motion.line
-                                initial={{ pathLength: 0, strokeDashoffset: 0 }}
-                                animate={{
-                                  pathLength: 1,
-                                  strokeDashoffset: isDigital ? [0, -20] : 0
-                                }}
-                                transition={{
-                                  pathLength: { duration: 1.5, ease: "easeOut" },
-                                  strokeDashoffset: { duration: 2, repeat: Infinity, ease: "linear" }
-                                }}
-                                x1={node.x + node.size / 2} y1={node.y + node.size / 2}
-                                x2={next1.x + next1.size / 2} y2={next1.y + next1.size / 2}
-                                stroke={isDigital ? '#3b82f6' : '#71717a'}
-                                strokeWidth={isDigital ? 1 : 2}
-                                strokeDasharray={isDigital ? "4 4" : "none"}
-                              />
-                            )}
-                            {next2 && i % 3 === 0 && (
-                              <motion.line
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 0.5 }}
-                                x1={node.x + node.size / 2} y1={node.y + node.size / 2}
-                                x2={next2.x + next2.size / 2} y2={next2.y + next2.size / 2}
-                                stroke={isDigital ? '#3b82f6' : '#71717a'}
-                                strokeWidth={1}
-                              />
-                            )}
-                          </g>
-                        )
-                      })}
-                    </svg>
-
-                    {/* Image Nodes */}
+                    {/* Image Nodes (Frames) */}
                     <AnimatePresence>
                       {displayNodes.map((node, i) => (
                         <motion.div
@@ -554,29 +466,29 @@ const NodeGraphGallery = () => {
                             setTimeout(() => setIsNodeDragging(false), 100);
                           }}
                           whileDrag={{
-                            scale: 1.1,
+                            scale: 1.05,
                             zIndex: 100,
                             cursor: 'grabbing'
                           }}
-                          initial={{ scale: 0, opacity: 0 }}
+                          initial={{ scale: 0.8, opacity: 0 }}
                           animate={{
                             scale: 1,
                             opacity: 1,
-                            y: [0, Math.sin(i) * 15, 0], // Floating effect
-                            x: [0, Math.cos(i) * 15, 0]
+                            y: [0, Math.sin(i) * 3, 0], // Very subtle sway, less floating
+                            x: [0, Math.cos(i) * 3, 0]
                           }}
-                          exit={{ scale: 0, opacity: 0 }}
+                          exit={{ scale: 0.8, opacity: 0 }}
                           transition={{
                             type: 'spring',
-                            stiffness: 200,
-                            damping: 20,
+                            stiffness: 300,
+                            damping: 30,
                             y: {
-                              duration: 4 + (i % 3),
+                              duration: 8 + (i % 4),
                               repeat: Infinity,
                               ease: "easeInOut"
                             },
                             x: {
-                              duration: 5 + (i % 2),
+                              duration: 9 + (i % 3),
                               repeat: Infinity,
                               ease: "easeInOut"
                             }
@@ -586,21 +498,27 @@ const NodeGraphGallery = () => {
                             left: node.x,
                             top: node.y,
                             width: node.size,
-                            // Removed height: node.size to allow natural aspect ratio
                             rotate: node.rotation,
                           }}
-                          className={`group cursor-pointer pointer-events-auto ${isDigital
-                            ? 'rounded-lg border border-blue-500/50 bg-black overflow-hidden hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-shadow duration-300'
-                            : 'bg-white p-2 shadow-xl hover:shadow-2xl transition-shadow duration-300'
+                          className={`group cursor-pointer pointer-events-auto flex flex-col items-center ${isDigital
+                            ? 'p-3 bg-white shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] transition-shadow duration-500' // Clean white matte for digital
+                            : 'p-4 bg-[#f8f6f0] shadow-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-shadow duration-500 border border-zinc-200/50' // Warmer paper/canvas for pencil
                             }`}
                           onClick={(e) => handleNodeClick(node, e)}
                         >
-                          <NodeImage node={node} isDigital={isDigital} />
+                          <div className={`relative w-full overflow-hidden ${isDigital ? 'border border-zinc-100 shadow-[inset_0_0_10px_rgba(0,0,0,0.05)]' : ''}`}>
+                            <NodeImage node={node} isDigital={isDigital} />
+                          </div>
 
-                          {/* Node Label Tooltip - adjusted position for variable height */}
-                          <div className={`absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono text-[10px] uppercase tracking-wider px-2 py-1 rounded ${isDigital ? 'bg-blue-600 outline outline-1 outline-blue-400 text-white' : 'bg-black text-white'
-                            }`}>
-                            {node.title}
+                          {/* Museum Placard - replaces tooltip */}
+                          <div className={`mt-4 w-full flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}>
+                            <div className="flex items-center justify-between border-b border-zinc-200 pb-2 mb-2">
+                              <span className="font-serif italic text-xs text-zinc-800 truncate pr-2">{node.title}</span>
+                              <span className="font-mono text-[8px] text-zinc-400">{node.id.slice(-4).toUpperCase()}</span>
+                            </div>
+                            <span className="font-mono text-[7px] uppercase tracking-widest text-zinc-500">
+                              {isDigital ? 'Digital Format' : 'Graphite on Paper'} // {node.medium}
+                            </span>
                           </div>
                         </motion.div>
                       ))}
