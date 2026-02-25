@@ -214,11 +214,12 @@ const BentoCard = ({ project, title, desc, onClick }) => (
 );
 
 // 5. THE BLUEPRINT (Interactive Workbook)
-const BlueprintCard = ({ project, title, desc, onClick }) => (
+const BlueprintCard = ({ project, title, desc, onClick, isDark }) => (
     <motion.div
         onClick={onClick}
         className="group relative h-[450px] rounded-3xl bg-blue-50 dark:bg-[#0A1128] border border-blue-200 dark:border-blue-900 overflow-hidden cursor-pointer"
-        whileHover={{ backgroundColor: isDark => isDark ? '#0F1A3D' : '#F0F7FF' }}
+        whileHover={{ scale: 1.02, y: -4 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
         {/* Grid Background */}
         <div className="absolute inset-0 blueprint-grid opacity-20 dark:opacity-40"></div>
