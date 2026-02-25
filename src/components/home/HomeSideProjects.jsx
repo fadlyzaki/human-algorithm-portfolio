@@ -18,9 +18,11 @@ const HomeSideProjects = ({ t, isId }) => {
 
             {/* Creative Description */}
             <ScrollReveal>
-                <p className="text-lg text-[var(--text-secondary)] max-w-2xl mb-12 font-light leading-relaxed">
-                    {t('home.side_projects_desc')}
-                </p>
+                <div className="max-w-2xl mb-12 mt-[-1rem] text-[var(--text-secondary)] font-mono text-[11px] md:text-xs leading-relaxed border-l-2 border-[var(--accent-amber)] pl-4">
+                    <p>
+                        {t('home.side_projects_desc')}
+                    </p>
+                </div>
             </ScrollReveal>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 perspective-1000">
