@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import FrequencyVisualizer from './FrequencyVisualizer';
+import { SYSTEM_CONFIG } from '../config/constants';
 
 const Footer = () => {
     const { isDark } = useTheme();
@@ -97,7 +98,7 @@ const Footer = () => {
                         © {year} Fadly Uzzaki. <span className="opacity-50">{t('footer.rights')}</span>
                     </div>
                     <div className="mt-4 md:mt-0 flex items-center gap-2">
-                        Human-Algorithm <Heart size={10} className="fill-current" /> v2.5
+                        Human-Algorithm <Heart size={10} className="fill-current" /> {SYSTEM_CONFIG.VERSION}
                     </div>
                 </div>
 
