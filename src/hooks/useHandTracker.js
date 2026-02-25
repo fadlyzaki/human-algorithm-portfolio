@@ -10,7 +10,7 @@ import { useHandCursor } from '../context/HandCursorContext';
 export const useHandTracker = () => {
     const webcamRef = useRef(null);
     const lensRef = useRef(null);
-    const { isGestureMode, setIsGestureMode } = useHandCursor();
+    const { isGestureMode, setIsGestureMode, isPreloading } = useHandCursor();
 
     const [isModelLoading, setIsModelLoading] = useState(false);
     const [modelReady, setModelReady] = useState(false);
@@ -63,22 +63,30 @@ export const useHandTracker = () => {
     useEffect(() => {
         if (handsRef.current) return;
 
-        if (isGestureMode && !modelReady && !loadingRef.current) {
+        // Trigger if either gesture mode is active OR preloading is active
+        if ((isGestureMode || isPreloading) && !modelReady && !loadingRef.current) {
             loadingRef.current = true;
-            setTimeout(() => {
-                setIsModelLoading(true);
-                setLoadError(null);
-            }, 0);
+
+            // Only show model loading UI if we are actually in gesture mode
+            // If just preloading, we do it silently in the background
+            if (isGestureMode) {
+                setTimeout(() => {
+                    setIsModelLoading(true);
+                    setLoadError(null);
+                }, 0);
+            }
 
             loadingTimeoutRef.current = setTimeout(() => {
                 if (!modelReady) {
-                    setLoadError('Connection timeout. Please check your internet connection.');
-                    setIsModelLoading(false);
-                    setShowFallbackNotice(true);
-                    setTimeout(() => {
-                        setShowFallbackNotice(false);
-                        setIsGestureMode(false);
-                    }, 5000);
+                    if (isGestureMode) {
+                        setLoadError('Connection timeout. Please check your internet connection.');
+                        setIsModelLoading(false);
+                        setShowFallbackNotice(true);
+                        setTimeout(() => {
+                            setShowFallbackNotice(false);
+                            setIsGestureMode(false);
+                        }, 5000);
+                    }
                 }
             }, 15000);
 
@@ -105,35 +113,40 @@ export const useHandTracker = () => {
                         setModelReady(true);
                         setIsModelLoading(false);
                         setLoadError(null);
+                        // console.log("MediaPipe Hands Preloaded/Initialized");
                     })
                     .catch((error) => {
                         clearTimeout(loadingTimeoutRef.current);
-                        setLoadError('Failed to load hand tracking. Using regular cursor.');
-                        setIsModelLoading(false);
-                        setShowFallbackNotice(true);
-                        setTimeout(() => {
-                            setShowFallbackNotice(false);
-                            setIsGestureMode(false);
-                        }, 5000);
+                        if (isGestureMode) {
+                            setLoadError('Failed to load hand tracking. Using regular cursor.');
+                            setIsModelLoading(false);
+                            setShowFallbackNotice(true);
+                            setTimeout(() => {
+                                setShowFallbackNotice(false);
+                                setIsGestureMode(false);
+                            }, 5000);
+                        }
                     });
             } catch (error) {
                 clearTimeout(loadingTimeoutRef.current);
-                setTimeout(() => {
-                    setLoadError('Hand tracking unavailable. Using regular cursor.');
-                    setIsModelLoading(false);
-                    setShowFallbackNotice(true);
-                }, 0);
-                setTimeout(() => {
-                    setShowFallbackNotice(false);
-                    setIsGestureMode(false);
-                }, 5000);
+                if (isGestureMode) {
+                    setTimeout(() => {
+                        setLoadError('Hand tracking unavailable. Using regular cursor.');
+                        setIsModelLoading(false);
+                        setShowFallbackNotice(true);
+                    }, 0);
+                    setTimeout(() => {
+                        setShowFallbackNotice(false);
+                        setIsGestureMode(false);
+                    }, 5000);
+                }
             }
         }
 
         return () => {
             if (loadingTimeoutRef.current) clearTimeout(loadingTimeoutRef.current);
         };
-    }, [isGestureMode, modelReady, setIsGestureMode, onResults]);
+    }, [isGestureMode, isPreloading, modelReady, setIsGestureMode, onResults]);
 
     // --- 3. KEYBOARD SHORTCUT ---
     useEffect(() => {

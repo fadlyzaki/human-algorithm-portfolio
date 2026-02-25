@@ -11,7 +11,7 @@ import useScrollDirection from '../hooks/useScrollDirection';
 const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showNavOverride }) => {
     const { isDark, setIsDark } = useTheme();
     const { t, language, toggleLanguage } = useLanguage();
-    const { isGestureMode, toggleGestureMode } = useHandCursor();
+    const { isGestureMode, toggleGestureMode, warmupHandTracker } = useHandCursor();
 
     const hookShowNav = useScrollDirection(isGestureMode);
     const showNav = showNavOverride !== undefined ? showNavOverride : hookShowNav;
@@ -140,6 +140,7 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showN
 
                             <button
                                 onClick={toggleGestureMode}
+                                onMouseEnter={warmupHandTracker}
                                 className={`p-2 rounded hover:bg-[var(--text-secondary)]/10 transition-colors ${isGestureMode ? 'text-[var(--accent-red)] animate-pulse bg-red-500/10' : 'text-[var(--text-secondary)] hover:text-[var(--accent-blue)]'}`}
                                 title="Enable Hand Tracking"
                             >

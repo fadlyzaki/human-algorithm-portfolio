@@ -12,6 +12,7 @@ export const HandCursorProvider = ({ children }) => {
         return saved ? JSON.parse(saved) : [];
     });
     const [showCongratsModal, setShowCongratsModal] = useState(false);
+    const [isPreloading, setIsPreloading] = useState(false);
 
     // Reset trigger - increments when positions should be re-randomized
     const [resetTrigger, setResetTrigger] = useState(0);
@@ -50,6 +51,12 @@ export const HandCursorProvider = ({ children }) => {
         setShowWelcomeModal(false);
     };
 
+    const warmupHandTracker = () => {
+        if (!isGestureMode && !isPreloading) {
+            setIsPreloading(true);
+        }
+    };
+
     const collectEgg = (eggId) => {
         if (!foundEggs.includes(eggId)) {
             const newFoundEggs = [...foundEggs, eggId];
@@ -86,13 +93,17 @@ export const HandCursorProvider = ({ children }) => {
         totalEggs: TOTAL_EGGS,
         showCongratsModal,
         setShowCongratsModal,
-        resetTrigger
+        resetTrigger,
+        isPreloading,
+        setIsPreloading,
+        warmupHandTracker
     }), [
         isGestureMode,
         showWelcomeModal,
         foundEggs,
         showCongratsModal,
-        resetTrigger
+        resetTrigger,
+        isPreloading
     ]);
 
     return (
