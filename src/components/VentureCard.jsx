@@ -115,7 +115,7 @@ const CosmicPopCard = ({ project, title, desc, onClick }) => (
             <h3 className="text-3xl font-serif italic mb-4 text-white">
                 {title}
             </h3>
-            <p className="text-blue-100/60 font-light text-sm mb-6 leading-relaxed line-clamp-3">
+            <p className="text-blue-100/60 font-light text-sm mb-6 leading-relaxed line-clamp-5">
                 {desc}
             </p>
             <div className="flex gap-2">
@@ -198,7 +198,7 @@ const BentoCard = ({ project, title, desc, onClick }) => (
             <h3 className="text-3xl font-serif italic mb-3 text-[var(--text-primary)]">
                 {title}
             </h3>
-            <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-3">
+            <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-5">
                 {desc}
             </p>
             <div className="flex justify-between items-center">
@@ -245,7 +245,7 @@ const BlueprintCard = ({ project, title, desc, onClick }) => (
                     {title}
                 </h3>
                 <div className="w-full h-px bg-blue-500/30"></div>
-                <p className="text-blue-700/70 dark:text-blue-300/60 text-sm font-light leading-relaxed line-clamp-3">
+                <p className="text-blue-700/70 dark:text-blue-200 text-sm font-light leading-relaxed line-clamp-5">
                     {desc}
                 </p>
                 <div className="flex gap-4 font-mono text-[9px] text-blue-500/60">
