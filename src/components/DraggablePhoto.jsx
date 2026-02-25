@@ -70,7 +70,7 @@ const DraggablePhoto = () => {
         </div>
         <div className="space-y-3">
           <div className="flex flex-col">
-            <h2 className="text-xl font-bold text-white dark:text-black leading-none uppercase tracking-tight">UZZAKI, FADLY 🧢</h2>
+            <h2 className="text-xl font-bold text-white dark:text-black leading-none uppercase tracking-tight whitespace-nowrap">UZZAKI, FADLY 🧢</h2>
             <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600 uppercase tracking-widest mt-1">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
           </div>
           <div className="grid grid-cols-2 gap-4 mt-2">
@@ -169,7 +169,7 @@ const DraggablePhoto = () => {
         <div className="mt-8 space-y-4">
           <div>
             <h2 className="text-3xl font-black text-black dark:text-white tracking-tighter leading-none">UZZAKI</h2>
-            <h2 className="text-3xl font-black tracking-tighter leading-none dark:[--sw-stroke:#fff]" style={{ WebkitTextStroke: '1px var(--sw-stroke, #000)', WebkitTextFillColor: 'transparent' }}>FADLY 🧢</h2>
+            <h2 className="text-3xl font-black tracking-tighter leading-none dark:[--sw-stroke:#fff] whitespace-nowrap" style={{ WebkitTextStroke: '1px var(--sw-stroke, #000)', WebkitTextFillColor: 'transparent' }}>FADLY 🧢</h2>
           </div>
           <div className="grid grid-cols-2 gap-4 pt-4">
             <div>
@@ -217,7 +217,7 @@ const DraggablePhoto = () => {
       <div className="flex-grow px-5 pb-5 relative z-30 flex flex-col justify-end">
         <div className="space-y-4">
           <div className="flex flex-col">
-            <h2 className="text-3xl font-black text-black drop-shadow-sm dark:text-white dark:drop-shadow-none leading-[0.9] tracking-tighter">UZZAKI<br />FADLY 🧢</h2>
+            <h2 className="text-3xl font-black text-black drop-shadow-sm dark:text-white dark:drop-shadow-none leading-[0.9] tracking-tighter whitespace-nowrap">UZZAKI<br />FADLY 🧢</h2>
             <span className="text-[9px] font-mono text-black/80 dark:text-white/90 uppercase tracking-widest mt-2 font-bold">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
           </div>
 
@@ -267,7 +267,7 @@ const DraggablePhoto = () => {
 
       {/* Footer */}
       <div className="h-14 bg-black dark:bg-white flex items-center justify-between px-4 mt-auto">
-        <h2 className="text-xl font-black text-white dark:text-black font-mono tracking-tighter">FADLY UZZAKI 🧢</h2>
+        <h2 className="text-xl font-black text-white dark:text-black font-mono tracking-tighter whitespace-nowrap">FADLY UZZAKI 🧢</h2>
         <div className="px-2 py-1 bg-white dark:bg-black border border-black dark:border-white text-black dark:text-white text-[10px] font-bold font-mono">
           {t('id_card.access_level') || 'ROOT_ACCESS'}
         </div>
@@ -294,7 +294,7 @@ const DraggablePhoto = () => {
           <PixelImage src={currentItem.src} alt="Fadly" />
         </div>
         <div className="w-full bg-white dark:bg-black border-4 border-black dark:border-white p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-          <h2 className="text-2xl font-black text-black dark:text-white tracking-tighter leading-none mb-1 uppercase">🧢 FADLY UZZAKI</h2>
+          <h2 className="text-2xl font-black text-black dark:text-white tracking-tighter leading-none mb-1 uppercase whitespace-nowrap">🧢 FADLY UZZAKI</h2>
           <span className="text-[10px] leading-tight text-black dark:text-white font-mono font-bold block uppercase">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
         </div>
       </div>
@@ -343,7 +343,7 @@ const DraggablePhoto = () => {
         <div className="p-4 z-10 bg-white/30 dark:bg-black/30 backdrop-blur-md border-t border-gray-400/20 dark:border-gray-500/20">
           <div className="flex justify-between items-end mb-2">
             <div>
-              <h2 className="text-2xl font-black tracking-tighter leading-none mb-1 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-300 dark:to-gray-500">🧢 FADLY UZZAKI</h2>
+              <h2 className="text-2xl font-black tracking-tighter leading-none mb-1 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-300 dark:to-gray-500 whitespace-nowrap">🧢 FADLY UZZAKI</h2>
               <span className="text-[9px] font-mono text-gray-700 dark:text-gray-400 uppercase tracking-widest block font-bold">{t('id_card.role') || 'Product Designer'}</span>
             </div>
             <div className="text-right">
