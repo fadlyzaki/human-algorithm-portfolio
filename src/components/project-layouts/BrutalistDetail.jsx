@@ -77,9 +77,9 @@ const BrutalistDetail = ({ project, activeContext, activeChallenge, activeProces
                             <h2 className="text-6xl font-black uppercase tracking-tighter mb-16 border-b-8 border-[var(--text-primary)] pb-4 inline-block">Methodology.</h2>
                             <div className="grid md:grid-cols-2 gap-8">
                                 {activeProcess.map((step, idx) => (
-                                    <article key={idx} className="border-4 border-[var(--text-primary)] bg-[var(--bg-card)] flex flex-col group">
+                                    <article key={idx} className={`border-4 border-[var(--text-primary)] bg-[var(--bg-card)] flex flex-col group ${idx === 0 ? 'md:col-span-2' : ''}`}>
                                         {step.image && (
-                                            <div className="h-64 border-b-4 border-[var(--text-primary)] flex items-center justify-center p-8 bg-[var(--bg-surface)] overflow-hidden">
+                                            <div className={`border-b-4 border-[var(--text-primary)] flex items-center justify-center p-8 bg-[var(--bg-surface)] overflow-hidden ${idx === 0 ? 'h-[280px]' : 'h-64'}`}>
                                                 {step.image.startsWith('airy:') ? (
                                                     <AiryDiagram type={step.image.split(':')[1]} />
                                                 ) : (

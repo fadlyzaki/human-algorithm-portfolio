@@ -79,9 +79,9 @@ const CosmicPopDetail = ({ project, activeContext, activeChallenge, activeProces
                     {activeProcess && (
                         <div className="grid md:grid-cols-2 gap-8">
                             {activeProcess.map((step, idx) => (
-                                <article key={idx} className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2rem] overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-500">
+                                <article key={idx} className={`bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2rem] overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-500 ${idx === 0 ? 'md:col-span-2' : ''}`}>
                                     {step.image && (
-                                        <div className="h-64 bg-black/30 w-full overflow-hidden p-8 flex items-center justify-center">
+                                        <div className={`bg-black/30 w-full overflow-hidden p-8 flex items-center justify-center ${idx === 0 ? 'h-[280px]' : 'h-64'}`}>
                                             {step.image.startsWith('airy:') ? (
                                                 <AiryDiagram type={step.image.split(':')[1]} />
                                             ) : (
