@@ -3,8 +3,8 @@ export const interactiveWorkbook = {
     title: { en: 'Interactive Workbook', id: 'Buku Kerja Interaktif' },
     subtitle: { en: 'Bilingual Learning Platform', id: 'Platform Pembelajaran Bilingual' },
     desc: {
-        en: 'A web-based, bilingual learning platform designed for secondary school students. It combines structured English conversation lessons with gamified progress tracking.',
-        id: "Platform pembelajaran bilingual berbasis web untuk siswa sekolah menengah. Menggabungkan pelajaran percakapan bahasa Inggris terstruktur dengan pelacakan kemajuan yang digamifikasi."
+        en: 'A bilingual learning platform for secondary students — structured English lessons with gamified progress tracking.',
+        id: "Platform pembelajaran bilingual untuk siswa menengah — pelajaran bahasa Inggris terstruktur dengan pelacakan kemajuan yang digamifikasi."
     },
     tldr: {
         en: "A single-page web app delivering 8 learning units with interactive exercises, real-time Firebase tracking, and a teacher dashboard.",
