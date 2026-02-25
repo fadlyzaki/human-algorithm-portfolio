@@ -39,7 +39,7 @@ const HomeSideProjects = ({ t, isId }) => {
 
                 {/* Call to Action Block */}
                 <ScrollReveal delay={300} className="h-full block">
-                    <Link to="/side-projects" className="group flex flex-col justify-center items-center text-center h-[450px] p-8 bg-[var(--bg-card)] border border-[var(--border-color)] border-dashed shadow-sm rounded-[40px] hover:border-[var(--accent-blue)] transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+                    <Link to="/side-projects" className="group flex flex-col justify-center items-center text-center h-[450px] p-8 bg-[var(--bg-card)] border border-[var(--border-color)] border-dashed shadow-sm rounded-3xl hover:border-[var(--accent-blue)] transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
                         <Archive size={48} className="text-[var(--text-primary)] mb-6 group-hover:text-[var(--accent-blue)] transition-colors" />
                         <h3 className="text-3xl font-serif italic text-[var(--text-primary)] mb-4 group-hover:text-[var(--accent-blue)] transition-colors">
                             {t('home.archive_title') || 'View All Ventures'}

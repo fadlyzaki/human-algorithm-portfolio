@@ -30,7 +30,7 @@ const VentureCard = ({ project, index, isIndonesian, onClick }) => {
 const SystemCoreCard = ({ project, title, desc, onClick }) => (
     <motion.div
         onClick={onClick}
-        className="group relative h-[450px] border-2 border-[var(--border-color)] bg-[#0A0A0A] overflow-hidden cursor-pointer flex flex-col"
+        className="group relative h-[450px] rounded-3xl border-2 border-[var(--border-color)] bg-[#0A0A0A] overflow-hidden cursor-pointer flex flex-col"
         whileHover={{ borderColor: 'rgba(255,255,255,0.4)', scale: 0.98 }}
     >
         {/* Terminal Text Background */}
@@ -95,7 +95,7 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
 const CosmicPopCard = ({ project, title, desc, onClick }) => (
     <motion.div
         onClick={onClick}
-        className="group relative h-[450px] rounded-[40px] border-2 border-transparent bg-gradient-to-br from-[#1A1A2E] to-[#16213E] overflow-hidden cursor-pointer p-8 flex flex-col justify-end"
+        className="group relative h-[450px] rounded-3xl border-2 border-transparent bg-gradient-to-br from-[#1A1A2E] to-[#16213E] overflow-hidden cursor-pointer p-8 flex flex-col justify-end"
         whileHover={{ scale: 0.98, borderColor: '#00C2FF' }}
     >
         {/* Floating Particles */}
@@ -138,7 +138,7 @@ const CosmicPopCard = ({ project, title, desc, onClick }) => (
 const BrutalistCard = ({ project, title, desc, onClick }) => (
     <motion.div
         onClick={onClick}
-        className="group relative h-[450px] bg-[#E2E2E2] dark:bg-[#1A1A1A] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
+        className="group relative h-[450px] rounded-3xl bg-[#E2E2E2] dark:bg-[#1A1A1A] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
         whileHover={{ x: -4, y: -4, boxShadow: '8px 8px 0px 0px #FF3B30' }}
     >
         <div className="absolute top-4 right-4 z-20">
@@ -178,7 +178,7 @@ const BrutalistCard = ({ project, title, desc, onClick }) => (
 const BentoCard = ({ project, title, desc, onClick }) => (
     <motion.div
         onClick={onClick}
-        className="group relative h-[450px] bg-[#F8F8F8] dark:bg-[#0F0F0F] border border-[var(--border-color)] overflow-hidden cursor-pointer flex flex-col"
+        className="group relative h-[450px] rounded-3xl bg-[#F8F8F8] dark:bg-[#0F0F0F] border border-[var(--border-color)] overflow-hidden cursor-pointer flex flex-col"
         whileHover={{ scale: 1.02 }}
     >
         {/* Visual Top Half */}
@@ -217,7 +217,7 @@ const BentoCard = ({ project, title, desc, onClick }) => (
 const BlueprintCard = ({ project, title, desc, onClick }) => (
     <motion.div
         onClick={onClick}
-        className="group relative h-[450px] bg-blue-50 dark:bg-[#0A1128] border border-blue-200 dark:border-blue-900 overflow-hidden cursor-pointer"
+        className="group relative h-[450px] rounded-3xl bg-blue-50 dark:bg-[#0A1128] border border-blue-200 dark:border-blue-900 overflow-hidden cursor-pointer"
         whileHover={{ backgroundColor: isDark => isDark ? '#0F1A3D' : '#F0F7FF' }}
     >
         {/* Grid Background */}
