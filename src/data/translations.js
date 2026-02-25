@@ -173,7 +173,7 @@ export const translations = {
         manifest: {
             back: "Back_to_About",
             print: "Print / PDF",
-            role: "Product Designer // Design Engineer",
+            role: "Product Designer",
             status: "",
             summary_title: "Professional Summary",
             summary_text: "Product Designer specializing in resilient systems. I combine Computer Science logic with Cognitive Science (EdTech) to build tools that optimize cognitive load. Bridging the gap between engineering complexity and human behavior. Technical expertise covers the full end-to-end product design lifecycle—from initial research and logic-based prototyping to high-fidelity interaction design and design QA.",
@@ -509,7 +509,7 @@ export const translations = {
         manifest: {
             back: "Kembali / Tentang",
             print: "Cetak / PDF",
-            role: "Product Designer // Design Engineer",
+            role: "Product Designer",
             status: "",
             summary_title: "Ringkasan Profesional",
             summary_text: "Product Designer dengan spesialisasi sistem tangguh. Menggabungkan logika Computer Science dengan Sains Kognitif (EdTech) untuk membangun alat yang mengoptimalkan beban kognitif. Keahlian teknis mencakup siklus desain produk end-to-end—mulai dari riset awal dan prototyping berbasis logika, hingga desain interaksi fidelitas tinggi dan QA desain.",
