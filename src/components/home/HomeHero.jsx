@@ -1,11 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ArrowRight, FileText, MapPin, BookOpen, Headphones, Activity, PenLine } from 'lucide-react';
 import Treasure from '../Treasure';
 import DraggablePhoto from '../DraggablePhoto';
 import ScrollReveal from '../ScrollReveal';
 import StickyNote from '../StickyNote';
+import StickyNote from '../StickyNote';
 import RichText from '../RichText';
+
+const TypewriterText = ({ text }) => {
+    if (!text) return null;
+    const characters = Array.from(text);
+
+    return (
+        <motion.span
+            initial="hidden"
+            animate="visible"
+            variants={{
+                visible: { transition: { staggerChildren: 0.015 } },
+                hidden: {}
+            }}
+            aria-label={text}
+        >
+            {characters.map((char, index) => (
+                <motion.span
+                    key={`${char}-${index}`}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1 }
+                    }}
+                >
+                    {char}
+                </motion.span>
+            ))}
+        </motion.span>
+    );
+};
 
 const HomeHero = ({ t }) => {
     return (
@@ -31,7 +62,7 @@ const HomeHero = ({ t }) => {
                         </h2>
                         <div className="text-[var(--text-secondary)] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
                             <p className="inline-block">
-                                <RichText text={t('home.intro_desc')} />
+                                <TypewriterText text={t('home.intro_desc')} />
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">
