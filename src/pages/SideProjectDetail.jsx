@@ -119,12 +119,17 @@ const SideProjectDetail = () => {
       team: (isIndonesian && project.context_id?.team) || rawContext.team || "Solo"
    };
 
-   const activeChallenge = (isIndonesian && project.challenge_id) ? project.challenge_id : (project.challenge || project.desc);
+   const resolveText = (field, fallback) => {
+      if (!field) return fallback || null;
+      if (typeof field === 'object' && field.en) return isIndonesian ? (field.id || field.en) : field.en;
+      return field;
+   };
+   const activeChallenge = resolveText(project.challenge, project.desc);
    const activeProcess = (isIndonesian && (project.designProcess_id || project.process_id)) ? (project.designProcess_id || project.process_id) : (project.designProcess || project.process);
    const activeInsights = (isIndonesian && project.insights_id) ? project.insights_id : project.insights;
    const activeSolution = (isIndonesian && project.solution_id) ? project.solution_id : project.solution;
    const activeMetrics = (isIndonesian && project.metrics_id) ? project.metrics_id : project.metrics;
-   const activeLearnings = (isIndonesian && project.learnings_id) ? project.learnings_id : project.learnings;
+   const activeLearnings = resolveText(project.learnings);
    const activeModules = (isIndonesian && project.modules_id) ? project.modules_id : project.modules;
 
    // Interaction Mapping
