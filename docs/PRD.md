@@ -118,6 +118,8 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Stoqo Logistics Localization (v2.7)**: Full Indonesian translation support added to Stoqo Logistics, matching the bilingual capabilities of Stoqo Sales.
 *   **Standardized Case Study Layout (v2.9)**: Unified all case studies (Stoqo, GudangAda, Lumina) to a strict 5-step `designProcess` structure (Research → Insight → Design → Ship → Measure), ensuring consistent narrative rhythm.
 *   **Interactive Solution Modules (v2.9)**: "Paper-to-Paperless" concept now features fully interactive `StoqoPickerApp` and `StoqoCheckerApp` prototypes replacing static images.
+*   **Methodology Grid Optimization (v3.4)**: Redesigned the 5-step design process layout for Year In Review, Dolphi, and Productivity Illusion. Replaced awkward 3-column/orphan grids with a clean 2-column layout featuring a full-width "hero" card for the first item.
+*   **Sidebar Data Restoration (v3.4)**: Restored missing structural metadata (Founder notes, Metrics) across side projects and fixed bilingual text resolvers to prevent `[object Object]` rendering.
 
 ### 3.7 UX Audit & Kill-Switch Fixes (v3.0)
 Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Rams, Jony Ive, Don Norman). 7 critical issues resolved:
@@ -142,6 +144,8 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **Monochrome Domination**: Enforced a strict monochrome palette across all interactive ID card variants within the hero section, stripping out disparate accent colors to align with a cohesive, serious "industrial" baseline.
 *   **Unified Reveal Interactions**: Standardized the hover interactions across all ID card styles. Profile images remain structurally desaturated (grayscale) until the user engages via hover, triggering a uniform color transition.
 *   **New Design Archetypes**: Expanded ID card generative variants to include `Neo-Brutalism` and `Holographic` design systems.
+*   **Brand Standardization (v3.4)**: Unified the primary name to `🧢 Fadly Uzzaki` across all 7 ID card variants, ensuring consistent brand visibility regardless of the generative style (Swiss, Cyberpunk, etc.).
+*   **Cyberpunk Dark Mode Hardening**: Fixed a visibility collision in the Cyberpunk ID variant where backgrounds remained black in dark mode.
 
 ## 4. Functional Specifications
 
@@ -235,6 +239,9 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **[COMPLETED]** FilterMe Content (v3.5): Added missing Trajectory (insights) and Synthesis (learnings) sections to the FilterMe side project with bilingual translations.
 *   **[COMPLETED]** Case Study Exports (v3.5): Converted non-WIP case studies (Stoqo Logistics, Stoqo Sales) into standalone Markdown documents in `docs/case-studies/`.
 *   **[COMPLETED]** Dynamic OpenGraph (v3.5): Implemented Vercel Edge Middleware + `@vercel/og` for per-page OG image generation covering 30+ routes. Social crawlers now receive correct titles, descriptions, and branded preview images.
+*   **[COMPLETED]** Methodology Grid Reset (v3.6): Optimized 5-item methodology layouts across all side projects using 2-column hero cards for better visual rhythm.
+*   **[COMPLETED]** Brand Consistency Sync (v3.6): Standardized `🧢 Fadly Uzzaki` naming convention across all 7 generative ID card variants.
+*   **[COMPLETED]** Project Metadata Restoration (v3.6): Fixed bilingual data resolvers and restored missing 'Researcher Notes' and 'Metrics' for all side-ventures.
 
 ### Phase 3: Intelligence & Expansion (Q2-Q4 2026)
 *   **[Q2 2026]** Enhanced AI Agent: Expand semantic memory with real RAG backend.
