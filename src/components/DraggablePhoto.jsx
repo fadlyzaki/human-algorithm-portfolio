@@ -97,7 +97,7 @@ const DraggablePhoto = () => {
   );
 
   const RenderCyberpunk = () => (
-    <div className="w-full h-full bg-black border-2 border-white/20 dark:border-black/50 relative group overflow-hidden rounded-xl flex flex-col shadow-2xl">
+    <div className="w-full h-full bg-black dark:bg-white border-2 border-white/20 dark:border-black/50 relative group overflow-hidden rounded-xl flex flex-col shadow-2xl">
       {/* Grid Bg */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
