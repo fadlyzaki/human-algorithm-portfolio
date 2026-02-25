@@ -242,7 +242,7 @@ const DraggablePhoto = () => {
     <div className="w-full h-full bg-white dark:bg-black border-4 border-black dark:border-white border-t-8 border-b-8 relative group overflow-hidden rounded-md flex flex-col shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] p-1">
       {/* Header */}
       <div className="h-16 flex items-center justify-center border-b-2 border-black dark:border-white border-dashed mb-2">
-        <span className="text-black dark:text-white font-mono text-xl font-bold uppercase tracking-widest leading-none text-center">
+        <span className="text-black dark:text-white font-mono text-base font-bold uppercase tracking-widest leading-none text-center">
           * IDENTITY *<br />
           <span className="text-[10px] tracking-normal">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
         </span>
@@ -267,7 +267,7 @@ const DraggablePhoto = () => {
 
       {/* Footer */}
       <div className="h-14 bg-black dark:bg-white flex items-center justify-between px-4 mt-auto">
-        <h2 className="text-xl font-black text-white dark:text-black font-mono tracking-tighter whitespace-nowrap">FADLY UZZAKI 🧢</h2>
+        <h2 className="text-base font-black text-white dark:text-black font-mono tracking-tighter whitespace-nowrap">FADLY UZZAKI 🧢</h2>
         <div className="px-2 py-1 bg-white dark:bg-black border border-black dark:border-white text-black dark:text-white text-[10px] font-bold font-mono">
           {t('id_card.access_level') || 'ROOT_ACCESS'}
         </div>
