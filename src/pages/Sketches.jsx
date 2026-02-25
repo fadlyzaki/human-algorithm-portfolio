@@ -22,7 +22,7 @@ const Sketches = () => {
   return (
     <div
       style={themeStyles}
-      className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-zinc-800 selection:text-white transition-colors duration-700 overflow-x-hidden"
+      className={`min-h-screen ${isDark ? 'bg-[#1a1a1c]' : 'bg-[#f4f4f6]'} text-[var(--text-primary)] font-sans selection:bg-zinc-800 selection:text-white transition-colors duration-700 overflow-x-hidden`}
     >
       <Helmet>
         <title>Sketches | Fadly Zaki</title>
@@ -36,17 +36,14 @@ const Sketches = () => {
       />
 
       {/* --- BACKGROUND ELEMENTS --- */}
-      <div className={`fixed inset-0 z-0 pointer-events-none opacity-[0.15] ${isDark ? 'mix-blend-overlay' : 'mix-blend-multiply'}`}
-        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
+      {/* Subtle wall texture noise overlay */}
+      <div className={`fixed inset-0 z-0 pointer-events-none opacity-[0.25] mix-blend-overlay`}
+        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
       ></div>
-      <div className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-500 ${isDark ? 'opacity-100' : 'opacity-0'}`}
-        style={{ background: 'radial-gradient(circle at 70% 20%, rgba(50,50,50,0.4), rgba(17,17,17,1) 80%)' }}>
-      </div>
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}>
+
+      {/* Ambient lighting (subtle vignette instead of harsh radial spotlight) */}
+      <div className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-500`}
+        style={{ boxShadow: 'inset 0 0 200px rgba(0,0,0,0.1)' }}>
       </div>
 
       <ScrollProgressBar />

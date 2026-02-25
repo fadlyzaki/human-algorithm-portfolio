@@ -149,7 +149,8 @@ const NodeGraphGallery = () => {
   const isDigital = activeMedium === 'digital';
 
   // --- Exhibition Layout Logic ---
-  const [currentLayoutIndex, setCurrentLayoutIndex] = useState(-1);
+  // Default to 0 (Salon style) instead of -1 (Unstructured scatter)
+  const [currentLayoutIndex, setCurrentLayoutIndex] = useState(0);
 
   const LAYOUTS = [
     {
@@ -205,9 +206,14 @@ const NodeGraphGallery = () => {
 
   // Determine current effective nodes based on scatter vs shape-shift
   const displayNodes = useMemo(() => {
-    if (currentLayoutIndex === -1) return nodes;
-
-    const layout = LAYOUTS[currentLayoutIndex];
+    // Unstructured fallback (though we default to SALON)
+    if (layout === undefined) {
+      return nodes.map((node, i) => ({
+        ...node,
+        rotation: isDigital ? 0 : (Math.random() - 0.5) * 4,
+        size: node.size * 0.8
+      }));
+    }
 
     if (layout.isGrid) {
       // Uniform Gallery Grid Logic
@@ -377,21 +383,11 @@ const NodeGraphGallery = () => {
           <div className="pointer-events-auto mt-4">
             <button
               onClick={handleLayoutChange}
-              className={`px-4 py-2 text-[10px] font-mono uppercase tracking-[0.2em] border transition-all mr-2 ${currentLayoutIndex !== -1
-                ? 'bg-zinc-900 text-white border-zinc-800 shadow-lg'
-                : (isDark ? 'bg-white/5 border-white/10 text-zinc-400 hover:text-white' : 'bg-black/5 border-black/10 text-zinc-500 hover:text-black')
-                }`}
+              className={`px-4 py-2 text-[10px] font-mono uppercase tracking-[0.2em] border transition-all mr-2 bg-zinc-900 text-white border-zinc-800 shadow-lg`}
             >
-              [ {currentLayoutIndex === -1 ? 'CURATION: UNSTRUCTURED' : `CURATION: ${LAYOUTS[currentLayoutIndex].name}`} ]
+              [ {LAYOUTS[currentLayoutIndex]?.name ? `CURATION: ${LAYOUTS[currentLayoutIndex].name}` : 'CURATION: UNSTRUCTURED'} ]
             </button>
-            {currentLayoutIndex !== -1 && (
-              <button
-                onClick={handleResetLayout}
-                className={`px-4 py-2 text-[10px] font-mono uppercase tracking-[0.2em] border transition-all ${isDark ? 'bg-white/5 border-white/10 text-zinc-400 hover:text-white' : 'bg-black/5 border-black/10 text-zinc-500 hover:text-black'}`}
-              >
-                [ RESET ]
-              </button>
-            )}
+            {/* Removed RESET to just toggle between Museum Layouts */}
           </div>
         </div>
 
@@ -474,24 +470,14 @@ const NodeGraphGallery = () => {
                           animate={{
                             scale: 1,
                             opacity: 1,
-                            y: [0, Math.sin(i) * 3, 0], // Very subtle sway, less floating
-                            x: [0, Math.cos(i) * 3, 0]
+                            y: 0, // Removed floating y animation
+                            x: 0 // Removed floating x animation
                           }}
                           exit={{ scale: 0.8, opacity: 0 }}
                           transition={{
                             type: 'spring',
                             stiffness: 300,
-                            damping: 30,
-                            y: {
-                              duration: 8 + (i % 4),
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            },
-                            x: {
-                              duration: 9 + (i % 3),
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            }
+                            damping: 30
                           }}
                           style={{
                             position: 'absolute',
