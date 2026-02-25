@@ -132,7 +132,7 @@ const Lightbox = ({ image, onClose }) => {
           {image.medium === 'digital' ? 'DIGITAL MEDIA' : 'GRAPHITE ON PAPER'}
         </p>
         <p className="text-zinc-400 font-mono text-[9px] tracking-widest">
-          ARCHIVE REF: {image.id.toUpperCase()}
+          EXHIBIT REF: {image.id.toUpperCase()}
         </p>
       </motion.div>
     </motion.div>
@@ -307,7 +307,7 @@ const HorizontalGallery = () => {
               >
                 <Activity size={18} className={isDark ? 'text-zinc-500' : 'text-zinc-400'} />
                 <span className={`font-mono text-xs tracking-[0.2em] uppercase text-zinc-500`}>
-                  {t('sketches.title') || 'ARCHIVE'}
+                  {t('sketches.title') || 'EXHIBITION'}
                 </span>
               </motion.div>
 

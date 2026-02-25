@@ -318,7 +318,7 @@ export const translations = {
             cta_proceed: "Proceed to System Directory"
         },
         sketches: {
-            title: "Archive",
+            title: "Exhibition",
             pencil: "Graphite",
             digital: "Digital",
             drag_to_explore: "Scroll to explore hallway",
@@ -651,7 +651,7 @@ export const translations = {
             cta_proceed: "Lanjut ke Direktori Sistem"
         },
         sketches: {
-            title: "Arsip",
+            title: "Pameran",
             digital: "Digital",
             pencil: "Grafit",
             drag_to_explore: "Gulir untuk eksplorasi",
