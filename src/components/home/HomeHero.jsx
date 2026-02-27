@@ -97,7 +97,7 @@ const HomeHero = ({ t, renderIdCard = true }) => {
 
                     <div className="hidden md:block relative min-h-[400px]">
                         {renderIdCard && (
-                            <motion.div layoutId="hero-id-card" className="w-full">
+                            <motion.div layoutId="hero-id-card" layout className="w-full">
                                 <DraggablePhoto />
                             </motion.div>
                         )}

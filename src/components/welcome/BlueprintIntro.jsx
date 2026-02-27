@@ -77,7 +77,7 @@ const BlueprintScene = ({ onComplete, onTransitionStart }) => {
             {isVisible && (
                 <motion.div
                     ref={containerRef}
-                    initial={{ opacity: 0 }}
+                    initial={{ opacity: 1 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -133,7 +133,7 @@ const BlueprintScene = ({ onComplete, onTransitionStart }) => {
                                     animate={{ opacity: finalFlashOpacity }}
                                     transition={{ duration: 0.5, delay: 0.2 }}
                                 >
-                                    <motion.div layoutId="hero-id-card" className="w-full h-full scale-[1.05] flex items-center justify-center pt-8">
+                                    <motion.div layoutId="hero-id-card" layout className="w-full h-full scale-[1.05] flex items-center justify-center pt-8">
                                         <DraggablePhoto />
                                     </motion.div>
                                 </motion.div>

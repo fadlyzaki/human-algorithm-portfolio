@@ -23,6 +23,7 @@ import useScrollDirection from '../hooks/useScrollDirection';
 import { useHandCursor } from '../context/HandCursorContext';
 import { useLanguage } from '../context/LanguageContext';
 import BlueprintIntro from '../components/welcome/BlueprintIntro';
+import { LayoutGroup } from 'framer-motion';
 
 const Portfolio = () => {
   /* --- STATE & HOOKS --- */
@@ -71,83 +72,85 @@ const Portfolio = () => {
   const shouldRenderHeroIdCard = !showIntro || isIntroTransitioning;
 
   return (
-    <div
-      style={themeStyles}
-      className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] overflow-x-hidden transition-colors duration-500"
-    >
-      <BlueprintIntro
-        onTransitionStart={() => setIsIntroTransitioning(true)}
-        onComplete={() => {
-          setShowIntro(false);
-          setIsIntroTransitioning(false);
-        }}
-      />
-
-      <SEO
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Fadly Uzzaki",
-          "url": "https://fadlyzaki-design.vercel.app",
-          "sameAs": [
-            "https://www.linkedin.com/in/fadlyzaki/",
-            "https://github.com/fadlyzaki",
-            "https://dribbble.com/fadlyzaki",
-            "https://medium.com/@fadlyzaki"
-          ],
-          "jobTitle": "Product Designer",
-          "description": "Product Designer · Systems Thinker. I don't chase chaos—I contain it."
-        }}
-      />
-
-      {/* ATMOSPHERE (single composite layer) */}
+    <LayoutGroup>
       <div
-        className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-500`}
-        style={{
-          backgroundImage: [
-            `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            isDark ? 'radial-gradient(circle at 50% 0%, rgba(50,50,50,0.4), rgba(17,17,17,1) 80%)' : 'none',
-            `linear-gradient(${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px)`
-          ].join(', '),
-          backgroundSize: 'auto, auto, 40px 40px',
-          opacity: isDark ? 1 : 0.03,
-          mixBlendMode: isDark ? 'overlay' : 'multiply',
-        }}
-      ></div>
+        style={themeStyles}
+        className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] overflow-x-hidden transition-colors duration-500"
+      >
+        <BlueprintIntro
+          onTransitionStart={() => setIsIntroTransitioning(true)}
+          onComplete={() => {
+            setShowIntro(false);
+            setIsIntroTransitioning(false);
+          }}
+        />
 
-      {/* Progress Bar */}
-      <ProgressBar />
+        <SEO
+          schema={{
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Fadly Uzzaki",
+            "url": "https://fadlyzaki-design.vercel.app",
+            "sameAs": [
+              "https://www.linkedin.com/in/fadlyzaki/",
+              "https://github.com/fadlyzaki",
+              "https://dribbble.com/fadlyzaki",
+              "https://medium.com/@fadlyzaki"
+            ],
+            "jobTitle": "Product Designer",
+            "description": "Product Designer · Systems Thinker. I don't chase chaos—I contain it."
+          }}
+        />
 
-      {/* --- NAVIGATION SYSTEM --- */}
-      <Navbar onOpenMenu={handleOpenMenu} showNavOverride={showNav} />
+        {/* ATMOSPHERE (single composite layer) */}
+        <div
+          className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-500`}
+          style={{
+            backgroundImage: [
+              `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              isDark ? 'radial-gradient(circle at 50% 0%, rgba(50,50,50,0.4), rgba(17,17,17,1) 80%)' : 'none',
+              `linear-gradient(${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#A1A1AA' : '#000000'} 1px, transparent 1px)`
+            ].join(', '),
+            backgroundSize: 'auto, auto, 40px 40px',
+            opacity: isDark ? 1 : 0.03,
+            mixBlendMode: isDark ? 'overlay' : 'multiply',
+          }}
+        ></div>
 
-      <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+        {/* Progress Bar */}
+        <ProgressBar />
 
-      {/* Main Container */}
-      <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-24 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-backdrop)] backdrop-blur-sm transition-colors duration-500 overflow-x-hidden">
-        <div className="fade-in pt-12">
+        {/* --- NAVIGATION SYSTEM --- */}
+        <Navbar onOpenMenu={handleOpenMenu} showNavOverride={showNav} />
 
-          {/* HERO & TICKER */}
-          <HomeHero t={t} renderIdCard={shouldRenderHeroIdCard} />
+        <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
-          {/* SECTION 1: WORK */}
-          <HomeWorkSection t={t} />
+        {/* Main Container */}
+        <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-24 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-backdrop)] backdrop-blur-sm transition-colors duration-500 overflow-x-hidden">
+          <div className="fade-in pt-12">
 
-          {/* SECTION 2: SIDE PROJECTS */}
-          <HomeSideProjects t={t} isId={isId} />
+            {/* HERO & TICKER */}
+            <HomeHero t={t} renderIdCard={shouldRenderHeroIdCard} />
 
-          {/* SECTION 3: ABOUT ME */}
-          <HomeAbout t={t} />
+            {/* SECTION 1: WORK */}
+            <HomeWorkSection t={t} />
 
-        </div>
+            {/* SECTION 2: SIDE PROJECTS */}
+            <HomeSideProjects t={t} isId={isId} />
 
-        {/* FOOTER */}
-        <section className="mb-0">
-          <Footer />
-        </section>
+            {/* SECTION 3: ABOUT ME */}
+            <HomeAbout t={t} />
 
-      </main>
-    </div >
+          </div>
+
+          {/* FOOTER */}
+          <section className="mb-0">
+            <Footer />
+          </section>
+
+        </main>
+      </div >
+    </LayoutGroup>
   );
 };
 
