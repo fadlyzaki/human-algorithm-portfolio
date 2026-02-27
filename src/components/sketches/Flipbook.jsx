@@ -190,99 +190,86 @@ export const Flipbook = ({
                 }}
             >
 
-                <div
-                    className="absolute left-0 top-0 h-full origin-right shadow-[inset_-2px_0_10px_rgba(0,0,0,0.1)]"
-                    style={{
-                        width: pageWidth,
-                        display: isMobile || isCover ? 'none' : 'block',
-                        transformStyle: 'preserve-3d',
-                        zIndex: 10
-                    }}
-                >
-                    {renderPageContent(leftPageIndex)}
-                </div>
+                {/* --- MOBILE LOGIC --- */}
+                {isMobile && (
+                    <>
+                        <div
+                            className="absolute right-0 top-0 h-full origin-left bg-white shadow-[inset_2px_0_10px_rgba(0,0,0,0.1)]"
+                            style={{
+                                width: pageWidth,
+                                display: !isCover || isBackCover ? 'none' : 'block',
+                                left: 0,
+                                transformStyle: 'preserve-3d',
+                                zIndex: 10
+                            }}
+                        >
+                            {renderPageContent(rightPageIndex)}
+                        </div>
 
-                <div
-                    className="absolute right-0 top-0 h-full origin-left bg-white shadow-[inset_2px_0_10px_rgba(0,0,0,0.1)]"
-                    style={{
-                        width: pageWidth,
-                        display: isMobile && !isCover || isBackCover ? 'none' : 'block',
-                        left: isMobile ? 0 : '50%',
-                        transformStyle: 'preserve-3d',
-                        zIndex: 10
-                    }}
-                >
-                    {renderPageContent(rightPageIndex)}
-                </div>
-
-                {/* Mobile view logic (shows one page at a time) */}
-                {isMobile && !isCover && (
-                    <div
-                        className="absolute left-0 top-0 h-full w-full bg-white origin-left"
-                        style={{ transformStyle: 'preserve-3d' }}
-                    >
-                        <AnimatePresence mode="popLayout" initial={false} custom={direction}>
-                            <motion.div
-                                key={spreadIndex}
-                                custom={direction}
-                                initial={{ rotateY: direction === 1 ? 90 : -90, opacity: 0 }}
-                                animate={{ rotateY: 0, opacity: 1 }}
-                                exit={{ rotateY: direction === 1 ? -90 : 90, opacity: 0 }}
-                                transition={{ duration: 0.5, type: 'spring', stiffness: 200, damping: 20 }}
-                                className="absolute inset-0 w-full h-full backface-hidden"
+                        {!isCover && (
+                            <div
+                                className="absolute left-0 top-0 h-full w-full bg-white origin-left"
+                                style={{ transformStyle: 'preserve-3d' }}
                             >
-                                {renderPageContent(rightPageIndex > -1 && !isBackCover ? rightPageIndex : leftPageIndex)}
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
+                                <AnimatePresence mode="popLayout" initial={false} custom={direction}>
+                                    <motion.div
+                                        key={spreadIndex}
+                                        custom={direction}
+                                        initial={{ rotateY: direction === 1 ? 90 : -90, opacity: 0 }}
+                                        animate={{ rotateY: 0, opacity: 1 }}
+                                        exit={{ rotateY: direction === 1 ? -90 : 90, opacity: 0 }}
+                                        transition={{ duration: 0.5, type: 'spring', stiffness: 200, damping: 20 }}
+                                        className="absolute inset-0 w-full h-full backface-hidden"
+                                    >
+                                        {renderPageContent(rightPageIndex > -1 && !isBackCover ? rightPageIndex : leftPageIndex)}
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
+                        )}
+                    </>
                 )}
 
-                {/* Desktop Flipping Page Animation Container */}
-                {!isMobile && (
-                    <AnimatePresence mode="popLayout" initial={false} custom={direction}>
-                        {/* Forward Flip (Right to Left) */}
-                        {direction === 1 && spreadIndex > 0 && (
-                            <motion.div
-                                key={`forward-${spreadIndex}`}
-                                className="absolute right-0 top-0 h-full origin-left shadow-2xl"
-                                style={{ width: pageWidth, left: '50%', transformStyle: 'preserve-3d', zIndex: 30 }}
-                                initial={{ rotateY: 0 }}
-                                animate={{ rotateY: -180 }}
-                                transition={{ duration: 0.6, ease: [0.645, 0.045, 0.355, 1.000] }}
-                            >
-                                {/* Front of the flipping page (was right, index from PREVIOUS spread) */}
-                                <div className="absolute inset-0 w-full h-full backface-hidden" style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
-                                    {renderPageContent(rightPageIndex - 2)}
-                                </div>
-                                {/* Back of the flipping page (becomes left, index from CURRENT spread) */}
-                                <div className="absolute inset-0 w-full h-full backface-hidden bg-white shadow-[inset_-2px_0_10px_rgba(0,0,0,0.1)]" style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
-                                    {renderPageContent(leftPageIndex)}
-                                </div>
-                            </motion.div>
-                        )}
+                {/* --- DESKTOP LOGIC (PHYSICAL SHEETS) --- */}
+                {!isMobile && Array.from({ length: totalSpreads }).map((_, i) => {
+                    const isFlipped = spreadIndex > i;
+                    const isFlipping = (direction === 1 && spreadIndex - 1 === i) || (direction === -1 && spreadIndex === i);
 
-                        {/* Backward Flip (Left to Right) */}
-                        {direction === -1 && spreadIndex < totalSpreads - 1 && (
-                            <motion.div
-                                key={`backward-${spreadIndex}`}
-                                className="absolute left-0 top-0 h-full origin-right shadow-2xl"
-                                style={{ width: pageWidth, transformStyle: 'preserve-3d', zIndex: 30 }}
-                                initial={{ rotateY: 0 }}
-                                animate={{ rotateY: 180 }}
-                                transition={{ duration: 0.6, ease: [0.645, 0.045, 0.355, 1.000] }}
+                    const zIndex = isFlipping ? 50 : (isFlipped ? i : totalSpreads - i);
+
+                    return (
+                        <motion.div
+                            key={`sheet-${i}`}
+                            className="absolute top-0 h-full origin-left shadow-2xl"
+                            style={{
+                                width: pageWidth,
+                                left: '50%',
+                                transformStyle: 'preserve-3d',
+                                zIndex: zIndex
+                            }}
+                            initial={false}
+                            animate={{
+                                rotateY: isFlipped ? -180 : 0
+                            }}
+                            transition={{ duration: 0.8, ease: [0.645, 0.045, 0.355, 1.000] }}
+                        >
+                            {/* Front of Sheet (Right Page) */}
+                            <div
+                                className="absolute inset-0 w-full h-full backface-hidden bg-white"
+                                style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                             >
-                                {/* Front of the flipping page (was left, index from PREVIOUS spread) */}
-                                <div className="absolute inset-0 w-full h-full backface-hidden" style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
-                                    {renderPageContent(leftPageIndex + 2)}
-                                </div>
-                                {/* Back of the flipping page (becomes right, index from CURRENT spread) */}
-                                <div className="absolute inset-0 w-full h-full backface-hidden bg-white shadow-[inset_2px_0_10px_rgba(0,0,0,0.1)]" style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
-                                    {renderPageContent(rightPageIndex)}
-                                </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                )}
+                                {renderPageContent(i * 2 - 1)}
+                            </div>
+
+                            {/* Back of Sheet (Left Page) */}
+                            <div
+                                className="absolute inset-0 w-full h-full backface-hidden bg-white"
+                                style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                            >
+                                {renderPageContent(i * 2)}
+                            </div>
+                        </motion.div>
+                    );
+                })}
 
                 {/* Navigation Overlay Areas (Invisible clickable areas) */}
                 <div

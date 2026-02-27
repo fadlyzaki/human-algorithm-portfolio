@@ -109,6 +109,7 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Profile Scanner (v2.4)**: Replaced static About page photo with interactive 3D scanner. Features "Blur-to-Clear" reveal animation on load.
 *   **Navbar Standardization**: Unified navigation interaction across all pages (Introduction of `BackButton` in About page and fixed scroll positioning).
 *   **Mobile-Responsive Work Cards**: Title text wraps naturally on mobile with optimized font sizing (`text-2xl` mobile, `text-6xl` desktop).
+*   **Terminal Intro Sequence (v3.1)**: Replaced the "Blueprint Assembly" intro with a fast, minimalist developer terminal (`TerminalIntro.jsx`). Types out welcoming copywriting, waits for interaction, and transitions securely into the homepage with a rapid CSS flash (no floating objects).
 *   **Theme-Aware ID Card**: Industrial ID card design uses proper contrast colors—black text in light mode, white text in dark mode.
 *   **Work Card Dark Mode Fix**: White backgrounds for work cards and case study preview cards in dark mode for diagram visibility.
 *   **Draggable Photo Stack**: Multi-variant ID card designs (Industrial, Cyberpunk, Swiss) with Framer Motion physics.
@@ -242,6 +243,7 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **[COMPLETED]** Methodology Grid Reset (v3.6): Optimized 5-item methodology layouts across all side projects using 2-column hero cards for better visual rhythm.
 *   **[COMPLETED]** Brand Consistency Sync (v3.6): Standardized `🧢 Fadly Uzzaki` naming convention across all 7 generative ID card variants.
 *   **[COMPLETED]** Project Metadata Restoration (v3.6): Fixed bilingual data resolvers and restored missing 'Researcher Notes' and 'Metrics' for all side-ventures.
+*   **[COMPLETED]** Terminal Intro Refactoring (v3.7): Completely replaced the ID Card Flying sequence with a sleek, 3-phase typing `TerminalIntro` that cleanly CSS-flashes into the homepage, locking the typography cascade until the terminal disappears.
 
 ### Phase 3: Intelligence & Expansion (Q2-Q4 2026)
 *   **[Q2 2026]** Enhanced AI Agent: Expand semantic memory with real RAG backend.
