@@ -157,16 +157,37 @@ const BlueprintScene = ({ onComplete, onTransitionStart }) => {
                             <div className="absolute top-1/2 -right-4 h-px w-2 bg-blue-500/50"></div>
                         </motion.div>
 
-                        {/* 3. Typography Wireframe */}
+                        {/* 3. Typography Wireframe (Dynamic Decoding based on drag progress) */}
                         <motion.div
                             className="absolute mt-24 flex flex-col items-center"
                             style={{ x: textX, y: textY, z: textZ, opacity: isAssembled ? 0 : 1 }}
                         >
-                            <div className="border border-blue-400/50 px-6 py-2 bg-blue-900/10 backdrop-blur-sm mb-3">
-                                <span className="font-mono text-xl tracking-[0.2em] text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.5)]">IDENTIFIER_X</span>
+                            <div className="border border-blue-400/50 px-6 py-2 bg-blue-900/10 backdrop-blur-sm mb-3 relative overflow-hidden group">
+                                <motion.div className="flex flex-col items-center justify-center font-mono text-xl tracking-[0.2em] text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                                    {/* The text changes based on the progress bracket */}
+                                    <motion.span style={{ display: useTransform(progress, [0, 0.24], ["block", "none"]) }}>UNKNOWN_ENTITY</motion.span>
+                                    <motion.span style={{ display: useTransform(progress, [0.25, 0.49], ["none", "block"]) }}>SYSTEM_THINKER</motion.span>
+                                    <motion.span style={{ display: useTransform(progress, [0.50, 0.74], ["none", "block"]) }}>CREATIVE_DEV</motion.span>
+                                    <motion.span style={{ display: useTransform(progress, [0.75, 1], ["none", "block"]) }}>FADLY_ZAKI</motion.span>
+                                </motion.div>
+
+                                {/* Glitch overlay moving across the text based on slider speed */}
+                                <motion.div
+                                    className="absolute inset-0 bg-blue-400/20 mix-blend-overlay"
+                                    style={{
+                                        left: useTransform(progress, [0, 1], ['-100%', '100%']),
+                                        width: '50%'
+                                    }}
+                                />
                             </div>
                             <div className="border border-dashed border-blue-500/40 px-4 py-1">
-                                <span className="font-mono text-xs text-blue-400/70 tracking-widest uppercase">Role // Vector</span>
+                                <motion.span
+                                    className="font-mono text-xs text-blue-400/70 tracking-widest uppercase"
+                                >
+                                    {/* The sub-status updates with progress */}
+                                    <motion.span style={{ display: useTransform(progress, [0, 0.5, 0.51, 1], ["inline", "inline", "none", "none"]) }}>Decrypting...</motion.span>
+                                    <motion.span style={{ display: useTransform(progress, [0, 0.5, 0.51, 1], ["none", "none", "inline", "inline"]) }}>Identity Verified</motion.span>
+                                </motion.span>
                             </div>
                         </motion.div>
 
