@@ -11,14 +11,14 @@ import RichText from '../RichText';
 const CHAR_SPEED = 0.015;
 const LINE_GAP = 0.3;
 
-const TypewriterText = ({ text, delay = 0 }) => {
+const TypewriterText = ({ text, delay = 0, start = true }) => {
     if (!text) return null;
     const characters = Array.from(text);
 
     return (
         <motion.span
             initial="hidden"
-            animate="visible"
+            animate={start ? "visible" : "hidden"}
             variants={{
                 visible: { transition: { staggerChildren: CHAR_SPEED, delayChildren: delay } },
                 hidden: {}
@@ -49,7 +49,7 @@ const getDelay = (lines) => {
     });
 };
 
-const HomeHero = ({ t, renderIdCard = true }) => {
+const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
     const roleLine = `${t('home.role')} ·`;
     const roleSubLine = t('home.role_sub');
     const titleLine = t('home.intro_title');
@@ -71,18 +71,18 @@ const HomeHero = ({ t, renderIdCard = true }) => {
                         </Treasure>
 
                         <h1 className="font-mono text-3xl sm:text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
-                            <TypewriterText text={roleLine} delay={delays[0]} />
+                            <TypewriterText text={roleLine} delay={delays[0]} start={startTyping} />
                             <br />
                             <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">
-                                <TypewriterText text={roleSubLine} delay={delays[1]} />
+                                <TypewriterText text={roleSubLine} delay={delays[1]} start={startTyping} />
                             </span>
                         </h1>
                         <h2 className="text-xl md:text-2xl font-mono text-[var(--text-primary)] mb-8 pb-4 inline-block border-b-2 border-[var(--accent-amber)]">
-                            <TypewriterText text={titleLine} delay={delays[2]} />
+                            <TypewriterText text={titleLine} delay={delays[2]} start={startTyping} />
                         </h2>
                         <div className="text-[var(--text-secondary)] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
                             <p className="inline-block">
-                                <TypewriterText text={descLine} delay={delays[3]} />
+                                <TypewriterText text={descLine} delay={delays[3]} start={startTyping} />
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">

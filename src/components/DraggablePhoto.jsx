@@ -5,7 +5,7 @@ import { User } from 'lucide-react';
 import PixelImage from './PixelImage';
 import { useLanguage } from '../context/LanguageContext';
 
-const DraggablePhoto = () => {
+const DraggablePhoto = ({ hideControls = false }) => {
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
   const [designVariant, setDesignVariant] = useState(() => {
@@ -458,15 +458,17 @@ const DraggablePhoto = () => {
       </motion.div>
 
       {/* DESIGN SWITCHER CONTROL - Repositioned to bottom right */}
-      <div className="absolute right-0 -bottom-10 flex flex-col gap-2">
-        <button
-          onClick={toggleVariant}
-          className="w-8 h-8 rounded-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 shadow-lg flex items-center justify-center text-[10px] font-bold hover:scale-110 active:scale-95 transition-transform z-10"
-          title="Switch Design Style"
-        >
-          🎨
-        </button>
-      </div>
+      {!hideControls && (
+        <div className="absolute right-0 -bottom-10 flex flex-col gap-2">
+          <button
+            onClick={toggleVariant}
+            className="w-8 h-8 rounded-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 shadow-lg flex items-center justify-center text-[10px] font-bold hover:scale-110 active:scale-95 transition-transform z-10"
+            title="Switch Design Style"
+          >
+            🎨
+          </button>
+        </div>
+      )}
     </div>
   );
 };

@@ -22,7 +22,7 @@ import useThemeStyles from '../hooks/useThemeStyles';
 import useScrollDirection from '../hooks/useScrollDirection';
 import { useHandCursor } from '../context/HandCursorContext';
 import { useLanguage } from '../context/LanguageContext';
-import BlueprintIntro from '../components/welcome/BlueprintIntro';
+import TerminalIntro from '../components/welcome/TerminalIntro';
 import { LayoutGroup } from 'framer-motion';
 
 const Portfolio = () => {
@@ -33,9 +33,8 @@ const Portfolio = () => {
   const { t, language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showIntro, setShowIntro] = useState(() => {
-    return localStorage.getItem('hasSeenBlueprintIntro') !== 'true';
+    return localStorage.getItem('hasSeenTerminalIntro') !== 'true';
   });
-  const [isIntroTransitioning, setIsIntroTransitioning] = useState(false);
   const showNav = useScrollDirection(isGestureMode);
 
   const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
@@ -56,7 +55,7 @@ const Portfolio = () => {
 
   // Lock body scroll when intro is showing
   useEffect(() => {
-    if (showIntro && !isIntroTransitioning) {
+    if (showIntro) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
@@ -64,12 +63,12 @@ const Portfolio = () => {
     return () => {
       document.body.style.overflow = 'auto'; // Cleanup
     };
-  }, [showIntro, isIntroTransitioning]);
+  }, [showIntro]);
 
   const isId = language === 'id';
 
-  // ID Card should be rendered in HomeHero if intro is completely done, OR if it's currently transitioning.
-  const shouldRenderHeroIdCard = !showIntro || isIntroTransitioning;
+  // ID Card should be rendered in HomeHero if intro is completely done.
+  const shouldRenderHeroIdCard = !showIntro;
 
   return (
     <LayoutGroup>
@@ -77,11 +76,9 @@ const Portfolio = () => {
         style={themeStyles}
         className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] overflow-x-hidden transition-colors duration-500"
       >
-        <BlueprintIntro
-          onTransitionStart={() => setIsIntroTransitioning(true)}
+        <TerminalIntro
           onComplete={() => {
             setShowIntro(false);
-            setIsIntroTransitioning(false);
           }}
         />
 
@@ -130,7 +127,7 @@ const Portfolio = () => {
           <div className="fade-in pt-12">
 
             {/* HERO & TICKER */}
-            <HomeHero t={t} renderIdCard={shouldRenderHeroIdCard} />
+            <HomeHero t={t} renderIdCard={shouldRenderHeroIdCard} startTyping={!showIntro} />
 
             {/* SECTION 1: WORK */}
             <HomeWorkSection t={t} />
