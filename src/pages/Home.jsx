@@ -31,7 +31,10 @@ const Portfolio = () => {
   const { isGestureMode } = useHandCursor();
   const { t, language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(() => {
+    return localStorage.getItem('hasSeenBlueprintIntro') !== 'true';
+  });
+  const [isIntroTransitioning, setIsIntroTransitioning] = useState(false);
   const showNav = useScrollDirection(isGestureMode);
 
   const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
@@ -52,7 +55,7 @@ const Portfolio = () => {
 
   // Lock body scroll when intro is showing
   useEffect(() => {
-    if (showIntro) {
+    if (showIntro && !isIntroTransitioning) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
@@ -60,16 +63,25 @@ const Portfolio = () => {
     return () => {
       document.body.style.overflow = 'auto'; // Cleanup
     };
-  }, [showIntro]);
+  }, [showIntro, isIntroTransitioning]);
 
   const isId = language === 'id';
+
+  // ID Card should be rendered in HomeHero if intro is completely done, OR if it's currently transitioning.
+  const shouldRenderHeroIdCard = !showIntro || isIntroTransitioning;
 
   return (
     <div
       style={themeStyles}
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] overflow-x-hidden transition-colors duration-500"
     >
-      <BlueprintIntro onComplete={() => setShowIntro(false)} />
+      <BlueprintIntro
+        onTransitionStart={() => setIsIntroTransitioning(true)}
+        onComplete={() => {
+          setShowIntro(false);
+          setIsIntroTransitioning(false);
+        }}
+      />
 
       <SEO
         schema={{
@@ -116,7 +128,7 @@ const Portfolio = () => {
         <div className="fade-in pt-12">
 
           {/* HERO & TICKER */}
-          <HomeHero t={t} />
+          <HomeHero t={t} renderIdCard={shouldRenderHeroIdCard} />
 
           {/* SECTION 1: WORK */}
           <HomeWorkSection t={t} />
@@ -126,14 +138,6 @@ const Portfolio = () => {
 
           {/* SECTION 3: ABOUT ME */}
           <HomeAbout t={t} />
-
-          {/* SECTION 4: BLOG / WRITING (HIDDEN) */}
-          {/* <HomeBlogSection t={t} /> */}
-
-
-
-          {/* SECTION 4: NOTES (HIDDEN) */}
-          {/* Notes section intentionally left out as it was commented in original */}
 
         </div>
 

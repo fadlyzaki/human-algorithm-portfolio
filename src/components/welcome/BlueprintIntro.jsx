@@ -4,7 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { Camera, ChevronRight, Fingerprint, Lock } from 'lucide-react';
 import DraggablePhoto from '../DraggablePhoto';
 
-const BlueprintScene = ({ onComplete }) => {
+const BlueprintScene = ({ onComplete, onTransitionStart }) => {
     const [isVisible, setIsVisible] = useState(true);
     const [isAssembled, setIsAssembled] = useState(false);
     const containerRef = useRef(null);
@@ -33,6 +33,7 @@ const BlueprintScene = ({ onComplete }) => {
 
         // Trigger exit animation after a short delay showing the assembled state
         setTimeout(() => {
+            if (onTransitionStart) onTransitionStart();
             setIsVisible(false);
             setTimeout(() => {
                 if (onComplete) onComplete(false); // Tell parent it finished naturally
@@ -124,17 +125,19 @@ const BlueprintScene = ({ onComplete }) => {
                             />
 
                             {/* Real Card Contents (Hidden until assembled) */}
-                            <motion.div
-                                className="absolute inset-x-0 inset-y-0 flex items-center justify-center pointer-events-auto"
-                                style={{ opacity: finalFlashOpacity }}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: finalFlashOpacity }}
-                                transition={{ duration: 0.5, delay: 0.2 }}
-                            >
-                                <div className="w-full h-full scale-[1.05] flex items-center justify-center pt-8">
-                                    <DraggablePhoto />
-                                </div>
-                            </motion.div>
+                            {isVisible && (
+                                <motion.div
+                                    className="absolute inset-x-0 inset-y-0 flex items-center justify-center pointer-events-auto"
+                                    style={{ opacity: finalFlashOpacity }}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: finalFlashOpacity }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                >
+                                    <motion.div layoutId="hero-id-card" className="w-full h-full scale-[1.05] flex items-center justify-center pt-8">
+                                        <DraggablePhoto />
+                                    </motion.div>
+                                </motion.div>
+                            )}
                         </motion.div>
 
                         {/* 2. Photo Frame Wireframe */}
@@ -238,7 +241,7 @@ const BlueprintScene = ({ onComplete }) => {
     );
 };
 
-const BlueprintIntro = ({ onComplete }) => {
+const BlueprintIntro = ({ onComplete, onTransitionStart }) => {
     const [hasSeen, setHasSeen] = useState(true);
 
     useEffect(() => {
@@ -255,7 +258,7 @@ const BlueprintIntro = ({ onComplete }) => {
 
     if (hasSeen) return null;
 
-    return <BlueprintScene onComplete={onComplete} />;
+    return <BlueprintScene onComplete={onComplete} onTransitionStart={onTransitionStart} />;
 };
 
 export default BlueprintIntro;

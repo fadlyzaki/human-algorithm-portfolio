@@ -49,7 +49,7 @@ const getDelay = (lines) => {
     });
 };
 
-const HomeHero = ({ t }) => {
+const HomeHero = ({ t, renderIdCard = true }) => {
     const roleLine = `${t('home.role')} ·`;
     const roleSubLine = t('home.role_sub');
     const titleLine = t('home.intro_title');
@@ -95,9 +95,13 @@ const HomeHero = ({ t }) => {
                         </div>
                     </div>
 
-                    <div className="hidden md:block">
-                        <DraggablePhoto />
-                        <div className="space-y-4 font-mono text-xs text-[var(--text-secondary)]"></div>
+                    <div className="hidden md:block relative min-h-[400px]">
+                        {renderIdCard && (
+                            <motion.div layoutId="hero-id-card" className="w-full">
+                                <DraggablePhoto />
+                            </motion.div>
+                        )}
+                        <div className="space-y-4 font-mono text-xs text-[var(--text-secondary)] mt-4"></div>
                     </div>
                 </div>
 
