@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useTransform, useAnimation, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
-import { Camera, ChevronRight, Fingerprint, Lock } from 'lucide-react';
+import { Camera, ChevronRight, Fingerprint, Lock, MousePointer2 } from 'lucide-react';
 import DraggablePhoto from '../DraggablePhoto';
+import StickyNote from '../StickyNote';
 
 const BlueprintScene = ({ onComplete, onTransitionStart }) => {
     const [isVisible, setIsVisible] = useState(true);
@@ -71,6 +72,15 @@ const BlueprintScene = ({ onComplete, onTransitionStart }) => {
 
     // Slider background fill mapping
     const progressFillRight = useTransform(progress, [0, 1], ['100%', '0%']);
+
+    // Dynamic Typography Decoding properties (moved out of JSX to fix React Hook rules)
+    const displayUnknownEntity = useTransform(progress, [0, 0.24], ["block", "none"]);
+    const displaySystemThinker = useTransform(progress, [0.25, 0.49], ["none", "block"]);
+    const displayCreativeDev = useTransform(progress, [0.50, 0.74], ["none", "block"]);
+    const displayFadlyZaki = useTransform(progress, [0.75, 1], ["none", "block"]);
+    const glitchOverlayLeft = useTransform(progress, [0, 1], ['-100%', '100%']);
+    const displayDecrypting = useTransform(progress, [0, 0.5, 0.51, 1], ["inline", "inline", "none", "none"]);
+    const displayVerified = useTransform(progress, [0, 0.5, 0.51, 1], ["none", "none", "inline", "inline"]);
 
     return (
         <AnimatePresence>
@@ -157,38 +167,44 @@ const BlueprintScene = ({ onComplete, onTransitionStart }) => {
                             <div className="absolute top-1/2 -right-4 h-px w-2 bg-blue-500/50"></div>
                         </motion.div>
 
-                        {/* 3. Typography Wireframe (Dynamic Decoding based on drag progress) */}
+                        {/* 3. Creative Layer Wireframe (Sticky Note & UI Elements) */}
                         <motion.div
-                            className="absolute mt-24 flex flex-col items-center"
+                            className="absolute mt-12 ml-48 flex flex-col items-center pointer-events-none"
                             style={{ x: textX, y: textY, z: textZ, opacity: isAssembled ? 0 : 1 }}
                         >
-                            <div className="border border-blue-400/50 px-6 py-2 bg-blue-900/10 backdrop-blur-sm mb-3 relative overflow-hidden group">
-                                <motion.div className="flex flex-col items-center justify-center font-mono text-xl tracking-[0.2em] text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.5)]">
-                                    {/* The text changes based on the progress bracket */}
-                                    <motion.span style={{ display: useTransform(progress, [0, 0.24], ["block", "none"]) }}>UNKNOWN_ENTITY</motion.span>
-                                    <motion.span style={{ display: useTransform(progress, [0.25, 0.49], ["none", "block"]) }}>SYSTEM_THINKER</motion.span>
-                                    <motion.span style={{ display: useTransform(progress, [0.50, 0.74], ["none", "block"]) }}>CREATIVE_DEV</motion.span>
-                                    <motion.span style={{ display: useTransform(progress, [0.75, 1], ["none", "block"]) }}>FADLY_ZAKI</motion.span>
-                                </motion.div>
+                            {/* Bounding Box Wireframe */}
+                            <div className="w-48 h-24 border-2 border-dashed border-blue-400/40 rounded-xl relative flex items-center justify-center backdrop-blur-sm bg-blue-900/10">
+                                {/* Corners */}
+                                <div className="absolute -top-1 -left-1 w-2 h-2 bg-blue-400"></div>
+                                <div className="absolute -top-1 -right-1 w-2 h-2 bg-blue-400"></div>
+                                <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-blue-400"></div>
+                                <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-blue-400"></div>
 
-                                {/* Glitch overlay moving across the text based on slider speed */}
+                                <span className="font-mono text-[10px] text-blue-300/80 uppercase tracking-widest">Drop Component Here</span>
+
+                                {/* Floating Cursor */}
                                 <motion.div
-                                    className="absolute inset-0 bg-blue-400/20 mix-blend-overlay"
-                                    style={{
-                                        left: useTransform(progress, [0, 1], ['-100%', '100%']),
-                                        width: '50%'
+                                    className="absolute -right-6 -bottom-6 text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]"
+                                    animate={{
+                                        x: [0, -10, 0],
+                                        y: [0, -10, 0]
                                     }}
-                                />
-                            </div>
-                            <div className="border border-dashed border-blue-500/40 px-4 py-1">
-                                <motion.span
-                                    className="font-mono text-xs text-blue-400/70 tracking-widest uppercase"
+                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                                 >
-                                    {/* The sub-status updates with progress */}
-                                    <motion.span style={{ display: useTransform(progress, [0, 0.5, 0.51, 1], ["inline", "inline", "none", "none"]) }}>Decrypting...</motion.span>
-                                    <motion.span style={{ display: useTransform(progress, [0, 0.5, 0.51, 1], ["none", "none", "inline", "inline"]) }}>Identity Verified</motion.span>
-                                </motion.span>
+                                    <MousePointer2 size={24} fill="white" className="-rotate-12" />
+                                </motion.div>
                             </div>
+
+                            {/* Floating Sticky Note */}
+                            <motion.div
+                                className="absolute -top-16 -right-12"
+                                style={{ rotateZ: 8 }}
+                            >
+                                <StickyNote
+                                    text="Product Designer 🎨 & Systems Builder ⚙️"
+                                    className="text-amber-500 shadow-2xl scale-110 origin-bottom-left"
+                                />
+                            </motion.div>
                         </motion.div>
 
                         {/* 4. Footer/Barcode Wireframe */}
