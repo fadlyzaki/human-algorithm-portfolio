@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useTransform, useAnimation, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 import { Camera, ChevronRight, Fingerprint, Lock } from 'lucide-react';
+import DraggablePhoto from '../DraggablePhoto';
 
 const BlueprintScene = ({ onComplete }) => {
     const [isVisible, setIsVisible] = useState(true);
@@ -124,20 +125,14 @@ const BlueprintScene = ({ onComplete }) => {
 
                             {/* Real Card Contents (Hidden until assembled) */}
                             <motion.div
-                                className="absolute inset-0 bg-[#f4f2ee] rounded-2xl overflow-hidden p-6 flex flex-col items-center"
+                                className="absolute inset-x-0 inset-y-0 flex items-center justify-center pointer-events-auto"
+                                style={{ opacity: finalFlashOpacity }}
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: finalFlashOpacity }}
                                 transition={{ duration: 0.5, delay: 0.2 }}
                             >
-                                {/* Replica of Home ID Card */}
-                                <div className="w-16 h-1 bg-black/5 rounded-full mb-8"></div>
-                                <div className="w-32 h-32 rounded-xl bg-gray-200 mb-6 border-4 border-white shadow-lg relative overflow-hidden">
-                                    <img src="https://i.ibb.co.com/X5T6P2D/photo-2024-05-18-18-45-09.jpg" className="w-full h-full object-cover grayscale" alt="Profile" />
-                                </div>
-                                <h1 className="text-3xl font-serif font-semibold text-[#1a1c22]">Fadly Zaki</h1>
-                                <p className="text-[#1a1c22]/60 font-mono text-sm mt-2 tracking-wide uppercase">Creative Engineer</p>
-                                <div className="mt-auto w-full border-t border-black/10 pt-4 opacity-50">
-                                    <div className="h-6 w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEwJSIgeD0iMTAiIGZpbGw9IiMwMDAiLz48cmVjdCB3aWR0aD0iMyIgaGVpZ2h0PSIxMDAlIiB4PSIxNSIgZmlsbD0iIzAwMCIvPjxyZWN0IHdpZHRoPSIyIiBoZWlnaHQ9IjEwJSIgeD0iMjIiIGZpbGw9IiMwMDAiLz48cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxMDAlIiB4PSIyOCIgZmlsbD0iIzAwMCIvPjwvc3ZnPg==')] bg-repeat-x opacity-30"></div>
+                                <div className="w-full h-full scale-[1.05] flex items-center justify-center pt-8">
+                                    <DraggablePhoto />
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -197,8 +192,16 @@ const BlueprintScene = ({ onComplete }) => {
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 className="absolute bottom-16 w-full max-w-xs px-6"
                             >
-                                <div className="text-center mb-4">
-                                    <span className="font-mono text-xs text-blue-400/80 tracking-[0.3em] uppercase">Initialize Vector System</span>
+                                <div className="text-center mb-6 flex flex-col items-center gap-2">
+                                    <motion.h2
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+                                        className="text-white font-serif text-3xl md:text-4xl tracking-wide font-light"
+                                    >
+                                        Welcome
+                                    </motion.h2>
+                                    <span className="font-mono text-[10px] text-blue-400/60 tracking-[0.4em] uppercase">Initialize Identity System</span>
                                 </div>
 
                                 {/* Slider Track */}

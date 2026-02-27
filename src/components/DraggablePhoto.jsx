@@ -9,8 +9,16 @@ const DraggablePhoto = () => {
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
   const [designVariant, setDesignVariant] = useState(() => {
+    try {
+      const stored = sessionStorage.getItem('currentDesignVariant');
+      if (stored) return stored;
+    } catch (e) { /* ignore */ }
     const variants = ['industrial', 'cyberpunk', 'swiss', 'glassmorphism', 'retro', 'neo-brutalism', 'holographic'];
-    return variants[Math.floor(Math.random() * variants.length)];
+    const selected = variants[Math.floor(Math.random() * variants.length)];
+    try {
+      sessionStorage.setItem('currentDesignVariant', selected);
+    } catch (e) { /* ignore */ }
+    return selected;
   });
 
   const items = [
@@ -28,7 +36,11 @@ const DraggablePhoto = () => {
     e.stopPropagation();
     const variants = ['industrial', 'cyberpunk', 'swiss', 'glassmorphism', 'retro', 'neo-brutalism', 'holographic'];
     const nextIndex = (variants.indexOf(designVariant) + 1) % variants.length;
-    setDesignVariant(variants[nextIndex]);
+    const nextVariant = variants[nextIndex];
+    setDesignVariant(nextVariant);
+    try {
+      sessionStorage.setItem('currentDesignVariant', nextVariant);
+    } catch (e) { /* ignore */ }
   };
 
   const currentItem = items[index];
