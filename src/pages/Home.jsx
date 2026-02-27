@@ -22,6 +22,7 @@ import useThemeStyles from '../hooks/useThemeStyles';
 import useScrollDirection from '../hooks/useScrollDirection';
 import { useHandCursor } from '../context/HandCursorContext';
 import { useLanguage } from '../context/LanguageContext';
+import BlueprintIntro from '../components/welcome/BlueprintIntro';
 
 const Portfolio = () => {
   /* --- STATE & HOOKS --- */
@@ -30,6 +31,7 @@ const Portfolio = () => {
   const { isGestureMode } = useHandCursor();
   const { t, language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const showNav = useScrollDirection(isGestureMode);
 
   const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
@@ -38,7 +40,7 @@ const Portfolio = () => {
 
   // Handle Hash Scrolling on Mount
   useEffect(() => {
-    if (location.hash) {
+    if (location.hash && !showIntro) {
       setTimeout(() => {
         const element = document.querySelector(location.hash);
         if (element) {
@@ -46,7 +48,19 @@ const Portfolio = () => {
         }
       }, 100); // Small delay to ensure rendering
     }
-  }, [location.hash]);
+  }, [location.hash, showIntro]);
+
+  // Lock body scroll when intro is showing
+  useEffect(() => {
+    if (showIntro) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto'; // Cleanup
+    };
+  }, [showIntro]);
 
   const isId = language === 'id';
 
@@ -55,6 +69,8 @@ const Portfolio = () => {
       style={themeStyles}
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] overflow-x-hidden transition-colors duration-500"
     >
+      <BlueprintIntro onComplete={() => setShowIntro(false)} />
+
       <SEO
         schema={{
           "@context": "https://schema.org",
