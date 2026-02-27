@@ -193,18 +193,25 @@ const BlueprintScene = ({ onComplete, onTransitionStart }) => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
-                                className="absolute bottom-16 w-full max-w-xs px-6"
+                                className="absolute bottom-16 w-full max-w-sm px-6"
                             >
-                                <div className="text-center mb-6 flex flex-col items-center gap-2">
+                                <div className="text-center mb-8 flex flex-col items-center gap-3">
                                     <motion.h2
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        animate={{ opacity: 1, scale: 1 }}
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                                         className="text-white font-serif text-3xl md:text-4xl tracking-wide font-light"
                                     >
-                                        Welcome
+                                        Hello there.
                                     </motion.h2>
-                                    <span className="font-mono text-[10px] text-blue-400/60 tracking-[0.4em] uppercase">Initialize Identity System</span>
+                                    <motion.p
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+                                        className="font-mono text-xs text-blue-400/80 leading-relaxed max-w-[260px]"
+                                    >
+                                        Drag to assemble and discover more about who I am and what I can do.
+                                    </motion.p>
                                 </div>
 
                                 {/* Slider Track */}
