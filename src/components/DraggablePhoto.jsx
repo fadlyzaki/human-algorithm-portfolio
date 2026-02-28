@@ -184,9 +184,15 @@ const DraggablePhoto = ({ hideControls = false }) => {
             <h2 className="text-3xl font-black tracking-tighter leading-none dark:[--sw-stroke:#fff] whitespace-nowrap" style={{ WebkitTextStroke: '1px var(--sw-stroke, #000)', WebkitTextFillColor: 'transparent' }}>FADLY 🧢</h2>
           </div>
           <div className="grid grid-cols-2 gap-4 pt-4">
-            <div>
-              <label className="font-bold text-xs block mb-1 text-black dark:text-white">{t('id_card.id_no') || 'ID NO'}</label>
-              <span className="font-mono text-sm text-black dark:text-white">1407-1995</span>
+            <div className="space-y-3">
+              <div>
+                <label className="font-bold text-xs block mb-1 text-black dark:text-white">{t('id_card.id_no') || 'ID NO'}</label>
+                <span className="font-mono text-sm text-black dark:text-white">1407-1995</span>
+              </div>
+              <div>
+                <label className="font-bold text-xs block mb-1 text-black dark:text-white">{t('id_card.exp') || 'EXP'}</label>
+                <span className="font-mono text-sm text-black dark:text-white uppercase">{t('id_card.indefinite') || 'INDEFINITE'}</span>
+              </div>
             </div>
             <div>
               <label className="font-bold text-xs block mb-1 text-black dark:text-white">{t('company.role') || 'Role'}</label>
@@ -235,10 +241,14 @@ const DraggablePhoto = ({ hideControls = false }) => {
 
           <div className="h-[1px] w-full bg-gradient-to-r from-black/20 via-black/10 to-transparent dark:from-white/20 dark:via-white/10 dark:to-transparent"></div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-2">
             <div>
               <label className="text-[8px] font-mono text-black/50 dark:text-white/40 block font-bold uppercase">{t('id_card.id_no') || 'ID_NO'}</label>
               <span className="text-xs font-mono font-black text-black/90 dark:text-white/90">1407-1995</span>
+            </div>
+            <div>
+              <label className="text-[8px] font-mono text-black/50 dark:text-white/40 block font-bold uppercase">{t('id_card.exp') || 'EXP'}</label>
+              <span className="text-[10px] font-mono font-black text-black/90 dark:text-white/90 uppercase">{t('id_card.indefinite') || 'INDEFINITE'}</span>
             </div>
             <div className="">
               <label className="text-[8px] font-mono text-black/50 dark:text-white/40 block font-bold uppercase">{t('company.role') || 'TYPE'}</label>
@@ -269,6 +279,10 @@ const DraggablePhoto = ({ hideControls = false }) => {
           <div>
             <label className="text-[9px] text-black dark:text-white font-mono block uppercase underline">{t('id_card.id_no') || 'ID_NO'}</label>
             <span className="text-sm font-mono text-black dark:text-white font-bold">1407-1995</span>
+          </div>
+          <div>
+            <label className="text-[9px] text-black dark:text-white font-mono block uppercase underline">{t('id_card.exp') || 'EXP'}</label>
+            <span className="text-[10px] font-mono text-black dark:text-white font-bold uppercase">{t('id_card.indefinite') || 'INDEFINITE'}</span>
           </div>
           <div>
             <label className="text-[9px] text-black dark:text-white font-mono block uppercase underline">{t('company.role') || 'ROLE'}</label>
@@ -313,7 +327,10 @@ const DraggablePhoto = ({ hideControls = false }) => {
 
       {/* Footer */}
       <div className="h-12 border-t-4 border-black dark:border-white flex items-center justify-between mt-auto pt-2">
-        <span className="text-sm font-mono text-black dark:text-white font-black uppercase">{t('id_card.id_no') || 'ID_NO'}: 1407-1995</span>
+        <div className="flex flex-col">
+          <span className="text-[11px] font-mono text-black dark:text-white font-black uppercase leading-tight">{t('id_card.id_no') || 'ID_NO'}: 1407-1995</span>
+          <span className="text-[10px] font-mono text-black dark:text-white font-bold uppercase leading-tight">{t('id_card.exp') || 'EXP'}: {t('id_card.indefinite') || 'INDEFINITE'}</span>
+        </div>
         <div className="px-2 py-1 bg-black dark:bg-white text-white dark:text-black border-2 border-black dark:border-white text-[10px] font-black font-mono uppercase">
           {t('id_card.access_level') || 'ROOT_ACCESS'}
         </div>
@@ -358,8 +375,9 @@ const DraggablePhoto = ({ hideControls = false }) => {
               <h2 className="text-2xl font-black tracking-tighter leading-none mb-1 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-300 dark:to-gray-500 whitespace-nowrap">🧢 FADLY UZZAKI</h2>
               <span className="text-[9px] font-mono text-gray-700 dark:text-gray-400 uppercase tracking-widest block font-bold">{t('id_card.role') || 'Product Designer'}</span>
             </div>
-            <div className="text-right">
-              <span className="text-[10px] font-mono font-bold text-gray-800 dark:text-gray-300">1407-1995</span>
+            <div className="text-right flex flex-col items-end justify-end">
+              <span className="text-[10px] font-mono font-bold text-gray-800 dark:text-gray-300 leading-none">1407-1995</span>
+              <span className="text-[8px] font-mono text-gray-600 dark:text-gray-400 mt-1 uppercase leading-none">{t('id_card.exp') || 'EXP'}: {t('id_card.indefinite') || 'INDEFINITE'}</span>
             </div>
           </div>
           {/* Tech grid bottom detail */}
