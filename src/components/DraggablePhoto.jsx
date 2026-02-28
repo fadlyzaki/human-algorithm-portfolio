@@ -24,7 +24,7 @@ const DraggablePhoto = ({ hideControls = false }) => {
   const items = [
     { type: 'identity', src: '/hero-id-v2.jpg' },
     { type: 'image', src: '/hero-running.jpg', alt: 'run 5k weekly' },
-    { type: 'image', src: '/hero-lumina.jpg', alt: 'Career clinic from LUMINA' },
+    { type: 'image', src: '/hero-lumina-new.jpg', alt: 'Lumina: Symptoms showing, but not knowing' },
     { type: 'image', src: '/hero-stoqo.jpg', alt: 'byebye STOQO' },
   ];
 
