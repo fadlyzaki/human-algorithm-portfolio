@@ -31,7 +31,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
         >
             {/* === BACK OF FOLDER === */}
             <div
-                className="absolute inset-x-0 bottom-0 top-0 rounded-b-2xl rounded-tr-2xl shadow-xl transition-colors duration-500 overflow-visible"
+                className="absolute inset-x-0 bottom-0 top-0 rounded-b-2xl rounded-tr-2xl shadow-xl transition-colors duration-500 overflow-visible z-10"
                 style={{ backgroundColor: brandColor }}
             >
                 {/* Inside shadow to give depth */}
@@ -51,15 +51,15 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
             </div>
 
             {/* === THE 3 FANNING CARDS === */}
-            <div className="absolute inset-x-0 bottom-1 sm:bottom-3 flex justify-center pointer-events-none" style={{ transformStyle: 'preserve-3d' }}>
+            <div className="absolute inset-x-0 bottom-2 sm:bottom-4 flex justify-center pointer-events-none z-20" style={{ transformStyle: 'preserve-3d' }}>
 
                 {/* 1. LEFT BACKGROUND CARD (Project Diagram) */}
                 <motion.div
                     className="absolute w-[80%] bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-xl flex flex-col overflow-hidden origin-bottom pointer-events-auto"
                     initial={false}
                     animate={{
-                        height: 280,
-                        y: isOpen ? -60 : 0,
+                        height: isOpen ? 280 : 220,
+                        y: isOpen ? -60 : 36,
                         x: isOpen ? -40 : 0,
                         rotateZ: isOpen ? -8 : 0,
                         opacity: isOpen ? 1 : 0
@@ -77,8 +77,8 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
                     className="absolute w-[80%] bg-[#fcfcfc] dark:bg-neutral-800 border border-black/10 dark:border-white/10 rounded-xl shadow-xl p-5 origin-bottom flex flex-col pointer-events-auto"
                     initial={false}
                     animate={{
-                        height: 280,
-                        y: isOpen ? -40 : 0,
+                        height: isOpen ? 280 : 220,
+                        y: isOpen ? -40 : 36,
                         x: isOpen ? 50 : 0,
                         rotateZ: isOpen ? 12 : 0,
                         opacity: isOpen ? 1 : 0
@@ -102,8 +102,8 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
                     className="absolute w-[88%] bg-[#ffffff] dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-2xl flex flex-col origin-bottom pointer-events-auto z-20"
                     initial={false}
                     animate={{
-                        height: isOpen ? 340 : 260,
-                        y: isOpen ? -110 : 0,
+                        height: isOpen ? 340 : 240,
+                        y: isOpen ? -110 : 36,
                         rotateZ: isOpen ? 0 : 0, // Stays straight for reading
                     }}
                     transition={{ type: 'spring', stiffness: 240, damping: 25, delay: isOpen ? 0.15 : 0 }}
@@ -154,7 +154,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
 
             {/* === FRONT FLAP === */}
             <motion.div
-                className="absolute inset-x-0 bottom-0 h-full rounded-2xl flex flex-col pointer-events-none"
+                className="absolute inset-0 rounded-2xl flex flex-col pointer-events-none z-30"
                 style={{ backgroundColor: brandColor, transformOrigin: 'bottom center', transformStyle: 'preserve-3d' }}
                 animate={{
                     rotateX: isOpen ? -75 : (isHovered ? -5 : 0),
