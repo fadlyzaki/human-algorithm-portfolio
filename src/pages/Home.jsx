@@ -9,14 +9,12 @@ import ProgressBar from '../components/ProgressBar';
 import NavigationMenu from '../components/NavigationMenu';
 import Navbar from '../components/Navbar';
 
-// Sub-components
+// Sub-components (Aggressively Lazy-Loaded for Mobile RES fix)
 import HomeHero from '../components/home/HomeHero';
 import HomeWorkSection from '../components/home/HomeWorkSection';
-import HomeSideProjects from '../components/home/HomeSideProjects';
-import HomeAbout from '../components/home/HomeAbout';
-import HomeBlogSection from '../components/home/HomeBlogSection';
-import FaqSection from '../components/FaqSection';
-
+const HomeSideProjects = React.lazy(() => import('../components/home/HomeSideProjects'));
+const HomeAbout = React.lazy(() => import('../components/home/HomeAbout'));
+const FaqSection = React.lazy(() => import('../components/FaqSection'));
 
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
@@ -145,14 +143,20 @@ const Portfolio = () => {
             {/* SECTION 1: WORK */}
             <HomeWorkSection t={t} />
 
-            {/* SECTION 2: SIDE PROJECTS */}
-            <HomeSideProjects t={t} isId={isId} />
+            {/* SECTION 2: SIDE PROJECTS (LAZY) */}
+            <React.Suspense fallback={<div className="h-96 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>}>
+              <HomeSideProjects t={t} isId={isId} />
+            </React.Suspense>
 
-            {/* SECTION 3: ABOUT ME */}
-            <HomeAbout t={t} />
+            {/* SECTION 3: ABOUT ME (LAZY) */}
+            <React.Suspense fallback={<div className="h-96 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>}>
+              <HomeAbout t={t} />
+            </React.Suspense>
 
-            {/* SECTION 4: FAQs */}
-            <FaqSection />
+            {/* SECTION 4: FAQs (LAZY) */}
+            <React.Suspense fallback={<div className="h-48 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>}>
+              <FaqSection />
+            </React.Suspense>
 
           </div>
 

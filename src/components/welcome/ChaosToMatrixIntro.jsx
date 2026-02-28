@@ -219,6 +219,12 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
                                 <div key={phase} className="font-mono text-emerald-400 text-sm overflow-hidden whitespace-nowrap border-r-2 border-emerald-400 pr-1 typewriter-text">
                                     {phase === 'initializing' ? '> Initializing Human Algorithm...' : '> Awaiting inputs...'}
                                 </div>
+                                {/* VISIBLE SKIP HINT (Evaluation Recommendation #2) */}
+                                <div className="mt-4 text-center">
+                                    <span className="font-mono text-[10px] tracking-widest text-emerald-400/50 uppercase animate-pulse">
+                                        [ Press any key to bypass ]
+                                    </span>
+                                </div>
                             </motion.div>
                         )}
                     </AnimatePresence>
