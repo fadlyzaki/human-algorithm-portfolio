@@ -1,26 +1,34 @@
-# Product Requirements Document (PRD): Human Algorithm Portfolio v3.0
+# Product Requirements Document (PRD): Human Algorithm v6.0
 
-## 1. Executive Summary
-The "Human Algorithm Portfolio" is a high-performance, narrative-driven personal platform for Fadly Uzzaki. Unlike traditional portfolios, this system is architected as an "Interactive Manifesto" that demonstrates where software logic meets human intuition.
+## 1. Executive Strategy & Vision
+**Product Name:** Human Algorithm (Portfolio Platform)
+**Product Owner:** Fadly Uzzaki
 
-**Strategic Goal**: Establish the user as a Design Engineer who builds resilient workflows that tame complexity and free up mental bandwidth when it matters most. This platform must demonstrate this duality through both its *content* (case studies) and its *code* (interactive physics, efficient rendering).
+### The North Star
+The "Human Algorithm" is not a traditional static portfolio—it is an *Interactive Manifesto*. We are building a high-performance, narrative-driven digital platform that physically deploys the thesis: "I design where software logic meets human intuition." 
 
-## 2. Success Metrics (KPIs)
-*   **Performance**: Core Web Vitals (LCP < 2.5s, FID < 100ms) on mobile networks.
-*   **Conversion**: >15% click-through rate from Home to "System Manifest" (CV).
-*   **Retention**: >45s average session duration on Case Study pages (indicating deep reading).
-*   **ATS Compliance**: 100% parse rate for the printable CV generated from `SystemManifest`.
+This platform serves as undeniable proof of work, showcasing the ability to ingest chaotic data, tame systemic complexity, and output deeply resilient, accessible workflows that liberate human cognitive bandwidth.
 
-## 3. Market Positioning & Personas
-*   **The Technical Recruiter (High Frequency)**: Requires sub-2-second access to core credentials and an ATS-optimized, printable "System Manifest" (CV).
-*   **The Head of Product/Design (High Depth)**: Demands a structured narrative ("The Why") focusing on "Cognitive Load Optimization" and "Resilience-First" UX.
-*   **The Creative Peer (Viral/Engagement)**: Values the technical "Easter eggs," draggable physics, and the cyberpunk-industrial aesthetic ("The Void").
-*   **The Global Hiring Manager**: Needs clear context on local achievements (GudangAda, etc.) framed through universal problems (B2B scale, friction reduction).
+## 2. Market Positioning & ICP (Ideal Customer Profile)
+We are positioning this product for conversion against three highly specific archetypes:
 
-## 4. Risk Management
-*   **Accessibility (a11y)**: High-concept interactions (hand tracking, custom cursors) must fail gracefully to standard pointer events for screen readers/keyboard users.
-*   **Performance Overhead**: Large libraries (MediaPipe, Framer Motion) must be lazy-loaded to prevent main-thread blocking on initial load.
-*   **Data Privacy**: Case study decryption occurs entirely client-side; no sensitive data is ever transmitted to a server.
+1. **The Technical Recruiter (High Frequency / Low Attention)**: Demands sub-2-second Time to Interactive (TTI) and immediate access to verifiable credentials. Served via an ATS-optimized, printable "System Manifest" (CV Engine).
+2. **The Head of Product/Design (High Depth / High Scrutiny)**: Evaluates structural thinking and resilience. Target conversion relies on reading our deep-dive methodology case studies (Research → Insight → Design → Ship → Measure).
+3. **The Design Technologist / CTO Peer (High Engagement / Viral Catalyst)**: Looking for technical excellence. Served via Framer Motion physics, MediaPipe WASM hand-tracking, and strict 60fps React render budgets.
+
+## 3. Core OKRs & Success Metrics
+**Objective 1: Extreme Performance & Accessibility**
+* **Key Result**: Maintain Core Web Vitals at peak (LCP < 2.5s, FID < 100ms) on mobile 3G.
+* **Key Result**: 100% Graceful Degradation (e.g., Camera tracking safely falls back to standard pointer events if permission is denied).
+
+**Objective 2: Maximized Conversion Protocol**
+* **Key Result**: >15% click-through rate from the Homepage to the ATS-Compliant System Manifest.
+* **Key Result**: Average session duration >45 seconds on primary Case Study pages, indicating actual deep-reading of the methodology.
+* **Key Result**: 100% semantic parsing success rate of the printable CV by enterprise ATS systems (Workday, Greenhouse).
+
+## 4. Risk Management & Governance
+* **Performance Debt**: Introduction of complex physics (Framer Motion) must strictly utilize `layoutId` and independent transform layers to avoid main-thread UI blocking and layout thrashing.
+* **Privacy Compliance**: All camera streams and computer vision processing must remain strictly ephemeral and client-bound. Absolute lifecycle cleanup occurs dynamically upon component unmount.
 
 ## 3. Product Architecture
 
@@ -289,5 +297,4 @@ The `/sketches` route utilizes a dynamic Masonry grid (`MasonryGallery.jsx`) tha
 ---
 **Document Status**: *ACTIVE*  
 **Product Owner**: Fadly Uzzaki  
-**Maintainer**: Human Algorithm Agent (Antigravity)
-
+*Shipping resilience. Optimizing for human bandwidth.*
