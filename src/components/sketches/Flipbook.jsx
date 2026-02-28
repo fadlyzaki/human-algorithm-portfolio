@@ -231,18 +231,32 @@ export const Flipbook = ({
 
                 {/* --- DESKTOP LOGIC (PHYSICAL SHEETS) --- */}
                 {!isMobile && Array.from({ length: totalSpreads }).map((_, i) => {
-                    const isFlipped = spreadIndex > i;
-                    const isFlipping = (direction === 1 && spreadIndex - 1 === i) || (direction === -1 && spreadIndex === i);
+                    // A sheet is considered "flipped" (resting on left side) if its index is strictly less than the current spread.
+                    const isFlipped = i < spreadIndex;
 
-                    // GPU Culling: Only render the top 2 sheets on either side of the spine
-                    // to prevent overlapping 50 divs.
-                    const isVisible = Math.abs(spreadIndex - i) <= 2;
+                    // A sheet is "flipping" if it is actively transitioning between left and right.
+                    const isFlipping =
+                        (direction === 1 && i === spreadIndex - 1) ||
+                        (direction === -1 && i === spreadIndex);
+
+                    // GPU Culling: Only render sheets close to the current spread.
+                    // We must ensure the actual "active" target sheets (even when flipping backward) stay visible.
+                    const isVisible = Math.abs(spreadIndex - i) <= 2 || isFlipping;
                     if (!isVisible) return null;
 
                     // Fix Z-index stacking so the sheet closest to the viewer is always on top.
-                    // When resting on the right (not flipped), lower index sheets (front of book) should be on top.
-                    // When resting on the left (flipped), higher index sheets (back of book) should be on top.
-                    const zIndex = isFlipping ? 50 : (isFlipped ? i : totalSpreads - i);
+                    let zIndex = 0;
+                    if (isFlipping) {
+                        zIndex = 50; // Active flying sheet is always highest
+                    } else if (isFlipped) {
+                        // Resting on the left. The sheet flipped MOST RECENTLY should be on top.
+                        // So higher i = higher zIndex.
+                        zIndex = 20 + i;
+                    } else {
+                        // Resting on the right. The sheet NEXT to be flipped should be on top.
+                        // So lower i = higher zIndex.
+                        zIndex = 20 - i;
+                    }
 
                     return (
                         <motion.div
