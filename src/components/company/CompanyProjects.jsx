@@ -7,190 +7,172 @@ import ProjectCard from '../ProjectCard';
 import IconMapper from '../ui/IconMapper';
 
 const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
-    const [isOpen, setIsOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const innerRef = useRef(null);
+    const [innerHeight, setInnerHeight] = useState(0);
+
+    useEffect(() => {
+        if (innerRef.current) {
+            setInnerHeight(innerRef.current.offsetHeight);
+        }
+    }, []);
 
     const title = isId ? (project.title_id || project.title) : project.title;
     const problem = isId ? (project.details_id?.problem || project.details.problem) : project.details.problem;
     const outcome = isId ? (project.details_id?.outcome || project.details.outcome) : project.details.outcome;
     const isWip = !['stoqo-logistics', 'stoqo-sales'].includes(project.id);
 
-    const toggleOpen = (e) => {
-        // Prevent toggle if clicking the CTA inside the open folder
-        if (e.target.closest('button')) return;
-        setIsOpen(!isOpen);
-    };
-
     return (
         <div
-            className="relative w-full h-[260px] sm:h-[300px] mt-12 cursor-pointer group pointer-events-auto"
-            style={{ perspective: '1400px' }}
+            className="relative cursor-pointer group"
+            style={{ perspective: '800px' }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={toggleOpen}
+            onClick={onClick}
         >
-            {/* === BACK OF FOLDER === */}
-            <div
-                className="absolute inset-x-0 bottom-0 top-0 rounded-b-2xl rounded-tr-2xl shadow-xl transition-colors duration-500 overflow-visible z-10"
-                style={{ backgroundColor: brandColor }}
-            >
-                {/* Inside shadow to give depth */}
-                <div className="absolute inset-0 bg-black/25 dark:bg-black/60 rounded-b-2xl rounded-tr-2xl" />
-
-                {/* File Folder Tab */}
-                <div
-                    className="absolute bottom-full left-0 w-1/2 sm:w-2/5 h-10 rounded-t-xl flex items-center px-4 transition-colors duration-500"
-                    style={{ backgroundColor: brandColor }}
+            {/* === FOLDER TAB === */}
+            <div className="relative z-20 ml-6 inline-flex items-center">
+                <motion.div
+                    className="px-4 py-1.5 rounded-t-lg font-mono text-[10px] uppercase tracking-[0.15em] border border-b-0 flex items-center gap-2"
+                    animate={{
+                        backgroundColor: isHovered ? brandColor : 'var(--bg-card)',
+                        color: isHovered ? '#ffffff' : 'var(--text-secondary)',
+                        borderColor: isHovered ? brandColor : 'var(--border-color)',
+                    }}
+                    transition={{ duration: 0.3 }}
                 >
-                    <div className="absolute inset-0 bg-black/25 dark:bg-black/60 rounded-t-xl" />
-                    <FileText size={12} className="text-white/80 dark:text-white/60 relative z-10 mr-2 shrink-0" />
-                    <span className="relative z-10 text-[10px] sm:text-[11px] font-mono text-white/90 dark:text-white/70 uppercase tracking-widest truncate">
-                        {project.type}
-                    </span>
-                </div>
+                    <FileText size={10} />
+                    {title}
+                </motion.div>
             </div>
 
-            {/* === THE 3 FANNING CARDS === */}
-            <div className="absolute inset-0 flex justify-center items-end pb-6 sm:pb-8 pointer-events-none z-20" style={{ transformStyle: 'preserve-3d' }}>
+            {/* === FOLDER BODY === */}
+            <div className="relative h-[400px]" style={{ clipPath: 'inset(-8px -4px -10px -4px)' }}>
 
-                {/* 1. LEFT BACKGROUND CARD (Project Diagram) */}
-                <motion.div
-                    className="absolute w-[80%] bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-xl flex flex-col overflow-hidden origin-bottom pointer-events-auto"
-                    initial={false}
-                    animate={{
-                        height: isOpen ? 280 : 220,
-                        y: isOpen ? -60 : 36,
-                        x: isOpen ? -40 : 0,
-                        rotateZ: isOpen ? -8 : 0,
-                        opacity: isOpen ? 1 : 0
-                    }}
-                    transition={{ type: 'spring', stiffness: 220, damping: 22, delay: isOpen ? 0.05 : 0 }}
-                >
-                    <div className="w-full h-full relative bg-stone-100 dark:bg-black">
-                        <ProjectCard type={project.type} id={project.id} expanded={true} />
-                        <div className="absolute inset-0 bg-white/40 dark:bg-black/40 backdrop-blur-[1px]" />
-                    </div>
-                </motion.div>
+                {/* ——— INNER LAYER: "Documents Inside the Folder" ——— */}
+                <div className="absolute inset-0 rounded-2xl rounded-tl-none border border-[var(--border-color)] bg-[var(--bg-card)]">
+                    {/* Stacked paper edge lines for depth */}
+                    <div className="absolute -bottom-[3px] left-3 right-3 h-[3px] rounded-b-xl bg-[var(--bg-card)] border border-t-0 border-[var(--border-color)] opacity-60" />
+                    <div className="absolute -bottom-[6px] left-6 right-6 h-[3px] rounded-b-xl bg-[var(--bg-card)] border border-t-0 border-[var(--border-color)] opacity-30" />
 
-                {/* 2. RIGHT BACKGROUND CARD (Metadata) */}
-                <motion.div
-                    className="absolute w-[80%] bg-[#fcfcfc] dark:bg-neutral-800 border border-black/10 dark:border-white/10 rounded-xl shadow-xl p-5 origin-bottom flex flex-col pointer-events-auto"
-                    initial={false}
-                    animate={{
-                        height: isOpen ? 280 : 220,
-                        y: isOpen ? -40 : 36,
-                        x: isOpen ? 50 : 0,
-                        rotateZ: isOpen ? 12 : 0,
-                        opacity: isOpen ? 1 : 0
-                    }}
-                    transition={{ type: 'spring', stiffness: 220, damping: 22, delay: isOpen ? 0.1 : 0 }}
-                >
-                    <div className="flex flex-col h-full opacity-60">
-                        <div className="w-12 h-12 rounded-full border border-dashed border-black/20 dark:border-white/20 flex items-center justify-center mb-4">
-                            <span className="font-mono text-[8px] uppercase">{project.type.substring(0, 3)}</span>
-                        </div>
-                        <div className="space-y-3 w-full">
-                            {[1, 2, 3, 4].map(i => (
-                                <div key={i} className="h-2 rounded bg-black/5 dark:bg-white/5 w-full" style={{ width: `${Math.random() * 40 + 60}%` }} />
-                            ))}
-                        </div>
-                    </div>
-                </motion.div>
+                    {/* Inner Content — problem/outcome at bottom so it's revealed by cover lift */}
+                    <div ref={innerRef} className="absolute bottom-0 left-0 right-0 p-5 pb-6">
 
-                {/* 3. CENTER FRONT CARD (The Readable Document) */}
-                <motion.div
-                    className="absolute w-[88%] bg-[#ffffff] dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-2xl flex flex-col origin-bottom pointer-events-auto z-20"
-                    initial={false}
-                    animate={{
-                        height: isOpen ? 340 : 240,
-                        y: isOpen ? -110 : 36,
-                        rotateZ: isOpen ? 0 : 0, // Stays straight for reading
-                    }}
-                    transition={{ type: 'spring', stiffness: 240, damping: 25, delay: isOpen ? 0.15 : 0 }}
-                >
-                    <div className="p-5 flex flex-col h-full bg-[var(--bg-card)] rounded-xl">
-                        <h3 className="text-xl sm:text-2xl font-serif italic text-[var(--text-primary)] mb-4">{title}</h3>
-
-                        {/* Readable Text Grid */}
-                        <div className="grid grid-cols-2 gap-4 flex-grow">
-                            <div>
-                                <span className="font-mono text-[8.5px] uppercase tracking-[0.2em] flex items-center gap-1.5 text-red-500 mb-2">
-                                    <span className="w-1.5 h-1.5 bg-red-500 rounded-full" /> {t('company.problem')}
+                        {/* Problem / Outcome Grid (bottom area — visible when cover peeks) */}
+                        <div className="grid grid-cols-2 gap-5 mb-4">
+                            <div className="space-y-2">
+                                <span className="font-mono text-[9px] uppercase tracking-[0.2em] flex items-center gap-1.5 text-red-400">
+                                    <span className="w-1 h-1 bg-red-400 rounded-full" /> {t('company.problem')}
                                 </span>
-                                <p className="text-[11px] leading-[1.6] text-[var(--text-secondary)] line-clamp-4 pr-1">
+                                <p className="text-[11px] leading-[1.6] text-[var(--text-secondary)] line-clamp-4">
                                     {problem}
                                 </p>
                             </div>
-                            <div>
-                                <span className="font-mono text-[8.5px] uppercase tracking-[0.2em] flex items-center gap-1.5 mb-2" style={{ color: brandColor }}>
-                                    <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: brandColor }} /> {t('company.fix')}
+                            <div className="space-y-2">
+                                <span className="font-mono text-[9px] uppercase tracking-[0.2em] flex items-center gap-1.5" style={{ color: brandColor }}>
+                                    <span className="w-1 h-1 rounded-full" style={{ backgroundColor: brandColor }} /> {t('company.fix')}
                                 </span>
-                                <p className="text-[11px] leading-[1.6] font-medium text-[var(--text-primary)] line-clamp-4 pr-1">
+                                <p className="text-[11px] leading-[1.6] font-medium text-[var(--text-primary)] line-clamp-4">
                                     {outcome}
                                 </p>
                             </div>
                         </div>
 
-                        {/* CTA Row */}
-                        <div className="mt-4 pt-4 border-t border-dashed border-black/10 dark:border-white/10 flex items-center justify-between shrink-0">
-                            <span className="text-[9px] font-mono text-[var(--text-secondary)] uppercase tracking-widest hidden sm:block">
-                                Authorized Personnel Only
-                            </span>
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    onClick();
-                                }}
-                                className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.1em] font-bold px-4 py-2 rounded hover:opacity-80 transition-opacity ml-auto"
-                                style={{ backgroundColor: brandColor, color: '#fff' }}
-                            >
-                                <Lock size={10} className="mb-[1px]" />
+                        {/* CTA */}
+                        <div className="flex items-center gap-2 pt-3 border-t border-dashed border-[var(--border-color)]">
+                            <Lock size={10} style={{ color: brandColor }} />
+                            <span className="font-mono text-[10px] uppercase tracking-[0.15em]" style={{ color: brandColor }}>
                                 {t('company.view_case')}
-                            </button>
+                            </span>
+                            <ArrowUpRight size={11} style={{ color: brandColor }} className="ml-auto" />
                         </div>
                     </div>
+                </div>
+
+                {/* ——— COVER LAYER: Lifts to reveal documents ——— */}
+                <motion.div
+                    className="absolute inset-0 z-10 rounded-2xl rounded-tl-none"
+                    style={{
+                        transformOrigin: 'top center',
+                        transformStyle: 'preserve-3d',
+                    }}
+                    animate={{
+                        rotateX: isHovered ? -8 : 0,
+                        y: isHovered ? -(innerHeight + 16) : 0,
+                        scale: isHovered ? 0.97 : 1,
+                    }}
+                    transition={{
+                        type: 'spring',
+                        stiffness: 180,
+                        damping: 22,
+                    }}
+                >
+                    {/* Cover Material */}
+                    <div className="absolute inset-0 rounded-2xl rounded-tl-none bg-stone-100 dark:bg-neutral-800 border border-[var(--border-color)] shadow-lg transition-shadow duration-300 group-hover:shadow-2xl" />
+
+                    {/* Paper Texture */}
+                    <div
+                        className="absolute inset-0 rounded-2xl rounded-tl-none opacity-[0.04] dark:opacity-[0.03] pointer-events-none mix-blend-overlay"
+                        style={{
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+                        }}
+                    />
+
+                    {/* Cover Content */}
+                    <div className="relative z-10 h-full flex flex-col p-4">
+
+                        {/* Top Row: Badges + Classified */}
+                        <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center gap-1.5">
+                                {isWip && (
+                                    <span className="bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-md border border-amber-200/80 dark:border-amber-700/40 text-[8px] font-mono font-bold uppercase tracking-widest">
+                                        {t('company.wip')}
+                                    </span>
+                                )}
+                                <span className="flex items-center gap-1 bg-white/70 dark:bg-black/40 px-2 py-0.5 rounded-md border border-black/5 dark:border-white/10 text-[8px] font-mono uppercase tracking-widest text-[var(--text-secondary)]">
+                                    <span className="w-1 h-1 rounded-full animate-pulse" style={{ backgroundColor: brandColor }} />
+                                    {project.type}
+                                </span>
+                            </div>
+                            <div className="rotate-[-5deg] select-none border border-red-500/25 dark:border-red-400/20 px-2 py-0.5 rounded-[3px]">
+                                <span className="font-mono text-[7px] font-black uppercase tracking-[0.3em] text-red-500/40 dark:text-red-400/30">
+                                    Classified
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Airy Diagram (main visual) */}
+                        <div className="flex-grow rounded-xl overflow-hidden border border-black/5 dark:border-white/5 bg-white dark:bg-neutral-900 relative">
+                            <div className="absolute inset-0">
+                                <ProjectCard type={project.type} id={project.id} expanded={true} />
+                            </div>
+                            {/* Subtle vignette */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/[0.03] to-transparent pointer-events-none" />
+                        </div>
+
+                        {/* Bottom Bar: Title + Arrow */}
+                        <div className="flex items-center justify-between mt-3">
+                            <h3 className="text-sm font-serif italic text-[var(--text-primary)] truncate pr-4">{title}</h3>
+                            <motion.div
+                                animate={{ x: isHovered ? 2 : 0, y: isHovered ? -2 : 0, opacity: isHovered ? 1 : 0.4 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                <ArrowUpRight size={14} className="text-[var(--text-secondary)] shrink-0" />
+                            </motion.div>
+                        </div>
+                    </div>
+
+                    {/* Bottom edge for thickness illusion */}
+                    <motion.div
+                        className="absolute -bottom-1 left-1 right-1 h-3 rounded-b-2xl pointer-events-none"
+                        style={{
+                            background: 'linear-gradient(to top, rgba(0,0,0,0.08), transparent)',
+                        }}
+                        animate={{ opacity: isHovered ? 1 : 0 }}
+                        transition={{ duration: 0.3 }}
+                    />
                 </motion.div>
             </div>
-
-            {/* === FRONT FLAP === */}
-            <motion.div
-                className="absolute inset-0 rounded-2xl flex flex-col pointer-events-none z-30"
-                style={{ backgroundColor: brandColor, transformOrigin: 'bottom center', transformStyle: 'preserve-3d' }}
-                animate={{
-                    rotateX: isOpen ? -75 : (isHovered ? -5 : 0),
-                    y: isOpen ? 30 : 0,
-                    scale: isOpen ? 1.05 : 1,
-                }}
-                transition={{ type: 'spring', stiffness: 180, damping: isOpen ? 22 : 16 }}
-            >
-                {/* Edge Highlights */}
-                <div className="absolute inset-0 rounded-2xl border flex flex-col pointer-events-none border-white/30 dark:border-white/10" />
-
-                {/* Premium Texture Overlay */}
-                <div
-                    className="absolute inset-0 rounded-2xl opacity-[0.25] dark:opacity-[0.15] mix-blend-overlay pointer-events-none"
-                    style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-                    }}
-                />
-
-                {/* Closed State Graphics */}
-                <AnimatePresence>
-                    {!isOpen && (
-                        <motion.div
-                            className="relative z-10 w-full h-full flex flex-col items-center justify-center p-6 text-white text-center pointer-events-none"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0, transition: { duration: 0.1 } }}
-                        >
-                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif italic mb-3 drop-shadow-md px-4">{title}</h3>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/20 backdrop-blur-sm text-[9px] sm:text-[10px] uppercase tracking-widest border border-white/20 dark:border-white/10 shadow-sm">
-                                <span>{isWip ? 'Work In Progress' : 'Click to Open'}</span>
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </motion.div>
         </div>
     );
 };
