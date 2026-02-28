@@ -51,7 +51,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
             </div>
 
             {/* === THE 3 FANNING CARDS === */}
-            <div className="absolute inset-x-0 bottom-2 sm:bottom-4 flex justify-center pointer-events-none z-20" style={{ transformStyle: 'preserve-3d' }}>
+            <div className="absolute inset-0 flex justify-center items-end pb-6 sm:pb-8 pointer-events-none z-20" style={{ transformStyle: 'preserve-3d' }}>
 
                 {/* 1. LEFT BACKGROUND CARD (Project Diagram) */}
                 <motion.div
