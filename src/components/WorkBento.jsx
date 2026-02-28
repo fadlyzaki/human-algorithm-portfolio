@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import ProjectCard from './ProjectCard';
 
-const WorkBento = ({ cluster }) => {
+const WorkBento = ({ cluster, priority = false }) => {
     const navigate = useNavigate();
     const { language } = useLanguage();
     const isId = language === 'id';
@@ -123,6 +123,8 @@ const WorkBento = ({ cluster }) => {
                                 <img
                                     src={cluster.heroImage}
                                     alt={title}
+                                    fetchpriority={priority ? "high" : "auto"}
+                                    loading={priority ? "eager" : "lazy"}
                                     className={`w-full h-auto object-top transition-all duration-[5000ms] ease-in-out group-hover:translate-y-[calc(-100%+280px)] ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
                                     style={{ transformOrigin: 'top' }}
                                     onLoad={() => setImgLoaded(true)}

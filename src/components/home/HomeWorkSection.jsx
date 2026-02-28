@@ -31,7 +31,7 @@ const HomeWorkSection = ({ t }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {WORK_CLUSTERS.map((cluster, idx) => (
                     <ScrollReveal key={idx} delay={idx * 150}>
-                        <WorkBento cluster={cluster} />
+                        <WorkBento cluster={cluster} priority={idx === 0} />
                     </ScrollReveal>
                 ))}
             </div>

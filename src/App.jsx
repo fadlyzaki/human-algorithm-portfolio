@@ -23,8 +23,9 @@ import ScrollToTop from './components/ScrollToTop';
 
 import AnalyticsTracker from './components/AnalyticsTracker';
 
-// HandCursorOverlay eagerly loaded for zero-latency gesture tracking
-import HandCursorOverlay from './components/HandCursorOverlay';
+// HandCursorOverlay lazy loaded to prevent main-thread blocking on initial load (Mobile Performance)
+const HandCursorOverlay = React.lazy(() => import('./components/HandCursorOverlay'));
+
 // Welcome modal lazy-loaded (one-time use)
 const HandTrackerWelcome = React.lazy(() => import('./components/HandTrackerWelcome'));
 
