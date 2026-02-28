@@ -8,7 +8,7 @@ import { WORK_CLUSTERS } from '../../data/portfolioData';
 
 const HomeWorkSection = ({ t }) => {
     return (
-        <section id="work" className="mb-40 scroll-mt-24 relative">
+        <section id="work" className="mb-24 scroll-mt-24 relative">
             <Treasure
                 id="home-work"
                 className="-top-6 right-12 rotate-12"

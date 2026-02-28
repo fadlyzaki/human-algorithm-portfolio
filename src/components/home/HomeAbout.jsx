@@ -7,7 +7,7 @@ import RichText from '../RichText';
 
 const HomeAbout = ({ t }) => {
     return (
-        <section id="about" className="mb-20 scroll-mt-24">
+        <section id="about" className="mb-24 scroll-mt-24">
             <SectionTitle number="3" title={t('home.section_about')} />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

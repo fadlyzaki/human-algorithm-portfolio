@@ -15,6 +15,7 @@ import HomeWorkSection from '../components/home/HomeWorkSection';
 import HomeSideProjects from '../components/home/HomeSideProjects';
 import HomeAbout from '../components/home/HomeAbout';
 import HomeBlogSection from '../components/home/HomeBlogSection';
+import FaqSection from '../components/FaqSection';
 
 
 import { useTheme } from '../context/ThemeContext';
@@ -149,6 +150,9 @@ const Portfolio = () => {
 
             {/* SECTION 3: ABOUT ME */}
             <HomeAbout t={t} />
+
+            {/* SECTION 4: FAQs */}
+            <FaqSection />
 
           </div>
 

@@ -11,7 +11,7 @@ const HomeSideProjects = ({ t, isId }) => {
     const homeSideProjects = SIDE_PROJECTS.filter(p => !p.hidden).slice(0, 3);
 
     return (
-        <section id="side-projects" className="mb-40 scroll-mt-24">
+        <section id="side-projects" className="mb-24 scroll-mt-24">
             <ScrollReveal>
                 <SectionTitle number="2" title={t('home.section_side_projects')} link="/side-projects" linkText={t('home.view_experiments')} />
             </ScrollReveal>
