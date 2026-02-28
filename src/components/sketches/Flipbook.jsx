@@ -239,12 +239,15 @@ export const Flipbook = ({
                     const isVisible = Math.abs(spreadIndex - i) <= 2;
                     if (!isVisible) return null;
 
+                    // Fix Z-index stacking so the sheet closest to the viewer is always on top.
+                    // When resting on the right (not flipped), lower index sheets (front of book) should be on top.
+                    // When resting on the left (flipped), higher index sheets (back of book) should be on top.
                     const zIndex = isFlipping ? 50 : (isFlipped ? i : totalSpreads - i);
 
                     return (
                         <motion.div
                             key={`sheet-${i}`}
-                            className={`absolute top-0 h-full origin-left ${isFlipping ? 'shadow-2xl' : ''}`}
+                            className={`absolute top-0 h-full origin-left pointer-events-none ${isFlipping ? 'shadow-2xl' : ''}`}
                             style={{
                                 width: pageWidth,
                                 left: '50%',
@@ -259,7 +262,7 @@ export const Flipbook = ({
                         >
                             {/* Front of Sheet (Right Page) */}
                             <div
-                                className="absolute inset-0 w-full h-full backface-hidden bg-white"
+                                className="absolute inset-0 w-full h-full backface-hidden bg-white pointer-events-auto"
                                 style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                             >
                                 {renderPageContent(i * 2 - 1)}
@@ -267,7 +270,7 @@ export const Flipbook = ({
 
                             {/* Back of Sheet (Left Page) */}
                             <div
-                                className="absolute inset-0 w-full h-full backface-hidden bg-white"
+                                className="absolute inset-0 w-full h-full backface-hidden bg-white pointer-events-auto"
                                 style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
                             >
                                 {renderPageContent(i * 2)}
@@ -282,7 +285,7 @@ export const Flipbook = ({
                     onClick={handlePrev}
                     style={{ display: spreadIndex > 0 ? 'flex' : 'none' }}
                 >
-                    <div className="p-4 ml-4 rounded-full bg-black/20 text-white opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm transform -translate-x-4 group-hover:translate-x-0 duration-300">
+                    <div className="p-4 ml-4 rounded-full bg-black/20 text-white opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm transform -translate-x-4 group-hover:translate-x-0 duration-300 pointer-events-none">
                         <ChevronLeft size={32} />
                     </div>
                 </div>
@@ -291,7 +294,7 @@ export const Flipbook = ({
                     onClick={handleNext}
                     style={{ display: spreadIndex < totalSpreads - 1 ? 'flex' : 'none' }}
                 >
-                    <div className="p-4 mr-4 rounded-full bg-black/20 text-white opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm transform translate-x-4 group-hover:translate-x-0 duration-300">
+                    <div className="p-4 mr-4 rounded-full bg-black/20 text-white opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm transform translate-x-4 group-hover:translate-x-0 duration-300 pointer-events-none">
                         <ChevronRight size={32} />
                     </div>
                 </div>
