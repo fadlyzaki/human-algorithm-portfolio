@@ -5,9 +5,9 @@
 **Product Owner:** Fadly Uzzaki
 
 ### The North Star
-The "Human Algorithm" is not a traditional static portfolio—it is an *Interactive Manifesto*. We are building a high-performance, narrative-driven digital platform that physically deploys the thesis: "I design where software logic meets human intuition." 
+The "Human Algorithm" is deliberately over-engineered. It is not a traditional static portfolio—it is an *Interactive Manifesto*. We are building a high-performance, narrative-driven digital platform that physically deploys the thesis: "I design where software logic meets human intuition." 
 
-This platform serves as undeniable proof of work, showcasing the ability to ingest chaotic data, tame systemic complexity, and output deeply resilient, accessible workflows that liberate human cognitive bandwidth.
+This platform serves as undeniable proof of work. It is designed to survive the highest levels of technical scrutiny from CTOs and Design Technologists, proving the ability to ingest chaotic data, tame systemic complexity, and output deeply resilient, accessible workflows—without ever dropping a frame.
 
 ## 2. Market Positioning & ICP (Ideal Customer Profile)
 We are positioning this product for conversion against three highly specific archetypes:
@@ -18,8 +18,8 @@ We are positioning this product for conversion against three highly specific arc
 
 ## 3. Core OKRs & Success Metrics
 **Objective 1: Extreme Performance & Accessibility**
-* **Key Result**: Maintain Core Web Vitals at peak (LCP < 2.5s, FID < 100ms) on mobile 3G.
-* **Key Result**: 100% Graceful Degradation (e.g., Camera tracking safely falls back to standard pointer events if permission is denied).
+* **Key Result**: Maintain Core Web Vitals at peak (LCP < 2.5s, FID < 100ms) on mobile 3G, maintaining a Real Experience Score (RES) of >90.
+* **Key Result**: 100% Graceful Degradation (e.g., Camera tracking safely falls back to standard pointer events if permission is denied; heavy modules are deferred).
 
 **Objective 2: Maximized Conversion Protocol**
 * **Key Result**: >15% click-through rate from the Homepage to the ATS-Compliant System Manifest.
@@ -83,9 +83,9 @@ The homepage follows a "Priority-First" narrative flow:
 *   **Localization Strategy**: Full `en`/`id` (English/Indonesian) duality toggle via `LanguageContext` with smooth CSS fade transition (`lang-switching` class), enabling global reach.
 *   **Hand Gesture Control**: Experimental "Decryption Lens" (`HandCursorOverlay.jsx`) using MediaPipe-based hand tracking with welcome modal (`HandTrackerWelcome.jsx`). Eagerly loaded for zero-latency activation. Full lifecycle cleanup (camera stop, media stream track release, `encrypted-mode` class removal) on deactivation.
 *   **Treasure Hunt Gamification**: Hidden collectibles (`Treasure.jsx`) that appear during gesture mode. Progress tracked via `TreasureProgress.jsx` with completion celebration (`TreasureCongrats.jsx`). `TreasureCongrats` renders independently of gesture mode (always available for Easter eggs).
-*   **Semantic Memory AI**: RAG-styled Q&A module (`SemanticMemory.jsx`) with typewriter streaming effect for recruiter-friendly self-interrogation.
+*   **Neural Echo AI**: RAG-styled semantic memory module (`NeuralEcho.jsx`) functioning as an interactive FAQ and self-interrogation interface.
 *   **ChaosSlider**: Interactive personality dial on About page for dynamic content revelation.
-*   **ProfileScanner (Identity Scan)**: High-fidelity component (`ProfileScanner.jsx`) featuring blur-to-clear "boot-up" scan animation with `useInView` viewport detection, interactive 3D tilt physics, and real-time HUD overlay. Animation triggers only when scrolled into view.
+*   **ProfileScanner (Identity Scan & Pixelation)**: High-fidelity component (`ProfileScanner.jsx`) featuring an initialized pixelated state (via canvas data manipulation) that resolves to a clear image with a "boot-up" scanning beam, interactive 3D tilt physics, and real-time HUD overlay.
 *   **Sticky Notes Cluster (v2.5)**: 4 unique insight notes in Hero section with varied rotations and accent colors (Blue, Amber, Green, Purple) in single-row `flex-nowrap` layout.
 *   **AI Brainstorm Dialogue (v2.7)**: Redesigned "If I built this today..." section as Human + AI collaborative conversation (`AIBrainstorm` component). Features:
     *   **Chat Bubble Interface**: Visual dialogue between "You" (human, amber accent) and "AI Collaborator" (emerald accent).
@@ -141,6 +141,10 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **Branding Update (v3.0)**: Navbar branding updated from `FADLY.ZAKI_` to `Fadlyzaki🧢`.
 *   **Homepage Spacing (v3.0)**: Reduced About-to-Footer gap from `mb-40` (160px) to `mb-20` (80px).
 *   **Credential Button Fix (v3.0)**: Repaired broken Tailwind classNames on About page credential buttons (spaces in utility names).
+*   **Mobile Performance & Vercel RES (v3.8)**: Conducted a deep architecture review to hit a >90 Mobile Real Experience Score (RES). Eager-loaded `@mediapipe/hands` was shifted to `React.lazy()` to prevent main-thread blocking on initial load, while LCP (Largest Contentful Paint) images were explicitly flagged with `fetchPriority="high"`.
+*   **Aggressive Lazy Loading (v3.8)**: Lower-fold components (`HomeSideProjects`, `HomeAbout`, `FaqSection`) wrapped in `React.Suspense` to shrink the critical render path bundle by 20%.
+*   **Cognitive Overload Prevention (v3.9)**: Added a highly visible `[ Press any key to bypass ]` prompt immediately to the Terminal Intro to ensure high-velocity users (recruiters) never feel "trapped" by the narrative.
+*   **Generative ID Card Standardization (v3.9)**: Harmonized the layout and metadata across all 7 generative ID variants (Industrial, Cyberpunk, Glassmorphism, Swiss, Retro, Neo-Brutalism, Holographic) to consistently display system payload data (Role, ID_NO, and `EXP: INDEFINITE`) respecting bilingual translation architectures.
 
 ### 3.8 System Governance (v3.2)
 *   **Merge Gate Audit Status**: Verified at a **95/100** system-wide score. Successfully remediated critical blockers regarding high-frequency React Rendering constraints and God Component sprawl.
@@ -174,7 +178,7 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 | `/cv` | `SystemManifest.jsx` | ATS-optimized printable CV |
 | `/process` | `DesignProcess.jsx` | Design process methodology |
 | `/design-system` | `DesignSystem.jsx` | Interactive design system viewer |
-| `/sketches` | `Sketches.jsx` | Interactive constellation map archive |
+| `/sketches` | `Sketches.jsx` | 3D Interactive CSS Flipbook archive |
 | `/work/:id` | `CompanyDetail.jsx` | Company cluster detail with brand theming |
 | `/case-study/:id` | `ProtectedCaseStudy.jsx` | Password-protected case studies |
 | `/side-projects` | `SideProjectsIndex.jsx` | Archive of all side projects |
@@ -213,7 +217,7 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **[COMPLETED]** Adaptive Content Engine (Adaptive Summaries)
 *   **[COMPLETED]** Hand Tracking (HandCursorOverlay + Treasure Hunt)
 *   **[COMPLETED]** Mobile Responsiveness (Work cards, ID card)
-*   **[COMPLETED]** Semantic Memory AI (SemanticMemory.jsx)
+*   **[COMPLETED]** Neural Echo AI (NeuralEcho.jsx)
 *   **[COMPLETED]** AI Interactive Protocol (Contact page analysis + pings)
 *   **[COMPLETED]** Knowledge Upgrades (Certification system in About page)
 
@@ -252,6 +256,8 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **[COMPLETED]** Brand Consistency Sync (v3.6): Standardized `🧢 Fadly Uzzaki` naming convention across all 7 generative ID card variants.
 *   **[COMPLETED]** Project Metadata Restoration (v3.6): Fixed bilingual data resolvers and restored missing 'Researcher Notes' and 'Metrics' for all side-ventures.
 *   **[COMPLETED]** Terminal Intro Refactoring (v3.7): Completely replaced the ID Card Flying sequence with a sleek, 3-phase typing `TerminalIntro` that cleanly CSS-flashes into the homepage, locking the typography cascade until the terminal disappears.
+*   **[COMPLETED]** Flipbook Integration (v3.9): Replaced `MasonryGallery` with a physical 3D CSS Flipbook (`Flipbook.jsx`) for realistic pagination and aggressive DOM culling on the Sketches page.
+*   **[COMPLETED]** Dynamic Pixelation Protocol (v3.9): Re-engineered the `ProfileScanner` to generate interactive low-res pixel matrices on-the-fly using 2D canvas interpolation before revealing high-res portraits.
 
 ### Phase 3: Intelligence & Expansion (Q2-Q4 2026)
 *   **[Q2 2026]** Enhanced AI Agent: Expand semantic memory with real RAG backend.
@@ -274,13 +280,13 @@ To maintain the "Apple-style" minimalist aesthetic, assets for the Work grid mus
 *   **Logos**: Use the standalone logomark (icon) rather than the full logotype if possible, for better scalability on mobile.
 
 ### 7.2 The Archive (/sketches)
-The `/sketches` route utilizes a dynamic Masonry grid (`MasonryGallery.jsx`) that splits content between two distinct mediums. 
+The `/sketches` route utilizes a custom 3D CSS Flipbook engine (`Flipbook.jsx`) providing realistic page-turning mechanics, split between two distinct mediums. 
 
 **How to Add Images:**
 1.  **Storage Location:** All physical image files must be placed into one of two dedicated directories:
     *   Digital: `public/assets/sketches/digital/`
     *   Pencil: `public/assets/sketches/pencil/`
-2.  **Data Location:** All sketch metadata is currently managed via the `images` state array in `src/components/sketches/MasonryGallery.jsx`. *(Future iteration: Move to a dedicated `data/sketches.js` file)*.
+2.  **Data Location:** All sketch metadata is decoupled and managed via JSON in `src/data/sketches.json`.
 3.  **Data Structure:** Each image object requires the following properties:
     ```javascript
     {
