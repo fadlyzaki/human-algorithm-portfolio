@@ -22,7 +22,7 @@ import useThemeStyles from '../hooks/useThemeStyles';
 import useScrollDirection from '../hooks/useScrollDirection';
 import { useHandCursor } from '../context/HandCursorContext';
 import { useLanguage } from '../context/LanguageContext';
-import TactileDeskIntro from '../components/welcome/TactileDeskIntro';
+import TopographicIntro from '../components/welcome/TopographicIntro';
 import { LayoutGroup } from 'framer-motion';
 
 const Portfolio = () => {
@@ -83,7 +83,7 @@ const Portfolio = () => {
         style={themeStyles}
         className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] overflow-x-hidden transition-colors duration-500"
       >
-        <TactileDeskIntro
+        <TopographicIntro
           onComplete={() => {
             sessionStorage.setItem('hasSeenTerminalIntro', 'true');
             setShowIntro(false);
