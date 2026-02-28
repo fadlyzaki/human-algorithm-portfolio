@@ -1,12 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Sun, Moon, ScanEye, Grid, Clock, FileText, Printer } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useHandCursor } from '../context/HandCursorContext';
 
 import BackButton from './BackButton';
 import useScrollDirection from '../hooks/useScrollDirection';
+
+// Shared layoutId ensures the underline "glides" between active items
+const HoverNavLink = ({ to, label, isActive }) => {
+    const [isHovered, setIsHovered] = useState(false);
+    return (
+        <Link
+            to={to}
+            className="px-4 py-1.5 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-300 relative group"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <span className="relative z-10 block whitespace-nowrap">{label}</span>
+            {isHovered && (
+                <motion.svg
+                    layoutId="navbar-underline"
+                    className="absolute -bottom-1 left-0 w-full h-[8px] pointer-events-none text-[var(--text-primary)]"
+                    viewBox="0 0 890 14"
+                    preserveAspectRatio="none"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 30
+                    }}
+                >
+                    <path
+                        d="M 0 10.035 C 0 10.035 17.402 2.561 25.137 2.035 C 32.872 1.51 39.068 9.419 50.274 6.035 C 57.086 3.978 61.278 1.942 66.828 2.035 C 75.922 2.188 83.251 10.035 91.002 10.035 C 102.667 10.035 111.411 2.035 125.109 2.035 C 131.791 2.035 140.404 9.077 146.331 10.035 C 158.337 11.977 167.311 2.035 179.352 2.035 C 187.351 2.035 194.205 9.011 202.138 10.035 C 213.916 11.556 222.094 2.035 233.915 2.035 C 241.674 2.035 248.868 9.49 256.591 10.035 C 267.896 10.833 275.95 2.035 287.487 2.035 C 295.424 2.035 301.996 9.176 309.845 10.035 C 321.439 11.305 329.871 2.035 341.657 2.035 C 349.034 2.035 355.858 8.435 363.385 10.035 C 375.253 12.556 384.053 2.035 396.111 2.035 C 403.957 2.035 410.59 9.387 418.539 10.035 C 430.144 10.982 438.169 2.035 449.882 2.035 C 457.755 2.035 464.331 9.467 472.296 10.035 C 483.926 10.866 491.956 2.035 503.626 2.035 C 511.401 2.035 518.232 9.043 525.992 10.035 C 537.766 11.54 546.046 2.035 558.055 2.035 C 565.659 2.035 572.585 9.204 580.124 10.035 C 591.921 11.336 600.375 2.035 612.274 2.035 C 619.664 2.035 626.685 8.783 634.172 10.035 C 646.035 12.021 654.516 2.035 666.452 2.035 C 674.249 2.035 681.42 10.035 689.431 10.035 C 700.72 10.035 709.689 3.067 721.232 2.035 C 727.653 1.46 732.122 2.775 738.487 5.035 C 748.113 8.454 754.766 11.758 765.176 10.035 C 777.625 7.973 787.202 2.035 799.394 2.035 C 807.5 2.035 814.183 10.035 822.463 10.035 C 833.649 10.035 842.139 3.197 853.486 2.035 C 859.907 1.378 873.359 5.86 881.338 10.035 C 884.606 11.745 890 0 890 0"
+                        fill="transparent"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                    />
+                </motion.svg>
+            )}
+        </Link>
+    );
+};
 
 const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showNavOverride }) => {
     const { isDark, setIsDark } = useTheme();
@@ -89,21 +129,11 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showN
                             </h1>
                         ) : (
                             <nav className="hidden md:flex items-center gap-1">
-                                {[
-                                    { path: '/about', label: t('nav.about') },
-                                    { path: '/#work', label: t('nav.work') },
-                                    { path: '/#side-projects', label: 'Projects' },
-                                    { path: '/process', label: t('nav.process') },
-                                    { path: '/contact', label: t('nav.contact') }
-                                ].map((link) => (
-                                    <Link
-                                        key={link.path}
-                                        to={link.path}
-                                        className="px-4 py-1.5 font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--text-secondary)]/10 rounded transition-all duration-300 relative group overflow-hidden"
-                                    >
-                                        <span className="relative z-10">{link.label}</span>
-                                    </Link>
-                                ))}
+                                <HoverNavLink to="/about" label={t('nav.about')} />
+                                <HoverNavLink to="/#work" label={t('nav.work')} />
+                                <HoverNavLink to="/#side-projects" label="Projects" />
+                                <HoverNavLink to="/process" label={t('nav.process')} />
+                                <HoverNavLink to="/contact" label={t('nav.contact')} />
                             </nav>
                         )}
                     </div>
