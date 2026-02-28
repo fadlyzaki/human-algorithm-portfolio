@@ -36,11 +36,11 @@ const Portfolio = () => {
     // Check URL override for testing/debugging
     const params = new URLSearchParams(window.location.search);
     if (params.get('forceIntro') === 'true') {
-      sessionStorage.removeItem('hasSeenTerminalIntro');
+      localStorage.removeItem('hasSeenChaosIntro');
       return true;
     }
-    // Only show intro once per browser session
-    return sessionStorage.getItem('hasSeenTerminalIntro') !== 'true';
+    // Only show intro once for first-time visitors (persists across tabs/restarts)
+    return localStorage.getItem('hasSeenChaosIntro') !== 'true';
   });
   const showNav = useScrollDirection(isGestureMode);
 
@@ -87,7 +87,7 @@ const Portfolio = () => {
           {showIntro && (
             <ChaosToMatrixIntro
               onComplete={() => {
-                sessionStorage.setItem('hasSeenTerminalIntro', 'true');
+                localStorage.setItem('hasSeenChaosIntro', 'true');
                 setShowIntro(false);
               }}
             />

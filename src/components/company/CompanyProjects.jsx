@@ -7,37 +7,37 @@ import ProjectCard from '../ProjectCard';
 import IconMapper from '../ui/IconMapper';
 
 const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
+    const [isOpen, setIsOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
-    const innerRef = useRef(null);
-    const [innerHeight, setInnerHeight] = useState(0);
-
-    useEffect(() => {
-        if (innerRef.current) {
-            setInnerHeight(innerRef.current.offsetHeight);
-        }
-    }, []);
 
     const title = isId ? (project.title_id || project.title) : project.title;
     const problem = isId ? (project.details_id?.problem || project.details.problem) : project.details.problem;
     const outcome = isId ? (project.details_id?.outcome || project.details.outcome) : project.details.outcome;
     const isWip = !['stoqo-logistics', 'stoqo-sales'].includes(project.id);
 
+    const toggleOpen = (e) => {
+        // Prevent toggle if clicking the CTA inside the open folder
+        if (e.target.closest('button')) return;
+        setIsOpen(!isOpen);
+    };
+
     return (
         <div
             className="relative cursor-pointer group"
-            style={{ perspective: '800px' }}
+            style={{ perspective: '1200px' }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={onClick}
+            onClick={toggleOpen}
         >
             {/* === FOLDER TAB === */}
             <div className="relative z-20 ml-6 inline-flex items-center">
                 <motion.div
                     className="px-4 py-1.5 rounded-t-lg font-mono text-[10px] uppercase tracking-[0.15em] border border-b-0 flex items-center gap-2"
                     animate={{
-                        backgroundColor: isHovered ? brandColor : 'var(--bg-card)',
-                        color: isHovered ? '#ffffff' : 'var(--text-secondary)',
-                        borderColor: isHovered ? brandColor : 'var(--border-color)',
+                        backgroundColor: (isHovered || isOpen) ? brandColor : 'var(--bg-card)',
+                        color: (isHovered || isOpen) ? '#ffffff' : 'var(--text-secondary)',
+                        borderColor: (isHovered || isOpen) ? brandColor : 'var(--border-color)',
+                        y: isOpen ? 6 : 0,
                     }}
                     transition={{ duration: 0.3 }}
                 >
@@ -47,130 +47,166 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
             </div>
 
             {/* === FOLDER BODY === */}
-            <div className="relative h-[400px]" style={{ clipPath: 'inset(-8px -4px -10px -4px)' }}>
+            <div className="relative h-[380px] sm:h-[420px]" style={{ transformStyle: 'preserve-3d' }}>
 
-                {/* ——— INNER LAYER: "Documents Inside the Folder" ——— */}
-                <div className="absolute inset-0 rounded-2xl rounded-tl-none border border-[var(--border-color)] bg-[var(--bg-card)]">
-                    {/* Stacked paper edge lines for depth */}
-                    <div className="absolute -bottom-[3px] left-3 right-3 h-[3px] rounded-b-xl bg-[var(--bg-card)] border border-t-0 border-[var(--border-color)] opacity-60" />
-                    <div className="absolute -bottom-[6px] left-6 right-6 h-[3px] rounded-b-xl bg-[var(--bg-card)] border border-t-0 border-[var(--border-color)] opacity-30" />
-
-                    {/* Inner Content — problem/outcome at bottom so it's revealed by cover lift */}
-                    <div ref={innerRef} className="absolute bottom-0 left-0 right-0 p-5 pb-6">
-
-                        {/* Problem / Outcome Grid (bottom area — visible when cover peeks) */}
-                        <div className="grid grid-cols-2 gap-5 mb-4">
-                            <div className="space-y-2">
-                                <span className="font-mono text-[9px] uppercase tracking-[0.2em] flex items-center gap-1.5 text-red-400">
-                                    <span className="w-1 h-1 bg-red-400 rounded-full" /> {t('company.problem')}
-                                </span>
-                                <p className="text-[11px] leading-[1.6] text-[var(--text-secondary)] line-clamp-4">
-                                    {problem}
-                                </p>
-                            </div>
-                            <div className="space-y-2">
-                                <span className="font-mono text-[9px] uppercase tracking-[0.2em] flex items-center gap-1.5" style={{ color: brandColor }}>
-                                    <span className="w-1 h-1 rounded-full" style={{ backgroundColor: brandColor }} /> {t('company.fix')}
-                                </span>
-                                <p className="text-[11px] leading-[1.6] font-medium text-[var(--text-primary)] line-clamp-4">
-                                    {outcome}
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* CTA */}
-                        <div className="flex items-center gap-2 pt-3 border-t border-dashed border-[var(--border-color)]">
-                            <Lock size={10} style={{ color: brandColor }} />
-                            <span className="font-mono text-[10px] uppercase tracking-[0.15em]" style={{ color: brandColor }}>
-                                {t('company.view_case')}
-                            </span>
-                            <ArrowUpRight size={11} style={{ color: brandColor }} className="ml-auto" />
-                        </div>
-                    </div>
+                {/* --- BACK FLAP (Inside of Folder) --- */}
+                <div className="absolute inset-0 rounded-2xl rounded-tl-none border border-[var(--border-color)] bg-[var(--bg-card)] overflow-hidden">
+                    <div className="absolute inset-0 bg-black/[0.04] dark:bg-black/40 shadow-inner" />
                 </div>
 
-                {/* ——— COVER LAYER: Lifts to reveal documents ——— */}
+                {/* --- THE FANNING CARDS (Emerge from bottom inside) --- */}
+                <div className="absolute inset-0 flex justify-center items-end pb-6 sm:pb-8 pointer-events-none" style={{ transformStyle: 'preserve-3d' }}>
+
+                    {/* LEFT CARD: Problem/Context */}
+                    <motion.div
+                        className="absolute w-[220px] sm:w-[240px] h-[280px] sm:h-[300px] bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-lg p-4 sm:p-5 flex flex-col z-10 origin-bottom pointer-events-auto"
+                        initial={false}
+                        animate={{
+                            y: isOpen ? -30 : 20,
+                            x: isOpen ? -60 : 0,
+                            rotateZ: isOpen ? -10 : 0,
+                            scale: isOpen ? 1 : 0.8,
+                            opacity: isOpen ? 1 : 0,
+                        }}
+                        transition={{ type: 'spring', stiffness: 220, damping: 20, delay: isOpen ? 0.05 : 0 }}
+                    >
+                        <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.2em] flex items-center gap-1.5 text-red-500 mb-2 sm:mb-3">
+                            <span className="w-1.5 h-1.5 bg-red-500 rounded-full" /> {t('company.problem')}
+                        </span>
+                        <p className="text-[10px] sm:text-[11px] leading-[1.6] text-[var(--text-secondary)]">
+                            {problem}
+                        </p>
+                    </motion.div>
+
+                    {/* RIGHT CARD: Solution/Outcome */}
+                    <motion.div
+                        className="absolute w-[220px] sm:w-[240px] h-[280px] sm:h-[300px] bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-lg p-4 sm:p-5 flex flex-col z-10 origin-bottom pointer-events-auto"
+                        initial={false}
+                        animate={{
+                            y: isOpen ? -30 : 20,
+                            x: isOpen ? 60 : 0,
+                            rotateZ: isOpen ? 10 : 0,
+                            scale: isOpen ? 1 : 0.8,
+                            opacity: isOpen ? 1 : 0,
+                        }}
+                        transition={{ type: 'spring', stiffness: 220, damping: 20, delay: isOpen ? 0.1 : 0 }}
+                    >
+                        <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.2em] flex items-center gap-1.5 mb-2 sm:mb-3" style={{ color: brandColor }}>
+                            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: brandColor }} /> {t('company.fix')}
+                        </span>
+                        <p className="text-[10px] sm:text-[11px] leading-[1.6] font-medium text-[var(--text-primary)]">
+                            {outcome}
+                        </p>
+                    </motion.div>
+
+                    {/* CENTER CARD: The Hero Visual / CTA */}
+                    <motion.div
+                        className="absolute w-[240px] sm:w-[260px] h-[300px] sm:h-[320px] bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden z-20 origin-bottom flex flex-col pointer-events-auto"
+                        initial={false}
+                        animate={{
+                            y: isOpen ? -70 : 20,
+                            scale: isOpen ? 1.05 : 0.85,
+                            opacity: isOpen ? 1 : 0,
+                        }}
+                        transition={{ type: 'spring', stiffness: 260, damping: 22, delay: isOpen ? 0.15 : 0 }}
+                    >
+                        <div className="flex-grow relative bg-stone-100 dark:bg-neutral-800">
+                            <ProjectCard type={project.type} id={project.id} expanded={true} />
+                        </div>
+                        <div className="px-3 sm:px-4 py-3 border-t border-[var(--border-color)] bg-[var(--bg-card)] flex justify-between items-center shrink-0">
+                            <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)]">
+                                {project.type}
+                            </span>
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    onClick();
+                                }}
+                                className="flex items-center gap-1.5 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.1em] font-bold px-2.5 sm:px-3 py-1.5 rounded hover:opacity-80 transition-opacity"
+                                style={{ backgroundColor: brandColor, color: '#fff' }}
+                            >
+                                <Lock size={10} className="mb-[1px]" />
+                                {t('company.view_case')}
+                            </button>
+                        </div>
+                    </motion.div>
+                </div>
+
+                {/* --- FRONT FLAP (The Cover) --- */}
                 <motion.div
-                    className="absolute inset-0 z-10 rounded-2xl rounded-tl-none"
-                    style={{
-                        transformOrigin: 'top center',
-                        transformStyle: 'preserve-3d',
-                    }}
+                    className="absolute inset-0 z-30 rounded-2xl rounded-tl-none origin-bottom flex flex-col pointer-events-none"
+                    style={{ transformStyle: 'preserve-3d' }}
                     animate={{
-                        rotateX: isHovered ? -8 : 0,
-                        y: isHovered ? -(innerHeight + 16) : 0,
-                        scale: isHovered ? 0.97 : 1,
+                        rotateX: isOpen ? -75 : (isHovered ? -4 : 0),
+                        y: isOpen ? 25 : 0,
+                        scale: isOpen ? 1.02 : 1,
                     }}
                     transition={{
                         type: 'spring',
-                        stiffness: 180,
-                        damping: 22,
+                        stiffness: 160,
+                        damping: isOpen ? 24 : 16,
                     }}
                 >
-                    {/* Cover Material */}
-                    <div className="absolute inset-0 rounded-2xl rounded-tl-none bg-stone-100 dark:bg-neutral-800 border border-[var(--border-color)] shadow-lg transition-shadow duration-300 group-hover:shadow-2xl" />
+                    {/* Cover Material Base */}
+                    <div className="absolute inset-0 rounded-2xl rounded-tl-none bg-[#f1f0ea] dark:bg-[#1a1a1a] border border-[var(--border-color)] shadow-xl overflow-hidden pointer-events-none" />
 
-                    {/* Paper Texture */}
+                    {/* Premium Noise Texture */}
                     <div
-                        className="absolute inset-0 rounded-2xl rounded-tl-none opacity-[0.04] dark:opacity-[0.03] pointer-events-none mix-blend-overlay"
+                        className="absolute inset-0 rounded-2xl rounded-tl-none opacity-[0.4] dark:opacity-[0.15] pointer-events-none mix-blend-overlay"
                         style={{
                             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
                         }}
                     />
 
-                    {/* Cover Content */}
-                    <div className="relative z-10 h-full flex flex-col p-4">
-
-                        {/* Top Row: Badges + Classified */}
-                        <div className="flex items-center justify-between mb-3">
-                            <div className="flex items-center gap-1.5">
-                                {isWip && (
-                                    <span className="bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-md border border-amber-200/80 dark:border-amber-700/40 text-[8px] font-mono font-bold uppercase tracking-widest">
-                                        {t('company.wip')}
-                                    </span>
-                                )}
-                                <span className="flex items-center gap-1 bg-white/70 dark:bg-black/40 px-2 py-0.5 rounded-md border border-black/5 dark:border-white/10 text-[8px] font-mono uppercase tracking-widest text-[var(--text-secondary)]">
-                                    <span className="w-1 h-1 rounded-full animate-pulse" style={{ backgroundColor: brandColor }} />
-                                    {project.type}
-                                </span>
-                            </div>
-                            <div className="rotate-[-5deg] select-none border border-red-500/25 dark:border-red-400/20 px-2 py-0.5 rounded-[3px]">
-                                <span className="font-mono text-[7px] font-black uppercase tracking-[0.3em] text-red-500/40 dark:text-red-400/30">
-                                    Classified
-                                </span>
-                            </div>
-                        </div>
-
-                        {/* Airy Diagram (main visual) */}
-                        <div className="flex-grow rounded-xl overflow-hidden border border-black/5 dark:border-white/5 bg-white dark:bg-neutral-900 relative">
-                            <div className="absolute inset-0">
-                                <ProjectCard type={project.type} id={project.id} expanded={true} />
-                            </div>
-                            {/* Subtle vignette */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/[0.03] to-transparent pointer-events-none" />
-                        </div>
-
-                        {/* Bottom Bar: Title + Arrow */}
-                        <div className="flex items-center justify-between mt-3">
-                            <h3 className="text-sm font-serif italic text-[var(--text-primary)] truncate pr-4">{title}</h3>
+                    {/* Front Flap Content */}
+                    <AnimatePresence>
+                        {!isOpen && (
                             <motion.div
-                                animate={{ x: isHovered ? 2 : 0, y: isHovered ? -2 : 0, opacity: isHovered ? 1 : 0.4 }}
-                                transition={{ duration: 0.2 }}
+                                className="relative z-10 w-full h-full p-5 sm:p-6 flex flex-col justify-between pointer-events-none"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0, transition: { duration: 0.15 } }}
                             >
-                                <ArrowUpRight size={14} className="text-[var(--text-secondary)] shrink-0" />
-                            </motion.div>
-                        </div>
-                    </div>
+                                {/* Top: Badges */}
+                                <div className="flex items-center justify-between">
+                                    <div className="flex flex-wrap items-center gap-2">
+                                        {isWip && (
+                                            <span className="bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-2 sm:px-2.5 py-1 rounded border border-amber-200/80 dark:border-amber-700/40 text-[8px] sm:text-[9px] font-mono font-bold uppercase tracking-widest">
+                                                {t('company.wip')}
+                                            </span>
+                                        )}
+                                        <span className="flex items-center gap-1.5 bg-white/50 dark:bg-black/20 px-2 sm:px-2.5 py-1 rounded border border-black/5 dark:border-white/5 text-[8px] sm:text-[9px] font-mono uppercase tracking-widest text-[var(--text-secondary)]">
+                                            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: brandColor }} />
+                                            {project.type}
+                                        </span>
+                                    </div>
+                                    <div className="rotate-[-5deg] border border-red-500/30 dark:border-red-400/20 px-2 sm:px-3 py-1 rounded shrink-0 ml-2">
+                                        <span className="font-mono text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] text-red-500/60 dark:text-red-400/50">
+                                            Classified
+                                        </span>
+                                    </div>
+                                </div>
 
-                    {/* Bottom edge for thickness illusion */}
-                    <motion.div
-                        className="absolute -bottom-1 left-1 right-1 h-3 rounded-b-2xl pointer-events-none"
-                        style={{
-                            background: 'linear-gradient(to top, rgba(0,0,0,0.08), transparent)',
-                        }}
-                        animate={{ opacity: isHovered ? 1 : 0 }}
-                        transition={{ duration: 0.3 }}
-                    />
+                                {/* Middle: Title */}
+                                <div className="text-center mt-8 sm:mt-12">
+                                    <h3 className="text-xl sm:text-2xl font-serif italic text-[var(--text-primary)] mb-3 px-2 line-clamp-2">{title}</h3>
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 dark:bg-white/5 text-[9px] sm:text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+                                        <span>{isHovered ? 'Click to examine' : 'Confidential'}</span>
+                                    </div>
+                                </div>
+
+                                {/* Bottom edge UI */}
+                                <div className="mt-auto border-t border-black/5 dark:border-white/5 pt-3 sm:pt-4 flex justify-between items-center opacity-70">
+                                    <div className="font-mono text-[7px] sm:text-[8px] uppercase tracking-widest">Auth: F.ZAKI</div>
+                                    <div className="flex gap-1">
+                                        {[...Array(3)].map((_, i) => (
+                                            <div key={i} className="w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-[var(--text-secondary)] opacity-40" />
+                                        ))}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </motion.div>
             </div>
         </div>

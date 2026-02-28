@@ -1,12 +1,10 @@
-# The Human Algorithm: System Architecture v3.0
+# The Human Algorithm: System Architecture v6.0
 
 > **Engineering Philosophy**: *"I design where software logic meets human intuition."*
 
-This repository houses the source code for [fadlyzaki.com](https://fadlyzaki.com)—a high-performance, single-page application (SPA) built to demonstrate resilient workflows that tame complexity and free up mental bandwidth when it matters most.
+This repository houses the source code for the production portfolio: **[fadlyzaki-design.vercel.app](https://fadlyzaki-design.vercel.app/)** — a high-performance, single-page application (SPA) built to demonstrate resilient workflows that tame complexity and free up mental bandwidth when it matters most.
 
-> 📄 **[Brand Copy — Living Doc](docs/brand_copy.md)** — Centralized, reusable copy for LinkedIn, Dribbble, job apps, and beyond.
-
-[![Status](https://img.shields.io/badge/SYSTEM-NOMINAL-green?style=flat-square&logo=react)](https://fadlyzaki.com)
+[![Status](https://img.shields.io/badge/SYSTEM-NOMINAL-green?style=flat-square&logo=react)](https://fadlyzaki-design.vercel.app/)
 [![Build](https://img.shields.io/badge/BUILD-PASSING-blue?style=flat-square&logo=vercel)](https://vercel.com)
 [![Performance](https://img.shields.io/badge/LIGHTHOUSE-100-orange?style=flat-square&logo=lighthouse)](https://pagespeed.web.dev/)
 
@@ -18,55 +16,36 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 
 ### 1. The Core Engine: React 18 + Vite
 *   **Decision**: Migrated from CRA to Vite for O(1) HMR (Hot Module Replacement) and optimized Rollup builds.
-*   **Benefit**: Sub-second dev server constraints allow for rapid prototyping of complex physics interactions without friction.
+*   **Benefit**: Sub-second dev server response allows for rapid prototyping of complex physics interactions without friction.
 *   **Design Pattern**: Strict differentiation between `Logic Layer` (Custom Hooks) and `View Layer` (Components).
 
-### 2. Physics & Interaction: Framer Motion
-*   **Decision**: Used `framer-motion` over CSS transitions for state-driven physics (springs, drag constraints).
-*   **Rationale**: The "Human Algorithm" requires interfaces that feel organic, not linear. Spring physics mimic the natural resistance and elasticity of real-world objects, reinforcing the "Tactile" UX pillar.
-*   **Tactile ID Cards**: The `DraggablePhoto` component supports 7 distinct physics-enabled ID card variants (Industrial, Cyberpunk, Swiss, Glassmorphism, Retro, Neo-Brutalism, Holographic), unified by a strict monochrome aesthetic and interactive grayscale-to-color reveals.
+### 2. Physics & Interaction: Chaos to Matrix & Framer Motion
+*   **Welcome Sequence (Chaos to Matrix)**: An ultra-premium, physics-driven orchestration of 100+ procedural SVG nodes that wander chaotically before an invisible algorithmic force violently snaps them into a perfect 3D matrix. This explicitly communicates the capability to tame chaotic data into structured, beautiful architecture.
+*   **The Physical Flipbook**: Built a custom 3D mathematical flipbook for the `/sketches` route, rendering interactive pages as physical DOM sheets with precise `rotateY` transforms, pointer-event tunneling, and GPU culling for 60fps performance without heavy WebGL libraries.
+*   **Tactile ID Cards**: The `DraggablePhoto` component supports 7 distinct physics-enabled ID card variants with interactive grayscale-to-color reveals.
 
-### 3. Vision System: MediaPipe (Client-Side AI)
-*   **Decision**: Implemented `HandCursorOverlay` using Google's MediaPipe on the Edge (Client-Side).
+### 3. Vision System: MediaPipe Hand Tracking
+*   **Decision**: Implemented `HandCursorOverlay` using Google's Client-Side AI.
 *   **Privacy-First**: No video data is ever sent to a server. Inference happens locally in the browser's WASM runtime.
-*   **Performance (Context Trap Mitigated)**: High-frequency 60fps tracking updates bypass React Context entirely. Instead, they broadcast Custom DOM Events (`handCursorMove`) to decoupled listeners (like `Treasure.jsx`), avoiding full-tree re-renders constraint.
-*   **Lifecycle**: Full cleanup on deactivation—MediaPipe camera stop, webcam media stream track release (`track.stop()`), `encrypted-mode` CSS class removal, and cursor position reset.
+*   **Performance Mitigation**: High-frequency 60fps tracking updates broadcast Custom DOM Events (`handCursorMove`) to decoupled listeners, avoiding full React tree re-renders.
 
-### 4. Visualization: Airy Technical Diagrams
-*   **Decision**: Replaced static PNGs with `AiryDiagram.jsx`, a custom SVG engine.
+### 4. Technical Visualizations: Airy SVG Engine
+*   **Decision**: Replaced static PNGs with `AiryDiagram.jsx`, a custom SVG rendering engine.
 *   **Benefit**: Renders localized, responsive, and animated technical schematics (Flow, Cycle, Architecture) at <5KB payload, replacing MBs of raster assets.
 
 ### 5. Localization & System Context
-*   **Architecture**: A lightweight `LanguageContext` provider wrapping the application root with `useCallback`-optimized toggle and CSS fade transition.
-*   **Localized Clock**: Real-time `HH:MM:SS` with dynamic timezone detection (e.g., `WIB`, `EST`, `JST`).
-*   **Subpage Navigation**: Contextual `Navbar` that switches from brand-focused (Home: `Fadlyzaki🧢`) to navigation-focused (Subpage) with a back button and page title.
+*   **Architecture**: A lightweight `LanguageContext` provider wrapping the application root.
+*   **Subpage Navigation**: Contextual `Navbar` that switches from brand-focused (Home) to navigation-focused (Subpage) with a dynamic route-aware back button.
 *   **Optimization**: Centralized O(1) linguistic database in `translations.js`.
 
 ### 6. System Governance & OS Integrity
-*   **Merge Gate Status**: System verified at a flawless **95/100** score against structural and heuristic UX audits (`merge_gate.skill`), with critical Context Trap and God Component blockers mitigated.
-*   **Zero Magic Strings**: Config literals and storage keys are entirely centralized in `src/config/constants.js` to eliminate drift.
-*   **Safety Guardrails**: "Destructive" UI actions mandate a double-confirmation visual friction pattern protecting user latency.
-*   **Modular Architecture**: Monolithic structures (e.g., `About.jsx` "God Component") are strictly decomposed into single-responsibility molecules (`RuntimeLogTimeline`, `CertificationsGrid`, etc.) to isolate rendering domains.
+*   **Merge Gate Status**: System continually verified via `merge_gate.skill` against structural and heuristic UX audits.
+*   **Zero Magic Strings**: Config literals and storage keys are entirely centralized in `src/config/constants.js`.
+*   **Modular Architecture**: Monolithic structures are strictly decomposed into single-responsibility molecules to isolate rendering domains.
 
-### 7. UI/UX Polish (v3.4)
-*   **System Core Card Alignment**: Fixed the flex distribution in the `SystemCoreCard` component, optimizing height ratios to `40/60` to ensure content properly fits on mobile and tablet without overlapping.
-*   **Prototype Embedding**: Migrated static prototype representations (like Project Kinship) to live, interactive `iframe` HTML mounts.
-*   **Side Project Ordering**: Adjusted `portfolioData.js` object arrays to dynamically deprioritize older/archived ventures (e.g. Dolphi) from the primary Homepage view.
-*   **Dynamic Visuals for Data**: Replaced static raster images in the Price Lock "Evolution" timeline with responsive `AiryDiagram` components (`airy:timeline`, `airy:search`, `airy:ui`, `airy:chart`) and completed the 4-step UX narrative.
-*   **Interactive Node Physics**: Enhanced the `/sketches` archive with a dual-mode layout (Chaos/Order) featuring responsive grid-wrapping, collision-aware node routing, natural-aspect image popovers, and subtle breathing animations.
-*   **Navbar Contextualization**: Re-architected the `Navbar` to dynamically display context-aware page titles across all subpages, replacing static fallbacks with route-aware headers.
-*   **Hardware Fallbacks**: Hardened experimental AR components (e.g., `FilterMe`) with explicit media stream permission handling to prevent silent camera activation failures.
-
-### 8. Social & Distribution (v3.5)
-*   **Interactive Folder Cards**: Redesigned case study project cards as "Classified Folder" cards with peek-on-hover animation revealing Problem/Outcome and a "VIEW CASE" CTA.
-*   **Hero Image Failsafe**: Added loading skeleton + error fallback to homepage `WorkBento` cards to prevent empty states during slow loads or image failures.
-*   **Dynamic OpenGraph Images**: Vercel Edge Middleware (`middleware.js`) detects 20+ social crawler bots and serves per-page OG meta tags via serverless API. Dynamic 1200×630 branded preview images generated on-the-fly via `@vercel/og`.
-
-### 9. Systems Hardening (v3.6 & v3.7)
-*   **Methodology Grid Optimization**: Re-architected 5-item methodology grids (Year In Review, Dolphi, Productivity Illusion) from awkward 3-col layouts to a clean 2-column model with a full-width hero card for improved visual rhythm.
-*   **Brand Intelligence Sync**: Standardized the `🧢 Fadly Uzzaki` naming convention across all 7 generative ID card variants (Industrial to Holographic), fixing name abbreviated drift.
-*   **Data Integrity Protocol**: Restored missing structural metadata (Metrics, Researcher Notes) across the side-project ecosystem and fixed bilingual data resolvers.
-*   **Terminal Welcome Protocol (v3.7)**: Replaced the dragging intro with a highly optimized, single-screen HTML/CSS typing terminal. The sequence enforces strict read-order by halting homepage typography animations until the Terminal finishes and flashes out securely.
+### 7. Social & Distribution
+*   **Dynamic OpenGraph Images**: Vercel Edge Middleware (`middleware.js`) detects social crawler bots and serves per-page OG meta tags via serverless API. Dynamic 1200×630 branded preview images generated on-the-fly via `@vercel/og`.
+*   **Interactive Folder Cards**: Designed case study project cards as "Classified Folder" cards with peek-on-hover animation revealing Problem/Outcome.
 
 ---
 
@@ -75,8 +54,8 @@ As a **Design Engineer**, I treat this portfolio not just as a gallery, but as a
 We optimize for **Cognitive Load** (User) and **Computational Load** (Device).
 
 *   **Code Splitting**: Route-level splitting via `React.lazy()` ensures users only download the code for the page they are viewing.
-*   **Asset Optimization**: All assets (WebP) served via Vercel's Global Edge Network.
-*   **Defensive Rendering**: `ErrorBoundary` wraps critical subsystems (like the 3D Profile Scanner) to gracefully downgrade to static content on low-power devices.
+*   **Asset Optimization**: All assets served via Vercel's Global Edge Network.
+*   **Defensive Rendering**: `ErrorBoundary` wraps critical subsystems to gracefully downgrade to static content on low-power devices.
 
 ---
 
@@ -85,27 +64,19 @@ We optimize for **Cognitive Load** (User) and **Computational Load** (Device).
 ```bash
 src/
 ├── components/           # THE VIEW LAYER
-│   ├── interactions/     # Feature-Specific Microsystems (WorkforceAI, NexusAI)
-│   ├── home/             # Homepage Section Components (HomeHero, HomeAbout, etc.)
+│   ├── welcome/          # ChaosToMatrix Intro Orchestration
+│   ├── sketches/         # Physical Sheet 3D Flipbook Module
+│   ├── interactions/     # Feature-Specific Microsystems
 │   ├── AiryDiagram.jsx   # SVG Schematic Engine
 │   └── AIBrainstorm.jsx  # Conversational Interface
 ├── context/              # THE STATE LAYER
-│   ├── ThemeContext       # "The Void" (Dark Mode) vs "Surface" (Light Mode)
-│   ├── LanguageContext    # en/id Bilingual Toggle with Fade Transition
-│   └── HandCursorContext  # Gesture Mode State & Easter Egg Collection
+│   ├── ThemeContext      # Light / Dark
+│   ├── LanguageContext   # en / id
+│   └── HandCursorContext # Computer Vision State
 ├── data/                 # THE KNOWLEDGE GRAPH
-│   ├── portfolioData.js  # Single Source of Truth for Projects
-│   ├── aboutData.js      # Certifications, Achievements, Habits, Runtime Log
-│   ├── contactData.js    # Contact Information & Social Matrix
+│   ├── portfolioData.js  # Single Source of Truth
 │   └── translations.js   # Linguistic Database
 └── pages/                # THE ROUTING LAYER
-
-api/                      # VERCEL SERVERLESS LAYER
-├── _ogRoutes.js          # Centralized route-to-metadata mapping (30+ pages)
-├── og.js                 # Dynamic OG image generation (@vercel/og)
-└── og-html.js            # Crawler-facing HTML with correct meta tags
-    ├── SystemManifest    # ATS-Optimized CV Generation
-    └── ...
 ```
 
 ---
@@ -113,8 +84,6 @@ api/                      # VERCEL SERVERLESS LAYER
 ## 🚀 Deployment Protocol
 
 ### Local Development
-Standardized `npm` scripts for developer experience (DX).
-
 ```bash
 # 1. Clone & Install
 git clone https://github.com/fadlyzaki/human-algorithm-portfolio.git
@@ -127,18 +96,17 @@ npm run dev
 npm run build
 ```
 
-### CI/CD Pipeline
-*   **Trigger**: Push to `main`.
-*   **Runner**: Vercel Build Pipeline.
-*   **Checks**: Linting -> Build -> Asset Optimization -> Edge Distribution.
+### Production Environment
+*   **Live URL**: [https://fadlyzaki-design.vercel.app/](https://fadlyzaki-design.vercel.app/)
+*   **CI/CD**: Pushes to `main` trigger automated Vercel Edge Distribution.
 
 ---
 
 ## 🛡 Security & Privacy
 
-*   **Client-Side "Encryption"**: Sensitive case studies use a simulated decryption layer. Authentication is logic-based, not server-based, ensuring zero server-side attack surface for personal data.
-*   **No PII Collection**: The application is stateless and collects no Personally Identifiable Information beyond standard anonymous analytics.
-*   **Edge Case Hardening**: Extensive fallbacks for invalid IDs, missing translations, and camera permission denials ensure system stability.
+*   **Client-Side "Encryption"**: Sensitive case studies use a simulated decryption layer. Authentication is logic-based, ensuring zero server-side attack surface for personal data.
+*   **No PII Collection**: The application is stateless and collects no Personally Identifiable Information.
+*   **Edge Case Hardening**: Extensive fallbacks for invalid IDs, missing translations, and camera permission denials.
 
 ---
 
