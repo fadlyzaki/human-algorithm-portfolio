@@ -37,7 +37,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
                 {/* Inside shadow to give depth */}
                 <div className="absolute inset-0 bg-black/25 dark:bg-black/60 rounded-b-2xl rounded-tr-2xl" />
 
-                {/* File Folder Tab (Sticks up outside the main container) */}
+                {/* File Folder Tab */}
                 <div
                     className="absolute bottom-full left-0 w-1/2 sm:w-2/5 h-10 rounded-t-xl flex items-center px-4 transition-colors duration-500"
                     style={{ backgroundColor: brandColor }}
@@ -50,48 +50,90 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
                 </div>
             </div>
 
-            {/* === INNER DOCUMENT (The Sheet) === */}
-            <div className="absolute inset-x-0 bottom-1 sm:bottom-2 flex justify-center pointer-events-none" style={{ transformStyle: 'preserve-3d' }}>
+            {/* === THE 3 FANNING CARDS === */}
+            <div className="absolute inset-x-0 bottom-1 sm:bottom-3 flex justify-center pointer-events-none" style={{ transformStyle: 'preserve-3d' }}>
+
+                {/* 1. LEFT BACKGROUND CARD (Project Diagram) */}
                 <motion.div
-                    className="w-[94%] bg-[#fcfcfc] dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-t-xl shadow-2xl flex flex-col overflow-hidden pointer-events-auto origin-bottom"
+                    className="absolute w-[80%] bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-xl flex flex-col overflow-hidden origin-bottom pointer-events-auto"
                     initial={false}
                     animate={{
-                        height: isOpen ? 450 : 240,
-                        y: isOpen ? -100 : 0,
+                        height: 280,
+                        y: isOpen ? -60 : 0,
+                        x: isOpen ? -40 : 0,
+                        rotateZ: isOpen ? -8 : 0,
+                        opacity: isOpen ? 1 : 0
                     }}
-                    transition={{ type: 'spring', stiffness: 220, damping: 24 }}
+                    transition={{ type: 'spring', stiffness: 220, damping: 22, delay: isOpen ? 0.05 : 0 }}
                 >
-                    {/* Top: Architectural Diagram / Visual */}
-                    <div className="h-[150px] sm:h-[200px] w-full relative bg-white dark:bg-black border-b border-black/5 dark:border-white/5 shrink-0">
+                    <div className="w-full h-full relative bg-stone-100 dark:bg-black">
                         <ProjectCard type={project.type} id={project.id} expanded={true} />
+                        <div className="absolute inset-0 bg-white/40 dark:bg-black/40 backdrop-blur-[1px]" />
                     </div>
+                </motion.div>
 
-                    {/* Bottom: Text Content */}
-                    <div className="p-4 sm:p-5 flex flex-col flex-grow relative bg-[var(--bg-card)]">
-                        <h3 className="text-lg sm:text-xl font-serif italic text-[var(--text-primary)] mb-4">{title}</h3>
+                {/* 2. RIGHT BACKGROUND CARD (Metadata) */}
+                <motion.div
+                    className="absolute w-[80%] bg-[#fcfcfc] dark:bg-neutral-800 border border-black/10 dark:border-white/10 rounded-xl shadow-xl p-5 origin-bottom flex flex-col pointer-events-auto"
+                    initial={false}
+                    animate={{
+                        height: 280,
+                        y: isOpen ? -40 : 0,
+                        x: isOpen ? 50 : 0,
+                        rotateZ: isOpen ? 12 : 0,
+                        opacity: isOpen ? 1 : 0
+                    }}
+                    transition={{ type: 'spring', stiffness: 220, damping: 22, delay: isOpen ? 0.1 : 0 }}
+                >
+                    <div className="flex flex-col h-full opacity-60">
+                        <div className="w-12 h-12 rounded-full border border-dashed border-black/20 dark:border-white/20 flex items-center justify-center mb-4">
+                            <span className="font-mono text-[8px] uppercase">{project.type.substring(0, 3)}</span>
+                        </div>
+                        <div className="space-y-3 w-full">
+                            {[1, 2, 3, 4].map(i => (
+                                <div key={i} className="h-2 rounded bg-black/5 dark:bg-white/5 w-full" style={{ width: `${Math.random() * 40 + 60}%` }} />
+                            ))}
+                        </div>
+                    </div>
+                </motion.div>
 
+                {/* 3. CENTER FRONT CARD (The Readable Document) */}
+                <motion.div
+                    className="absolute w-[88%] bg-[#ffffff] dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-2xl flex flex-col origin-bottom pointer-events-auto z-20"
+                    initial={false}
+                    animate={{
+                        height: isOpen ? 340 : 260,
+                        y: isOpen ? -110 : 0,
+                        rotateZ: isOpen ? 0 : 0, // Stays straight for reading
+                    }}
+                    transition={{ type: 'spring', stiffness: 240, damping: 25, delay: isOpen ? 0.15 : 0 }}
+                >
+                    <div className="p-5 flex flex-col h-full bg-[var(--bg-card)] rounded-xl">
+                        <h3 className="text-xl sm:text-2xl font-serif italic text-[var(--text-primary)] mb-4">{title}</h3>
+
+                        {/* Readable Text Grid */}
                         <div className="grid grid-cols-2 gap-4 flex-grow">
                             <div>
-                                <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.2em] flex items-center gap-1.5 text-red-500 mb-1.5">
+                                <span className="font-mono text-[8.5px] uppercase tracking-[0.2em] flex items-center gap-1.5 text-red-500 mb-2">
                                     <span className="w-1.5 h-1.5 bg-red-500 rounded-full" /> {t('company.problem')}
                                 </span>
-                                <p className="text-[10px] sm:text-[11px] leading-[1.6] text-[var(--text-secondary)] line-clamp-4">
+                                <p className="text-[11px] leading-[1.6] text-[var(--text-secondary)] line-clamp-4 pr-1">
                                     {problem}
                                 </p>
                             </div>
                             <div>
-                                <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.2em] flex items-center gap-1.5 mb-1.5" style={{ color: brandColor }}>
+                                <span className="font-mono text-[8.5px] uppercase tracking-[0.2em] flex items-center gap-1.5 mb-2" style={{ color: brandColor }}>
                                     <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: brandColor }} /> {t('company.fix')}
                                 </span>
-                                <p className="text-[10px] sm:text-[11px] leading-[1.6] font-medium text-[var(--text-primary)] line-clamp-4">
+                                <p className="text-[11px] leading-[1.6] font-medium text-[var(--text-primary)] line-clamp-4 pr-1">
                                     {outcome}
                                 </p>
                             </div>
                         </div>
 
                         {/* CTA Row */}
-                        <div className="mt-4 pt-3 sm:pt-4 border-t border-dashed border-black/10 dark:border-white/10 flex items-center justify-between shrink-0">
-                            <span className="text-[8px] sm:text-[9px] font-mono text-[var(--text-secondary)] uppercase tracking-widest">
+                        <div className="mt-4 pt-4 border-t border-dashed border-black/10 dark:border-white/10 flex items-center justify-between shrink-0">
+                            <span className="text-[9px] font-mono text-[var(--text-secondary)] uppercase tracking-widest hidden sm:block">
                                 Authorized Personnel Only
                             </span>
                             <button
@@ -99,7 +141,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
                                     e.stopPropagation();
                                     onClick();
                                 }}
-                                className="flex items-center gap-1.5 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.1em] font-bold px-3 py-2 rounded hover:opacity-80 transition-opacity"
+                                className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.1em] font-bold px-4 py-2 rounded hover:opacity-80 transition-opacity ml-auto"
                                 style={{ backgroundColor: brandColor, color: '#fff' }}
                             >
                                 <Lock size={10} className="mb-[1px]" />
@@ -112,10 +154,10 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
 
             {/* === FRONT FLAP === */}
             <motion.div
-                className="absolute inset-x-0 bottom-0 h-full rounded-2xl origin-bottom shadow-2xl flex flex-col justify-center items-center pointer-events-none"
-                style={{ backgroundColor: brandColor, transformStyle: 'preserve-3d' }}
+                className="absolute inset-x-0 bottom-0 h-full rounded-2xl flex flex-col pointer-events-none"
+                style={{ backgroundColor: brandColor, transformOrigin: 'bottom center', transformStyle: 'preserve-3d' }}
                 animate={{
-                    rotateX: isOpen ? -70 : (isHovered ? -5 : 0),
+                    rotateX: isOpen ? -75 : (isHovered ? -5 : 0),
                     y: isOpen ? 30 : 0,
                     scale: isOpen ? 1.05 : 1,
                 }}
