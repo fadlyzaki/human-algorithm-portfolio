@@ -23,7 +23,7 @@ import useScrollDirection from '../hooks/useScrollDirection';
 import { useHandCursor } from '../context/HandCursorContext';
 import { useLanguage } from '../context/LanguageContext';
 import ChaosToMatrixIntro from '../components/welcome/ChaosToMatrixIntro';
-import { LayoutGroup } from 'framer-motion';
+import { LayoutGroup, AnimatePresence } from 'framer-motion';
 
 const Portfolio = () => {
   /* --- STATE & HOOKS --- */
