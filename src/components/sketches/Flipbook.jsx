@@ -234,12 +234,17 @@ export const Flipbook = ({
                     const isFlipped = spreadIndex > i;
                     const isFlipping = (direction === 1 && spreadIndex - 1 === i) || (direction === -1 && spreadIndex === i);
 
+                    // GPU Culling: Only render the top 2 sheets on either side of the spine
+                    // to prevent overlapping 50 divs.
+                    const isVisible = Math.abs(spreadIndex - i) <= 2;
+                    if (!isVisible) return null;
+
                     const zIndex = isFlipping ? 50 : (isFlipped ? i : totalSpreads - i);
 
                     return (
                         <motion.div
                             key={`sheet-${i}`}
-                            className="absolute top-0 h-full origin-left shadow-2xl"
+                            className={`absolute top-0 h-full origin-left ${isFlipping ? 'shadow-2xl' : ''}`}
                             style={{
                                 width: pageWidth,
                                 left: '50%',
