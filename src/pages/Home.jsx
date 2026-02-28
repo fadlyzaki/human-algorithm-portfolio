@@ -33,7 +33,14 @@ const Portfolio = () => {
   const { t, language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showIntro, setShowIntro] = useState(() => {
-    return localStorage.getItem('hasSeenTerminalIntro') !== 'true';
+    // Check URL override for testing/debugging
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('forceIntro') === 'true') {
+      sessionStorage.removeItem('hasSeenTerminalIntro');
+      return true;
+    }
+    // Only show intro once per browser session
+    return sessionStorage.getItem('hasSeenTerminalIntro') !== 'true';
   });
   const showNav = useScrollDirection(isGestureMode);
 
@@ -78,6 +85,7 @@ const Portfolio = () => {
       >
         <TerminalIntro
           onComplete={() => {
+            sessionStorage.setItem('hasSeenTerminalIntro', 'true');
             setShowIntro(false);
           }}
         />
