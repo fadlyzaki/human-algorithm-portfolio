@@ -83,12 +83,12 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
         // 1. Let chaos float briefly, then type the initialize text
         const initTimer = setTimeout(() => {
             setPhase('initializing');
-        }, 1500);
+        }, 2500);
 
         // 2. Snap to Matrix
         const matrixTimer = setTimeout(() => {
             setPhase('matrix');
-        }, 4000);
+        }, 5500);
 
         return () => {
             clearTimeout(initTimer);
@@ -216,7 +216,7 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
                                 transition={{ duration: 0.5 }}
                                 className="bg-black/50 backdrop-blur-sm border border-emerald-500/30 px-6 py-3 rounded-sm"
                             >
-                                <div className="font-mono text-emerald-400 text-sm overflow-hidden whitespace-nowrap border-r-2 border-emerald-400 pr-1 typewriter-text">
+                                <div key={phase} className="font-mono text-emerald-400 text-sm overflow-hidden whitespace-nowrap border-r-2 border-emerald-400 pr-1 typewriter-text">
                                     {phase === 'initializing' ? '> Initializing Human Algorithm...' : '> Awaiting inputs...'}
                                 </div>
                             </motion.div>
