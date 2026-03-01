@@ -14,7 +14,7 @@ const BAND_SEGMENTS = 14; // Number of joints in the string
 
 export default function Lanyard({ children }) {
     const [dragged, setDragged] = useState(false);
-    const band = useRef([]);
+    const bandRefs = useMemo(() => Array.from({ length: BAND_SEGMENTS }, () => React.createRef()), []);
     const card = useRef();
     const j1 = useRef();
     const fixed = useRef();
@@ -39,9 +39,9 @@ export default function Lanyard({ children }) {
             newPositions.push(new THREE.Vector3(0, BAND_LENGTH, 0)); // Anchor point
         }
 
-        for (let i = 0; i < band.current.length; i++) {
-            if (band.current[i]) {
-                newPositions.push(band.current[i].translation());
+        for (let i = 0; i < BAND_SEGMENTS - 1; i++) {
+            if (bandRefs[i].current) {
+                newPositions.push(bandRefs[i].current.translation());
             }
         }
 
@@ -76,8 +76,8 @@ export default function Lanyard({ children }) {
             card.current.setNextKinematicTranslation({ x: vec.x, y: vec.y, z: vec.z });
 
             // Wake up the physics string
-            for (let i = 0; i < band.current.length; i++) {
-                if (band.current[i]) band.current[i].wakeUp();
+            for (let i = 0; i < BAND_SEGMENTS - 1; i++) {
+                if (bandRefs[i].current) bandRefs[i].current.wakeUp();
             }
         }
     });
@@ -94,9 +94,9 @@ export default function Lanyard({ children }) {
                 return (
                     <BandSegment
                         key={i}
-                        ref={(el) => (band.current[idx] = el)}
+                        ref={bandRefs[idx]}
                         position={[pos.x, pos.y, pos.z]}
-                        prev={idx === 0 ? fixed : band.current[idx - 1]}
+                        prev={idx === 0 ? fixed : bandRefs[idx - 1]}
                     />
                 );
             })}
@@ -116,7 +116,7 @@ export default function Lanyard({ children }) {
             {/* The Heavy Card Anchor */}
             <CardAnchor
                 ref={card}
-                prev={band.current[band.current.length - 1]}
+                prev={bandRefs[BAND_SEGMENTS - 2]}
                 position={[0, 0, 0]}
                 onPointerDown={(e) => {
                     e.stopPropagation();
