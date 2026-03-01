@@ -50,12 +50,12 @@ export const useProjectData = (id) => {
 
         if (foundProject) {
             return {
-                ...foundProject,
+                project: foundProject,
                 loading: false
             };
         }
 
-        return { error: 'Project not found', loading: false };
+        return { project: null, error: 'Project not found', loading: false };
     }, [id]);
 
     return data;
