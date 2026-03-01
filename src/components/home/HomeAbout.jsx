@@ -1,10 +1,81 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, User, Heart, Cpu, Activity, Flame, BookOpen, PenLine, Palette } from 'lucide-react';
 import SectionTitle from '../SectionTitle';
 import ProfileScanner from '../ProfileScanner';
 import RichText from '../RichText';
 import ScrambleText from '../ScrambleText';
+
+const INTERESTS = [
+    { emoji: '🔥', label: 'Duolingo', val: 'Daily', url: 'https://www.duolingo.com/profile/fadlyzaki', color: '#f97316' },
+    { emoji: '🏃', label: 'Strava', val: '5K/Wk', url: 'https://www.strava.com/athletes/129304799', color: '#ea580c' },
+    { emoji: '📚', label: 'Goodreads', val: 'Daily', url: 'https://www.goodreads.com/user/show/32928962-fadlyzaki', color: '#fbbf24' },
+    { emoji: '✍️', label: 'Substack', val: 'Weekly', url: 'https://substack.com/@fadlyzaki', color: '#a78bfa' },
+];
+
+const InterestSelector = ({ t }) => {
+    const [active, setActive] = useState(null);
+
+    return (
+        <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-[var(--text-primary)] transition-colors">
+            <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-5 flex items-center gap-2">
+                <Activity size={14} className="text-[var(--text-secondary)]" /> {t('home.personal_interests')}
+            </h4>
+
+            {/* Emoji Pills Row */}
+            <div className="flex items-center justify-center gap-3 mb-4">
+                {INTERESTS.map((item, i) => (
+                    <a
+                        key={i}
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative group"
+                        onMouseEnter={() => setActive(i)}
+                        onMouseLeave={() => setActive(null)}
+                    >
+                        <div
+                            className={`w-12 h-12 rounded-full flex items-center justify-center text-xl
+                                bg-[var(--bg-surface)] border-2 cursor-pointer
+                                transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+                                ${active === i
+                                    ? 'scale-125 shadow-lg -translate-y-1'
+                                    : 'scale-100 shadow-none translate-y-0 border-[var(--border-color)]'
+                                }`}
+                            style={{
+                                borderColor: active === i ? item.color : undefined,
+                                boxShadow: active === i ? `0 4px 20px ${item.color}30` : undefined,
+                            }}
+                        >
+                            <span className={`transition-transform duration-300 ${active === i ? 'scale-110' : 'scale-100'}`}>
+                                {item.emoji}
+                            </span>
+                        </div>
+                    </a>
+                ))}
+            </div>
+
+            {/* Active Label */}
+            <div className="h-10 flex items-center justify-center">
+                <div
+                    className={`text-center transition-all duration-300 ease-out
+                        ${active !== null ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                >
+                    {active !== null && (
+                        <>
+                            <div className="text-sm font-bold text-[var(--text-primary)]">
+                                {INTERESTS[active].label}
+                            </div>
+                            <div className="text-[10px] font-mono uppercase tracking-widest" style={{ color: INTERESTS[active].color }}>
+                                {INTERESTS[active].val}
+                            </div>
+                        </>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 const HomeAbout = ({ t }) => {
     return (
@@ -93,32 +164,8 @@ const HomeAbout = ({ t }) => {
                     </p>
                 </div>
 
-                {/* 5. RUNTIME METRICS (Span 1 col) */}
-                <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-[var(--text-primary)] transition-colors">
-                    <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                        <Activity size={14} className="text-[var(--text-secondary)]" /> {t('home.personal_interests')}
-                    </h4>
-                    <div className="grid grid-cols-2 gap-3">
-                        {[
-                            { label: "Duolingo", val: "Daily", icon: Flame, color: "text-orange-500", url: "https://www.duolingo.com/profile/fadlyzaki" },
-                            { label: "Strava", val: "5K/Wk", icon: Activity, color: "text-orange-600", url: "https://www.strava.com/athletes/129304799" },
-                            { label: "Goodreads", val: "Daily", icon: BookOpen, color: "text-amber-200", url: "https://www.goodreads.com/user/show/32928962-fadlyzaki" },
-                            { label: "Substack", val: "Weekly", icon: PenLine, color: "text-purple-400", url: "https://substack.com/@fadlyzaki" }
-                        ].map((interest, i) => (
-                            <a
-                                key={i}
-                                href={interest.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex flex-col p-2 bg-[var(--bg-surface)] rounded border border-[var(--border-color)] hover:border-[var(--text-primary)] hover:-translate-y-0.5 transition-all"
-                            >
-                                <interest.icon size={16} className={`mb-2 ${interest.color}`} />
-                                <span className="text-xs font-bold text-[var(--text-primary)]">{interest.label}</span>
-                                <span className="text-[10px] font-mono text-[var(--text-secondary)] opacity-70">{interest.val}</span>
-                            </a>
-                        ))}
-                    </div>
-                </div>
+                {/* 5. PERSONAL INTERESTS — Interactive Emoji Selector */}
+                <InterestSelector t={t} />
 
                 {/* 6. SKETCHES TEASER (Span 3 cols — Full Width) */}
                 <Link
