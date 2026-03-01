@@ -1,3 +1,4 @@
+```javascript
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -6,7 +7,6 @@ import DraggablePhoto from '../DraggablePhoto';
 import ScrollReveal from '../ScrollReveal';
 import StickyNote from '../StickyNote';
 import RichText from '../RichText';
-import Fingerprint from '../Fingerprint';
 
 const CHAR_SPEED = 0.015;
 const LINE_GAP = 0.3;
@@ -27,7 +27,7 @@ const TypewriterText = ({ text, delay = 0, start = true }) => {
         >
             {characters.map((char, index) => (
                 <motion.span
-                    key={`${char}-${index}`}
+                    key={`${ char } -${ index } `}
                     variants={{
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 }
@@ -50,7 +50,7 @@ const getDelay = (lines) => {
 };
 
 const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
-    const roleLine = `${t('home.role')} ·`;
+    const roleLine = `${ t('home.role') } ·`;
     const roleSubLine = t('home.role_sub');
     const titleLine = t('home.intro_title');
     const descLine = t('home.intro_desc');
@@ -65,9 +65,8 @@ const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
                         <h1 className="font-mono text-3xl sm:text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
                             <TypewriterText text={roleLine} delay={delays[0]} start={startTyping} />
                             <br />
-                            <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal inline-flex items-center gap-2">
+                            <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">
                                 <TypewriterText text={roleSubLine} delay={delays[1]} start={startTyping} />
-                                <Fingerprint size={52} className="text-[var(--accent-amber)]" />
                             </span>
                         </h1>
                         <h2 className="text-xl md:text-2xl font-mono text-[var(--text-primary)] mb-8 pb-4 inline-block border-b-2 border-[var(--accent-amber)]">
