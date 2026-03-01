@@ -17,7 +17,17 @@ const INTERESTS = [
 ];
 
 const InterestSelector = ({ t }) => {
-    const [active, setActive] = useState(null);
+    const [selected, setSelected] = useState(new Set());
+    const [hovered, setHovered] = useState(null);
+
+    const toggleSelect = (i) => {
+        setSelected(prev => {
+            const next = new Set(prev);
+            if (next.has(i)) next.delete(i);
+            else next.add(i);
+            return next;
+        });
+    };
 
     return (
         <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-[var(--text-primary)] transition-colors">
@@ -25,61 +35,61 @@ const InterestSelector = ({ t }) => {
                 <Activity size={14} className="text-[var(--text-secondary)]" /> {t('home.personal_interests')}
             </h4>
 
-            {/* Emoji Pills Row */}
-            <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
+            {/* Interest Pills — Framer-style */}
+            <div className="flex flex-wrap justify-center gap-3">
                 {INTERESTS.map((item, i) => {
-                    const pill = (
-                        <div
-                            className={`w-12 h-12 rounded-full flex items-center justify-center text-xl
-                                bg-[var(--bg-surface)] border-2 cursor-pointer
-                                transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
-                                ${active === i
-                                    ? 'scale-125 shadow-lg -translate-y-1'
-                                    : 'scale-100 shadow-none translate-y-0 border-[var(--border-color)]'
-                                }`}
-                            style={{
-                                borderColor: active === i ? item.color : undefined,
-                                boxShadow: active === i ? `0 4px 20px ${item.color}30` : undefined,
-                            }}
-                        >
-                            <span className={`transition-transform duration-300 ${active === i ? 'scale-110' : 'scale-100'}`}>
-                                {item.emoji}
-                            </span>
-                        </div>
-                    );
+                    const isSelected = selected.has(i);
+                    const isHovered = hovered === i;
 
-                    const handlers = {
-                        onMouseEnter: () => setActive(i),
-                        onMouseLeave: () => setActive(null),
+                    const handleClick = (e) => {
+                        if (item.url) {
+                            // Items with links: open in new tab
+                            window.open(item.url, '_blank', 'noopener,noreferrer');
+                        } else {
+                            // Items without links: toggle selection
+                            toggleSelect(i);
+                        }
                     };
 
-                    return item.url ? (
-                        <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" className="relative" {...handlers}>
-                            {pill}
-                        </a>
-                    ) : (
-                        <div key={i} className="relative" {...handlers}>
-                            {pill}
-                        </div>
+                    return (
+                        <button
+                            key={i}
+                            onClick={handleClick}
+                            onMouseEnter={() => setHovered(i)}
+                            onMouseLeave={() => setHovered(null)}
+                            className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium
+                                border cursor-pointer select-none
+                                transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+                                ${isSelected
+                                    ? 'border-transparent shadow-md scale-105'
+                                    : isHovered
+                                        ? 'border-[var(--border-color)] bg-[var(--bg-surface)] scale-105 shadow-sm'
+                                        : 'border-[var(--border-color)] bg-[var(--bg-surface)] scale-100'
+                                }`}
+                            style={{
+                                backgroundColor: isSelected ? `${item.color}18` : undefined,
+                                borderColor: isSelected ? `${item.color}40` : undefined,
+                            }}
+                        >
+                            <span className={`text-base transition-transform duration-300 ${isHovered || isSelected ? 'scale-110' : 'scale-100'}`}>
+                                {item.emoji}
+                            </span>
+                            <span className="text-[var(--text-primary)]">{item.label}</span>
+                        </button>
                     );
                 })}
             </div>
 
-            {/* Active Label */}
-            <div className="h-10 flex items-center justify-center">
+            {/* Active description — shows on hover or selection */}
+            <div className="h-8 mt-3 flex items-center justify-center">
                 <div
                     className={`text-center transition-all duration-300 ease-out
-                        ${active !== null ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                        ${hovered !== null ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
                 >
-                    {active !== null && (
-                        <>
-                            <div className="text-sm font-bold text-[var(--text-primary)]">
-                                {INTERESTS[active].label}
-                            </div>
-                            <div className="text-[10px] font-mono uppercase tracking-widest" style={{ color: INTERESTS[active].color }}>
-                                {INTERESTS[active].val}
-                            </div>
-                        </>
+                    {hovered !== null && (
+                        <span className="text-[11px] font-mono uppercase tracking-widest" style={{ color: INTERESTS[hovered].color }}>
+                            {INTERESTS[hovered].val}
+                        </span>
                     )}
                 </div>
             </div>
