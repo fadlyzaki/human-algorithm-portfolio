@@ -1,18 +1,20 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 
-const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/~`';
+// Use only characters with similar visual width to minimize layout shift
+const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@&%';
 
 /**
- * ScrambleText — A text component that scrambles its characters on hover,
+ * ScrambleText — A text component that scrambles its characters on hover/view,
  * then resolves back to the original text character by character.
- * 
- * Inspired by https://scramble-area.learnframer.site/
- * 
+ *
+ * Each character is rendered in a fixed-width inline-block span to prevent
+ * layout reflow during scramble — eliminating visual jank.
+ *
  * @param {string} text - The original text to display
  * @param {string} className - CSS classes to apply
  * @param {string} as - HTML element to render as (default: 'span')
  * @param {number} speed - Milliseconds between each character resolve (default: 30)
- * @param {number} scrambleSpeed - Milliseconds between scramble ticks (default: 40)
+ * @param {number} scrambleSpeed - Milliseconds between scramble ticks (default: 50)
  * @param {boolean} triggerOnView - If true, scramble triggers on scroll into view instead of hover
  */
 const ScrambleText = ({
@@ -20,54 +22,74 @@ const ScrambleText = ({
     className = '',
     as: Tag = 'span',
     speed = 30,
-    scrambleSpeed = 40,
+    scrambleSpeed = 50,
     triggerOnView = false,
 }) => {
-    const [displayText, setDisplayText] = useState(text);
+    const [chars, setChars] = useState(() => Array.from(text));
+    const [scrambledIndices, setScrambledIndices] = useState(new Set());
     const [isScrambling, setIsScrambling] = useState(false);
     const intervalRef = useRef(null);
-    const resolveTimeoutRef = useRef(null);
     const hasTriggeredRef = useRef(false);
     const elementRef = useRef(null);
+    const originalChars = useRef(Array.from(text));
+
+    // Update original chars when text prop changes
+    useEffect(() => {
+        originalChars.current = Array.from(text);
+        if (!isScrambling) {
+            setChars(Array.from(text));
+            setScrambledIndices(new Set());
+        }
+    }, [text, isScrambling]);
 
     const scramble = useCallback(() => {
         if (isScrambling) return;
         setIsScrambling(true);
 
+        const original = originalChars.current;
+        const totalChars = original.length;
         let resolvedCount = 0;
-        const originalChars = Array.from(text);
-        const totalChars = originalChars.length;
-
-        // Phase 1: Pure scramble for a brief moment
         let scrambleTicks = 0;
-        const maxScrambleTicks = Math.max(3, Math.floor(totalChars * 0.15));
+        const maxScrambleTicks = Math.min(6, Math.max(3, Math.floor(totalChars * 0.08)));
+
+        // Resolve multiple characters per tick for long texts
+        const charsPerTick = Math.max(1, Math.floor(totalChars / 40));
 
         intervalRef.current = setInterval(() => {
             scrambleTicks++;
 
             if (scrambleTicks <= maxScrambleTicks) {
-                // Full scramble phase
-                const scrambled = originalChars.map((char) =>
-                    char === ' ' || char === '\n'
-                        ? char
-                        : CHARS[Math.floor(Math.random() * CHARS.length)]
+                // Full scramble phase — all non-space characters randomize
+                const scrambled = original.map((char) =>
+                    char === ' ' || char === '\n' ? char : CHARS[Math.floor(Math.random() * CHARS.length)]
                 );
-                setDisplayText(scrambled.join(''));
+                const indices = new Set(
+                    original.map((c, i) => (c !== ' ' && c !== '\n' ? i : -1)).filter((i) => i >= 0)
+                );
+                setChars(scrambled);
+                setScrambledIndices(indices);
             } else {
-                // Resolve phase: progressively reveal original characters
-                resolvedCount = Math.min(resolvedCount + 1, totalChars);
+                // Resolve phase — progressively reveal original characters
+                resolvedCount = Math.min(resolvedCount + charsPerTick, totalChars);
 
-                const mixed = originalChars.map((char, i) => {
+                const mixed = original.map((char, i) => {
                     if (i < resolvedCount) return char;
                     if (char === ' ' || char === '\n') return char;
                     return CHARS[Math.floor(Math.random() * CHARS.length)];
                 });
 
-                setDisplayText(mixed.join(''));
+                const indices = new Set();
+                for (let i = resolvedCount; i < totalChars; i++) {
+                    if (original[i] !== ' ' && original[i] !== '\n') indices.add(i);
+                }
+
+                setChars(mixed);
+                setScrambledIndices(indices);
 
                 if (resolvedCount >= totalChars) {
                     clearInterval(intervalRef.current);
-                    setDisplayText(text);
+                    setChars([...original]);
+                    setScrambledIndices(new Set());
                     setIsScrambling(false);
                 }
             }
@@ -78,16 +100,8 @@ const ScrambleText = ({
     useEffect(() => {
         return () => {
             if (intervalRef.current) clearInterval(intervalRef.current);
-            if (resolveTimeoutRef.current) clearTimeout(resolveTimeoutRef.current);
         };
     }, []);
-
-    // Update display text when prop changes
-    useEffect(() => {
-        if (!isScrambling) {
-            setDisplayText(text);
-        }
-    }, [text, isScrambling]);
 
     // Intersection Observer for triggerOnView
     useEffect(() => {
@@ -98,8 +112,7 @@ const ScrambleText = ({
                 entries.forEach((entry) => {
                     if (entry.isIntersecting && !hasTriggeredRef.current) {
                         hasTriggeredRef.current = true;
-                        // Small delay for dramatic effect
-                        setTimeout(() => scramble(), 200);
+                        setTimeout(() => scramble(), 300);
                     }
                 });
             },
@@ -111,19 +124,29 @@ const ScrambleText = ({
     }, [triggerOnView, scramble]);
 
     const handleMouseEnter = () => {
-        if (!triggerOnView) {
-            scramble();
-        }
+        if (!triggerOnView) scramble();
     };
 
     return (
         <Tag
             ref={elementRef}
-            className={`${className} ${isScrambling ? 'scrambling' : ''}`}
+            className={className}
             onMouseEnter={handleMouseEnter}
             style={{ cursor: triggerOnView ? 'default' : 'pointer' }}
         >
-            {displayText}
+            {chars.map((char, i) => (
+                <span
+                    key={i}
+                    style={{
+                        display: 'inline',
+                        opacity: scrambledIndices.has(i) ? 0.4 : 1,
+                        transition: 'opacity 0.15s ease',
+                        fontFamily: scrambledIndices.has(i) ? "'SF Mono', 'Fira Code', 'Courier New', monospace" : 'inherit',
+                    }}
+                >
+                    {char}
+                </span>
+            ))}
         </Tag>
     );
 };
