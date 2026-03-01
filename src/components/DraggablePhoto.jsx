@@ -408,34 +408,36 @@ const DraggablePhoto = ({ hideControls = false }) => {
   };
 
   return (
-    <div className="relative inline-block w-full mb-10"> {/* Wrapper with extra bottom space */}
+    <div className="relative inline-block w-full mb-10 w-full h-full pb-8"> {/* Wrapper with extra bottom space */}
       <motion.div
-        drag
-        dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
+        drag={!hideControls}
+        dragConstraints={!hideControls ? { left: -100, right: 100, top: -100, bottom: 100 } : undefined}
         dragElastic={0.15}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-        whileHover={{ scale: 1.02, rotate: 0, cursor: 'grab' }}
-        whileTap={{ scale: 0.98, cursor: 'grabbing' }}
-        initial={{ rotate: 2 }}
+        whileHover={!hideControls ? { scale: 1.02, rotate: 0, cursor: 'grab' } : {}}
+        whileTap={!hideControls ? { scale: 0.98, cursor: 'grabbing' } : {}}
+        initial={{ rotate: hideControls ? 0 : 2 }}
         animate={{ rotate: 0 }}
-        whileDrag={{ scale: 1.05, rotate: 0, zIndex: 10 }}
+        whileDrag={!hideControls ? { scale: 1.05, rotate: 0, zIndex: 10 } : {}}
         onClick={handleNext}
-        className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4.2] select-none group"
+        className={`relative ${!hideControls ? 'cursor-grab active:cursor-grabbing md:block' : 'cursor-pointer'} w-full aspect-[3/4.2] select-none group`}
       >
         {/* Lanyard Clip Construction */}
-        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-4 h-20 z-0 pointer-events-none">
-          {/* Strap Loop */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-48 h-[300px] border-[12px] border-[#1a1a1a] dark:border-zinc-400 rounded-[50%] -z-10 shadow-xl"></div>
+        {!hideControls && (
+          <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-4 h-20 z-0 pointer-events-none">
+            {/* Strap Loop */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-48 h-[300px] border-[12px] border-[#1a1a1a] dark:border-zinc-400 rounded-[50%] -z-10 shadow-xl"></div>
 
-          {/* Metal Clip Body */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-10 bg-gradient-to-b from-zinc-300 to-zinc-500 rounded-md shadow-md flex flex-col items-center justify-end pb-1 border border-zinc-600 z-10">
-            {/* Clip Spring */}
-            <div className="w-4 h-3 bg-zinc-700 rounded-sm mb-1 opacity-80"></div>
+            {/* Metal Clip Body */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-10 bg-gradient-to-b from-zinc-300 to-zinc-500 rounded-md shadow-md flex flex-col items-center justify-end pb-1 border border-zinc-600 z-10">
+              {/* Clip Spring */}
+              <div className="w-4 h-3 bg-zinc-700 rounded-sm mb-1 opacity-80"></div>
+            </div>
+
+            {/* Connection to Card */}
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2 h-4 bg-zinc-800/80 rounded-full z-20"></div>
           </div>
-
-          {/* Connection to Card */}
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2 h-4 bg-zinc-800/80 rounded-full z-20"></div>
-        </div>
+        )}
 
         <AnimatePresence mode="wait">
           <motion.div
