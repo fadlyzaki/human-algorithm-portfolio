@@ -35,7 +35,7 @@ const InterestSelector = ({ t }) => {
                 <Activity size={14} className="text-[var(--text-secondary)]" /> {t('home.personal_interests')}
             </h4>
 
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-wrap justify-center gap-2 pb-5">
                 {INTERESTS.map((item, i) => {
                     const isOn = selected.has(i);
 
@@ -48,47 +48,46 @@ const InterestSelector = ({ t }) => {
                     };
 
                     return (
-                        <button
-                            key={i}
-                            onClick={handleClick}
-                            onMouseEnter={() => setHovered(i)}
-                            onMouseLeave={() => setHovered(null)}
-                            className={`inline-flex items-center rounded-full text-xs font-medium
-                                px-3 py-1.5 border cursor-pointer select-none
-                                transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
-                                ${isOn
-                                    ? 'border-transparent shadow-sm'
-                                    : 'border-[var(--border-color)] bg-[var(--bg-surface)] hover:scale-105 hover:shadow-sm'
-                                }`}
-                            style={{
-                                backgroundColor: isOn ? `${item.color}15` : undefined,
-                                borderColor: isOn ? `${item.color}35` : undefined,
-                            }}
-                        >
-                            <span
-                                className="inline-block overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+                        <div key={i} className="relative">
+                            <button
+                                onClick={handleClick}
+                                onMouseEnter={() => setHovered(i)}
+                                onMouseLeave={() => setHovered(null)}
+                                className={`inline-flex items-center rounded-full text-xs font-medium
+                                    px-3 py-1.5 border cursor-pointer select-none
+                                    transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+                                    ${isOn
+                                        ? 'border-transparent shadow-sm'
+                                        : 'border-[var(--border-color)] bg-[var(--bg-surface)] hover:scale-105 hover:shadow-sm'
+                                    }`}
                                 style={{
-                                    maxWidth: isOn ? '1.5em' : '0',
-                                    opacity: isOn ? 1 : 0,
-                                    marginRight: isOn ? '0.35em' : '0',
+                                    backgroundColor: isOn ? `${item.color}15` : undefined,
+                                    borderColor: isOn ? `${item.color}35` : undefined,
                                 }}
                             >
-                                {item.emoji}
+                                <span
+                                    className="inline-block overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+                                    style={{
+                                        maxWidth: isOn ? '1.5em' : '0',
+                                        opacity: isOn ? 1 : 0,
+                                        marginRight: isOn ? '0.35em' : '0',
+                                    }}
+                                >
+                                    {item.emoji}
+                                </span>
+                                <span className="text-[var(--text-primary)] whitespace-nowrap">{item.label}</span>
+                            </button>
+                            {/* Caption below this pill */}
+                            <span
+                                className={`absolute left-1/2 -translate-x-1/2 top-full mt-1.5 text-[9px] font-mono uppercase tracking-widest whitespace-nowrap transition-all duration-200 pointer-events-none
+                                    ${hovered === i ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1'}`}
+                                style={{ color: item.color }}
+                            >
+                                {item.val}
                             </span>
-                            <span className="text-[var(--text-primary)] whitespace-nowrap">{item.label}</span>
-                        </button>
+                        </div>
                     );
                 })}
-            </div>
-
-            {/* Caption on hover */}
-            <div className="h-6 mt-2 flex items-center justify-center">
-                <span
-                    className={`text-[10px] font-mono uppercase tracking-widest transition-all duration-200 ${hovered !== null ? 'opacity-100' : 'opacity-0'}`}
-                    style={{ color: hovered !== null ? INTERESTS[hovered].color : undefined }}
-                >
-                    {hovered !== null ? INTERESTS[hovered].val : '\u00A0'}
-                </span>
             </div>
         </div>
     );
