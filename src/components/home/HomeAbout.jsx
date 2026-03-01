@@ -19,6 +19,7 @@ const INTERESTS = [
 const InterestSelector = ({ t }) => {
     const [selected, setSelected] = useState(new Set());
     const [hovered, setHovered] = useState(null);
+    const [bursts, setBursts] = useState([]);
 
     const toggle = (i) => {
         setSelected(prev => {
@@ -29,8 +30,16 @@ const InterestSelector = ({ t }) => {
         });
     };
 
+    const triggerBurst = (i) => {
+        const id = Date.now();
+        setBursts(prev => [...prev, { id, index: i }]);
+        setTimeout(() => {
+            setBursts(prev => prev.filter(b => b.id !== id));
+        }, 600);
+    };
+
     return (
-        <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-[var(--text-primary)] transition-colors">
+        <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-[var(--text-primary)] transition-colors overflow-hidden">
             <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-5 flex items-center gap-2">
                 <Activity size={14} className="text-[var(--text-secondary)]" /> {t('home.personal_interests')}
             </h4>
@@ -44,6 +53,7 @@ const InterestSelector = ({ t }) => {
                             window.open(item.url, '_blank', 'noopener,noreferrer');
                         } else {
                             toggle(i);
+                            triggerBurst(i);
                         }
                     };
 
@@ -53,30 +63,36 @@ const InterestSelector = ({ t }) => {
                                 onClick={handleClick}
                                 onMouseEnter={() => setHovered(i)}
                                 onMouseLeave={() => setHovered(null)}
-                                className={`inline-flex items-center rounded-full text-xs font-medium
+                                className={`inline-flex items-center gap-1.5 rounded-full text-xs font-medium
                                     px-3 py-1.5 border cursor-pointer select-none
                                     transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+                                    hover:scale-105
                                     ${isOn
                                         ? 'border-transparent shadow-sm'
-                                        : 'border-[var(--border-color)] bg-[var(--bg-surface)] hover:scale-105 hover:shadow-sm'
+                                        : 'border-[var(--border-color)] bg-[var(--bg-surface)]'
                                     }`}
                                 style={{
-                                    backgroundColor: isOn ? `${item.color}15` : undefined,
-                                    borderColor: isOn ? `${item.color}35` : undefined,
+                                    backgroundColor: isOn ? `${item.color}18` : undefined,
+                                    borderColor: isOn ? `${item.color}40` : undefined,
                                 }}
                             >
-                                <span
-                                    className="inline-block overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
-                                    style={{
-                                        maxWidth: isOn ? '1.5em' : '0',
-                                        opacity: isOn ? 1 : 0,
-                                        marginRight: isOn ? '0.35em' : '0',
-                                    }}
-                                >
-                                    {item.emoji}
-                                </span>
+                                <span className="text-sm leading-none">{item.emoji}</span>
                                 <span className="text-[var(--text-primary)] whitespace-nowrap">{item.label}</span>
                             </button>
+
+                            {/* Giant emoji burst on click */}
+                            {bursts.filter(b => b.index === i).map(b => (
+                                <span
+                                    key={b.id}
+                                    className="absolute inset-0 flex items-center justify-center pointer-events-none z-10"
+                                    style={{
+                                        animation: 'emojiBurst 0.6s ease-out forwards',
+                                    }}
+                                >
+                                    <span className="text-5xl">{item.emoji}</span>
+                                </span>
+                            ))}
+
                             {/* Caption below this pill */}
                             <span
                                 className={`absolute left-1/2 -translate-x-1/2 top-full mt-1.5 text-[9px] font-mono uppercase tracking-widest whitespace-nowrap transition-all duration-200 pointer-events-none
@@ -89,6 +105,15 @@ const InterestSelector = ({ t }) => {
                     );
                 })}
             </div>
+
+            {/* Burst animation keyframes */}
+            <style>{`
+                @keyframes emojiBurst {
+                    0% { transform: scale(0.5); opacity: 1; }
+                    50% { transform: scale(2.5); opacity: 0.8; }
+                    100% { transform: scale(4); opacity: 0; }
+                }
+            `}</style>
         </div>
     );
 };
