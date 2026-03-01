@@ -11,6 +11,9 @@ const INTERESTS = [
     { emoji: '🏃', label: 'Strava', val: '5K/Wk', url: 'https://www.strava.com/athletes/129304799', color: '#ea580c' },
     { emoji: '📚', label: 'Goodreads', val: 'Daily', url: 'https://www.goodreads.com/user/show/32928962-fadlyzaki', color: '#fbbf24' },
     { emoji: '✍️', label: 'Substack', val: 'Weekly', url: 'https://substack.com/@fadlyzaki', color: '#a78bfa' },
+    { emoji: '🎬', label: 'Movies', val: 'Comedy & cooking series', color: '#f472b6' },
+    { emoji: '📷', label: 'Photography', val: 'City, beach & life', color: '#38bdf8' },
+    { emoji: '👨‍🏫', label: 'Teaching', val: 'Teach small humans', color: '#34d399' },
 ];
 
 const InterestSelector = ({ t }) => {
@@ -23,17 +26,9 @@ const InterestSelector = ({ t }) => {
             </h4>
 
             {/* Emoji Pills Row */}
-            <div className="flex items-center justify-center gap-3 mb-4">
-                {INTERESTS.map((item, i) => (
-                    <a
-                        key={i}
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative group"
-                        onMouseEnter={() => setActive(i)}
-                        onMouseLeave={() => setActive(null)}
-                    >
+            <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
+                {INTERESTS.map((item, i) => {
+                    const pill = (
                         <div
                             className={`w-12 h-12 rounded-full flex items-center justify-center text-xl
                                 bg-[var(--bg-surface)] border-2 cursor-pointer
@@ -51,8 +46,23 @@ const InterestSelector = ({ t }) => {
                                 {item.emoji}
                             </span>
                         </div>
-                    </a>
-                ))}
+                    );
+
+                    const handlers = {
+                        onMouseEnter: () => setActive(i),
+                        onMouseLeave: () => setActive(null),
+                    };
+
+                    return item.url ? (
+                        <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" className="relative" {...handlers}>
+                            {pill}
+                        </a>
+                    ) : (
+                        <div key={i} className="relative" {...handlers}>
+                            {pill}
+                        </div>
+                    );
+                })}
             </div>
 
             {/* Active Label */}
