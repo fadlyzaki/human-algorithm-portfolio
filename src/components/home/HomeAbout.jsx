@@ -18,9 +18,8 @@ const INTERESTS = [
 
 const InterestSelector = ({ t }) => {
     const [selected, setSelected] = useState(new Set());
-    const [hovered, setHovered] = useState(null);
 
-    const toggleSelect = (i) => {
+    const toggle = (i) => {
         setSelected(prev => {
             const next = new Set(prev);
             if (next.has(i)) next.delete(i);
@@ -35,19 +34,15 @@ const InterestSelector = ({ t }) => {
                 <Activity size={14} className="text-[var(--text-secondary)]" /> {t('home.personal_interests')}
             </h4>
 
-            {/* Interest Pills — Framer-style */}
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-2">
                 {INTERESTS.map((item, i) => {
-                    const isSelected = selected.has(i);
-                    const isHovered = hovered === i;
+                    const isOn = selected.has(i);
 
-                    const handleClick = (e) => {
+                    const handleClick = () => {
                         if (item.url) {
-                            // Items with links: open in new tab
                             window.open(item.url, '_blank', 'noopener,noreferrer');
                         } else {
-                            // Items without links: toggle selection
-                            toggleSelect(i);
+                            toggle(i);
                         }
                     };
 
@@ -55,43 +50,32 @@ const InterestSelector = ({ t }) => {
                         <button
                             key={i}
                             onClick={handleClick}
-                            onMouseEnter={() => setHovered(i)}
-                            onMouseLeave={() => setHovered(null)}
-                            className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium
-                                border cursor-pointer select-none
+                            className={`inline-flex items-center rounded-full text-xs font-medium
+                                px-3 py-1.5 border cursor-pointer select-none
                                 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
-                                ${isSelected
-                                    ? 'border-transparent shadow-md scale-105'
-                                    : isHovered
-                                        ? 'border-[var(--border-color)] bg-[var(--bg-surface)] scale-105 shadow-sm'
-                                        : 'border-[var(--border-color)] bg-[var(--bg-surface)] scale-100'
+                                ${isOn
+                                    ? 'border-transparent shadow-sm'
+                                    : 'border-[var(--border-color)] bg-[var(--bg-surface)] hover:scale-105 hover:shadow-sm'
                                 }`}
                             style={{
-                                backgroundColor: isSelected ? `${item.color}18` : undefined,
-                                borderColor: isSelected ? `${item.color}40` : undefined,
+                                backgroundColor: isOn ? `${item.color}15` : undefined,
+                                borderColor: isOn ? `${item.color}35` : undefined,
                             }}
                         >
-                            <span className={`text-base transition-transform duration-300 ${isHovered || isSelected ? 'scale-110' : 'scale-100'}`}>
+                            <span
+                                className="inline-block overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+                                style={{
+                                    maxWidth: isOn ? '1.5em' : '0',
+                                    opacity: isOn ? 1 : 0,
+                                    marginRight: isOn ? '0.35em' : '0',
+                                }}
+                            >
                                 {item.emoji}
                             </span>
-                            <span className="text-[var(--text-primary)]">{item.label}</span>
+                            <span className="text-[var(--text-primary)] whitespace-nowrap">{item.label}</span>
                         </button>
                     );
                 })}
-            </div>
-
-            {/* Active description — shows on hover or selection */}
-            <div className="h-8 mt-3 flex items-center justify-center">
-                <div
-                    className={`text-center transition-all duration-300 ease-out
-                        ${hovered !== null ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
-                >
-                    {hovered !== null && (
-                        <span className="text-[11px] font-mono uppercase tracking-widest" style={{ color: INTERESTS[hovered].color }}>
-                            {INTERESTS[hovered].val}
-                        </span>
-                    )}
-                </div>
             </div>
         </div>
     );
