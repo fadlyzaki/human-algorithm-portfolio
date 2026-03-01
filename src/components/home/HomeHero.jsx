@@ -67,7 +67,7 @@ const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
                             <br />
                             <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal inline-flex items-center gap-2">
                                 <TypewriterText text={roleSubLine} delay={delays[1]} start={startTyping} />
-                                <Fingerprint size={40} className="text-[var(--accent-amber)] opacity-70 hover:opacity-100 transition-opacity" />
+                                <Fingerprint size={52} className="text-[var(--accent-amber)]" />
                             </span>
                         </h1>
                         <h2 className="text-xl md:text-2xl font-mono text-[var(--text-primary)] mb-8 pb-4 inline-block border-b-2 border-[var(--accent-amber)]">

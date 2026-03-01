@@ -8,17 +8,9 @@ import { useLanguage } from '../context/LanguageContext';
 const DraggablePhoto = ({ hideControls = false }) => {
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
-  const [designVariant, setDesignVariant] = useState(() => {
-    try {
-      const stored = sessionStorage.getItem('currentDesignVariant');
-      if (stored) return stored;
-    } catch (e) { /* ignore */ }
+  const [designVariant] = useState(() => {
     const variants = ['industrial', 'cyberpunk', 'swiss', 'glassmorphism', 'retro', 'neo-brutalism', 'holographic'];
-    const selected = variants[Math.floor(Math.random() * variants.length)];
-    try {
-      sessionStorage.setItem('currentDesignVariant', selected);
-    } catch (e) { /* ignore */ }
-    return selected;
+    return variants[Math.floor(Math.random() * variants.length)];
   });
 
   const items = [
@@ -32,16 +24,7 @@ const DraggablePhoto = ({ hideControls = false }) => {
     setIndex((prev) => (prev + 1) % items.length);
   };
 
-  const toggleVariant = (e) => {
-    e.stopPropagation();
-    const variants = ['industrial', 'cyberpunk', 'swiss', 'glassmorphism', 'retro', 'neo-brutalism', 'holographic'];
-    const nextIndex = (variants.indexOf(designVariant) + 1) % variants.length;
-    const nextVariant = variants[nextIndex];
-    setDesignVariant(nextVariant);
-    try {
-      sessionStorage.setItem('currentDesignVariant', nextVariant);
-    } catch (e) { /* ignore */ }
-  };
+
 
   const currentItem = items[index];
 
@@ -475,18 +458,7 @@ const DraggablePhoto = ({ hideControls = false }) => {
         </AnimatePresence>
       </motion.div>
 
-      {/* DESIGN SWITCHER CONTROL - Repositioned to bottom right */}
-      {!hideControls && (
-        <div className="absolute right-0 -bottom-10 flex flex-col gap-2">
-          <button
-            onClick={toggleVariant}
-            className="w-8 h-8 rounded-full bg-white dark:bg-black border border-gray-200 dark:border-gray-800 shadow-lg flex items-center justify-center text-[10px] font-bold hover:scale-110 active:scale-95 transition-transform z-10"
-            title="Switch Design Style"
-          >
-            🎨
-          </button>
-        </div>
-      )}
+
     </div>
   );
 };

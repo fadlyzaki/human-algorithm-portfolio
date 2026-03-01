@@ -29,19 +29,12 @@ const Fingerprint = ({ size = 48, className = '' }) => {
             >
                 {/* Fingerprint paths — concentric arcs that draw in */}
                 {[
-                    // Outermost ring
                     'M20 50 C8 42 4 28 10 16 C16 4 30 0 42 6 C54 12 58 28 52 40',
-                    // Second ring
                     'M22 46 C12 40 8 28 14 18 C20 8 32 4 42 10 C52 16 54 28 48 38',
-                    // Third ring
                     'M24 42 C16 36 14 28 18 20 C22 12 32 8 40 12 C48 16 50 28 46 36',
-                    // Fourth ring
                     'M26 40 C20 36 18 28 22 22 C26 16 34 12 40 16 C46 20 48 30 44 36',
-                    // Inner ring
                     'M28 38 C24 34 22 28 26 24 C30 20 36 18 40 22 C44 26 44 32 42 36',
-                    // Core center
                     'M30 36 C28 34 26 30 28 26 C30 22 34 20 38 22 C42 24 42 30 40 34',
-                    // Central dot-line
                     'M32 34 C30 32 30 28 32 26 C34 24 36 24 38 26',
                 ].map((d, i) => (
                     <path
@@ -53,9 +46,9 @@ const Fingerprint = ({ size = 48, className = '' }) => {
                         fill="none"
                         style={{
                             strokeDasharray: 200,
-                            strokeDashoffset: isHovered ? 0 : 200,
-                            transition: `stroke-dashoffset ${0.6 + i * 0.12}s cubic-bezier(0.65, 0, 0.35, 1) ${i * 0.06}s`,
-                            opacity: isHovered ? 1 : 0.15,
+                            strokeDashoffset: 0,
+                            opacity: isHovered ? 1 : 0.35,
+                            transition: `opacity ${0.4 + i * 0.08}s ease ${i * 0.04}s`,
                         }}
                     />
                 ))}
