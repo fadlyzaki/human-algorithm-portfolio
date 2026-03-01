@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../ScrollReveal';
+import SectionTitle from '../SectionTitle';
 import WorkBento from '../WorkBento';
 import { WORK_CLUSTERS } from '../../data/portfolioData';
 
