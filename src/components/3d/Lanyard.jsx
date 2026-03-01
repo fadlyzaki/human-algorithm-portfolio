@@ -103,7 +103,7 @@ export default function Lanyard({ children }) {
 
             {/* The visible string mesh */}
             <mesh>
-                <meshLine attach="geometry" points={positions} />
+                <meshLineGeometry attach="geometry" points={positions} />
                 <meshLineMaterial
                     attach="material"
                     color="white"
