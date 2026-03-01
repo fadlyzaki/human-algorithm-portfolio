@@ -1,150 +1,139 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState } from 'react';
 import * as THREE from 'three';
-import { useFrame } from '@react-three/fiber';
-import { useGLTF, Environment, Lightformer } from '@react-three/drei';
-import { BallCollider, CuboidCollider, RigidBody, useSphericalJoint, useFixedJoint } from '@react-three/rapier';
-
-// Extend Drei's MeshLine for the string
-import { extend } from '@react-three/fiber';
+import { useFrame, useThree, extend } from '@react-three/fiber';
+import { Environment, Lightformer } from '@react-three/drei';
+import { BallCollider, CuboidCollider, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
+
+// Extend MeshLine for R3F declarative use
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-const BAND_LENGTH = 14;
-const BAND_SEGMENTS = 14; // Number of joints in the string
-
 export default function Lanyard({ children }) {
-    const [dragged, setDragged] = useState(false);
-    const curve = useMemo(() => {
-        const points = [];
-        for (let i = 0; i <= BAND_SEGMENTS; i++) {
-            points.push(new THREE.Vector3(0, BAND_LENGTH - (i * BAND_LENGTH) / BAND_SEGMENTS, 0));
-        }
-        return new THREE.CatmullRomCurve3(points);
-    }, []);
-
-    const initialPositions = useMemo(() => curve.getPoints(BAND_SEGMENTS), [curve]);
-
-    const bandRefs = useMemo(() => Array.from({ length: BAND_SEGMENTS }, () => React.createRef()), []);
-    const lineGeometryRef = useRef();
-    const card = useRef();
-    const j1 = useRef();
+    // References for the band mesh and the physics joints
+    const band = useRef();
     const fixed = useRef();
+    const j1 = useRef();
+    const j2 = useRef();
+    const j3 = useRef();
+    const card = useRef();
 
+    // Reusable vectors (allocated once, reused every frame)
+    const vec = new THREE.Vector3();
+    const ang = new THREE.Vector3();
+    const rot = new THREE.Vector3();
+    const dir = new THREE.Vector3();
 
+    // Canvas size for meshline resolution
+    const { width, height } = useThree((state) => state.size);
 
+    // A Catmull-Rom curve with 4 control points
+    const [curve] = useState(
+        () =>
+            new THREE.CatmullRomCurve3([
+                new THREE.Vector3(1.5, 0, 0),
+                new THREE.Vector3(1, 0, 0),
+                new THREE.Vector3(0.5, 0, 0),
+                new THREE.Vector3(0, 0, 0),
+            ])
+    );
+
+    const [dragged, drag] = useState(false);
+    const [ready, setReady] = useState(false);
+
+    // --- Physics Joints ---
+    useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
+    useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
+    useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
+    useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.45, 0]]);
+
+    // --- Frame Loop ---
     useFrame((state) => {
-        // 1. Sync the string visual to the physics bodies
-        const newPositions = [];
-        if (fixed.current) {
-            const t = fixed.current.translation();
-            newPositions.push(new THREE.Vector3(t.x, t.y, t.z));
-        } else {
-            newPositions.push(new THREE.Vector3(0, BAND_LENGTH, 0)); // Anchor point
+        // Wait for all Rapier RigidBody refs to be populated (they mount async via useEffect)
+        if (!fixed.current || !j1.current || !j2.current || !j3.current || !card.current) {
+            return; // Skip this frame entirely — physics isn't ready yet
         }
 
-        for (let i = 0; i < BAND_SEGMENTS - 1; i++) {
-            if (bandRefs[i].current) {
-                const t = bandRefs[i].current.translation();
-                newPositions.push(new THREE.Vector3(t.x, t.y, t.z));
-            }
+        if (!ready) setReady(true); // Flip the gate once to trigger mesh render
+
+        // 1. Dragging logic
+        if (dragged) {
+            vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
+            dir.copy(vec).sub(state.camera.position).normalize();
+            vec.add(dir.multiplyScalar(state.camera.position.length()));
+            card.current.setNextKinematicTranslation({
+                x: vec.x - dragged.x,
+                y: vec.y - dragged.y,
+                z: vec.z - dragged.z,
+            });
         }
 
-        if (card.current) {
-            // Attach the end of the string to the top of the card
-            const cardPos = card.current.translation();
-            const cardQuat = card.current.rotation();
+        // 2. Calculate Catmull-Rom curve from joint positions
+        curve.points[0].copy(j3.current.translation());
+        curve.points[1].copy(j2.current.translation());
+        curve.points[2].copy(j1.current.translation());
+        curve.points[3].copy(fixed.current.translation());
 
-            // Offset to where the lanyard clip would attach to the card
-            const attachmentOffset = new THREE.Vector3(0, 1.5, 0);
-            attachmentOffset.applyQuaternion(cardQuat);
-            attachmentOffset.add(cardPos);
-
-            newPositions.push(attachmentOffset);
+        // 3. Update the meshline geometry imperatively
+        if (band.current?.geometry) {
+            band.current.geometry.setPoints(curve.getPoints(32));
         }
 
-        if (newPositions.length === BAND_SEGMENTS + 1) { // 1 anchor + 13 segments + 1 card = 15 total lengths.
-            if (lineGeometryRef.current) {
-                lineGeometryRef.current.setPoints(newPositions);
-            }
-        }
-
-        // 2. Interactive dragging (Mouse pull)
-        if (dragged && card.current) {
-            const vec = new THREE.Vector3(state.pointer.x, state.pointer.y, 0.5);
-            vec.unproject(state.camera);
-            vec.sub(state.camera.position).normalize();
-
-            // Calculate depth distance to move card to mouse
-            const distance = -state.camera.position.z / vec.z;
-            vec.multiplyScalar(distance).add(state.camera.position);
-
-            // Apply kinematic pull
-            card.current.setNextKinematicTranslation({ x: vec.x, y: vec.y, z: vec.z });
-
-            // Wake up the physics string
-            for (let i = 0; i < BAND_SEGMENTS - 1; i++) {
-                if (bandRefs[i].current) bandRefs[i].current.wakeUp();
-            }
-        }
+        // 4. Tilt the card back towards the screen
+        ang.copy(card.current.angvel());
+        rot.copy(card.current.rotation());
+        card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
     });
 
     return (
-        <group>
-            {/* Invisible anchor point in the sky */}
-            <RigidBody ref={fixed} type="fixed" position={[0, BAND_LENGTH, 0]} />
+        <>
+            {/* Fixed anchor point at the top */}
+            <RigidBody ref={fixed} type="fixed" />
 
-            {/* Physics String Segments */}
-            {initialPositions.map((pos, i) => {
-                if (i === 0 || i === initialPositions.length - 1) return null; // Skip first and last as they are anchors
-                const idx = i - 1;
-                return (
-                    <BandSegment
-                        key={i}
-                        ref={bandRefs[idx]}
-                        position={[pos.x, pos.y, pos.z]}
-                        prev={idx === 0 ? fixed : bandRefs[idx - 1]}
+            {/* Three rope-chain segments */}
+            <RigidBody position={[0.5, 0, 0]} ref={j1}>
+                <BallCollider args={[0.1]} />
+            </RigidBody>
+            <RigidBody position={[1, 0, 0]} ref={j2}>
+                <BallCollider args={[0.1]} />
+            </RigidBody>
+            <RigidBody position={[1.5, 0, 0]} ref={j3}>
+                <BallCollider args={[0.1]} />
+            </RigidBody>
+
+            {/* The visible band/string mesh — only render when physics is ready */}
+            {ready && (
+                <mesh ref={band}>
+                    <meshLineGeometry />
+                    <meshLineMaterial
+                        color="white"
+                        depthTest={false}
+                        resolution={[width, height]}
+                        lineWidth={1}
                     />
-                );
-            })}
+                </mesh>
+            )}
 
-            {/* The visible string mesh */}
-            <mesh>
-                <meshLineGeometry ref={lineGeometryRef} attach="geometry" points={initialPositions} />
-                <meshLineMaterial
-                    attach="material"
-                    color="white"
-                    depthTest={false}
-                    lineWidth={0.15}
-                    resolution={[window.innerWidth, window.innerHeight]}
-                />
-            </mesh>
-
-            {/* The Heavy Card Anchor */}
-            <CardAnchor
+            {/* The interactive card */}
+            <RigidBody
                 ref={card}
-                prev={bandRefs[BAND_SEGMENTS - 2]}
-                position={[0, -1, 0]} /* Perfect world alignment with the last segment */
-                onPointerDown={(e) => {
-                    e.stopPropagation();
-                    e.target.setPointerCapture(e.pointerId);
-                    setDragged(true);
-                    if (card.current) {
-                        card.current.setBodyType(2); // 2 = kinematicPosition (drag mode)
-                    }
-                }}
-                onPointerUp={(e) => {
-                    e.stopPropagation();
-                    e.target.releasePointerCapture(e.pointerId);
-                    setDragged(false);
-
-                    if (card.current) {
-                        card.current.setBodyType(0); // 0 = dynamic in Rapier
-                    }
-                }}
-                dragged={dragged}
+                type={dragged ? 'kinematicPosition' : 'dynamic'}
+                angularDamping={10}
+                linearDamping={2}
             >
-                {children}
-            </CardAnchor>
+                <CuboidCollider args={[0.8, 1.125, 0.01]} sensor />
+                <group
+                    onPointerUp={() => drag(false)}
+                    onPointerDown={(e) =>
+                        drag(
+                            new THREE.Vector3()
+                                .copy(e.point)
+                                .sub(vec.copy(card.current.translation()))
+                        )
+                    }
+                >
+                    {children}
+                </group>
+            </RigidBody>
 
             <Environment resolution={256}>
                 <group rotation={[-Math.PI / 3, 0, 1]}>
@@ -154,64 +143,6 @@ export default function Lanyard({ children }) {
                     <Lightformer form="circle" intensity={2} rotation-y={-Math.PI / 2} position={[10, 1, 0]} scale={8} />
                 </group>
             </Environment>
-
-        </group>
+        </>
     );
 }
-
-// Inner joint segment for the string
-const BandSegment = React.forwardRef(({ position, prev }, ref) => {
-    // Use spherical joints to link each string segment together like a chain
-    useSphericalJoint(prev, ref, [
-        [0, -BAND_LENGTH / BAND_SEGMENTS / 2, 0],
-        [0, BAND_LENGTH / BAND_SEGMENTS / 2, 0],
-    ]);
-
-    return (
-        <RigidBody
-            ref={ref}
-            position={position}
-            type="dynamic"
-            linearDamping={2}
-            angularDamping={2}
-            friction={0.1}
-            colliders={false}
-            mass={1} /* Increased from 0.1 to stabilize the joint chain */
-            collisionGroups={65536} /* 0x00010000 - Only collides with group 0 (nothing here) */
-        >
-            <BallCollider args={[0.1]} />
-        </RigidBody>
-    );
-});
-
-// The Heavy Attachment (The ID Card Mount)
-const CardAnchor = React.forwardRef(({ children, prev, position, onPointerDown, onPointerUp, dragged }, ref) => {
-
-    // Connect the top of the card to the final string segment
-    useSphericalJoint(prev, ref, [
-        [0, -BAND_LENGTH / BAND_SEGMENTS / 2, 0],
-        [0, 1.5, 0], // Anchor point 1.5 units above the card's center
-    ]);
-
-    return (
-        <RigidBody
-            ref={ref}
-            position={position}
-            type="dynamic"
-            linearDamping={1}
-            angularDamping={1}
-            friction={0.1}
-            mass={2} // Balanced ratio against the 1.0 mass string segments
-            collisionGroups={131072} /* 0x00020000 - Group 2, intercepts nothing to avoid physics self-explosions */
-        >
-            <CuboidCollider args={[1.5, 2.2, 0.1]} /> {/* Hitbox matching ID card shape */}
-
-            <group
-                onPointerDown={onPointerDown}
-                onPointerUp={onPointerUp}
-            >
-                {children}
-            </group>
-        </RigidBody>
-    );
-});
