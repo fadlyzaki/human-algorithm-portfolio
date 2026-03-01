@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import { ScanEye, Sun, Moon, Globe } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
@@ -36,6 +36,11 @@ const CompanyDetail = () => {
 
     if (loading) return <div className="min-h-screen bg-black" />; // Minimal loader
     if (!cluster) return null; // Or 404
+
+    // Defensive routing: If this ID is a sub-project (no .projects array), redirect to case-study
+    if (!cluster.projects) {
+        return <Navigate to={`/case-study/${id}`} replace />;
+    }
 
     const brandColor = cluster.brandColor || 'var(--accent-blue)';
     const isId = language === 'id';
