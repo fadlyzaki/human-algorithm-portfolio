@@ -4,6 +4,7 @@ import { ArrowRight, User, Heart, Cpu, Activity, Flame, BookOpen, PenLine, Palet
 import SectionTitle from '../SectionTitle';
 import ProfileScanner from '../ProfileScanner';
 import RichText from '../RichText';
+import ScrambleText from '../ScrambleText';
 
 const HomeAbout = ({ t }) => {
     return (
@@ -19,11 +20,28 @@ const HomeAbout = ({ t }) => {
                     </div>
                     <div className="prose prose-invert max-w-none relative z-10">
                         <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
-                            {t('home.about_quote')}
+                            <ScrambleText
+                                text={t('home.about_quote')}
+                                as="span"
+                                triggerOnView={true}
+                                speed={25}
+                            />
                         </p>
                         <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
-                            <p><RichText text={t('home.about_p1')} /></p>
-                            <p><RichText text={t('home.about_p2')} /></p>
+                            <p>
+                                <ScrambleText
+                                    text={typeof t('home.about_p1') === 'string' ? t('home.about_p1').replace(/<[^>]*>/g, '') : t('home.about_p1')}
+                                    as="span"
+                                    speed={15}
+                                />
+                            </p>
+                            <p>
+                                <ScrambleText
+                                    text={typeof t('home.about_p2') === 'string' ? t('home.about_p2').replace(/<[^>]*>/g, '') : t('home.about_p2')}
+                                    as="span"
+                                    speed={15}
+                                />
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -45,7 +63,11 @@ const HomeAbout = ({ t }) => {
                             <Heart size={14} className="text-[var(--accent-amber)]" /> {t('home.philosophy_title')}
                         </h4>
                         <blockquote className="text-lg text-[var(--text-primary)] font-light leading-relaxed mb-6">
-                            <RichText text={t('home.philosophy_quote')} />
+                            <ScrambleText
+                                text={typeof t('home.philosophy_quote') === 'string' ? t('home.philosophy_quote').replace(/<[^>]*>/g, '') : t('home.philosophy_quote')}
+                                as="span"
+                                speed={20}
+                            />
                         </blockquote>
                     </div>
                     <Link to="/about" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--accent-amber)] transition-colors">
@@ -63,7 +85,11 @@ const HomeAbout = ({ t }) => {
                         {t('home.current_focus')}
                     </h4>
                     <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
-                        <RichText text={t('home.current_focus_desc')} />
+                        <ScrambleText
+                            text={typeof t('home.current_focus_desc') === 'string' ? t('home.current_focus_desc').replace(/<[^>]*>/g, '') : t('home.current_focus_desc')}
+                            as="span"
+                            speed={12}
+                        />
                     </p>
                 </div>
 
