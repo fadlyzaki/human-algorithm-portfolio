@@ -6,6 +6,73 @@ import { useLanguage } from '../context/LanguageContext';
 import FrequencyVisualizer from './FrequencyVisualizer';
 import { SYSTEM_CONFIG } from '../config/constants';
 
+/**
+ * FooterTooltipLink — A link with a contextual tooltip that animates in on hover.
+ * Inspired by footer-tooltip.learnframer.site
+ */
+const FooterTooltipLink = ({ to, href, children, tooltip, external = false }) => {
+    const [show, setShow] = useState(false);
+    const timeoutRef = useRef(null);
+
+    const handleEnter = () => {
+        clearTimeout(timeoutRef.current);
+        setShow(true);
+    };
+
+    const handleLeave = () => {
+        timeoutRef.current = setTimeout(() => setShow(false), 150);
+    };
+
+    useEffect(() => () => clearTimeout(timeoutRef.current), []);
+
+    const linkClass = "relative group text-sm hover:text-[var(--text-primary)] transition-colors duration-200";
+
+    const tooltipEl = (
+        <span
+            className={`absolute left-0 bottom-full mb-2 px-3 py-1.5 rounded-lg text-xs font-mono whitespace-nowrap
+                bg-[var(--text-primary)] text-[var(--bg-footer)]
+                shadow-lg shadow-black/20
+                transition-all duration-200 ease-out pointer-events-none z-50
+                ${show
+                    ? 'opacity-100 translate-y-0 scale-100'
+                    : 'opacity-0 translate-y-2 scale-95'
+                }`}
+        >
+            {tooltip}
+            {/* Arrow */}
+            <span className="absolute left-4 top-full w-0 h-0 border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent border-t-[var(--text-primary)]" />
+        </span>
+    );
+
+    if (external || href) {
+        return (
+            <a
+                href={href || to}
+                target="_blank"
+                rel="noreferrer"
+                className={linkClass}
+                onMouseEnter={handleEnter}
+                onMouseLeave={handleLeave}
+            >
+                {tooltipEl}
+                {children}
+            </a>
+        );
+    }
+
+    return (
+        <Link
+            to={to}
+            className={linkClass}
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+        >
+            {tooltipEl}
+            {children}
+        </Link>
+    );
+};
+
 const Footer = () => {
     const { isDark } = useTheme();
     const { t } = useLanguage();
@@ -77,21 +144,21 @@ const Footer = () => {
                         {/* COL 1: SITEMAP */}
                         <div className="flex flex-col gap-4">
                             <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">{t('footer.index')}</h4>
-                            <Link to="/" className="hover:underline text-sm">{t('nav.home')}</Link>
-                            <Link to="/#work" className="hover:underline text-sm">{t('nav.work')}</Link>
-                            <Link to="/side-projects" className="hover:underline text-sm">{t('nav.side_projects')}</Link>
-                            <Link to="/about" className="hover:underline text-sm">{t('nav.about')}</Link>
-                            <Link to="/design-system" className="hover:underline text-sm">Design System</Link>
-                            <Link to="/contact" className="hover:underline text-sm">{t('nav.contact')}</Link>
+                            <FooterTooltipLink to="/" tooltip="Start here">{t('nav.home')}</FooterTooltipLink>
+                            <FooterTooltipLink to="/#work" tooltip="Case studies & impact">{t('nav.work')}</FooterTooltipLink>
+                            <FooterTooltipLink to="/side-projects" tooltip="Where ideas ship">{t('nav.side_projects')}</FooterTooltipLink>
+                            <FooterTooltipLink to="/about" tooltip="The full picture">{t('nav.about')}</FooterTooltipLink>
+                            <FooterTooltipLink to="/design-system" tooltip="Visual DNA">Design System</FooterTooltipLink>
+                            <FooterTooltipLink to="/contact" tooltip="Let's talk">{t('nav.contact')}</FooterTooltipLink>
                         </div>
 
                         {/* COL 2: SOCIALS */}
                         <div className="flex flex-col gap-4">
                             <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">{t('footer.connect')}</h4>
-                            <a href="https://www.linkedin.com/in/fadlyzaki/" target="_blank" rel="noreferrer" className="hover:underline text-sm">LinkedIn</a>
-                            <a href="https://www.instagram.com/fadlyzaki" target="_blank" rel="noreferrer" className="hover:underline text-sm">Instagram</a>
-                            <a href="https://dribbble.com/fadlyzaki" target="_blank" rel="noreferrer" className="hover:underline text-sm">Dribbble</a>
-                            <a href="https://github.com/fadlyzaki/" target="_blank" rel="noreferrer" className="hover:underline text-sm">GitHub</a>
+                            <FooterTooltipLink href="https://www.linkedin.com/in/fadlyzaki/" external tooltip="Professional network">LinkedIn</FooterTooltipLink>
+                            <FooterTooltipLink href="https://www.instagram.com/fadlyzaki" external tooltip="Behind the scenes">Instagram</FooterTooltipLink>
+                            <FooterTooltipLink href="https://dribbble.com/fadlyzaki" external tooltip="Visual explorations">Dribbble</FooterTooltipLink>
+                            <FooterTooltipLink href="https://github.com/fadlyzaki/" external tooltip="Open source & code">GitHub</FooterTooltipLink>
                         </div>
 
                         {/* COL 3: CONTEXT */}
