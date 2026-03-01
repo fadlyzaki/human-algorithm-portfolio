@@ -18,6 +18,7 @@ const INTERESTS = [
 
 const InterestSelector = ({ t }) => {
     const [selected, setSelected] = useState(new Set());
+    const [hovered, setHovered] = useState(null);
 
     const toggle = (i) => {
         setSelected(prev => {
@@ -50,6 +51,8 @@ const InterestSelector = ({ t }) => {
                         <button
                             key={i}
                             onClick={handleClick}
+                            onMouseEnter={() => setHovered(i)}
+                            onMouseLeave={() => setHovered(null)}
                             className={`inline-flex items-center rounded-full text-xs font-medium
                                 px-3 py-1.5 border cursor-pointer select-none
                                 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
@@ -76,6 +79,16 @@ const InterestSelector = ({ t }) => {
                         </button>
                     );
                 })}
+            </div>
+
+            {/* Caption on hover */}
+            <div className="h-6 mt-2 flex items-center justify-center">
+                <span
+                    className={`text-[10px] font-mono uppercase tracking-widest transition-all duration-200 ${hovered !== null ? 'opacity-100' : 'opacity-0'}`}
+                    style={{ color: hovered !== null ? INTERESTS[hovered].color : undefined }}
+                >
+                    {hovered !== null ? INTERESTS[hovered].val : '\u00A0'}
+                </span>
             </div>
         </div>
     );
