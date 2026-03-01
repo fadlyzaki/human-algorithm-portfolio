@@ -14,9 +14,9 @@ const ChaosCanvas = () => {
 
         // Performance optimization: limit particle density on mobile
         const isMobile = window.innerWidth < 768;
-        const particleCount = isMobile ? 35 : 85;
-        const connectionDistance = isMobile ? 100 : 150;
-        const mouseRepelRadius = 180;
+        const particleCount = isMobile ? 60 : 130;
+        const connectionDistance = isMobile ? 130 : 200;
+        const mouseRepelRadius = 250;
 
         let mouse = { x: -1000, y: -1000 };
         let isMouseActive = false;
@@ -27,11 +27,11 @@ const ChaosCanvas = () => {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 // Natural drift speed
-                this.vx = (Math.random() - 0.5) * 0.4;
-                this.vy = (Math.random() - 0.5) * 0.4;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
                 this.baseX = this.x;
                 this.baseY = this.y;
-                this.size = Math.random() * 1.5 + 0.5;
+                this.size = Math.random() * 2.5 + 1;
                 this.friction = 0.94; // For snapping deceleration
             }
 
@@ -103,11 +103,11 @@ const ChaosCanvas = () => {
             ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
             // Dynamic Theme Formatting
-            const dotOpacity = isDark ? '0.4' : '0.2';
-            const lineOpacity = isDark ? 0.2 : 0.1;
+            const dotOpacity = isDark ? '0.7' : '0.4';
+            const lineOpacity = isDark ? 0.35 : 0.2;
 
             // We read CSS variables via literal RGBA mapping (Assuming white/black scheme)
-            const colorAccent = isDark ? [139, 161, 255] : [100, 100, 150]; // Soft blueish vibe
+            const colorAccent = isDark ? [100, 200, 255] : [0, 80, 255]; // Brighter electric blue
             const colorBase = isDark ? [255, 255, 255] : [0, 0, 0];
 
             ctx.fillStyle = `rgba(${colorBase[0]}, ${colorBase[1]}, ${colorBase[2]}, ${dotOpacity})`;
@@ -177,7 +177,7 @@ const ChaosCanvas = () => {
     return (
         <canvas
             ref={canvasRef}
-            className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-1000 \${isDark ? 'opacity-80 mix-blend-screen' : 'opacity-60 mix-blend-multiply'}`}
+            className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-1000 \${isDark ? 'opacity-100 mix-blend-screen' : 'opacity-100 mix-blend-multiply'}`}
             aria-hidden="true"
         />
     );
