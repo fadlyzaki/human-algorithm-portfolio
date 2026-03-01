@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Sun, Moon, ScanEye, Grid, Clock, FileText, Printer } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -9,7 +8,7 @@ import BackButton from './BackButton';
 import useScrollDirection from '../hooks/useScrollDirection';
 
 // Shared layoutId ensures the underline "glides" between active items
-const HoverNavLink = ({ to, label, isActive }) => {
+const HoverNavLink = ({ to, label }) => {
     const [isHovered, setIsHovered] = useState(false);
     return (
         <Link
@@ -55,21 +54,17 @@ const Navbar = ({ onOpenMenu, title, backPath, onViewCoverLetter, onPrint, showN
     const showNav = showNavOverride !== undefined ? showNavOverride : hookShowNav;
 
     const [time, setTime] = useState(new Date());
-    const [timeZone, setTimeZone] = useState('LOC');
+    const [timeZone] = useState(() => {
+        try {
+            return new Date().toLocaleTimeString('en-US', { timeZoneName: 'short' }).split(' ').pop();
+        } catch {
+            return 'LOC';
+        }
+    });
 
-
-    // 2. LIVE CLOCK & TIMEZONE
+    // 2. LIVE CLOCK
     useEffect(() => {
         const timer = setInterval(() => setTime(new Date()), 1000);
-
-        // Detect Timezone
-        try {
-            const short = new Date().toLocaleTimeString('en-US', { timeZoneName: 'short' }).split(' ').pop();
-            setTimeZone(short);
-        } catch (e) {
-            setTimeZone('LOC');
-        }
-
         return () => clearInterval(timer);
     }, []);
 

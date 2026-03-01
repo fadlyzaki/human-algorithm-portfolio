@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { ChefHat, Clock, Leaf } from 'lucide-react';
 
 const EfficiencyAI = ({ color = '#FA6130' }) => {
@@ -24,9 +24,8 @@ const EfficiencyAI = ({ color = '#FA6130' }) => {
     // Simulation Loop
     useEffect(() => {
         const interval = setInterval(() => {
-            setCycle(c => c + 1);
+            setCycle(prev => prev + 1);
 
-            // Generate new order flow
             const newOrder = {
                 id: Date.now(),
                 supplierIdx: Math.floor(Math.random() * 3),

@@ -2,9 +2,9 @@ import React from 'react';
 import { Activity, Shield, Star, Rocket, Target, Play } from 'lucide-react';
 import AiryDiagram from '../AiryDiagram';
 import ZoomableImage from '../ZoomableImage';
-import { motion } from 'framer-motion';
 
-const CosmicPopDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeSolution, activeMetrics, activeLearnings, InteractionComponent, showLivePreview, setShowLivePreview, t, isIndonesian, activeTitle, activeTldr, activeSnapshot }) => {
+
+const CosmicPopDetail = ({ project, activeChallenge, activeProcess, activeInsights, activeMetrics, activeLearnings, InteractionComponent, activeTitle, activeTldr, activeSnapshot }) => {
 
     // Aesthetic: Cosmic Pop, Deep Blues/Purples, Glassmorphism, Floating Particles, Playful Typography
 

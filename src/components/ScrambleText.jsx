@@ -20,7 +20,6 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@&%';
 const ScrambleText = ({
     text = '',
     className = '',
-    as: Tag = 'span',
     speed = 30,
     scrambleSpeed = 50,
     triggerOnView = false,
@@ -94,7 +93,7 @@ const ScrambleText = ({
                 }
             }
         }, scrambleTicks <= maxScrambleTicks ? scrambleSpeed : speed);
-    }, [text, speed, scrambleSpeed, isScrambling]);
+    }, [speed, scrambleSpeed, isScrambling]);
 
     // Cleanup on unmount
     useEffect(() => {
@@ -128,7 +127,7 @@ const ScrambleText = ({
     };
 
     return (
-        <Tag
+        <span
             ref={elementRef}
             className={className}
             onMouseEnter={handleMouseEnter}
@@ -147,7 +146,7 @@ const ScrambleText = ({
                     {char}
                 </span>
             ))}
-        </Tag>
+        </span>
     );
 };
 

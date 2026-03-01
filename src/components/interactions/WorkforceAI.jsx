@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { User, Briefcase, CheckCircle2, Search, Zap } from 'lucide-react';
 
 const WorkforceAI = ({ color = '#1AA8B4' }) => {
@@ -23,6 +23,17 @@ const WorkforceAI = ({ color = '#1AA8B4' }) => {
 
     // Simulate Scanning & Matching
     useEffect(() => {
+        // Initial Matches
+        const initialMatches = Array.from({ length: 4 }).map((_, i) => ({
+            id: i,
+            cIdx: Math.floor(Math.random() * CANDIDATES.length),
+            jIdx: Math.floor(Math.random() * JOBS.length),
+            score: Math.floor(Math.random() * 15) + 85
+        }));
+
+        // Defer initial set to avoid synchronous setState warning
+        setTimeout(() => setMatches(initialMatches), 0);
+
         const interval = setInterval(() => {
             // Random match generation
             const candidateIdx = Math.floor(Math.random() * CANDIDATES.length);
@@ -39,7 +50,7 @@ const WorkforceAI = ({ color = '#1AA8B4' }) => {
         }, 1500); // New match every 1.5s
 
         return () => clearInterval(interval);
-    }, []);
+    }, [CANDIDATES.length, JOBS.length]);
 
     // Animation for Scan Line
     useEffect(() => {

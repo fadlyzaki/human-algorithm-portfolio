@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     Terminal, Type, Grid3X3, Cpu,
     Hash, MoveRight, Layers, Box,
@@ -704,7 +704,7 @@ const UXPrinciples = ({ isXRayMode }) => (
     </div>
 );
 
-const PersonaCard = ({ role, icon: Icon, color, desc, quote }) => (
+const PersonaCard = ({ role, icon: color, desc, quote }) => (
     <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent)] transition-all duration-300 group hover:shadow-lg hover:-translate-x-1">
         <div className="flex items-center justify-between mb-4">
             <h4 className="font-bold text-sm text-[var(--text-primary)] flex items-center gap-3">
@@ -726,7 +726,7 @@ const PersonaCard = ({ role, icon: Icon, color, desc, quote }) => (
     </div>
 );
 
-const PrincipleCard = ({ num, title, icon: Icon, desc }) => (
+const PrincipleCard = ({ num, title, icon: desc }) => (
     <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-card)] hover:translate-y-[-2px] transition-transform duration-300">
         <div className="flex justify-between items-start mb-4">
             <div className="p-3 bg-[var(--bg-surface)] rounded-lg border border-[var(--border-color)] text-[var(--accent)]">

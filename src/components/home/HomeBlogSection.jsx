@@ -3,7 +3,7 @@ import { ArrowUpRight, BookOpen, PenTool } from 'lucide-react';
 import { SUBSTACK_POSTS } from '../../data/portfolioData';
 import ScrollReveal from '../ScrollReveal';
 
-const HomeBlogSection = ({ t }) => {
+const HomeBlogSection = () => {
     return (
         <section id="writing" className="py-24 md:py-32 border-b border-[var(--border-color)]">
             <div className="max-w-5xl mx-auto px-6">

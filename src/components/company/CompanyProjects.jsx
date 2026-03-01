@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowUpRight, Lock, FileText } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import ScrollReveal from '../ScrollReveal';
 import ProjectCard from '../ProjectCard';
 import IconMapper from '../ui/IconMapper';

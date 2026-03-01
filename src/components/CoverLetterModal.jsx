@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { X, ArrowRight, FileText, Stamp } from 'lucide-react';
 

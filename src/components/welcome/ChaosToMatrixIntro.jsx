@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 const TOTAL_NODES = 100;
 const COLS = 10;
@@ -14,8 +14,11 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        setDimensions({ width: window.innerWidth, height: window.innerHeight });
-        setIsMounted(true);
+        const initTimer = setTimeout(() => {
+            setDimensions({ width: window.innerWidth, height: window.innerHeight });
+            setIsMounted(true);
+        }, 0);
+        return () => clearTimeout(initTimer);
     }, []);
 
     // Generate physics data for each node
@@ -35,14 +38,14 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
             const matrixY = startY + row * GRID_SIZE;
 
             // Chaos Initial Position
-            const chaosX = Math.random() * width;
-            const chaosY = Math.random() * height;
-            const chaosRotate = Math.random() * 360;
+            const chaosX = 10 + (i % 10) * 8;
+            const chaosY = 10 + Math.floor(i / 10) * 8;
+            const chaosRotate = (i * 36) % 360;
 
             // Floating Animation Offsets
-            const floatDuration = 3 + Math.random() * 4;
-            const floatOffsetX = (Math.random() - 0.5) * 100;
-            const floatOffsetY = (Math.random() - 0.5) * 100;
+            const floatDuration = 3 + (i % 4);
+            const floatOffsetX = ((i * 1.5) % 2 - 0.5) * 100;
+            const floatOffsetY = ((i * 2.5) % 2 - 0.5) * 100;
 
             return {
                 id: i, col, row,
@@ -97,7 +100,7 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
     }, [isMounted]);
 
     // --- INTERACTION HANDLING ---
-    const handleInteraction = () => {
+    const handleInteraction = useCallback(() => {
         if (phase !== 'matrix') return;
         setPhase('portal');
 
@@ -105,7 +108,7 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
         setTimeout(() => {
             if (onComplete) onComplete();
         }, 1200);
-    };
+    }, [phase, onComplete]);
 
     useEffect(() => {
         const handleKeyDown = () => handleInteraction();
@@ -118,7 +121,7 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
             window.removeEventListener('keydown', handleKeyDown);
             window.removeEventListener('click', handleClick);
         };
-    }, [phase]);
+    }, [handleInteraction]);
 
     if (!isMounted) return null;
 
@@ -197,7 +200,7 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
                                 }}
                                 transition={
                                     isMatrix
-                                        ? { type: "spring", stiffness: 60, damping: 12, mass: 0.5, delay: Math.random() * 0.4 } // Snapping physics
+                                        ? { type: "spring", stiffness: 60, damping: 12, mass: 0.5, delay: (node.id % 4) * 0.1 } // Snapping physics
                                         : { duration: node.floatDuration, repeat: Infinity, ease: "easeInOut", opacity: { duration: 1 } } // Wandering physics
                                 }
                             />

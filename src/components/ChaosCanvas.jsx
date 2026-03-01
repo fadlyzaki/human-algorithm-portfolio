@@ -22,64 +22,52 @@ const ChaosCanvas = () => {
         let isMouseActive = false;
 
         // --- PARTICLE LOGIC ---
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                // Natural drift speed
-                this.vx = (Math.random() - 0.5) * 0.8;
-                this.vy = (Math.random() - 0.5) * 0.8;
-                this.baseX = this.x;
-                this.baseY = this.y;
-                this.size = Math.random() * 2.5 + 1;
-                this.friction = 0.94; // For snapping deceleration
-            }
+        const createParticle = () => {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.8,
+                vy: (Math.random() - 0.5) * 0.8,
+                size: Math.random() * 2.5 + 1
+            };
+        };
 
-            update() {
-                // Standard drift
-                this.x += this.vx;
-                this.y += this.vy;
+        const updateParticle = (p) => {
+            p.x += p.vx;
+            p.y += p.vy;
 
-                // Endless wrapping (smoother than bouncing)
-                if (this.x < 0) this.x = canvas.width;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.y < 0) this.y = canvas.height;
-                if (this.y > canvas.height) this.y = 0;
+            if (p.x < 0) p.x = canvas.width;
+            if (p.x > canvas.width) p.x = 0;
+            if (p.y < 0) p.y = canvas.height;
+            if (p.y > canvas.height) p.y = 0;
 
-                // INTERACTIVE REPULSION LOGIC ("Taming Chaos")
-                if (isMouseActive) {
-                    const dx = mouse.x - this.x;
-                    const dy = mouse.y - this.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+            if (isMouseActive) {
+                const dx = mouse.x - p.x;
+                const dy = mouse.y - p.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < mouseRepelRadius) {
-                        // Repel force inversely proportional to distance
-                        const force = (mouseRepelRadius - distance) / mouseRepelRadius;
-                        const forceDirectionX = dx / distance;
-                        const forceDirectionY = dy / distance;
-                        const repelStrength = 4;
-
-                        // Push particle away
-                        this.x -= forceDirectionX * force * repelStrength;
-                        this.y -= forceDirectionY * force * repelStrength;
-                    } else {
-                        // Apply slight structural pull towards center of mass if distant (optional geometry effect)
-                        // But for performance, pure drift + repel is fastest
-                    }
+                if (distance < mouseRepelRadius) {
+                    const force = (mouseRepelRadius - distance) / mouseRepelRadius;
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    const repelStrength = 4;
+                    p.x -= forceDirectionX * force * repelStrength;
+                    p.y -= forceDirectionY * force * repelStrength;
                 }
             }
+        };
 
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
+        const drawParticle = (p) => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = isDark ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.2)';
+            ctx.fill();
+        };
 
         const initParticles = () => {
             particles = [];
             for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
+                particles.push(createParticle());
             }
         };
 
@@ -113,8 +101,8 @@ const ChaosCanvas = () => {
             ctx.fillStyle = `rgba(${colorBase[0]}, ${colorBase[1]}, ${colorBase[2]}, ${dotOpacity})`;
 
             for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
+                updateParticle(particles[i]);
+                drawParticle(particles[i]);
 
                 // Draw constellation lines (Data Topology)
                 for (let j = i + 1; j < particles.length; j++) {
@@ -177,7 +165,7 @@ const ChaosCanvas = () => {
     return (
         <canvas
             ref={canvasRef}
-            className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-1000 \${isDark ? 'opacity-100 mix-blend-screen' : 'opacity-100 mix-blend-multiply'}`}
+            className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-1000 ${isDark ? 'opacity-100 mix-blend-screen' : 'opacity-100 mix-blend-multiply'}`}
             aria-hidden="true"
         />
     );

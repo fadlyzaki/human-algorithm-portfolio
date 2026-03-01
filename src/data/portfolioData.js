@@ -32,7 +32,7 @@ export const WORK_CLUSTERS = [
     lumina,
     gudangAda,
     stoqo
-].map((cluster, idx) => ({
+].map((cluster) => ({
     ...cluster,
     featured: false, // Ensure no cluster is marked as featured to remove the label
     // Normalize nested projects within the work cluster

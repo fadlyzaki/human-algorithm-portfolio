@@ -3,7 +3,7 @@ import { Sparkles, Cpu, TestTube, Lightbulb, TrendingUp, Compass, ArrowRight } f
 import AiryDiagram from '../AiryDiagram';
 import ZoomableImage from '../ZoomableImage';
 
-const PrototypeDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeMetrics, activeLearnings, InteractionComponent, activeTitle, activeTldr }) => {
+const PrototypeDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeMetrics, activeLearnings, InteractionComponent, activeTitle, activeTldr, }) => {
 
     const containerRef = useRef(null);
 

@@ -1,18 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
-const NexusAI = ({ color = '#3B82F6' }) => {
+const NexusAI = ({ color = '#00D1C7' }) => {
     const containerRef = useRef(null);
-    const [points, setPoints] = useState(() => Array.from({ length: 12 }).map((_, i) => ({
-        id: i,
-        x: Math.random() * 80 + 10,
-        y: Math.random() * 80 + 10,
-        size: Math.random() * 2 + 1,
-        vx: (Math.random() - 0.5) * 0.2,
-        vy: (Math.random() - 0.5) * 0.2,
-        type: Math.random() > 0.5 ? 'core' : 'node'
-    })));
+    // Generate nodes purely once on mount
+    const initialNodes = useMemo(() => {
+        return Array.from({ length: 40 }).map((_, i) => ({
+            id: i,
+            x: 10 + (i % 10) * 8,
+            y: 10 + Math.floor(i / 10) * 8,
+            size: 1 + (i % 3),
+            vx: ((i * 1.5) % 2 - 0.5) * 0.2,
+            vy: ((i * 2.5) % 2 - 0.5) * 0.2,
+            type: i % 2 === 0 ? 'core' : 'node'
+        }));
+    }, []);
+
+    const [points, setPoints] = useState(initialNodes);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
     // Animation loop for movement

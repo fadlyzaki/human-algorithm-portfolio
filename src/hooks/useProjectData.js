@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { PORTFOLIO } from '../data/portfolioData';
 import { WORK_CLUSTERS, SIDE_PROJECTS, NOTES } from '../data/portfolioData';
 
 /**
@@ -10,45 +11,46 @@ export const useProjectData = (id) => {
     const data = useMemo(() => {
         if (!id) return { loading: true };
 
-        // 1. Try finding in WORK_CLUSTERS (Case Studies)
-        for (const cluster of WORK_CLUSTERS) {
-            const found = cluster.projects.find(p => p.id === id);
-            if (found) {
-                return {
-                    project: found,
-                    parentCluster: cluster,
-                    type: 'case-study',
-                    loading: false
-                };
+        // Handle case study view via /case-study/:id pattern
+        // which maps to standard projects but with different layout focus
+        const projectId = id;
+
+        // Note: Project data retrieval must be fast and reliable.
+        // We're iterating over nested arrays to flatten the structure,
+        // which could be optimized in the future if the catalog grows significantly.
+        let foundProject = null;
+
+        for (const cat of portfolioData.categories) {
+            for (const item of cat.items) {
+                if (item.id === projectId) {
+                    foundProject = item;
+                    break;
+                }
+                // Handle nested structures
+                if (item.gridItems) {
+                    for (const gridItem of item.gridItems) {
+                        if (gridItem.id === projectId) {
+                            foundProject = gridItem;
+                            break;
+                        }
+                    }
+                }
+                // Sub-items
+                if (item.subItems) {
+                    for (const subItem of item.subItems) {
+                        if (subItem.id === projectId) {
+                            foundProject = subItem;
+                            break;
+                        }
+                    }
+                }
             }
+            if (foundProject) break;
         }
 
-        // 2. Try finding in SIDE_PROJECTS
-        const sideProject = SIDE_PROJECTS.find(p => p.id === id);
-        if (sideProject) {
+        if (foundProject) {
             return {
-                project: sideProject,
-                type: 'side-project',
-                loading: false
-            };
-        }
-
-        // 3. Try finding in NOTES (Prototypes)
-        const note = NOTES.find(p => p.id === id);
-        if (note) {
-            return {
-                project: note,
-                type: 'prototype',
-                loading: false
-            };
-        }
-
-        // 4. Try finding in WORK_CLUSTERS (Main Cluster ID - for Company Detail)
-        const cluster = WORK_CLUSTERS.find(c => c.id === id);
-        if (cluster) {
-            return {
-                project: cluster, // In this case 'project' is actually the cluster/company
-                type: 'company',
+                ...foundProject,
                 loading: false
             };
         }

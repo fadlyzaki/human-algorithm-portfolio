@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, X, Maximize2 } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
 export const Flipbook = ({
@@ -26,19 +26,19 @@ export const Flipbook = ({
     const paddedPages = pages.length % 2 !== 0 ? [...pages, null] : pages;
     const totalSpreads = (paddedPages.length / 2) + 2; // +1 for cover, +1 for back cover
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         if (spreadIndex < totalSpreads - 1) {
             setDirection(1);
             setSpreadIndex(prev => prev + 1);
         }
-    };
+    }, [spreadIndex, totalSpreads]);
 
-    const handlePrev = () => {
+    const handlePrev = useCallback(() => {
         if (spreadIndex > 0) {
             setDirection(-1);
             setSpreadIndex(prev => prev - 1);
         }
-    };
+    }, [spreadIndex]);
 
     useEffect(() => {
         const handleKeyDown = (e) => {
@@ -48,7 +48,7 @@ export const Flipbook = ({
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [spreadIndex, totalSpreads]);
+    }, [handleNext, handlePrev]);
 
     // Determine book dimensions based on screen size
     const isMobile = windowWidth < 768;

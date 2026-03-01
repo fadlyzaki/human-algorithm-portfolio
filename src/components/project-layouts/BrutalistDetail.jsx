@@ -1,9 +1,10 @@
+
 import React from 'react';
 import { ArrowUpRight, Target, Square, Slash } from 'lucide-react';
 import AiryDiagram from '../AiryDiagram';
 import ZoomableImage from '../ZoomableImage';
 
-const BrutalistDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeSolution, activeMetrics, activeLearnings, InteractionComponent, showLivePreview, setShowLivePreview, t, isIndonesian, activeTitle, activeTldr, activeSnapshot }) => {
+const BrutalistDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeMetrics, activeLearnings, InteractionComponent, activeTitle, activeTldr, activeSnapshot }) => {
 
     // Aesthetic: Neo-Brutalism, High Contrast, Stark Grids, Thick Borders, #FF3B30 Red Actions
 
@@ -77,9 +78,9 @@ const BrutalistDetail = ({ project, activeContext, activeChallenge, activeProces
                             <h2 className="text-6xl font-black uppercase tracking-tighter mb-16 border-b-8 border-[var(--text-primary)] pb-4 inline-block">Methodology.</h2>
                             <div className="grid md:grid-cols-2 gap-8">
                                 {activeProcess.map((step, idx) => (
-                                    <article key={idx} className={`border-4 border-[var(--text-primary)] bg-[var(--bg-card)] flex flex-col group ${idx === 0 ? 'md:col-span-2' : ''}`}>
+                                    <article key={idx} className={`border - 4 border - [var(--text - primary)]bg - [var(--bg - card)] flex flex - col group ${ idx === 0 ? 'md:col-span-2' : '' } `}>
                                         {step.image && (
-                                            <div className={`border-b-4 border-[var(--text-primary)] flex items-center justify-center p-8 bg-[var(--bg-surface)] overflow-hidden ${idx === 0 ? 'h-[280px]' : 'h-64'}`}>
+                                            <div className={`border - b - 4 border - [var(--text - primary)] flex items - center justify - center p - 8 bg - [var(--bg - surface)]overflow - hidden ${ idx === 0 ? 'h-[280px]' : 'h-64' } `}>
                                                 {step.image.startsWith('airy:') ? (
                                                     <AiryDiagram type={step.image.split(':')[1]} />
                                                 ) : (
@@ -107,7 +108,7 @@ const BrutalistDetail = ({ project, activeContext, activeChallenge, activeProces
                             <div className="bg-[var(--bg-surface)] border-4 border-[var(--text-primary)] text-[var(--text-primary)] p-8 shadow-[16px_16px_0px_0px_var(--text-primary)]">
                                 {project.prototypeLink ? (
                                     <div className="w-full h-[600px] bg-black">
-                                        <iframe src={project.prototypeLink} title={`${activeTitle} Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
+                                        <iframe src={project.prototypeLink} title={`${ activeTitle } Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
                                     </div>
                                 ) : (
                                     <div className="max-w-md">

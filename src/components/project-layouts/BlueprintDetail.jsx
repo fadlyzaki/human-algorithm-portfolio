@@ -1,9 +1,10 @@
+
 import React from 'react';
 import { BookOpen, Layers, Maximize, GitMerge, FileText, ArrowRight } from 'lucide-react';
 import AiryDiagram from '../AiryDiagram';
 import ZoomableImage from '../ZoomableImage';
 
-const BlueprintDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeSolution, activeMetrics, activeLearnings, InteractionComponent, showLivePreview, setShowLivePreview, t, isIndonesian, activeTitle, activeTldr, activeSnapshot }) => {
+const BlueprintDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeMetrics, activeLearnings, InteractionComponent, activeTitle, activeTldr, }) => {
 
     // Aesthetic: Civil/Architectural Blueprint, Blue Graph Paper, Precise Lines, Technical Fonts
 
@@ -132,7 +133,7 @@ const BlueprintDetail = ({ project, activeContext, activeChallenge, activeProces
                                 <h3 className="text-xl font-bold mb-8 uppercase flex items-center gap-3"><BookOpen /> User_Testing_Interface</h3>
                                 {project.prototypeLink ? (
                                     <div className="w-full h-[600px] border-2 border-[var(--border-color)] bg-[var(--bg-void)]">
-                                        <iframe src={project.prototypeLink} title={`${activeTitle} Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
+                                        <iframe src={project.prototypeLink} title={`${ activeTitle } Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
                                     </div>
                                 ) : (
                                     <InteractionComponent />

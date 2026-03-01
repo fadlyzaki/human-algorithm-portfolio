@@ -1,10 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ArrowUpRight, Cpu, Activity, Calendar, BookOpen, Layers } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import ProjectCard from './ProjectCard';
 
-const VentureCard = ({ project, index, isIndonesian, onClick }) => {
+const VentureCard = ({ project, isIndonesian, onClick }) => {
     const { isDark } = useTheme();
     const title = (isIndonesian && project.title_id) ? project.title_id : (project.title?.en || project.title);
     const desc = (isIndonesian && project.desc_id) ? project.desc_id : (project.desc?.en || project.desc);
@@ -38,7 +37,7 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
             {Array.from({ length: 50 }).map((_, i) => (
                 <div key={i} className="mb-1 whitespace-nowrap">
                     {`INIT_CORE_PORTFOLIO_V2.9 >> AGENT_00${i} >> STATUS_ACTIVE >> RECURSIVE_TRUE >> PATH=/root/human-algorithm/${project.id}/kernel >> `}
-                    {Math.random().toString(36).substring(2, 15)}
+                    {Math.floor((i + 1) * project.id.length * 1234567).toString(36).substring(0, 13)}
                 </div>
             ))}
         </div>
@@ -214,7 +213,7 @@ const BentoCard = ({ project, title, desc, onClick }) => (
 );
 
 // 5. THE BLUEPRINT (Interactive Workbook)
-const BlueprintCard = ({ project, title, desc, onClick, isDark }) => (
+const BlueprintCard = ({ project, title, desc, onClick }) => (
     <motion.div
         onClick={onClick}
         className="group relative h-[450px] rounded-3xl bg-blue-50 dark:bg-[#0A1128] border border-blue-200 dark:border-blue-900 overflow-hidden cursor-pointer"

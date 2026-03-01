@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     Heart, MessageCircle, Send, MoreHorizontal,
     Zap, Coffee, Users, Check, ChevronDown,
     Bot, Search, Bell, Home, User, X,
-    Settings, TrendingUp, Image as ImageIcon, Video, Filter,
     Sparkles, MapPin
 } from 'lucide-react';
 
@@ -151,6 +150,25 @@ const StoryViewer = ({ story, onClose }) => (
     </div>
 );
 
+const ModeItem = ({ label, icon, desc, modeID, feedMode, setFeedMode, setIsMenuOpen, showToast }) => (
+    <button
+        onClick={() => { setFeedMode(modeID); setIsMenuOpen(false); showToast(`${label} Active`); }}
+        className={`w-full text-left p-3 rounded-xl flex items-center gap-3 transition-all duration-200 group
+    ${feedMode === modeID
+                ? 'bg-indigo-50 border border-indigo-100 shadow-sm'
+                : 'hover:bg-slate-50 border border-transparent'}`}
+    >
+        <div className={`p-2 rounded-full ${feedMode === modeID ? 'bg-indigo-100 text-indigo-600' : 'bg-slate-100 text-slate-500 group-hover:bg-white group-hover:shadow-sm'}`}>
+            {icon}
+        </div>
+        <div className="flex-1">
+            <div className={`font-bold text-sm ${feedMode === modeID ? 'text-indigo-900' : 'text-slate-700'}`}>{label}</div>
+            <div className="text-[11px] text-slate-400 leading-tight mt-0.5">{desc}</div>
+        </div>
+        {feedMode === modeID && <div className="w-2 h-2 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.6)]" />}
+    </button>
+);
+
 const AgencyPivot = () => {
     const [activeTab, setActiveTab] = useState('home');
     const [feedMode, setFeedMode] = useState('For You');
@@ -191,25 +209,6 @@ const AgencyPivot = () => {
             setLikedPosts(prev => [...prev, id]);
         }
     };
-
-    const ModeItem = ({ label, icon, desc, modeID }) => (
-        <button
-            onClick={() => { setFeedMode(modeID); setIsMenuOpen(false); showToast(`${label} Active`); }}
-            className={`w-full text-left p-3 rounded-xl flex items-center gap-3 transition-all duration-200 group
-        ${feedMode === modeID
-                    ? 'bg-indigo-50 border border-indigo-100 shadow-sm'
-                    : 'hover:bg-slate-50 border border-transparent'}`}
-        >
-            <div className={`p-2 rounded-full ${feedMode === modeID ? 'bg-indigo-100 text-indigo-600' : 'bg-slate-100 text-slate-500 group-hover:bg-white group-hover:shadow-sm'}`}>
-                {icon}
-            </div>
-            <div className="flex-1">
-                <div className={`font-bold text-sm ${feedMode === modeID ? 'text-indigo-900' : 'text-slate-700'}`}>{label}</div>
-                <div className="text-[11px] text-slate-400 leading-tight mt-0.5">{desc}</div>
-            </div>
-            {feedMode === modeID && <div className="w-2 h-2 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.6)]" />}
-        </button>
-    );
 
     return (
         <div className="flex justify-center bg-slate-900 font-sans antialiased text-slate-900 selection:bg-indigo-100 rounded-xl overflow-hidden">
@@ -262,9 +261,9 @@ const AgencyPivot = () => {
                                         </div>
 
                                         <div className="space-y-1">
-                                            <ModeItem label="For You" modeID="For You" icon={<Zap className="w-5 h-5" />} desc="Default mix of friends & viral." />
-                                            <ModeItem label="Friends Only" modeID="Friends" icon={<Users className="w-5 h-5" />} desc="No randoms. Just people you know." />
-                                            <ModeItem label="Chill Mode" modeID="Chill" icon={<Coffee className="w-5 h-5" />} desc="Low stress. No politics." />
+                                            <ModeItem label="For You" modeID="For You" icon={<Zap className="w-5 h-5" />} desc="Default mix of friends & viral." feedMode={feedMode} setFeedMode={setFeedMode} setIsMenuOpen={setIsMenuOpen} showToast={showToast} />
+                                            <ModeItem label="Friends Only" modeID="Friends" icon={<Users className="w-5 h-5" />} desc="No randoms. Just people you know." feedMode={feedMode} setFeedMode={setFeedMode} setIsMenuOpen={setIsMenuOpen} showToast={showToast} />
+                                            <ModeItem label="Chill Mode" modeID="Chill" icon={<Coffee className="w-5 h-5" />} desc="Low stress. No politics." feedMode={feedMode} setFeedMode={setFeedMode} setIsMenuOpen={setIsMenuOpen} showToast={showToast} />
                                         </div>
                                     </div>
                                 </>
@@ -468,7 +467,7 @@ const AgencyPivot = () => {
                             {/* Profile Grid */}
                             <div className="grid grid-cols-3 gap-0.5 bg-slate-100 border-t border-slate-100">
                                 {[...Array(9)].map((_, i) => (
-                                    <div key={i} className="aspect-square bg-white hover:opacity-90 transition-opacity cursor-pointer relative group">
+                                    <div key={`profile-grid-${i}`} className="aspect-square bg-white hover:opacity-90 transition-opacity cursor-pointer relative group">
                                         {i % 2 === 0 && <div className="absolute top-2 right-2 text-white drop-shadow-md"><Bot className="w-4 h-4" /></div>}
                                     </div>
                                 ))}

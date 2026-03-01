@@ -135,8 +135,6 @@ const SideProjectDetail = () => {
    const activeSolution = resolveArray(project.solution);
    const activeMetrics = project.metrics;
    const activeLearnings = resolveText(project.learnings);
-   const activeModules = (isIndonesian && project.modules_id) ? project.modules_id : project.modules;
-
    // Interaction Mapping
    const InteractionComponent = {
       'human-algorithm': NexusAI,

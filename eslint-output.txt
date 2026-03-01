@@ -1,0 +1,293 @@
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/AIBrainstorm.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/CoverLetterModal.jsx
+  3:27  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/DesignSystemViewer.jsx
+    1:27  error  'useEffect' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  707:36  error  'Icon' is defined but never used                                                  no-unused-vars
+  729:44  error  'Icon' is defined but never used                                                  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/DraggablePhoto.jsx
+  8:27  error  'hideControls' is assigned a value but never used  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/FaqSection.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/FrequencyVisualizer.jsx
+  1:36  error  'useState' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/Navbar.jsx
+   2:16  error  'useNavigate' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          no-unused-vars
+   2:29  error  'useLocation' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          no-unused-vars
+   4:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               no-unused-vars
+  12:36  error  'isActive' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        no-unused-vars
+  68:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  66 |         try {
+  67 |             const short = new Date().toLocaleTimeString('en-US', { timeZoneName: 'short' }).split(' ').pop();
+> 68 |             setTimeZone(short);
+     |             ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  69 |         } catch (e) {
+  70 |             setTimeZone('LOC');
+  71 |         }  react-hooks/set-state-in-effect
+  69:18  error  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/ScrambleText.jsx
+  23:9  error    'Tag' is assigned a value but never used                                                                        no-unused-vars
+  97:8  warning  React Hook useCallback has an unnecessary dependency: 'text'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/VentureCard.jsx
+    2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          no-unused-vars
+    7:33  error  'index' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      no-unused-vars
+   41:22  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  39 |                 <div key={i} className="mb-1 whitespace-nowrap">
+  40 |                     {`INIT_CORE_PORTFOLIO_V2.9 >> AGENT_00${i} >> STATUS_ACTIVE >> RECURSIVE_TRUE >> PATH=/root/human-algorithm/${project.id}/kernel >> `}
+> 41 |                     {Math.random().toString(36).substring(2, 15)}
+     |                      ^^^^^^^^^^^^^ Cannot call impure function
+  42 |                 </div>
+  43 |             ))}
+  44 |         </div>  react-hooks/purity
+  217:57  error  'isDark' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/ZoomableImage.jsx
+  3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/auth/LockScreen.jsx
+   2:27  error  'useEffect' is defined but never used. Allowed unused vars must match /^[A-Z_]/u              no-unused-vars
+  11:42  error  'isIndonesian' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/company/CompanyHero.jsx
+  5:42  error  'InteractionComponent' is defined but never used  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/company/CompanyProjects.jsx
+  4:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/diagrams/ChartDiagram.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/diagrams/FaceDiagram.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/diagrams/FlowDiagram.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/diagrams/FunnelDiagram.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/diagrams/HierarchyDiagram.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/diagrams/MapDiagram.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/diagrams/UIDiagram.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/home/HomeAbout.jsx
+  34:20  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  32 |
+  33 |     const triggerBurst = (i) => {
+> 34 |         const id = Date.now();
+     |                    ^^^^^^^^^^ Cannot call impure function
+  35 |         setBursts(prev => [...prev, { id, index: i }]);
+  36 |         setTimeout(() => {
+  37 |             setBursts(prev => prev.filter(b => b.id !== id));  react-hooks/purity
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/home/HomeBlogSection.jsx
+  6:28  error  't' is defined but never used  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/home/HomeHero.jsx
+  3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/home/HomeSideProjects.jsx
+  4:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/interactions/AgencyPivot.jsx
+    1:27  error  'useEffect' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-unused-vars
+  265:46  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  263 |
+  264 |                                         <div className="space-y-1">
+> 265 |                                             <ModeItem label="For You" modeID="For You" icon={<Zap className="w-5 h-5" />} desc="Default mix of friends & viral." />
+      |                                              ^^^^^^^^ This component is created during render
+  266 |                                             <ModeItem label="Friends Only" modeID="Friends" icon={<Users className="w-5 h-5" />} desc="No randoms. Just people you know." />
+  267 |                                             <ModeItem label="Chill Mode" modeID="Chill" icon={<Coffee className="w-5 h-5" />} desc="Low stress. No politics." />
+  268 |                                         </div>
+
+  193 |     };
+  194 |
+> 195 |     const ModeItem = ({ label, icon, desc, modeID }) => (
+      |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 196 |         <button
+      | ^^^^^^^^^^^^^^^
+> 197 |             onClick={() => { setFeedMode(modeID); setIsMenuOpen(false); showToast(`${label} Active`); }}
+      …
+      | ^^^^^^^^^^^^^^^
+> 211 |         </button>
+      | ^^^^^^^^^^^^^^^
+> 212 |     );
+      | ^^^^^^ The component is created during render here
+  213 |
+  214 |     return (
+  215 |         <div className="flex justify-center bg-slate-900 font-sans antialiased text-slate-900 selection:bg-indigo-100 rounded-xl overflow-hidden">                                             react-hooks/static-components
+  266:46  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  264 |                                         <div className="space-y-1">
+  265 |                                             <ModeItem label="For You" modeID="For You" icon={<Zap className="w-5 h-5" />} desc="Default mix of friends & viral." />
+> 266 |                                             <ModeItem label="Friends Only" modeID="Friends" icon={<Users className="w-5 h-5" />} desc="No randoms. Just people you know." />
+      |                                              ^^^^^^^^ This component is created during render
+  267 |                                             <ModeItem label="Chill Mode" modeID="Chill" icon={<Coffee className="w-5 h-5" />} desc="Low stress. No politics." />
+  268 |                                         </div>
+  269 |                                     </div>
+
+  193 |     };
+  194 |
+> 195 |     const ModeItem = ({ label, icon, desc, modeID }) => (
+      |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 196 |         <button
+      | ^^^^^^^^^^^^^^^
+> 197 |             onClick={() => { setFeedMode(modeID); setIsMenuOpen(false); showToast(`${label} Active`); }}
+      …
+      | ^^^^^^^^^^^^^^^
+> 211 |         </button>
+      | ^^^^^^^^^^^^^^^
+> 212 |     );
+      | ^^^^^^ The component is created during render here
+  213 |
+  214 |     return (
+  215 |         <div className="flex justify-center bg-slate-900 font-sans antialiased text-slate-900 selection:bg-indigo-100 rounded-xl overflow-hidden">  react-hooks/static-components
+  267:46  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  265 |                                             <ModeItem label="For You" modeID="For You" icon={<Zap className="w-5 h-5" />} desc="Default mix of friends & viral." />
+  266 |                                             <ModeItem label="Friends Only" modeID="Friends" icon={<Users className="w-5 h-5" />} desc="No randoms. Just people you know." />
+> 267 |                                             <ModeItem label="Chill Mode" modeID="Chill" icon={<Coffee className="w-5 h-5" />} desc="Low stress. No politics." />
+      |                                              ^^^^^^^^ This component is created during render
+  268 |                                         </div>
+  269 |                                     </div>
+  270 |                                 </>
+
+  193 |     };
+  194 |
+> 195 |     const ModeItem = ({ label, icon, desc, modeID }) => (
+      |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 196 |         <button
+      | ^^^^^^^^^^^^^^^
+> 197 |             onClick={() => { setFeedMode(modeID); setIsMenuOpen(false); showToast(`${label} Active`); }}
+      …
+      | ^^^^^^^^^^^^^^^
+> 211 |         </button>
+      | ^^^^^^^^^^^^^^^
+> 212 |     );
+      | ^^^^^^ The component is created during render here
+  213 |
+  214 |     return (
+  215 |         <div className="flex justify-center bg-slate-900 font-sans antialiased text-slate-900 selection:bg-indigo-100 rounded-xl overflow-hidden">                                  react-hooks/static-components
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/interactions/CommerceAI.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/interactions/EfficiencyAI.jsx
+   7:19  error  'setCycle' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  39:13  error  'setActiveLoads' is not defined                                                           no-undef
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/interactions/NexusAI.jsx
+   11:16  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+   9 |         return Array.from({ length: 40 }).map((_, i) => ({
+  10 |             id: i,
+> 11 |             x: Math.random() * 80 + 10,
+     |                ^^^^^^^^^^^^^ Cannot call impure function
+  12 |             y: Math.random() * 80 + 10,
+  13 |             size: Math.random() * 2 + 1,
+  14 |             vx: (Math.random() - 0.5) * 0.2,                            react-hooks/purity
+   12:16  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  10 |             id: i,
+  11 |             x: Math.random() * 80 + 10,
+> 12 |             y: Math.random() * 80 + 10,
+     |                ^^^^^^^^^^^^^ Cannot call impure function
+  13 |             size: Math.random() * 2 + 1,
+  14 |             vx: (Math.random() - 0.5) * 0.2,
+  15 |             vy: (Math.random() - 0.5) * 0.2,                                          react-hooks/purity
+   13:19  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  11 |             x: Math.random() * 80 + 10,
+  12 |             y: Math.random() * 80 + 10,
+> 13 |             size: Math.random() * 2 + 1,
+     |                   ^^^^^^^^^^^^^ Cannot call impure function
+  14 |             vx: (Math.random() - 0.5) * 0.2,
+  15 |             vy: (Math.random() - 0.5) * 0.2,
+  16 |             type: Math.random() > 0.5 ? 'core' : 'node'  react-hooks/purity
+   14:18  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  12 |             y: Math.random() * 80 + 10,
+  13 |             size: Math.random() * 2 + 1,
+> 14 |             vx: (Math.random() - 0.5) * 0.2,
+     |                  ^^^^^^^^^^^^^ Cannot call impure function
+  15 |             vy: (Math.random() - 0.5) * 0.2,
+  16 |             type: Math.random() > 0.5 ? 'core' : 'node'
+  17 |         }));                              react-hooks/purity
+   15:18  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  13 |             size: Math.random() * 2 + 1,
+  14 |             vx: (Math.random() - 0.5) * 0.2,
+> 15 |             vy: (Math.random() - 0.5) * 0.2,
+     |                  ^^^^^^^^^^^^^ Cannot call impure function
+  16 |             type: Math.random() > 0.5 ? 'core' : 'node'
+  17 |         }));
+  18 |     }, []);                                                          react-hooks/purity
+   16:19  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  14 |             vx: (Math.random() - 0.5) * 0.2,
+  15 |             vy: (Math.random() - 0.5) * 0.2,
+> 16 |             type: Math.random() > 0.5 ? 'core' : 'node'
+     |                   ^^^^^^^^^^^^^ Cannot call impure function
+  17 |         }));
+  18 |     }, []);
+  19 |                                                                                                  react-hooks/purity
+   20:12  error  'nodes' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      no-unused-vars
+   20:19  error  'setNodes' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   no-unused-vars
+   27:13  error  'setPoints' is not defined                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 no-undef
+   78:26  error  'points' is not defined                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    no-undef
+   80:36  error  'points' is not defined                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    no-undef
+  103:22  error  'points' is not defined                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    no-undef
+  122:18  error  'points' is not defined                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    no-undef
+
+/Users/fadly.zaki/human-algorithm-portfolio/src/components/welcome/ChaosToMatrixIntro.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+✖ 57 problems (56 errors, 1 warning)
+

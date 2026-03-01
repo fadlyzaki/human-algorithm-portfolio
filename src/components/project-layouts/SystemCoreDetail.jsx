@@ -1,12 +1,18 @@
 import React from 'react';
 import { Cpu, Terminal, Layers, Box, ArrowUpRight, Code, ArrowLeft } from 'lucide-react';
 import AiryDiagram from '../AiryDiagram';
-import ZoomableImage from '../ZoomableImage';
-import { motion } from 'framer-motion';
 
-const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeSolution, activeMetrics, activeLearnings, InteractionComponent, showLivePreview, setShowLivePreview, t, isIndonesian, activeTitle, activeTldr, activeSnapshot }) => {
+
+const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeMetrics, activeLearnings, InteractionComponent, activeTitle, activeTldr, activeSnapshot }) => {
 
     // Aesthetic: Terminal Data, Scanning Lines, Dark Void, High Contrast Blue/Green Monospace
+
+    // Fix purity warning by generating predictable pseudo-random tokens instead of Math.random
+    const randomTokens = React.useMemo(() => {
+        return Array.from({ length: 150 }).map((_, idx) => {
+            return `0x${((idx * 1337) % 0xFFFFFF).toString(16).padStart(6, '0')}`;
+        });
+    }, []);
 
     return (
         <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-sans min-h-screen selection:bg-blue-500/30">
@@ -33,9 +39,9 @@ const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProce
 
                     {/* Terminal Background Flow */}
                     <div className="absolute inset-0 opacity-5 font-mono text-[10px] sm:text-[12px] leading-none pointer-events-none select-none overflow-hidden p-4 text-justify custom-scrollbar">
-                        {Array.from({ length: 150 }).map((_, i) => (
+                        {randomTokens.map((token, i) => (
                             <span key={i} className="mr-2 text-blue-400">
-                                {`INIT_SYS >> PORTFOLIO_V2.9 >> AGENT_${i} >> DATA_STREAM=${Math.random().toString(36).substring(2, 8)} `}
+                                {`INIT_SYS >> PORTFOLIO_V2.9 >> AGENT_${i} >> DATA_STREAM=${token} `}
                             </span>
                         ))}
                     </div>

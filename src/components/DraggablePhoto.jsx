@@ -5,7 +5,7 @@ import { User } from 'lucide-react';
 import PixelImage from './PixelImage';
 import { useLanguage } from '../context/LanguageContext';
 
-const DraggablePhoto = ({ hideControls = false }) => {
+const DraggablePhoto = () => {
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
   const [designVariant] = useState(() => {

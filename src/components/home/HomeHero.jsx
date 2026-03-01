@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+
 import { ArrowRight, FileText, MapPin, BookOpen, Headphones, Activity, PenLine } from 'lucide-react';
 import DraggablePhoto from '../DraggablePhoto';
 import ScrollReveal from '../ScrollReveal';

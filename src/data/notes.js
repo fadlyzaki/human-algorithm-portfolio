@@ -183,12 +183,18 @@ export const NOTES = [
             team: "Growth Team",
             client: "Internal Product"
         },
-        challenge: "The specific anxiety of watching a flight price jump $50 while you wait for your boss\'s approval. In a world of dynamic pricing, the user is always the loser.",
+        challenge: "The specific anxiety of watching a flight price jump $50 while you wait for your boss's approval. In a world of dynamic pricing, the user is always the loser.",
         process: [
             {
                 title: "The Anxiety Trigger",
                 desc: "The specific anxiety of watching a flight price jump $50 while waiting for leave approval. In dynamic pricing, users always lose.",
                 image: "airy:timeline"
+            },
+            {
+                title: "Unsolicited Advice No. 3",
+                text: "There are two types of constraints: those imposed by software limitations, and those imposed by human habit. We spend 90% of our time arguing about the first, while the latter quietly dictates everything we build.",
+                color: "#c2410c",
+                image: "airy:search"
             },
             {
                 title: "Buying Time, Not Tickets",

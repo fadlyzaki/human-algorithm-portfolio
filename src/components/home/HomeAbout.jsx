@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, User, Heart, Cpu, Activity, Flame, BookOpen, PenLine, Palette } from 'lucide-react';
 import SectionTitle from '../SectionTitle';
@@ -30,8 +30,9 @@ const InterestSelector = ({ t }) => {
         });
     };
 
+    const burstCounter = useRef(0);
     const triggerBurst = (i) => {
-        const id = Date.now();
+        const id = burstCounter.current++;
         setBursts(prev => [...prev, { id, index: i }]);
         setTimeout(() => {
             setBursts(prev => prev.filter(b => b.id !== id));
@@ -44,7 +45,7 @@ const InterestSelector = ({ t }) => {
                 <Activity size={14} className="text-[var(--text-secondary)]" /> {t('home.personal_interests')}
             </h4>
 
-            <div className="flex flex-wrap justify-center gap-2 pb-5">
+            <div className="flex flex-wrap justify-center gap-2 pb-5 items-start">
                 {INTERESTS.map((item, i) => {
                     const isOn = selected.has(i);
 
@@ -58,7 +59,7 @@ const InterestSelector = ({ t }) => {
                     };
 
                     return (
-                        <div key={i} className={`relative ${hovered === i ? 'z-10' : 'z-0'}`}>
+                        <div key={i} className={`relative flex flex-col items-center justify-start ${hovered === i ? 'z-10' : 'z-0'}`}>
                             <button
                                 onClick={handleClick}
                                 onMouseEnter={() => setHovered(i)}
@@ -93,14 +94,17 @@ const InterestSelector = ({ t }) => {
                                 </span>
                             ))}
 
-                            {/* Caption below this pill (Absolute, no layout shift) */}
-                            <span
-                                className={`absolute left-1/2 -translate-x-1/2 top-full mt-2 text-[10px] font-mono uppercase tracking-widest leading-tight text-center pointer-events-none w-max max-w-[120px] transition-all duration-200
-                                    ${hovered === i ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1'}`}
-                                style={{ color: item.color }}
+                            {/* Caption below this pill (Expands to push other pills) */}
+                            <div
+                                className={`overflow-hidden transition-all duration-300 ease-in-out flex flex-col items-center justify-start ${hovered === i ? 'max-h-12 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}
                             >
-                                {item.val}
-                            </span>
+                                <span
+                                    className="text-[10px] font-mono uppercase tracking-widest leading-tight text-center pointer-events-none w-max max-w-[120px]"
+                                    style={{ color: item.color }}
+                                >
+                                    {item.val}
+                                </span>
+                            </div>
                         </div>
                     );
                 })}

@@ -1,10 +1,10 @@
+
 import React from 'react';
 import { Calendar, Hash, Music, Layout, ArrowUpRight } from 'lucide-react';
 import AiryDiagram from '../AiryDiagram';
 import ZoomableImage from '../ZoomableImage';
-import { motion } from 'framer-motion';
 
-const BentoDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeSolution, activeMetrics, activeLearnings, InteractionComponent, showLivePreview, setShowLivePreview, t, isIndonesian, activeTitle, activeTldr, activeSnapshot }) => {
+const BentoDetail = ({ project, activeChallenge, activeProcess, activeMetrics, activeLearnings, InteractionComponent, activeTitle, activeTldr, activeSnapshot }) => {
 
     // Aesthetic: Bento Grid, Magazine Editorial, Pastel Gradients, Rounded Corners, Sticker Tags
 
@@ -41,7 +41,7 @@ const BentoDetail = ({ project, activeContext, activeChallenge, activeProcess, a
                             <div className="font-mono text-xs uppercase text-[var(--text-secondary)] mb-4">{activeSnapshot.tagline}</div>
                             {project.stack.slice(0, 3).map((tech, i) => (
                                 <div key={i} className="flex items-center gap-3 mb-3">
-                                    <div className={`w-3 h-3 rounded-full ${i === 0 ? 'bg-pink-400' : i === 1 ? 'bg-orange-400' : 'bg-yellow-400'}`}></div>
+                                    <div className={`w - 3 h - 3 rounded - full ${ i === 0 ? 'bg-pink-400' : i === 1 ? 'bg-orange-400' : 'bg-yellow-400' } `}></div>
                                     <span className="font-medium text-sm">{tech}</span>
                                 </div>
                             ))}
@@ -73,11 +73,11 @@ const BentoDetail = ({ project, activeContext, activeChallenge, activeProcess, a
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {activeProcess.map((step, idx) => (
-                                <article key={idx} className={`bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-500
-                                    ${idx === 0 ? 'md:col-span-2' : ''}
-                                `}>
+                                <article key={idx} className={`bg - [var(--bg - card)]rounded - [2rem] border border - [var(--border - color)]overflow - hidden flex flex - col hover: shadow - xl transition - shadow duration - 500
+                                    ${ idx === 0 ? 'md:col-span-2' : '' }
+`}>
                                     {step.image && (
-                                        <div className={`overflow-hidden bg-black/5 dark:bg-white/5 flex items-center justify-center p-6 border-b border-[var(--border-color)] ${idx === 0 ? 'h-[280px]' : 'h-[200px]'}`}>
+                                        <div className={`overflow - hidden bg - black / 5 dark: bg - white / 5 flex items - center justify - center p - 6 border - b border - [var(--border - color)] ${ idx === 0 ? 'h-[280px]' : 'h-[200px]' } `}>
                                             {step.image.startsWith('airy:') ? (
                                                 <AiryDiagram type={step.image.split(':')[1]} />
                                             ) : (
@@ -105,7 +105,7 @@ const BentoDetail = ({ project, activeContext, activeChallenge, activeProcess, a
                         <div className="bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] overflow-hidden p-8 hover:shadow-xl transition-shadow duration-500">
                             {project.prototypeLink ? (
                                 <div className="w-full h-[600px] rounded-[1rem] overflow-hidden border border-[var(--border-color)]">
-                                    <iframe src={project.prototypeLink} title={`${activeTitle} Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
+                                    <iframe src={project.prototypeLink} title={`${ activeTitle } Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
                                 </div>
                             ) : (
                                 <InteractionComponent />

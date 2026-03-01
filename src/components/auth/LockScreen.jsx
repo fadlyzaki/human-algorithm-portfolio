@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldAlert, ArrowLeft, ArrowRight, Sun, Moon, ScanEye, Globe, Lock, Unlock, AlertTriangle, Activity, Database } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
@@ -8,7 +8,7 @@ import BackButton from '../BackButton';
 import SEO from '../SEO';
 
 const LockScreen = ({ project, parentCluster, onSuccess }) => {
-    const { t, language, toggleLanguage, isIndonesian } = useLanguage();
+    const { t, language, toggleLanguage, } = useLanguage();
     const { isDark, setIsDark } = useTheme();
 
     const [password, setPassword] = useState('');
