@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText, MapPin, BookOpen, Headphones, Activity, PenLine } from 'lucide-react';
@@ -6,9 +6,6 @@ import DraggablePhoto from '../DraggablePhoto';
 import ScrollReveal from '../ScrollReveal';
 import StickyNote from '../StickyNote';
 import RichText from '../RichText';
-
-// LAZY LOAD the WebGL/Physics string to strictly prevent mobile bundle bloat
-const LanyardScene = React.lazy(() => import('../3d/LanyardScene'));
 
 const CHAR_SPEED = 0.015;
 const LINE_GAP = 0.3;
@@ -52,14 +49,6 @@ const getDelay = (lines) => {
 };
 
 const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
-
-    useEffect(() => {
-        const handleResize = () => setIsDesktop(window.innerWidth >= 768);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
     const roleLine = `${t('home.role')} ·`;
     const roleSubLine = t('home.role_sub');
     const titleLine = t('home.intro_title');
@@ -99,16 +88,8 @@ const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
 
                     <div className="hidden md:block relative min-h-[400px]">
                         {renderIdCard && (
-                            <motion.div layoutId="hero-id-card" layout className={`w-full ${isDesktop ? 'flex justify-center' : ''}`}>
-                                {isDesktop ? (
-                                    <React.Suspense fallback={<div className="w-[300px] h-[400px] animate-pulse rounded-xl bg-[var(--bg-modifier)] border border-[var(--border-color)] flex items-center justify-center font-mono text-xs text-[var(--text-secondary)]">INITIALIZING_PHYSICS_ENGINE...</div>}>
-                                        <LanyardScene>
-                                            <DraggablePhoto hideControls={true} />
-                                        </LanyardScene>
-                                    </React.Suspense>
-                                ) : (
-                                    <DraggablePhoto />
-                                )}
+                            <motion.div layoutId="hero-id-card" layout className="w-full">
+                                <DraggablePhoto />
                             </motion.div>
                         )}
                         <div className="space-y-4 font-mono text-xs text-[var(--text-secondary)] mt-4"></div>
