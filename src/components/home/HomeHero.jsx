@@ -1,4 +1,3 @@
-```javascript
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -27,7 +26,7 @@ const TypewriterText = ({ text, delay = 0, start = true }) => {
         >
             {characters.map((char, index) => (
                 <motion.span
-                    key={`${ char } -${ index } `}
+                    key={`${char} -${index} `}
                     variants={{
                         hidden: { opacity: 0 },
                         visible: { opacity: 1 }
@@ -50,7 +49,7 @@ const getDelay = (lines) => {
 };
 
 const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
-    const roleLine = `${ t('home.role') } ·`;
+    const roleLine = `${t('home.role')} ·`;
     const roleSubLine = t('home.role_sub');
     const titleLine = t('home.intro_title');
     const descLine = t('home.intro_desc');
