@@ -34,14 +34,16 @@ export default function Lanyard({ children }) {
         // 1. Sync the string visual to the physics bodies
         const newPositions = [];
         if (fixed.current) {
-            newPositions.push(fixed.current.translation());
+            const t = fixed.current.translation();
+            newPositions.push(new THREE.Vector3(t.x, t.y, t.z));
         } else {
             newPositions.push(new THREE.Vector3(0, BAND_LENGTH, 0)); // Anchor point
         }
 
         for (let i = 0; i < BAND_SEGMENTS - 1; i++) {
             if (bandRefs[i].current) {
-                newPositions.push(bandRefs[i].current.translation());
+                const t = bandRefs[i].current.translation();
+                newPositions.push(new THREE.Vector3(t.x, t.y, t.z));
             }
         }
 
@@ -58,7 +60,7 @@ export default function Lanyard({ children }) {
             newPositions.push(attachmentOffset);
         }
 
-        if (newPositions.length === BAND_SEGMENTS + 2) {
+        if (newPositions.length === BAND_SEGMENTS + 1) { // 1 anchor + 13 segments + 1 card = 15 total lengths.
             setPositions(newPositions);
         }
 
