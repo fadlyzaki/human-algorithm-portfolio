@@ -58,7 +58,7 @@ const InterestSelector = ({ t }) => {
                     };
 
                     return (
-                        <div key={i} className="relative">
+                        <div key={i} className={`relative ${hovered === i ? 'z-10' : 'z-0'}`}>
                             <button
                                 onClick={handleClick}
                                 onMouseEnter={() => setHovered(i)}
