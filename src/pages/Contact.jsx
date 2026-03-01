@@ -11,12 +11,10 @@ import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
 
-// import { useHandCursor } from '../context/HandCursorContext';
 import Navbar from '../components/Navbar';
 import NavigationMenu from '../components/NavigationMenu';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
-import Treasure from '../components/Treasure';
 import SignalAI from '../components/interactions/SignalAI';
 import NeuralDecryption from '../components/interactions/NeuralDecryption';
 
@@ -222,13 +220,6 @@ const ContactPage = () => {
 
           {/* NETWORK MATRIX (Socials) */}
           <div className="space-y-6 relative">
-            <Treasure
-              id="contact-matrix"
-              className="top-0 right-0"
-              type="anchor"
-            >
-              SAILOR'S RELIC!
-            </Treasure>
             <div className="flex items-center gap-3 text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2">
               <Globe size={16} />
               <h3 className="font-mono text-xs uppercase tracking-widest">{t('contact.network_matrix')}</h3>

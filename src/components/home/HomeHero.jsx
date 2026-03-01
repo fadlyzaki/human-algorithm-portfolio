@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText, MapPin, BookOpen, Headphones, Activity, PenLine } from 'lucide-react';
-import Treasure from '../Treasure';
 import DraggablePhoto from '../DraggablePhoto';
 import ScrollReveal from '../ScrollReveal';
 import StickyNote from '../StickyNote';
@@ -61,14 +60,6 @@ const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
             <section className="relative mb-16">
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12 items-start">
                     <div className="relative">
-                        {/* Treasure Hunt */}
-                        <Treasure
-                            id="home-hero"
-                            className="-top-8 left-0"
-                            type="gem"
-                        >
-                            {t('home.hidden_gem')}
-                        </Treasure>
 
                         <h1 className="font-mono text-3xl sm:text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
                             <TypewriterText text={roleLine} delay={delays[0]} start={startTyping} />

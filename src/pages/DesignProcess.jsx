@@ -10,7 +10,6 @@ import {
 import useThemeStyles from '../hooks/useThemeStyles';
 import Navbar from '../components/Navbar';
 // import { useLanguage } from '../context/LanguageContext';
-// import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
 import ScrollReveal from '../components/ScrollReveal';
 import Footer from '../components/Footer';
@@ -24,7 +23,6 @@ const DesignProcess = () => {
     // const { isDark } = useTheme();
     const themeStyles = useThemeStyles();
     // const { t, language, toggleLanguage } = useLanguage();
-    // const { isGestureMode } = useHandCursor();
     const [isMenuOpen, setIsMenuOpen] = useState(false); // Added based on usage in diff
 
     // --- DATA: SYSTEMATIC DESIGN FRAMEWORK ---

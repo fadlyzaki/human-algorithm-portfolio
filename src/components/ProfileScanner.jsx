@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, useSpring, useTransform, useInView } from 'framer-motion';
 import { Scan, Shield, Fingerprint, Activity, Zap } from 'lucide-react';
-import Treasure from './Treasure';
 
 const PIXEL_RESOLUTION = 24; // Pixels wide for the pixel art look
 
@@ -105,11 +104,6 @@ const ProfileScanner = ({
         >
             {/* CARD CONTAINER */}
             <div className={`relative w-full h-full rounded-lg overflow-hidden border border-[var(--border-color)] group-hover:border-[var(--accent-blue)] transition-colors duration-500 shadow-2xl bg-[var(--bg-card)]`}>
-
-                {/* TREASURE HUNT (Preserved) */}
-                <div className="absolute top-4 right-4 z-50 transform translate-z-20">
-                    <Treasure id="about-photo" type="coins">PIRATE'S GOLD!</Treasure>
-                </div>
 
                 {/* LAYERS CONTAINER */}
                 <div className="absolute inset-0 z-0">

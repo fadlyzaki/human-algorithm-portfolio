@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom';
 import { ShieldAlert, ArrowLeft, ArrowRight, Sun, Moon, ScanEye, Globe, Lock, Unlock, AlertTriangle, Activity, Database } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
-import { useHandCursor } from '../../context/HandCursorContext';
 import BackButton from '../BackButton';
 import SEO from '../SEO';
 
 const LockScreen = ({ project, parentCluster, onSuccess }) => {
     const { t, language, toggleLanguage, isIndonesian } = useLanguage();
     const { isDark, setIsDark } = useTheme();
-    const { isGestureMode, toggleGestureMode } = useHandCursor();
 
     const [password, setPassword] = useState('');
     const [error, setError] = useState(false);
@@ -76,13 +74,6 @@ const LockScreen = ({ project, parentCluster, onSuccess }) => {
             </div>
 
             <div className="absolute top-6 right-6 z-20 flex items-center gap-4">
-                <button
-                    onClick={toggleGestureMode}
-                    className={`transition-colors p-1 ${isGestureMode ? 'text-[var(--brand)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
-                    title="Toggle Hand Tracking"
-                >
-                    <ScanEye size={18} />
-                </button>
                 <button
                     onClick={() => setIsDark(!isDark)}
                     className="text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors p-2"

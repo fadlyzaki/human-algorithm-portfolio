@@ -8,12 +8,10 @@ import Navbar from '../components/Navbar';
 import NavigationMenu from '../components/NavigationMenu';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
-// import { useHandCursor } from '../context/HandCursorContext';
 import BackButton from '../components/BackButton';
 import useProjectData from '../hooks/useProjectData';
 import SEO from '../components/SEO';
 import ProjectCard from '../components/ProjectCard';
-import Treasure from '../components/Treasure';
 import ZoomableImage from '../components/ZoomableImage';
 import AiryDiagram from '../components/AiryDiagram';
 import SkeletonLine from '../components/ui/SkeletonLine';
@@ -46,7 +44,6 @@ const FilterMeApp = React.lazy(() => import('../components/interactions/FilterMe
 const SideProjectDetail = () => {
    const { isDark } = useTheme();
    const { isIndonesian, t } = useLanguage();
-   // const { isGestureMode, toggleGestureMode } = useHandCursor();
    const { id } = useParams();
 
    // Use Centralized Data Hook

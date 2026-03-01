@@ -10,8 +10,7 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
           animations: ['framer-motion'],
-          icons: ['lucide-react'],
-          vision: ['@mediapipe/hands', '@mediapipe/camera_utils', 'react-webcam']
+          icons: ['lucide-react']
         }
       }
     }

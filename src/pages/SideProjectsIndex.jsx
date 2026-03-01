@@ -5,16 +5,12 @@ import Navbar from '../components/Navbar';
 import NavigationMenu from '../components/NavigationMenu';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
-// import { useHandCursor } from '../context/HandCursorContext';
 import { SIDE_PROJECTS, NOTES } from '../data/portfolioData';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import BackButton from '../components/BackButton';
 import ProjectCard from '../components/ProjectCard';
 import VentureCard from '../components/VentureCard';
-import Treasure from '../components/Treasure';
-
-// Interaction Components
 import NexusAI from '../components/interactions/NexusAI';
 
 // Configuration
@@ -28,7 +24,6 @@ const CONFIG = {
 const SideProjectsIndex = () => {
     const { isDark } = useTheme();
     const { isIndonesian, t } = useLanguage();
-    // const { isGestureMode, toggleGestureMode } = useHandCursor();
     const navigate = useNavigate();
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -180,13 +175,6 @@ const SideProjectsIndex = () => {
                     </div>
 
                     <div className="relative z-10 max-w-4xl">
-                        <Treasure
-                            id="projects-index"
-                            className="top-0 right-0"
-                            type="gem"
-                        >
-                            RARE RUBY FOUND!
-                        </Treasure>
                         <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] backdrop-blur-md">
                             <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)] animate-pulse"></div>
                             <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">Venture Portfolio 2024-2026</span>

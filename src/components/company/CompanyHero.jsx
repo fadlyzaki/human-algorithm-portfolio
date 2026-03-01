@@ -1,7 +1,6 @@
 import React, { Suspense, useState } from 'react';
 import { Cpu, Scan } from 'lucide-react';
 import ScrollReveal from '../ScrollReveal';
-import Treasure from '../Treasure';
 
 const CompanyHero = ({ cluster, t, isId, InteractionComponent, brandColor }) => {
     const [showNarrative, setShowNarrative] = useState(false);
@@ -44,13 +43,6 @@ const CompanyHero = ({ cluster, t, isId, InteractionComponent, brandColor }) => 
 
                 {/* Interactive AI Visualization */}
                 <ScrollReveal delay={200} className="w-full h-[500px] relative">
-                    <Treasure
-                        id="company-detail"
-                        className="top-4 right-4"
-                        type="crown"
-                    >
-                        KING'S TREASURE!
-                    </Treasure>
                     <div className="absolute -inset-4 bg-[var(--brand)] opacity-10 blur-3xl rounded-full"></div>
                     <div className="relative h-full w-full rounded-2xl overflow-hidden border border-[var(--border-color)] shadow-2xl bg-black dark:bg-white">
                         <div className="absolute top-4 left-4 z-40 flex gap-2">

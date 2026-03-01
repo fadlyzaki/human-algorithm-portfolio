@@ -18,32 +18,9 @@ const DesignSystem = React.lazy(() => import('./pages/DesignSystem'));
 const Sketches = React.lazy(() => import('./pages/Sketches'));
 
 import { LanguageProvider } from './context/LanguageContext';
-import { HandCursorProvider, useHandCursor } from './context/HandCursorContext';
 import ScrollToTop from './components/ScrollToTop';
 
 import AnalyticsTracker from './components/AnalyticsTracker';
-
-// HandCursorOverlay lazy loaded to prevent main-thread blocking on initial load (Mobile Performance)
-const HandCursorOverlay = React.lazy(() => import('./components/HandCursorOverlay'));
-
-// Welcome modal lazy-loaded (one-time use)
-const HandTrackerWelcome = React.lazy(() => import('./components/HandTrackerWelcome'));
-
-// TreasureCongrats is for Easter eggs — always available
-import TreasureCongrats from './components/TreasureCongrats';
-
-const GestureOverlays = () => {
-  const { isGestureMode, showWelcomeModal } = useHandCursor();
-  // HandTrackerWelcome needs to render for the welcome modal (before gesture activates)
-  // HandCursorOverlay only renders when gesture mode is fully active
-  if (!isGestureMode && !showWelcomeModal) return null;
-  return (
-    <React.Suspense fallback={null}>
-      {isGestureMode && <HandCursorOverlay />}
-      <HandTrackerWelcome />
-    </React.Suspense>
-  );
-};
 
 // Loading Fallback Component
 const PageLoader = () => (
@@ -56,40 +33,36 @@ const PageLoader = () => (
 function App() {
   return (
     <LanguageProvider>
-      <HandCursorProvider>
-        <GestureOverlays />
-        <TreasureCongrats />
-        <Router>
-          <AnalyticsTracker />
-          <ScrollToTop />
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              {/* Core Routes */}
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/cv" element={<SystemManifest />} />
-              <Route path="/process" element={<DesignProcess />} />
-              <Route path="/design-system" element={<DesignSystem />} />
-              <Route path="/sketches" element={<Sketches />} />
+      <Router>
+        <AnalyticsTracker />
+        <ScrollToTop />
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            {/* Core Routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/cv" element={<SystemManifest />} />
+            <Route path="/process" element={<DesignProcess />} />
+            <Route path="/design-system" element={<DesignSystem />} />
+            <Route path="/sketches" element={<Sketches />} />
 
-              {/* Index Pages */}
-              <Route path="/side-projects" element={<SideProjectsIndex />} />
-              <Route path="/work/:id" element={<CompanyDetail />} />
+            {/* Index Pages */}
+            <Route path="/side-projects" element={<SideProjectsIndex />} />
+            <Route path="/work/:id" element={<CompanyDetail />} />
 
-              {/* Case Studies (Dynamic ID for future scaling) */}
-              <Route path="/case-study/:id" element={<ProtectedCaseStudy />} />
+            {/* Case Studies (Dynamic ID for future scaling) */}
+            <Route path="/case-study/:id" element={<ProtectedCaseStudy />} />
 
-              {/* Detail Pages */}
-              <Route path="/side-project/:id" element={<SideProjectDetail />} />
-              <Route path="/blog/:id" element={<BlogPost />} />
+            {/* Detail Pages */}
+            <Route path="/side-project/:id" element={<SideProjectDetail />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
 
-              {/* 404 Catch-All */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </Router>
-      </HandCursorProvider>
+            {/* 404 Catch-All */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </Router>
     </LanguageProvider>
   );
 }

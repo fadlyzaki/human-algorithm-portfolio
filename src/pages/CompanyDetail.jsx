@@ -4,7 +4,6 @@ import { ScanEye, Sun, Moon, Globe } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import { useLanguage } from '../context/LanguageContext';
-// import { useHandCursor } from '../context/HandCursorContext';
 import Navbar from '../components/Navbar';
 import NavigationMenu from '../components/NavigationMenu';
 import useProjectData from '../hooks/useProjectData';
@@ -27,7 +26,6 @@ const EfficiencyAI = React.lazy(() => import('../components/interactions/Efficie
 const CompanyDetail = () => {
     const { isDark } = useTheme();
     const { t, language } = useLanguage();
-    // const { isGestureMode, toggleGestureMode } = useHandCursor();
     const { id } = useParams();
     // const navigate = useNavigate();
 

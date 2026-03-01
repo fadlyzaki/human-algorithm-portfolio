@@ -12,10 +12,8 @@ import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import Navbar from '../components/Navbar';
 import { useLanguage } from '../context/LanguageContext';
-// import { useHandCursor } from '../context/HandCursorContext';
 import SEO from '../components/SEO';
 import ScrollReveal from '../components/ScrollReveal';
-import Treasure from '../components/Treasure';
 import SystemMonitor from '../components/SystemMonitor';
 import ChaosSlider from '../components/ChaosSlider';
 const NeuralEcho = lazy(() => import('../components/NeuralEcho'));
@@ -39,7 +37,6 @@ const AboutPage = () => {
   const { isDark } = useTheme();
   const themeStyles = useThemeStyles();
   const { t } = useLanguage();
-  // const { isGestureMode, toggleGestureMode } = useHandCursor();
   const [chaosStrength, setChaosStrength] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for menu
 
@@ -174,13 +171,6 @@ const AboutPage = () => {
 
             {/* INTERACTIVE COMPONENT: Chaos Slider */}
             <div className="mt-12 max-w-sm relative">
-              <Treasure
-                id="about-chaos"
-                className="top-0 right-0"
-                type="gem"
-              >
-                CHAOS_LEVEL = MAX
-              </Treasure>
               <ChaosSlider value={chaosStrength} onChange={setChaosStrength} />
             </div>
 

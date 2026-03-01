@@ -3,7 +3,6 @@ import React from 'react';
 import { Sun, Moon, ArrowRight, ShieldAlert, Monitor, FileText, ScanEye, Globe, AlertTriangle, Lightbulb, BarChart, Rocket, Search } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
-import { useHandCursor } from '../../context/HandCursorContext';
 import BackButton from '../BackButton';
 import SEO from '../SEO';
 import ProjectCard from '../ProjectCard';
@@ -15,7 +14,6 @@ import { DESIGN_PROCESS_STEPS } from '../../data/processSteps';
 const CaseStudyContent = ({ project, parentCluster }) => {
     const { t, language, toggleLanguage } = useLanguage();
     const { isDark, setIsDark } = useTheme();
-    const { isGestureMode, toggleGestureMode } = useHandCursor();
 
     // Resolve Case Data (Bilingual)
     const isId = language === 'id';
@@ -55,14 +53,6 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                 <div className="flex items-center gap-4 md:gap-6">
 
                     <div className="flex items-center gap-4">
-                        <button
-                            onClick={toggleGestureMode}
-                            className={`transition-colors p-1 ${isGestureMode ? 'text-[var(--brand)] animate-pulse' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
-                            title="Toggle Hand Tracking"
-                        >
-                            <ScanEye size={18} />
-                        </button>
-
                         <button
                             onClick={() => setIsDark(!isDark)}
                             className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1"

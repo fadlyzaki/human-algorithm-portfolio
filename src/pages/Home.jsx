@@ -15,11 +15,11 @@ import HomeWorkSection from '../components/home/HomeWorkSection';
 const HomeSideProjects = React.lazy(() => import('../components/home/HomeSideProjects'));
 const HomeAbout = React.lazy(() => import('../components/home/HomeAbout'));
 const FaqSection = React.lazy(() => import('../components/FaqSection'));
+const ChaosCanvas = React.lazy(() => import('../components/ChaosCanvas'));
 
 import { useTheme } from '../context/ThemeContext';
 import useThemeStyles from '../hooks/useThemeStyles';
 import useScrollDirection from '../hooks/useScrollDirection';
-import { useHandCursor } from '../context/HandCursorContext';
 import { useLanguage } from '../context/LanguageContext';
 import ChaosToMatrixIntro from '../components/welcome/ChaosToMatrixIntro';
 import { LayoutGroup, AnimatePresence } from 'framer-motion';
@@ -28,7 +28,6 @@ const Portfolio = () => {
   /* --- STATE & HOOKS --- */
   const { isDark } = useTheme();
   const themeStyles = useThemeStyles();
-  const { isGestureMode } = useHandCursor();
   const { t, language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showIntro, setShowIntro] = useState(() => {
@@ -41,7 +40,7 @@ const Portfolio = () => {
     // Only show intro once for first-time visitors (persists across tabs/restarts)
     return localStorage.getItem('hasSeenChaosIntro') !== 'true';
   });
-  const showNav = useScrollDirection(isGestureMode);
+  const showNav = useScrollDirection(false);
 
   const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
 
@@ -110,7 +109,10 @@ const Portfolio = () => {
           }}
         />
 
-        {/* ATMOSPHERE (single composite layer) */}
+        {/* ATMOSPHERE & CHAOS */}
+        <React.Suspense fallback={null}>
+          <ChaosCanvas />
+        </React.Suspense>
         <div
           className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-500`}
           style={{
