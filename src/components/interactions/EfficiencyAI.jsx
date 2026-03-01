@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChefHat, Clock, Leaf } from 'lucide-react';
 
 const EfficiencyAI = ({ color = '#FA6130' }) => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { User, Briefcase, CheckCircle2, Search, Zap } from 'lucide-react';
 
 const WorkforceAI = ({ color = '#1AA8B4' }) => {

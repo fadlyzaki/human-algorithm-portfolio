@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Sun, Moon, ArrowRight, ShieldAlert, Monitor, FileText, ScanEye, Globe, AlertTriangle, Lightbulb, BarChart, Rocket, Search } from 'lucide-react';
+import { Sun, Moon, ArrowRight, ShieldAlert, Monitor, FileText, ScanEye, Globe, AlertTriangle, Lightbulb, BarChart, Rocket, Search, Activity } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import BackButton from '../BackButton';

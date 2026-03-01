@@ -3,7 +3,7 @@ import {
     Heart, MessageCircle, Send, MoreHorizontal,
     Zap, Coffee, Users, Check, ChevronDown,
     Bot, Search, Bell, Home, User, X,
-    Sparkles, MapPin
+    Sparkles, MapPin, Video, ImageIcon, Settings
 } from 'lucide-react';
 
 // --- MOCK DATA ---

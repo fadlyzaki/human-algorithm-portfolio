@@ -2,7 +2,6 @@ import React, { Suspense, useState } from 'react';
 import { Cpu, Scan } from 'lucide-react';
 import ScrollReveal from '../ScrollReveal';
 
-// eslint-disable-next-line no-unused-vars
 const CompanyHero = ({ cluster, t, isId, InteractionComponent, brandColor }) => {
     const [showNarrative, setShowNarrative] = useState(false);
 

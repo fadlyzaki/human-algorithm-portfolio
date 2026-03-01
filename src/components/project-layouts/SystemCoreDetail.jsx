@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 import { Cpu, Terminal, Layers, Box, ArrowUpRight, Code, ArrowLeft } from 'lucide-react';
 import AiryDiagram from '../AiryDiagram';
+import ZoomableImage from '../ZoomableImage';
 
 
 const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeMetrics, activeLearnings, InteractionComponent, activeTitle, activeTldr, activeSnapshot }) => {
