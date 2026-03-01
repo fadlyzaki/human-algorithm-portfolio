@@ -93,14 +93,17 @@ const InterestSelector = ({ t }) => {
                                 </span>
                             ))}
 
-                            {/* Caption below this pill */}
-                            <span
-                                className={`absolute left-1/2 -translate-x-1/2 top-full mt-1.5 text-[9px] font-mono uppercase tracking-widest whitespace-nowrap transition-all duration-200 pointer-events-none
-                                    ${hovered === i ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1'}`}
-                                style={{ color: item.color }}
+                            {/* Caption below this pill (Pushes layout) */}
+                            <div
+                                className={`overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${hovered === i ? 'max-h-6 opacity-100 mt-1.5' : 'max-h-0 opacity-0 mt-0'}`}
                             >
-                                {item.val}
-                            </span>
+                                <div
+                                    className="text-[9px] font-mono uppercase tracking-widest text-center whitespace-nowrap px-1"
+                                    style={{ color: item.color }}
+                                >
+                                    {item.val}
+                                </div>
+                            </div>
                         </div>
                     );
                 })}
