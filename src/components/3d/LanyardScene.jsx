@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { Physics } from '@react-three/rapier';
 import { Html } from '@react-three/drei';
 import Lanyard from './Lanyard';
+import { LanguageProvider } from '../../context/LanguageContext';
 
 export default function LanyardScene({ children }) {
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
@@ -41,11 +42,13 @@ export default function LanyardScene({ children }) {
                                 style={{ pointerEvents: 'auto', transformOrigin: 'top center' }}
                                 zIndexRange={[100, 0]}
                             >
-                                <div
-                                    className="w-[280px] pointer-events-auto"
-                                >
-                                    {children}
-                                </div>
+                                <LanguageProvider>
+                                    <div
+                                        className="w-[280px] pointer-events-auto"
+                                    >
+                                        {children}
+                                    </div>
+                                </LanguageProvider>
                             </Html>
                         </Lanyard>
                     </Physics>
