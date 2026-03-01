@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 const SignalAI = ({ color = '#3B82F6', manualPing = 0 }) => {

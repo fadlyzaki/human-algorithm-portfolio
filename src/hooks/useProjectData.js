@@ -20,7 +20,7 @@ export const useProjectData = (id) => {
         // which could be optimized in the future if the catalog grows significantly.
         let foundProject = null;
 
-        for (const cat of portfolioData.categories) {
+        for (const cat of PORTFOLIO.categories) {
             for (const item of cat.items) {
                 if (item.id === projectId) {
                     foundProject = item;

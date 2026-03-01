@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { RefreshCw, Zap, Cpu } from 'lucide-react';
-// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 

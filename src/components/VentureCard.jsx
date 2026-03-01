@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
 import { ArrowUpRight, Cpu, Activity, Calendar, BookOpen, Layers } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import ProjectCard from './ProjectCard';

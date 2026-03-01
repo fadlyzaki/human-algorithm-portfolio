@@ -61,3 +61,10 @@ export const SUBSTACK_POSTS = [
         link: "https://fadlyzaki.substack.com"
     }
 ];
+
+export const PORTFOLIO = {
+    categories: [
+        { id: 'work', title: 'Work', items: WORK_CLUSTERS },
+        { id: 'side-projects', title: 'Side Projects', items: SIDE_PROJECTS }
+    ]
+};

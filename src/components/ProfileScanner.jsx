@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-// eslint-disable-next-line no-unused-vars
 import { motion, useSpring, useTransform, useInView } from 'framer-motion';
 import { Scan, Shield, Fingerprint, Activity, Zap } from 'lucide-react';
 

@@ -1,4 +1,6 @@
 
+import { motion } from 'framer-motion';
+
 import React from 'react';
 import { Calendar, Hash, Music, Layout, ArrowUpRight } from 'lucide-react';
 import AiryDiagram from '../AiryDiagram';

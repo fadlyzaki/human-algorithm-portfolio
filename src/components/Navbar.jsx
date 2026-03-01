@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
 import { Link } from 'react-router-dom';
 import { Sun, Moon, ScanEye, Grid, Clock, FileText, Printer } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';

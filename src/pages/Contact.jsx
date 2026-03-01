@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import {
   ArrowLeft, Mail, Send, Copy, Check, Sun, Moon,

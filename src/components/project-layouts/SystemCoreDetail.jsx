@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
 import { Cpu, Terminal, Layers, Box, ArrowUpRight, Code, ArrowLeft } from 'lucide-react';
 import AiryDiagram from '../AiryDiagram';
 
