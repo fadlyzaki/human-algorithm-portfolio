@@ -6,6 +6,7 @@ import DraggablePhoto from '../DraggablePhoto';
 import ScrollReveal from '../ScrollReveal';
 import StickyNote from '../StickyNote';
 import RichText from '../RichText';
+import Fingerprint from '../Fingerprint';
 
 const CHAR_SPEED = 0.015;
 const LINE_GAP = 0.3;
@@ -64,8 +65,9 @@ const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
                         <h1 className="font-mono text-3xl sm:text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
                             <TypewriterText text={roleLine} delay={delays[0]} start={startTyping} />
                             <br />
-                            <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">
+                            <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal inline-flex items-center gap-2">
                                 <TypewriterText text={roleSubLine} delay={delays[1]} start={startTyping} />
+                                <Fingerprint size={40} className="text-[var(--accent-amber)] opacity-70 hover:opacity-100 transition-opacity" />
                             </span>
                         </h1>
                         <h2 className="text-xl md:text-2xl font-mono text-[var(--text-primary)] mb-8 pb-4 inline-block border-b-2 border-[var(--accent-amber)]">
