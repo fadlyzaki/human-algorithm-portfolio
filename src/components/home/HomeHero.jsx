@@ -99,7 +99,7 @@ const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
 
                     <div className="hidden md:block relative min-h-[400px]">
                         {renderIdCard && (
-                            <motion.div layoutId="hero-id-card" layout className={`w-full ${isDesktop ? 'h-full flex justify-center mt-32' : ''}`}>
+                            <motion.div layoutId="hero-id-card" layout className={`w-full ${isDesktop ? 'flex justify-center' : ''}`}>
                                 {isDesktop ? (
                                     <React.Suspense fallback={<div className="w-[300px] h-[400px] animate-pulse rounded-xl bg-[var(--bg-modifier)] border border-[var(--border-color)] flex items-center justify-center font-mono text-xs text-[var(--text-secondary)]">INITIALIZING_PHYSICS_ENGINE...</div>}>
                                         <LanyardScene>

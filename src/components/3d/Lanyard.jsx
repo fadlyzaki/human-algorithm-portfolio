@@ -14,12 +14,6 @@ const BAND_SEGMENTS = 14; // Number of joints in the string
 
 export default function Lanyard({ children }) {
     const [dragged, setDragged] = useState(false);
-    const bandRefs = useMemo(() => Array.from({ length: BAND_SEGMENTS }, () => React.createRef()), []);
-    const card = useRef();
-    const j1 = useRef();
-    const fixed = useRef();
-
-    // Calculate default curves for the initial band shape
     const curve = useMemo(() => {
         const points = [];
         for (let i = 0; i <= BAND_SEGMENTS; i++) {
@@ -28,7 +22,15 @@ export default function Lanyard({ children }) {
         return new THREE.CatmullRomCurve3(points);
     }, []);
 
-    const [positions, setPositions] = useState(() => curve.getPoints(BAND_SEGMENTS));
+    const initialPositions = useMemo(() => curve.getPoints(BAND_SEGMENTS), [curve]);
+
+    const bandRefs = useMemo(() => Array.from({ length: BAND_SEGMENTS }, () => React.createRef()), []);
+    const lineGeometryRef = useRef();
+    const card = useRef();
+    const j1 = useRef();
+    const fixed = useRef();
+
+
 
     useFrame((state) => {
         // 1. Sync the string visual to the physics bodies
@@ -61,14 +63,16 @@ export default function Lanyard({ children }) {
         }
 
         if (newPositions.length === BAND_SEGMENTS + 1) { // 1 anchor + 13 segments + 1 card = 15 total lengths.
-            setPositions(newPositions);
+            if (lineGeometryRef.current) {
+                lineGeometryRef.current.setPoints(newPositions);
+            }
         }
 
         // 2. Interactive dragging (Mouse pull)
         if (dragged && card.current) {
-            const vec = new THREE.Vector3();
-            state.pointer.unproject(state.camera);
-            vec.copy(state.pointer).sub(state.camera.position).normalize();
+            const vec = new THREE.Vector3(state.pointer.x, state.pointer.y, 0.5);
+            vec.unproject(state.camera);
+            vec.sub(state.camera.position).normalize();
 
             // Calculate depth distance to move card to mouse
             const distance = -state.camera.position.z / vec.z;
@@ -90,8 +94,8 @@ export default function Lanyard({ children }) {
             <RigidBody ref={fixed} type="fixed" position={[0, BAND_LENGTH, 0]} />
 
             {/* Physics String Segments */}
-            {positions.map((pos, i) => {
-                if (i === 0 || i === positions.length - 1) return null; // Skip first and last as they are anchors
+            {initialPositions.map((pos, i) => {
+                if (i === 0 || i === initialPositions.length - 1) return null; // Skip first and last as they are anchors
                 const idx = i - 1;
                 return (
                     <BandSegment
@@ -105,7 +109,7 @@ export default function Lanyard({ children }) {
 
             {/* The visible string mesh */}
             <mesh>
-                <meshLineGeometry attach="geometry" points={positions} />
+                <meshLineGeometry ref={lineGeometryRef} attach="geometry" points={initialPositions} />
                 <meshLineMaterial
                     attach="material"
                     color="white"
@@ -119,18 +123,20 @@ export default function Lanyard({ children }) {
             <CardAnchor
                 ref={card}
                 prev={bandRefs[BAND_SEGMENTS - 2]}
-                position={[0, 0, 0]}
+                position={[0, -1, 0]} /* Perfect world alignment with the last segment */
                 onPointerDown={(e) => {
                     e.stopPropagation();
                     e.target.setPointerCapture(e.pointerId);
                     setDragged(true);
+                    if (card.current) {
+                        card.current.setBodyType(2); // 2 = kinematicPosition (drag mode)
+                    }
                 }}
                 onPointerUp={(e) => {
                     e.stopPropagation();
                     e.target.releasePointerCapture(e.pointerId);
                     setDragged(false);
 
-                    // Switch back to dynamic physics simulation 
                     if (card.current) {
                         card.current.setBodyType(0); // 0 = dynamic in Rapier
                     }
@@ -170,7 +176,8 @@ const BandSegment = React.forwardRef(({ position, prev }, ref) => {
             angularDamping={2}
             friction={0.1}
             colliders={false}
-            mass={0.1}
+            mass={1} /* Increased from 0.1 to stabilize the joint chain */
+            collisionGroups={65536} /* 0x00010000 - Only collides with group 0 (nothing here) */
         >
             <BallCollider args={[0.1]} />
         </RigidBody>
@@ -190,11 +197,12 @@ const CardAnchor = React.forwardRef(({ children, prev, position, onPointerDown, 
         <RigidBody
             ref={ref}
             position={position}
-            type={dragged ? "kinematicPosition" : "dynamic"}
+            type="dynamic"
             linearDamping={1}
             angularDamping={1}
             friction={0.1}
-            mass={3} // Make the card heavy so the string acts taut
+            mass={2} // Balanced ratio against the 1.0 mass string segments
+            collisionGroups={131072} /* 0x00020000 - Group 2, intercepts nothing to avoid physics self-explosions */
         >
             <CuboidCollider args={[1.5, 2.2, 0.1]} /> {/* Hitbox matching ID card shape */}
 

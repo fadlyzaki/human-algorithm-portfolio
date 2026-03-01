@@ -23,11 +23,11 @@ export default function LanyardScene({ children }) {
     }
 
     return (
-        <div className="absolute inset-0 w-[450px] h-[700px] -top-32 -left-12 z-50 pointer-events-none origin-top overflow-visible">
+        <div className="relative w-[100%] max-w-[450px] h-[500px] md:h-[600px] z-50 flex items-center justify-center origin-top overflow-visible -mt-12 group">
             <Canvas
                 camera={{ position: [0, 0, 16], fov: 25 }}
-                style={{ pointerEvents: 'none' }}
                 gl={{ alpha: true, antialias: true }}
+                style={{ width: '100%', height: '100%', cursor: 'grab' }}
             >
                 <ambientLight intensity={Math.PI} />
                 <Suspense fallback={null}>
