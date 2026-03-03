@@ -1,222 +1,300 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
-import { Cpu, Terminal, Layers, Box, ArrowUpRight, Code, ArrowLeft } from 'lucide-react';
-import AiryDiagram from '../AiryDiagram';
-import ZoomableImage from '../ZoomableImage';
+import {
+  Cpu,
+  Terminal,
+  Layers,
+  Box,
+  ArrowUpRight,
+  Code,
+  ArrowLeft,
+} from "lucide-react";
+import AiryDiagram from "../AiryDiagram";
+import ZoomableImage from "../ZoomableImage";
 
+const SystemCoreDetail = ({
+  project,
+  activeContext,
+  activeChallenge,
+  activeProcess,
+  activeInsights,
+  activeMetrics,
+  activeLearnings,
+  InteractionComponent,
+  activeTitle,
+  activeTldr,
+  activeSnapshot,
+}) => {
+  // Aesthetic: Terminal Data, Scanning Lines, Dark Void, High Contrast Blue/Green Monospace
 
-const SystemCoreDetail = ({ project, activeContext, activeChallenge, activeProcess, activeInsights, activeMetrics, activeLearnings, InteractionComponent, activeTitle, activeTldr, activeSnapshot }) => {
+  // Fix purity warning by generating predictable pseudo-random tokens instead of Math.random
+  const randomTokens = React.useMemo(() => {
+    return Array.from({ length: 150 }).map((_, idx) => {
+      return `0x${((idx * 1337) % 0xffffff).toString(16).padStart(6, "0")}`;
+    });
+  }, []);
 
-    // Aesthetic: Terminal Data, Scanning Lines, Dark Void, High Contrast Blue/Green Monospace
+  return (
+    <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-sans min-h-screen selection:bg-blue-500/30">
+      {/* Terminal Grid Background */}
+      <div
+        className="fixed inset-0 z-0 pointer-events-none opacity-10"
+        style={{
+          backgroundImage: `linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)`,
+          backgroundSize: "40px 40px",
+        }}
+      ></div>
 
-    // Fix purity warning by generating predictable pseudo-random tokens instead of Math.random
-    const randomTokens = React.useMemo(() => {
-        return Array.from({ length: 150 }).map((_, idx) => {
-            return `0x${((idx * 1337) % 0xFFFFFF).toString(16).padStart(6, '0')}`;
-        });
-    }, []);
+      {/* Ambient Shadow */}
+      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
-    return (
-        <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-sans min-h-screen selection:bg-blue-500/30">
+      <main className="relative z-10 pt-24 pb-32">
+        {/* 1. HERO BANNER */}
+        <header className="relative border-b border-[var(--border-color)] overflow-hidden min-h-[70vh] flex flex-col justify-center px-6 text-center">
+          {/* Scanning Line */}
+          <motion.div
+            className="absolute left-0 right-0 h-px bg-blue-500/50 z-20 pointer-events-none"
+            animate={{ top: ["0%", "100%"] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          />
 
-            {/* Terminal Grid Background */}
-            <div className="fixed inset-0 z-0 pointer-events-none opacity-10"
-                style={{ backgroundImage: `linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)`, backgroundSize: '40px 40px' }}>
+          {/* Terminal Background Flow */}
+          <div className="absolute inset-0 opacity-5 font-mono text-[10px] sm:text-[12px] leading-none pointer-events-none select-none overflow-hidden p-4 text-justify custom-scrollbar">
+            {randomTokens.map((token, i) => (
+              <span key={i} className="mr-2 text-blue-400">
+                {`INIT_SYS >> PORTFOLIO_V2.9 >> AGENT_${i} >> DATA_STREAM=${token} `}
+              </span>
+            ))}
+          </div>
+
+          <div className="max-w-5xl mx-auto relative z-30 space-y-8 backdrop-blur-sm p-8 border border-[var(--border-color)] bg-[var(--bg-surface)] opacity-95">
+            <div className="inline-flex items-center gap-3 px-4 py-2 border border-blue-500/30 bg-[var(--bg-void)]">
+              <Cpu size={14} className="text-blue-400 animate-pulse" />
+              <span className="font-mono text-[10px] uppercase tracking-widest text-blue-400 text-shadow-glow">
+                {activeSnapshot.tagline} // SYSTEM PROTOCOL
+              </span>
             </div>
 
-            {/* Ambient Shadow */}
-            <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
+            <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif italic text-[var(--text-primary)] drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+              {activeTitle}
+            </h1>
 
-            <main className="relative z-10 pt-24 pb-32">
+            <p className="text-xl md:text-2xl font-light text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed border-l-2 border-blue-500/50 pl-6 text-left">
+              {activeTldr}
+            </p>
+          </div>
+        </header>
 
-                {/* 1. HERO BANNER */}
-                <header className="relative border-b border-[var(--border-color)] overflow-hidden min-h-[70vh] flex flex-col justify-center px-6 text-center">
+        {/* 2. SPECS TERMINAL */}
+        <section className="border-b border-[var(--border-color)] bg-[var(--bg-void)] relative z-20">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-[10px] md:text-xs">
+            <div className="flex items-center gap-4">
+              {project.links.demo && project.links.demo !== "#" && (
+                <a
+                  href={project.links.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 hover:bg-blue-500 transition-colors uppercase tracking-widest"
+                >
+                  [ EXECUTE_DEMO ] <ArrowUpRight size={14} />
+                </a>
+              )}
+              {project.links.repo && project.links.repo !== "#" && (
+                <a
+                  href={project.links.repo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 border border-blue-500/30 px-4 py-2 text-blue-400 hover:bg-blue-500/10 transition-colors uppercase tracking-widest"
+                >
+                  <Code size={14} /> SOURCE_CODE
+                </a>
+              )}
+            </div>
 
-                    {/* Scanning Line */}
-                    <motion.div
-                        className="absolute left-0 right-0 h-px bg-blue-500/50 z-20 pointer-events-none"
-                        animate={{ top: ['0%', '100%'] }}
-                        transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                    />
+            <div className="flex flex-wrap items-center gap-8 text-[var(--text-secondary)]">
+              <div className="flex flex-col">
+                <span className="opacity-50 mb-1">ROLE_ASSIGNMENT</span>
+                <span className="text-[var(--text-primary)]">
+                  {activeContext.role}
+                </span>
+              </div>
+              <div className="hidden md:block w-px h-6 bg-[var(--border-color)]"></div>
+              <div className="flex flex-col">
+                <span className="opacity-50 mb-1">TEMP_MARKER</span>
+                <span className="text-[var(--text-primary)]">
+                  {activeContext.timeline}
+                </span>
+              </div>
+              <div className="hidden md:block w-px h-6 bg-[var(--border-color)]"></div>
+              <div className="flex flex-col">
+                <span className="opacity-50 mb-1">LOADED_MODULES</span>
+                <span className="text-[var(--text-primary)]">
+                  {project.stack.slice(0, 3).join(" / ")}
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                    {/* Terminal Background Flow */}
-                    <div className="absolute inset-0 opacity-5 font-mono text-[10px] sm:text-[12px] leading-none pointer-events-none select-none overflow-hidden p-4 text-justify custom-scrollbar">
-                        {randomTokens.map((token, i) => (
-                            <span key={i} className="mr-2 text-blue-400">
-                                {`INIT_SYS >> PORTFOLIO_V2.9 >> AGENT_${i} >> DATA_STREAM=${token} `}
-                            </span>
-                        ))}
+        {/* 3. CORE LOGIC (Narrative) */}
+        <section className="max-w-4xl mx-auto px-6 py-24 space-y-32">
+          {/* The Challenge */}
+          <article className="border border-[var(--border-color)] p-8 md:p-12 bg-[var(--bg-card)] shadow-2xl relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-1 bg-red-500/50"></div>
+            <div className="flex items-center gap-4 mb-8">
+              <Terminal size={16} className="text-red-400" />
+              <span className="font-mono text-xs uppercase tracking-widest text-red-400">
+                System.Err // The Challenge
+              </span>
+            </div>
+            <h2 className="text-2xl md:text-4xl font-sans font-medium text-[var(--text-primary)] leading-tight">
+              {activeChallenge}
+            </h2>
+          </article>
+
+          {/* The Process */}
+          {activeProcess && (
+            <div className="space-y-12">
+              <div className="flex items-center gap-4 mb-12">
+                <Layers size={16} className="text-blue-400" />
+                <span className="font-mono text-xs uppercase tracking-widest text-blue-400">
+                  Execution_Flow
+                </span>
+              </div>
+              {activeProcess.map((step, idx) => (
+                <article
+                  key={idx}
+                  className="grid md:grid-cols-5 gap-8 items-start"
+                >
+                  <div className="md:col-span-2 space-y-4">
+                    <div className="font-mono text-[10px] text-[var(--text-secondary)]">
+                      STEP_0{idx + 1}
                     </div>
-
-                    <div className="max-w-5xl mx-auto relative z-30 space-y-8 backdrop-blur-sm p-8 border border-[var(--border-color)] bg-[var(--bg-surface)] opacity-95">
-                        <div className="inline-flex items-center gap-3 px-4 py-2 border border-blue-500/30 bg-[var(--bg-void)]">
-                            <Cpu size={14} className="text-blue-400 animate-pulse" />
-                            <span className="font-mono text-[10px] uppercase tracking-widest text-blue-400 text-shadow-glow">
-                                {activeSnapshot.tagline} // SYSTEM PROTOCOL
-                            </span>
-                        </div>
-
-                        <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif italic text-[var(--text-primary)] drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-                            {activeTitle}
-                        </h1>
-
-                        <p className="text-xl md:text-2xl font-light text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed border-l-2 border-blue-500/50 pl-6 text-left">
-                            {activeTldr}
-                        </p>
-                    </div>
-                </header>
-
-                {/* 2. SPECS TERMINAL */}
-                <section className="border-b border-[var(--border-color)] bg-[var(--bg-void)] relative z-20">
-                    <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-[10px] md:text-xs">
-
-                        <div className="flex items-center gap-4">
-                            {project.links.demo && project.links.demo !== '#' && (
-                                <a href={project.links.demo} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 hover:bg-blue-500 transition-colors uppercase tracking-widest">
-                                    [ EXECUTE_DEMO ] <ArrowUpRight size={14} />
-                                </a>
-                            )}
-                            {project.links.repo && project.links.repo !== '#' && (
-                                <a href={project.links.repo} target="_blank" rel="noreferrer" className="flex items-center gap-2 border border-blue-500/30 px-4 py-2 text-blue-400 hover:bg-blue-500/10 transition-colors uppercase tracking-widest">
-                                    <Code size={14} /> SOURCE_CODE
-                                </a>
-                            )}
-                        </div>
-
-                        <div className="flex flex-wrap items-center gap-8 text-[var(--text-secondary)]">
-                            <div className="flex flex-col">
-                                <span className="opacity-50 mb-1">ROLE_ASSIGNMENT</span>
-                                <span className="text-[var(--text-primary)]">{activeContext.role}</span>
-                            </div>
-                            <div className="hidden md:block w-px h-6 bg-[var(--border-color)]"></div>
-                            <div className="flex flex-col">
-                                <span className="opacity-50 mb-1">TEMP_MARKER</span>
-                                <span className="text-[var(--text-primary)]">{activeContext.timeline}</span>
-                            </div>
-                            <div className="hidden md:block w-px h-6 bg-[var(--border-color)]"></div>
-                            <div className="flex flex-col">
-                                <span className="opacity-50 mb-1">LOADED_MODULES</span>
-                                <span className="text-[var(--text-primary)]">{project.stack.slice(0, 3).join(' / ')}</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* 3. CORE LOGIC (Narrative) */}
-                <section className="max-w-4xl mx-auto px-6 py-24 space-y-32">
-
-                    {/* The Challenge */}
-                    <article className="border border-[var(--border-color)] p-8 md:p-12 bg-[var(--bg-card)] shadow-2xl relative overflow-hidden group">
-                        <div className="absolute top-0 left-0 w-full h-1 bg-red-500/50"></div>
-                        <div className="flex items-center gap-4 mb-8">
-                            <Terminal size={16} className="text-red-400" />
-                            <span className="font-mono text-xs uppercase tracking-widest text-red-400">System.Err // The Challenge</span>
-                        </div>
-                        <h2 className="text-2xl md:text-4xl font-sans font-medium text-[var(--text-primary)] leading-tight">
-                            {activeChallenge}
-                        </h2>
-                    </article>
-
-                    {/* The Process */}
-                    {activeProcess && (
-                        <div className="space-y-12">
-                            <div className="flex items-center gap-4 mb-12">
-                                <Layers size={16} className="text-blue-400" />
-                                <span className="font-mono text-xs uppercase tracking-widest text-blue-400">Execution_Flow</span>
-                            </div>
-                            {activeProcess.map((step, idx) => (
-                                <article key={idx} className="grid md:grid-cols-5 gap-8 items-start">
-                                    <div className="md:col-span-2 space-y-4">
-                                        <div className="font-mono text-[10px] text-[var(--text-secondary)]">STEP_0{idx + 1}</div>
-                                        <h3 className="text-xl font-bold text-[var(--text-primary)] border-l-2 border-blue-500 pl-4">
-                                            {step.title}
-                                        </h3>
-                                    </div>
-                                    <div className="md:col-span-3 space-y-6">
-                                        <p className="text-[var(--text-secondary)] leading-relaxed">{step.desc}</p>
-                                        {step.image && (
-                                            <div className="border border-[var(--border-color)] bg-[var(--bg-void)] p-4">
-                                                {step.image.startsWith('airy:') ? (
-                                                    <div className="w-full h-[250px]"><AiryDiagram type={step.image.split(':')[1]} /></div>
-                                                ) : (
-                                                    <ZoomableImage src={step.image} alt={step.title} className="w-full opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                                                )}
-                                            </div>
-                                        )}
-                                    </div>
-                                </article>
-                            ))}
-                        </div>
+                    <h3 className="text-xl font-bold text-[var(--text-primary)] border-l-2 border-blue-500 pl-4">
+                      {step.title}
+                    </h3>
+                  </div>
+                  <div className="md:col-span-3 space-y-6">
+                    <p className="text-[var(--text-secondary)] leading-relaxed">
+                      {step.desc}
+                    </p>
+                    {step.image && (
+                      <div className="border border-[var(--border-color)] bg-[var(--bg-void)] p-4">
+                        {step.image.startsWith("airy:") ? (
+                          <div className="w-full h-[250px]">
+                            <AiryDiagram type={step.image.split(":")[1]} />
+                          </div>
+                        ) : (
+                          <ZoomableImage
+                            src={step.image}
+                            alt={step.title}
+                            className="w-full opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                          />
+                        )}
+                      </div>
                     )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
 
-                    {/* Insights */}
-                    {activeInsights && activeInsights.length > 0 && (
-                        <div className="grid md:grid-cols-2 gap-8">
-                            <div className="md:col-span-2 flex items-center gap-4 mb-4">
-                                <Box size={16} className="text-purple-400" />
-                                <span className="font-mono text-xs uppercase tracking-widest text-purple-400">Data_Extraction</span>
-                            </div>
-                            {activeInsights.map((insight, idx) => (
-                                <div key={idx} className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 relative">
-                                    <div className="absolute top-4 right-4 text-purple-500/20 font-mono text-4xl font-bold">0{idx + 1}</div>
-                                    <h3 className="text-xl font-bold mb-4 text-[var(--text-primary)]">{insight.title}</h3>
-                                    <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">{insight.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    )}
+          {/* Insights */}
+          {activeInsights && activeInsights.length > 0 && (
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="md:col-span-2 flex items-center gap-4 mb-4">
+                <Box size={16} className="text-purple-400" />
+                <span className="font-mono text-xs uppercase tracking-widest text-purple-400">
+                  Data_Extraction
+                </span>
+              </div>
+              {activeInsights.map((insight, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 relative"
+                >
+                  <div className="absolute top-4 right-4 text-purple-500/20 font-mono text-4xl font-bold">
+                    0{idx + 1}
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-[var(--text-primary)]">
+                    {insight.title}
+                  </h3>
+                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
+                    {insight.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
 
-                    {/* Diagnostics / Interaction */}
-                    {(project.prototypeLink || InteractionComponent) && (
-                        <div className="bg-blue-900/10 border border-blue-500/20 p-8 rounded-sm animate-pulse-slow">
-                            <div className="flex items-center justify-between mb-8 border-b border-blue-500/20 pb-4">
-                                <h3 className="font-mono text-xs text-blue-400 uppercase tracking-widest">Interactive_Console</h3>
-                                <div className="flex gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-red-500"></span>
-                                    <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
-                                    <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                                </div>
-                            </div>
-                            {project.prototypeLink ? (
-                                <div className="w-full h-[600px] border border-blue-500/30 bg-[var(--bg-void)]">
-                                    <iframe src={project.prototypeLink} title={`${activeTitle} Preview`} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
-                                </div>
-                            ) : (
-                                <InteractionComponent />
-                            )}
-                        </div>
-                    )}
+          {/* Diagnostics / Interaction */}
+          {(project.prototypeLink || InteractionComponent) && (
+            <div className="bg-blue-900/10 border border-blue-500/20 p-8 rounded-sm animate-pulse-slow">
+              <div className="flex items-center justify-between mb-8 border-b border-blue-500/20 pb-4">
+                <h3 className="font-mono text-xs text-blue-400 uppercase tracking-widest">
+                  Interactive_Console
+                </h3>
+                <div className="flex gap-2">
+                  <span className="w-2 h-2 rounded-full bg-red-500"></span>
+                  <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
+                  <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                </div>
+              </div>
+              {project.prototypeLink ? (
+                <div className="w-full h-[600px] border border-blue-500/30 bg-[var(--bg-void)]">
+                  <iframe
+                    src={project.prototypeLink}
+                    title={`${activeTitle} Preview`}
+                    className="w-full h-full border-0"
+                    sandbox="allow-scripts allow-same-origin"
+                  />
+                </div>
+              ) : (
+                <InteractionComponent />
+              )}
+            </div>
+          )}
 
-                    {/* Metrics Footer */}
-                    {(activeMetrics || activeLearnings) && (
-                        <div className="border-t border-[var(--border-color)] pt-16 grid md:grid-cols-2 gap-16">
-                            {activeMetrics && (
-                                <div>
-                                    <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-8">Telemetry_Output</h4>
-                                    <div className="space-y-6">
-                                        {activeMetrics.map((m, i) => (
-                                            <div key={i} className="flex justify-between items-end border-b border-[var(--border-color)] pb-2">
-                                                <span className="text-sm text-[var(--text-secondary)] uppercase tracking-wide font-mono">{m.label}</span>
-                                                <span className="text-2xl font-bold text-[var(--text-primary)] font-mono">{m.value}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-                            {activeLearnings && (
-                                <div className="bg-[var(--text-primary)] text-[var(--bg-void)] p-8 font-serif italic text-xl leading-relaxed relative">
-                                    <div className="absolute -top-3 -left-3 bg-blue-500 text-[var(--bg-void)] font-mono text-[10px] px-2 py-1 uppercase font-bold">Human_Input</div>
-                                    "{activeLearnings}"
-                                </div>
-                            )}
-                        </div>
-                    )}
-
-                </section>
-            </main>
-        </div>
-    );
+          {/* Metrics Footer */}
+          {(activeMetrics || activeLearnings) && (
+            <div className="border-t border-[var(--border-color)] pt-16 grid md:grid-cols-2 gap-16">
+              {activeMetrics && (
+                <div>
+                  <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-8">
+                    Telemetry_Output
+                  </h4>
+                  <div className="space-y-6">
+                    {activeMetrics.map((m, i) => (
+                      <div
+                        key={i}
+                        className="flex justify-between items-end border-b border-[var(--border-color)] pb-2"
+                      >
+                        <span className="text-sm text-[var(--text-secondary)] uppercase tracking-wide font-mono">
+                          {m.label}
+                        </span>
+                        <span className="text-2xl font-bold text-[var(--text-primary)] font-mono">
+                          {m.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {activeLearnings && (
+                <div className="bg-[var(--text-primary)] text-[var(--bg-void)] p-8 font-serif italic text-xl leading-relaxed relative">
+                  <div className="absolute -top-3 -left-3 bg-blue-500 text-[var(--bg-void)] font-mono text-[10px] px-2 py-1 uppercase font-bold">
+                    Human_Input
+                  </div>
+                  "{activeLearnings}"
+                </div>
+              )}
+            </div>
+          )}
+        </section>
+      </main>
+    </div>
+  );
 };
 
 export default SystemCoreDetail;

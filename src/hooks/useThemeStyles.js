@@ -1,26 +1,24 @@
-import { useMemo } from 'react';
-import { useTheme } from '../context/ThemeContext';
+import { useMemo } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 /**
- * Hook to provide centralized theme colors based on current mode
- * Reduces code duplication across pages
+ * Hook to provide centralized theme colors based on current mode.
+ * Now that index.css :root and .dark have been aligned, this hook
+ * only needs to provide the accent overrides and card-specific aliases.
+ * Core tokens (bg-void, text-primary, etc.) are handled by CSS.
  */
 const useThemeStyles = () => {
-    const { isDark } = useTheme();
-    return useMemo(() => ({
-        '--bg-void': isDark ? '#111111' : '#F0F0F3',
-        '--bg-surface': isDark ? '#1F1F1F' : '#FFFFFF',
-        '--bg-card': isDark ? '#181818' : '#FFFFFF',
-        '--text-primary': isDark ? '#F4F4F5' : '#18181B',
-        '--text-secondary': isDark ? '#A1A1AA' : '#52525B',
-        '--text-card': isDark ? '#F4F4F5' : '#18181B',
-        '--text-card-secondary': isDark ? '#A1A1AA' : '#52525B',
-        '--border-color': isDark ? '#262626' : '#E4E4E7',
-        '--accent-amber': isDark ? '#F59E0B' : '#D97706',
-        '--accent-blue': isDark ? '#3B82F6' : '#2563EB',
-        '--accent-green': isDark ? '#10B981' : '#059669',
-        '--accent-red': isDark ? '#EF4444' : '#DC2626',
-    }), [isDark]);
+  const { isDark } = useTheme();
+  return useMemo(
+    () => ({
+      "--accent": isDark ? "#F59E0B" : "#D97706",
+      "--text-card": isDark ? "var(--text-primary)" : "var(--text-primary)",
+      "--text-card-secondary": isDark
+        ? "var(--text-secondary)"
+        : "var(--text-secondary)",
+    }),
+    [isDark],
+  );
 };
 
 export default useThemeStyles;

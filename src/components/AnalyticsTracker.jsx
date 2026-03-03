@@ -9,14 +9,17 @@ const MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 ReactGA.initialize(MEASUREMENT_ID);
 
 const AnalyticsTracker = () => {
-    const location = useLocation();
+  const location = useLocation();
 
-    useEffect(() => {
-        // Send page view event on route change
-        ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
-    }, [location]);
+  useEffect(() => {
+    // Send page view event on route change
+    ReactGA.send({
+      hitType: "pageview",
+      page: location.pathname + location.search,
+    });
+  }, [location]);
 
-    return null; // This component renders nothing
+  return null; // This component renders nothing
 };
 
 export default AnalyticsTracker;

@@ -1,264 +1,309 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, Filter, Sun, Moon, Globe, ScanEye } from 'lucide-react';
-import Navbar from '../components/Navbar';
-import NavigationMenu from '../components/NavigationMenu';
-import { useTheme } from '../context/ThemeContext';
-import { useLanguage } from '../context/LanguageContext';
-import { SIDE_PROJECTS, NOTES } from '../data/portfolioData';
-import SEO from '../components/SEO';
-import Footer from '../components/Footer';
-import BackButton from '../components/BackButton';
-import ProjectCard from '../components/ProjectCard';
-import VentureCard from '../components/VentureCard';
-import NexusAI from '../components/interactions/NexusAI';
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  Filter,
+  Sun,
+  Moon,
+  Globe,
+  ScanEye,
+} from "lucide-react";
+import Navbar from "../components/Navbar";
+import NavigationMenu from "../components/NavigationMenu";
+import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
+import { SIDE_PROJECTS, NOTES } from "../data/portfolioData";
+import SEO from "../components/SEO";
+import Footer from "../components/Footer";
+import BackButton from "../components/BackButton";
+import ProjectCard from "../components/ProjectCard";
+import VentureCard from "../components/VentureCard";
+import NexusAI from "../components/interactions/NexusAI";
 
 // Configuration
 const CONFIG = {
-    proximity: 400, // Distance to trigger effect
-    lineOpacity: 0.15,
-    magneticForce: 0.5, // Strength of tilt
-    scaleForce: 1.02 // Max scale
+  proximity: 400, // Distance to trigger effect
+  lineOpacity: 0.15,
+  magneticForce: 0.5, // Strength of tilt
+  scaleForce: 1.02, // Max scale
 };
 
 const SideProjectsIndex = () => {
-    const { isDark } = useTheme();
-    const { isIndonesian, t } = useLanguage();
-    const navigate = useNavigate();
+  const { isDark } = useTheme();
+  const { isIndonesian, t } = useLanguage();
+  const navigate = useNavigate();
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Interaction Refs
-    const canvasRef = useRef(null);
-    const containerRef = useRef(null);
-    const cardsRef = useRef([]);
-    const requestRef = useRef(null);
-    const mouseRef = useRef({ x: -1000, y: -1000 }); // Start off-screen
+  // Interaction Refs
+  const canvasRef = useRef(null);
+  const containerRef = useRef(null);
+  const cardsRef = useRef([]);
+  const requestRef = useRef(null);
+  const mouseRef = useRef({ x: -1000, y: -1000 }); // Start off-screen
 
-    // Configuration
-    // Moved to outside component to avoid re-creation
+  // Configuration
+  // Moved to outside component to avoid re-creation
 
+  const themeStyles = {
+    "--accent-line": isDark ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.1)",
+    "--accent-dot": isDark ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)",
+  };
 
-    const themeStyles = {
-        '--bg-void': isDark ? '#111111' : '#FFFFFF',
-        '--text-primary': isDark ? '#F3F4F6' : '#111827',
-        '--text-secondary': isDark ? '#9CA3AF' : '#6B7280',
-        '--border-color': isDark ? '#374151' : '#E5E7EB',
-        '--accent-line': isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)',
-        '--accent-dot': isDark ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)',
+  // Initialize refs array
+  useEffect(() => {
+    cardsRef.current = cardsRef.current.slice(
+      0,
+      SIDE_PROJECTS.length + NOTES.length,
+    );
+  }, []);
+
+  // Mouse Tracking
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      // Get relative position to container if possible, or just page coordinates
+      // Using page coordinates simplifies canvas drawing relative to window if canvas is fixed
+      // But here canvas is absolute in container?
+      // Let's assume canvas covers the whole document or fixed.
+      // For simplicity in a scrollable page: track ClientX/Y and adjust map.
+
+      // Simpler: Track pageX/Y for absolute canvas, or clientX/Y for fixed.
+      // Given the scroll, let's use client coordinates and keeping canvas fixed is easier visual,
+      // BUT lines need to stick to scrollable elements.
+      // Better: Canvas absolute covering the specific section or fixed.
+      // Let's make cursor track clientX/Y.
+      mouseRef.current = { x: e.clientX, y: e.clientY };
     };
 
-    // Initialize refs array
-    useEffect(() => {
-        cardsRef.current = cardsRef.current.slice(0, SIDE_PROJECTS.length + NOTES.length);
-    }, []);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
-    // Mouse Tracking
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            // Get relative position to container if possible, or just page coordinates
-            // Using page coordinates simplifies canvas drawing relative to window if canvas is fixed
-            // But here canvas is absolute in container?
-            // Let's assume canvas covers the whole document or fixed.
-            // For simplicity in a scrollable page: track ClientX/Y and adjust map.
+  // Animation Loop
+  useEffect(() => {
+    const animate = () => {
+      if (!canvasRef.current) return;
 
-            // Simpler: Track pageX/Y for absolute canvas, or clientX/Y for fixed.
-            // Given the scroll, let's use client coordinates and keeping canvas fixed is easier visual, 
-            // BUT lines need to stick to scrollable elements. 
-            // Better: Canvas absolute covering the specific section or fixed.
-            // Let's make cursor track clientX/Y.
-            mouseRef.current = { x: e.clientX, y: e.clientY };
-        };
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d");
 
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, []);
+      // Resize canvas to match window view (fixed overlay)
+      if (
+        canvas.width !== window.innerWidth ||
+        canvas.height !== window.innerHeight
+      ) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
 
-    // Animation Loop
-    useEffect(() => {
-        const animate = () => {
-            if (!canvasRef.current) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            const canvas = canvasRef.current;
-            const ctx = canvas.getContext('2d');
+      // Line Style
+      const isDarkMode = isDark;
+      ctx.strokeStyle = isDarkMode
+        ? "rgba(255, 255, 255, 0.15)"
+        : "rgba(0, 0, 0, 0.08)";
+      ctx.lineWidth = 1;
 
-            // Resize canvas to match window view (fixed overlay)
-            if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+      cardsRef.current.forEach((card) => {
+        if (!card) return;
 
-            // Line Style
-            const isDarkMode = isDark;
-            ctx.strokeStyle = isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.08)';
-            ctx.lineWidth = 1;
+        const rect = card.getBoundingClientRect();
+        const cardCx = rect.left + rect.width / 2;
+        const cardCy = rect.top + rect.height / 2;
 
-            const mx = mouseRef.current.x;
-            const my = mouseRef.current.y;
+        const dist = Math.hypot(mx - cardCx, my - cardCy);
 
-            cardsRef.current.forEach((card) => {
-                if (!card) return;
+        // 1. Draw Lines if close
+        if (dist < CONFIG.proximity) {
+          ctx.beginPath();
+          ctx.moveTo(mx, my);
+          ctx.lineTo(cardCx, cardCy);
+          // Fade out based on distance
+          ctx.globalAlpha = 1 - Math.pow(dist / CONFIG.proximity, 2);
+          ctx.stroke();
+          ctx.globalAlpha = 1.0;
 
-                const rect = card.getBoundingClientRect();
-                const cardCx = rect.left + rect.width / 2;
-                const cardCy = rect.top + rect.height / 2;
+          // Draw connection dots
+          ctx.fillStyle = isDarkMode ? "#FFF" : "#000";
+          ctx.beginPath();
+          ctx.arc(cardCx, cardCy, 3, 0, Math.PI * 2);
+          ctx.fill();
+        }
 
-                const dist = Math.hypot(mx - cardCx, my - cardCy);
+        // 2. Magnetic Tilt
+        if (dist < CONFIG.proximity * 1.5) {
+          // Slightly larger radius for movement
+          const xRel = (mx - cardCx) / (rect.width / 2); // -1 to 1 mostly
+          const yRel = (my - cardCy) / (rect.height / 2);
 
-                // 1. Draw Lines if close
-                if (dist < CONFIG.proximity) {
-                    ctx.beginPath();
-                    ctx.moveTo(mx, my);
-                    ctx.lineTo(cardCx, cardCy);
-                    // Fade out based on distance
-                    ctx.globalAlpha = 1 - Math.pow(dist / CONFIG.proximity, 2);
-                    ctx.stroke();
-                    ctx.globalAlpha = 1.0;
+          // Limit rotation
+          const rotX = -yRel * CONFIG.magneticForce * 5; // Rotate X based on Y movement
+          const rotY = xRel * CONFIG.magneticForce * 5; // Rotate Y based on X movement
+          const scale =
+            1 +
+            (1 - Math.min(dist / (CONFIG.proximity * 1.5), 1)) *
+              (CONFIG.scaleForce - 1);
 
-                    // Draw connection dots
-                    ctx.fillStyle = isDarkMode ? '#FFF' : '#000';
-                    ctx.beginPath();
-                    ctx.arc(cardCx, cardCy, 3, 0, Math.PI * 2);
-                    ctx.fill();
-                }
+          card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`;
+          card.style.zIndex = 10; // Bring to front
+        } else {
+          card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+          card.style.zIndex = 1;
+        }
+      });
 
-                // 2. Magnetic Tilt
-                if (dist < CONFIG.proximity * 1.5) { // Slightly larger radius for movement
-                    const xRel = (mx - cardCx) / (rect.width / 2); // -1 to 1 mostly
-                    const yRel = (my - cardCy) / (rect.height / 2);
+      requestRef.current = requestAnimationFrame(animate);
+    };
 
-                    // Limit rotation
-                    const rotX = -yRel * CONFIG.magneticForce * 5; // Rotate X based on Y movement
-                    const rotY = xRel * CONFIG.magneticForce * 5;  // Rotate Y based on X movement
-                    const scale = 1 + ((1 - Math.min(dist / (CONFIG.proximity * 1.5), 1)) * (CONFIG.scaleForce - 1));
+    requestRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(requestRef.current);
+  }, [isDark]); // Re-bind on theme change for colors
 
-                    card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`;
-                    card.style.zIndex = 10; // Bring to front
-                } else {
-                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
-                    card.style.zIndex = 1;
-                }
-            });
+  return (
+    <div
+      style={themeStyles}
+      className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 relative"
+    >
+      <SEO
+        title="Archive: Experiments"
+        description="Full log of side projects, prototypes, and daemons."
+      />
 
-            requestRef.current = requestAnimationFrame(animate);
-        };
+      {/* Neural Network Overlay */}
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0 pointer-events-none z-50 mix-blend-difference" // z-50 but pointer-events-none allows clicks through
+      />
 
-        requestRef.current = requestAnimationFrame(animate);
-        return () => cancelAnimationFrame(requestRef.current);
-    }, [isDark]); // Re-bind on theme change for colors
+      {/* --- NAVIGATION SYSTEM --- */}
+      <Navbar
+        onOpenMenu={() => setIsMenuOpen(true)}
+        title="Project Archives"
+        backPath="/"
+      />
 
-    return (
-        <div style={themeStyles} className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 relative">
-            <SEO
-                title="Archive: Experiments"
-                description="Full log of side projects, prototypes, and daemons."
-            />
+      <NavigationMenu
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+      />
 
-            {/* Neural Network Overlay */}
-            <canvas
-                ref={canvasRef}
-                className="fixed inset-0 pointer-events-none z-50 mix-blend-difference" // z-50 but pointer-events-none allows clicks through
-            />
+      <main className="max-w-6xl mx-auto px-6 pt-32 pb-24" ref={containerRef}>
+        <header className="mb-32 relative min-h-[50vh] flex flex-col justify-center text-center md:text-left">
+          {/* Background Visual */}
+          <div className="absolute inset-0 z-0 opacity-40 grayscale blur-[1px]">
+            <NexusAI color={isDark ? "#60A5FA" : "#2563EB"} />
+          </div>
 
-            {/* --- NAVIGATION SYSTEM --- */}
-            <Navbar onOpenMenu={() => setIsMenuOpen(true)} title="Project Archives" backPath="/" />
+          <div className="relative z-10 max-w-4xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] backdrop-blur-md">
+              <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)] animate-pulse"></div>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+                Venture Portfolio 2024-2026
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-8xl font-serif italic mb-8 tracking-tighter leading-[0.9]">
+              Ship. Measure. <br />
+              <span className="text-[var(--text-secondary)]">Repeat.</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-[var(--text-secondary)] font-light leading-relaxed max-w-2xl">
+              A showcase of independent products, from 0 to 1.{" "}
+              <br className="hidden md:block" />
+              <span className="opacity-80 text-lg">
+                {t("project_archive.subtitle")}
+              </span>
+            </p>
+          </div>
+        </header>
 
-            <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+        {SIDE_PROJECTS.length > 0 && (
+          <div className="mb-32">
+            <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
+              <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
+              Launched Ventures
+              <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000 auto-rows-auto">
+              {SIDE_PROJECTS.filter((p) => !p.hidden).map((project, idx) => (
+                <VentureCard
+                  key={project.id}
+                  project={project}
+                  index={idx}
+                  isIndonesian={isIndonesian}
+                  onClick={() => navigate(`/side-project/${project.id}`)}
+                />
+              ))}
+            </div>
+          </div>
+        )}
 
-            <main className="max-w-6xl mx-auto px-6 pt-32 pb-24" ref={containerRef}>
-                <header className="mb-32 relative min-h-[50vh] flex flex-col justify-center text-center md:text-left">
-                    {/* Background Visual */}
-                    <div className="absolute inset-0 z-0 opacity-40 grayscale blur-[1px]">
-                        <NexusAI color={isDark ? '#60A5FA' : '#2563EB'} />
+        {/* NOTES Section */}
+        {NOTES.length > 0 && (
+          <div className="mb-12">
+            <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
+              <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
+              <span>
+                Prototypes
+                <span className="block text-[10px] text-[var(--text-secondary)] normal-case mt-1 max-w-md">
+                  Thinking, building, and attempts to solve problems.
+                </span>
+              </span>
+              <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
+              {NOTES.map((project, idx) => (
+                <div
+                  key={project.id}
+                  ref={(el) =>
+                    (cardsRef.current[SIDE_PROJECTS.length + idx] = el)
+                  }
+                  onClick={() => navigate(`/side-project/${project.id}`)}
+                  className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform opacity-80 hover:opacity-100"
+                >
+                  <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] border-dashed mb-6 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+                    <div className="absolute inset-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
+                      <ProjectCard
+                        type={project.type || "Web"}
+                        id={project.id}
+                        expanded={true}
+                        image={project.coverImage}
+                      />
                     </div>
+                  </div>
 
-                    <div className="relative z-10 max-w-4xl">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] backdrop-blur-md">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)] animate-pulse"></div>
-                            <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">Venture Portfolio 2024-2026</span>
-                        </div>
-                        <h1 className="text-5xl md:text-8xl font-serif italic mb-8 tracking-tighter leading-[0.9]">
-                            Ship. Measure. <br /><span className="text-[var(--text-secondary)]">Repeat.</span>
-                        </h1>
-                        <p className="text-xl md:text-2xl text-[var(--text-secondary)] font-light leading-relaxed max-w-2xl">
-                            A showcase of independent products, from 0 to 1. <br className="hidden md:block" />
-                            <span className="opacity-80 text-lg">{t('project_archive.subtitle')}</span>
-                        </p>
-                    </div>
-                </header>
-
-                {SIDE_PROJECTS.length > 0 && (
-                    <div className="mb-32">
-                        <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
-                            <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
-                            Launched Ventures
-                            <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
-                        </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000 auto-rows-auto">
-                            {SIDE_PROJECTS.filter(p => !p.hidden).map((project, idx) => (
-                                <VentureCard
-                                    key={project.id}
-                                    project={project}
-                                    index={idx}
-                                    isIndonesian={isIndonesian}
-                                    onClick={() => navigate(`/side-project/${project.id}`)}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {/* NOTES Section */}
-                {NOTES.length > 0 && (
-                    <div className="mb-12">
-                        <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
-                            <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
-                            <span>
-                                Prototypes
-                                <span className="block text-[10px] text-[var(--text-secondary)] normal-case mt-1 max-w-md">
-                                    Thinking, building, and attempts to solve problems.
-                                </span>
-                            </span>
-                            <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
-                        </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
-                            {NOTES.map((project, idx) => (
-                                <div
-                                    key={project.id}
-                                    ref={el => cardsRef.current[SIDE_PROJECTS.length + idx] = el}
-                                    onClick={() => navigate(`/side-project/${project.id}`)}
-                                    className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform opacity-80 hover:opacity-100"
-                                >
-                                    <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] border-dashed mb-6 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
-                                        <div className="absolute inset-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
-                                            <ProjectCard type={project.type || 'Web'} id={project.id} expanded={true} image={project.coverImage} />
-                                        </div>
-                                    </div>
-
-                                    <h3 className="text-xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4 decoration-dotted">
-                                        {(isIndonesian && project.title_id) ? project.title_id : project.title}
-                                    </h3>
-                                    <p className="text-[var(--text-secondary)] font-light text-sm leading-relaxed mb-4 line-clamp-2">
-                                        {(isIndonesian && project.desc_id) ? project.desc_id : project.desc}
-                                    </p>
-                                    <div className="flex gap-2 flex-wrap opacity-60">
-                                        {project.stack.map((tech, tIdx) => (
-                                            <span key={tIdx} className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider">
-                                                {tech}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-            </main>
-            <Footer />
-        </div >
-    );
+                  <h3 className="text-xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4 decoration-dotted">
+                    {isIndonesian && project.title_id
+                      ? project.title_id
+                      : project.title}
+                  </h3>
+                  <p className="text-[var(--text-secondary)] font-light text-sm leading-relaxed mb-4 line-clamp-2">
+                    {isIndonesian && project.desc_id
+                      ? project.desc_id
+                      : project.desc}
+                  </p>
+                  <div className="flex gap-2 flex-wrap opacity-60">
+                    {project.stack.map((tech, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </main>
+      <Footer />
+    </div>
+  );
 };
 
 export default SideProjectsIndex;

@@ -1,6 +1,6 @@
-import { useMemo } from 'react';
-import { PORTFOLIO } from '../data/portfolioData';
-import { WORK_CLUSTERS, SIDE_PROJECTS, NOTES } from '../data/portfolioData';
+import { useMemo } from "react";
+import { PORTFOLIO } from "../data/portfolioData";
+import { WORK_CLUSTERS, SIDE_PROJECTS, NOTES } from "../data/portfolioData";
 
 /**
  * Hook to retrieve project data from any of the data sources.
@@ -8,57 +8,57 @@ import { WORK_CLUSTERS, SIDE_PROJECTS, NOTES } from '../data/portfolioData';
  * @returns {object} - { project, parentCluster, loading, error, type }
  */
 export const useProjectData = (id) => {
-    const data = useMemo(() => {
-        if (!id) return { loading: true };
+  const data = useMemo(() => {
+    if (!id) return { loading: true };
 
-        // Handle case study view via /case-study/:id pattern
-        // which maps to standard projects but with different layout focus
-        const projectId = id;
+    // Handle case study view via /case-study/:id pattern
+    // which maps to standard projects but with different layout focus
+    const projectId = id;
 
-        // Note: Project data retrieval must be fast and reliable.
-        // We're iterating over nested arrays to flatten the structure,
-        // which could be optimized in the future if the catalog grows significantly.
-        let foundProject = null;
+    // Note: Project data retrieval must be fast and reliable.
+    // We're iterating over nested arrays to flatten the structure,
+    // which could be optimized in the future if the catalog grows significantly.
+    let foundProject = null;
 
-        for (const cat of PORTFOLIO.categories) {
-            for (const item of cat.items) {
-                if (item.id === projectId) {
-                    foundProject = item;
-                    break;
-                }
-                // Handle nested structures
-                if (item.gridItems) {
-                    for (const gridItem of item.gridItems) {
-                        if (gridItem.id === projectId) {
-                            foundProject = gridItem;
-                            break;
-                        }
-                    }
-                }
-                // Sub-items
-                if (item.subItems) {
-                    for (const subItem of item.subItems) {
-                        if (subItem.id === projectId) {
-                            foundProject = subItem;
-                            break;
-                        }
-                    }
-                }
+    for (const cat of PORTFOLIO.categories) {
+      for (const item of cat.items) {
+        if (item.id === projectId) {
+          foundProject = item;
+          break;
+        }
+        // Handle nested structures
+        if (item.gridItems) {
+          for (const gridItem of item.gridItems) {
+            if (gridItem.id === projectId) {
+              foundProject = gridItem;
+              break;
             }
-            if (foundProject) break;
+          }
         }
-
-        if (foundProject) {
-            return {
-                project: foundProject,
-                loading: false
-            };
+        // Sub-items
+        if (item.subItems) {
+          for (const subItem of item.subItems) {
+            if (subItem.id === projectId) {
+              foundProject = subItem;
+              break;
+            }
+          }
         }
+      }
+      if (foundProject) break;
+    }
 
-        return { project: null, error: 'Project not found', loading: false };
-    }, [id]);
+    if (foundProject) {
+      return {
+        project: foundProject,
+        loading: false,
+      };
+    }
 
-    return data;
+    return { project: null, error: "Project not found", loading: false };
+  }, [id]);
+
+  return data;
 };
 
 export default useProjectData;

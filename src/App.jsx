@@ -1,32 +1,36 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Activity } from 'lucide-react';
+import React, { Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Activity } from "lucide-react";
 
 // Lazy Import Pages
-const Home = React.lazy(() => import('./pages/Home'));
-const About = React.lazy(() => import('./pages/About'));
-const Contact = React.lazy(() => import('./pages/Contact'));
-const SystemManifest = React.lazy(() => import('./pages/SystemManifest'));
-const ProtectedCaseStudy = React.lazy(() => import('./pages/ProtectedCaseStudy'));
-const SideProjectDetail = React.lazy(() => import('./pages/SideProjectDetail'));
-const SideProjectsIndex = React.lazy(() => import('./pages/SideProjectsIndex'));
-const CompanyDetail = React.lazy(() => import('./pages/CompanyDetail'));
-const BlogPost = React.lazy(() => import('./pages/BlogPost'));
-const NotFound = React.lazy(() => import('./pages/NotFound'));
-const DesignProcess = React.lazy(() => import('./pages/DesignProcess'));
-const DesignSystem = React.lazy(() => import('./pages/DesignSystem'));
-const Sketches = React.lazy(() => import('./pages/Sketches'));
+const Home = React.lazy(() => import("./pages/Home"));
+const About = React.lazy(() => import("./pages/About"));
+const Contact = React.lazy(() => import("./pages/Contact"));
+const SystemManifest = React.lazy(() => import("./pages/SystemManifest"));
+const ProtectedCaseStudy = React.lazy(
+  () => import("./pages/ProtectedCaseStudy"),
+);
+const SideProjectDetail = React.lazy(() => import("./pages/SideProjectDetail"));
+const SideProjectsIndex = React.lazy(() => import("./pages/SideProjectsIndex"));
+const CompanyDetail = React.lazy(() => import("./pages/CompanyDetail"));
+const BlogPost = React.lazy(() => import("./pages/BlogPost"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+const DesignProcess = React.lazy(() => import("./pages/DesignProcess"));
+const DesignSystem = React.lazy(() => import("./pages/DesignSystem"));
+const Sketches = React.lazy(() => import("./pages/Sketches"));
 
-import { LanguageProvider } from './context/LanguageContext';
-import ScrollToTop from './components/ScrollToTop';
+import { LanguageProvider } from "./context/LanguageContext";
+import ScrollToTop from "./components/ScrollToTop";
 
-import AnalyticsTracker from './components/AnalyticsTracker';
+import AnalyticsTracker from "./components/AnalyticsTracker";
 
 // Loading Fallback Component
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-black text-gray-400">
     <Activity className="w-8 h-8 animate-pulse text-emerald-500 mb-4" />
-    <span className="font-mono text-xs tracking-widest uppercase">Initializing System...</span>
+    <span className="font-mono text-xs tracking-widest uppercase">
+      Initializing System...
+    </span>
   </div>
 );
 

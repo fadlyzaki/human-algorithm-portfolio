@@ -1,29 +1,47 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { User } from 'lucide-react';
-import PixelImage from './PixelImage';
-import { useLanguage } from '../context/LanguageContext';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { User } from "lucide-react";
+import PixelImage from "./PixelImage";
+import { useLanguage } from "../context/LanguageContext";
 
 const DraggablePhoto = () => {
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
   const [designVariant] = useState(() => {
-    const variants = ['industrial', 'cyberpunk', 'swiss', 'glassmorphism', 'retro', 'neo-brutalism', 'holographic'];
+    const variants = [
+      "industrial",
+      "cyberpunk",
+      "swiss",
+      "glassmorphism",
+      "retro",
+      "neo-brutalism",
+      "holographic",
+    ];
     return variants[Math.floor(Math.random() * variants.length)];
   });
 
   const items = [
-    { type: 'identity', src: '/hero-id-v2.jpg' },
-    { type: 'image', src: '/hero-running.jpg', alt: 'Motion as Medicine: Physical & Mental Recalibration' },
-    { type: 'image', src: '/hero-lumina-new.jpg', alt: 'Lumina: Symptoms showing, but not knowing' },
-    { type: 'image', src: '/hero-stoqo.jpg', alt: 'Farewell STOQO: Good memories interrupted by COVID' },
+    { type: "identity", src: "/hero-id-v2.jpg" },
+    {
+      type: "image",
+      src: "/hero-running.jpg",
+      alt: "Motion as Medicine: Physical & Mental Recalibration",
+    },
+    {
+      type: "image",
+      src: "/hero-lumina-new.jpg",
+      alt: "Lumina: Symptoms showing, but not knowing",
+    },
+    {
+      type: "image",
+      src: "/hero-stoqo.jpg",
+      alt: "Farewell STOQO: Good memories interrupted by COVID",
+    },
   ];
 
   const handleNext = () => {
     setIndex((prev) => (prev + 1) % items.length);
   };
-
-
 
   const currentItem = items[index];
 
@@ -36,15 +54,22 @@ const DraggablePhoto = () => {
         <div className="w-6 h-0.5 bg-black/50 rounded-full"></div>
       </div>
       {/* Holographic Sheen */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-duration-700 pointer-events-none z-20 mix-blend-overlay bg-no-repeat" style={{ backgroundSize: '200% 200%' }}></div>
+      <div
+        className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-duration-700 pointer-events-none z-20 mix-blend-overlay bg-no-repeat"
+        style={{ backgroundSize: "200% 200%" }}
+      ></div>
       {/* Noise */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-color-burn z-10"></div>
 
       {/* Header */}
       <div className="h-24 bg-white dark:bg-black relative flex items-center justify-between px-4 pt-4 border-b-2 border-[var(--accent)]">
         <div className="flex flex-col">
-          <span className="text-[var(--accent)] font-mono text-[10px] font-bold tracking-[0.2em]">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
-          <span className="text-black dark:text-white font-sans text-xs font-bold tracking-wide mt-1">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+          <span className="text-[var(--accent)] font-mono text-[10px] font-bold tracking-[0.2em]">
+            {t("id_card.access_level") || "ROOT_ACCESS"}
+          </span>
+          <span className="text-black dark:text-white font-sans text-xs font-bold tracking-wide mt-1">
+            {t("id_card.human") || "HUMAN BY DESIGN"}
+          </span>
         </div>
         <div className="w-8 h-8 rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center">
           <User size={14} className="text-black/60 dark:text-white/60" />
@@ -64,17 +89,29 @@ const DraggablePhoto = () => {
         </div>
         <div className="space-y-3">
           <div className="flex flex-col">
-            <h2 className="text-xl font-bold text-white dark:text-black leading-none uppercase tracking-tight whitespace-nowrap">UZZAKI, FADLY 🧢</h2>
-            <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600 uppercase tracking-widest mt-1">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
+            <h2 className="text-xl font-bold text-white dark:text-black leading-none uppercase tracking-tight whitespace-nowrap">
+              UZZAKI, FADLY 🧢
+            </h2>
+            <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600 uppercase tracking-widest mt-1">
+              {t("id_card.role") || "Product Designer // Systems Thinker"}
+            </span>
           </div>
           <div className="grid grid-cols-2 gap-4 mt-2">
             <div>
-              <label className="text-[8px] font-mono text-gray-500 dark:text-gray-400 uppercase block">{t('id_card.id_no') || 'ID_NO'}</label>
-              <span className="text-xs font-mono font-medium text-white dark:text-black">1407-1995</span>
+              <label className="text-[8px] font-mono text-gray-500 dark:text-gray-400 uppercase block">
+                {t("id_card.id_no") || "ID_NO"}
+              </label>
+              <span className="text-xs font-mono font-medium text-white dark:text-black">
+                1407-1995
+              </span>
             </div>
             <div>
-              <label className="text-[8px] font-mono text-gray-500 dark:text-gray-400 uppercase block">{t('id_card.exp') || 'EXP'}</label>
-              <span className="text-xs font-mono font-medium text-white dark:text-black">{t('id_card.indefinite') || 'INDEFINITE'}</span>
+              <label className="text-[8px] font-mono text-gray-500 dark:text-gray-400 uppercase block">
+                {t("id_card.exp") || "EXP"}
+              </label>
+              <span className="text-xs font-mono font-medium text-white dark:text-black">
+                {t("id_card.indefinite") || "INDEFINITE"}
+              </span>
             </div>
           </div>
         </div>
@@ -83,7 +120,14 @@ const DraggablePhoto = () => {
       <div className="h-12 bg-white dark:bg-[#222] border-t border-black/5 dark:border-white/5 flex items-center justify-between px-4 relative overflow-hidden">
         <div className="flex items-center gap-[2px] h-6 opacity-40 mix-blend-multiply dark:mix-blend-screen w-full">
           {[...Array(24)].map((_, i) => (
-            <div key={i} className="bg-black dark:bg-white" style={{ width: (i * 13) % 7 > 3 ? '2px' : '4px', height: '100%' }}></div>
+            <div
+              key={i}
+              className="bg-black dark:bg-white"
+              style={{
+                width: (i * 13) % 7 > 3 ? "2px" : "4px",
+                height: "100%",
+              }}
+            ></div>
           ))}
         </div>
       </div>
@@ -98,8 +142,12 @@ const DraggablePhoto = () => {
       {/* Header */}
       <div className="h-20 bg-white/5 dark:bg-black/5 flex items-center justify-between px-4 border-b border-white/10 dark:border-black/10 backdrop-blur-sm z-10">
         <div className="flex flex-col">
-          <span className="text-white dark:text-black font-mono text-xs font-bold animate-pulse uppercase">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
-          <span className="text-white/70 dark:text-black/70 font-mono text-[10px]">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+          <span className="text-white dark:text-black font-mono text-xs font-bold animate-pulse uppercase">
+            {t("id_card.access_level") || "ROOT_ACCESS"}
+          </span>
+          <span className="text-white/70 dark:text-black/70 font-mono text-[10px]">
+            {t("id_card.human") || "HUMAN BY DESIGN"}
+          </span>
         </div>
         <div className="w-8 h-8 border border-white/40 dark:border-black/40 rotate-45 flex items-center justify-center">
           <div className="w-6 h-6 bg-white/10 dark:bg-black/10 -rotate-45"></div>
@@ -115,15 +163,27 @@ const DraggablePhoto = () => {
           </div>
           <div className="flex-1 space-y-2">
             <div>
-              <label className="text-[9px] text-gray-400 dark:text-gray-500 font-mono block">{t('id_card.identity') || 'IDENTITY'}</label>
-              <h2 className="text-lg text-white dark:text-black font-bold font-mono tracking-tighter leading-tight">UZZAKI,<br />FADLY 🧢</h2>
+              <label className="text-[9px] text-gray-400 dark:text-gray-500 font-mono block">
+                {t("id_card.identity") || "IDENTITY"}
+              </label>
+              <h2 className="text-lg text-white dark:text-black font-bold font-mono tracking-tighter leading-tight">
+                UZZAKI,
+                <br />
+                FADLY 🧢
+              </h2>
             </div>
             <div>
-              <label className="text-[9px] text-gray-400 dark:text-gray-500 font-mono block">{t('company.role') || 'ROLE'}</label>
-              <span className="text-xs text-gray-300 dark:text-gray-600 font-mono">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
+              <label className="text-[9px] text-gray-400 dark:text-gray-500 font-mono block">
+                {t("company.role") || "ROLE"}
+              </label>
+              <span className="text-xs text-gray-300 dark:text-gray-600 font-mono">
+                {t("id_card.role") || "Product Designer // Systems Thinker"}
+              </span>
             </div>
             <div className="pt-2">
-              <span className="text-[8px] text-gray-500 dark:text-gray-400 font-mono block mb-1">{t('id_card.exp')}: {t('id_card.indefinite')}</span>
+              <span className="text-[8px] text-gray-500 dark:text-gray-400 font-mono block mb-1">
+                {t("id_card.exp")}: {t("id_card.indefinite")}
+              </span>
               <div className="h-1 w-full bg-gray-800 dark:bg-gray-300 rounded-full overflow-hidden">
                 <div className="h-full bg-white dark:bg-black w-[100%] animate-pulse"></div>
               </div>
@@ -134,10 +194,14 @@ const DraggablePhoto = () => {
 
       {/* Footer */}
       <div className="h-10 bg-white/10 dark:bg-black/10 border-t border-white/10 dark:border-black/10 flex items-center justify-between px-4 z-10">
-        <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600">{t('id_card.id_no')}: 1407-1995</span>
+        <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600">
+          {t("id_card.id_no")}: 1407-1995
+        </span>
         <div className="flex gap-1">
           <div className="w-2 h-2 rounded-full bg-white dark:bg-black animate-ping"></div>
-          <span className="text-[8px] font-mono text-gray-300 dark:text-gray-700">{t('id_card.online') || 'ONLINE'}</span>
+          <span className="text-[8px] font-mono text-gray-300 dark:text-gray-700">
+            {t("id_card.online") || "ONLINE"}
+          </span>
         </div>
       </div>
     </div>
@@ -148,10 +212,16 @@ const DraggablePhoto = () => {
       {/* Bold Header */}
       <div className="h-32 bg-black dark:bg-white p-4 text-white dark:text-black flex flex-col justify-between">
         <div className="flex justify-between items-start">
-          <span className="font-bold text-2xl tracking-tighter leading-none text-white dark:text-black">ID.<br />CARD</span>
+          <span className="font-bold text-2xl tracking-tighter leading-none text-white dark:text-black">
+            ID.
+            <br />
+            CARD
+          </span>
           <div className="w-4 h-4 rounded-full bg-white dark:bg-black"></div>
         </div>
-        <span className="font-mono text-xs opacity-80 uppercase text-white dark:text-black">{t('id_card.human') || 'Human By Design'}</span>
+        <span className="font-mono text-xs opacity-80 uppercase text-white dark:text-black">
+          {t("id_card.human") || "Human By Design"}
+        </span>
       </div>
 
       {/* Content */}
@@ -162,23 +232,45 @@ const DraggablePhoto = () => {
 
         <div className="mt-8 space-y-4">
           <div>
-            <h2 className="text-3xl font-black text-black dark:text-white tracking-tighter leading-none">UZZAKI</h2>
-            <h2 className="text-3xl font-black tracking-tighter leading-none dark:[--sw-stroke:#fff] whitespace-nowrap" style={{ WebkitTextStroke: '1px var(--sw-stroke, #000)', WebkitTextFillColor: 'transparent' }}>FADLY 🧢</h2>
+            <h2 className="text-3xl font-black text-black dark:text-white tracking-tighter leading-none">
+              UZZAKI
+            </h2>
+            <h2
+              className="text-3xl font-black tracking-tighter leading-none dark:[--sw-stroke:#fff] whitespace-nowrap"
+              style={{
+                WebkitTextStroke: "1px var(--sw-stroke, #000)",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              FADLY 🧢
+            </h2>
           </div>
           <div className="grid grid-cols-2 gap-4 pt-4">
             <div className="space-y-3">
               <div>
-                <label className="font-bold text-xs block mb-1 text-black dark:text-white">{t('id_card.id_no') || 'ID NO'}</label>
-                <span className="font-mono text-sm text-black dark:text-white">1407-1995</span>
+                <label className="font-bold text-xs block mb-1 text-black dark:text-white">
+                  {t("id_card.id_no") || "ID NO"}
+                </label>
+                <span className="font-mono text-sm text-black dark:text-white">
+                  1407-1995
+                </span>
               </div>
               <div>
-                <label className="font-bold text-xs block mb-1 text-black dark:text-white">{t('id_card.exp') || 'EXP'}</label>
-                <span className="font-mono text-sm text-black dark:text-white uppercase">{t('id_card.indefinite') || 'INDEFINITE'}</span>
+                <label className="font-bold text-xs block mb-1 text-black dark:text-white">
+                  {t("id_card.exp") || "EXP"}
+                </label>
+                <span className="font-mono text-sm text-black dark:text-white uppercase">
+                  {t("id_card.indefinite") || "INDEFINITE"}
+                </span>
               </div>
             </div>
             <div>
-              <label className="font-bold text-xs block mb-1 text-black dark:text-white">{t('company.role') || 'Role'}</label>
-              <span className="font-mono text-sm leading-tight block text-black dark:text-white">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
+              <label className="font-bold text-xs block mb-1 text-black dark:text-white">
+                {t("company.role") || "Role"}
+              </label>
+              <span className="font-mono text-sm leading-tight block text-black dark:text-white">
+                {t("id_card.role") || "Product Designer // Systems Thinker"}
+              </span>
             </div>
           </div>
         </div>
@@ -188,14 +280,15 @@ const DraggablePhoto = () => {
 
   const RenderGlassmorphism = () => (
     <div className="w-full h-full bg-white/10 dark:bg-black/10 backdrop-blur-2xl border border-white/40 dark:border-white/10 relative group overflow-hidden rounded-xl flex flex-col shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
-
       {/* Glassmorphism Sheen/Noise */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-black/5 dark:from-white/10 dark:via-transparent dark:to-transparent opacity-70 pointer-events-none z-20"></div>
 
       {/* Floating Header badge over image */}
       <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-30 px-1">
         <div className="flex flex-col bg-white/40 dark:bg-black/40 backdrop-blur-md px-2 py-1 rounded border border-white/40 dark:border-white/10 shadow-sm">
-          <span className="text-black/90 dark:text-white/90 font-mono text-[9px] font-bold tracking-[0.1em]">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
+          <span className="text-black/90 dark:text-white/90 font-mono text-[9px] font-bold tracking-[0.1em]">
+            {t("id_card.access_level") || "ROOT_ACCESS"}
+          </span>
         </div>
         <div className="w-8 h-8 rounded-full border border-white/40 dark:border-white/20 flex items-center justify-center bg-white/40 dark:bg-black/40 backdrop-blur-md shadow-sm">
           <User size={14} className="text-black/80 dark:text-white/80" />
@@ -217,24 +310,42 @@ const DraggablePhoto = () => {
       <div className="flex-grow px-5 pb-5 relative z-30 flex flex-col justify-end">
         <div className="space-y-4">
           <div className="flex flex-col">
-            <h2 className="text-3xl font-black text-black drop-shadow-sm dark:text-white dark:drop-shadow-none leading-[0.9] tracking-tighter whitespace-nowrap">UZZAKI<br />FADLY 🧢</h2>
-            <span className="text-[9px] font-mono text-black/80 dark:text-white/90 uppercase tracking-widest mt-2 font-bold">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
+            <h2 className="text-3xl font-black text-black drop-shadow-sm dark:text-white dark:drop-shadow-none leading-[0.9] tracking-tighter whitespace-nowrap">
+              UZZAKI
+              <br />
+              FADLY 🧢
+            </h2>
+            <span className="text-[9px] font-mono text-black/80 dark:text-white/90 uppercase tracking-widest mt-2 font-bold">
+              {t("id_card.role") || "Product Designer // Systems Thinker"}
+            </span>
           </div>
 
           <div className="h-[1px] w-full bg-gradient-to-r from-black/20 via-black/10 to-transparent dark:from-white/20 dark:via-white/10 dark:to-transparent"></div>
 
           <div className="grid grid-cols-3 gap-2">
             <div>
-              <label className="text-[8px] font-mono text-black/50 dark:text-white/40 block font-bold uppercase">{t('id_card.id_no') || 'ID_NO'}</label>
-              <span className="text-xs font-mono font-black text-black/90 dark:text-white/90">1407-1995</span>
+              <label className="text-[8px] font-mono text-black/50 dark:text-white/40 block font-bold uppercase">
+                {t("id_card.id_no") || "ID_NO"}
+              </label>
+              <span className="text-xs font-mono font-black text-black/90 dark:text-white/90">
+                1407-1995
+              </span>
             </div>
             <div>
-              <label className="text-[8px] font-mono text-black/50 dark:text-white/40 block font-bold uppercase">{t('id_card.exp') || 'EXP'}</label>
-              <span className="text-[10px] font-mono font-black text-black/90 dark:text-white/90 uppercase">{t('id_card.indefinite') || 'INDEFINITE'}</span>
+              <label className="text-[8px] font-mono text-black/50 dark:text-white/40 block font-bold uppercase">
+                {t("id_card.exp") || "EXP"}
+              </label>
+              <span className="text-[10px] font-mono font-black text-black/90 dark:text-white/90 uppercase">
+                {t("id_card.indefinite") || "INDEFINITE"}
+              </span>
             </div>
             <div className="">
-              <label className="text-[8px] font-mono text-black/50 dark:text-white/40 block font-bold uppercase">{t('company.role') || 'TYPE'}</label>
-              <span className="text-[9px] font-mono font-bold text-black/90 dark:text-white/90 leading-tight block uppercase">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+              <label className="text-[8px] font-mono text-black/50 dark:text-white/40 block font-bold uppercase">
+                {t("company.role") || "TYPE"}
+              </label>
+              <span className="text-[9px] font-mono font-bold text-black/90 dark:text-white/90 leading-tight block uppercase">
+                {t("id_card.human") || "HUMAN BY DESIGN"}
+              </span>
             </div>
           </div>
         </div>
@@ -248,7 +359,9 @@ const DraggablePhoto = () => {
       <div className="h-16 flex items-center justify-center border-b-2 border-black dark:border-white border-dashed mb-2">
         <span className="text-black dark:text-white font-mono text-base font-bold uppercase tracking-widest leading-none text-center">
           * IDENTITY *<br />
-          <span className="text-[10px] tracking-normal">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+          <span className="text-[10px] tracking-normal">
+            {t("id_card.human") || "HUMAN BY DESIGN"}
+          </span>
         </span>
       </div>
 
@@ -259,25 +372,39 @@ const DraggablePhoto = () => {
         </div>
         <div className="flex-1 space-y-2 pt-2">
           <div>
-            <label className="text-[9px] text-black dark:text-white font-mono block uppercase underline">{t('id_card.id_no') || 'ID_NO'}</label>
-            <span className="text-sm font-mono text-black dark:text-white font-bold">1407-1995</span>
+            <label className="text-[9px] text-black dark:text-white font-mono block uppercase underline">
+              {t("id_card.id_no") || "ID_NO"}
+            </label>
+            <span className="text-sm font-mono text-black dark:text-white font-bold">
+              1407-1995
+            </span>
           </div>
           <div>
-            <label className="text-[9px] text-black dark:text-white font-mono block uppercase underline">{t('id_card.exp') || 'EXP'}</label>
-            <span className="text-[10px] font-mono text-black dark:text-white font-bold uppercase">{t('id_card.indefinite') || 'INDEFINITE'}</span>
+            <label className="text-[9px] text-black dark:text-white font-mono block uppercase underline">
+              {t("id_card.exp") || "EXP"}
+            </label>
+            <span className="text-[10px] font-mono text-black dark:text-white font-bold uppercase">
+              {t("id_card.indefinite") || "INDEFINITE"}
+            </span>
           </div>
           <div>
-            <label className="text-[9px] text-black dark:text-white font-mono block uppercase underline">{t('company.role') || 'ROLE'}</label>
-            <span className="text-[10px] leading-tight text-black dark:text-white font-mono font-bold block">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
+            <label className="text-[9px] text-black dark:text-white font-mono block uppercase underline">
+              {t("company.role") || "ROLE"}
+            </label>
+            <span className="text-[10px] leading-tight text-black dark:text-white font-mono font-bold block">
+              {t("id_card.role") || "Product Designer // Systems Thinker"}
+            </span>
           </div>
         </div>
       </div>
 
       {/* Footer */}
       <div className="h-14 bg-black dark:bg-white flex items-center justify-between px-4 mt-auto">
-        <h2 className="text-base font-black text-white dark:text-black font-mono tracking-tighter whitespace-nowrap">FADLY UZZAKI 🧢</h2>
+        <h2 className="text-base font-black text-white dark:text-black font-mono tracking-tighter whitespace-nowrap">
+          FADLY UZZAKI 🧢
+        </h2>
         <div className="px-2 py-1 bg-white dark:bg-black border border-black dark:border-white text-black dark:text-white text-[10px] font-bold font-mono">
-          {t('id_card.access_level') || 'ROOT_ACCESS'}
+          {t("id_card.access_level") || "ROOT_ACCESS"}
         </div>
       </div>
     </div>
@@ -288,8 +415,11 @@ const DraggablePhoto = () => {
       {/* Header */}
       <div className="h-16 flex items-center justify-between border-b-4 border-black dark:border-white pb-2 mb-2">
         <span className="text-black dark:text-white font-mono text-2xl font-black uppercase tracking-tighter leading-none">
-          ID_CARD<br />
-          <span className="text-[10px] tracking-normal font-bold">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+          ID_CARD
+          <br />
+          <span className="text-[10px] tracking-normal font-bold">
+            {t("id_card.human") || "HUMAN BY DESIGN"}
+          </span>
         </span>
         <div className="w-8 h-8 rounded-full border-4 border-black dark:border-white bg-white dark:bg-black flex items-center justify-center">
           <User size={16} className="text-black dark:text-white" />
@@ -302,19 +432,28 @@ const DraggablePhoto = () => {
           <PixelImage src={currentItem.src} alt="Fadly" />
         </div>
         <div className="w-full bg-white dark:bg-black border-4 border-black dark:border-white p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-          <h2 className="text-2xl font-black text-black dark:text-white tracking-tighter leading-none mb-1 uppercase whitespace-nowrap">🧢 FADLY UZZAKI</h2>
-          <span className="text-[10px] leading-tight text-black dark:text-white font-mono font-bold block uppercase">{t('id_card.role') || 'Product Designer // Systems Thinker'}</span>
+          <h2 className="text-2xl font-black text-black dark:text-white tracking-tighter leading-none mb-1 uppercase whitespace-nowrap">
+            🧢 FADLY UZZAKI
+          </h2>
+          <span className="text-[10px] leading-tight text-black dark:text-white font-mono font-bold block uppercase">
+            {t("id_card.role") || "Product Designer // Systems Thinker"}
+          </span>
         </div>
       </div>
 
       {/* Footer */}
       <div className="h-12 border-t-4 border-black dark:border-white flex items-center justify-between mt-auto pt-2">
         <div className="flex flex-col">
-          <span className="text-[11px] font-mono text-black dark:text-white font-black uppercase leading-tight">{t('id_card.id_no') || 'ID_NO'}: 1407-1995</span>
-          <span className="text-[10px] font-mono text-black dark:text-white font-bold uppercase leading-tight">{t('id_card.exp') || 'EXP'}: {t('id_card.indefinite') || 'INDEFINITE'}</span>
+          <span className="text-[11px] font-mono text-black dark:text-white font-black uppercase leading-tight">
+            {t("id_card.id_no") || "ID_NO"}: 1407-1995
+          </span>
+          <span className="text-[10px] font-mono text-black dark:text-white font-bold uppercase leading-tight">
+            {t("id_card.exp") || "EXP"}:{" "}
+            {t("id_card.indefinite") || "INDEFINITE"}
+          </span>
         </div>
         <div className="px-2 py-1 bg-black dark:bg-white text-white dark:text-black border-2 border-black dark:border-white text-[10px] font-black font-mono uppercase">
-          {t('id_card.access_level') || 'ROOT_ACCESS'}
+          {t("id_card.access_level") || "ROOT_ACCESS"}
         </div>
       </div>
     </div>
@@ -327,12 +466,15 @@ const DraggablePhoto = () => {
 
       {/* Inner card */}
       <div className="w-full h-full bg-gray-100/40 dark:bg-black/40 backdrop-blur-xl relative flex flex-col overflow-hidden border border-white/40 dark:border-white/10 z-20">
-
         {/* Header */}
         <div className="h-16 flex items-center justify-between px-4 z-10 pt-2 border-b border-gray-400/20 dark:border-gray-500/20">
           <div className="flex flex-col">
-            <span className="font-mono text-[10px] font-black tracking-widest uppercase text-gray-800 dark:text-gray-200">{t('id_card.access_level') || 'ROOT_ACCESS'}</span>
-            <span className="text-gray-600 dark:text-gray-400 font-sans text-[10px] font-bold mt-1 uppercase">{t('id_card.human') || 'HUMAN BY DESIGN'}</span>
+            <span className="font-mono text-[10px] font-black tracking-widest uppercase text-gray-800 dark:text-gray-200">
+              {t("id_card.access_level") || "ROOT_ACCESS"}
+            </span>
+            <span className="text-gray-600 dark:text-gray-400 font-sans text-[10px] font-bold mt-1 uppercase">
+              {t("id_card.human") || "HUMAN BY DESIGN"}
+            </span>
           </div>
           <div className="w-8 h-8 rounded-full bg-white/40 dark:bg-black/40 border border-gray-400/40 dark:border-gray-600/40 flex items-center justify-center backdrop-blur-md">
             <User size={14} className="text-gray-800 dark:text-gray-200" />
@@ -354,18 +496,30 @@ const DraggablePhoto = () => {
         <div className="p-4 z-10 bg-white/30 dark:bg-black/30 backdrop-blur-md border-t border-gray-400/20 dark:border-gray-500/20">
           <div className="flex justify-between items-end mb-2">
             <div>
-              <h2 className="text-2xl font-black tracking-tighter leading-none mb-1 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-300 dark:to-gray-500 whitespace-nowrap">🧢 FADLY UZZAKI</h2>
-              <span className="text-[9px] font-mono text-gray-700 dark:text-gray-400 uppercase tracking-widest block font-bold">{t('id_card.role') || 'Product Designer'}</span>
+              <h2 className="text-2xl font-black tracking-tighter leading-none mb-1 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-300 dark:to-gray-500 whitespace-nowrap">
+                🧢 FADLY UZZAKI
+              </h2>
+              <span className="text-[9px] font-mono text-gray-700 dark:text-gray-400 uppercase tracking-widest block font-bold">
+                {t("id_card.role") || "Product Designer"}
+              </span>
             </div>
             <div className="text-right flex flex-col items-end justify-end">
-              <span className="text-[10px] font-mono font-bold text-gray-800 dark:text-gray-300 leading-none">1407-1995</span>
-              <span className="text-[8px] font-mono text-gray-600 dark:text-gray-400 mt-1 uppercase leading-none">{t('id_card.exp') || 'EXP'}: {t('id_card.indefinite') || 'INDEFINITE'}</span>
+              <span className="text-[10px] font-mono font-bold text-gray-800 dark:text-gray-300 leading-none">
+                1407-1995
+              </span>
+              <span className="text-[8px] font-mono text-gray-600 dark:text-gray-400 mt-1 uppercase leading-none">
+                {t("id_card.exp") || "EXP"}:{" "}
+                {t("id_card.indefinite") || "INDEFINITE"}
+              </span>
             </div>
           </div>
           {/* Tech grid bottom detail */}
           <div className="flex gap-[2px] mt-3 h-[2px]">
             {[...Array(16)].map((_, i) => (
-              <div key={i} className="flex-1 bg-gray-500/30 dark:bg-gray-400/30 h-full rounded-full"></div>
+              <div
+                key={i}
+                className="flex-1 bg-gray-500/30 dark:bg-gray-400/30 h-full rounded-full"
+              ></div>
             ))}
           </div>
         </div>
@@ -379,9 +533,9 @@ const DraggablePhoto = () => {
       swiss: RenderSwiss,
       glassmorphism: RenderGlassmorphism,
       retro: RenderRetro,
-      'neo-brutalism': RenderNeoBrutalism,
+      "neo-brutalism": RenderNeoBrutalism,
       holographic: RenderHolographic,
-      industrial: RenderIndustrial
+      industrial: RenderIndustrial,
     };
 
     // Fallback to industrial if variant not found
@@ -390,14 +544,16 @@ const DraggablePhoto = () => {
   };
 
   return (
-    <div className="relative inline-block w-full mb-10"> {/* Wrapper with extra bottom space */}
+    <div className="relative inline-block w-full mb-10">
+      {" "}
+      {/* Wrapper with extra bottom space */}
       <motion.div
         drag
         dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
         dragElastic={0.15}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-        whileHover={{ scale: 1.02, rotate: 0, cursor: 'grab' }}
-        whileTap={{ scale: 0.98, cursor: 'grabbing' }}
+        whileHover={{ scale: 1.02, rotate: 0, cursor: "grab" }}
+        whileTap={{ scale: 0.98, cursor: "grabbing" }}
         initial={{ rotate: 2 }}
         animate={{ rotate: 0 }}
         whileDrag={{ scale: 1.05, rotate: 0, zIndex: 10 }}
@@ -407,7 +563,7 @@ const DraggablePhoto = () => {
         {/* Lanyard Clip Construction */}
         <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-4 h-20 z-0 pointer-events-none">
           {/* Strap Loop */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-48 h-[300px] border-[12px] border-[#1a1a1a] dark:border-zinc-400 rounded-[50%] -z-10 shadow-xl"></div>
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-48 h-[300px] border-[12px] border-[var(--bg-card)] dark:border-zinc-400 rounded-[50%] -z-10 shadow-xl"></div>
 
           {/* Metal Clip Body */}
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-10 bg-gradient-to-b from-zinc-300 to-zinc-500 rounded-md shadow-md flex flex-col items-center justify-end pb-1 border border-zinc-600 z-10">
@@ -428,7 +584,7 @@ const DraggablePhoto = () => {
             transition={{ duration: 0.4, ease: "circOut" }}
             className="w-full h-full"
           >
-            {currentItem.type === 'identity' ? (
+            {currentItem.type === "identity" ? (
               renderCard()
             ) : (
               /* Generic Card Back / Alt Image */
@@ -456,8 +612,6 @@ const DraggablePhoto = () => {
           </motion.div>
         </AnimatePresence>
       </motion.div>
-
-
     </div>
   );
 };
