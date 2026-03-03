@@ -91,13 +91,12 @@ const BentoDetail = ({
               {activeProcess.map((step, idx) => (
                 <article
                   key={idx}
-                  className={`bg - [var(--bg - card)]rounded - [2rem] border border - [var(--border - color)]overflow - hidden flex flex - col hover: shadow - xl transition - shadow duration - 500
-                                    ${idx === 0 ? "md:col-span-2" : ""}
-`}
+                  className={`bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-500
+                    ${idx === 0 ? "md:col-span-2" : ""}`}
                 >
                   {step.image && (
                     <div
-                      className={`overflow - hidden bg - black / 5 dark: bg - white / 5 flex items - center justify - center p - 6 border - b border - [var(--border - color)] ${idx === 0 ? "h-[280px]" : "h-[200px]"} `}
+                      className={`overflow-hidden bg-black/5 dark:bg-white/5 flex items-center justify-center p-6 border-b border-[var(--border-color)] ${idx === 0 ? "h-[280px]" : "h-[200px]"}`}
                     >
                       {step.image.startsWith("airy:") ? (
                         <AiryDiagram type={step.image.split(":")[1]} />

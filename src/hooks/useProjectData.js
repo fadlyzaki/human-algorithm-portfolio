@@ -65,12 +65,15 @@ export const useProjectData = (id) => {
       if (foundProject) break;
     }
 
+    let isPrototype = false;
+
     // Also search NOTES (Prototypes)
     if (!foundProject) {
       for (const note of NOTES) {
         if (note.id === projectId) {
           foundProject = note;
           foundParent = note; // self-parent for direct items
+          isPrototype = true;
           break;
         }
       }
@@ -81,6 +84,7 @@ export const useProjectData = (id) => {
         project: foundProject,
         parentCluster: foundParent,
         loading: false,
+        type: isPrototype ? "prototype" : undefined
       };
     }
 

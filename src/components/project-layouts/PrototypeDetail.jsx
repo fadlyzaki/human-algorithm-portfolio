@@ -166,7 +166,7 @@ const PrototypeDetail = ({
                   <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-secondary)]">
                     <Cpu size={24} />
                   </div>
-                  <h3 className="text-2xl font-semibold">Evolution</h3>
+                  <h3 className="text-2xl font-semibold">Methodology</h3>
                 </div>
 
                 <div className="space-y-24">

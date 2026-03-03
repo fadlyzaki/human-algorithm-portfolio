@@ -84,11 +84,12 @@ const FilterMeApp = () => {
 
   // --- Camera Logic ---
   useEffect(() => {
-    let stream = null;
+    let isActive = true;
+    let localStream = null;
 
     const startCamera = async () => {
       try {
-        stream = await navigator.mediaDevices.getUserMedia({
+        const stream = await navigator.mediaDevices.getUserMedia({
           video: {
             facingMode: "user",
             width: { ideal: 720 },
@@ -97,13 +98,22 @@ const FilterMeApp = () => {
           audio: false,
         });
 
+        if (!isActive) {
+          // Cleanup if effect was unmounted before promise resolved
+          stream.getTracks().forEach((track) => track.stop());
+          return;
+        }
+
+        localStream = stream;
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
         }
         setCameraError(null);
       } catch (err) {
         console.error("Camera error:", err);
-        setCameraError("Camera access denied or unavailable.");
+        if (isActive) {
+          setCameraError("Camera access denied or unavailable.");
+        }
       }
     };
 
@@ -112,8 +122,9 @@ const FilterMeApp = () => {
     }
 
     return () => {
-      if (stream) {
-        stream.getTracks().forEach((track) => track.stop());
+      isActive = false;
+      if (localStream) {
+        localStream.getTracks().forEach((track) => track.stop());
       }
     };
   }, [showCart, cameraRequested]);
