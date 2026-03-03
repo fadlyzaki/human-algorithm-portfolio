@@ -152,7 +152,6 @@ const Navbar = ({
                 <HoverNavLink to="/about" label={t("nav.about")} />
                 <HoverNavLink to="/#work" label={t("nav.work")} />
                 <HoverNavLink to="/#side-projects" label="Projects" />
-                <HoverNavLink to="/process" label={t("nav.process")} />
                 <HoverNavLink to="/contact" label={t("nav.contact")} />
               </nav>
             )}

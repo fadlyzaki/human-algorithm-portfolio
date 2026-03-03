@@ -15,7 +15,7 @@ const SideProjectsIndex = React.lazy(() => import("./pages/SideProjectsIndex"));
 const CompanyDetail = React.lazy(() => import("./pages/CompanyDetail"));
 const BlogPost = React.lazy(() => import("./pages/BlogPost"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
-const DesignProcess = React.lazy(() => import("./pages/DesignProcess"));
+// Removed DesignProcess import
 const DesignSystem = React.lazy(() => import("./pages/DesignSystem"));
 const Sketches = React.lazy(() => import("./pages/Sketches"));
 
@@ -47,7 +47,6 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/cv" element={<SystemManifest />} />
-            <Route path="/process" element={<DesignProcess />} />
             <Route path="/design-system" element={<DesignSystem />} />
             <Route path="/sketches" element={<Sketches />} />
 

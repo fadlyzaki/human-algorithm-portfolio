@@ -5,7 +5,6 @@ export const getNavLinks = (t) => [
   { label: t("nav.about"), href: "#about" },
   { label: t("nav.work"), href: "#work" },
   { label: t("nav.side_projects"), href: "/side-projects" },
-  { label: t("nav.process"), href: "/process" },
   { label: "PROJECTS", href: "#side-projects" },
 ];
 

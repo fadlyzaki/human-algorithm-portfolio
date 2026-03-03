@@ -6,8 +6,6 @@ import { humanAlgorithm } from "./projects/humanAlgorithm";
 import { productivityIllusion } from "./projects/productivityIllusion";
 import { interactiveWorkbook } from "./projects/interactiveWorkbook";
 import { yearInReview } from "./projects/yearInReview";
-import { procurement } from "./projects/procurement";
-import { dolphi } from "./projects/dolphi";
 
 // Import Work Clusters
 import { lumina } from "./projects/lumina";
@@ -23,8 +21,6 @@ export const SIDE_PROJECTS = [
   productivityIllusion, // 2025-2026
   yearInReview, // Dec 2025
   interactiveWorkbook, // Aug 2025
-  procurement, // 2024
-  dolphi, // 2026
 ].map(normalizeProject);
 
 export const WORK_CLUSTERS = [lumina, gudangAda, stoqo].map((cluster) => ({
