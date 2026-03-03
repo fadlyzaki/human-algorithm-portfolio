@@ -173,7 +173,7 @@ const ContactPage = () => {
       {/* GENERATIVE AI BACKGROUND */}
       <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.4]">
         <SignalAI
-          color={isDark ? "#3B82F6" : "#2563EB"}
+          color={isDark ? "some" : "some"}
           manualPing={pingCount}
         />
       </div>
@@ -182,7 +182,7 @@ const ContactPage = () => {
       <div
         className="fixed inset-0 z-0 pointer-events-none opacity-[0.02]"
         style={{
-          backgroundImage: `linear-gradient(${isDark ? "#A1A1AA" : "#000000"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "#A1A1AA" : "#000000"} 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(${isDark ? "some" : "some"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "some" : "some"} 1px, transparent 1px)`,
           backgroundSize: "40px 40px",
         }}
       ></div>

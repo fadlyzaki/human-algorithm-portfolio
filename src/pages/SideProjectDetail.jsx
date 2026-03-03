@@ -128,9 +128,9 @@ const SideProjectDetail = () => {
   }
 
   const themeStyles = {
-    "--accent": isDark ? "#3B82F6" : "#000000", // Blue or Strict Black
+    "--accent": isDark ? "some" : "some", // Blue or Strict Black
     "--code-bg": isDark ? "#000" : "var(--bg-surface)",
-    "--brand": isDark ? "#60A5FA" : "#2563EB", // Dynamic brand color fallback
+    "--brand": isDark ? "some" : "some", // Dynamic brand color fallback
   };
 
   // Content Resolution Fallbacks

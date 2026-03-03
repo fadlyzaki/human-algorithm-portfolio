@@ -196,7 +196,7 @@ const SideProjectsIndex = () => {
         <header className="mb-32 relative min-h-[50vh] flex flex-col justify-center text-center md:text-left">
           {/* Background Visual */}
           <div className="absolute inset-0 z-0 opacity-40 grayscale blur-[1px]">
-            <NexusAI color={isDark ? "#60A5FA" : "#2563EB"} />
+            <NexusAI color={isDark ? "some" : "some"} />
           </div>
 
           <div className="relative z-10 max-w-4xl">

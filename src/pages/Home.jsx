@@ -79,7 +79,7 @@ const Portfolio = () => {
     <LayoutGroup>
       <div
         style={themeStyles}
-        className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[#F4F4F5] overflow-x-hidden transition-colors duration-500"
+        className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[some] overflow-x-hidden transition-colors duration-500"
       >
         <AnimatePresence>
           {showIntro && (
@@ -122,7 +122,7 @@ const Portfolio = () => {
               isDark
                 ? "radial-gradient(circle at 50% 0%, rgba(50,50,50,0.4), rgba(17,17,17,1) 80%)"
                 : "none",
-              `linear-gradient(${isDark ? "#A1A1AA" : "#000000"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "#A1A1AA" : "#000000"} 1px, transparent 1px)`,
+              `linear-gradient(${isDark ? "some" : "some"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "some" : "some"} 1px, transparent 1px)`,
             ].join(", "),
             backgroundSize: "auto, auto, 40px 40px",
             opacity: isDark ? 1 : 0.03,

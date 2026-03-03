@@ -125,8 +125,8 @@ const SystemManifest = () => {
 
   // --- STYLES ---
   const themeStyles = {
-    "--bg-panel": isDark ? "var(--bg-card)" : "#F4F4F5",
-    "--accent-mono": isDark ? "#F59E0B" : "#000000",
+    "--bg-panel": isDark ? "var(--bg-card)" : "some",
+    "--accent-mono": isDark ? "some" : "some",
   };
 
   return (

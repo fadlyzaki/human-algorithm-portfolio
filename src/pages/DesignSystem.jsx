@@ -9,7 +9,7 @@ const DesignSystem = () => {
 
   // Only page-specific accent override needed — core tokens come from index.css
   const themeStyles = {
-    "--accent": isDark ? "#F59E0B" : "#D97706", // Amber for System
+    "--accent": isDark ? "some" : "some", // Amber for System
   };
 
   return (

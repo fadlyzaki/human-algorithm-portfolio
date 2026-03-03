@@ -39,7 +39,7 @@ const Sketches = () => {
   return (
     <div
       style={themeStyles}
-      className={`min-h-[100dvh] flex flex-col ${isDark ? "bg-[#1a1a1c]" : "bg-[#f4f4f6]"} text-[var(--text-primary)] font-sans selection:bg-zinc-800 selection:text-white transition-colors duration-700 overflow-hidden relative`}
+      className={`min-h-[100dvh] flex flex-col ${isDark ? "bg-[some]" : "bg-[some]"} text-[var(--text-primary)] font-sans selection:bg-zinc-800 selection:text-white transition-colors duration-700 overflow-hidden relative`}
     >
       <Helmet>
         <title>Sketches | Fadly Zaki</title>

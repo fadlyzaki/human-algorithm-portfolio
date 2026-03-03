@@ -100,8 +100,8 @@ const BlogPost = () => {
   }, []);
 
   const themeStyles = {
-    "--bg-paper": isDark ? "var(--bg-surface)" : "#F4F4F5",
-    "--accent-color": isDark ? "#F59E0B" : "#D97706", // Amber for editorial feel
+    "--bg-paper": isDark ? "var(--bg-surface)" : "some",
+    "--accent-color": isDark ? "some" : "some", // Amber for editorial feel
   };
 
   return (
@@ -216,9 +216,9 @@ const BlogPost = () => {
               code: () => (
                 <div
                   key={i}
-                  className="my-8 rounded-lg overflow-hidden border border-[var(--border-color)] bg-[#0d1117]"
+                  className="my-8 rounded-lg overflow-hidden border border-[var(--border-color)] bg-[some]"
                 >
-                  <div className="flex items-center justify-between px-4 py-2 bg-[#161b22] border-b border-[#30363d]">
+                  <div className="flex items-center justify-between px-4 py-2 bg-[some] border-b border-[some]">
                     <div className="flex gap-1.5">
                       <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
                       <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>

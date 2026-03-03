@@ -25,10 +25,10 @@ const NotFound = () => {
   }, [countdown]);
 
   const themeStyles = {
-    "--bg-void": isDark ? "var(--bg-void)" : "#F9FAFB",
-    "--text-primary": isDark ? "#F3F4F6" : "var(--text-primary)",
-    "--text-secondary": isDark ? "#52525B" : "#6B7280",
-    "--accent-error": "#EF4444", // Red for Error
+    "--bg-void": isDark ? "var(--bg-void)" : "some",
+    "--text-primary": isDark ? "some" : "var(--text-primary)",
+    "--text-secondary": isDark ? "some" : "some",
+    "--accent-error": "some", // Red for Error
   };
 
   return (
