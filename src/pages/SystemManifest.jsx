@@ -140,21 +140,23 @@ const SystemManifest = () => {
       />
 
       {/* --- NAVIGATION SYSTEM --- */}
-      <Navbar
-        onOpenMenu={() => setIsMenuOpen(true)}
-        title="System Manifest"
-        backPath="/"
-        onToggleTheme={() => setIsDark(!isDark)}
-        onToggleLanguage={toggleLanguage}
-        onViewCoverLetter={() => setShowCoverLetter(true)}
-        onPrint={() => window.print()}
-        isDark={isDark}
-        language={language}
-      />
-      <NavigationMenu
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-      />
+      <div className="print:hidden">
+        <Navbar
+          onOpenMenu={() => setIsMenuOpen(true)}
+          title="System Manifest"
+          backPath="/"
+          onToggleTheme={() => setIsDark(!isDark)}
+          onToggleLanguage={toggleLanguage}
+          onViewCoverLetter={() => setShowCoverLetter(true)}
+          onPrint={() => window.print()}
+          isDark={isDark}
+          language={language}
+        />
+        <NavigationMenu
+          isOpen={isMenuOpen}
+          onClose={() => setIsMenuOpen(false)}
+        />
+      </div>
 
       {/* SPACER FOR FIXED HEADER & DOCUMENT SHEET */}
       <div className="h-24 md:h-32 print:hidden"></div>
