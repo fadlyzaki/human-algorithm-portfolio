@@ -86,8 +86,8 @@ export const dolphi = {
     { label: "Shields Used", value: "Frequent" },
   ],
   learnings: {
-    en: "Productivity shouldn't be anxiety-inducing. By adding a layer of 'Cosmic Pop' and forgiveness, we turn chores into quests.",
-    id: "Produktivitas tidak boleh memicu kecemasan. Dengan menambahkan lapisan 'Cosmic Pop' dan pengampunan, kami mengubah tugas menjadi quest.",
+    en: "I learned that the biggest enemy of consistency isn't laziness, it's the fear of losing progress. Building the 'Streak Shield' mechanic taught me that forgiveness in system design isn't weakness; it's what keeps people coming back.",
+    id: "Saya belajar bahwa musuh terbesar konsistensi bukan kemalasan, tapi ketakutan kehilangan progres. Membangun mekanik 'Streak Shield' mengajarkan saya bahwa pengampunan dalam desain sistem bukanlah kelemahan; justru itulah yang membuat orang kembali.",
   },
   designProcess: [
     {

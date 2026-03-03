@@ -137,8 +137,8 @@ export const interactiveWorkbook = {
     { label: "Target Audience", value: "7th-11th" },
   ],
   learnings: {
-    en: "Digitizing education isn't about replacing the teacher—it's about automating the administrative overhead so the teacher can focus on the human connection. Phase 1 proved that frictionless entry is the gatekeeper of student engagement.",
-    id: "Mendigitalkan pendidikan bukan tentang mengganti guru—ini tentang mengotomatiskan beban administratif sehingga guru dapat fokus pada koneksi manusia. Fase 1 membuktikan bahwa orientasi tanpa hambatan adalah kunci keterlibatan siswa.",
+    en: "I learned that in education, the biggest barrier isn't bad content, it's friction. When I removed the password requirement and let students enter with just a dropdown, participation jumped instantly. That taught me: sometimes removing a feature is more powerful than adding ten.",
+    id: "Saya belajar bahwa di dunia pendidikan, hambatan terbesar bukan konten yang buruk, tapi gesekan. Ketika saya menghapus password dan membiarkan siswa masuk cukup dengan dropdown, partisipasi langsung melonjak. Itu mengajarkan saya: kadang menghapus fitur lebih powerful daripada menambah sepuluh.",
   },
   designProcess: [
     {

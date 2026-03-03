@@ -284,7 +284,7 @@ const SystemCoreDetail = ({
               {activeLearnings && (
                 <div className="bg-[var(--text-primary)] text-[var(--bg-void)] p-8 font-serif italic text-xl leading-relaxed relative">
                   <div className="absolute -top-3 -left-3 bg-blue-500 text-[var(--bg-void)] font-mono text-[10px] px-2 py-1 uppercase font-bold">
-                    Human_Input
+                    Lesson_Learned
                   </div>
                   "{activeLearnings}"
                 </div>

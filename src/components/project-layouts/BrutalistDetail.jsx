@@ -181,7 +181,7 @@ const BrutalistDetail = ({
               {activeLearnings && (
                 <div className="lg:col-span-2 border-4 border-[var(--text-primary)] p-8 md:p-16 flex flex-col justify-center bg-[var(--bg-surface)]">
                   <div className="font-mono text-sm uppercase font-black tracking-widest text-[#FF3B30] mb-6">
-                    Researcher Note
+                     Lesson_Learned
                   </div>
                   <Slash className="text-[#FF3B30] w-16 h-16 mb-8" />
                   <p className="text-3xl md:text-5xl font-black italic uppercase leading-none text-[var(--text-primary)]">

@@ -65,6 +65,17 @@ export const useProjectData = (id) => {
       if (foundProject) break;
     }
 
+    // Also search NOTES (Prototypes)
+    if (!foundProject) {
+      for (const note of NOTES) {
+        if (note.id === projectId) {
+          foundProject = note;
+          foundParent = note; // self-parent for direct items
+          break;
+        }
+      }
+    }
+
     if (foundProject) {
       return {
         project: foundProject,

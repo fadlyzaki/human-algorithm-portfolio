@@ -84,8 +84,8 @@ export const yearInReview = {
     },
   ],
   learnings: {
-    en: "Privacy doesn't have to mean boring. By keeping everything client-side, we proved that a zero-backend tool can still deliver the delight and shareability users expect from a 'Wrapped' experience.",
-    id: "Privasi tidak harus membosankan. Dengan menjalankan semuanya di sisi klien, kami membuktikan bahwa alat tanpa backend tetap bisa memberikan pengalaman menarik dan mudah dibagikan seperti 'Wrapped'.",
+    en: "I learned that constraints breed creativity. Choosing zero-backend wasn't a limitation, it forced me to think differently about data flow. The result? Users trusted the tool more because they knew their data never left their device. Privacy became the product's strongest selling point, not a compromise.",
+    id: "Saya belajar bahwa batasan melahirkan kreativitas. Memilih tanpa backend bukan keterbatasan, itu memaksa saya berpikir berbeda tentang alur data. Hasilnya? User lebih percaya karena mereka tahu data mereka tidak pernah keluar dari perangkat. Privasi jadi nilai jual terkuat, bukan kompromi.",
   },
   metrics: [
     { label: "Themes Available", value: "12" },

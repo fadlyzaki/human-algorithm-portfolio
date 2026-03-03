@@ -229,7 +229,7 @@ const BlueprintDetail = ({
               <div className="bg-blue-600 text-white p-8">
                 <FileText className="mb-6 opacity-50" />
                 <h4 className="text-[10px] uppercase tracking-[0.2em] mb-4 opacity-70">
-                  Architect's Note
+                  Lesson_Learned
                 </h4>
                 <p className="font-serif italic text-xl leading-relaxed">
                   "{activeLearnings}"

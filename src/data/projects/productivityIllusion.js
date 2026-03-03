@@ -80,8 +80,8 @@ export const productivityIllusion = {
     { label: "Effect Size", value: "r=0.62" },
   ],
   learnings: {
-    en: "By using data modeling to peel back the layers of user perception, we can design interfaces that don't just keep users engaged, but actually empower them to achieve mastery.",
-    id: "Dengan menggunakan pemodelan data untuk mengupas lapisan persepsi pengguna, kita dapat merancang antarmuka yang benar-benar memberdayakan mereka untuk mencapai penguasaan.",
+    en: "This research shattered one of my core assumptions: I believed that higher engagement always meant better learning. The data proved me wrong. I learned that streaks and XP can create an illusion of progress. Now I always ask: are users actually learning, or just clicking?",
+    id: "Riset ini menghancurkan salah satu asumsi dasar saya: saya percaya engagement tinggi selalu berarti pembelajaran yang lebih baik. Data membuktikan saya salah. Saya belajar bahwa streak dan XP bisa menciptakan ilusi progres. Sekarang saya selalu bertanya: apakah user benar-benar belajar, atau cuma mengklik?",
   },
   designProcess: [
     {

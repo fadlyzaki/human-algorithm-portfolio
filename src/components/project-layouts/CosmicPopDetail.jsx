@@ -184,7 +184,7 @@ const CosmicPopDetail = ({
                   <div className="flex items-center gap-3 mb-6 text-[#00C2FF]">
                     <Shield size={20} />
                     <span className="font-bold uppercase tracking-wider text-sm">
-                      Founder's Note
+                      Lesson_Learned
                     </span>
                   </div>
                   <p className="text-2xl font-black italic text-[var(--text-primary)] leading-relaxed">

@@ -276,7 +276,7 @@ const PrototypeDetail = ({
                       className="text-xs uppercase tracking-widest flex items-center gap-2 mb-6"
                       style={{ color: accentColor }}
                     >
-                      <Lightbulb size={14} /> Synthesis
+                      <Lightbulb size={14} /> Lesson_Learned
                     </h4>
                     <p className="text-lg italic font-light text-[var(--text-secondary)] leading-relaxed">
                       "{activeLearnings}"

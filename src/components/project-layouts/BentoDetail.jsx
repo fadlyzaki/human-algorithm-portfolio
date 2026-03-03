@@ -152,7 +152,7 @@ const BentoDetail = ({
               <div className="bg-[var(--text-primary)] text-[var(--bg-void)] rounded-[2rem] p-12 md:p-16 flex flex-col justify-center relative overflow-hidden h-full min-h-[300px]">
                 <Music className="absolute -bottom-8 -right-8 w-48 h-48 opacity-10" />
                 <div className="font-mono text-xs uppercase tracking-widest opacity-50 mb-8 border border-[var(--bg-void)] opacity-20 inline-block px-3 py-1 rounded-full w-max">
-                  Developer Note
+                  Lesson_Learned
                 </div>
                 <p className="text-2xl md:text-3xl font-serif italic leading-relaxed relative z-10 flex-1 flex items-center">
                   "{activeLearnings}"

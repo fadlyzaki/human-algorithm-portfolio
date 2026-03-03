@@ -69,8 +69,8 @@ export const procurement = {
     { label: "Offline Access", value: "Enabled" },
   ],
   learnings: {
-    en: "Transparency tools useless if they can't be loaded on a 3G network.",
-    id: "Alat transparansi percuma kalau gak bisa dibuka di sinyal 3G.",
+    en: "This project taught me a humbling truth: the most elegant dashboard is worthless if it can't load on a 3G connection. I learned to design for the infrastructure I wished didn't exist, not the one I wanted. Offline-first isn't a feature, it's a moral obligation in a country like Indonesia.",
+    id: "Proyek ini mengajarkan kebenaran yang menohok: dashboard paling elegan sekalipun tak berguna kalau nggak bisa dibuka di sinyal 3G. Saya belajar mendesain untuk infrastruktur yang ada, bukan yang saya inginkan. Offline-first bukan fitur, tapi kewajiban moral di negara seperti Indonesia.",
   },
   designProcess: [
     {

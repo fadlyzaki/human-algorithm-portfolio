@@ -159,8 +159,10 @@ export const NOTES = [
         image: "airy:radar",
       },
     ],
+    learnings:
+      "I learned that technology should be a bicycle for the mind, not a conveyor belt for the eyes. Designing this pivot taught me that respecting user agency is actually better for long-term engagement than cheap dopamine loops.",
     learnings_id:
-      "Teknologi harusnya jadi sepeda buat pikiran, bukan ban berjalan buat mata.",
+      "Saya belajar bahwa teknologi harusnya jadi sepeda buat pikiran, bukan ban berjalan buat mata. Mendesain pivot ini menyadarkan saya bahwa menghargai kendali user sebenarnya lebih baik untuk engagement jangka panjang dibanding loop dopamin murahan.",
   },
   {
     id: "price-lock",
@@ -283,7 +285,10 @@ export const NOTES = [
         image: "airy:ui",
       },
     ],
-    learnings_id: "Price Lock bukan produk fintech; ini obat anti-cemas.",
+    learnings:
+      "I discovered early on that Price Lock is not a fintech product—it's anxiety medication. Building this taught me that users are often willing to pay a premium just for the feeling of control.",
+    learnings_id:
+      "Saya menyadari bahwa Price Lock sebenarnya bukan produk fintech—ini obat anti-cemas. Membangun ini mengajarkan saya bahwa user seringkali rela membayar lebih hanya untuk mendapatkan perasaan memegang kendali.",
   },
   {
     id: "project-kinship",
@@ -427,8 +432,10 @@ export const NOTES = [
         image: "airy:ui",
       },
     ],
+    learnings:
+      "I brought this idea not just because I understand APIs or GTV calculations, but because I know the pain of distance. This project reinforced for me that the best logistics products don't just move goods—they move love.",
     learnings_id:
-      "Saya bawa ide ini bukan hanya karena mengerti API atau cara menghitung GTV. Saya membawanya karena merasakan sendiri sakitnya jarak. Saya ingin membangun Grab yang memindahkan kasih sayang.",
+      "Saya membawa ide ini bukan sekadar karena mengerti API atau cara menghitung GTV, tapi karena saya tahu sakitnya jarak geografis. Proyek ini menegaskan bagi saya bahwa produk logistik terbaik tidak hanya memindahkan barang—mereka memindahkan kasih sayang.",
   },
   {
     id: "flood-alert",
@@ -548,8 +555,10 @@ export const NOTES = [
         image: "airy:architecture",
       },
     ],
+    learnings:
+      "Designing for emergencies taught me that in disaster UI, the color 'Red' is not enough to save lives. I quickly learned you have to provide specific, actionable directives when panic sets in.",
     learnings_id:
-      "Dalam UI bencana, warna 'Merah' aja gak cukup. Butuh arahan spesifik yang bisa dilakukan.",
+      "Mendesain untuk keadaan darurat mengajarkan saya bahwa dalam UI bencana, warna 'Merah' saja tidak cukup untuk menyelamatkan nyawa. Saya segera belajar bahwa kita harus memberikan arahan yang spesifik dan langsung bisa ditindaklanjuti saat kepanikan melanda.",
     stack: ["Node.js", "PostGIS", "Flutter"],
     links: { demo: "#", repo: "#" },
     iconName: "AlertTriangle",
@@ -709,8 +718,10 @@ export const NOTES = [
         image: "airy:ui",
       },
     ],
+    learnings:
+      "This experiment proved to me that surfacing duration and energy-level metadata before the click is crucial. I learned that aligning the content library with the user's immediate emotional and temporal reality drastically cuts down decision fatigue.",
     learnings_id:
-      "Dengan memunculkan metadata durasi dan energi sebelum klik, kita menyelaraskan perpustakaan dengan realitas pengguna.",
+      "Eksperimen ini membuktikan ke saya bahwa memunculkan metadata durasi dan tingkat energi sebelum klik itu sangat krusial. Saya belajar bahwa menyelaraskan perpustakaan konten dengan realitas emosional dan ketersediaan waktu pengguna dapat secara drastis memotong kelelahan dalam mengambil keputusan.",
   },
   {
     id: "filter-me",
@@ -816,9 +827,9 @@ export const NOTES = [
       },
     ],
     learnings:
-      "A flashy interface isn't enough to build trust. When bridging physical products into a digital space, users need 'Texture' validation—proof that the digital translation exactly matches the physical reality.",
+      "I learned that a flashy interface isn't enough to build trust. When bridging physical products into a digital space, users need 'Texture' validation: proof that the digital translation exactly matches the physical reality.",
     learnings_id:
-      "Tampilan keren aja gak cukup buat ngebangun rasa percaya. Saat ngebawa produk fisik ke dunia digital, user butuh validasi 'Tekstur'—bukti kalau versi digital itu sama persis dengan aslinya.",
+      "Saya belajar bahwa tampilan keren saja tidak cukup buat membangun rasa percaya. Saat membawa produk fisik ke dunia digital, user butuh validasi 'Tekstur': bukti bahwa versi digital itu sama persis dengan aslinya.",
     modules: [
       {
         title: "The CHIuXID 2018 Journey",

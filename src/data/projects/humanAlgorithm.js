@@ -106,8 +106,8 @@ export const humanAlgorithm = {
     { label: "Ai Hallucination", value: "Standardized" },
   ],
   learnings: {
-    en: "The role of the designer has fundamentally shifted. We are no longer just 'creatives'; we are 'Semantic Architects'. The future belongs to those who can speak the language of models.",
-    id: "Peran desainer telah bergeser secara fundamental. Kami bukan lagi sekadar 'kreatif'; kami adalah 'Arsitek Semantik'. Masa depan milik mereka yang dapat berbicara dalam bahasa model.",
+    en: "Building this portfolio with AI agents taught me that my real skill isn't pushing pixels, it's orchestrating systems. I learned to let go of control over every line of code and instead focus on defining the 'what' and 'why'. The hardest part was trusting the process.",
+    id: "Membangun portofolio ini dengan agen AI mengajarkan saya bahwa keahlian sesungguhnya bukan mendorong piksel, tapi mengorkestrasi sistem. Saya belajar melepas kendali atas setiap baris kode dan fokus mendefinisikan 'apa' dan 'mengapa'. Bagian tersulit adalah mempercayai prosesnya.",
   },
   designProcess: [
     {
