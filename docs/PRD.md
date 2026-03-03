@@ -14,7 +14,7 @@ We are positioning this product for conversion against three highly specific arc
 
 1. **The Technical Recruiter (High Frequency / Low Attention)**: Demands sub-2-second Time to Interactive (TTI) and immediate access to verifiable credentials. Served via an ATS-optimized, printable "System Manifest" (CV Engine).
 2. **The Head of Product/Design (High Depth / High Scrutiny)**: Evaluates structural thinking and resilience. Target conversion relies on reading our deep-dive methodology case studies (Research → Insight → Design → Ship → Measure).
-3. **The Design Technologist / CTO Peer (High Engagement / Viral Catalyst)**: Looking for technical excellence. Served via Framer Motion physics, MediaPipe WASM hand-tracking, and strict 60fps React render budgets.
+3. **The Design Technologist / CTO Peer (High Engagement / Viral Catalyst)**: Looking for technical excellence. Served via Framer Motion physics and strict 60fps React render budgets.
 
 ## 3. Core OKRs & Success Metrics
 **Objective 1: Extreme Performance & Accessibility**
@@ -81,8 +81,6 @@ The homepage follows a "Priority-First" narrative flow:
 #### Interactive Experiences
 *   **Adaptive Summaries**: Polymorphic text engine that rewrites case study summaries based on viewer persona (`ELI5`, `Recruiter`, `System`).
 *   **Localization Strategy**: Full `en`/`id` (English/Indonesian) duality toggle via `LanguageContext` with smooth CSS fade transition (`lang-switching` class), enabling global reach.
-*   **Hand Gesture Control**: Experimental "Decryption Lens" (`HandCursorOverlay.jsx`) using MediaPipe-based hand tracking with welcome modal (`HandTrackerWelcome.jsx`). Eagerly loaded for zero-latency activation. Full lifecycle cleanup (camera stop, media stream track release, `encrypted-mode` class removal) on deactivation.
-*   **Treasure Hunt Gamification**: Hidden collectibles (`Treasure.jsx`) that appear during gesture mode. Progress tracked via `TreasureProgress.jsx` with completion celebration (`TreasureCongrats.jsx`). `TreasureCongrats` renders independently of gesture mode (always available for Easter eggs).
 *   **Neural Echo AI**: RAG-styled semantic memory module (`NeuralEcho.jsx`) functioning as an interactive FAQ and self-interrogation interface.
 *   **ChaosSlider**: Interactive personality dial on About page for dynamic content revelation.
 *   **ProfileScanner (Identity Scan & Pixelation)**: High-fidelity component (`ProfileScanner.jsx`) featuring an initialized pixelated state (via canvas data manipulation) that resolves to a clear image with a "boot-up" scanning beam, interactive 3D tilt physics, and real-time HUD overlay.
@@ -141,14 +139,13 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **Branding Update (v3.0)**: Navbar branding updated from `FADLY.ZAKI_` to `Fadlyzaki🧢`.
 *   **Homepage Spacing (v3.0)**: Reduced About-to-Footer gap from `mb-40` (160px) to `mb-20` (80px).
 *   **Credential Button Fix (v3.0)**: Repaired broken Tailwind classNames on About page credential buttons (spaces in utility names).
-*   **Mobile Performance & Vercel RES (v3.8)**: Conducted a deep architecture review to hit a >90 Mobile Real Experience Score (RES). Eager-loaded `@mediapipe/hands` was shifted to `React.lazy()` to prevent main-thread blocking on initial load, while LCP (Largest Contentful Paint) images were explicitly flagged with `fetchPriority="high"`.
+*   **Mobile Performance & Vercel RES (v3.8)**: Conducted a deep architecture review to hit a >90 Mobile Real Experience Score (RES). Heavy modules were shifted to `React.lazy()` to prevent main-thread blocking on initial load, while LCP (Largest Contentful Paint) images were explicitly flagged with `fetchPriority="high"`.
 *   **Aggressive Lazy Loading (v3.8)**: Lower-fold components (`HomeSideProjects`, `HomeAbout`, `FaqSection`) wrapped in `React.Suspense` to shrink the critical render path bundle by 20%.
 *   **Cognitive Overload Prevention (v3.9)**: Added a highly visible `[ Press any key to bypass ]` prompt immediately to the Terminal Intro to ensure high-velocity users (recruiters) never feel "trapped" by the narrative.
 *   **Generative ID Card Standardization (v3.9)**: Harmonized the layout and metadata across all 7 generative ID variants (Industrial, Cyberpunk, Glassmorphism, Swiss, Retro, Neo-Brutalism, Holographic) to consistently display system payload data (Role, ID_NO, and `EXP: INDEFINITE`) respecting bilingual translation architectures.
 
 ### 3.8 System Governance (v3.2)
 *   **Merge Gate Audit Status**: Verified at a **95/100** system-wide score. Successfully remediated critical blockers regarding high-frequency React Rendering constraints and God Component sprawl.
-*   **Context Trap Mitigation**: High-frequency tracking coordinates (MediaPipe) bypass the React `HandCursorContext` and instead utilize Custom DOM Events (`handCursorMove`) to talk directly to consumers (`Treasure.jsx`), dropping Re-renders from 60fps to 0.
 *   **Monolith Abstraction**: Decomposed the monolithic `About.jsx` into single-responsibility component grids (`CertificationsGrid`, `AchievementsGrid`, `MaintenanceGrid`, `RuntimeLogTimeline`).
 *   **Zero Magic Strings**: Centralized all `localStorage` keys and magic configuration data into `src/config/constants.js`.
 *   **Safety Guardrails**: Implemented destructive action confirmation patterns (double-confirmation visual friction) for advanced interactions.
@@ -176,7 +173,6 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 | `/about` | `About.jsx` | Personality synthesis, Certifications, and ChaosSlider |
 | `/contact` | `Contact.jsx` | Contact form and information |
 | `/cv` | `SystemManifest.jsx` | ATS-optimized printable CV |
-| `/process` | `DesignProcess.jsx` | Design process methodology |
 | `/design-system` | `DesignSystem.jsx` | Interactive design system viewer |
 | `/sketches` | `Sketches.jsx` | 3D Interactive CSS Flipbook archive |
 | `/work/:id` | `CompanyDetail.jsx` | Company cluster detail with brand theming |
@@ -202,20 +198,16 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
     *   **Invalid IDs**: `ProtectedCaseStudy` and `ProjectCard` render abstract compositions or "Access Denied" screens instead of crashing.
     *   **Media Resilience**: `ProjectCard` implements `onError` handlers to swap broken images for technical diagrams (`ABSTRACT_COMPOSITION`).
     *   **List Rendering**: `SideProjectsIndex` and other lists conditionally render headers to avoid "empty shelf" UI states.
-*   **Camera Privacy**: `HandCursorOverlay` gracefully downgrades to standard mouse interaction if camera permissions are denied or initialization fails.
-*   **Camera Lifecycle**: Full cleanup on deactivation—MediaPipe camera stop, webcam media stream track release (`track.stop()`), and `encrypted-mode` CSS class removal ensures no lingering hardware access.
 
 ### 5.2 Architectural Components (v2.8+)
 *   **`AiryDiagram.jsx`**: A specialized SVG engine for rendering "technical schematic" visualizations (Flow, Cycle, Hierarchy, UI, Data, Venn, Kanban, Chart, Radar, Ecosystem). Used as the primary visual language for case studies.
 *   **`AIBrainstorm.jsx`**: A conversational interface component simulating a dialogue between the user and an AI collaborator, used to present "If I built this today" hypotheses.
 *   **`NavigationMenu.jsx`**: A unified, responsive navigation drawer for consistent site-wide wayfinding.
-*   **`GestureOverlays` (App.jsx)**: Conditional wrapper component that renders `HandCursorOverlay` (when gesture mode active) and `HandTrackerWelcome` (when welcome modal shown). Gates rendering on `isGestureMode || showWelcomeModal` to avoid deadlock.
 
 ## 6. Roadmap & Future Iterations
 
 ### Phase 1: Foundation & Identity (Active)
 *   **[COMPLETED]** Adaptive Content Engine (Adaptive Summaries)
-*   **[COMPLETED]** Hand Tracking (HandCursorOverlay + Treasure Hunt)
 *   **[COMPLETED]** Mobile Responsiveness (Work cards, ID card)
 *   **[COMPLETED]** Neural Echo AI (NeuralEcho.jsx)
 *   **[COMPLETED]** Dynamic Pixelation Protocol (v3.9): Re-engineered the `ProfileScanner` to generate interactive low-res pixel matrices on-the-fly using 2D canvas interpolation before revealing high-res portraits.
@@ -257,6 +249,10 @@ Adversarial UX audit conducted with 4 expert personas (Jakob Nielsen, Dieter Ram
 *   **[COMPLETED]** Terminal Intro Refactoring (v3.7): Completely replaced the ID Card Flying sequence with a sleek, 3-phase typing `TerminalIntro` that cleanly CSS-flashes into the homepage, locking the typography cascade until the terminal disappears.
 *   **[COMPLETED]** Flipbook Integration (v3.9): Replaced `MasonryGallery` with a physical 3D CSS Flipbook (`Flipbook.jsx`) for realistic pagination and aggressive DOM culling on the Sketches page.
 *   **[COMPLETED]** Dynamic Pixelation Protocol (v3.9): Re-engineered the `ProfileScanner` to generate interactive low-res pixel matrices on-the-fly using 2D canvas interpolation before revealing high-res portraits.
+*   **[COMPLETED]** Generic Prototype Architecture (v4.0): Overhauled the prototype data model to explicitly map all 6 experimental projects (e.g., FilterMe, Project Zen) to a generic `PrototypeDetail` layout, enforcing a strict "Methodology" structural heading.
+*   **[COMPLETED]** First-Person Retrospective Pattern (v4.0): Mandated a "Lesson_Learned" component structure across all `SideProject` architectures (Bento, Blueprint, Brutalist, CosmicPop, Prototype, SystemCore) and manually converted all takeaways to first-person narrative formats for stronger empathy.
+*   **[COMPLETED]** FilterMe AR Resuscitation (v4.0): Repaired the React StrictMode camera leak in `FilterMeApp.jsx` by implementing explicit stream tracked cleanup mechanics, securely reinstating the live AR experience.
+*   **[COMPLETED]** Content Aggressiveness Purge (v4.0): Deliberately hid the `Dolphi` venture, completely deleted the `Procurement` codebase, and entirely purged the overarching `/process` Page & Route to maximize focus on primary artifacts.
 
 ### Phase 3: Intelligence & Expansion (Q2-Q4 2026)
 *   **[Q2 2026]** Enhanced AI Agent: Expand semantic memory with real RAG backend.

@@ -18,7 +18,6 @@ A robust system is measured by its resilience, its DevX, and its render budget. 
 
 * **The Engine**: **React 18 + Vite** (Migrated from legacy CRA to achieve blazing fast HMR and optimized Rollup tree-shaking).
 * **The Physics**: **Framer Motion**. We strictly enforce GPU-accelerated CSS transforms (`translate3d`, `scale`) and structural `layoutId` animations to completely bypass main-thread layout thrashing.
-* **The Intelligence**: **MediaPipe WASM**. Client-side computer vision models running via WebAssembly. Zero server round-trips. Absolute data privacy.
 * **The Syntax**: **Tailwind CSS**. Utility-first styling enabling rapid molecular component design with absolute design system adherence and zero runtime CSS overhead.
 * **The Edge**: **Vercel Edge Network**. Utilizing Edge Middleware for instantaneous bot-detection and dynamic OpenGraph image generation via `@vercel/og`.
 
@@ -31,8 +30,7 @@ Refined our presentation layer through global token alignment. Removed over 120+
 We optimize for **Device Computational Load** just as rigorously as we optimize UX Cognitive Load.
 
 * **Aggressive DOM Culling**: Our custom 3D Physical Flipbook engine dynamically monitors structural `zIndex` and physically unmounts (`display: none`) any DOM node that sits more than 2 layers deep within the Z-axis. This eradicates GPU overdraw and Z-fighting.
-* **Context Trap Mitigation**: Heavy sensor pipelines (like 60fps Hand Tracking) bypass the React Context tree entirely. They instead dispatch hyper-optimized Custom DOM Events (`handCursorMove`) to decoupled listeners, preventing cascading React Re-renders.
-* **Aggressive Suspense Splitting**: Strict route-level and component-level chunking via `React.lazy()`. Heavy machine-learning models (`@mediapipe/hands`) and lower-fold UI clusters are structurally deferred off the critical render path to maintain a >90 Mobile Real Experience Score (RES).
+* **Aggressive Suspense Splitting**: Strict route-level and component-level chunking via `React.lazy()`. Heavy machine-learning models and lower-fold UI clusters are structurally deferred off the critical render path to maintain a >90 Mobile Real Experience Score (RES).
 * **Defensive Error Boundaries**: Critical interactive modules are wrapped in isolated Error Boundaries. If WebGL or WASM fails on a low-end device, the system gracefully degrades to semantic HTML fallbacks without crashing the OS.
 
 ## 🧬 Sub-Systems & Architectural Highlights

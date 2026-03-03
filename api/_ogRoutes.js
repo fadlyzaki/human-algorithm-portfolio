@@ -13,11 +13,9 @@ import { stoqo } from '../src/data/projects/stoqo.js';
 import { gudangAda } from '../src/data/projects/gudangAda.js';
 import { lumina } from '../src/data/projects/lumina.js';
 import { humanAlgorithm } from '../src/data/projects/humanAlgorithm.js';
-import { dolphi } from '../src/data/projects/dolphi.js';
 import { yearInReview } from '../src/data/projects/yearInReview.js';
 import { interactiveWorkbook } from '../src/data/projects/interactiveWorkbook.js';
 import { productivityIllusion } from '../src/data/projects/productivityIllusion.js';
-import { procurement } from '../src/data/projects/procurement.js';
 
 const SITE_URL = 'https://fadlyzaki-design.vercel.app';
 const DEFAULT_OG = {
@@ -48,11 +46,6 @@ const STATIC_ROUTES = {
         title: 'System Manifest',
         description: "A living document of skills, experience, and design philosophy.",
         color: '#F59E0B'
-    },
-    '/process': {
-        title: 'Design Process',
-        description: "How I think, research, design, and ship. The framework behind the work.",
-        color: '#EC4899'
     },
     '/design-system': {
         title: 'Design System',
@@ -115,11 +108,9 @@ for (const company of COMPANIES) {
 const SIDE_PROJECT_SOURCES = [
     ...NOTES,
     humanAlgorithm,
-    dolphi,
     yearInReview,
     interactiveWorkbook,
     productivityIllusion,
-    procurement,
 ];
 
 const SIDE_PROJECT_ROUTES = {};
