@@ -40,11 +40,22 @@ export const useProjectData = (id) => {
           }
         }
 
-        // Handle nested structures like gridItems or subItems if they exist
+        // Handle nested structures like gridItems
         if (!foundProject && item.gridItems) {
           for (const gridItem of item.gridItems) {
             if (gridItem.id === projectId) {
               foundProject = gridItem;
+              foundParent = item;
+              break;
+            }
+          }
+        }
+
+        // Handle subItems (e.g., nested side-project items)
+        if (!foundProject && item.subItems) {
+          for (const subItem of item.subItems) {
+            if (subItem.id === projectId) {
+              foundProject = subItem;
               foundParent = item;
               break;
             }

@@ -34,7 +34,7 @@ const WorkBento = ({ cluster, priority = false }) => {
 
   return (
     <div
-      onClick={() => navigate(`/case-study/${cluster.id}`)}
+      onClick={() => navigate(`/work/${cluster.id}`)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="group relative flex flex-col h-[480px] border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
