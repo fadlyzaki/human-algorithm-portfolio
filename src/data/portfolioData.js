@@ -1,5 +1,5 @@
 import { normalizeProject } from "./utils";
-import { NOTES as RAW_NOTES } from "./notes";
+import { EXPERIMENTS as RAW_EXPERIMENTS } from "./experiments";
 
 // Import Side Projects
 import { humanAlgorithm } from "./projects/humanAlgorithm";
@@ -30,7 +30,7 @@ export const WORK_CLUSTERS = [lumina, gudangAda, stoqo].map((cluster) => ({
   projects: cluster.projects.map(normalizeProject),
 }));
 
-export const NOTES = RAW_NOTES;
+export const EXPERIMENTS = RAW_EXPERIMENTS;
 
 export const SUBSTACK_POSTS = [
   {

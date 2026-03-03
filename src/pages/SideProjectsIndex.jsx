@@ -13,7 +13,7 @@ import Navbar from "../components/Navbar";
 import NavigationMenu from "../components/NavigationMenu";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
-import { SIDE_PROJECTS, NOTES } from "../data/portfolioData";
+import { SIDE_PROJECTS, EXPERIMENTS } from "../data/portfolioData";
 import SEO from "../components/SEO";
 import Footer from "../components/Footer";
 import BackButton from "../components/BackButton";
@@ -55,7 +55,7 @@ const SideProjectsIndex = () => {
   useEffect(() => {
     cardsRef.current = cardsRef.current.slice(
       0,
-      SIDE_PROJECTS.length + NOTES.length,
+      SIDE_PROJECTS.length + EXPERIMENTS.length,
     );
   }, []);
 
@@ -147,7 +147,7 @@ const SideProjectsIndex = () => {
           const scale =
             1 +
             (1 - Math.min(dist / (CONFIG.proximity * 1.5), 1)) *
-              (CONFIG.scaleForce - 1);
+            (CONFIG.scaleForce - 1);
 
           card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`;
           card.style.zIndex = 10; // Bring to front
@@ -241,13 +241,13 @@ const SideProjectsIndex = () => {
           </div>
         )}
 
-        {/* NOTES Section */}
-        {NOTES.length > 0 && (
+        {/* EXPERIMENTS Section */}
+        {EXPERIMENTS.length > 0 && (
           <div className="mb-12">
             <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
               <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
               <span>
-                Prototypes
+                Experiments & Explorations
                 <span className="block text-[10px] text-[var(--text-secondary)] normal-case mt-1 max-w-md">
                   Thinking, building, and attempts to solve problems.
                 </span>
@@ -255,7 +255,7 @@ const SideProjectsIndex = () => {
               <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
-              {NOTES.map((project, idx) => (
+              {EXPERIMENTS.map((project, idx) => (
                 <div
                   key={project.id}
                   ref={(el) =>

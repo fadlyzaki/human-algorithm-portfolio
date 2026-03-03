@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { PORTFOLIO } from "../data/portfolioData";
-import { WORK_CLUSTERS, SIDE_PROJECTS, NOTES } from "../data/portfolioData";
+import { WORK_CLUSTERS, SIDE_PROJECTS, EXPERIMENTS } from "../data/portfolioData";
 
 /**
  * Hook to retrieve project data from any of the data sources.
@@ -67,9 +67,9 @@ export const useProjectData = (id) => {
 
     let isPrototype = false;
 
-    // Also search NOTES (Prototypes)
+    // Also search EXPERIMENTS (Prototypes)
     if (!foundProject) {
-      for (const note of NOTES) {
+      for (const note of EXPERIMENTS) {
         if (note.id === projectId) {
           foundProject = note;
           foundParent = note; // self-parent for direct items

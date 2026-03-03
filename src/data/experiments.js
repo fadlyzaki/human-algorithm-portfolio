@@ -1,4 +1,4 @@
-export const NOTES = [
+export const EXPERIMENTS = [
   {
     id: "agency-pivot",
     title: 'The "Agency" Pivot',
