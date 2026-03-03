@@ -54,7 +54,7 @@ const FrequencyVisualizer = () => {
       // Let's use the computed style of the container to get the text color
       const computedStyle = getComputedStyle(containerRef.current);
       const color =
-        computedStyle.getPropertyValue("--text-secondary").trim() || "#6B7280";
+        computedStyle.getPropertyValue("--text-secondary").trim() || "var(--text-secondary)";
 
       ctx.fillStyle = color;
 

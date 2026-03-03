@@ -25,7 +25,7 @@ const THEME = {
     kpiYellow: "#FFE082",
     backgroundLight: "#F2F2F2",
     backgroundDark: "#121212",
-    surfaceLight: "#FFFFFF",
+    surfaceLight: "var(--bg-void)",
     surfaceDark: "#1E1E1E",
     overlayLight: "rgba(0, 0, 0, 0.5)",
     overlayDark: "rgba(0, 0, 0, 0.7)",
@@ -34,7 +34,7 @@ const THEME = {
     textPrimaryDark: "#EEEEEE",
     textSecondaryLight: "#666666",
     textSecondaryDark: "#AAAAAA",
-    cardLight: "#FFFFFF",
+    cardLight: "var(--bg-void)",
     cardDark: "#1E1E1E",
     navInactive: "#9E9E9E",
     borderLight: "#E0E0E0",
@@ -189,7 +189,7 @@ const OnboardingScreen = ({ onNavigate }) => {
               >
                 <circle cx="50" cy="50" fill="var(--text-primary)" r="45"></circle>
                 <rect
-                  fill="#E5E7EB"
+                  fill="var(--border-color)"
                   height="25"
                   rx="2"
                   stroke="#D1D5DB"
@@ -199,7 +199,7 @@ const OnboardingScreen = ({ onNavigate }) => {
                   y="45"
                 ></rect>
                 <rect
-                  fill="#E5E7EB"
+                  fill="var(--border-color)"
                   height="35"
                   rx="2"
                   stroke="#D1D5DB"
@@ -209,7 +209,7 @@ const OnboardingScreen = ({ onNavigate }) => {
                   y="35"
                 ></rect>
                 <rect
-                  fill="#E5E7EB"
+                  fill="var(--border-color)"
                   height="45"
                   rx="2"
                   stroke="#D1D5DB"

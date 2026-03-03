@@ -41,13 +41,13 @@ const AIBrainstorm = ({ hypotheses, t }) => {
               height="60"
               patternUnits="userSpaceOnUse"
             >
-              <circle cx="30" cy="30" r="1" fill="#10B981" />
+              <circle cx="30" cy="30" r="1" fill="var(--accent-green)" />
               <line
                 x1="30"
                 y1="30"
                 x2="60"
                 y2="0"
-                stroke="#10B981"
+                stroke="var(--accent-green)"
                 strokeWidth="0.5"
                 opacity="0.3"
               />
@@ -56,7 +56,7 @@ const AIBrainstorm = ({ hypotheses, t }) => {
                 y1="30"
                 x2="0"
                 y2="60"
-                stroke="#10B981"
+                stroke="var(--accent-green)"
                 strokeWidth="0.5"
                 opacity="0.3"
               />

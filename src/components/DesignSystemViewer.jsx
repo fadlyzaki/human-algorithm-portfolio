@@ -285,8 +285,8 @@ const ChromaticsGrid = ({ isXRayMode }) => (
       </span>
     )}
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
-      <ColorCard name="VOID" token="--bg-void" hex="#111111" />
-      <ColorCard name="SURFACE" token="--bg-surface" hex="#1F1F1F" />
+      <ColorCard name="VOID" token="--bg-void" hex="var(--bg-surface)" />
+      <ColorCard name="SURFACE" token="--bg-surface" hex="var(--bg-surface)" />
       <ColorCard name="TEXT_PRI" token="--text-primary" hex="#F4F4F5" />
       <ColorCard name="TEXT_SEC" token="--text-secondary" hex="#A1A1AA" />
     </div>
@@ -302,9 +302,9 @@ const ChromaticsGrid = ({ isXRayMode }) => (
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <ColorCard name="SYS_BLUE" token="--accent-blue" hex="#3B82F6" />
-        <ColorCard name="SYS_GREEN" token="--accent-green" hex="#10B981" />
-        <ColorCard name="SYS_AMBER" token="--accent-amber" hex="#F59E0B" />
-        <ColorCard name="SYS_RED" token="--accent-red" hex="#EF4444" />
+        <ColorCard name="SYS_GREEN" token="--accent-green" hex="var(--accent-green)" />
+        <ColorCard name="SYS_AMBER" token="--accent-amber" hex="var(--accent-amber)" />
+        <ColorCard name="SYS_RED" token="--accent-red" hex="var(--accent-red)" />
       </div>
     </div>
   </div>
@@ -1636,7 +1636,7 @@ const AUDIT_DATA = {
       files: 5,
     },
     {
-      value: "#f59e0b / #d97706",
+      value: "var(--accent-amber) / var(--accent-amber)",
       token: "var(--accent-amber)",
       rec: "Use --accent-amber. Add --accent-amber-dark if needed",
       files: 3,
@@ -1678,8 +1678,8 @@ const AUDIT_DATA = {
     },
     {
       token: "--bg-surface",
-      light: "#f9fafb",
-      dark: "#111111",
+      light: "var(--bg-surface)",
+      dark: "var(--bg-surface)",
       usage: "Surface layer",
     },
     {
@@ -1718,7 +1718,7 @@ const AUDIT_DATA = {
       dark: "–",
       usage: "Info, links",
     },
-    { token: "--accent-amber", light: "#f59e0b", dark: "–", usage: "Warnings" },
+    { token: "--accent-amber", light: "var(--accent-amber)", dark: "–", usage: "Warnings" },
     {
       token: "--accent-green",
       light: "var(--accent-green)",

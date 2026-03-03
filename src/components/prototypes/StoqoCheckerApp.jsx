@@ -30,15 +30,15 @@ const THEME = {
     success: "#4CAF50",
     danger: "#F44336",
     warning: "#FFC107",
-    bgLight: "#F3F4F6",
+    bgLight: "var(--text-primary)",
     bgDark: "var(--text-primary)", // gray-900
-    surfaceLight: "#FFFFFF",
+    surfaceLight: "var(--bg-void)",
     surfaceDark: "#1f2937", // gray-800
     textLight: "var(--text-primary)",
-    textDark: "#F9FAFB",
-    textSecLight: "#6B7280",
-    textSecDark: "#9CA3AF",
-    borderLight: "#E5E7EB",
+    textDark: "var(--bg-surface)",
+    textSecLight: "var(--text-secondary)",
+    textSecDark: "var(--text-secondary)",
+    borderLight: "var(--border-color)",
     borderDark: "var(--border-color)",
   },
 };

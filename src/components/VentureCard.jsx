@@ -200,7 +200,7 @@ const CosmicPopCard = ({ project, title, desc, onClick }) => (
 const BrutalistCard = ({ project, title, desc, onClick }) => (
   <motion.div
     onClick={onClick}
-    className="group relative h-[450px] rounded-3xl bg-[#E2E2E2] dark:bg-[#1A1A1A] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
+    className="group relative h-[450px] rounded-3xl bg-[#E2E2E2] dark:bg-[var(--bg-card)] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
     whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px 0px #FF3B30" }}
   >
     <div className="absolute top-4 right-4 z-20">
