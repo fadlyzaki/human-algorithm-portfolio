@@ -84,7 +84,7 @@ const LockScreen = ({ project, parentCluster, onSuccess }) => {
       <div
         className="absolute inset-0 opacity-[0.05]"
         style={{
-          backgroundImage: `linear-gradient(${isDark ? "#333" : "#000"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "#333" : "#000"} 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(${isDark ? "var(--border-color)" : "#000"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "var(--border-color)" : "#000"} 1px, transparent 1px)`,
           backgroundSize: "40px 40px",
         }}
       ></div>

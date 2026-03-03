@@ -43,7 +43,7 @@ const BlogPost = () => {
       date: "Oct 12, 2025",
       readTime: "8 min read",
       tags: ["Philosophy", "HCI", "Hardware"],
-      coverImage: "linear-gradient(45deg, #111, #333)",
+      coverImage: "linear-gradient(45deg, var(--bg-surface), var(--border-color))",
       content: [
         {
           type: "paragraph",

@@ -30,7 +30,7 @@ const BentoDetail = ({
             className="md:col-span-2 bg-gradient-to-br from-pink-100 to-orange-100 dark:from-pink-900/30 dark:to-orange-900/30 rounded-[2rem] p-10 md:p-16 flex flex-col justify-center relative overflow-hidden"
           >
             {/* Decorative Sticker */}
-            <div className="absolute top-8 right-8 rotate-12 bg-white dark:bg-[#111] text-black dark:text-white px-4 py-2 rounded-full shadow-lg font-mono text-xs font-bold uppercase border border-[var(--border-color)] flex items-center gap-2">
+            <div className="absolute top-8 right-8 rotate-12 bg-white dark:bg-[var(--bg-surface)] text-black dark:text-white px-4 py-2 rounded-full shadow-lg font-mono text-xs font-bold uppercase border border-[var(--border-color)] flex items-center gap-2">
               <Calendar size={14} /> WRAPPED
             </div>
 

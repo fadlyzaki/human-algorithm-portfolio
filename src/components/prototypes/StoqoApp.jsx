@@ -30,7 +30,7 @@ const THEME = {
     overlayLight: "rgba(0, 0, 0, 0.5)",
     overlayDark: "rgba(0, 0, 0, 0.7)",
     blueCta: "#5B80FF",
-    textPrimaryLight: "#333333",
+    textPrimaryLight: "var(--border-color)333",
     textPrimaryDark: "#EEEEEE",
     textSecondaryLight: "#666666",
     textSecondaryDark: "#AAAAAA",
@@ -38,7 +38,7 @@ const THEME = {
     cardDark: "#1E1E1E",
     navInactive: "#9E9E9E",
     borderLight: "#E0E0E0",
-    borderDark: "#333333",
+    borderDark: "var(--border-color)333",
   },
 };
 
