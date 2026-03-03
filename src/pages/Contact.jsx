@@ -41,11 +41,7 @@ const ContactPage = () => {
   const [copied, setCopied] = useState(false);
   const [formStatus, setFormStatus] = useState("idle"); // idle, sending, success, error
   const [pingCount, setPingCount] = useState(0);
-  const [analysis, setAnalysis] = useState({
-    intent: "WAITING_FOR_DATA",
-    entropy: 0.12,
-    payload: "0B",
-  });
+  const [aiMessage, setAiMessage] = useState("System idling. Awaiting human input...");
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for Navbar menu
 
   const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
@@ -110,25 +106,29 @@ const ContactPage = () => {
     // Trigger AI Interaction
     setPingCount((prev) => prev + 1);
 
-    // Simulated Intent Analysis
-    if (name === "message") {
-      let detectedIntent = "NEUTRAL";
-      if (
-        value.toLowerCase().includes("hire") ||
-        value.toLowerCase().includes("project")
-      )
-        detectedIntent = "HIGH_PRIORITY_OP";
-      if (
-        value.toLowerCase().includes("hello") ||
-        value.toLowerCase().includes("hi")
-      )
-        detectedIntent = "HANDSHAKE_GREETING";
+    // Tangible AI Interaction Simulation
+    const currentName = name === "name" ? value : formData.name;
+    const currentMessage = name === "message" ? value : formData.message;
 
-      setAnalysis({
-        intent: value.length > 5 ? detectedIntent : "BUFFERING...",
-        entropy: (Math.random() * 0.5 + 0.1).toFixed(2),
-        payload: `${Math.round(value.length * 1.5)}B`,
-      });
+    if (name === "name" && value.length > 2) {
+      setAiMessage(`Operator identified as ${value}. Ready for protocol handshake.`);
+    } else if (name === "email" && value.includes("@")) {
+      setAiMessage(`Establishing secure return channel to ${value}.`);
+    }
+
+    if (name === "message" || (currentMessage.length > 5 && name !== "message")) {
+      const lower = currentMessage.toLowerCase();
+      if (lower.includes("hire") || lower.includes("job") || lower.includes("project") || lower.includes("freelance") || lower.includes("work")) {
+        setAiMessage(`I see ${currentName ? currentName : 'you'} are discussing a new project or role. Fadly prioritizes high-impact opportunities. I'll make sure this gets flagged as high priority.`);
+      } else if (lower.includes("coffee") || lower.includes("chat") || lower.includes("hello") || lower.includes("hi")) {
+        setAiMessage(`A casual transmission. Fadly is always open to connecting with fellow humans. I'll prepare the handshake.`);
+      } else if (currentMessage.length > 20) {
+        setAiMessage(`Analyzing transmission packet... Content looks substantial. Ready to dispatch to Fadly's terminal.`);
+      } else {
+        setAiMessage(`Drafting transmission... Keep typing.`);
+      }
+    } else if (value.length === 0) {
+      setAiMessage("System idling. Awaiting human input...");
     }
   };
 
@@ -361,13 +361,12 @@ const ContactPage = () => {
             <button
               type="submit"
               disabled={formStatus === "sending" || formStatus === "success"}
-              className={`w-full py-4 font-mono text-sm uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 ${
-                formStatus === "success"
+              className={`w-full py-4 font-mono text-sm uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 ${formStatus === "success"
                   ? "bg-[var(--accent-green)] text-black border-transparent"
                   : formStatus === "error"
                     ? "bg-red-500 text-white"
                     : "bg-[var(--text-primary)] text-[var(--bg-void)] hover:opacity-90"
-              }`}
+                }`}
             >
               {formStatus === "idle" && (
                 <>
@@ -407,31 +406,34 @@ const ContactPage = () => {
             )}
           </form>
 
-          {/* NEURAL ANALYZER OVERLAY */}
+          {/* TANGIBLE AI ASSISTANT OVERLAY */}
           <div className="mt-8 pt-8 border-t border-[var(--border-color)]">
-            <div className="flex items-center gap-2 mb-4 opacity-50">
-              <Activity size={14} />
+            <div className="flex items-center gap-2 mb-4 text-[var(--text-secondary)]">
+              <Terminal size={14} />
               <span className="text-[10px] font-mono tracking-widest uppercase">
-                Neural_Packet_Analysis
+                System_Proxy
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-4 font-mono text-[10px]">
-              <div className="p-3 bg-[var(--bg-void)] border border-[var(--border-color)] space-y-1">
-                <div className="opacity-40 uppercase">INTENT_CLASS</div>
-                <div className="text-[var(--accent-blue)] truncate">
-                  {analysis.intent}
+
+            <motion.div
+              key={aiMessage}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-[var(--bg-void)] border border-[var(--border-color)] p-4 rounded-sm relative"
+            >
+              <div className="absolute top-0 left-0 w-1 h-full bg-[var(--accent-blue)]"></div>
+
+              <div className="font-mono text-xs text-[var(--text-primary)] leading-relaxed">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-pulse"></div>
+                  <span className="text-[var(--accent-blue)] opacity-80 text-[10px] uppercase">AI Assistant Proxy</span>
                 </div>
+                <p className="min-h-[40px] text-[var(--text-secondary)]">{aiMessage}</p>
               </div>
-              <div className="p-3 bg-[var(--bg-void)] border border-[var(--border-color)] space-y-1">
-                <div className="opacity-40 uppercase">DATA_ENTROPY</div>
-                <div className="text-[var(--accent-amber)]">
-                  {analysis.entropy}
-                </div>
-              </div>
-            </div>
+            </motion.div>
 
             {/* Handshake Progress */}
-            <div className="mt-4 space-y-1.5">
+            <div className="mt-6 space-y-1.5">
               <div className="flex justify-between text-[9px] uppercase tracking-tighter opacity-40">
                 <span>Protocol_Handshake</span>
                 <span>
@@ -439,7 +441,7 @@ const ContactPage = () => {
                     (Object.values(formData).filter((v) => v.length > 0)
                       .length /
                       3) *
-                      100,
+                    100,
                   )}
                   %
                 </span>
