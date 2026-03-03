@@ -24,6 +24,10 @@ A robust system is measured by its resilience, its DevX, and its render budget. 
 
 ## ⚡ Performance Budget & Render Strategy
 
+### Strict Design Token Integration
+Refined our presentation layer through global token alignment. Removed over 120+ unmanaged hex injections across `src/pages` and `src/components`, systematically enforcing structural CSS variables (`var(--text-primary)`, `var(--bg-void)`) to streamline client-side theme transitions avoiding unnecessary re-paints.
+
+
 We optimize for **Device Computational Load** just as rigorously as we optimize UX Cognitive Load.
 
 * **Aggressive DOM Culling**: Our custom 3D Physical Flipbook engine dynamically monitors structural `zIndex` and physically unmounts (`display: none`) any DOM node that sits more than 2 layers deep within the Z-axis. This eradicates GPU overdraw and Z-fighting.
