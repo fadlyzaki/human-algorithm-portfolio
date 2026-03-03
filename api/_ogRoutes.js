@@ -8,7 +8,7 @@
  * a different purpose (social sharing vs. page content).
  */
 
-import { NOTES } from '../src/data/notes.js';
+import { EXPERIMENTS } from '../src/data/experiments.js';
 import { stoqo } from '../src/data/projects/stoqo.js';
 import { gudangAda } from '../src/data/projects/gudangAda.js';
 import { lumina } from '../src/data/projects/lumina.js';
