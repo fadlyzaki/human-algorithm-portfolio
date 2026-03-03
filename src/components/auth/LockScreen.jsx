@@ -40,10 +40,16 @@ const LockScreen = ({ project, parentCluster, onSuccess }) => {
   // --- HANDLER: UNLOCK ---
   const handleUnlock = (e) => {
     e.preventDefault();
-    // Use Vite env variable for simple client-side check
-    if (
-      password.trim().toLowerCase() === import.meta.env.VITE_PROTECTED_PASSWORD
-    ) {
+    // Use Vite env variables for secure client-side checks
+    const cleanPassword = password.trim().toLowerCase();
+
+    // Check against both primary and alternate env passwords
+    const isPrimaryMatch = cleanPassword === import.meta.env.VITE_PROTECTED_PASSWORD;
+    const isAltMatch = import.meta.env.VITE_PROTECTED_PASSWORD_ALT
+      ? cleanPassword === import.meta.env.VITE_PROTECTED_PASSWORD_ALT
+      : false;
+
+    if (isPrimaryMatch || isAltMatch) {
       setDecrypting(true);
       setError(false);
 
@@ -140,11 +146,10 @@ const LockScreen = ({ project, parentCluster, onSuccess }) => {
                       key={mode}
                       onClick={() => setActiveSummary(mode)}
                       className={`flex-1 py-3 px-1 text-[9px] sm:text-[10px] md:text-xs uppercase tracking-tight sm:tracking-widest font-mono transition-colors
-                          ${
-                            activeSummary === mode
-                              ? "bg-[var(--bg-card)] text-[var(--brand)] font-bold border-b-2 border-b-[var(--brand)]"
-                              : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]"
-                          }`}
+                          ${activeSummary === mode
+                          ? "bg-[var(--bg-card)] text-[var(--brand)] font-bold border-b-2 border-b-[var(--brand)]"
+                          : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]"
+                        }`}
                     >
                       {caseData.summaries[mode].label}
                     </button>
