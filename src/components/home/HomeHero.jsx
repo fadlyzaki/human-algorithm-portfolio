@@ -102,6 +102,10 @@ const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
                   start={startTyping}
                 />
               </p>
+              <div className="mt-4 font-mono text-[10px] uppercase tracking-widest opacity-30 flex items-center gap-2">
+                <div className="w-1 h-1 rounded-full bg-[var(--accent-blue)] animate-pulse" />
+                AI-Human Hybrid Environment // Kernel 2026.03
+              </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -140,6 +144,13 @@ const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
                 key={i}
                 className="flex items-center gap-12 text-xs font-mono text-[var(--text-secondary)] uppercase tracking-widest px-6"
               >
+                <span className="flex items-center gap-2 text-[var(--accent-blue)] font-bold">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-blue)] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-blue)]"></span>
+                  </span>
+                  [NEURAL_ENGINE]: OPTIMIZING
+                </span>
                 <span className="flex items-center gap-3">
                   <MapPin size={14} className="text-[var(--accent-red)]" />
                   {t("home.status_location")}

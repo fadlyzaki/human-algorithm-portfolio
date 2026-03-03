@@ -54,11 +54,10 @@ const FooterTooltipLink = ({
                 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900
                 shadow-xl shadow-black/25 dark:shadow-black/10
                 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] pointer-events-none z-50
-                ${
-                  show
-                    ? "opacity-100 -translate-x-1/2 translate-y-0 scale-100"
-                    : "opacity-0 -translate-x-1/2 translate-y-3 scale-90"
-                }`}
+                ${show
+          ? "opacity-100 -translate-x-1/2 translate-y-0 scale-100"
+          : "opacity-0 -translate-x-1/2 translate-y-3 scale-90"
+        }`}
     >
       {Icon && (
         <span className="flex items-center justify-center w-5 h-5 rounded-full bg-white/15 dark:bg-zinc-900/15 shrink-0">
@@ -266,9 +265,16 @@ const Footer = () => {
             © {year} Fadly Uzzaki.{" "}
             <span className="opacity-50">{t("footer.rights")}</span>
           </div>
-          <div className="mt-4 md:mt-0 flex items-center gap-2">
-            Human-Algorithm <Heart size={10} className="fill-current" />{" "}
-            {SYSTEM_CONFIG.VERSION}
+          <div className="mt-4 md:mt-0 flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-pulse" />
+              Neural-Enhanced Environment
+            </div>
+            <div className="opacity-30">|</div>
+            <div className="flex items-center gap-2">
+              Human-Algorithm <Heart size={10} className="fill-current text-red-500" />{" "}
+              {SYSTEM_CONFIG.VERSION}
+            </div>
           </div>
         </div>
       </div>

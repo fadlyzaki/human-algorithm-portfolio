@@ -19,27 +19,33 @@ export const useProjectData = (id) => {
     // We're iterating over nested arrays to flatten the structure,
     // which could be optimized in the future if the catalog grows significantly.
     let foundProject = null;
+    let foundParent = null;
 
     for (const cat of PORTFOLIO.categories) {
       for (const item of cat.items) {
         if (item.id === projectId) {
           foundProject = item;
+          foundParent = item; // self-parent for direct items
           break;
         }
-        // Handle nested structures
-        if (item.gridItems) {
-          for (const gridItem of item.gridItems) {
-            if (gridItem.id === projectId) {
-              foundProject = gridItem;
+
+        // Handle work cluster projects
+        if (item.projects) {
+          for (const subProject of item.projects) {
+            if (subProject.id === projectId) {
+              foundProject = subProject;
+              foundParent = item;
               break;
             }
           }
         }
-        // Sub-items
-        if (item.subItems) {
-          for (const subItem of item.subItems) {
-            if (subItem.id === projectId) {
-              foundProject = subItem;
+
+        // Handle nested structures like gridItems or subItems if they exist
+        if (!foundProject && item.gridItems) {
+          for (const gridItem of item.gridItems) {
+            if (gridItem.id === projectId) {
+              foundProject = gridItem;
+              foundParent = item;
               break;
             }
           }
@@ -51,11 +57,17 @@ export const useProjectData = (id) => {
     if (foundProject) {
       return {
         project: foundProject,
+        parentCluster: foundParent,
         loading: false,
       };
     }
 
-    return { project: null, error: "Project not found", loading: false };
+    return {
+      project: null,
+      parentCluster: null,
+      error: "Project not found",
+      loading: false,
+    };
   }, [id]);
 
   return data;

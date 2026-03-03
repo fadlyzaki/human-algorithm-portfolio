@@ -41,7 +41,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
     isId && project.caseStudy_id ? project.caseStudy_id : rawCaseData;
 
   const themeStyles = {
-    "--brand": parentCluster.brandColor || "var(--accent-amber)",
+    "--brand": parentCluster?.brandColor || "var(--accent-amber)",
   };
 
   return (
@@ -164,6 +164,36 @@ const CaseStudyContent = ({ project, parentCluster }) => {
               </div>
             </div>
           </div>
+
+          {/* NEURAL SUMMARY: AI-Generated TL;DR */}
+          <div className="mt-16 w-full max-w-4xl mx-auto">
+            <div className="bg-[var(--brand)]/5 border border-[var(--brand)]/20 rounded-2xl p-6 md:p-8 text-left relative overflow-hidden group hover:border-[var(--brand)]/40 transition-all">
+              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Activity size={48} className="text-[var(--brand)]" />
+              </div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-[var(--brand)]/20 flex items-center justify-center text-[var(--brand)]">
+                  <ScanEye size={18} />
+                </div>
+                <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--brand)] font-bold">
+                  Neural_Summary // AI_TL;DR
+                </span>
+              </div>
+              <p className="text-lg md:text-xl font-serif italic text-[var(--text-primary)] leading-relaxed">
+                {caseData.neuralSummary ||
+                  caseData.summaries?.recruiter?.text ||
+                  caseData.summaries?.eli5?.text ||
+                  "Neural engine synthesizing project core... This project demonstrates the intersection of complex systems logic and human-centered resilience."}
+              </p>
+              <div className="mt-4 flex items-center gap-4 text-[10px] font-mono uppercase tracking-widest opacity-40">
+                <span className="flex items-center gap-1">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] animate-pulse" />
+                  Confidence: 98.4%
+                </span>
+                <span>Ver: 4.2.0-stable</span>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* 2. CONTEXT STRIP */}
@@ -280,7 +310,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                         {/* Visual Evidence Area */}
                         <div className="relative bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)] overflow-hidden">
                           {localStep.image &&
-                          localStep.image.startsWith("airy:") ? (
+                            localStep.image.startsWith("airy:") ? (
                             <div className="w-full h-[250px] md:h-[350px] bg-[var(--bg-surface)] p-6 flex items-center justify-center">
                               <div className="w-full h-full max-w-lg mx-auto">
                                 <AiryDiagram
@@ -673,7 +703,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
           </p>
         </footer>
       </main>
-    </div>
+    </div >
   );
 };
 

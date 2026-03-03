@@ -34,7 +34,7 @@ const WorkBento = ({ cluster, priority = false }) => {
 
   return (
     <div
-      onClick={() => navigate(`/work/${cluster.id}`)}
+      onClick={() => navigate(`/case-study/${cluster.id}`)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="group relative flex flex-col h-[480px] border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
@@ -121,8 +121,8 @@ const WorkBento = ({ cluster, priority = false }) => {
           className={`relative transform transition-transform duration-700 ${cluster.heroImage && cluster.heroImage.startsWith("/") && !imgError ? "w-[200px] mx-auto" : "w-full max-w-[90%] group-hover:scale-105 origin-bottom"}`}
         >
           {cluster.heroImage &&
-          cluster.heroImage.startsWith("/") &&
-          !imgError ? (
+            cluster.heroImage.startsWith("/") &&
+            !imgError ? (
             <div className="relative rounded-t-[28px] overflow-hidden shadow-[0_12px_50px_-12px_rgba(0,0,0,0.5)] border-t-[6px] border-x-[6px] border-white/20 dark:border-white/10 bg-white dark:bg-neutral-800 aspect-[9/14] flex flex-col">
               {/* Device Header/Notch Area - Protects mockup headers from card rounding */}
               <div className="h-7 w-full flex items-center justify-center shrink-0 bg-white dark:bg-neutral-800 relative z-20">
