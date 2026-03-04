@@ -178,6 +178,13 @@ const Footer = () => {
             >
               Design System
             </FooterTooltipLink>
+            <FooterTooltipLink
+              to="/thoughts"
+              icon={Briefcase}
+              tooltip="Essays & reflections"
+            >
+              Thoughts
+            </FooterTooltipLink>
             <FooterTooltipLink to="/contact" icon={Mail} tooltip="Let's talk">
               {t("nav.contact")}
             </FooterTooltipLink>

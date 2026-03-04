@@ -61,6 +61,11 @@ const STATIC_ROUTES = {
         title: 'Side Projects',
         description: "Experiments, concepts, and passion projects outside the 9-to-5.",
         color: '#8B5CF6'
+    },
+    '/thoughts': {
+        title: 'Unprovoked Thoughts',
+        description: "Essays, reflections, and unsolicited opinions on design, technology, and the spaces between.",
+        color: '#F59E0B'
     }
 };
 
@@ -171,6 +176,15 @@ export function resolveOGMeta(pathname) {
             title: segments[1].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
             description: 'A design note by Fadly Uzzaki.',
             color: '#8B5CF6',
+            path
+        };
+    }
+
+    if (segments[0] === 'thoughts' && segments[1]) {
+        return {
+            title: segments[1].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+            description: 'An unprovoked thought by Fadly Uzzaki — essays on design, technology, and the spaces between.',
+            color: '#F59E0B',
             path
         };
     }

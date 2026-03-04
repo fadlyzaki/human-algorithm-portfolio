@@ -14,6 +14,8 @@ const SideProjectDetail = React.lazy(() => import("./pages/SideProjectDetail"));
 const SideProjectsIndex = React.lazy(() => import("./pages/SideProjectsIndex"));
 const CompanyDetail = React.lazy(() => import("./pages/CompanyDetail"));
 const BlogPost = React.lazy(() => import("./pages/BlogPost"));
+const UnprovokedThoughtsIndex = React.lazy(() => import("./pages/UnprovokedThoughtsIndex"));
+const UnprovokedThoughtDetail = React.lazy(() => import("./pages/UnprovokedThoughtDetail"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 // Removed DesignProcess import
 const DesignSystem = React.lazy(() => import("./pages/DesignSystem"));
@@ -60,6 +62,10 @@ function App() {
             {/* Detail Pages */}
             <Route path="/side-project/:id" element={<SideProjectDetail />} />
             <Route path="/blog/:id" element={<BlogPost />} />
+
+            {/* Unprovoked Thoughts (MDX CMS) */}
+            <Route path="/thoughts" element={<UnprovokedThoughtsIndex />} />
+            <Route path="/thoughts/:slug" element={<UnprovokedThoughtDetail />} />
 
             {/* 404 Catch-All */}
             <Route path="*" element={<NotFound />} />

@@ -1,4 +1,4 @@
-import { FileText, Mail } from "lucide-react";
+import { FileText, Mail, BookOpen } from "lucide-react";
 
 export const getNavLinks = (t) => [
   { label: t("nav.home"), href: "/" },
@@ -6,6 +6,7 @@ export const getNavLinks = (t) => [
   { label: t("nav.work"), href: "#work" },
   { label: t("nav.side_projects"), href: "/side-projects" },
   { label: "PROJECTS", href: "#side-projects" },
+  { label: "THOUGHTS", href: "/thoughts" },
 ];
 
 export const getMetaLinks = (t) => [
