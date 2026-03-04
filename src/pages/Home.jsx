@@ -142,7 +142,7 @@ const Portfolio = () => {
         />
 
         {/* Main Container */}
-        <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-24 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-backdrop)] backdrop-blur-sm transition-colors duration-500 overflow-x-hidden">
+        <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-24 border-x border-[var(--border-color)] min-h-screen bg-white/85 dark:bg-black/85 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
           <div className="fade-in pt-12">
             {/* HERO & TICKER */}
             <HomeHero

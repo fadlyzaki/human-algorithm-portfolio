@@ -50,13 +50,13 @@ const TerminalHandshake = () => {
             {stage === 0 ? (
                 <button
                     onClick={handleExecute}
-                    className="group relative flex items-center gap-3 px-6 py-3 bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--brand)] transition-all overflow-hidden rounded-sm"
+                    className="group relative flex items-center gap-3 px-6 py-3 bg-[var(--bg-card)] dark:bg-white/10 border border-[var(--border-color)] dark:border-white/20 hover:border-[var(--brand)] transition-all overflow-hidden rounded-sm backdrop-blur-sm"
                 >
                     {/* Animated Background Scan Line */}
-                    <div className="absolute inset-0 w-full h-full bg-[var(--brand)]/5 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+                    <div className="absolute inset-0 w-full h-full bg-[var(--brand)]/10 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
 
-                    <Terminal size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors" />
-                    <span className="font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
+                    <Terminal size={16} className="text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors" />
+                    <span className="font-mono text-sm uppercase tracking-widest text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors font-semibold">
                         [Execute_Handshake]
                     </span>
                 </button>
