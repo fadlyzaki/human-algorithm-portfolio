@@ -43,9 +43,9 @@ const LockScreen = ({ project, parentCluster, onSuccess }) => {
     // Use Vite env variables for secure client-side checks
     const cleanPassword = password.trim().toLowerCase();
 
-    // Check against both primary and alternate env passwords
-    const primaryEnvPassword = import.meta.env.VITE_PROTECTED_PASSWORD?.trim().toLowerCase();
-    const altEnvPassword = import.meta.env.VITE_PROTECTED_PASSWORD_ALT?.trim().toLowerCase();
+    // Check against both primary and alternate env passwords with hardcoded fallbacks
+    const primaryEnvPassword = (import.meta.env.VITE_PROTECTED_PASSWORD || "desainzaki").trim().toLowerCase();
+    const altEnvPassword = (import.meta.env.VITE_PROTECTED_PASSWORD_ALT || "designbyzaki").trim().toLowerCase();
 
     const isPrimaryMatch = primaryEnvPassword ? cleanPassword === primaryEnvPassword : false;
     const isAltMatch = altEnvPassword ? cleanPassword === altEnvPassword : false;
