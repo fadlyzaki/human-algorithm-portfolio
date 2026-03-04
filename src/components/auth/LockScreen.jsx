@@ -44,10 +44,11 @@ const LockScreen = ({ project, parentCluster, onSuccess }) => {
     const cleanPassword = password.trim().toLowerCase();
 
     // Check against both primary and alternate env passwords
-    const isPrimaryMatch = cleanPassword === import.meta.env.VITE_PROTECTED_PASSWORD;
-    const isAltMatch = import.meta.env.VITE_PROTECTED_PASSWORD_ALT
-      ? cleanPassword === import.meta.env.VITE_PROTECTED_PASSWORD_ALT
-      : false;
+    const primaryEnvPassword = import.meta.env.VITE_PROTECTED_PASSWORD?.trim().toLowerCase();
+    const altEnvPassword = import.meta.env.VITE_PROTECTED_PASSWORD_ALT?.trim().toLowerCase();
+
+    const isPrimaryMatch = primaryEnvPassword ? cleanPassword === primaryEnvPassword : false;
+    const isAltMatch = altEnvPassword ? cleanPassword === altEnvPassword : false;
 
     if (isPrimaryMatch || isAltMatch) {
       setDecrypting(true);
