@@ -58,7 +58,7 @@ const FaqSection = () => {
   return (
     <section
       id="faqs"
-      className="mb-24 scroll-mt-24"
+      className="mb-12 scroll-mt-24"
     >
       <ScrollReveal>
         <SectionTitle number="4" title="FAQS" />

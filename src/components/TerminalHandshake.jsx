@@ -72,17 +72,17 @@ const TerminalHandshake = () => {
                     </div>
 
                     {stage === 3 && (
-                        <div className="flex items-center justify-between gap-4 mt-2 px-4 py-3 bg-[var(--bg-card)] border border-green-500/30 rounded-sm overflow-hidden relative">
-                            <div className="absolute inset-0 bg-green-500/5 pointer-events-none data-noise" />
-                            <span className="font-mono text-sm tracking-widest text-white relative z-10 selection:bg-green-500/30">
+                        <div className="flex items-center justify-between gap-4 mt-2 px-4 py-3 bg-[var(--bg-void)] border border-green-500/50 rounded-sm overflow-hidden relative shadow-inner">
+                            <div className="absolute inset-0 bg-green-500/10 pointer-events-none data-noise" />
+                            <span className="font-mono text-sm tracking-widest text-[var(--text-primary)] relative z-10 selection:bg-green-500/30 font-bold">
                                 {email}
                             </span>
                             <button
                                 onClick={handleCopy}
-                                className="relative z-10 p-1.5 hover:bg-white/10 rounded transition-colors"
+                                className="relative z-10 p-1.5 hover:bg-white/10 dark:hover:bg-zinc-800 rounded transition-colors"
                                 title="Copy to clipboard"
                             >
-                                {copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} className="text-[var(--text-secondary)] hover:text-white" />}
+                                {copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]" />}
                             </button>
                         </div>
                     )}

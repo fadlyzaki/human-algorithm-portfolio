@@ -302,5 +302,5 @@ STATUS: ACTIVE
 
 ---
 
-*Last updated: February 19, 2026*
-*Version: 3.0 (Kill-Switch & Achievements Update)*
+*Last updated: March 4, 2026*
+*Version: 3.1 (Token Audit Cycle)*
