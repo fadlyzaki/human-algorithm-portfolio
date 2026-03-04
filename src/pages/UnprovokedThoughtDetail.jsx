@@ -229,10 +229,10 @@ const UnprovokedThoughtDetail = () => {
 
                     <button
                         onClick={handleShare}
-                        className="flex items-center gap-2 px-6 py-3 border border-[var(--border-color)] hover:border-[var(--accent-amber)] text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors font-mono text-xs uppercase tracking-widest group"
+                        className="flex items-center justify-center gap-3 px-8 py-4 bg-[var(--accent-amber)] hover:bg-[var(--accent-amber)]/90 text-black rounded-lg transition-all duration-300 font-mono text-sm uppercase tracking-widest font-bold shadow-lg shadow-[var(--accent-amber)]/20 hover:shadow-[var(--accent-amber)]/40 hover:-translate-y-1 group w-full md:w-auto"
                     >
                         <Share2
-                            size={14}
+                            size={18}
                             className="group-hover:rotate-12 transition-transform"
                         />
                         <span>Share Protocol</span>

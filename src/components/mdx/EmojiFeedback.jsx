@@ -8,20 +8,27 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const REACTIONS = [
-    { emoji: '🔥', label: 'Fire', description: 'This is fire' },
-    { emoji: '💡', label: 'Insight', description: 'Great insight' },
-    { emoji: '🤔', label: 'Thinking', description: 'Made me think' },
-    { emoji: '💯', label: 'Perfect', description: 'Perfectly said' },
-    { emoji: '🫡', label: 'Respect', description: 'Respect' },
+    { emoji: '🔥', label: 'Fire', description: 'This is fire', count: 124 },
+    { emoji: '💡', label: 'Insight', description: 'Great insight', count: 89 },
+    { emoji: '🤔', label: 'Thinking', description: 'Made me think', count: 56 },
+    { emoji: '💯', label: 'Perfect', description: 'Perfectly said', count: 210 },
+    { emoji: '🫡', label: 'Respect', description: 'Respect', count: 15 },
 ];
 
 const EmojiFeedback = () => {
     const [selected, setSelected] = useState(null);
     const [hasReacted, setHasReacted] = useState(false);
+    const [counts, setCounts] = useState(
+        REACTIONS.reduce((acc, r) => ({ ...acc, [r.label]: r.count }), {})
+    );
 
     const handleSelect = (reaction) => {
         setSelected(reaction);
         setHasReacted(true);
+        setCounts(prev => ({
+            ...prev,
+            [reaction.label]: prev[reaction.label] + 1
+        }));
     };
 
     return (
@@ -63,10 +70,15 @@ const EmojiFeedback = () => {
                             <span className={`text-2xl transition-transform duration-200 ${isSelected ? 'scale-110' : ''}`}>
                                 {reaction.emoji}
                             </span>
-                            <span className={`font-mono text-[9px] uppercase tracking-widest ${isSelected ? 'text-[var(--accent-amber)]' : 'text-[var(--text-secondary)]'
-                                }`}>
-                                {reaction.label}
-                            </span>
+                            <div className="flex items-center gap-1.5 mt-1">
+                                <span className={`font-mono text-[9px] uppercase tracking-widest ${isSelected ? 'text-[var(--accent-amber)]' : 'text-[var(--text-secondary)]'
+                                    }`}>
+                                    {reaction.label}
+                                </span>
+                                <span className="text-[10px] font-mono text-[var(--text-secondary)] bg-[var(--bg-void)] px-1.5 py-0.5 rounded-sm opacity-80">
+                                    {counts[reaction.label]}
+                                </span>
+                            </div>
 
                             {/* Selection ring */}
                             {isSelected && (
