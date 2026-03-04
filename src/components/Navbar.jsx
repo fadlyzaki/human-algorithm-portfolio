@@ -106,12 +106,12 @@ const Navbar = ({
       >
         <div className="bg-[var(--bg-surface)]/80 backdrop-blur-md border-b border-[var(--border-color)] px-6 py-3 flex justify-between items-center shadow-sm">
           {/* LEFT: IDENTITY or BACK BUTTON */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 sm:gap-6 z-10 relative">
             {title ? (
               <BackButton
                 to={backPath}
                 label="Back"
-                className="hover:bg-[var(--text-secondary)]/10 px-3 py-1.5 rounded-md !text-[var(--text-secondary)] hover:!text-[var(--text-primary)] transition-colors border-r border-[var(--border-color)] pr-6"
+                className="hover:bg-[var(--text-secondary)]/10 px-2 sm:px-3 py-1.5 rounded-md !text-[var(--text-secondary)] hover:!text-[var(--text-primary)] transition-colors sm:border-r border-[var(--border-color)] pr-2 sm:pr-6"
               />
             ) : (
               <div className="flex items-center gap-6">
@@ -142,9 +142,9 @@ const Navbar = ({
           </div>
 
           {/* CENTER: PROCESS LINKS (Home) or TITLE (Subpage) */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap hidden min-[350px]:block">
             {title ? (
-              <h1 className="font-mono text-sm uppercase tracking-widest text-[var(--text-primary)] font-bold">
+              <h1 className="font-mono text-[10px] sm:text-sm uppercase tracking-widest text-[var(--text-primary)] font-bold">
                 {title}
               </h1>
             ) : (
@@ -158,7 +158,7 @@ const Navbar = ({
           </div>
 
           {/* RIGHT: UTILITIES & CLOCK */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 z-10 relative">
             {/* Live Clock */}
             <div className="hidden lg:flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] border-r border-[var(--border-color)] pr-4 mr-1">
               <Clock size={12} className="opacity-70" />

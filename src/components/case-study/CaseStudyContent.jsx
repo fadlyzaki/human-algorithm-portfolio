@@ -167,19 +167,19 @@ const CaseStudyContent = ({ project, parentCluster }) => {
 
           {/* NEURAL SUMMARY: AI-Generated TL;DR */}
           <div className="mt-16 w-full max-w-4xl mx-auto">
-            <div className="bg-[var(--brand)]/5 border border-[var(--brand)]/20 rounded-2xl p-6 md:p-8 text-left relative overflow-hidden group hover:border-[var(--brand)]/40 transition-all">
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+            <div className="bg-white dark:bg-[#111] border border-[var(--brand)]/30 rounded-2xl p-6 md:p-8 text-left relative overflow-hidden group hover:border-[var(--brand)]/60 transition-all shadow-xl dark:shadow-[0_0_30px_-10px_rgba(0,0,0,0.5)]">
+              <div className="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-10 transition-opacity">
                 <Activity size={48} className="text-[var(--brand)]" />
               </div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-[var(--brand)]/20 flex items-center justify-center text-[var(--brand)]">
+                <div className="w-8 h-8 rounded-lg bg-[var(--brand)]/10 flex items-center justify-center text-[var(--brand)] border border-[var(--brand)]/20">
                   <ScanEye size={18} />
                 </div>
                 <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--brand)] font-bold">
                   Neural_Summary // AI_TL;DR
                 </span>
               </div>
-              <p className="text-lg md:text-xl font-serif italic text-[var(--text-primary)] leading-relaxed">
+              <p className="text-lg md:text-xl font-serif italic text-black dark:text-gray-200 leading-relaxed relative z-10">
                 {caseData.neuralSummary ||
                   caseData.summaries?.recruiter?.text ||
                   caseData.summaries?.eli5?.text ||

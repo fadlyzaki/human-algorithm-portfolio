@@ -92,10 +92,10 @@ const DesignSystemViewer = () => {
               ))}
             </div>
 
-            <div className="pt-8 border-t border-[var(--border-color)]">
+            <div className="pt-8 pb-4 border-t border-[var(--border-color)]">
               <button
                 onClick={() => setIsXRayMode(!isXRayMode)}
-                className={`w-full flex items-center justify-center gap-2 px-4 py-3 font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "bg-[var(--bg-void)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
+                className={`w-full flex items-center justify-center gap-2 px-4 py-4 md:py-3 font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "bg-[var(--bg-void)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
               >
                 <Eye size={12} className={isXRayMode ? "animate-pulse" : ""} />
                 {isXRayMode ? "X-Ray Active" : "Enable X-Ray"}
@@ -113,9 +113,11 @@ const DesignSystemViewer = () => {
             </div>
 
             <div className="space-y-6 relative z-10">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-[var(--accent)] font-mono text-[10px] uppercase tracking-widest font-bold backdrop-blur-md">
-                <div className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
-                <span>System_Diagnostic_Mode_active</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] backdrop-blur-md">
+                <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-green)] animate-pulse" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+                  System_Diagnostic_Mode_active
+                </span>
               </div>
               <div>
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-[var(--text-primary)] mb-8">
@@ -331,14 +333,14 @@ const ColorCard = ({ name, token, hex }) => (
           style={{ backgroundColor: `var(${token})` }}
         ></div>
       </div>
-      <div className="space-y-1.5 border-t border-[var(--border-color)] pt-2">
-        <div className="flex justify-between font-mono text-[9px] text-[var(--text-secondary)]">
-          <span className="opacity-40">TOKEN</span>
-          <span className="bg-[var(--bg-surface)] px-1 rounded">{token}</span>
+      <div className="space-y-2 border-t border-[var(--border-color)] pt-3">
+        <div className="flex justify-between font-mono text-[9px] text-[var(--text-secondary)] items-center">
+          <span className="opacity-40 mr-3 whitespace-nowrap">TOKEN</span>
+          <span className="bg-[var(--bg-surface)] px-1.5 py-0.5 rounded truncate max-w-[120px] md:max-w-full" title={token}>{token}</span>
         </div>
-        <div className="flex justify-between font-mono text-[9px] text-[var(--text-secondary)]">
-          <span className="opacity-40">HEX</span>
-          <span className="select-all hover:text-[var(--text-primary)] cursor-text">
+        <div className="flex justify-between font-mono text-[9px] text-[var(--text-secondary)] items-center mt-1.5">
+          <span className="opacity-40 mr-3 whitespace-nowrap">HEX</span>
+          <span className="select-all hover:text-[var(--text-primary)] cursor-text truncate max-w-[120px] md:max-w-full text-right" title={hex}>
             {hex}
           </span>
         </div>
@@ -503,7 +505,7 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
         </div>
         <button
           onClick={() => setIsXRayMode(!isXRayMode)}
-          className={`flex items-center gap-2 px-4 py-3 font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "bg-[var(--bg-void)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
+          className={`flex items-center gap-2 px-4 py-4 md:py-3 font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "bg-[var(--bg-void)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
         >
           <Eye size={12} className={isXRayMode ? "animate-pulse" : ""} />
           {isXRayMode ? "X-Ray Active" : "Enable X-Ray"}
@@ -1866,11 +1868,10 @@ const AuditReport = ({ isXRayMode }) => (
             </div>
             <div className="col-span-2 text-center">
               <span
-                className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[9px] uppercase tracking-wider ${
-                  item.severity === "error"
-                    ? "bg-[var(--accent-red)]/10 text-[var(--accent-red)] border border-[var(--accent-red)]/20"
-                    : "bg-[var(--accent-amber)]/10 text-[var(--accent-amber)] border border-[var(--accent-amber)]/20"
-                }`}
+                className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[9px] uppercase tracking-wider ${item.severity === "error"
+                  ? "bg-[var(--accent-red)]/10 text-[var(--accent-red)] border border-[var(--accent-red)]/20"
+                  : "bg-[var(--accent-amber)]/10 text-[var(--accent-amber)] border border-[var(--accent-amber)]/20"
+                  }`}
               >
                 {item.severity === "error" ? (
                   <AlertTriangle size={8} />
