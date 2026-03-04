@@ -15,6 +15,7 @@ const BrutalistDetail = ({
   activeTitle,
   activeTldr,
   activeSnapshot,
+  t,
 }) => {
   // Aesthetic: Neo-Brutalism, High Contrast, Stark Grids, Thick Borders, #FF3B30 Red Actions
 
@@ -41,11 +42,11 @@ const BrutalistDetail = ({
 
           <div className="mt-16 pt-8 border-t-4 border-[var(--text-primary)] flex flex-wrap gap-8 items-center text-sm font-black uppercase">
             <div>
-              <span className="opacity-50 block mb-1">Timeline</span>
+              <span className="opacity-50 block mb-1">{t("project_layouts.timeline")}</span>
               {activeContext.timeline}
             </div>
             <div>
-              <span className="opacity-50 block mb-1">Role</span>
+              <span className="opacity-50 block mb-1">{t("project_layouts.role")}</span>
               {activeContext.role}
             </div>
             <div className="flex-1"></div>
@@ -54,7 +55,7 @@ const BrutalistDetail = ({
                 href={project.links.demo}
                 className="flex items-center gap-2 bg-[#FF3B30] text-white px-8 py-4 hover:-translate-y-1 hover:translate-x-1 hover:shadow-[-8px_8px_0_0_black] dark:hover:shadow-[-8px_8px_0_0_white] transition-transform"
               >
-                READ_RESEARCH_PAPER <ArrowUpRight />
+                {t("project_layouts.read_research_paper")} <ArrowUpRight />
               </a>
             )}
           </div>
@@ -66,7 +67,7 @@ const BrutalistDetail = ({
           <article className="mb-32 grid md:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-6xl font-black uppercase tracking-tighter mb-8 italic">
-                The Problem.
+                {t("project_layouts.the_problem")}
               </h2>
               <p className="text-xl md:text-2xl font-bold leading-tight bg-[#FF3B30] text-white p-8 border-4 border-[var(--text-primary)]">
                 {activeChallenge}
@@ -91,7 +92,7 @@ const BrutalistDetail = ({
           {activeProcess && (
             <div className="mb-32">
               <h2 className="text-6xl font-black uppercase tracking-tighter mb-16 border-b-8 border-[var(--text-primary)] pb-4 inline-block">
-                Methodology.
+                {t("project_layouts.methodology")}
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 {activeProcess.map((step, idx) => (
@@ -134,7 +135,7 @@ const BrutalistDetail = ({
           {(project.prototypeLink || InteractionComponent) && (
             <div className="mb-32 border-4 border-[var(--text-primary)] p-8 md:p-16 bg-[#FF3B30] text-white">
               <h3 className="text-4xl font-black uppercase mb-12 flex items-center gap-4">
-                <Square /> Widget_Demo
+                <Square /> {t("project_layouts.widget_demo")}
               </h3>
               <div className="bg-[var(--bg-surface)] border-4 border-[var(--text-primary)] text-[var(--text-primary)] p-8 shadow-[16px_16px_0px_0px_var(--text-primary)]">
                 {project.prototypeLink ? (
@@ -161,7 +162,7 @@ const BrutalistDetail = ({
               {activeMetrics && (
                 <div className="space-y-8 lg:col-span-1">
                   <h4 className="font-mono text-xl uppercase font-black">
-                    Data_Output
+                    {t("project_layouts.data_output")}
                   </h4>
                   {activeMetrics.map((m, i) => (
                     <div
@@ -181,7 +182,7 @@ const BrutalistDetail = ({
               {activeLearnings && (
                 <div className="lg:col-span-2 border-4 border-[var(--text-primary)] p-8 md:p-16 flex flex-col justify-center bg-[var(--bg-surface)]">
                   <div className="font-mono text-sm uppercase font-black tracking-widest text-[#FF3B30] mb-6">
-                     Lesson_Learned
+                    {t("project_layouts.lesson_learned")}
                   </div>
                   <Slash className="text-[#FF3B30] w-16 h-16 mb-8" />
                   <p className="text-3xl md:text-5xl font-black italic uppercase leading-none text-[var(--text-primary)]">

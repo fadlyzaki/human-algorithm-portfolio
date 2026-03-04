@@ -87,7 +87,7 @@ const SideProjectDetail = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="animate-pulse text-gray-500">Loading...</div>
+        <div className="animate-pulse text-gray-500">{t("project_layouts.loading")}</div>
       </div>
     );
   }
@@ -109,18 +109,19 @@ const SideProjectDetail = () => {
             className="mx-auto text-red-500 mb-6 animate-pulse"
           />
           <h1 className="text-2xl font-bold text-red-500 mb-2 uppercase tracking-[0.2em]">
-            Data Corrupted
+            {t("project_layouts.data_corrupted")}
           </h1>
           <div className="h-px w-16 bg-red-800 mx-auto mb-6"></div>
           <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-            The project file <span className="text-white">"{id}"</span> could
-            not be retrieved from the archives.
+            {t("project_layouts.not_retrieved").split('"{id}"')[0]}
+            <span className="text-white">"{id}"</span>
+            {t("project_layouts.not_retrieved").split('"{id}"')[1]}
           </p>
           <Link
             to="/"
             className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-red-400 hover:text-red-300 border border-red-900/50 px-6 py-3 hover:bg-red-950/30 transition-all"
           >
-            <ArrowLeft size={14} /> Return to Base
+            <ArrowLeft size={14} /> {t("project_layouts.return_base")}
           </Link>
         </div>
       </div>
@@ -149,9 +150,9 @@ const SideProjectDetail = () => {
     tagline:
       (isIndonesian
         ? project.snapshot_id?.tagline ||
-          (typeof rawSnapshot.tagline === "object"
-            ? rawSnapshot.tagline.id
-            : rawSnapshot.tagline)
+        (typeof rawSnapshot.tagline === "object"
+          ? rawSnapshot.tagline.id
+          : rawSnapshot.tagline)
         : typeof rawSnapshot.tagline === "object"
           ? rawSnapshot.tagline.en
           : rawSnapshot.tagline) || activeSubtitle,
@@ -267,17 +268,17 @@ const SideProjectDetail = () => {
             activeLearnings,
             InteractionComponent: InteractionComponent
               ? () => (
-                  <Suspense
-                    fallback={
-                      <div className="p-8 space-y-4">
-                        <SkeletonLine className="w-1/2 h-6" />
-                        <SkeletonLine className="w-full h-32" />
-                      </div>
-                    }
-                  >
-                    <InteractionComponent />
-                  </Suspense>
-                )
+                <Suspense
+                  fallback={
+                    <div className="p-8 space-y-4">
+                      <SkeletonLine className="w-1/2 h-6" />
+                      <SkeletonLine className="w-full h-32" />
+                    </div>
+                  }
+                >
+                  <InteractionComponent />
+                </Suspense>
+              )
               : null,
             showLivePreview,
             setShowLivePreview,

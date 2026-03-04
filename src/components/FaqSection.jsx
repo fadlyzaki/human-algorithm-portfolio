@@ -58,14 +58,12 @@ const FaqSection = () => {
   return (
     <section
       id="faqs"
-      className="w-full py-12 md:py-16 mb-24 border-t border-[var(--border-color)] scroll-mt-24"
+      className="mb-24 scroll-mt-24"
     >
       <ScrollReveal>
-        <div className="max-w-3xl mx-auto px-6 lg:px-8 mb-12">
-          <SectionTitle number="4" title="FAQS" />
-        </div>
+        <SectionTitle number="4" title="FAQS" />
       </ScrollReveal>
-      <div className="max-w-3xl mx-auto px-6 lg:px-8 flex flex-col gap-12">
+      <div className="max-w-3xl mx-auto flex flex-col gap-12">
         {/* TOP HALF: The Interactive Question List */}
         <div className="w-full" onMouseLeave={() => setHoveredId(null)}>
           <div className="flex flex-col gap-2">

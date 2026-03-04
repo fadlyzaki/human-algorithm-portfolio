@@ -13,6 +13,19 @@ export const translations = {
       archives: "Archives",
       process: "Process",
       sketches: "Sketches",
+      design_system: "Design System",
+      // Tooltips
+      ttp_start: "Start here",
+      ttp_work: "Case studies & impact",
+      ttp_projects: "Where ideas ship",
+      ttp_about: "The full picture",
+      ttp_design: "Visual DNA",
+      ttp_thoughts: "Essays & reflections",
+      ttp_contact: "Let's talk",
+      ttp_linkedin: "View profile",
+      ttp_instagram: "Behind the scenes",
+      ttp_dribbble: "Visual explorations",
+      ttp_github: "Open source & code",
     },
     home: {
       role: "Product Designer",
@@ -91,6 +104,10 @@ export const translations = {
       section_knowledge_upgrades: "Knowledge Upgrades",
       section_cert_module: "CERTIFICATION_MODULE",
       show_credential: "Show Credential",
+      sketches_desc: "Before the pixels, there were pencils.",
+      sketches_count: "90+ pieces",
+      thoughts_desc: "Essays, reflections & unprovoked opinions.",
+      read_btn: "Read",
 
       // Runtime Log Data
       log_1_title: "University of Indonesia + Internships",
@@ -368,6 +385,56 @@ export const translations = {
     project_archive: {
       subtitle: "Strategy, Execution, and Wild Ideas",
     },
+    project_layouts: {
+      data_corrupted: "Data Corrupted",
+      not_retrieved: "The project file \"{id}\" could not be retrieved from the archives.",
+      return_base: "Return to Base",
+      loading: "Loading...",
+      // Prototype
+      experimental_prototype: "Experimental Prototype",
+      type: "Type",
+      timeline: "Timeline",
+      role: "Role",
+      team: "Team",
+      stack: "Stack",
+      hypothesis: "The Hypothesis",
+      methodology: "Methodology",
+      signals: "Signals",
+      trajectory: "Trajectory",
+      lesson_learned: "Lesson_Learned",
+      // System Core
+      system_protocol: "SYSTEM PROTOCOL",
+      execute_demo: "[ EXECUTE_DEMO ]",
+      source_code: "SOURCE_CODE",
+      role_assignment: "ROLE_ASSIGNMENT",
+      temp_marker: "TEMP_MARKER",
+      loaded_modules: "LOADED_MODULES",
+      the_challenge: "System.Err // The Challenge",
+      execution_flow: "Execution_Flow",
+      // Cosmic Pop
+      play_demo: "Play Demo",
+      live_arena: "LIVE ARENA",
+      // Brutalist
+      read_research_paper: "READ_RESEARCH_PAPER",
+      the_problem: "The Problem.",
+      widget_demo: "Widget_Demo",
+      data_output: "Data_Output",
+      // Bento
+      wrapped: "WRAPPED",
+      open_generator: "Open Generator",
+      live_preview: "Live Preview",
+      // Blueprint
+      project_type: "Project_Type",
+      drawn_date: "Drawn_Date",
+      scale: "Scale",
+      approval: "Approval",
+      access_demo_site: "Access_Demo_Site",
+      problem_space: "SEC_01 // Problem_Space",
+      assembly_instructions: "SEC_02 // Assembly_Instructions",
+      user_testing_interface: "User_Testing_Interface",
+      specification_data: "Specification_Data",
+      planned_features: "Planned_Features"
+    },
   },
   id: {
     nav: {
@@ -383,6 +450,19 @@ export const translations = {
       archives: "Arsip",
       process: "Proses",
       sketches: "Sketsa",
+      design_system: "Design System",
+      // Tooltips
+      ttp_start: "Mulai di sini",
+      ttp_work: "Studi kasus & dampak",
+      ttp_projects: "Tempat ide diluncurkan",
+      ttp_about: "Gambaran lengkap",
+      ttp_design: "DNA Visual",
+      ttp_thoughts: "Esai & refleksi",
+      ttp_contact: "Mari berdiskusi",
+      ttp_linkedin: "Lihat profil",
+      ttp_instagram: "Di balik layar",
+      ttp_dribbble: "Eksplorasi visual",
+      ttp_github: "Open source & kode",
     },
     home: {
       role: "Product Designer",
@@ -460,6 +540,10 @@ export const translations = {
       section_knowledge_upgrades: "Peningkatan Pengetahuan",
       section_cert_module: "MODUL_SERTIFIKASI",
       show_credential: "Lihat Kredensial",
+      sketches_desc: "Sebelum piksel, ada pensil.",
+      sketches_count: "90+ karya",
+      thoughts_desc: "Esai, refleksi & opini jujur.",
+      read_btn: "Baca",
 
       // Runtime Log Data (ID) - Professional Tone
       log_1_title: "Universitas Indonesia + Magang",
@@ -735,6 +819,56 @@ export const translations = {
     },
     project_archive: {
       subtitle: "Strategi, Eksekusi, dan Ide Liar",
+    },
+    project_layouts: {
+      data_corrupted: "Data Rusak",
+      not_retrieved: "File proyek \"{id}\" tidak dapat diambil dari arsip.",
+      return_base: "Kembali ke Markas",
+      loading: "Memuat...",
+      // Prototype
+      experimental_prototype: "Prototipe Eksperimental",
+      type: "Tipe",
+      timeline: "Lini Masa",
+      role: "Peran",
+      team: "Tim",
+      stack: "Stack",
+      hypothesis: "Hipotesis",
+      methodology: "Metodologi",
+      signals: "Sinyal",
+      trajectory: "Trajektori",
+      lesson_learned: "Pelajaran_Dapat",
+      // System Core
+      system_protocol: "PROTOKOL SISTEM",
+      execute_demo: "[ JALANKAN_DEMO ]",
+      source_code: "KODE_SUMBER",
+      role_assignment: "PENUGASAN_PERAN",
+      temp_marker: "PENANDA_WAKTU",
+      loaded_modules: "MODUL_DIMUAT",
+      the_challenge: "Sistem.Err // Tantangan",
+      execution_flow: "Alur_Eksekusi",
+      // Cosmic Pop
+      play_demo: "Mainkan Demo",
+      live_arena: "ARENA LANGSUNG",
+      // Brutalist
+      read_research_paper: "BACA_MAKALAH_RISET",
+      the_problem: "Masalah.",
+      widget_demo: "Demo_Widget",
+      data_output: "Keluaran_Data",
+      // Bento
+      wrapped: "DIBUNGKUS",
+      open_generator: "Buka Pembuat",
+      live_preview: "Pratinjau Langsung",
+      // Blueprint
+      project_type: "Tipe_Proyek",
+      drawn_date: "Tanggal_Dibuat",
+      scale: "Skala",
+      approval: "Persetujuan",
+      access_demo_site: "Akses_Situs_Demo",
+      problem_space: "SEC_01 // Ruang_Masalah",
+      assembly_instructions: "SEC_02 // Instruksi_Perakitan",
+      user_testing_interface: "Antarmuka_Pengujian_Pengguna",
+      specification_data: "Data_Spesifikasi",
+      planned_features: "Fitur_Direncanakan"
     },
   },
 };

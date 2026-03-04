@@ -305,15 +305,15 @@ const HomeAbout = ({ t }) => {
                 </div>
                 <div>
                   <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
-                    Sketches
+                    {t("nav.sketches")}
                   </h4>
                   <p className="text-[var(--text-primary)] text-sm font-light">
-                    Before the pixels, there were pencils.
+                    {t("about.sketches_desc")}
                   </p>
                 </div>
               </div>
               <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
-                90+ pieces
+                {t("about.sketches_count")}
               </div>
             </div>
           </Link>
@@ -333,15 +333,15 @@ const HomeAbout = ({ t }) => {
                 </div>
                 <div>
                   <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
-                    Thoughts
+                    {t("nav.notes")}
                   </h4>
                   <p className="text-[var(--text-primary)] text-sm font-light">
-                    Essays, reflections & unprovoked opinions.
+                    {t("about.thoughts_desc")}
                   </p>
                 </div>
               </div>
               <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
-                Read
+                {t("about.read_btn")}
               </div>
             </div>
           </Link>

@@ -60,7 +60,7 @@ const PrototypeDetail = ({
           <div className="flex-1">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] backdrop-blur-md text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-8">
               <Sparkles size={12} style={{ color: accentColor }} />
-              Experimental Prototype
+              {t("project_layouts.experimental_prototype")}
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-[var(--text-primary)]">
               {activeTitle}
@@ -74,32 +74,32 @@ const PrototypeDetail = ({
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] shadow-sm">
               <div>
                 <span className="text-xs text-[var(--text-secondary)] block mb-1 uppercase tracking-wider">
-                  Type
+                  {t("project_layouts.type")}
                 </span>
                 <span className="font-semibold">{project.type}</span>
               </div>
               <div>
                 <span className="text-xs text-[var(--text-secondary)] block mb-1 uppercase tracking-wider">
-                  Timeline
+                  {t("project_layouts.timeline")}
                 </span>
                 <span className="font-semibold">{activeContext.timeline}</span>
               </div>
               <div>
                 <span className="text-xs text-[var(--text-secondary)] block mb-1 uppercase tracking-wider">
-                  Role
+                  {t("project_layouts.role")}
                 </span>
                 <span className="font-semibold">{activeContext.role}</span>
               </div>
               <div>
                 <span className="text-xs text-[var(--text-secondary)] block mb-1 uppercase tracking-wider">
-                  Team
+                  {t("project_layouts.team")}
                 </span>
                 <span className="font-semibold">{activeContext.team}</span>
               </div>
             </div>
             <div className="flex justify-end pt-2">
               <span className="text-xs text-[var(--text-secondary)] flex items-center gap-2">
-                Stack <ArrowRight size={12} /> {project.stack.join(" · ")}
+                {t("project_layouts.stack")} <ArrowRight size={12} /> {project.stack.join(" · ")}
               </span>
             </div>
           </div>
@@ -150,7 +150,7 @@ const PrototypeDetail = ({
                 <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-secondary)]">
                   <TestTube size={24} />
                 </div>
-                <h3 className="text-2xl font-semibold">The Hypothesis</h3>
+                <h3 className="text-2xl font-semibold">{t("project_layouts.hypothesis")}</h3>
               </div>
               <div className="prose prose-lg max-w-none">
                 <p className="text-xl md:text-2xl leading-relaxed text-[var(--text-primary)] font-light border-l border-[var(--local-accent)] pl-6">
@@ -166,7 +166,7 @@ const PrototypeDetail = ({
                   <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-secondary)]">
                     <Cpu size={24} />
                   </div>
-                  <h3 className="text-2xl font-semibold">Methodology</h3>
+                  <h3 className="text-2xl font-semibold">{t("project_layouts.methodology")}</h3>
                 </div>
 
                 <div className="space-y-24">
@@ -230,7 +230,7 @@ const PrototypeDetail = ({
                       className="text-xs uppercase tracking-widest flex items-center gap-2 mb-6"
                       style={{ color: accentColor }}
                     >
-                      <TrendingUp size={14} /> Signals
+                      <TrendingUp size={14} /> {t("project_layouts.signals")}
                     </h4>
                     <div className="grid grid-cols-2 gap-6">
                       {activeMetrics.map((m, i) => (
@@ -253,7 +253,7 @@ const PrototypeDetail = ({
                       className="text-xs uppercase tracking-widest flex items-center gap-2 mb-6"
                       style={{ color: accentColor }}
                     >
-                      <Compass size={14} /> Trajectory
+                      <Compass size={14} /> {t("project_layouts.trajectory")}
                     </h4>
                     <div className="space-y-6">
                       {activeInsights.map((insight, idx) => (
@@ -276,7 +276,7 @@ const PrototypeDetail = ({
                       className="text-xs uppercase tracking-widest flex items-center gap-2 mb-6"
                       style={{ color: accentColor }}
                     >
-                      <Lightbulb size={14} /> Lesson_Learned
+                      <Lightbulb size={14} /> {t("project_layouts.lesson_learned")}
                     </h4>
                     <p className="text-lg italic font-light text-[var(--text-secondary)] leading-relaxed">
                       "{activeLearnings}"

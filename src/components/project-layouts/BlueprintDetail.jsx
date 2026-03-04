@@ -21,6 +21,7 @@ const BlueprintDetail = ({
   InteractionComponent,
   activeTitle,
   activeTldr,
+  t,
 }) => {
   // Aesthetic: Civil/Architectural Blueprint, Blue Graph Paper, Precise Lines, Technical Fonts
 
@@ -59,20 +60,20 @@ const BlueprintDetail = ({
             <div className="border border-[var(--border-color)] p-4 text-[10px] uppercase tracking-widest grid grid-cols-2 gap-4 w-full md:w-auto shrink-0 bg-[var(--bg-void)]">
               <div>
                 <span className="text-blue-500/60 block mb-1">
-                  Project_Type
+                  {t("project_layouts.project_type")}
                 </span>
                 <strong>{project.type}</strong>
               </div>
               <div>
-                <span className="text-blue-500/60 block mb-1">Drawn_Date</span>
+                <span className="text-blue-500/60 block mb-1">{t("project_layouts.drawn_date")}</span>
                 <strong>{activeContext.timeline}</strong>
               </div>
               <div>
-                <span className="text-blue-500/60 block mb-1">Scale</span>
+                <span className="text-blue-500/60 block mb-1">{t("project_layouts.scale")}</span>
                 <strong>1:1</strong>
               </div>
               <div>
-                <span className="text-blue-500/60 block mb-1">Approval</span>
+                <span className="text-blue-500/60 block mb-1">{t("project_layouts.approval")}</span>
                 <strong>{activeContext.role}</strong>
               </div>
             </div>
@@ -84,7 +85,7 @@ const BlueprintDetail = ({
                 href={project.links.demo}
                 className="flex items-center gap-2 border-b-2 border-blue-600 pb-1 hover:text-blue-600 transition-colors"
               >
-                Access_Demo_Site <ArrowRight size={14} />
+                {t("project_layouts.access_demo_site")} <ArrowRight size={14} />
               </a>
             )}
             <span className="flex items-center gap-2">
@@ -98,7 +99,7 @@ const BlueprintDetail = ({
           <div className="lg:col-span-8 space-y-24">
             <section>
               <div className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-4 flex items-center gap-3">
-                <Maximize size={12} /> SEC_01 // Problem_Space
+                <Maximize size={12} /> {t("project_layouts.problem_space")}
               </div>
               <p className="font-sans text-2xl md:text-3xl leading-snug font-light border-l-2 border-blue-600/30 pl-6 dark:border-blue-400/30">
                 {activeChallenge}
@@ -108,7 +109,7 @@ const BlueprintDetail = ({
             {activeProcess && (
               <section>
                 <div className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-8 flex items-center gap-3">
-                  <GitMerge size={12} /> SEC_02 // Assembly_Instructions
+                  <GitMerge size={12} /> {t("project_layouts.assembly_instructions")}
                 </div>
                 <div className="space-y-16">
                   {activeProcess.map((step, idx) => (
@@ -164,7 +165,7 @@ const BlueprintDetail = ({
             {(project.prototypeLink || InteractionComponent) && (
               <section className="border-2 border-blue-600 p-8 shadow-[8px_8px_0_rgba(37,99,235,0.2)] bg-[var(--bg-card)]">
                 <h3 className="text-xl font-bold mb-8 uppercase flex items-center gap-3">
-                  <BookOpen /> User_Testing_Interface
+                  <BookOpen /> {t("project_layouts.user_testing_interface")}
                 </h3>
                 {project.prototypeLink ? (
                   <div className="w-full h-[600px] border-2 border-[var(--border-color)] bg-[var(--bg-void)]">
@@ -187,7 +188,7 @@ const BlueprintDetail = ({
             {(activeMetrics || activeInsights) && (
               <div className="border border-[var(--border-color)] p-8 bg-[var(--bg-card)] backdrop-blur-sm sticky top-32 shadow-sm">
                 <h4 className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-8 pb-4 border-b border-[var(--border-color)]">
-                  Specification_Data
+                  {t("project_layouts.specification_data")}
                 </h4>
 
                 {activeMetrics && (
@@ -208,7 +209,7 @@ const BlueprintDetail = ({
                 {activeInsights && (
                   <div className="space-y-8 border-t border-[var(--border-color)] pt-8">
                     <h4 className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-6">
-                      Planned_Features
+                      {t("project_layouts.planned_features")}
                     </h4>
                     {activeInsights.map((insight, idx) => (
                       <div key={idx}>
@@ -229,7 +230,7 @@ const BlueprintDetail = ({
               <div className="bg-blue-600 text-white p-8">
                 <FileText className="mb-6 opacity-50" />
                 <h4 className="text-[10px] uppercase tracking-[0.2em] mb-4 opacity-70">
-                  Lesson_Learned
+                  {t("project_layouts.lesson_learned")}
                 </h4>
                 <p className="font-serif italic text-xl leading-relaxed">
                   "{activeLearnings}"

@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { getAllUnprovokedThoughts } from '../utils/mdx';
 import SEO from '../components/SEO';
 import Navbar from '../components/Navbar';
@@ -15,6 +16,7 @@ import NavigationMenu from '../components/NavigationMenu';
 
 const UnprovokedThoughtsIndex = () => {
     const { isDark } = useTheme();
+    const { t } = useLanguage();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const thoughts = getAllUnprovokedThoughts();
 
@@ -157,33 +159,33 @@ const UnprovokedThoughtsIndex = () => {
             <footer className="w-full pt-16 pb-8 px-6 border-t border-[var(--border-color)] mt-0">
                 <div className="max-w-4xl mx-auto">
                     <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-6">
-                        Index
+                        {t("footer.index")}
                     </h4>
                     <div className="flex flex-wrap gap-x-8 gap-y-3">
                         <Link to="/" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                            Home
+                            {t("nav.home")}
                         </Link>
                         <Link to="/#work" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                            Work
+                            {t("nav.work")}
                         </Link>
                         <Link to="/side-projects" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                            Projects
+                            {t("nav.side_projects")}
                         </Link>
                         <Link to="/thoughts" className="text-sm text-[var(--accent-amber)] hover:text-[var(--text-primary)] transition-colors font-medium">
-                            Thoughts
+                            {t("nav.notes")}
                         </Link>
                         <Link to="/about" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                            About
+                            {t("nav.about")}
                         </Link>
                         <Link to="/design-system" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                            Design System
+                            {t("nav.design_system")}
                         </Link>
                         <Link to="/contact" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                            Contact
+                            {t("nav.contact")}
                         </Link>
                     </div>
                     <p className="font-mono text-[10px] text-[var(--text-secondary)] uppercase opacity-40 mt-8">
-                        © 2026 Fadly Uzzaki. All rights reserved.
+                        © {new Date().getFullYear()} Fadly Uzzaki. {t("footer.rights") || "All rights reserved."}
                     </p>
                 </div>
             </footer>

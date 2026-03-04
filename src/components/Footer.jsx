@@ -139,45 +139,45 @@ const Footer = () => {
             <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">
               {t("footer.index")}
             </h4>
-            <FooterTooltipLink to="/" icon={Home} tooltip="Start here">
+            <FooterTooltipLink to="/" icon={Home} tooltip={t("nav.ttp_start")}>
               {t("nav.home")}
             </FooterTooltipLink>
             <FooterTooltipLink
               to="/#work"
               icon={Briefcase}
-              tooltip="Case studies & impact"
+              tooltip={t("nav.ttp_work")}
             >
               {t("nav.work")}
             </FooterTooltipLink>
             <FooterTooltipLink
-              to="/side-projects"
-              icon={Rocket}
-              tooltip="Where ideas ship"
-            >
-              {t("nav.side_projects")}
-            </FooterTooltipLink>
-            <FooterTooltipLink
               to="/about"
               icon={User}
-              tooltip="The full picture"
+              tooltip={t("nav.ttp_about")}
             >
               {t("nav.about")}
             </FooterTooltipLink>
             <FooterTooltipLink
-              to="/design-system"
-              icon={Palette}
-              tooltip="Visual DNA"
+              to="/side-projects"
+              icon={Rocket}
+              tooltip={t("nav.ttp_projects")}
             >
-              Design System
+              {t("nav.side_projects")}
             </FooterTooltipLink>
             <FooterTooltipLink
               to="/thoughts"
               icon={Briefcase}
-              tooltip="Essays & reflections"
+              tooltip={t("nav.ttp_thoughts")}
             >
-              Thoughts
+              {t("nav.notes")}
             </FooterTooltipLink>
-            <FooterTooltipLink to="/contact" icon={Mail} tooltip="Let's talk">
+            <FooterTooltipLink
+              to="/design-system"
+              icon={Palette}
+              tooltip={t("nav.ttp_design")}
+            >
+              {t("nav.design_system")}
+            </FooterTooltipLink>
+            <FooterTooltipLink to="/contact" icon={Mail} tooltip={t("nav.ttp_contact")}>
               {t("nav.contact")}
             </FooterTooltipLink>
           </div>
@@ -191,7 +191,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/fadlyzaki/"
               external
               icon={Linkedin}
-              tooltip="View profile"
+              tooltip={t("nav.ttp_linkedin")}
             >
               LinkedIn
             </FooterTooltipLink>
@@ -199,7 +199,7 @@ const Footer = () => {
               href="https://www.instagram.com/fadlyzaki"
               external
               icon={Instagram}
-              tooltip="Behind the scenes"
+              tooltip={t("nav.ttp_instagram")}
             >
               Instagram
             </FooterTooltipLink>
@@ -207,7 +207,7 @@ const Footer = () => {
               href="https://dribbble.com/fadlyzaki"
               external
               icon={Dribbble}
-              tooltip="Visual explorations"
+              tooltip={t("nav.ttp_dribbble")}
             >
               Dribbble
             </FooterTooltipLink>
@@ -215,7 +215,7 @@ const Footer = () => {
               href="https://github.com/fadlyzaki/"
               external
               icon={Github}
-              tooltip="Open source & code"
+              tooltip={t("nav.ttp_github")}
             >
               GitHub
             </FooterTooltipLink>

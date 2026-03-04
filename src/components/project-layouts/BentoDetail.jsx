@@ -15,6 +15,7 @@ const BentoDetail = ({
   activeTitle,
   activeTldr,
   activeSnapshot,
+  t,
 }) => {
   // Aesthetic: Bento Grid, Magazine Editorial, Pastel Gradients, Rounded Corners, Sticker Tags
 
@@ -31,7 +32,7 @@ const BentoDetail = ({
           >
             {/* Decorative Sticker */}
             <div className="absolute top-8 right-8 rotate-12 bg-white dark:bg-[var(--bg-surface)] text-black dark:text-white px-4 py-2 rounded-full shadow-lg font-mono text-xs font-bold uppercase border border-[var(--border-color)] flex items-center gap-2">
-              <Calendar size={14} /> WRAPPED
+              <Calendar size={14} /> {t("project_layouts.wrapped")}
             </div>
 
             <h1 className="text-6xl md:text-8xl font-serif italic mb-6 leading-[1.1] text-[var(--text-primary)] relative z-10">
@@ -63,7 +64,7 @@ const BentoDetail = ({
                 className="h-32 bg-[var(--text-primary)] text-[var(--bg-void)] rounded-[2rem] p-8 hover:scale-[1.02] transition-transform flex items-center justify-between group"
               >
                 <span className="text-xl font-bold font-serif italic">
-                  Open Generator
+                  {t("project_layouts.open_generator")}
                 </span>
                 <div className="p-3 bg-[var(--bg-void)] opacity-20 rounded-full group-hover:rotate-45 transition-transform">
                   <ArrowUpRight />
@@ -85,7 +86,7 @@ const BentoDetail = ({
           <section className="mb-24">
             <div className="flex items-center gap-3 mb-10 pl-4">
               <Layout className="text-pink-400" />
-              <h2 className="text-2xl font-serif italic">Methodology</h2>
+              <h2 className="text-2xl font-serif italic">{t("project_layouts.methodology")}</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {activeProcess.map((step, idx) => (
@@ -125,7 +126,7 @@ const BentoDetail = ({
           <section className="mb-24">
             <div className="flex items-center gap-3 mb-10 pl-4">
               <Layout className="text-pink-400" />
-              <h2 className="text-2xl font-serif italic">Live Preview</h2>
+              <h2 className="text-2xl font-serif italic">{t("project_layouts.live_preview")}</h2>
             </div>
             <div className="bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] overflow-hidden p-8 hover:shadow-xl transition-shadow duration-500">
               {project.prototypeLink ? (
@@ -151,7 +152,7 @@ const BentoDetail = ({
               <div className="bg-[var(--text-primary)] text-[var(--bg-void)] rounded-[2rem] p-12 md:p-16 flex flex-col justify-center relative overflow-hidden h-full min-h-[300px]">
                 <Music className="absolute -bottom-8 -right-8 w-48 h-48 opacity-10" />
                 <div className="font-mono text-xs uppercase tracking-widest opacity-50 mb-8 border border-[var(--bg-void)] opacity-20 inline-block px-3 py-1 rounded-full w-max">
-                  Lesson_Learned
+                  {t("project_layouts.lesson_learned")}
                 </div>
                 <p className="text-2xl md:text-3xl font-serif italic leading-relaxed relative z-10 flex-1 flex items-center">
                   "{activeLearnings}"

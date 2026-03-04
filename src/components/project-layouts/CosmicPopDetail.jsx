@@ -16,6 +16,7 @@ const CosmicPopDetail = ({
   activeTitle,
   activeTldr,
   activeSnapshot,
+  t,
 }) => {
   // Aesthetic: Cosmic Pop, Deep Blues/Purples, Glassmorphism, Floating Particles, Playful Typography
 
@@ -60,7 +61,7 @@ const CosmicPopDetail = ({
                 href={project.links.demo}
                 className="flex items-center gap-2 bg-[#00C2FF] text-[var(--bg-void)] px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:scale-105 hover:shadow-[0_0_30px_rgba(0,194,255,0.4)] transition-all"
               >
-                <Play size={16} fill="currentColor" /> Play Demo
+                <Play size={16} fill="currentColor" /> {t("project_layouts.play_demo")}
               </a>
             )}
             <div className="flex bg-[var(--bg-surface)] backdrop-blur-xl border border-[var(--border-color)] rounded-full p-1 h-14">
@@ -133,7 +134,7 @@ const CosmicPopDetail = ({
           {(project.prototypeLink || InteractionComponent) && (
             <div className="py-24 border-y border-[var(--border-color)] flex flex-col items-center justify-center w-full">
               <h3 className="text-2xl font-black italic text-center mb-12 text-[#00C2FF] flex items-center gap-3">
-                <Rocket /> LIVE ARENA
+                <Rocket /> {t("project_layouts.live_arena")}
               </h3>
               <div className="w-full rounded-[3rem] overflow-hidden shadow-[0_20px_60px_rgba(0,194,255,0.15)] ring-4 ring-[var(--bg-surface)] bg-black">
                 {project.prototypeLink ? (
@@ -184,7 +185,7 @@ const CosmicPopDetail = ({
                   <div className="flex items-center gap-3 mb-6 text-[#00C2FF]">
                     <Shield size={20} />
                     <span className="font-bold uppercase tracking-wider text-sm">
-                      Lesson_Learned
+                      {t("project_layouts.lesson_learned")}
                     </span>
                   </div>
                   <p className="text-2xl font-black italic text-[var(--text-primary)] leading-relaxed">

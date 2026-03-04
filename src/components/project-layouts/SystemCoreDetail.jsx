@@ -25,6 +25,7 @@ const SystemCoreDetail = ({
   activeTitle,
   activeTldr,
   activeSnapshot,
+  t,
 }) => {
   // Aesthetic: Terminal Data, Scanning Lines, Dark Void, High Contrast Blue/Green Monospace
 
@@ -72,7 +73,7 @@ const SystemCoreDetail = ({
             <div className="inline-flex items-center gap-3 px-4 py-2 border border-blue-500/30 bg-[var(--bg-void)]">
               <Cpu size={14} className="text-blue-400 animate-pulse" />
               <span className="font-mono text-[10px] uppercase tracking-widest text-blue-400 text-shadow-glow">
-                {activeSnapshot.tagline} // SYSTEM PROTOCOL
+                {activeSnapshot.tagline} // {t("project_layouts.system_protocol")}
               </span>
             </div>
 
@@ -97,7 +98,7 @@ const SystemCoreDetail = ({
                   rel="noreferrer"
                   className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 hover:bg-blue-500 transition-colors uppercase tracking-widest"
                 >
-                  [ EXECUTE_DEMO ] <ArrowUpRight size={14} />
+                  {t("project_layouts.execute_demo")} <ArrowUpRight size={14} />
                 </a>
               )}
               {project.links.repo && project.links.repo !== "#" && (
@@ -107,28 +108,28 @@ const SystemCoreDetail = ({
                   rel="noreferrer"
                   className="flex items-center gap-2 border border-blue-500/30 px-4 py-2 text-blue-400 hover:bg-blue-500/10 transition-colors uppercase tracking-widest"
                 >
-                  <Code size={14} /> SOURCE_CODE
+                  <Code size={14} /> {t("project_layouts.source_code")}
                 </a>
               )}
             </div>
 
             <div className="flex flex-wrap items-center gap-8 text-[var(--text-secondary)]">
               <div className="flex flex-col">
-                <span className="opacity-50 mb-1">ROLE_ASSIGNMENT</span>
+                <span className="opacity-50 mb-1">{t("project_layouts.role_assignment")}</span>
                 <span className="text-[var(--text-primary)]">
                   {activeContext.role}
                 </span>
               </div>
               <div className="hidden md:block w-px h-6 bg-[var(--border-color)]"></div>
               <div className="flex flex-col">
-                <span className="opacity-50 mb-1">TEMP_MARKER</span>
+                <span className="opacity-50 mb-1">{t("project_layouts.temp_marker")}</span>
                 <span className="text-[var(--text-primary)]">
                   {activeContext.timeline}
                 </span>
               </div>
               <div className="hidden md:block w-px h-6 bg-[var(--border-color)]"></div>
               <div className="flex flex-col">
-                <span className="opacity-50 mb-1">LOADED_MODULES</span>
+                <span className="opacity-50 mb-1">{t("project_layouts.loaded_modules")}</span>
                 <span className="text-[var(--text-primary)]">
                   {project.stack.slice(0, 3).join(" / ")}
                 </span>
@@ -145,7 +146,7 @@ const SystemCoreDetail = ({
             <div className="flex items-center gap-4 mb-8">
               <Terminal size={16} className="text-red-400" />
               <span className="font-mono text-xs uppercase tracking-widest text-red-400">
-                System.Err // The Challenge
+                {t("project_layouts.the_challenge")}
               </span>
             </div>
             <h2 className="text-2xl md:text-4xl font-sans font-medium text-[var(--text-primary)] leading-tight">
@@ -159,7 +160,7 @@ const SystemCoreDetail = ({
               <div className="flex items-center gap-4 mb-12">
                 <Layers size={16} className="text-blue-400" />
                 <span className="font-mono text-xs uppercase tracking-widest text-blue-400">
-                  Execution_Flow
+                  {t("project_layouts.execution_flow")}
                 </span>
               </div>
               {activeProcess.map((step, idx) => (
