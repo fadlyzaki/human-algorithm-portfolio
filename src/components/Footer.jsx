@@ -14,6 +14,7 @@ import {
   Github,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import FrequencyVisualizer from "./FrequencyVisualizer";
 import TerminalHandshake from "./TerminalHandshake";
