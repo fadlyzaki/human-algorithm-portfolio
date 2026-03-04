@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { User } from "lucide-react";
 import PixelImage from "./PixelImage";
 import { useLanguage } from "../context/LanguageContext";
+import { useTheme } from "../context/ThemeContext";
 
 const DraggablePhoto = () => {
   const { t } = useLanguage();
+  const { isDark } = useTheme();
   const [index, setIndex] = useState(0);
   const [designVariant] = useState(() => {
     const variants = [
@@ -48,7 +50,7 @@ const DraggablePhoto = () => {
   // --- VARIANTS RENDERERS ---
 
   const RenderIndustrial = () => (
-    <div className="w-full h-full bg-black dark:bg-white border-[1px] border-white/20 dark:border-black/20 relative group overflow-hidden rounded-xl flex flex-col shadow-xl">
+    <div className={`w-full h-full border-[1px] relative group overflow-hidden rounded-xl flex flex-col shadow-xl ${isDark ? "bg-white border-black/20" : "bg-black border-white/20"}`}>
       {/* Punch Hole */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-[#222] rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)] z-30 flex items-center justify-center">
         <div className="w-6 h-0.5 bg-black/50 rounded-full"></div>
@@ -135,7 +137,7 @@ const DraggablePhoto = () => {
   );
 
   const RenderCyberpunk = () => (
-    <div className="w-full h-full bg-black dark:bg-white border-2 border-white/20 dark:border-black/50 relative group overflow-hidden rounded-xl flex flex-col shadow-2xl">
+    <div className={`w-full h-full border-2 relative group overflow-hidden rounded-xl flex flex-col shadow-2xl ${isDark ? "bg-white border-black/50" : "bg-black border-white/20"}`}>
       {/* Grid Bg */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
@@ -208,7 +210,7 @@ const DraggablePhoto = () => {
   );
 
   const RenderSwiss = () => (
-    <div className="w-full h-full bg-white dark:bg-black border border-black/10 dark:border-white/10 relative group overflow-hidden rounded-md flex flex-col shadow-2xl">
+    <div className={`w-full h-full border relative group overflow-hidden rounded-md flex flex-col shadow-2xl ${isDark ? "bg-white border-black/10" : "bg-black border-white/10"}`}>
       {/* Bold Header */}
       <div className="h-32 bg-black dark:bg-white p-4 text-white dark:text-black flex flex-col justify-between">
         <div className="flex justify-between items-start">
@@ -279,7 +281,7 @@ const DraggablePhoto = () => {
   );
 
   const RenderGlassmorphism = () => (
-    <div className="w-full h-full bg-white/10 dark:bg-black/10 backdrop-blur-2xl border border-white/40 dark:border-white/10 relative group overflow-hidden rounded-xl flex flex-col shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
+    <div className={`w-full h-full backdrop-blur-2xl border relative group overflow-hidden rounded-xl flex flex-col ${isDark ? "bg-white/70 border-white/40 shadow-xl" : "bg-black/70 border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]"}`}>
       {/* Glassmorphism Sheen/Noise */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-black/5 dark:from-white/10 dark:via-transparent dark:to-transparent opacity-70 pointer-events-none z-20"></div>
 
@@ -354,7 +356,7 @@ const DraggablePhoto = () => {
   );
 
   const RenderRetro = () => (
-    <div className="w-full h-full bg-white dark:bg-black border-4 border-black dark:border-white border-t-8 border-b-8 relative group overflow-hidden rounded-md flex flex-col shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] p-1">
+    <div className={`w-full h-full border-4 border-t-8 border-b-8 relative group overflow-hidden rounded-md flex flex-col p-1 ${isDark ? "bg-white border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" : "bg-black border-white shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]"}`}>
       {/* Header */}
       <div className="h-16 flex items-center justify-center border-b-2 border-black dark:border-white border-dashed mb-2">
         <span className="text-black dark:text-white font-mono text-base font-bold uppercase tracking-widest leading-none text-center">
@@ -411,7 +413,7 @@ const DraggablePhoto = () => {
   );
 
   const RenderNeoBrutalism = () => (
-    <div className="w-full h-full bg-white dark:bg-black border-[6px] border-black dark:border-white relative group overflow-hidden rounded-none flex flex-col shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_0px_rgba(255,255,255,1)] p-2">
+    <div className={`w-full h-full border-[6px] relative group overflow-hidden rounded-none flex flex-col p-2 ${isDark ? "bg-white border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]" : "bg-black border-white shadow-[12px_12px_0_0px_rgba(255,255,255,1)]"}`}>
       {/* Header */}
       <div className="h-16 flex items-center justify-between border-b-4 border-black dark:border-white pb-2 mb-2">
         <span className="text-black dark:text-white font-mono text-2xl font-black uppercase tracking-tighter leading-none">
@@ -465,7 +467,7 @@ const DraggablePhoto = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-400 to-black dark:from-black dark:via-gray-600 dark:to-white opacity-20 pointer-events-none group-hover:opacity-40 transition-opacity duration-1000 z-10 mix-blend-overlay"></div>
 
       {/* Inner card */}
-      <div className="w-full h-full bg-gray-100/40 dark:bg-black/40 backdrop-blur-xl relative flex flex-col overflow-hidden border border-white/40 dark:border-white/10 z-20">
+      <div className={`w-full h-full backdrop-blur-xl relative flex flex-col overflow-hidden border z-20 ${isDark ? "bg-gray-100/90 border-white/40" : "bg-black/80 border-white/10"}`}>
         {/* Header */}
         <div className="h-16 flex items-center justify-between px-4 z-10 pt-2 border-b border-gray-400/20 dark:border-gray-500/20">
           <div className="flex flex-col">
