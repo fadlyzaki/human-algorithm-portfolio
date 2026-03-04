@@ -17,8 +17,13 @@ const rawThoughts = import.meta.glob(
     { query: '?raw', import: 'default', eager: true }
 );
 
-function calculateReadTime(text) {
-    if (!text) return '1 min read';
+function calculateReadTime(raw) {
+    if (!raw) return '1 min read';
+
+    // Handle Vites import.meta.glob behavior which might return a module object
+    const text = typeof raw === 'string' ? raw : raw.default || '';
+    if (typeof text !== 'string') return '1 min read';
+
     // Remove YAML frontmatter before counting words
     const cleanContent = text.replace(/---[\s\S]*?---/, '').trim();
     const words = cleanContent.split(/\s+/).length;

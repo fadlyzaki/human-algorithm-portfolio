@@ -121,11 +121,10 @@ const InterestSelector = ({ t }) => {
                                     px-3 py-1.5 border cursor-pointer select-none
                                     transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
                                     hover:scale-105
-                                    ${
-                                      isOn
-                                        ? "border-transparent shadow-sm"
-                                        : "border-[var(--border-color)] bg-[var(--bg-surface)]"
-                                    }`}
+                                    ${isOn
+                    ? "border-transparent shadow-sm"
+                    : "border-[var(--border-color)] bg-[var(--bg-surface)]"
+                  }`}
                 style={{
                   backgroundColor: isOn ? `${item.color}18` : undefined,
                   borderColor: isOn ? `${item.color}40` : undefined,
@@ -289,42 +288,64 @@ const HomeAbout = ({ t }) => {
         {/* 5. PERSONAL INTERESTS — Interactive Emoji Selector */}
         <InterestSelector t={t} />
 
-        {/* 6. SKETCHES TEASER (Span 3 cols — Full Width) */}
-        <Link
-          to="/sketches"
-          className="md:col-span-3 group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer"
-        >
-          {/* Background Glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-          <div className="relative z-10 flex items-center justify-between p-6 md:p-8">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors">
-                <Palette
-                  size={20}
-                  className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
-                />
+        {/* 6. SKETCHES & THOUGHTS TEASERS (Span 3 cols split into 2) */}
+        <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Link
+            to="/sketches"
+            className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-amber)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors shrink-0">
+                  <Palette
+                    size={20}
+                    className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                    Sketches
+                  </h4>
+                  <p className="text-[var(--text-primary)] text-sm font-light">
+                    Before the pixels, there were pencils.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
-                  Sketches
-                </h4>
-                <p className="text-[var(--text-primary)] text-sm md:text-base font-light">
-                  Before the pixels, there were pencils.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <span className="hidden md:inline-block font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                Explore the raw side →
-              </span>
-              <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)]">
+              <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
                 90+ pieces
               </div>
             </div>
-          </div>
-        </Link>
+          </Link>
+
+          <Link
+            to="/thoughts"
+            className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--accent-amber)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors shrink-0">
+                  <BookOpen
+                    size={20}
+                    className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                    Thoughts
+                  </h4>
+                  <p className="text-[var(--text-primary)] text-sm font-light">
+                    Essays, reflections & unprovoked opinions.
+                  </p>
+                </div>
+              </div>
+              <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
+                Read
+              </div>
+            </div>
+          </Link>
+        </div>
       </div>
     </section>
   );
