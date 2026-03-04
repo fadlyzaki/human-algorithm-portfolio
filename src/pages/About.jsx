@@ -47,6 +47,7 @@ import SEO from "../components/SEO";
 import ScrollReveal from "../components/ScrollReveal";
 import SystemMonitor from "../components/SystemMonitor";
 import ChaosSlider from "../components/ChaosSlider";
+const ChaosCanvas = lazy(() => import("../components/ChaosCanvas"));
 const NeuralEcho = lazy(() => import("../components/NeuralEcho"));
 import Footer from "../components/Footer";
 import RichText from "../components/RichText";
@@ -119,24 +120,22 @@ const AboutPage = () => {
       />
 
       {/* 1. TEXTURE & LIGHTING */}
+      <Suspense fallback={null}>
+        <ChaosCanvas />
+      </Suspense>
       <div
-        className={`fixed inset - 0 z - 0 pointer - events - none opacity - [0.15] ${isDark ? "mix-blend-overlay" : "mix-blend-multiply"} `}
+        className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-500`}
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
-      ></div>
-      <div
-        className={`fixed inset - 0 z - 0 pointer - events - none transition - opacity duration - 500 ${isDark ? "opacity-100" : "opacity-0"} `}
-        style={{
-          background:
-            "radial-gradient(circle at 70% 20%, rgba(50,50,50,0.4), rgba(17,17,17,1) 80%)",
-        }}
-      ></div>
-      <div
-        className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `linear - gradient(${isDark ? "some" : "some"} 1px, transparent 1px), linear - gradient(90deg, ${isDark ? "some" : "some"} 1px, transparent 1px)`,
-          backgroundSize: "40px 40px",
+          backgroundImage: [
+            `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            isDark
+              ? "radial-gradient(circle at 50% 0%, rgba(50,50,50,0.4), rgba(17,17,17,1) 80%)"
+              : "none",
+            `linear-gradient(${isDark ? "some" : "some"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "some" : "some"} 1px, transparent 1px)`,
+          ].join(", "),
+          backgroundSize: "auto, auto, 40px 40px",
+          opacity: isDark ? 1 : 0.03,
+          mixBlendMode: isDark ? "overlay" : "multiply",
         }}
       ></div>
 
@@ -150,7 +149,7 @@ const AboutPage = () => {
       <NavigationMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />
 
       {/* --- CONTENT --- */}
-      <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-20 border-x border-[var(--border-color)] min-h-screen bg-[var(--bg-void)]/80 backdrop-blur-sm shadow-2xl overflow-x-hidden">
+      <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-20 border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-2xl overflow-x-hidden transition-colors duration-500">
         {/* Padding for fixed header */}
         <div className="h-24 md:h-32"></div>
 
