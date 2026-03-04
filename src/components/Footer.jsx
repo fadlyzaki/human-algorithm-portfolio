@@ -14,9 +14,9 @@ import {
   Github,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import FrequencyVisualizer from "./FrequencyVisualizer";
+import TerminalHandshake from "./TerminalHandshake";
 import { SYSTEM_CONFIG } from "../config/constants";
 
 /**
@@ -128,16 +128,7 @@ const Footer = () => {
             </span>
           </h2>
 
-          <a
-            href="mailto:fadly.uzzaki@gmail.com"
-            className="inline-flex items-center gap-2 text-lg md:text-xl font-mono uppercase tracking-wide border-b border-[var(--text-primary)] pb-1 hover:text-[var(--text-secondary)] hover:border-[var(--text-secondary)] transition-all duration-200 group"
-          >
-            fadly.uzzaki@gmail.com
-            <ArrowUpRight
-              size={18}
-              className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
-            />
-          </a>
+          <TerminalHandshake />
         </div>
 
         {/* 2. CLUSTER NAVIGATION */}
