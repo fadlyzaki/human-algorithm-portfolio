@@ -24,13 +24,13 @@ import useScrollDirection from "../hooks/useScrollDirection";
 import { useLanguage } from "../context/LanguageContext";
 import ChaosToMatrixIntro from "../components/welcome/ChaosToMatrixIntro";
 import { LayoutGroup, AnimatePresence } from "framer-motion";
+import PageShell from "../components/PageShell";
 
 const Home = () => {
   /* --- STATE & HOOKS --- */
   const { isDark } = useTheme();
 
   const { t, language } = useLanguage();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showIntro, setShowIntro] = useState(() => {
     // Check URL override for testing/debugging
     const params = new URLSearchParams(window.location.search);
@@ -114,79 +114,58 @@ const Home = () => {
         <React.Suspense fallback={null}>
           <ChaosCanvas />
         </React.Suspense>
-        <div
-          className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-500`}
-          style={{
-            backgroundImage: [
-              `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-              isDark
-                ? "radial-gradient(circle at 50% 0%, rgba(50,50,50,0.4), rgba(17,17,17,1) 80%)"
-                : "none",
-              `linear-gradient(${isDark ? "some" : "some"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "some" : "some"} 1px, transparent 1px)`,
-            ].join(", "),
-            backgroundSize: "auto, auto, 40px 40px",
-            opacity: isDark ? 1 : 0.03,
-            mixBlendMode: isDark ? "overlay" : "multiply",
-          }}
-        ></div>
 
-        {/* Progress Bar */}
-        <ProgressBar />
+        <PageShell navbarProps={{ showNavOverride: showNav }}>
+          {/* Progress Bar */}
+          <ProgressBar />
 
-        {/* --- NAVIGATION SYSTEM --- */}
-        <Navbar onOpenMenu={handleOpenMenu} showNavOverride={showNav} />
+          {/* Main Container */}
+          <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-12 md:pt-24 pb-0 border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
+            <div className="fade-in pt-12 text-left">
+              {/* HERO & TICKER */}
+              <HomeHero
+                t={t}
+                renderIdCard={shouldRenderHeroIdCard}
+                startTyping={!showIntro}
+              />
 
-        <NavigationMenu
-          isOpen={isMenuOpen}
-          onClose={() => setIsMenuOpen(false)}
-        />
+              {/* SECTION 1: WORK */}
+              <HomeWorkSection t={t} />
 
-        {/* Main Container */}
-        <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-12 md:pt-24 pb-0 border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
-          <div className="fade-in pt-12 text-left">
-            {/* HERO & TICKER */}
-            <HomeHero
-              t={t}
-              renderIdCard={shouldRenderHeroIdCard}
-              startTyping={!showIntro}
-            />
+              {/* SECTION 2: SIDE PROJECTS (LAZY) */}
+              <React.Suspense
+                fallback={
+                  <div className="h-96 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>
+                }
+              >
+                <HomeSideProjects t={t} isId={isId} />
+              </React.Suspense>
 
-            {/* SECTION 1: WORK */}
-            <HomeWorkSection t={t} />
+              {/* SECTION 3: ABOUT ME (LAZY) */}
+              <React.Suspense
+                fallback={
+                  <div className="h-96 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>
+                }
+              >
+                <HomeAbout t={t} />
+              </React.Suspense>
 
-            {/* SECTION 2: SIDE PROJECTS (LAZY) */}
-            <React.Suspense
-              fallback={
-                <div className="h-96 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>
-              }
-            >
-              <HomeSideProjects t={t} isId={isId} />
-            </React.Suspense>
+              {/* SECTION 4: FAQs (LAZY) */}
+              <React.Suspense
+                fallback={
+                  <div className="h-48 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>
+                }
+              >
+                <FaqSection />
+              </React.Suspense>
+            </div>
 
-            {/* SECTION 3: ABOUT ME (LAZY) */}
-            <React.Suspense
-              fallback={
-                <div className="h-96 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>
-              }
-            >
-              <HomeAbout t={t} />
-            </React.Suspense>
-
-            {/* SECTION 4: FAQs (LAZY) */}
-            <React.Suspense
-              fallback={
-                <div className="h-48 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>
-              }
-            >
-              <FaqSection />
-            </React.Suspense>
-          </div>
-
-          {/* FOOTER */}
-          <section className="mb-0">
-            <Footer />
-          </section>
-        </main>
+            {/* FOOTER */}
+            <section className="mb-0">
+              <Footer />
+            </section>
+          </main>
+        </PageShell>
       </div>
     </LayoutGroup>
   );

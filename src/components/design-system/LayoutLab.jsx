@@ -1,0 +1,155 @@
+import React from "react";
+import { Grid3X3, Activity } from "lucide-react";
+
+const LayoutLab = ({ isXRayMode }) => (
+  <div
+    className={`space-y-16 animate-in slide-in-from-bottom-8 duration-500 relative ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : ""}`}
+  >
+    {isXRayMode && (
+      <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">
+        LayoutLab.jsx // Stack
+      </span>
+    )}
+
+    {/* GRID SYSTEM */}
+    <div
+      className={`space-y-6 relative z-10 ${isXRayMode ? "p-4 border border-dashed border-[var(--text-secondary)]/50" : ""}`}
+    >
+      {isXRayMode && (
+        <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--text-secondary)]">
+          Section // GridSystem
+        </span>
+      )}
+      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+        <Grid3X3 size={14} /> Spatial Architecture (12-Col)
+      </h3>
+
+      <div className="relative border border-[var(--border-color)] bg-[var(--bg-surface)] h-48 overflow-hidden">
+        {/* Visual Grid Layer */}
+        <div className="absolute inset-0 grid grid-cols-12 gap-4 px-4 md:px-12 pointer-events-none opacity-20">
+          {[...Array(12)].map((_, i) => (
+            <div
+              key={i}
+              className="h-full bg-[var(--accent-red)]/20 border-x border-[var(--accent-red)]/30 flex flex-col justify-between py-2 items-center"
+            >
+              <span className="text-[6px] font-mono text-[var(--accent-red)]">
+                {i + 1}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Content Simulation */}
+        <div className="absolute inset-0 grid grid-cols-12 gap-4 px-4 md:px-12 items-center">
+          <div className="col-span-12 md:col-span-3 h-24 bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center font-mono text-xs text-[var(--text-secondary)]">
+            Sidebar
+          </div>
+          <div className="col-span-12 md:col-span-9 h-24 bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center font-mono text-xs text-[var(--text-secondary)]">
+            Main Content Area
+          </div>
+        </div>
+
+        {/* Measurements */}
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 font-mono text-[9px] text-[var(--text-secondary)] bg-[var(--bg-void)] px-2 border border-[var(--border-color)] rounded">
+          Max-Width: 1280px // Class: max-w-7xl
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
+          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+            Gutters
+          </span>
+          <div className="text-xl font-bold text-[var(--text-primary)]">
+            24px
+          </div>
+          <code className="text-xs text-[var(--accent)]">gap-6</code>
+        </div>
+        <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
+          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+            Margins
+          </span>
+          <div className="text-xl font-bold text-[var(--text-primary)]">
+            48px
+          </div>
+          <code className="text-xs text-[var(--accent)]">px-12</code>
+        </div>
+      </div>
+    </div>
+
+    {/* MOTION CURVES */}
+    <div
+      className={`space-y-6 relative z-10 ${isXRayMode ? "p-4 border border-dashed border-[var(--text-secondary)]/50" : ""}`}
+    >
+      {isXRayMode && (
+        <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--text-secondary)]">
+          Section // MotionCurves
+        </span>
+      )}
+      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+        <Activity size={14} /> Kinetic Architecture & Physics
+      </h3>
+
+      <div className="grid md:grid-cols-3 gap-8">
+        {/* Curve 1: Default */}
+        <div className="space-y-4 group cursor-pointer">
+          <div className="h-32 border border-[var(--border-color)] bg-[var(--bg-card)] relative overflow-hidden flex items-center justify-center">
+            <div className="w-8 h-8 bg-[var(--accent-blue)] rounded shadow-lg group-hover:translate-x-32 transition-transform duration-500 ease-out"></div>
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none opacity-20"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0,128 C50,128 50,0 200,0"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+          </div>
+          <div>
+            <h4 className="font-bold text-sm text-[var(--text-primary)]">
+              Soft Out
+            </h4>
+            <code className="text-xs text-[var(--text-secondary)]">
+              ease-out // 500ms
+            </code>
+          </div>
+        </div>
+
+        {/* Curve 2: Elastic */}
+        <div className="space-y-4 group cursor-pointer">
+          <div className="h-32 border border-[var(--border-color)] bg-[var(--bg-card)] relative overflow-hidden flex items-center justify-center">
+            <div className="w-8 h-8 bg-[var(--accent-green)] rounded shadow-lg group-hover:scale-150 transition-transform duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]"></div>
+          </div>
+          <div>
+            <h4 className="font-bold text-sm text-[var(--text-primary)]">
+              Elastic Pop
+            </h4>
+            <code className="text-xs text-[var(--text-secondary)]">
+              cubic-bezier(.34,1.56,...)
+            </code>
+          </div>
+        </div>
+
+        {/* Curve 3: Linear/Glitch */}
+        <div className="space-y-4 group cursor-pointer">
+          <div className="h-32 border border-[var(--border-color)] bg-[var(--bg-card)] relative overflow-hidden flex items-center justify-center">
+            <div className="w-full h-1 bg-[var(--accent-red)] group-hover:opacity-0 animate-pulse"></div>
+          </div>
+          <div>
+            <h4 className="font-bold text-sm text-[var(--text-primary)]">
+              Signal Pulse
+            </h4>
+            <code className="text-xs text-[var(--text-secondary)]">
+              linear // infinite
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+export default LayoutLab;
