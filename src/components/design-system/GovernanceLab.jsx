@@ -184,11 +184,8 @@ const GovernanceLab = ({ isXRayMode }) => (
             <div className="flex items-center justify-center w-8 h-8 rounded-full border-4 border-[var(--bg-void)] bg-[var(--bg-surface)] text-[var(--text-secondary)] group-[.is-active]:bg-[var(--accent-green)] group-[.is-active]:text-[var(--bg-void)] shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 absolute -left-12 md:static z-10 transition-colors">
               4
             </div>
-            <div className="w-full md:w-[calc(50%-2rem)] p-4 border border-[var(--accent-green)]/30 bg-[var(--accent-green)]/5 relative overflow-hidden">
-              <div className="absolute -right-4 -bottom-4 opacity-[0.03]">
-                <ShieldCheck size={80} />
-              </div>
-              <div className="flex justify-between items-center mb-1 relative z-10">
+            <div className="w-full md:w-[calc(50%-2rem)] p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
+              <div className="flex justify-between items-center mb-1">
                 <h4 className="font-bold text-sm text-[var(--text-primary)]">
                   Stable Release
                 </h4>
@@ -196,7 +193,7 @@ const GovernanceLab = ({ isXRayMode }) => (
                   Core
                 </span>
               </div>
-              <p className="text-xs text-[var(--text-secondary)] relative z-10">
+              <p className="text-xs text-[var(--text-secondary)]">
                 Component is locked. Breaking changes require major semver bump.
               </p>
             </div>
