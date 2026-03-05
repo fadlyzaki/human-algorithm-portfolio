@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { STORAGE_KEYS } from "../config/constants";
 import { useLocation, Link } from "react-router-dom";
 import { Sun, Moon, Grid, ArrowUp, ScanEye } from "lucide-react";
@@ -18,7 +18,6 @@ const HomeAbout = React.lazy(() => import("../components/home/HomeAbout"));
 const FaqSection = React.lazy(() => import("../components/FaqSection"));
 const ChaosCanvas = React.lazy(() => import("../components/ChaosCanvas"));
 
-import { useTheme } from "../context/ThemeContext";
 import BackgroundTexture from "../components/BackgroundTexture";
 import useScrollDirection from "../hooks/useScrollDirection";
 import { useLanguage } from "../context/LanguageContext";
@@ -28,7 +27,7 @@ import PageShell from "../components/PageShell";
 
 const Home = () => {
   /* --- STATE & HOOKS --- */
-  const { isDark } = useTheme();
+  /* --- STATE & HOOKS --- */
 
   const { t, language } = useLanguage();
   const [showIntro, setShowIntro] = useState(() => {
@@ -42,8 +41,6 @@ const Home = () => {
     return localStorage.getItem(STORAGE_KEYS.INTRO_SEEN) !== "true";
   });
   const showNav = useScrollDirection(false);
-
-  const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
 
   const location = useLocation();
 

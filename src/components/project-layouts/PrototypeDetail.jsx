@@ -22,6 +22,7 @@ const PrototypeDetail = ({
   InteractionComponent,
   activeTitle,
   activeTldr,
+  t,
 }) => {
   const containerRef = useRef(null);
 

@@ -42,6 +42,7 @@ import {
 import { useTheme } from "../context/ThemeContext";
 import BackgroundTexture from "../components/BackgroundTexture";
 import Navbar from "../components/Navbar";
+import PageShell from "../components/PageShell";
 import { useLanguage } from "../context/LanguageContext";
 import SEO from "../components/SEO";
 import ScrollReveal from "../components/ScrollReveal";

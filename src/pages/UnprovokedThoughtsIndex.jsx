@@ -7,7 +7,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { getAllUnprovokedThoughts } from '../utils/mdx';
 import SEO from '../components/SEO';
@@ -15,7 +14,6 @@ import Navbar from '../components/Navbar';
 import NavigationMenu from '../components/NavigationMenu';
 
 const UnprovokedThoughtsIndex = () => {
-    const { isDark } = useTheme();
     const { t } = useLanguage();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const thoughts = getAllUnprovokedThoughts();
@@ -74,7 +72,7 @@ const UnprovokedThoughtsIndex = () => {
 
                 {/* Thought Cards */}
                 <div className="space-y-0">
-                    {thoughts.map((thought, idx) => {
+                    {thoughts.map((thought) => {
                         const { frontmatter, slug } = thought;
 
                         return (

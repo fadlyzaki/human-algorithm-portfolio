@@ -14,7 +14,6 @@ import {
     Share2,
     ChevronRight,
 } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
 import { getThoughtBySlug, getAllUnprovokedThoughts } from '../utils/mdx';
 import MDXComponents from '../components/mdx/MDXComponents';
 import EmojiFeedback from '../components/mdx/EmojiFeedback';
@@ -26,7 +25,6 @@ import { useLanguage } from '../context/LanguageContext';
 const UnprovokedThoughtDetail = () => {
     const { t } = useLanguage();
     const { slug } = useParams();
-    const { isDark } = useTheme();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(0);
 

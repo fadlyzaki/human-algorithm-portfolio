@@ -72,8 +72,6 @@ export const EXPERIMENTS = [
       { label: "Trust Score", value: "High Increase" },
       { label: "Friend Interaction", value: "Tripled" },
     ],
-    learnings:
-      "Technology should be a bicycle for the mind, not a conveyor belt for the eyes.",
     designProcess: [
       {
         type: "research",
@@ -244,8 +242,6 @@ export const EXPERIMENTS = [
       { label: "User Anxiety", value: "Reduced" },
       { label: "Trust Score", value: "Elevated" },
     ],
-    learnings:
-      "Price Lock is not a fintech product; it's an anxiety medication.",
 
     challenge_id:
       "Kecemasan spesifik saat melihat tiket naik 500rb sambil menunggu izin cuti bos. Di dunia 'dynamic pricing', user selalu kalah.",
@@ -355,8 +351,6 @@ export const EXPERIMENTS = [
       { label: "Target AOV", value: "2.5x" },
       { label: "App Penetration", value: "90%" },
     ],
-    learnings:
-      "I brought this idea not only because I understand APIs or GTV calculations. I brought it because I personally feel the pain of distance. I want to build a Grab that doesn't just move people and goods, but also moves love.",
     designProcess: [
       {
         type: "research",
@@ -483,8 +477,6 @@ export const EXPERIMENTS = [
       { label: "Response", value: "Real-time" },
       { label: "Trust", value: "High" },
     ],
-    learnings:
-      "In disaster UI, 'Red' is not enough. You need specific, actionable directives.",
     designProcess: [
       {
         type: "research",
@@ -636,8 +628,6 @@ export const EXPERIMENTS = [
       { label: "Time-to-Play", value: "-40%" },
       { label: "Bounce Rate", value: "-15%" },
     ],
-    learnings:
-      "By surfacing duration and energy-level metadata before the click, we align the library with the user's immediate reality.",
     designProcess: [
       {
         type: "research",
