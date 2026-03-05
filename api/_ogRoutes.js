@@ -111,7 +111,7 @@ for (const company of COMPANIES) {
 
 // Build SIDE_PROJECT_ROUTES from NOTES + standalone side-project data
 const SIDE_PROJECT_SOURCES = [
-    ...NOTES,
+    ...EXPERIMENTS,
     humanAlgorithm,
     yearInReview,
     interactiveWorkbook,

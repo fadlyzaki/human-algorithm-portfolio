@@ -157,6 +157,12 @@ const ChaosMatrixBackground = ({ phase = "chaos" }) => {
   }, []);
 
   const nodes = useMemo(() => {
+    // Pure deterministic pseudo-random function
+    const pseudoRandom = (seed) => {
+      const x = Math.sin(seed) * 10000;
+      return x - Math.floor(x);
+    };
+
     const { width, height } = dimensions;
     const gridWidth = (COLS - 1) * GRID_SIZE;
     const gridHeight = (ROWS - 1) * GRID_SIZE;
@@ -168,12 +174,18 @@ const ChaosMatrixBackground = ({ phase = "chaos" }) => {
       const row = Math.floor(i / COLS);
       const matrixX = startX + col * GRID_SIZE;
       const matrixY = startY + row * GRID_SIZE;
-      
-      const chaosX = (i % 3 === 0) ? Math.random() * width : (Math.random() * width * 0.8 + width * 0.1);
-      const chaosY = (i % 2 === 0) ? Math.random() * height : (Math.random() * height * 0.8 + height * 0.1);
+
+      const rx1 = pseudoRandom(i + 1);
+      const rx2 = pseudoRandom(i + 2);
+      const ry1 = pseudoRandom(i + 3);
+      const ry2 = pseudoRandom(i + 4);
+      const rFloat = pseudoRandom(i + 5);
+
+      const chaosX = (i % 3 === 0) ? rx1 * width : (rx2 * width * 0.8 + width * 0.1);
+      const chaosY = (i % 2 === 0) ? ry1 * height : (ry2 * height * 0.8 + height * 0.1);
       const chaosRotate = (i * 15) % 360;
 
-      const floatDuration = 2.5 + (i % 5);
+      const floatDuration = 2.5 + Math.floor(rFloat * 5);
       const floatOffsetX = ((i * 13) % 400) - 200;
       const floatOffsetY = ((i * 17) % 400) - 200;
 
@@ -261,27 +273,27 @@ const ChaosMatrixBackground = ({ phase = "chaos" }) => {
           const currentX = isMatrix
             ? node.matrixX
             : [
-                node.chaosX,
-                node.chaosX + node.floatOffsetX,
-                node.chaosX - node.floatOffsetX * 0.7,
-                node.chaosX,
-              ];
+              node.chaosX,
+              node.chaosX + node.floatOffsetX,
+              node.chaosX - node.floatOffsetX * 0.7,
+              node.chaosX,
+            ];
           const currentY = isMatrix
             ? node.matrixY
             : [
-                node.chaosY,
-                node.chaosY + node.floatOffsetY,
-                node.chaosY - node.floatOffsetY * 0.5,
-                node.chaosY,
-              ];
+              node.chaosY,
+              node.chaosY + node.floatOffsetY,
+              node.chaosY - node.floatOffsetY * 0.5,
+              node.chaosY,
+            ];
           const currentRotate = isMatrix
             ? 0
             : [
-                node.chaosRotate,
-                node.chaosRotate + 180,
-                node.chaosRotate + 90,
-                node.chaosRotate,
-              ];
+              node.chaosRotate,
+              node.chaosRotate + 180,
+              node.chaosRotate + 90,
+              node.chaosRotate,
+            ];
 
           const nodeSize = isMatrix ? 6 : node.size * 2.5;
 
@@ -318,23 +330,23 @@ const ChaosMatrixBackground = ({ phase = "chaos" }) => {
               transition={
                 isMatrix
                   ? {
-                      type: "spring",
-                      stiffness: 60,
-                      damping: 12,
-                      mass: 0.5,
-                      delay: (node.id % 4) * 0.1,
-                    }
+                    type: "spring",
+                    stiffness: 60,
+                    damping: 12,
+                    mass: 0.5,
+                    delay: (node.id % 4) * 0.1,
+                  }
                   : {
-                      duration: node.floatDuration,
+                    duration: node.floatDuration,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    opacity: { duration: 0.8, delay: (node.id % 30) * 0.02 },
+                    scale: {
+                      duration: node.floatDuration * 1.3,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      opacity: { duration: 0.8, delay: (node.id % 30) * 0.02 },
-                      scale: {
-                        duration: node.floatDuration * 1.3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      },
-                    }
+                    },
+                  }
               }
             />
           );

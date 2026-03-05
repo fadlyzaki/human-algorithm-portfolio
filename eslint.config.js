@@ -6,7 +6,7 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 import reactPlugin from 'eslint-plugin-react'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'sweep.js', 'json_extract.js']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [

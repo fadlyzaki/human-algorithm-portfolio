@@ -184,6 +184,12 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
 
   // Generate physics data for each node
   const nodes = useMemo(() => {
+    // Pure deterministic pseudo-random function
+    const pseudoRandom = (seed) => {
+      const x = Math.sin(seed) * 10000;
+      return x - Math.floor(x);
+    };
+
     const { width, height } = dimensions;
     const gridWidth = (COLS - 1) * GRID_SIZE;
     const gridHeight = (ROWS - 1) * GRID_SIZE;
@@ -198,19 +204,30 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
       const matrixX = startX + col * GRID_SIZE;
       const matrixY = startY + row * GRID_SIZE;
 
-      // Chaos Initial Position — TRULY RANDOM across the entire viewport
-      const chaosX = Math.random() * width;
-      const chaosY = Math.random() * height;
-      const chaosRotate = Math.random() * 360;
+      // Chaos Initial Position — deterministic pseudo-random
+      const rx = pseudoRandom(i + 1);
+      const ry = pseudoRandom(i + 2);
+      const rr = pseudoRandom(i + 3);
+      const rfD = pseudoRandom(i + 4);
+      const rfX = pseudoRandom(i + 5);
+      const rfY = pseudoRandom(i + 6);
+      const rs = pseudoRandom(i + 7);
+      const ro = pseudoRandom(i + 8);
+      const rsC = pseudoRandom(i + 9);
+
+      const chaosX = rx * width;
+      const chaosY = ry * height;
+      const chaosRotate = rr * 360;
 
       // Floating Animation Offsets — large range for dramatic wandering
-      const floatDuration = 2.5 + Math.random() * 4;
-      const floatOffsetX = (Math.random() - 0.5) * 250;
-      const floatOffsetY = (Math.random() - 0.5) * 250;
+      const floatDuration = 2.5 + rfD * 4;
+      const floatOffsetX = (rfX - 0.5) * 250;
+      const floatOffsetY = (rfY - 0.5) * 250;
 
       // Visual variety
-      const size = Math.random() * 3 + 1; // 1px to 4px
-      const nodeOpacity = Math.random() * 0.5 + 0.5; // 0.5 to 1.0
+      const size = rs * 3 + 1; // 1px to 4px
+      const nodeOpacity = ro * 0.5 + 0.5; // 0.5 to 1.0
+      const initialScale = 0.5 + rsC * 1.5;
 
       return {
         id: i,
@@ -226,6 +243,7 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
         floatOffsetY,
         size,
         nodeOpacity,
+        initialScale,
       };
     });
   }, [dimensions]);
@@ -355,27 +373,27 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
             const currentX = isMatrix
               ? node.matrixX
               : [
-                  node.chaosX,
-                  node.chaosX + node.floatOffsetX,
-                  node.chaosX - node.floatOffsetX * 0.7,
-                  node.chaosX,
-                ];
+                node.chaosX,
+                node.chaosX + node.floatOffsetX,
+                node.chaosX - node.floatOffsetX * 0.7,
+                node.chaosX,
+              ];
             const currentY = isMatrix
               ? node.matrixY
               : [
-                  node.chaosY,
-                  node.chaosY + node.floatOffsetY,
-                  node.chaosY - node.floatOffsetY * 0.5,
-                  node.chaosY,
-                ];
+                node.chaosY,
+                node.chaosY + node.floatOffsetY,
+                node.chaosY - node.floatOffsetY * 0.5,
+                node.chaosY,
+              ];
             const currentRotate = isMatrix
               ? 0
               : [
-                  node.chaosRotate,
-                  node.chaosRotate + 180,
-                  node.chaosRotate + 90,
-                  node.chaosRotate,
-                ];
+                node.chaosRotate,
+                node.chaosRotate + 180,
+                node.chaosRotate + 90,
+                node.chaosRotate,
+              ];
 
             const nodeSize = isMatrix ? 6 : node.size * 2.5; // px
 
@@ -400,7 +418,7 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
                   y: node.chaosY,
                   rotate: node.chaosRotate,
                   opacity: 0,
-                  scale: isMatrix ? 1 : 0.5 + Math.random() * 1.5,
+                  scale: isMatrix ? 1 : node.initialScale,
                 }}
                 animate={{
                   x: currentX,
@@ -412,23 +430,23 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
                 transition={
                   isMatrix
                     ? {
-                        type: "spring",
-                        stiffness: 60,
-                        damping: 12,
-                        mass: 0.5,
-                        delay: (node.id % 4) * 0.1,
-                      }
+                      type: "spring",
+                      stiffness: 60,
+                      damping: 12,
+                      mass: 0.5,
+                      delay: (node.id % 4) * 0.1,
+                    }
                     : {
-                        duration: node.floatDuration,
+                      duration: node.floatDuration,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      opacity: { duration: 0.8, delay: node.id * 0.02 },
+                      scale: {
+                        duration: node.floatDuration * 1.3,
                         repeat: Infinity,
                         ease: "easeInOut",
-                        opacity: { duration: 0.8, delay: node.id * 0.02 },
-                        scale: {
-                          duration: node.floatDuration * 1.3,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        },
-                      }
+                      },
+                    }
                 }
               />
             );
