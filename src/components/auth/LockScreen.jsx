@@ -19,7 +19,7 @@ import { useTheme } from "../../context/ThemeContext";
 import BackButton from "../BackButton";
 import SEO from "../SEO";
 
-const LockScreen = ({ project, parentCluster, onSuccess }) => {
+const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
   const { t, language, toggleLanguage } = useLanguage();
   const { isDark, setIsDark } = useTheme();
 
@@ -51,6 +51,7 @@ const LockScreen = ({ project, parentCluster, onSuccess }) => {
     const isAltMatch = altEnvPassword ? cleanPassword === altEnvPassword : false;
 
     if (isPrimaryMatch || isAltMatch) {
+      if (onDecryptStart) onDecryptStart();
       setDecrypting(true);
       setError(false);
 
@@ -81,20 +82,11 @@ const LockScreen = ({ project, parentCluster, onSuccess }) => {
   if (!project || !parentCluster) return null;
 
   return (
-    <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-mono flex items-center justify-center p-6 relative overflow-hidden transition-colors duration-500">
+    <div className="min-h-screen bg-transparent text-[var(--text-primary)] font-mono flex items-center justify-center p-6 relative overflow-hidden transition-colors duration-500">
       <SEO
         title={`🔒 Protected: ${project.title}`}
         description="Confidential Case Study. Access Restricted."
       />
-
-      {/* Background Grid */}
-      <div
-        className="absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage: `linear-gradient(${isDark ? "var(--border-color)" : "#000"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "var(--border-color)" : "#000"} 1px, transparent 1px)`,
-          backgroundSize: "40px 40px",
-        }}
-      ></div>
 
       {/* Home Navigation (Abort) */}
       <div className="absolute top-6 left-6 z-20">

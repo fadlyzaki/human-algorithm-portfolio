@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import NavigationMenu from "../components/NavigationMenu";
 import useProjectData from "../hooks/useProjectData";
 import LockScreen from "../components/auth/LockScreen";
+import ChaosMatrixBackground from "../components/auth/ChaosMatrixBackground";
 import SEO from "../components/SEO";
 
 // Lazy Load Heavy Content
@@ -18,6 +19,7 @@ const ProtectedCaseStudy = () => {
   const { t } = useLanguage();
   const [isLocked, setIsLocked] = useState(true);
   const [, setIsMenuOpen] = useState(false); // Added for Navbar
+  const [authPhase, setAuthPhase] = useState("chaos");
 
   // Use Centralized Data Hook
   const { project, parentCluster, loading, error } = useProjectData(id);
@@ -66,17 +68,24 @@ const ProtectedCaseStudy = () => {
   // --- RENDER ---
   return (
     <>
+      {/* Dynamic Background matching authentication state */}
+      <ChaosMatrixBackground phase={authPhase} />
+
       {isLocked ? (
         <LockScreen
           project={project}
           parentCluster={parentCluster}
-          onSuccess={() => setIsLocked(false)}
+          onDecryptStart={() => setAuthPhase("matrix")}
+          onSuccess={() => {
+            setAuthPhase("unlocked");
+            setIsLocked(false);
+          }}
         />
       ) : (
         <Suspense
           fallback={
-            <div className="min-h-screen bg-[var(--bg-void)] flex items-center justify-center">
-              <div className="font-mono text-xs uppercase tracking-widest animate-pulse text-[var(--brand)]">
+            <div className="min-h-screen bg-transparent relative z-10 flex items-center justify-center">
+              <div className="font-mono text-xs uppercase tracking-widest animate-pulse text-emerald-400">
                 Loading_Case_File...
               </div>
             </div>
