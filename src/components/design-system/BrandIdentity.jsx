@@ -1,5 +1,5 @@
 import React from "react";
-import { Cpu, Zap, Eye } from "lucide-react";
+import { Cpu, Zap, Eye, Fingerprint, ShieldAlert, Terminal, UserCheck } from "lucide-react";
 
 const PersonaCard = ({ role, icon: Icon, color, desc, quote }) => (
   <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent)] transition-all duration-300 group hover:shadow-lg hover:-translate-x-1">

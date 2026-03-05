@@ -5,6 +5,10 @@ import {
   CheckCircle2,
   ShieldCheck,
   AlertTriangle,
+  Activity,
+  ClipboardList,
+  Eye,
+  Terminal,
 } from "lucide-react";
 
 // ── AUDIT REPORT SECTION ──
