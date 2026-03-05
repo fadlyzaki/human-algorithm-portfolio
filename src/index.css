@@ -20,6 +20,11 @@
   --accent-green: #10b981;
   --accent-purple: #8b5cf6;
 
+  /* Default accent (used by useThemeStyles consumers) */
+  --accent: #D97706;
+  --text-card: var(--text-primary);
+  --text-card-secondary: var(--text-secondary);
+
   /* STOQO SALES KPI CARD - UX GLOBALS */
   --kpi-border: rgba(255, 255, 255, 0.05);
   --kpi-bg: rgba(255, 255, 255, 0.05);
@@ -141,6 +146,9 @@
   --text-primary: #F4F4F5;
   --text-secondary: #A1A1AA;
   --border-color: #262626;
+
+  /* Dark mode accent override */
+  --accent: #F59E0B;
 }
 
 /* Optional: Smooth scrolling for anchor links */

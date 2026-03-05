@@ -2,7 +2,7 @@ import React, { Suspense, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { ScanEye, Sun, Moon, Globe } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
-import useThemeStyles from "../hooks/useThemeStyles";
+
 import { useLanguage } from "../context/LanguageContext";
 import Navbar from "../components/Navbar";
 import NavigationMenu from "../components/NavigationMenu";
@@ -33,10 +33,8 @@ const CompanyDetail = () => {
   const { isDark } = useTheme();
   const { t, language } = useLanguage();
   const { id } = useParams();
-  // const navigate = useNavigate();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const baseThemeStyles = useThemeStyles();
 
   const { project: cluster, loading } = useProjectData(id);
 
@@ -60,7 +58,6 @@ const CompanyDetail = () => {
     }[cluster.id] || WorkforceAI; // Fallback
 
   const themeStyles = {
-    ...baseThemeStyles,
     "--brand": brandColor,
   };
 

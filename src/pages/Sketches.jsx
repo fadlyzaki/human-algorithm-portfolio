@@ -8,7 +8,7 @@ import SEO from "../components/SEO";
 import NavigationMenu from "../components/NavigationMenu";
 import ScrollProgressBar from "../components/ScrollProgressBar";
 import { useTheme } from "../context/ThemeContext";
-import useThemeStyles from "../hooks/useThemeStyles";
+
 import { useLanguage } from "../context/LanguageContext";
 import sketchesData from "../data/sketches.json";
 import Flipbook from "../components/sketches/Flipbook";
@@ -22,7 +22,7 @@ const allPencil = [...sketchesData]
 
 const Sketches = () => {
   const { isDark } = useTheme();
-  const themeStyles = useThemeStyles();
+
   const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMedium, setActiveMedium] = useState("pencil");
@@ -38,7 +38,6 @@ const Sketches = () => {
 
   return (
     <div
-      style={themeStyles}
       className={`min-h-[100dvh] flex flex-col ${isDark ? "bg-[some]" : "bg-[some]"} text-[var(--text-primary)] font-sans selection:bg-zinc-800 selection:text-white transition-colors duration-700 overflow-hidden relative`}
     >
       <Helmet>

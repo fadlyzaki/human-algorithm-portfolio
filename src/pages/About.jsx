@@ -40,7 +40,7 @@ import {
   achievements,
 } from "../data/aboutData";
 import { useTheme } from "../context/ThemeContext";
-import useThemeStyles from "../hooks/useThemeStyles";
+import BackgroundTexture from "../components/BackgroundTexture";
 import Navbar from "../components/Navbar";
 import { useLanguage } from "../context/LanguageContext";
 import SEO from "../components/SEO";
@@ -67,7 +67,7 @@ import MaintenanceGrid from "../components/about/MaintenanceGrid";
 
 const AboutPage = () => {
   const { isDark } = useTheme();
-  const themeStyles = useThemeStyles();
+
   const { t } = useLanguage();
   const [chaosStrength, setChaosStrength] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for menu
@@ -111,7 +111,6 @@ const AboutPage = () => {
 
   return (
     <div
-      style={themeStyles}
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[some] transition-colors duration-500 overflow-x-hidden"
     >
       <SEO

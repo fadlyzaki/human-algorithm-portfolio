@@ -252,8 +252,6 @@ const SideProjectDetail = () => {
         backPath="/side-projects"
       />
 
-      {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
-
       <main className="relative z-10">
         {/* --- LAYOUT ORCHESTRATOR --- */}
         {(() => {

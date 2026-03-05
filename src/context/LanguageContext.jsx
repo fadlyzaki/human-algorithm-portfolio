@@ -2,7 +2,6 @@ import React, {
   createContext,
   useContext,
   useState,
-  useEffect,
   useMemo,
   useCallback,
 } from "react";
@@ -15,15 +14,10 @@ const LanguageContext = createContext();
 export const useLanguage = () => useContext(LanguageContext);
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState("en");
-
-  // Persist language preference
-  useEffect(() => {
+  const [language, setLanguage] = useState(() => {
     const savedLang = localStorage.getItem(STORAGE_KEYS.LANGUAGE);
-    if (savedLang) {
-      setTimeout(() => setLanguage(savedLang), 0);
-    }
-  }, []);
+    return savedLang || "en";
+  });
 
   const toggleLanguage = useCallback(() => {
     // Brief fade for smooth content transition

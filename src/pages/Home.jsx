@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { STORAGE_KEYS } from "../config/constants";
 import { useLocation, Link } from "react-router-dom";
 import { Sun, Moon, Grid, ArrowUp, ScanEye } from "lucide-react";
 import Footer from "../components/Footer";
@@ -18,27 +19,27 @@ const FaqSection = React.lazy(() => import("../components/FaqSection"));
 const ChaosCanvas = React.lazy(() => import("../components/ChaosCanvas"));
 
 import { useTheme } from "../context/ThemeContext";
-import useThemeStyles from "../hooks/useThemeStyles";
+import BackgroundTexture from "../components/BackgroundTexture";
 import useScrollDirection from "../hooks/useScrollDirection";
 import { useLanguage } from "../context/LanguageContext";
 import ChaosToMatrixIntro from "../components/welcome/ChaosToMatrixIntro";
 import { LayoutGroup, AnimatePresence } from "framer-motion";
 
-const Portfolio = () => {
+const Home = () => {
   /* --- STATE & HOOKS --- */
   const { isDark } = useTheme();
-  const themeStyles = useThemeStyles();
+
   const { t, language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showIntro, setShowIntro] = useState(() => {
     // Check URL override for testing/debugging
     const params = new URLSearchParams(window.location.search);
     if (params.get("forceIntro") === "true") {
-      localStorage.removeItem("hasSeenChaosIntro");
+      localStorage.removeItem(STORAGE_KEYS.INTRO_SEEN);
       return true;
     }
     // Only show intro once for first-time visitors (persists across tabs/restarts)
-    return localStorage.getItem("hasSeenChaosIntro") !== "true";
+    return localStorage.getItem(STORAGE_KEYS.INTRO_SEEN) !== "true";
   });
   const showNav = useScrollDirection(false);
 
@@ -78,14 +79,13 @@ const Portfolio = () => {
   return (
     <LayoutGroup>
       <div
-        style={themeStyles}
         className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[some] overflow-x-hidden transition-colors duration-500"
       >
         <AnimatePresence>
           {showIntro && (
             <ChaosToMatrixIntro
               onComplete={() => {
-                localStorage.setItem("hasSeenChaosIntro", "true");
+                localStorage.setItem(STORAGE_KEYS.INTRO_SEEN, "true");
                 setShowIntro(false);
               }}
             />
@@ -192,4 +192,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Home;

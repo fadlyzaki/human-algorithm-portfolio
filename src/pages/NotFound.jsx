@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   AlertTriangle,
   Terminal,
@@ -13,6 +13,7 @@ import SEO from "../components/SEO";
 
 const NotFound = () => {
   const { isDark } = useTheme();
+  const navigate = useNavigate();
   const [countdown, setCountdown] = useState(10);
 
   useEffect(() => {
@@ -20,9 +21,9 @@ const NotFound = () => {
       const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
       return () => clearTimeout(timer);
     } else {
-      window.location.href = "/";
+      navigate("/", { replace: true });
     }
-  }, [countdown]);
+  }, [countdown, navigate]);
 
   const themeStyles = {
     "--bg-void": isDark ? "var(--bg-void)" : "some",

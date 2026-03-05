@@ -5,6 +5,17 @@ import PixelImage from "./PixelImage";
 import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
 
+// Hoisted animation configs to avoid re-creating objects on every render
+const DRAG_CONSTRAINTS = { left: -100, right: 100, top: -100, bottom: 100 };
+const DRAG_TRANSITION = { bounceStiffness: 600, bounceDamping: 20 };
+const HOVER_ANIMATION = { scale: 1.02, rotate: 0, cursor: "grab" };
+const TAP_ANIMATION = { scale: 0.98, cursor: "grabbing" };
+const DRAG_ANIMATION = { scale: 1.05, rotate: 0, zIndex: 10 };
+const CARD_INITIAL = { opacity: 0, rotateY: 90 };
+const CARD_ANIMATE = { opacity: 1, rotateY: 0 };
+const CARD_EXIT = { opacity: 0, rotateY: -90 };
+const CARD_TRANSITION = { duration: 0.4, ease: "circOut" };
+
 const DraggablePhoto = () => {
   const { t } = useLanguage();
   const { isDark } = useTheme();
@@ -551,14 +562,14 @@ const DraggablePhoto = () => {
       {/* Wrapper with extra bottom space */}
       <motion.div
         drag
-        dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
+        dragConstraints={DRAG_CONSTRAINTS}
         dragElastic={0.15}
-        dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-        whileHover={{ scale: 1.02, rotate: 0, cursor: "grab" }}
-        whileTap={{ scale: 0.98, cursor: "grabbing" }}
+        dragTransition={DRAG_TRANSITION}
+        whileHover={HOVER_ANIMATION}
+        whileTap={TAP_ANIMATION}
         initial={{ rotate: 2 }}
         animate={{ rotate: 0 }}
-        whileDrag={{ scale: 1.05, rotate: 0, zIndex: 10 }}
+        whileDrag={DRAG_ANIMATION}
         onClick={handleNext}
         className="md:block relative cursor-grab active:cursor-grabbing w-full aspect-[3/4.2] select-none group"
       >
@@ -579,11 +590,11 @@ const DraggablePhoto = () => {
 
         <AnimatePresence mode="wait">
           <motion.div
-            key={designVariant + index} // Key includes design to trigger transition on switch
-            initial={{ opacity: 0, rotateY: 90 }}
-            animate={{ opacity: 1, rotateY: 0 }}
-            exit={{ opacity: 0, rotateY: -90 }}
-            transition={{ duration: 0.4, ease: "circOut" }}
+            key={designVariant + index}
+            initial={CARD_INITIAL}
+            animate={CARD_ANIMATE}
+            exit={CARD_EXIT}
+            transition={CARD_TRANSITION}
             className="w-full h-full"
           >
             {currentItem.type === "identity" ? (

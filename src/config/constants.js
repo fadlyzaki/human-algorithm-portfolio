@@ -7,7 +7,7 @@ export const STORAGE_KEYS = {
   THEME: "theme",
   LANGUAGE: "portfolio-lang-v1",
   EASTER_EGGS: "foundEasterEggs",
-  INTRO_SEEN: "hasSeenIntro", // Optional for future use
+  INTRO_SEEN: "hasSeenChaosIntro",
 };
 
 export const SYSTEM_CONFIG = {

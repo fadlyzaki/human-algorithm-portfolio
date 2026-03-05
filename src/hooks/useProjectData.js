@@ -1,6 +1,5 @@
 import { useMemo } from "react";
-import { PORTFOLIO } from "../data/portfolioData";
-import { WORK_CLUSTERS, SIDE_PROJECTS, EXPERIMENTS } from "../data/portfolioData";
+import { PORTFOLIO, EXPERIMENTS } from "../data/portfolioData";
 
 /**
  * Hook to retrieve project data from any of the data sources.

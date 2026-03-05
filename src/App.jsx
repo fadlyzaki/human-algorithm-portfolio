@@ -17,7 +17,6 @@ const BlogPost = React.lazy(() => import("./pages/BlogPost"));
 const UnprovokedThoughtsIndex = React.lazy(() => import("./pages/UnprovokedThoughtsIndex"));
 const UnprovokedThoughtDetail = React.lazy(() => import("./pages/UnprovokedThoughtDetail"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
-// Removed DesignProcess import
 const DesignSystem = React.lazy(() => import("./pages/DesignSystem"));
 const Sketches = React.lazy(() => import("./pages/Sketches"));
 

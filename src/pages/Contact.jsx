@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { contactInfo, socialMatrix } from "../data/contactData";
 import { useTheme } from "../context/ThemeContext";
-import useThemeStyles from "../hooks/useThemeStyles";
+
 import { useLanguage } from "../context/LanguageContext";
 
 import Navbar from "../components/Navbar";
@@ -36,7 +36,7 @@ import NeuralDecryption from "../components/interactions/NeuralDecryption";
 
 const ContactPage = () => {
   const { isDark } = useTheme();
-  const themeStyles = useThemeStyles();
+
   const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
   const [formStatus, setFormStatus] = useState("idle"); // idle, sending, success, error
@@ -162,7 +162,6 @@ const ContactPage = () => {
 
   return (
     <div
-      style={themeStyles}
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-mono selection:bg-[var(--text-primary)] selection:text-[var(--bg-void)] transition-colors duration-500 flex flex-col items-center justify-center p-6 relative overflow-hidden"
     >
       <SEO
@@ -362,10 +361,10 @@ const ContactPage = () => {
               type="submit"
               disabled={formStatus === "sending" || formStatus === "success"}
               className={`w-full py-4 font-mono text-sm uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 ${formStatus === "success"
-                  ? "bg-[var(--accent-green)] text-black border-transparent"
-                  : formStatus === "error"
-                    ? "bg-red-500 text-white"
-                    : "bg-[var(--text-primary)] text-[var(--bg-void)] hover:opacity-90"
+                ? "bg-[var(--accent-green)] text-black border-transparent"
+                : formStatus === "error"
+                  ? "bg-red-500 text-white"
+                  : "bg-[var(--text-primary)] text-[var(--bg-void)] hover:opacity-90"
                 }`}
             >
               {formStatus === "idle" && (

@@ -89,7 +89,6 @@ const ProtectedCaseStudy = () => {
             backPath={`/work/${parentCluster?.id || ""}`}
           />
 
-          {/* <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
           <CaseStudyContent project={project} parentCluster={parentCluster} />
         </Suspense>
       )}

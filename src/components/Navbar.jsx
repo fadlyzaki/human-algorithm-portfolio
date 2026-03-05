@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 import { Link } from "react-router-dom";
@@ -7,12 +7,12 @@ import {
   Moon,
   ScanEye,
   Grid,
-  Clock,
   FileText,
   Printer,
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
+import LiveClock from "./LiveClock";
 
 import BackButton from "./BackButton";
 import useScrollDirection from "../hooks/useScrollDirection";
@@ -69,34 +69,6 @@ const Navbar = ({
 
   const hookShowNav = useScrollDirection(false);
   const showNav = showNavOverride !== undefined ? showNavOverride : hookShowNav;
-
-  const [time, setTime] = useState(new Date());
-  const [timeZone] = useState(() => {
-    try {
-      return new Date()
-        .toLocaleTimeString("en-US", { timeZoneName: "short" })
-        .split(" ")
-        .pop();
-    } catch {
-      return "LOC";
-    }
-  });
-
-  // 2. LIVE CLOCK
-  useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  // Format time as HH:MM:SS
-  const formatTime = (date) => {
-    return date.toLocaleTimeString("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-    });
-  };
 
   return (
     <>
@@ -160,11 +132,7 @@ const Navbar = ({
           {/* RIGHT: UTILITIES & CLOCK */}
           <div className="flex items-center gap-2 sm:gap-4 z-10 relative">
             {/* Live Clock */}
-            <div className="hidden lg:flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] border-r border-[var(--border-color)] pr-4 mr-1">
-              <Clock size={12} className="opacity-70" />
-              <span>{formatTime(time)}</span>
-              <span className="text-[9px] opacity-50">{timeZone}</span>
-            </div>
+            <LiveClock />
 
             <div className="flex items-center gap-2">
               {/* CV Actions */}
@@ -189,7 +157,7 @@ const Navbar = ({
 
               <button
                 onClick={() => setIsDark(!isDark)}
-                className="p-2 rounded text-[var(--text-secondary)] hover:text(--accent-amber)] hover:bg-[var(--text-secondary)]/10 transition-colors"
+                className="p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-amber)] hover:bg-[var(--text-secondary)]/10 transition-colors"
                 aria-label="Toggle Theme"
               >
                 {isDark ? <Sun size={16} /> : <Moon size={16} />}
