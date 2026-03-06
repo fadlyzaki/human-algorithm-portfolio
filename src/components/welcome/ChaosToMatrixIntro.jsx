@@ -472,11 +472,19 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
                     ? "> Initializing Human Algorithm..."
                     : "> Awaiting inputs..."}
                 </div>
-                {/* VISIBLE SKIP HINT */}
                 <div className="mt-4 text-center">
-                  <span className="font-mono text-[10px] tracking-widest text-emerald-400/50 uppercase animate-pulse">
-                    [ Press any key to bypass ]
-                  </span>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleInteraction();
+                    }}
+                    className="font-mono text-[10px] tracking-widest text-emerald-400/80 uppercase hover:text-emerald-300 transition-colors bg-emerald-900/40 px-3 py-1.5 rounded border border-emerald-500/50 hover:bg-emerald-800/60 active:bg-emerald-700/80"
+                  >
+                    [ Skip to Content ]
+                  </button>
+                  <p className="font-mono text-[8px] tracking-wider text-emerald-400/40 uppercase mt-2 animate-pulse">
+                    Or press any key to bypass
+                  </p>
                 </div>
               </motion.div>
             )}

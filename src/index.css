@@ -445,3 +445,14 @@ html {
 .airy-sway-d2 {
   animation: airySway 5s ease-in-out 0.6s infinite;
 }
+
+/* --- RECRUITER FAST PATH OVERRIDES --- */
+.recruiter-mode * {
+  /* Disable all CSS transitions and animations */
+  transition-duration: 0.01ms !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+}
+
+/* Bypass Suspense skeleton delays specifically in Recruiter mode if possible, but mainly stripping visual waiting */

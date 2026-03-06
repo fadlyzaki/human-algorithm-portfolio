@@ -37,22 +37,29 @@ const Home = () => {
       localStorage.removeItem(STORAGE_KEYS.INTRO_SEEN);
       return true;
     }
+    // Automatically skip intro for recruiter mode
+    if (params.get("recruiter") === "true") {
+      return false;
+    }
     // Only show intro once for first-time visitors (persists across tabs/restarts)
     return localStorage.getItem(STORAGE_KEYS.INTRO_SEEN) !== "true";
   });
   const showNav = useScrollDirection(false);
 
   const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const isRecruiterMode = searchParams.get("recruiter") === "true";
 
   // Handle Hash Scrolling on Mount
   useEffect(() => {
     if (location.hash && !showIntro) {
-      setTimeout(() => {
+      // Use requestAnimationFrame to ensure DOM is painted before scrolling
+      requestAnimationFrame(() => {
         const element = document.querySelector(location.hash);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
-      }, 100); // Small delay to ensure rendering
+      });
     }
   }, [location.hash, showIntro]);
 
@@ -76,7 +83,7 @@ const Home = () => {
   return (
     <LayoutGroup>
       <div
-        className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[some] overflow-x-hidden transition-colors duration-500"
+        className={`min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[some] overflow-x-hidden transition-colors duration-500 ${isRecruiterMode ? "recruiter-mode" : ""}`}
       >
         <AnimatePresence>
           {showIntro && (

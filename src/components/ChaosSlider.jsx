@@ -38,9 +38,16 @@ const ChaosSlider = ({ value, onChange }) => {
 
         {/* Custom Thumb */}
         <div
-          className="absolute top-1/2 -mt-2 w-4 h-4 bg-[var(--bg-surface)] border-2 border-[var(--text-card)] rounded-full shadow-lg pointer-events-none transition-all duration-75 z-10"
-          style={{ left: `calc(${value}% - 8px)` }}
-        ></div>
+          className="absolute top-1/2 -mt-3.5 w-7 h-7 bg-[var(--bg-surface)] border-2 border-[var(--text-card)] rounded-full shadow-lg flex items-center justify-center pointer-events-none transition-all duration-75 z-10"
+          style={{ left: `calc(${value}% - 14px)` }}
+        >
+          {/* Grip Lines */}
+          <div className="flex gap-0.5 opacity-50">
+            <div className="w-0.5 h-3 bg-[var(--text-card)] rounded-full"></div>
+            <div className="w-0.5 h-3 bg-[var(--text-card)] rounded-full"></div>
+            <div className="w-0.5 h-3 bg-[var(--text-card)] rounded-full"></div>
+          </div>
+        </div>
 
         {/* Fill */}
         <div
