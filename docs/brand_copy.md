@@ -20,30 +20,30 @@
 ## Bio Variants
 
 ### One-liner
-Product Designer · Systems Thinker. I design where software logic meets human intuition.
+Senior Product Designer · Trust Engineering. I design where software logic meets human intuition.
 
 ### Short (2 sentences — for social profiles)
-I design where software logic meets human intuition. Resilient workflows that tame complexity and free up mental bandwidth when it matters most.
+Senior Product Designer · Trust Engineering. I build resilient workflows that tame B2B complexity and free up mental bandwidth for operators when it matters most.
 
 ### Medium (LinkedIn "About" / Dribbble Bio)
-I started as a Computer Science student, loving the certainty of logic. But I saw how an obsession with 'efficiency' created brittle systems that treated users like data points, not pilots.
+I started as a Computer Science student, obsessed with the mathematical certainty of logic. But over 5+ years of designing Enterprise and B2B platforms, I saw how an obsession with raw 'efficiency' created brittle systems that treated users like data points, not pilots.
 
-Now, I build resilient systems—not to optimize life, but to hold it gently when it breaks. I design tools that respect your cognitive bandwidth, built for people at their limit, not just their peak.
+Now, I design resilient architectures—not just to optimize performance, but to scaffold human agency when cognitive load is highest. I build zero-friction systems designed for people operating at their absolute limit.
 
 ### Long (Portfolio About Page)
-I started as a Computer Science student. I loved the certainty. The if-then clarity. Systems made sense when people didn't.
+I started as a Computer Science student. I loved the certainty. The if-then clarity. Systems made sense when people didn't. 
 
-This obsession with 'efficiency' creates brittle systems. We stopped treating users like pilots and started treating them like data points. We optimized for 'Time on Site' instead of 'Time Well Spent'. I saw users struggling with interfaces built by people who never had to use them in a crisis. Bad UX isn't just annoying; it's an erasure of human agency.
+But over the last 5+ years of scaling complex enterprise platforms (B2B SaaS, Logistics, Talent Acquisition), I learned that this obsession with 'efficiency' creates brittle systems. We stopped treating users like pilots and started treating them like algorithmic data points. We optimized for 'Time on Site' instead of 'Time Well Spent'. I saw teams struggling with interfaces built by developers who never had to use them in a 2 AM supply-chain crisis. Bad UX isn't just an annoyance; it is an active erasure of human agency.
 
-That pause taught me more about human-centered design than any degree. When you're exhausted, scared, or in pain—you don't have bandwidth for clever UX. You need tools that just work. Quietly. Reliably. Without asking for applause.
+That realization taught me more about human-centered systems than any degree. When an operator is exhausted, stressed, or under fire—they don't have the bandwidth for your clever, over-animated UX. They need tools that just work. Quietly. Reliably. Automatically.
 
-So now I build resilient systems—not to optimize life, but to hold it gently when it breaks. I design for people at their limit, not their peak.
+So now I build resilient systems. I engineer at the intersection of cognitive load theory and high-performance front-end architecture, designing for people at their limit, not just their peak.
 
 ---
 
 ## Professional Summary (CV / Resume)
 
-Product Designer specializing in resilient systems. I combine Computer Science logic with Cognitive Science (EdTech) to build tools that optimize cognitive load. Bridging the gap between engineering complexity and human behavior. Technical expertise covers the full end-to-end product design lifecycle—from initial research and logic-based prototyping to high-fidelity interaction design and design QA.
+Senior Product Designer specializing in Trust Engineering and resilient B2B workflows. With 5+ years of experience across scaling startups (Lumina, GudangAda, STOQO), I combine deep Computer Science foundations with Cognitive Science (M.Ed in EdTech) to build platforms that eradicate cognitive load. Bridging the gap between extreme engineering complexity and human behavior, I specialize in taming chaotic business logic through rigorous design systems, atomic architecture, and zero-latency performance. Technical expertise spans the full systems lifecycle—evidenced by architecting proprietary SVG rendering engines (`AiryDiagram`) and 3D physical DOM abstractions (`Flipbook`) from scratch.
 
 ---
 
@@ -103,45 +103,46 @@ Product Designer · Systems Thinker. Building resilient tools for people who nee
 ## Value Proposition
 
 ### The Problem I Solve
-Most digital products are built for users at their peak — alert, patient, focused. But real users are overwhelmed, distracted, and tired. The result: brittle workflows that collapse under pressure and interfaces that add cognitive load instead of removing it.
+Most digital products are built by teams who assume the user is at their peak—alert, patient, focused. But real operators in complex industries (logistics, B2B marketplaces, recruiting) are overwhelmed, distracted, and operating under harsh conditions. The result: brittle software that collapses under real-world pressure and interfaces that actively consume cognitive bandwidth.
 
 ### What I Do Differently
-I design at the intersection of software logic and human intuition. I architect resilient workflows — systems that hold up under real-world stress, reduce mental friction, and give people back their bandwidth when they need it most.
+I operate as a bridge between complex business strategy and human-centered design. I don't just "design screens"—I architect resilient systems built on trust. By combining cognitive load theory with high-performance design paradigms, I build intelligent, zero-friction workflows that handle extreme complexity so the human operator doesn't have to.
 
 ### Who I'm For
-Teams building complex tools (B2B SaaS, operational platforms, EdTech, health tech) who care about the human on the other side of the screen — not just the metrics on the dashboard.
+Product teams building complex tools (B2B SaaS, Logistics, EdTech, FinTech integrations) who care about the human on the other side of the screen—not just the metrics on the dashboard.
 
 ### Proof Points
 | Metric | Detail |
 |--------|--------|
-| 5+ years | Designing for high-complexity B2B ecosystems (supply chain, recruitment, logistics) |
-| 3 companies scaled | STOQO → GudangAda → Lumina (YC W22) |
-| End-to-end | Research → Prototyping → Interaction Design → Design QA → Design Ops |
-| EdTech depth | Master's in Educational Technology — Cognitive Load Theory specialist |
-| Resilience-first | Rebuilt career philosophy after health crisis → designs for humans at their limit |
+| 5+ years | Scaling high-complexity enterprise ecosystems (Lumina, GudangAda, STOQO) |
+| System Architect | Built the Human Algorithm OS: featuring a 3D physical DOM `Flipbook`, Edge-rendered SVG engine (`AiryDiagram`), and polymorphic generative ID systems |
+| End-to-end Mastery | Engineered a strict ATS-compliant CV manifest pipeline (`@media print`), bridging complex React state with pure robotic ingestion |
+| Immediate Empathy | Designed the `?recruiter=true` network layer bypass, instantly stripping physics + WebGL delays to respect 30-second hiring SLAs |
+| Deep Academics | Master's in Educational Technology — Applied Cognitive Load Specialist |
+| Resilience-first | Designs specifically for extreme operational limits, ensuring 100% graceful degradation down to semantic HTML |
 
 ---
 
 ## Social Media Copy
 
 ### LinkedIn — Headline Options
-1. Product Designer · Systems Thinker | I design where software logic meets human intuition
-2. Product Designer | Resilient workflows for complex systems | Ex-Lumina (YC W22), GudangAda, STOQO
-3. Design Engineer | Taming complexity so humans can focus on what matters
+1. Senior Product Designer · Trust Engineering | I design where software logic meets human intuition
+2. Senior Product Designer | Resilient workflows for B2B systems | Ex-Lumina, GudangAda, STOQO
+3. Senior Product Designer | Taming enterprise complexity so humans can focus on what matters
 
 ### LinkedIn — Featured Post / Intro Post
-**I don't design for users at their peak. I design for users at their limit.**
+**I don't design for users at their peak. I design for operators at their absolute limit.**
 
-5 years ago, I was obsessed with efficiency — clean logic, optimized flows, faster everything. Then a health crisis forced me to stop. And I realized: the tools I was building would have failed *me*.
+Early in my career, I was obsessed with algorithmic efficiency—clean logic, faster processing, optimizing the machine. Then I realized: the tools we build are failing the humans who use them. 
 
-When you're overwhelmed, exhausted, or in pain — you don't need "clever UX." You need systems that just work. Quietly. Reliably. Without demanding your attention.
+When you're overwhelmed by a supply-chain logistics crisis or navigating a massive B2B checkout, you don't have the mental bandwidth for "clever UX" or over-animated loading screens. You need systems that just work. Quietly. Autonomously.
 
-That became my design philosophy:
-→ Resilience over optimization
-→ Cognitive bandwidth over engagement metrics
-→ Human agency over automation
+That realization shifted my entire methodology:
+→ Systems Resilience over visual optimization
+→ Cognitive bandwidth over superficial engagement metrics
+→ Trust Engineering supported by rigorous design architecture
 
-Now I build workflows that tame complexity and free up mental bandwidth — for the people who need it most.
+Now, after 5+ years scaling B2B platforms, I build workflows that tame high-level complexity and free up mental bandwidth—for the people who need it most.
 
 Currently open to collaboration in Product Design roles.
 🔗 fadlyzaki-design.vercel.app
