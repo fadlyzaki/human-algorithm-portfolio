@@ -2,8 +2,8 @@
 
 ## 1. Executive Strategy & Vision
 **Product Name:** Human Algorithm (Portfolio Platform)
-**Product Owner:** Fadly Uzzaki
-**Target Domain:** Interactive Identity & High-Converting Talent Acquisition Assets
+**Product Owner:** Fadly Uzzaki (Senior Product Designer · Trust Engineering)
+**Target Domain:** B2B System Design & High-Converting Talent Acquisition Assets
 
 ### The North Star
 The "Human Algorithm" is not a standard digital portfolio—it is an *Interactive Manifesto* and our primary acquisition wedge. We are building a high-performance, narrative-driven platform that physically deploys our core thesis: "Designing where software logic meets human intuition." 
