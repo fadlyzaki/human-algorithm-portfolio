@@ -44,19 +44,22 @@ const CompanyCulture = ({ cluster, isId }) => {
                 className="break-inside-avoid mb-4 relative group [perspective:1000px]"
               >
                 <div className="relative w-full h-full [transform-style:preserve-3d] transition-transform duration-700 group-hover:[transform:rotateY(180deg)] shadow-sm group-hover:shadow-lg rounded-xl">
-                  {/* Front */}
-                  <div className="w-full h-full [backface-visibility:hidden] rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-card)]">
+                  {/* Front: Caption */}
+                  <div
+                    className="w-full h-full [backface-visibility:hidden] rounded-xl flex items-center justify-center p-6 text-center border border-[var(--border-color)]"
+                    style={{ backgroundColor: cluster.brandColor || 'var(--bg-card)', color: '#ffffff' }}
+                  >
+                    <span className="text-sm font-medium leading-relaxed drop-shadow-sm">
+                      {img.caption}
+                    </span>
+                  </div>
+                  {/* Back: Photo */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-card)]">
                     <ZoomableImage
                       src={img.src}
                       alt={img.caption}
-                      className="w-full h-auto object-cover"
+                      className="w-full h-full object-cover"
                     />
-                  </div>
-                  {/* Back */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex items-center justify-center p-6 text-center">
-                    <span className="text-sm font-mono leading-relaxed text-[var(--text-primary)]">
-                      {img.caption}
-                    </span>
                   </div>
                 </div>
               </ScrollReveal>
@@ -71,19 +74,22 @@ const CompanyCulture = ({ cluster, isId }) => {
                 className={`relative group h-full [perspective:1000px] ${img.span || ""}`}
               >
                 <div className="relative w-full h-full [transform-style:preserve-3d] transition-transform duration-700 group-hover:[transform:rotateY(180deg)] shadow-sm group-hover:shadow-lg rounded-xl">
-                  {/* Front */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-card)]">
+                  {/* Front: Caption */}
+                  <div
+                    className="absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-xl flex flex-col items-center justify-center p-6 text-center border border-[var(--border-color)]"
+                    style={{ backgroundColor: cluster.brandColor || 'var(--bg-card)', color: '#ffffff' }}
+                  >
+                    <span className="text-sm font-medium leading-relaxed drop-shadow-sm">
+                      {img.caption}
+                    </span>
+                  </div>
+                  {/* Back: Photo */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-card)]">
                     <ZoomableImage
                       src={img.src}
                       alt={img.caption}
                       className={`w-full h-full object-cover ${img.pos || "object-top"}`}
                     />
-                  </div>
-                  {/* Back */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex flex-col items-center justify-center p-6 text-center">
-                    <span className="text-sm font-mono leading-relaxed text-[var(--text-primary)]">
-                      {img.caption}
-                    </span>
                   </div>
                 </div>
               </ScrollReveal>
@@ -98,19 +104,22 @@ const CompanyCulture = ({ cluster, isId }) => {
                 className={`relative group h-full [perspective:1000px] ${img.span || "col-span-1"}`}
               >
                 <div className="relative w-full h-full [transform-style:preserve-3d] transition-transform duration-700 group-hover:[transform:rotateY(180deg)] shadow-sm group-hover:shadow-lg rounded-xl">
-                  {/* Front */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-card)]">
+                  {/* Front: Caption */}
+                  <div
+                    className="absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-xl flex flex-col items-center justify-center p-6 text-center border border-[var(--border-color)]"
+                    style={{ backgroundColor: cluster.brandColor || 'var(--bg-card)', color: '#ffffff' }}
+                  >
+                    <span className="text-sm font-medium leading-relaxed drop-shadow-sm">
+                      {img.caption}
+                    </span>
+                  </div>
+                  {/* Back: Photo */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-card)]">
                     <ZoomableImage
                       src={img.src}
                       alt={img.caption}
                       className={`w-full h-full object-cover ${img.pos || "object-top"}`}
                     />
-                  </div>
-                  {/* Back */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex flex-col items-center justify-center p-6 text-center">
-                    <span className="text-sm font-mono leading-relaxed text-[var(--text-primary)]">
-                      {img.caption}
-                    </span>
                   </div>
                 </div>
               </ScrollReveal>
