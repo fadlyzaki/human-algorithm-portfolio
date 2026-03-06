@@ -25,13 +25,13 @@ const CompanyCulture = ({ cluster, isId }) => {
             {(isId
               ? cluster.culture_id?.disclaimer || cluster.culture.disclaimer
               : cluster.culture.disclaimer) && (
-              <p className="text-xs text-[var(--text-secondary)] opacity-60 mt-3 italic">
-                ✉{" "}
-                {isId
-                  ? cluster.culture_id?.disclaimer || cluster.culture.disclaimer
-                  : cluster.culture.disclaimer}
-              </p>
-            )}
+                <p className="text-xs text-[var(--text-secondary)] opacity-60 mt-3 italic">
+                  ✉{" "}
+                  {isId
+                    ? cluster.culture_id?.disclaimer || cluster.culture.disclaimer
+                    : cluster.culture.disclaimer}
+                </p>
+              )}
           </div>
         </ScrollReveal>
 
@@ -41,16 +41,20 @@ const CompanyCulture = ({ cluster, isId }) => {
               <ScrollReveal
                 key={i}
                 delay={i * 80}
-                className="break-inside-avoid mb-4 relative group overflow-hidden rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)]"
+                className="break-inside-avoid mb-4 relative group [perspective:1000px]"
               >
-                <ZoomableImage
-                  src={img.src}
-                  alt={img.caption}
-                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <div className="absolute bottom-4 left-4">
-                    <span className="text-xs font-mono text-white/90 uppercase tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10">
+                <div className="relative w-full h-full [transform-style:preserve-3d] transition-transform duration-700 group-hover:[transform:rotateY(180deg)] shadow-sm group-hover:shadow-lg rounded-xl">
+                  {/* Front */}
+                  <div className="w-full h-full [backface-visibility:hidden] rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-card)]">
+                    <ZoomableImage
+                      src={img.src}
+                      alt={img.caption}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                  {/* Back */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex items-center justify-center p-6 text-center">
+                    <span className="text-sm font-mono leading-relaxed text-[var(--text-primary)]">
                       {img.caption}
                     </span>
                   </div>
@@ -64,16 +68,20 @@ const CompanyCulture = ({ cluster, isId }) => {
               <ScrollReveal
                 key={i}
                 delay={i * 100}
-                className={`relative group overflow-hidden rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] ${img.span || ""}`}
+                className={`relative group h-full [perspective:1000px] ${img.span || ""}`}
               >
-                <ZoomableImage
-                  src={img.src}
-                  alt={img.caption}
-                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${img.pos || "object-top"}`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <div className="absolute bottom-4 left-4">
-                    <span className="text-xs font-mono text-white/90 uppercase tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10">
+                <div className="relative w-full h-full [transform-style:preserve-3d] transition-transform duration-700 group-hover:[transform:rotateY(180deg)] shadow-sm group-hover:shadow-lg rounded-xl">
+                  {/* Front */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-card)]">
+                    <ZoomableImage
+                      src={img.src}
+                      alt={img.caption}
+                      className={`w-full h-full object-cover ${img.pos || "object-top"}`}
+                    />
+                  </div>
+                  {/* Back */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex flex-col items-center justify-center p-6 text-center">
+                    <span className="text-sm font-mono leading-relaxed text-[var(--text-primary)]">
                       {img.caption}
                     </span>
                   </div>
@@ -87,16 +95,20 @@ const CompanyCulture = ({ cluster, isId }) => {
               <ScrollReveal
                 key={i}
                 delay={i * 100}
-                className={`relative group overflow-hidden rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] ${img.span || "col-span-1"}`}
+                className={`relative group h-full [perspective:1000px] ${img.span || "col-span-1"}`}
               >
-                <ZoomableImage
-                  src={img.src}
-                  alt={img.caption}
-                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${img.pos || "object-top"}`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <div className="absolute bottom-4 left-4">
-                    <span className="text-xs font-mono text-white/90 uppercase tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10">
+                <div className="relative w-full h-full [transform-style:preserve-3d] transition-transform duration-700 group-hover:[transform:rotateY(180deg)] shadow-sm group-hover:shadow-lg rounded-xl">
+                  {/* Front */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-card)]">
+                    <ZoomableImage
+                      src={img.src}
+                      alt={img.caption}
+                      className={`w-full h-full object-cover ${img.pos || "object-top"}`}
+                    />
+                  </div>
+                  {/* Back */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex flex-col items-center justify-center p-6 text-center">
+                    <span className="text-sm font-mono leading-relaxed text-[var(--text-primary)]">
                       {img.caption}
                     </span>
                   </div>
