@@ -63,9 +63,9 @@ const ChaosBackground = ({ phase }) => {
                 h() / 2,
                 Math.max(w(), h()) * 0.6,
             );
-            gradient.addColorStop(0, `rgba(var(--accent-green-rgb), ${pulse * 0.12})`);
+            gradient.addColorStop(0, `rgba(16, 185, 129, ${pulse * 0.12})`);
             gradient.addColorStop(0.4, `rgba(6, 78, 59, ${pulse * 0.08})`);
-            gradient.addColorStop(1, "rgba(var(--bg-void-rgb), 0)");
+            gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, w(), h());
 
@@ -97,7 +97,7 @@ const ChaosBackground = ({ phase }) => {
                     if (dist < 150) {
                         const lineOpacity = (1 - dist / 150) * 0.15;
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(var(--accent-green-rgb), ${lineOpacity})`;
+                        ctx.strokeStyle = `rgba(16, 185, 129, ${lineOpacity})`;
                         ctx.lineWidth = 0.5;
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(p2.x, p2.y);
@@ -108,7 +108,7 @@ const ChaosBackground = ({ phase }) => {
             ctx.shadowBlur = 0;
 
             // --- Layer 4: Scanlines ---
-            ctx.fillStyle = "rgba(var(--bg-void-rgb), 0.04)";
+            ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
             for (let y = 0; y < h(); y += 3) {
                 ctx.fillRect(0, y, w(), 1);
             }
@@ -117,7 +117,7 @@ const ChaosBackground = ({ phase }) => {
             if (Math.random() < 0.03) {
                 const glitchY = Math.random() * h();
                 const glitchH = Math.random() * 8 + 2;
-                ctx.fillStyle = `rgba(var(--accent-green-rgb), ${Math.random() * 0.15})`;
+                ctx.fillStyle = `rgba(16, 185, 129, ${Math.random() * 0.15})`;
                 ctx.fillRect(0, glitchY, w(), glitchH);
             }
 

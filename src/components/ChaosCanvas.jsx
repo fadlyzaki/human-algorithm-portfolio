@@ -61,8 +61,8 @@ const ChaosCanvas = () => {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       ctx.fillStyle = isDark
-        ? "rgba(var(--bg-surface-rgb), 0.4)"
-        : "rgba(var(--bg-void-rgb), 0.2)";
+        ? "rgba(255, 255, 255, 0.4)"
+        : "rgba(0, 0, 0, 0.2)";
       ctx.fill();
     };
 
@@ -119,7 +119,7 @@ const ChaosCanvas = () => {
             // If near mouse, lines illuminate (accent color)
             const distToMouseI = Math.sqrt(
               Math.pow(particles[i].x - mouse.x, 2) +
-                Math.pow(particles[i].y - mouse.y, 2),
+              Math.pow(particles[i].y - mouse.y, 2),
             );
             if (isMouseActive && distToMouseI < mouseRepelRadius * 1.5) {
               ctx.strokeStyle = `rgba(${colorAccent[0]}, ${colorAccent[1]}, ${colorAccent[2]}, ${opacity * 1.5})`;

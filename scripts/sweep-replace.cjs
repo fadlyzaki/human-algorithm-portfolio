@@ -121,6 +121,10 @@ files.forEach(f => {
   let content = fs.readFileSync(f, 'utf8');
   let original = content;
 
+  // SAFEGUARD: Skip RGBA replacements in files that use Canvas API
+  // Canvas addColorStop/fillStyle doesn't support CSS variables via rgba(var(--...))
+  const isCanvasFile = content.includes("getContext('2d')") || content.includes('getContext("2d")');
+
   content = content.replace(hexRegex, (matched) => {
     const key = matched.toLowerCase();
     const replacement = COLOR_MAP[key];
@@ -131,13 +135,15 @@ files.forEach(f => {
     return matched;
   });
 
-  RGBA_MAP.forEach(({ pattern, replacement }) => {
-    content = content.replace(pattern, (match, p1) => {
-      totalReplaces++;
-      if (typeof p1 === 'undefined') return replacement;
-      return replacement.replace('$1', p1);
+  if (!isCanvasFile || f.endsWith('.css')) {
+    RGBA_MAP.forEach(({ pattern, replacement }) => {
+      content = content.replace(pattern, (match, p1) => {
+        totalReplaces++;
+        if (typeof p1 === 'undefined') return replacement;
+        return replacement.replace('$1', p1);
+      });
     });
-  });
+  }
 
   if (content !== original) {
     fs.writeFileSync(f, content, 'utf8');

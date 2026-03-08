@@ -62,9 +62,9 @@ const ChaosBackground = ({ phase }) => {
       const gradient = ctx.createRadialGradient(
         w() / 2, h() / 2, 0, w() / 2, h() / 2, Math.max(w(), h()) * 0.6
       );
-      gradient.addColorStop(0, `rgba(var(--accent-green-rgb), ${pulse * 0.12})`);
+      gradient.addColorStop(0, `rgba(16, 185, 129, ${pulse * 0.12})`);
       gradient.addColorStop(0.4, `rgba(6, 78, 59, ${pulse * 0.08})`);
-      gradient.addColorStop(1, "rgba(var(--bg-void-rgb), 0)");
+      gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, w(), h());
 
@@ -95,7 +95,7 @@ const ChaosBackground = ({ phase }) => {
           if (dist < 150) {
             const lineOpacity = (1 - dist / 150) * 0.15;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(var(--accent-green-rgb), ${lineOpacity})`;
+            ctx.strokeStyle = `rgba(16, 185, 129, ${lineOpacity})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
@@ -105,7 +105,7 @@ const ChaosBackground = ({ phase }) => {
       }
       ctx.shadowBlur = 0;
 
-      ctx.fillStyle = "rgba(var(--bg-void-rgb), 0.04)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
       for (let y = 0; y < h(); y += 3) {
         ctx.fillRect(0, y, w(), 1);
       }
@@ -113,7 +113,7 @@ const ChaosBackground = ({ phase }) => {
       if (Math.random() < 0.03) {
         const glitchY = Math.random() * h();
         const glitchH = Math.random() * 8 + 2;
-        ctx.fillStyle = `rgba(var(--accent-green-rgb), ${Math.random() * 0.15})`;
+        ctx.fillStyle = `rgba(16, 185, 129, ${Math.random() * 0.15})`;
         ctx.fillRect(0, glitchY, w(), glitchH);
       }
 
@@ -246,7 +246,7 @@ const ChaosMatrixBackground = ({ phase = "chaos" }) => {
         transition={{ duration: 1.2, ease: [0.645, 0.045, 0.355, 1.0] }}
       >
         <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
-          <g stroke="rgba(var(--bg-surface-rgb), 0.15)" strokeWidth="1" fill="none">
+          <g stroke="rgba(255, 255, 255, 0.15)" strokeWidth="1" fill="none">
             {gridLines.map((path, i) => (
               <motion.path
                 key={`line-${i}`}
@@ -308,10 +308,10 @@ const ChaosMatrixBackground = ({ phase = "chaos" }) => {
                 marginTop: -nodeSize / 2,
                 backgroundColor: isMatrix
                   ? "var(--bg-void)"
-                  : `rgba(var(--accent-green-rgb), ${node.nodeOpacity})`,
+                  : `rgba(16, 185, 129, ${node.nodeOpacity})`,
                 boxShadow: isMatrix
-                  ? "0 0 10px rgba(var(--bg-surface-rgb), 0.5)"
-                  : `0 0 ${6 + node.size * 3}px rgba(var(--accent-green-rgb), ${node.nodeOpacity * 0.6}), 0 0 ${2 + node.size}px rgba(var(--accent-green-rgb), ${node.nodeOpacity * 0.3})`,
+                  ? "0 0 10px rgba(255, 255, 255, 0.5)"
+                  : `0 0 ${6 + node.size * 3}px rgba(16, 185, 129, ${node.nodeOpacity * 0.6}), 0 0 ${2 + node.size}px rgba(16, 185, 129, ${node.nodeOpacity * 0.3})`,
               }}
               initial={{
                 x: node.chaosX,
