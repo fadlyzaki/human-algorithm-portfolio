@@ -66,7 +66,7 @@ const Sketches = () => {
       {/* Ambient lighting (subtle vignette instead of harsh radial spotlight) */}
       <div
         className={`absolute inset-0 z-0 pointer-events-none transition-opacity duration-500`}
-        style={{ boxShadow: "inset 0 0 200px rgba(0,0,0,0.15)" }}
+        style={{ boxShadow: "inset 0 0 200px rgba(var(--bg-void-rgb), 0.15)" }}
       ></div>
 
       <ScrollProgressBar />

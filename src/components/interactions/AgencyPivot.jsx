@@ -290,7 +290,7 @@ const AgencyPivot = () => {
 
   return (
     <div className="flex justify-center bg-slate-900 font-sans antialiased text-slate-900 selection:bg-indigo-100 rounded-xl overflow-hidden">
-      <div className="w-full max-w-md bg-white h-[600px] relative shadow-[0_0_40px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden">
+      <div className="w-full max-w-md bg-white h-[600px] relative shadow-[0_0_40px_rgba(var(--bg-void-rgb), 0.3)] flex flex-col overflow-hidden">
         {/* --- TOAST NOTIFICATION --- */}
         <div
           className={`absolute top-24 left-1/2 transform -translate-x-1/2 z-[60] bg-slate-900/90 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-2xl flex items-center gap-2.5 transition-all duration-300 border border-white/10 ${toast ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-4 scale-95 pointer-events-none"}`}
@@ -348,7 +348,7 @@ const AgencyPivot = () => {
                     className="fixed inset-0 bg-slate-900/20 backdrop-blur-[1px] z-10 animate-in fade-in duration-300"
                     onClick={() => setIsMenuOpen(false)}
                   />
-                  <div className="absolute top-full left-0 mt-3 w-72 bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-white/20 ring-1 ring-slate-100 p-2 z-20 animate-in fade-in slide-in-from-top-2 duration-200 origin-top-left">
+                  <div className="absolute top-full left-0 mt-3 w-72 bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_10px_40px_-10px_rgba(var(--bg-void-rgb), 0.1)] border border-white/20 ring-1 ring-slate-100 p-2 z-20 animate-in fade-in slide-in-from-top-2 duration-200 origin-top-left">
                     <div className="px-3 py-2 flex justify-between items-center">
                       <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                         Your Feed
@@ -692,7 +692,7 @@ const AgencyPivot = () => {
         </main>
 
         {/* --- BOTTOM NAV --- */}
-        <nav className="absolute bottom-0 w-full bg-white/90 backdrop-blur-xl border-t border-slate-100 px-6 py-2 pb-5 flex justify-between items-center z-50 shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
+        <nav className="absolute bottom-0 w-full bg-white/90 backdrop-blur-xl border-t border-slate-100 px-6 py-2 pb-5 flex justify-between items-center z-50 shadow-[0_-10px_40px_-15px_rgba(var(--bg-void-rgb), 0.1)]">
           <button
             onClick={() => setActiveTab("home")}
             className={`p-3 rounded-2xl transition-all duration-300 ${activeTab === "home" ? "text-indigo-600 bg-indigo-50" : "text-slate-400 hover:bg-slate-50"}`}

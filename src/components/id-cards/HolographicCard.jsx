@@ -3,7 +3,7 @@ import { User } from "lucide-react";
 import PixelImage from "../PixelImage";
 
 const HolographicCard = ({ t, isDark, currentItem }) => (
-    <div className={`w-full h-full relative group overflow-hidden rounded-[20px] ${isDark ? "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]" : "shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]"}`}>
+    <div className={`w-full h-full relative group overflow-hidden rounded-[20px] ${isDark ? "shadow-[0_8px_32px_0_rgba(var(--bg-surface-rgb), 0.1)]" : "shadow-[0_8px_32px_0_rgba(var(--bg-void-rgb), 0.5)]"}`}>
       {/* Dynamic Mono Gradient Overlay */}
       <div className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-1000 z-10 mix-blend-overlay pointer-events-none group-hover:opacity-40 ${isDark ? "from-white via-gray-400 to-black opacity-40" : "from-black via-gray-600 to-white opacity-20"}`}></div>
 

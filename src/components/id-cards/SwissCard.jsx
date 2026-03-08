@@ -33,7 +33,7 @@ const SwissCard = ({ t, isDark, currentItem }) => (
             <h2
               className={`text-3xl font-black tracking-tighter leading-none whitespace-nowrap`}
               style={{
-                WebkitTextStroke: `1px ${isDark ? "#000" : "#fff"}`,
+                WebkitTextStroke: `1px ${isDark ? "var(--bg-void)" : "var(--bg-void)"}`,
                 WebkitTextFillColor: "transparent",
               }}
             >

@@ -28,7 +28,7 @@ const connections = [
   { from: "hub_main", to: "ret3" },
 ];
 
-const CommerceAI = ({ color = "#00D1C7" }) => {
+const CommerceAI = ({ color = "var(--accent-teal)" }) => {
   const [pulses, setPulses] = useState([]);
   const [demand, setDemand] = useState(50); // 0-100
 

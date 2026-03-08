@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChefHat, Clock, Leaf } from "lucide-react";
 
-const EfficiencyAI = ({ color = "#FA6130" }) => {
+const EfficiencyAI = ({ color = "var(--accent-orange)" }) => {
   // JIT State
   const [cycle, setCycle] = useState(0);
   const [orders, setOrders] = useState([]);
@@ -118,7 +118,7 @@ const EfficiencyAI = ({ color = "#FA6130" }) => {
                     </motion.circle>
 
                     {/* Segment 2: Hub -> Kitchen (Delayed) */}
-                    <motion.circle r="3" fill="#fff">
+                    <motion.circle r="3" fill="var(--bg-void)">
                       <animateMotion
                         dur="0.8s"
                         begin="0.8s"

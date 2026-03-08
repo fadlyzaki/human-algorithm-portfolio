@@ -27,7 +27,7 @@ const EfficiencyCard = ({ expanded, showChrome, backgroundOnly }) => (
         <div className="relative">
           <Clock
             size={40}
-            className="text-white opacity-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+            className="text-white opacity-100 drop-shadow-[0_0_10px_rgba(var(--bg-surface-rgb), 0.3)]"
           />
           <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-400 rounded-full animate-pulse"></div>
         </div>

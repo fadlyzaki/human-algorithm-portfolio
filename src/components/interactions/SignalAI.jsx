@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-const SignalAI = ({ color = "#3B82F6", manualPing = 0 }) => {
+const SignalAI = ({ color = "var(--accent-blue)", manualPing = 0 }) => {
   const containerRef = useRef(null);
   const [waves, setWaves] = useState([]);
   const [packets, setPackets] = useState([]);

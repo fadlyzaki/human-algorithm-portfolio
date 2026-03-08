@@ -16,7 +16,7 @@ const CommerceCard = ({ expanded, showChrome, backgroundOnly }) => (
         className="absolute inset-0 opacity-20"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+            "linear-gradient(rgba(var(--bg-surface-rgb), 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--bg-surface-rgb), 0.5) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       ></div>
@@ -38,7 +38,7 @@ const CommerceCard = ({ expanded, showChrome, backgroundOnly }) => (
 
         {/* Hub */}
         <div className="flex flex-col items-center gap-2">
-          <div className="w-14 h-14 border border-white/50 rounded-full flex items-center justify-center bg-white/10 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+          <div className="w-14 h-14 border border-white/50 rounded-full flex items-center justify-center bg-white/10 shadow-[0_0_30px_rgba(var(--bg-surface-rgb), 0.1)]">
             <Truck size={20} className="text-white" />
           </div>
           <span className="text-[8px] font-mono text-white tracking-widest">

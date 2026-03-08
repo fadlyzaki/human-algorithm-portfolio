@@ -538,7 +538,7 @@ const CheckingDetailPage = ({ onNavigate }) => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 w-full bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4 pb-8 z-20 shadow-[0_-5px_10px_rgba(0,0,0,0.05)]">
+      <div className="absolute bottom-0 w-full bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4 pb-8 z-20 shadow-[0_-5px_10px_rgba(var(--bg-void-rgb), 0.05)]">
         <button
           onClick={() => setShowSuccess(true)}
           className="w-full bg-[#ec5b13] hover:bg-[#d44d0f] text-white font-medium py-3 rounded-lg shadow-lg flex items-center justify-center space-x-2 transition-colors"

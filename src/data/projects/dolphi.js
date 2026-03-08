@@ -17,7 +17,7 @@ export const dolphi = {
   type: "iOS Ecosystem",
   date: "2026",
   coverImage: "airy:ui",
-  brandColor: "#00C2FF",
+  brandColor: "var(--accent-sky)",
   snapshot: {
     tagline: { en: "Gamified Habits v1.5", id: "Kebiasaan Gamifikasi v1.5" },
     heroImage: "airy:ui",
@@ -112,7 +112,7 @@ export const dolphi = {
       type: "design",
       title: { en: "Cosmic Pop Aesthetic", id: "Estetika Cosmic Pop" },
       desc: {
-        en: "Deep space backgrounds (#260D40) meets Dolphin Blue (#00C2FF) accents. Productivity should feel like an arcade game, not a spreadsheet.",
+        en: "Deep space backgrounds (var(--accent-purple)) meets Dolphin Blue (var(--accent-sky)) accents. Productivity should feel like an arcade game, not a spreadsheet.",
         id: "Latar belakang luar angkasa bertemu aksen Biru Lumba-lumba. Produktivitas harus terasa seperti game arcade, bukan spreadsheet.",
       },
       image: "airy:ui",

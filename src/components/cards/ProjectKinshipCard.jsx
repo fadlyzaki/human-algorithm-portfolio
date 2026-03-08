@@ -37,7 +37,7 @@ const ProjectKinshipCard = ({ expanded, showChrome }) => (
         <style>{`@keyframes dashMove { to { stroke-dashoffset: -28; } }`}</style>
       </svg>
       {/* Floating Detail Card */}
-      <div className="absolute bottom-10 right-10 w-48 bg-white border border-slate-100 rounded-lg p-4 shadow-[0_10px_40px_rgba(0,0,0,0.06)] flex flex-col gap-2.5 animate-[bounce_6s_ease-in-out_infinite]">
+      <div className="absolute bottom-10 right-10 w-48 bg-white border border-slate-100 rounded-lg p-4 shadow-[0_10px_40px_rgba(var(--bg-void-rgb), 0.06)] flex flex-col gap-2.5 animate-[bounce_6s_ease-in-out_infinite]">
         <div className="flex items-center gap-2">
           <Truck size={10} className="text-orange-500" />
           <span className="font-mono text-[8px] uppercase tracking-widest text-orange-500 font-bold">

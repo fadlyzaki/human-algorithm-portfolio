@@ -90,7 +90,7 @@ const AUDIT_DATA = {
       files: 3,
     },
     {
-      value: "#888 / #666",
+      value: "var(--text-secondary) / var(--text-secondary)",
       token: "var(--text-secondary)",
       rec: "Gray text should use semantic text token",
       files: 3,
@@ -162,7 +162,7 @@ const AUDIT_DATA = {
     },
     {
       token: "--accent-blue",
-      light: "#3b82f6",
+      light: "var(--accent-blue)",
       dark: "–",
       usage: "Info, links",
     },
@@ -175,7 +175,7 @@ const AUDIT_DATA = {
     },
     {
       token: "--accent-purple",
-      light: "#8b5cf6",
+      light: "var(--accent-purple)",
       dark: "–",
       usage: "Code syntax",
     },

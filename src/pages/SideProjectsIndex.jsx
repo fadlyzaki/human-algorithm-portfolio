@@ -47,8 +47,8 @@ const SideProjectsIndex = () => {
   // Moved to outside component to avoid re-creation
 
   const themeStyles = {
-    "--accent-line": isDark ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.1)",
-    "--accent-dot": isDark ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)",
+    "--accent-line": isDark ? "rgba(var(--bg-surface-rgb), 0.2)" : "rgba(var(--bg-void-rgb), 0.1)",
+    "--accent-dot": isDark ? "rgba(var(--bg-surface-rgb), 0.5)" : "rgba(var(--bg-void-rgb), 0.5)",
   };
 
   // Initialize refs array
@@ -102,8 +102,8 @@ const SideProjectsIndex = () => {
       // Line Style
       const isDarkMode = isDark;
       ctx.strokeStyle = isDarkMode
-        ? "rgba(255, 255, 255, 0.15)"
-        : "rgba(0, 0, 0, 0.08)";
+        ? "rgba(var(--bg-surface-rgb), 0.15)"
+        : "rgba(var(--bg-void-rgb), 0.08)";
       ctx.lineWidth = 1;
 
       const mx = mouseRef.current.x;
@@ -129,7 +129,7 @@ const SideProjectsIndex = () => {
           ctx.globalAlpha = 1.0;
 
           // Draw connection dots
-          ctx.fillStyle = isDarkMode ? "#FFF" : "#000";
+          ctx.fillStyle = isDarkMode ? "var(--bg-void)" : "var(--bg-void)";
           ctx.beginPath();
           ctx.arc(cardCx, cardCy, 3, 0, Math.PI * 2);
           ctx.fill();

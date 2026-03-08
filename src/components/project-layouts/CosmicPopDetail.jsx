@@ -21,11 +21,11 @@ const CosmicPopDetail = ({
   // Aesthetic: Cosmic Pop, Deep Blues/Purples, Glassmorphism, Floating Particles, Playful Typography
 
   return (
-    <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-sans min-h-screen selection:bg-[#00C2FF]/30 overflow-hidden relative">
+    <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-sans min-h-screen selection:bg-[var(--accent-sky)]/30 overflow-hidden relative">
       {/* Ambient Nebula Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#00C2FF]/10 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-[#6B46C1]/10 rounded-full blur-[150px]"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[var(--accent-sky)]/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-[var(--accent-purple)]/10 rounded-full blur-[150px]"></div>
         <div className="absolute inset-0 sparkle-bg opacity-30"></div>
       </div>
 
@@ -35,19 +35,19 @@ const CosmicPopDetail = ({
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="w-24 h-24 rounded-[2rem] bg-gradient-to-tr from-[#00C2FF]/20 to-[#6B46C1]/20 border border-[var(--border-color)] flex items-center justify-center backdrop-blur-xl shadow-[0_0_50px_rgba(0,194,255,0.2)]"
+            className="w-24 h-24 rounded-[2rem] bg-gradient-to-tr from-[var(--accent-sky)]/20 to-[var(--accent-purple)]/20 border border-[var(--border-color)] flex items-center justify-center backdrop-blur-xl shadow-[0_0_50px_rgba(0,194,255,0.2)]"
           >
-            <Activity size={40} className="text-[#00C2FF]" />
+            <Activity size={40} className="text-[var(--accent-sky)]" />
           </motion.div>
 
           <nav className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-full backdrop-blur-md">
-            <Star size={14} className="text-[#00C2FF]" />
-            <span className="text-xs font-bold uppercase tracking-wider text-[#00C2FF]">
+            <Star size={14} className="text-[var(--accent-sky)]" />
+            <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-sky)]">
               {activeSnapshot.tagline}
             </span>
           </nav>
 
-          <h1 className="text-6xl md:text-8xl font-black italic tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-[var(--text-primary)] via-[var(--text-secondary)] to-[#00C2FF] max-w-4xl leading-[1.1]">
+          <h1 className="text-6xl md:text-8xl font-black italic tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-[var(--text-primary)] via-[var(--text-secondary)] to-[var(--accent-sky)] max-w-4xl leading-[1.1]">
             {activeTitle}
           </h1>
 
@@ -59,7 +59,7 @@ const CosmicPopDetail = ({
             {project.links.demo && project.links.demo !== "#" && (
               <a
                 href={project.links.demo}
-                className="flex items-center gap-2 bg-[#00C2FF] text-[var(--bg-void)] px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:scale-105 hover:shadow-[0_0_30px_rgba(0,194,255,0.4)] transition-all"
+                className="flex items-center gap-2 bg-[var(--accent-sky)] text-[var(--bg-void)] px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:scale-105 hover:shadow-[0_0_30px_rgba(0,194,255,0.4)] transition-all"
               >
                 <Play size={16} fill="currentColor" /> {t("project_layouts.play_demo")}
               </a>
@@ -114,7 +114,7 @@ const CosmicPopDetail = ({
                   )}
                   <div className="p-8 flex-1 flex flex-col">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 rounded-full bg-[#00C2FF]/20 text-[#00C2FF] flex items-center justify-center font-bold">
+                      <div className="w-8 h-8 rounded-full bg-[var(--accent-sky)]/20 text-[var(--accent-sky)] flex items-center justify-center font-bold">
                         {idx + 1}
                       </div>
                       <h3 className="text-2xl font-bold text-[var(--text-primary)]">
@@ -133,7 +133,7 @@ const CosmicPopDetail = ({
           {/* Interaction / Demo */}
           {(project.prototypeLink || InteractionComponent) && (
             <div className="py-24 border-y border-[var(--border-color)] flex flex-col items-center justify-center w-full">
-              <h3 className="text-2xl font-black italic text-center mb-12 text-[#00C2FF] flex items-center gap-3">
+              <h3 className="text-2xl font-black italic text-center mb-12 text-[var(--accent-sky)] flex items-center gap-3">
                 <Rocket /> {t("project_layouts.live_arena")}
               </h3>
               <div className="w-full rounded-[3rem] overflow-hidden shadow-[0_20px_60px_rgba(0,194,255,0.15)] ring-4 ring-[var(--bg-surface)] bg-black">
@@ -163,7 +163,7 @@ const CosmicPopDetail = ({
                   key={idx}
                   className="group p-8 rounded-3xl bg-[var(--bg-surface)] border border-blue-500/20 hover:bg-blue-500/10 transition-colors"
                 >
-                  <div className="mb-6 w-12 h-12 rounded-xl bg-[var(--bg-card)] flex items-center justify-center text-[#00C2FF]">
+                  <div className="mb-6 w-12 h-12 rounded-xl bg-[var(--bg-card)] flex items-center justify-center text-[var(--accent-sky)]">
                     <Star size={24} />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-[var(--text-primary)]">
@@ -179,10 +179,10 @@ const CosmicPopDetail = ({
 
           {/* Metrics Footer */}
           {(activeMetrics || activeLearnings) && (
-            <div className="bg-gradient-to-r from-[#6B46C1]/20 to-[#00C2FF]/20 rounded-[3rem] p-12 md:p-16 border border-[var(--border-color)] flex flex-col md:flex-row items-center gap-16">
+            <div className="bg-gradient-to-r from-[var(--accent-purple)]/20 to-[var(--accent-sky)]/20 rounded-[3rem] p-12 md:p-16 border border-[var(--border-color)] flex flex-col md:flex-row items-center gap-16">
               {activeLearnings && (
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-6 text-[#00C2FF]">
+                  <div className="flex items-center gap-3 mb-6 text-[var(--accent-sky)]">
                     <Shield size={20} />
                     <span className="font-bold uppercase tracking-wider text-sm">
                       {t("project_layouts.lesson_learned")}
@@ -197,7 +197,7 @@ const CosmicPopDetail = ({
                 <div className="flex gap-8 border-l border-[var(--border-color)] pl-16">
                   {activeMetrics.map((m, i) => (
                     <div key={i} className="text-center">
-                      <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[var(--text-primary)] to-[#00C2FF] mb-2">
+                      <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[var(--text-primary)] to-[var(--accent-sky)] mb-2">
                         {m.value}
                       </div>
                       <div className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">

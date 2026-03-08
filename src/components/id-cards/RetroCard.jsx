@@ -3,7 +3,7 @@ import { User } from "lucide-react";
 import PixelImage from "../PixelImage";
 
 const RetroCard = ({ t, isDark, currentItem }) => (
-    <div className={`w-full h-full border-4 border-t-8 border-b-8 relative group overflow-hidden rounded-md flex flex-col p-1 ${isDark ? "bg-white border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" : "bg-black border-white shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]"}`}>
+    <div className={`w-full h-full border-4 border-t-8 border-b-8 relative group overflow-hidden rounded-md flex flex-col p-1 ${isDark ? "bg-white border-black shadow-[8px_8px_0px_0px_rgba(var(--bg-void-rgb), 1)]" : "bg-black border-white shadow-[8px_8px_0px_0px_rgba(var(--bg-surface-rgb), 1)]"}`}>
       {/* Header */}
       <div className={`h-16 flex items-center justify-center border-b-2 border-dashed mb-2 ${isDark ? "border-black" : "border-white"}`}>
         <span className={`font-mono text-base font-bold uppercase tracking-widest leading-none text-center ${isDark ? "text-black" : "text-white"}`}>
@@ -16,7 +16,7 @@ const RetroCard = ({ t, isDark, currentItem }) => (
 
       {/* Content */}
       <div className="flex-grow p-2 relative flex gap-4 items-start">
-        <div className={`w-24 h-28 border-2 z-10 p-1 ${isDark ? "bg-white border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" : "bg-black border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"}`}>
+        <div className={`w-24 h-28 border-2 z-10 p-1 ${isDark ? "bg-white border-black shadow-[4px_4px_0px_0px_rgba(var(--bg-void-rgb), 1)]" : "bg-black border-white shadow-[4px_4px_0px_0px_rgba(var(--bg-surface-rgb), 1)]"}`}>
           <PixelImage src={currentItem.src} alt="Fadly" />
         </div>
         <div className="flex-1 space-y-2 pt-2">

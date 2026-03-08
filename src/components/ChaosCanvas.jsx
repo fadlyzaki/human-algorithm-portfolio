@@ -61,8 +61,8 @@ const ChaosCanvas = () => {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       ctx.fillStyle = isDark
-        ? "rgba(255, 255, 255, 0.4)"
-        : "rgba(0, 0, 0, 0.2)";
+        ? "rgba(var(--bg-surface-rgb), 0.4)"
+        : "rgba(var(--bg-void-rgb), 0.2)";
       ctx.fill();
     };
 

@@ -75,7 +75,7 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
             <div className="absolute inset-0 z-0 bg-gradient-to-br from-blue-900/10 to-transparent pointer-events-none"></div>
 
             <div className="w-[80%] h-[90%] border border-blue-500/20 bg-black/40 p-6 flex flex-col items-center justify-center text-center relative overflow-hidden z-10 backdrop-blur-sm">
-              <h1 className="text-4xl font-mono font-bold text-white mb-4 tracking-tight uppercase shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+              <h1 className="text-4xl font-mono font-bold text-white mb-4 tracking-tight uppercase shadow-[0_0_15px_rgba(var(--accent-blue-rgb), 0.3)]">
                 Sketches
               </h1>
               <p className="text-blue-400/60 font-mono tracking-[0.4em] text-[10px] uppercase">
@@ -89,14 +89,14 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
       } else {
         return (
           <div
-            className={`w-full h-full flex flex-col items-center justify-center p-8 shadow-inner bg-[#2c2826] border-[#1d1b19]`}
+            className={`w-full h-full flex flex-col items-center justify-center p-8 shadow-inner bg-[var(--bg-void)] border-[var(--bg-void)]`}
           >
             <div className="w-[80%] h-[90%] border-2 border-dashed border-white/10 p-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/leather.png')] opacity-30 mix-blend-overlay"></div>
-              <h1 className="text-4xl font-serif text-[#e4d9c7] mb-4 tracking-widest uppercase opacity-90">
+              <h1 className="text-4xl font-serif text-[var(--bg-surface)] mb-4 tracking-widest uppercase opacity-90">
                 Sketches
               </h1>
-              <p className="text-[#e4d9c7]/40 font-mono tracking-[0.3em] text-[10px] uppercase">
+              <p className="text-[var(--bg-surface)]/40 font-mono tracking-[0.3em] text-[10px] uppercase">
                 FADLY ZAKI ARCHIVE
               </p>
             </div>
@@ -129,12 +129,12 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
       } else {
         return (
           <div
-            className={`w-full h-full flex items-center justify-center p-8 shadow-inner bg-[#2c2826] border-[#1d1b19]`}
+            className={`w-full h-full flex items-center justify-center p-8 shadow-inner bg-[var(--bg-void)] border-[var(--bg-void)]`}
           >
             <div className="w-[80%] h-[90%] flex flex-col items-center justify-center text-center relative">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/leather.png')] opacity-30 mix-blend-overlay"></div>
-              <div className="w-16 h-16 rounded-full border border-[#e4d9c7]/10 flex items-center justify-center">
-                <span className="text-[#e4d9c7]/20 font-serif italic text-xl">
+              <div className="w-16 h-16 rounded-full border border-[var(--bg-surface)]/10 flex items-center justify-center">
+                <span className="text-[var(--bg-surface)]/20 font-serif italic text-xl">
                   FZ
                 </span>
               </div>
@@ -147,13 +147,13 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
     }
 
     const item = paddedPages[pageIndex];
-    if (!item) return <div className="w-full h-full bg-[#f8f6f0]"></div>;
+    if (!item) return <div className="w-full h-full bg-[var(--bg-surface)]"></div>;
 
     const isDigital = item.medium === "digital";
 
     return (
       <div
-        className={`w-full h-full relative overflow-hidden flex flex-col items-center justify-center p-6 md:p-12 ${isDark ? "bg-[#2a2a2c] text-white/80" : "bg-[#f8f6f0] text-zinc-800"}`}
+        className={`w-full h-full relative overflow-hidden flex flex-col items-center justify-center p-6 md:p-12 ${isDark ? "bg-[var(--bg-surface)] text-white/80" : "bg-[var(--bg-surface)] text-zinc-800"}`}
       >
         {/* Paper Texture */}
         <div
@@ -226,7 +226,7 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
         {isMobile && (
           <>
             <div
-              className="absolute right-0 top-0 h-full origin-left bg-white shadow-[inset_2px_0_10px_rgba(0,0,0,0.1)]"
+              className="absolute right-0 top-0 h-full origin-left bg-white shadow-[inset_2px_0_10px_rgba(var(--bg-void-rgb), 0.1)]"
               style={{
                 width: pageWidth,
                 display: !isCover || isBackCover ? "none" : "block",

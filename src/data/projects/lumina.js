@@ -22,7 +22,7 @@ export const lumina = {
     "As a 'merantau' (migrant) worker myself, I share the pain of the blue-collar workforce, who are mostly migrants too. I decided to join this company to help build a system that respects their journey and dignity.",
   motivation_id:
     "Sebagai seorang perantau, saya merasakan peliknya kehidupan pekerja kerah biru yang mayoritas juga perantau. Saya bergabung untuk membantu membangun sistem yang menghargai perjuangan dan martabat mereka.",
-  brandColor: "#1AA8B4", // Lumina Teal
+  brandColor: "var(--accent-teal)", // Lumina Teal
   linkedinUrl: "https://www.linkedin.com/company/luminatechnologies/about/",
   heroImage: "/work/lumina-hero.png",
   hook: "Engineering dignity into the blue-collar job hunt. Reducing the cognitive load of application forms for millions of workers.",

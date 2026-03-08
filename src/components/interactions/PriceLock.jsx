@@ -395,7 +395,7 @@ const PriceLock = () => {
 
   return (
     <div className="flex justify-center font-sans antialiased rounded-xl overflow-hidden">
-      <div className="w-full max-w-sm bg-white h-[600px] relative shadow-[0_0_40px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden">
+      <div className="w-full max-w-sm bg-white h-[600px] relative shadow-[0_0_40px_rgba(var(--bg-void-rgb), 0.3)] flex flex-col overflow-hidden">
         {screen === "search" && (
           <SearchScreen flight={flight} setScreen={setScreen} />
         )}

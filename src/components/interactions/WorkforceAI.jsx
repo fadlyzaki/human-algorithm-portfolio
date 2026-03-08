@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Briefcase, CheckCircle2, Search, Zap } from "lucide-react";
 
-const WorkforceAI = ({ color = "#1AA8B4" }) => {
+const WorkforceAI = ({ color = "var(--accent-teal)" }) => {
   // Static Nodes Data
   const CANDIDATES = [
     { id: "c1", role: "Forklift Driver", exp: "3y", status: "idle" },
@@ -152,7 +152,7 @@ const WorkforceAI = ({ color = "#1AA8B4" }) => {
                       {/* Traveling Packet */}
                       <motion.circle
                         r="3"
-                        fill="#fff"
+                        fill="var(--bg-void)"
                         initial={{ offsetDistance: "0%" }}
                         animate={{ offsetDistance: "100%" }}
                         transition={{ duration: 0.8, ease: "linear" }}

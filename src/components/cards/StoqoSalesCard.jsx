@@ -22,7 +22,7 @@ const StoqoSalesCard = ({ expanded, showChrome }) => (
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px)",
+            "linear-gradient(rgba(var(--bg-surface-rgb), 0.5) 1px, transparent 1px)",
           backgroundSize: "20px 20px",
         }}
       ></div>

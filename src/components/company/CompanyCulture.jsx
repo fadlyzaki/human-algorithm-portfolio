@@ -47,7 +47,7 @@ const CompanyCulture = ({ cluster, isId }) => {
                   {/* Front: Caption */}
                   <div
                     className="w-full h-full [backface-visibility:hidden] rounded-xl flex items-center justify-center p-6 text-center border border-[var(--border-color)]"
-                    style={{ backgroundColor: cluster.brandColor || 'var(--bg-card)', color: '#ffffff' }}
+                    style={{ backgroundColor: cluster.brandColor || 'var(--bg-card)', color: 'var(--bg-void)' }}
                   >
                     <span className="text-sm font-medium leading-relaxed drop-shadow-sm">
                       {img.caption}
@@ -77,7 +77,7 @@ const CompanyCulture = ({ cluster, isId }) => {
                   {/* Front: Caption */}
                   <div
                     className="absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-xl flex flex-col items-center justify-center p-6 text-center border border-[var(--border-color)]"
-                    style={{ backgroundColor: cluster.brandColor || 'var(--bg-card)', color: '#ffffff' }}
+                    style={{ backgroundColor: cluster.brandColor || 'var(--bg-card)', color: 'var(--bg-void)' }}
                   >
                     <span className="text-sm font-medium leading-relaxed drop-shadow-sm">
                       {img.caption}
@@ -107,7 +107,7 @@ const CompanyCulture = ({ cluster, isId }) => {
                   {/* Front: Caption */}
                   <div
                     className="absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-xl flex flex-col items-center justify-center p-6 text-center border border-[var(--border-color)]"
-                    style={{ backgroundColor: cluster.brandColor || 'var(--bg-card)', color: '#ffffff' }}
+                    style={{ backgroundColor: cluster.brandColor || 'var(--bg-card)', color: 'var(--bg-void)' }}
                   >
                     <span className="text-sm font-medium leading-relaxed drop-shadow-sm">
                       {img.caption}

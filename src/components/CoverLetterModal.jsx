@@ -65,7 +65,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                     setIsLetterOpen(false);
                   }
                 }}
-                className={`bg-[#EAE6DF] dark:bg-[var(--bg-card)] p-6 sm:p-8 flex justify-between items-start z-30 relative shadow-md transition-colors ${!isLetterOpen ? "cursor-pointer hover:bg-[#E2DDD5] dark:hover:bg-[#222]" : "cursor-pointer"}`}
+                className={`bg-[#EAE6DF] dark:bg-[var(--bg-card)] p-6 sm:p-8 flex justify-between items-start z-30 relative shadow-md transition-colors ${!isLetterOpen ? "cursor-pointer hover:bg-[#E2DDD5] dark:hover:bg-[var(--border-color)]" : "cursor-pointer"}`}
                 style={{
                   borderTopLeftRadius: "0.5rem",
                   borderTopRightRadius: "0.5rem",
@@ -119,7 +119,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                 // The inner shadow creates the illusion that this sits *below* the top fold
                 style={{
                   boxShadow:
-                    "inset 0 16px 24px -16px rgba(0,0,0,0.15), inset 0 24px 24px -24px rgba(0,0,0,0.5)",
+                    "inset 0 16px 24px -16px rgba(var(--bg-void-rgb), 0.15), inset 0 24px 24px -24px rgba(var(--bg-void-rgb), 0.5)",
                 }}
               >
                 <div className="p-6 sm:p-10 pb-4">
@@ -175,7 +175,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                   borderBottomLeftRadius: "0.5rem",
                   borderBottomRightRadius: "0.5rem",
                   // Subtle shadow to separate it from the body
-                  boxShadow: "inset 0 10px 15px -10px rgba(0,0,0,0.1)",
+                  boxShadow: "inset 0 10px 15px -10px rgba(var(--bg-void-rgb), 0.1)",
                 }}
               >
                 <div className="p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">

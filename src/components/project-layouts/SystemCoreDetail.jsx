@@ -77,7 +77,7 @@ const SystemCoreDetail = ({
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif italic text-[var(--text-primary)] drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+            <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif italic text-[var(--text-primary)] drop-shadow-[0_0_15px_rgba(var(--bg-surface-rgb), 0.3)]">
               {activeTitle}
             </h1>
 

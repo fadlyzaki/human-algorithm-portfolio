@@ -55,11 +55,11 @@ const FloodAlert = () => {
         <div
           className="relative flex-1 overflow-hidden"
           style={{
-            backgroundColor: "#0f172a",
+            backgroundColor: "var(--bg-void)",
             backgroundImage: `
                         radial-gradient(rgba(51, 65, 85, 0.5) 1px, transparent 1px),
-                        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)
+                        linear-gradient(to right, rgba(var(--bg-surface-rgb), 0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(var(--bg-surface-rgb), 0.03) 1px, transparent 1px)
                     `,
             backgroundSize: "30px 30px, 60px 60px, 60px 60px",
           }}
@@ -69,13 +69,13 @@ const FloodAlert = () => {
             {/* River */}
             <path
               d="M0 80 Q 120 120 160 320 T 200 640"
-              stroke="rgba(59, 130, 246, 0.2)"
+              stroke="rgba(var(--accent-blue-rgb), 0.2)"
               strokeWidth="20"
               fill="none"
             />
             <path
               d="M 240 0 L 240 650"
-              stroke="rgba(255,255,255,0.05)"
+              stroke="rgba(var(--bg-surface-rgb), 0.05)"
               strokeWidth="2"
               fill="none"
             />
@@ -164,9 +164,9 @@ const FloodAlert = () => {
           style={{
             background: "rgba(15, 23, 42, 0.95)",
             backdropFilter: "blur(20px)",
-            borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+            borderTop: "1px solid rgba(var(--bg-surface-rgb), 0.1)",
             borderRadius: "24px 24px 0 0",
-            boxShadow: "0 -10px 40px rgba(0,0,0,0.5)",
+            boxShadow: "0 -10px 40px rgba(var(--bg-void-rgb), 0.5)",
           }}
         >
           <div className="w-10 h-1 bg-slate-800 rounded-full mx-auto mb-4" />

@@ -205,7 +205,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
             className="absolute -bottom-1 left-1 right-1 h-3 rounded-b-2xl pointer-events-none"
             style={{
               background:
-                "linear-gradient(to top, rgba(0,0,0,0.08), transparent)",
+                "linear-gradient(to top, rgba(var(--bg-void-rgb), 0.08), transparent)",
             }}
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}

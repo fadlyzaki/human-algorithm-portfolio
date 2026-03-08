@@ -5,7 +5,7 @@ import PixelImage from "../PixelImage";
 const IndustrialCard = ({ t, isDark, currentItem }) => (
     <div className={`w-full h-full border-[1px] relative group overflow-hidden rounded-xl flex flex-col shadow-xl ${isDark ? "bg-white border-black/20" : "bg-black border-white/20"}`}>
       {/* Punch Hole */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-[#222] rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)] z-30 flex items-center justify-center">
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-[var(--border-color)] rounded-full shadow-[inset_0_2px_4px_rgba(var(--bg-void-rgb), 0.8)] z-30 flex items-center justify-center">
         <div className="w-6 h-0.5 bg-black/50 rounded-full"></div>
       </div>
       {/* Holographic Sheen */}
@@ -72,7 +72,7 @@ const IndustrialCard = ({ t, isDark, currentItem }) => (
         </div>
       </div>
       {/* Footer */}
-      <div className={`h-12 border-t flex items-center justify-between px-4 relative overflow-hidden ${isDark ? "bg-white border-black/5" : "bg-[#222] border-white/5"}`}>
+      <div className={`h-12 border-t flex items-center justify-between px-4 relative overflow-hidden ${isDark ? "bg-white border-black/5" : "bg-[var(--border-color)] border-white/5"}`}>
         <div className={`flex items-center gap-[2px] h-6 opacity-40 w-full ${isDark ? "mix-blend-multiply" : "mix-blend-screen"}`}>
           {[...Array(24)].map((_, i) => (
             <div

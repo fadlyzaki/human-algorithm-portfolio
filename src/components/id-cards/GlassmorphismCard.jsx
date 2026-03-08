@@ -3,7 +3,7 @@ import { User } from "lucide-react";
 import PixelImage from "../PixelImage";
 
 const GlassmorphismCard = ({ t, isDark, currentItem }) => (
-    <div className={`w-full h-full backdrop-blur-2xl border relative group overflow-hidden rounded-xl flex flex-col ${isDark ? "bg-white/70 border-white/40 shadow-xl" : "bg-black/70 border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]"}`}>
+    <div className={`w-full h-full backdrop-blur-2xl border relative group overflow-hidden rounded-xl flex flex-col ${isDark ? "bg-white/70 border-white/40 shadow-xl" : "bg-black/70 border-white/10 shadow-[0_8px_32px_0_rgba(var(--bg-void-rgb), 0.5)]"}`}>
       {/* Glassmorphism Sheen/Noise */}
       <div className={`absolute inset-0 bg-gradient-to-br opacity-70 pointer-events-none z-20 ${isDark ? "from-white/40 via-transparent to-black/5" : "from-white/10 via-transparent to-transparent"}`}></div>
 

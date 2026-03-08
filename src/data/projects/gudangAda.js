@@ -23,7 +23,7 @@ export const gudangAda = {
     "Saat COVID melanda, saya melihat warung tante saya kesulitan mendapatkan stok. Itu bukan sekadar masalah bisnis; itu personal. Saat kesempatan untuk membantu datang, saya bergabung untuk memperbaiki alur transaksi, meringankan beban bagi pembeli seperti beliau.",
   hook_id:
     "Membangun rasa aman di pasar low-trust. Memastikan pemilik warung merasa setenang belanja stok 5 juta seperti saat jajan 5 ribu.",
-  brandColor: "#00D1C7", // GudangAda Cyan
+  brandColor: "var(--accent-teal)", // GudangAda Cyan
   linkedinUrl: "https://www.linkedin.com/company/gudangada/about/",
   heroImage: "/work/gudangada-hero.png",
   hook: "Systematizing trust in a chaotic market. Designing fail-safe transaction flows for the $100B B2B supply chain.",

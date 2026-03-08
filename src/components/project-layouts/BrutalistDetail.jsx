@@ -17,14 +17,14 @@ const BrutalistDetail = ({
   activeSnapshot,
   t,
 }) => {
-  // Aesthetic: Neo-Brutalism, High Contrast, Stark Grids, Thick Borders, #FF3B30 Red Actions
+  // Aesthetic: Neo-Brutalism, High Contrast, Stark Grids, Thick Borders, var(--accent-red) Red Actions
 
   return (
-    <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-sans min-h-screen selection:bg-[#FF3B30] selection:text-white pb-32">
+    <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-sans min-h-screen selection:bg-[var(--accent-red)] selection:text-white pb-32">
       <main className="max-w-7xl mx-auto px-6 pt-24 font-mono">
         {/* 1. HERO BANNER */}
-        <header className="border-4 border-[var(--text-primary)] p-8 md:p-16 relative bg-[var(--bg-card)] shadow-[16px_16px_0px_0px_#FF3B30] mb-32">
-          <div className="absolute top-0 right-0 p-4 border-l-4 border-b-4 border-[var(--text-primary)] bg-[#FF3B30] text-[var(--bg-void)]">
+        <header className="border-4 border-[var(--text-primary)] p-8 md:p-16 relative bg-[var(--bg-card)] shadow-[16px_16px_0px_0px_var(--accent-red)] mb-32">
+          <div className="absolute top-0 right-0 p-4 border-l-4 border-b-4 border-[var(--text-primary)] bg-[var(--accent-red)] text-[var(--bg-void)]">
             <Target size={32} />
           </div>
 
@@ -36,7 +36,7 @@ const BrutalistDetail = ({
             {activeTitle}
           </h1>
 
-          <p className="text-2xl md:text-3xl font-bold max-w-3xl leading-snug border-l-8 border-[#FF3B30] pl-6 py-2">
+          <p className="text-2xl md:text-3xl font-bold max-w-3xl leading-snug border-l-8 border-[var(--accent-red)] pl-6 py-2">
             {activeTldr}
           </p>
 
@@ -53,7 +53,7 @@ const BrutalistDetail = ({
             {project.links.demo && project.links.demo !== "#" && (
               <a
                 href={project.links.demo}
-                className="flex items-center gap-2 bg-[#FF3B30] text-white px-8 py-4 hover:-translate-y-1 hover:translate-x-1 hover:shadow-[-8px_8px_0_0_black] dark:hover:shadow-[-8px_8px_0_0_white] transition-transform"
+                className="flex items-center gap-2 bg-[var(--accent-red)] text-white px-8 py-4 hover:-translate-y-1 hover:translate-x-1 hover:shadow-[-8px_8px_0_0_black] dark:hover:shadow-[-8px_8px_0_0_white] transition-transform"
               >
                 {t("project_layouts.read_research_paper")} <ArrowUpRight />
               </a>
@@ -69,7 +69,7 @@ const BrutalistDetail = ({
               <h2 className="text-6xl font-black uppercase tracking-tighter mb-8 italic">
                 {t("project_layouts.the_problem")}
               </h2>
-              <p className="text-xl md:text-2xl font-bold leading-tight bg-[#FF3B30] text-white p-8 border-4 border-[var(--text-primary)]">
+              <p className="text-xl md:text-2xl font-bold leading-tight bg-[var(--accent-red)] text-white p-8 border-4 border-[var(--text-primary)]">
                 {activeChallenge}
               </p>
             </div>
@@ -115,7 +115,7 @@ const BrutalistDetail = ({
                       </div>
                     )}
                     <div className="p-8 flex-1 flex flex-col">
-                      <div className="font-mono text-3xl font-black text-[#FF3B30] mb-4">
+                      <div className="font-mono text-3xl font-black text-[var(--accent-red)] mb-4">
                         0{idx + 1}
                       </div>
                       <h3 className="text-3xl font-black uppercase leading-none mb-4">
@@ -133,7 +133,7 @@ const BrutalistDetail = ({
 
           {/* Interaction / Demo */}
           {(project.prototypeLink || InteractionComponent) && (
-            <div className="mb-32 border-4 border-[var(--text-primary)] p-8 md:p-16 bg-[#FF3B30] text-white">
+            <div className="mb-32 border-4 border-[var(--text-primary)] p-8 md:p-16 bg-[var(--accent-red)] text-white">
               <h3 className="text-4xl font-black uppercase mb-12 flex items-center gap-4">
                 <Square /> {t("project_layouts.widget_demo")}
               </h3>
@@ -181,10 +181,10 @@ const BrutalistDetail = ({
               )}
               {activeLearnings && (
                 <div className="lg:col-span-2 border-4 border-[var(--text-primary)] p-8 md:p-16 flex flex-col justify-center bg-[var(--bg-surface)]">
-                  <div className="font-mono text-sm uppercase font-black tracking-widest text-[#FF3B30] mb-6">
+                  <div className="font-mono text-sm uppercase font-black tracking-widest text-[var(--accent-red)] mb-6">
                     {t("project_layouts.lesson_learned")}
                   </div>
-                  <Slash className="text-[#FF3B30] w-16 h-16 mb-8" />
+                  <Slash className="text-[var(--accent-red)] w-16 h-16 mb-8" />
                   <p className="text-3xl md:text-5xl font-black italic uppercase leading-none text-[var(--text-primary)]">
                     "{activeLearnings}"
                   </p>

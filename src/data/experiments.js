@@ -18,7 +18,7 @@ export const EXPERIMENTS = [
     iconName: "Brain",
     type: "Case Study",
     date: "March 2026",
-    brandColor: "#8B5CF6", // Pivot Purple
+    brandColor: "var(--accent-purple)", // Pivot Purple
     coverImage: "airy:hierarchy",
     snapshot: {
       tagline: "Redesigning Algorithms",
@@ -183,7 +183,7 @@ export const EXPERIMENTS = [
     type: "Fintech Lock",
     date: "February 2026",
     coverImage: "airy:chart",
-    brandColor: "#10B981", // Fintech Green
+    brandColor: "var(--accent-green)", // Fintech Green
     snapshot: {
       tagline: "Fintech Feature for OTA",
       heroImage: "airy:chart",
@@ -205,7 +205,7 @@ export const EXPERIMENTS = [
       {
         title: "Unsolicited Advice No. 3",
         text: "There are two types of constraints: those imposed by software limitations, and those imposed by human habit. We spend 90% of our time arguing about the first, while the latter quietly dictates everything we build.",
-        color: "#c2410c",
+        color: "var(--accent-orange)",
         image: "airy:search",
       },
       {
@@ -308,7 +308,7 @@ export const EXPERIMENTS = [
     type: "Logistics Kinship",
     date: "February 2026",
     coverImage: "airy:venn",
-    brandColor: "#EC4899", // Kinship Pink
+    brandColor: "var(--accent-pink)", // Kinship Pink
     snapshot: {
       tagline: "Grab Merantau",
       heroImage: "airy:venn",
@@ -580,7 +580,7 @@ export const EXPERIMENTS = [
     type: "Conceptual Redesign",
     date: "October 2023",
     coverImage: "airy:funnel",
-    brandColor: "#E50914",
+    brandColor: "var(--accent-red)",
     snapshot: {
       tagline: "Context-First Discovery",
       heroImage: "airy:funnel",

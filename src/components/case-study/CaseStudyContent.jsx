@@ -167,7 +167,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
 
           {/* NEURAL SUMMARY: AI-Generated TL;DR */}
           <div className="mt-16 w-full max-w-4xl mx-auto">
-            <div className="bg-white dark:bg-[#111] border border-[var(--brand)]/30 rounded-2xl p-6 md:p-8 text-left relative overflow-hidden group hover:border-[var(--brand)]/60 transition-all shadow-xl dark:shadow-[0_0_30px_-10px_rgba(0,0,0,0.5)]">
+            <div className="bg-white dark:bg-[var(--bg-surface)] border border-[var(--brand)]/30 rounded-2xl p-6 md:p-8 text-left relative overflow-hidden group hover:border-[var(--brand)]/60 transition-all shadow-xl dark:shadow-[0_0_30px_-10px_rgba(var(--bg-void-rgb), 0.5)]">
               <div className="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-10 transition-opacity">
                 <Activity size={48} className="text-[var(--brand)]" />
               </div>

@@ -138,13 +138,13 @@ export default function NetflixContextUI() {
   const isCalmMode = activeFilter === "chill" || activeFilter === "quick";
 
   return (
-    <div className="bg-[#141414] min-h-screen text-white font-sans overflow-x-hidden pb-20 relative">
+    <div className="bg-[var(--bg-card)] min-h-screen text-white font-sans overflow-x-hidden pb-20 relative">
       {/* --- HEADER --- */}
       <div
-        className={`absolute top-0 w-full z-50 transition-all duration-300 px-4 md:px-12 py-4 flex justify-between items-center ${isScrolled ? "bg-[#141414]/95 shadow-lg" : "bg-gradient-to-b from-black/80 to-transparent"}`}
+        className={`absolute top-0 w-full z-50 transition-all duration-300 px-4 md:px-12 py-4 flex justify-between items-center ${isScrolled ? "bg-[var(--bg-card)]/95 shadow-lg" : "bg-gradient-to-b from-black/80 to-transparent"}`}
       >
         <div className="flex items-center gap-8">
-          <h1 className="text-[#E50914] text-2xl md:text-4xl font-black tracking-tighter cursor-pointer">
+          <h1 className="text-[var(--accent-red)] text-2xl md:text-4xl font-black tracking-tighter cursor-pointer">
             NETFLIX{" "}
             <span className="hidden md:inline text-white font-thin text-sm ml-2 opacity-70">
               ZEN
@@ -180,15 +180,15 @@ export default function NetflixContextUI() {
 
       {/* --- HERO AREA (Simplified for Prototype) --- */}
       <div className="relative h-[50vh] md:h-[60vh] w-full bg-zinc-900 flex items-end pb-12 px-4 md:px-12">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-black/30 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-black/30 z-10"></div>
         {/* Abstract Hero Background */}
         <div className="absolute inset-0 flex items-center justify-center opacity-30 text-[10rem] select-none pointer-events-none grayscale">
           🎥
         </div>
 
         <div className="relative z-20 max-w-2xl">
-          <span className="flex items-center gap-2 text-[#E50914] font-bold tracking-widest uppercase text-sm mb-2">
-            <div className="w-1 h-4 bg-[#E50914]"></div> Project Zen
+          <span className="flex items-center gap-2 text-[var(--accent-red)] font-bold tracking-widest uppercase text-sm mb-2">
+            <div className="w-1 h-4 bg-[var(--accent-red)]"></div> Project Zen
           </span>
           <h2 className="text-4xl md:text-6xl font-black mb-4 leading-none">
             The Context UI
@@ -292,8 +292,8 @@ function FilterButton({ icon, label, sub, isActive, onClick }) {
         relative flex-shrink-0 flex flex-col items-start p-4 rounded-lg border transition-all duration-200 snap-start text-left min-w-[150px]
         ${
           isActive
-            ? "bg-[#E50914] border-[#E50914] text-white shadow-[0_4px_20px_rgba(229,9,20,0.4)] transform scale-105"
-            : "bg-[#1e1e1e] border-transparent text-gray-400 hover:bg-[#2a2a2a] hover:text-gray-200"
+            ? "bg-[var(--accent-red)] border-[var(--accent-red)] text-white shadow-[0_4px_20px_rgba(229,9,20,0.4)] transform scale-105"
+            : "bg-[var(--bg-card)] border-transparent text-gray-400 hover:bg-[var(--border-color)] hover:text-gray-200"
         }
       `}
     >
@@ -335,7 +335,7 @@ function ContentCard({ item, isHovered, setHovered, isCalmMode }) {
             {item.durationDisplay}
           </div>
           {/* Netflix "N" Logo watermark */}
-          <div className="absolute top-2 left-2 text-[#E50914] font-black text-xs tracking-tighter opacity-80">
+          <div className="absolute top-2 left-2 text-[var(--accent-red)] font-black text-xs tracking-tighter opacity-80">
             N
           </div>
         </div>
@@ -350,7 +350,7 @@ function ContentCard({ item, isHovered, setHovered, isCalmMode }) {
       {isHovered && (
         <div
           className={`
-          absolute top-0 left-0 w-full bg-[var(--bg-card)] rounded-md shadow-[0_10px_40px_rgba(0,0,0,0.7)] z-50 overflow-hidden
+          absolute top-0 left-0 w-full bg-[var(--bg-card)] rounded-md shadow-[0_10px_40px_rgba(var(--bg-void-rgb), 0.7)] z-50 overflow-hidden
           transition-all duration-300 transform scale-125 -translate-y-6
         `}
         >
@@ -396,7 +396,7 @@ function ContentCard({ item, isHovered, setHovered, isCalmMode }) {
             </div>
 
             {/* PRD 5.2: Attention Score Visualization */}
-            <div className="mt-3 mb-2 bg-[#252525] p-2 rounded border border-gray-800">
+            <div className="mt-3 mb-2 bg-[var(--bg-card)] p-2 rounded border border-gray-800">
               <div className="flex justify-between items-center mb-1">
                 <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider">
                   Cognitive Load

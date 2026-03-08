@@ -23,7 +23,7 @@ const PageShell = ({ children, navbarProps = {}, showTexture = true }) => {
                             isDark
                                 ? "radial-gradient(circle at 50% 0%, rgba(50,50,50,0.4), rgba(17,17,17,1) 80%)"
                                 : "none",
-                            `linear-gradient(${isDark ? "#FFF" : "#000"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "#FFF" : "#000"} 1px, transparent 1px)`,
+                            `linear-gradient(${isDark ? "var(--bg-void)" : "var(--bg-void)"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "var(--bg-void)" : "var(--bg-void)"} 1px, transparent 1px)`,
                         ].join(", "),
                         backgroundSize: "auto, auto, 40px 40px",
                         opacity: isDark ? 1 : 0.03,

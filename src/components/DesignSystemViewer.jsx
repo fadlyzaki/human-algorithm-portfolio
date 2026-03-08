@@ -84,7 +84,7 @@ const DesignSystemViewer = () => {
       <div
         className="absolute inset-0 z-0 pointer-events-none opacity-[0.05]"
         style={{
-          backgroundImage: `linear-gradient(${isDark ? "#FFF" : "#000"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "#FFF" : "#000"} 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(${isDark ? "var(--bg-void)" : "var(--bg-void)"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "var(--bg-void)" : "var(--bg-void)"} 1px, transparent 1px)`,
           backgroundSize: "20px 20px",
         }}
       ></div>

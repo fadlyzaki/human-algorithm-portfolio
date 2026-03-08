@@ -123,7 +123,7 @@ const WorkBento = ({ cluster, priority = false }) => {
           {cluster.heroImage &&
             cluster.heroImage.startsWith("/") &&
             !imgError ? (
-            <div className="relative rounded-t-[28px] overflow-hidden shadow-[0_12px_50px_-12px_rgba(0,0,0,0.5)] border-t-[6px] border-x-[6px] border-white/20 dark:border-white/10 bg-white dark:bg-neutral-800 aspect-[9/14] flex flex-col">
+            <div className="relative rounded-t-[28px] overflow-hidden shadow-[0_12px_50px_-12px_rgba(var(--bg-void-rgb), 0.5)] border-t-[6px] border-x-[6px] border-white/20 dark:border-white/10 bg-white dark:bg-neutral-800 aspect-[9/14] flex flex-col">
               {/* Device Header/Notch Area - Protects mockup headers from card rounding */}
               <div className="h-7 w-full flex items-center justify-center shrink-0 bg-white dark:bg-neutral-800 relative z-20">
                 <div className="w-16 h-4 bg-black dark:bg-neutral-900 rounded-b-xl flex items-center justify-center">
@@ -152,7 +152,7 @@ const WorkBento = ({ cluster, priority = false }) => {
               </div>
 
               {/* Inner Shadow for depth */}
-              <div className="absolute inset-0 shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)] pointer-events-none"></div>
+              <div className="absolute inset-0 shadow-[inset_0_2px_10px_rgba(var(--bg-void-rgb), 0.1)] pointer-events-none"></div>
             </div>
           ) : (
             <div className="w-full aspect-[4/3] bg-white dark:bg-black/20 rounded-t-2xl border-t border-x border-black/5 flex items-center justify-center relative overflow-hidden shadow-xl">

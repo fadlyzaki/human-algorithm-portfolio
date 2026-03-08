@@ -81,8 +81,8 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
 const SystemCoreCard = ({ project, title, desc, onClick }) => (
   <motion.div
     onClick={onClick}
-    className="group relative h-[450px] rounded-3xl border-2 border-[var(--border-color)] bg-[#0A0A0A] overflow-hidden cursor-pointer flex flex-col"
-    whileHover={{ borderColor: "rgba(255,255,255,0.4)", scale: 0.98 }}
+    className="group relative h-[450px] rounded-3xl border-2 border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
+    whileHover={{ borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98 }}
   >
     {/* Terminal Text Background */}
     <div className="absolute inset-0 opacity-5 font-mono text-[8px] leading-none pointer-events-none select-none overflow-hidden p-4">
@@ -156,13 +156,13 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
 const CosmicPopCard = ({ project, title, desc, onClick }) => (
   <motion.div
     onClick={onClick}
-    className="group relative h-[450px] rounded-3xl border-2 border-transparent bg-gradient-to-br from-[#1A1A2E] to-[#16213E] overflow-hidden cursor-pointer p-8 flex flex-col justify-end"
-    whileHover={{ scale: 0.98, borderColor: "#00C2FF" }}
+    className="group relative h-[450px] rounded-3xl border-2 border-transparent bg-gradient-to-br from-[var(--accent-indigo)] to-[var(--accent-indigo)] overflow-hidden cursor-pointer p-8 flex flex-col justify-end"
+    whileHover={{ scale: 0.98, borderColor: "var(--accent-sky)" }}
   >
     {/* Floating Particles */}
     <div className="absolute inset-0 pointer-events-none">
       <motion.div
-        className="absolute top-20 left-20 w-32 h-32 bg-[#00C2FF]/10 rounded-full blur-3xl"
+        className="absolute top-20 left-20 w-32 h-32 bg-[var(--accent-sky)]/10 rounded-full blur-3xl"
         animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 4, repeat: Infinity }}
       />
@@ -170,8 +170,8 @@ const CosmicPopCard = ({ project, title, desc, onClick }) => (
     </div>
 
     <div className="relative z-10">
-      <div className="w-16 h-16 mb-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center group-hover:bg-[#00C2FF]/20 group-hover:border-[#00C2FF]/40 transition-all">
-        <Activity size={32} className="text-[#00C2FF]" />
+      <div className="w-16 h-16 mb-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center group-hover:bg-[var(--accent-sky)]/20 group-hover:border-[var(--accent-sky)]/40 transition-all">
+        <Activity size={32} className="text-[var(--accent-sky)]" />
       </div>
       <h3 className="text-3xl font-serif italic mb-4 text-white">{title}</h3>
       <p className="text-blue-100/60 font-light text-sm mb-6 leading-relaxed line-clamp-5">
@@ -181,7 +181,7 @@ const CosmicPopCard = ({ project, title, desc, onClick }) => (
         {project.stack.slice(0, 3).map((tech) => (
           <span
             key={tech}
-            className="text-[9px] font-mono bg-white/5 px-2 py-1 rounded text-[#00C2FF] uppercase tracking-wider"
+            className="text-[9px] font-mono bg-white/5 px-2 py-1 rounded text-[var(--accent-sky)] uppercase tracking-wider"
           >
             {tech}
           </span>
@@ -201,7 +201,7 @@ const BrutalistCard = ({ project, title, desc, onClick }) => (
   <motion.div
     onClick={onClick}
     className="group relative h-[450px] rounded-3xl bg-[#E2E2E2] dark:bg-[var(--bg-card)] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
-    whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px 0px #FF3B30" }}
+    whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" }}
   >
     <div className="absolute top-4 right-4 z-20">
       <ArrowUpRight size={24} className="text-black dark:text-white" />
@@ -209,7 +209,7 @@ const BrutalistCard = ({ project, title, desc, onClick }) => (
 
     <div className="p-8 h-full flex flex-col relative z-10">
       <div className="mb-auto">
-        <div className="inline-block bg-[#FF3B30] text-white px-3 py-1 font-mono text-[10px] uppercase font-bold mb-4">
+        <div className="inline-block bg-[var(--accent-red)] text-white px-3 py-1 font-mono text-[10px] uppercase font-bold mb-4">
           Research // Cognitive Mastery
         </div>
         <h3 className="text-3xl md:text-2xl font-serif font-black italic uppercase leading-tight text-black dark:text-white mb-6">
@@ -218,7 +218,7 @@ const BrutalistCard = ({ project, title, desc, onClick }) => (
       </div>
 
       <div className="mt-auto">
-        <p className="text-black dark:text-white font-bold text-sm mb-6 leading-tight border-l-4 border-[#FF3B30] pl-4 line-clamp-3">
+        <p className="text-black dark:text-white font-bold text-sm mb-6 leading-tight border-l-4 border-[var(--accent-red)] pl-4 line-clamp-3">
           {desc}
         </p>
         <div className="flex flex-wrap gap-2">
@@ -235,7 +235,7 @@ const BrutalistCard = ({ project, title, desc, onClick }) => (
     </div>
 
     {/* Glitch Overlay Effect */}
-    <div className="absolute inset-0 bg-[#FF3B30]/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+    <div className="absolute inset-0 bg-[var(--accent-red)]/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
   </motion.div>
 );
 
@@ -243,7 +243,7 @@ const BrutalistCard = ({ project, title, desc, onClick }) => (
 const BentoCard = ({ project, title, desc, onClick }) => (
   <motion.div
     onClick={onClick}
-    className="group relative h-[450px] rounded-3xl bg-[#F8F8F8] dark:bg-[#0F0F0F] border border-[var(--border-color)] overflow-hidden cursor-pointer flex flex-col"
+    className="group relative h-[450px] rounded-3xl bg-[var(--bg-surface)] dark:bg-[var(--bg-void)] border border-[var(--border-color)] overflow-hidden cursor-pointer flex flex-col"
     whileHover={{ scale: 1.02 }}
   >
     {/* Visual Top Half */}
@@ -288,7 +288,7 @@ const BentoCard = ({ project, title, desc, onClick }) => (
 const BlueprintCard = ({ project, title, desc, onClick }) => (
   <motion.div
     onClick={onClick}
-    className="group relative h-[450px] rounded-3xl bg-blue-50 dark:bg-[#0A1128] border border-blue-200 dark:border-blue-900 overflow-hidden cursor-pointer"
+    className="group relative h-[450px] rounded-3xl bg-blue-50 dark:bg-[var(--bg-void)] border border-blue-200 dark:border-blue-900 overflow-hidden cursor-pointer"
     whileHover={{ scale: 1.02, y: -4 }}
     transition={{ type: "spring", stiffness: 300, damping: 20 }}
   >

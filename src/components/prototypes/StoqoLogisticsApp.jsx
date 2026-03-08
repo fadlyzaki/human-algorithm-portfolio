@@ -85,7 +85,7 @@ const OrderSection = ({
     danger:
       "bg-red-50 text-red-800 border-red-200 dark:bg-red-900/20 dark:text-red-200 dark:border-red-800",
     success:
-      "bg-[#FFF8E1] text-gray-800 border-[#FFC107] dark:bg-yellow-900/20 dark:text-gray-200 dark:border-yellow-600",
+      "bg-[var(--bg-void)8E1] text-gray-800 border-[#FFC107] dark:bg-yellow-900/20 dark:text-gray-200 dark:border-yellow-600",
   };
 
   const AlertIcon =
@@ -164,7 +164,7 @@ const NotificationHome = ({ onNavigate }) => {
 
       <div className="relative z-10 w-full h-full flex flex-col pt-12 px-2">
         {/* Music Player Widget */}
-        <div className="bg-[#2C2C2C]/90 backdrop-blur-sm rounded-md p-3 mb-2 flex items-center shadow-lg mx-1">
+        <div className="bg-[var(--border-color)]/90 backdrop-blur-sm rounded-md p-3 mb-2 flex items-center shadow-lg mx-1">
           <div className="w-10 h-10 bg-gray-600 rounded mr-3 overflow-hidden shrink-0">
             <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600"></div>
           </div>

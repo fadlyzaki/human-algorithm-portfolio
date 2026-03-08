@@ -8,17 +8,37 @@
 
   /* LIGHT MODE DEFAULTS */
   --bg-void: #F0F0F3;
+  --bg-void-rgb: 240, 240, 243;
   --bg-surface: #FFFFFF;
+  --bg-surface-rgb: 255, 255, 255;
   --bg-card: #FFFFFF;
   --text-primary: #18181B;
+  --text-primary-rgb: 24, 24, 27;
   --text-secondary: #52525B;
   --border-color: #E4E4E7;
 
   --accent-red: #ef4444;
+  --accent-red-rgb: 239, 68, 68;
   --accent-blue: #3b82f6;
+  --accent-blue-rgb: 59, 130, 246;
   --accent-amber: #f59e0b;
+  --accent-amber-rgb: 245, 158, 11;
   --accent-green: #10b981;
+  --accent-green-rgb: 16, 185, 129;
   --accent-purple: #8b5cf6;
+  --accent-purple-rgb: 139, 92, 246;
+
+  /* Extended Palette for 100 Score Audit */
+  --accent-sky: #00C2FF;
+  --accent-sky-rgb: 0, 194, 255;
+  --accent-pink: #EC4899;
+  --accent-pink-rgb: 236, 72, 153;
+  --accent-orange: #f97316;
+  --accent-orange-rgb: 249, 115, 22;
+  --accent-indigo: #1A1A2E;
+  --accent-indigo-rgb: 26, 26, 46;
+  --accent-teal: #1AA8B4;
+  --accent-teal-rgb: 26, 168, 180;
 
   /* Default accent (used by useThemeStyles consumers) */
   --accent: #D97706;
@@ -141,9 +161,12 @@
 .dark {
   /* DARK MODE OVERRIDES */
   --bg-void: #111111;
+  --bg-void-rgb: 17, 17, 17;
   --bg-surface: #1F1F1F;
+  --bg-surface-rgb: 31, 31, 31;
   --bg-card: #181818;
   --text-primary: #F4F4F5;
+  --text-primary-rgb: 244, 244, 245;
   --text-secondary: #A1A1AA;
   --border-color: #262626;
 
@@ -454,5 +477,3 @@ html {
   animation-iteration-count: 1 !important;
   scroll-behavior: auto !important;
 }
-
-/* Bypass Suspense skeleton delays specifically in Recruiter mode if possible, but mainly stripping visual waiting */

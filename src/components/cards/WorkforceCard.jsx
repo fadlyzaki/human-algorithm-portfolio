@@ -12,7 +12,7 @@ const WorkforceCard = ({ expanded, showChrome, backgroundOnly }) => (
   >
     <div className="w-full h-full relative flex items-center justify-center opacity-100">
       {/* Central Node */}
-      <div className="absolute w-20 h-20 rounded-full border border-white/20 flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.1)]">
+      <div className="absolute w-20 h-20 rounded-full border border-white/20 flex items-center justify-center shadow-[0_0_50px_rgba(var(--bg-surface-rgb), 0.1)]">
         <div className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center animate-pulse">
           <Users size={20} className="text-white opacity-100" />
         </div>

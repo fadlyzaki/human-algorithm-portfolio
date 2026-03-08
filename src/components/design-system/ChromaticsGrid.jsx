@@ -1,12 +1,12 @@
 import React from "react";
 
 const ColorCard = ({ name, token, hex }) => (
-  <div className="group border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent)] transition-all duration-300 p-1 hover:shadow-[0_0_30px_-10px_rgba(0,0,0,0.1)] hover:-translate-y-1">
+  <div className="group border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent)] transition-all duration-300 p-1 hover:shadow-[0_0_30px_-10px_rgba(var(--bg-void-rgb), 0.1)] hover:-translate-y-1">
     <div
       className="h-32 w-full bg-[var(--bg-surface)] relative overflow-hidden"
       style={{ backgroundColor: `var(${token})` }}
     >
-      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-[length:250%_250%] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-shine" />
+      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(var(--bg-surface-rgb), 0.2)_50%,transparent_75%)] bg-[length:250%_250%] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-shine" />
       <div className="absolute bottom-2 right-2 font-mono text-[9px] text-white/50 opacity-0 group-hover:opacity-100 transition-opacity">
         {hex}
       </div>
@@ -49,8 +49,8 @@ const ChromaticsGrid = ({ isXRayMode }) => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
       <ColorCard name="VOID" token="--bg-void" hex="var(--bg-surface)" />
       <ColorCard name="SURFACE" token="--bg-surface" hex="var(--bg-surface)" />
-      <ColorCard name="TEXT_PRI" token="--text-primary" hex="#F4F4F5" />
-      <ColorCard name="TEXT_SEC" token="--text-secondary" hex="#A1A1AA" />
+      <ColorCard name="TEXT_PRI" token="--text-primary" hex="var(--text-primary)" />
+      <ColorCard name="TEXT_SEC" token="--text-secondary" hex="var(--text-secondary)" />
     </div>
 
     <div className="space-y-4">
@@ -63,7 +63,7 @@ const ChromaticsGrid = ({ isXRayMode }) => (
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <ColorCard name="SYS_BLUE" token="--accent-blue" hex="#3B82F6" />
+        <ColorCard name="SYS_BLUE" token="--accent-blue" hex="var(--accent-blue)" />
         <ColorCard name="SYS_GREEN" token="--accent-green" hex="var(--accent-green)" />
         <ColorCard name="SYS_AMBER" token="--accent-amber" hex="var(--accent-amber)" />
         <ColorCard name="SYS_RED" token="--accent-red" hex="var(--accent-red)" />

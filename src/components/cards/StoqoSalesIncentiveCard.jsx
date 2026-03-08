@@ -9,7 +9,7 @@ const StoqoSalesIncentiveCard = ({ expanded, showChrome }) => (
     schematicType="BEHAVIORAL_COMMITMENT_LOCK"
   >
     <div className="w-full h-full flex items-center justify-center p-8">
-      <div className="relative w-40 h-40 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(0,0,0,0.05)_inset]">
+      <div className="relative w-40 h-40 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(var(--bg-void-rgb), 0.05)_inset]">
         {/* Outer Ring */}
         <div className="absolute inset-0 rounded-full border border-dashed border-slate-300 dark:border-white/20 animate-[spin_10s_linear_infinite]"></div>
 

@@ -26,7 +26,7 @@ export const stoqo = {
     "Coming from a non-urban city like Padang—where culinary culture is global—made me deeply aware of how supply chains impact daily life. I wanted to help ease the pain points of my fellow people from Padang, ensuring they get fresher ingredients at cheaper prices.",
   motivation_id:
     "Berasal dari kota non-metropolitan seperti Padang—di mana budaya kulinernya mendunia—membuat saya sadar betapa rantai pasok berdampak pada hidup sehari-hari. Saya ingin membantu meringankan beban sesama perantau Minang, memastikan mereka mendapatkan bahan baku lebih segar dengan harga lebih murah.",
-  brandColor: "#FA6130", // Stoqo Orange
+  brandColor: "var(--accent-orange)", // Stoqo Orange
   linkedinUrl: "https://www.linkedin.com/company/stoqo-technologies/about/",
   heroImage: "/work/stoqo-hero.png",
   hook: "Designing for Operational Resilience. Ensuring the people who feed Jakarta have the information bandwidth to sleep until the truck arrives.",

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const NexusAI = ({ color = "#00D1C7" }) => {
+const NexusAI = ({ color = "var(--accent-teal)" }) => {
   const containerRef = useRef(null);
   // Generate nodes purely once on mount
   const initialNodes = useMemo(() => {

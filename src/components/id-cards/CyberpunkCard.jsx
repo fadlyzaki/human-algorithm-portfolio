@@ -5,7 +5,7 @@ import PixelImage from "../PixelImage";
 const CyberpunkCard = ({ t, isDark, currentItem }) => (
     <div className={`w-full h-full border-2 relative group overflow-hidden rounded-xl flex flex-col shadow-2xl ${isDark ? "bg-white border-black/50" : "bg-black border-white/20"}`}>
       {/* Grid Bg */}
-      <div className={`absolute inset-0 bg-[size:20px_20px] pointer-events-none ${isDark ? "bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)]" : "bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)]"}`}></div>
+      <div className={`absolute inset-0 bg-[size:20px_20px] pointer-events-none ${isDark ? "bg-[linear-gradient(rgba(var(--bg-void-rgb), 0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(var(--bg-void-rgb), 0.05)_1px,transparent_1px)]" : "bg-[linear-gradient(rgba(var(--bg-surface-rgb), 0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(var(--bg-surface-rgb), 0.05)_1px,transparent_1px)]"}`}></div>
 
       {/* Header */}
       <div className={`h-20 flex items-center justify-between px-4 border-b backdrop-blur-sm z-10 ${isDark ? "bg-black/5 border-black/10" : "bg-white/5 border-white/10"}`}>

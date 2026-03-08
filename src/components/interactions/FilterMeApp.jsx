@@ -23,7 +23,7 @@ const PRODUCTS = [
     price: 0,
     type: "none",
     color: "transparent",
-    iconColor: "#a1a1aa", // gray-400
+    iconColor: "var(--text-secondary)", // gray-400
   },
   {
     id: "p1",
