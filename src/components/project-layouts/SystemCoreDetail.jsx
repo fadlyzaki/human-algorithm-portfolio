@@ -181,7 +181,7 @@ const SystemCoreDetail = ({
                       {step.desc}
                     </p>
                     {step.image && (
-                      <div className="border border-[var(--border-color)] bg-[var(--bg-void)] p-4">
+                      <div className="border border-[var(--border-color)] bg-[var(--bg-surface)] p-4">
                         {step.image.startsWith("airy:") ? (
                           <div className="w-full h-[250px]">
                             <AiryDiagram type={step.image.split(":")[1]} />

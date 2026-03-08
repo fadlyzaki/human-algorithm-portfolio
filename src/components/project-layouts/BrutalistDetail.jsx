@@ -98,11 +98,11 @@ const BrutalistDetail = ({
                 {activeProcess.map((step, idx) => (
                   <article
                     key={idx}
-                    className={`border - 4 border - [var(--text - primary)]bg - [var(--bg - card)] flex flex - col group ${idx === 0 ? "md:col-span-2" : ""} `}
+                    className={`border-4 border-[var(--text-primary)] bg-[var(--bg-card)] flex flex-col group ${idx === 0 ? "md:col-span-2" : ""} `}
                   >
                     {step.image && (
                       <div
-                        className={`border - b - 4 border - [var(--text - primary)] flex items - center justify - center p - 8 bg - [var(--bg - surface)]overflow - hidden ${idx === 0 ? "h-[280px]" : "h-64"} `}
+                        className={`border-b-4 border-[var(--text-primary)] flex items-center justify-center p-8 bg-[var(--bg-surface)] overflow-hidden ${idx === 0 ? "h-[280px]" : "h-64"} `}
                       >
                         {step.image.startsWith("airy:") ? (
                           <AiryDiagram type={step.image.split(":")[1]} />
