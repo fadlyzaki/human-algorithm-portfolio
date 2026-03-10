@@ -85,7 +85,7 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
     whileHover={{ borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98 }}
   >
     {/* Terminal Text Background */}
-    <div className="absolute inset-0 opacity-5 font-mono text-[8px] leading-none pointer-events-none select-none overflow-hidden p-4">
+    <div className="absolute inset-0 opacity-5 font-mono text-[8px] leading-none pointer-events-none select-none overflow-hidden p-4 text-[var(--text-primary)]">
       {Array.from({ length: 50 }).map((_, i) => (
         <div key={i} className="mb-1 whitespace-nowrap">
           {`INIT_CORE_PORTFOLIO_V2.9 >> AGENT_00${i} >> STATUS_ACTIVE >> RECURSIVE_TRUE >> PATH=/root/human-algorithm/${project.id}/kernel >> `}
@@ -98,13 +98,13 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
 
     {/* Scanning Line */}
     <motion.div
-      className="absolute left-0 right-0 h-px bg-blue-500/20 z-10 pointer-events-none"
+      className="absolute left-0 right-0 h-px bg-[var(--accent-blue)]/20 z-10 pointer-events-none"
       animate={{ top: ["0%", "100%"] }}
       transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
     />
 
-    {/* Top Image Section (Replacing right side layout) */}
-    <div className="h-[40%] relative overflow-hidden bg-black/40 border-b border-white/5 flex-shrink-0">
+    {/* Top Image Section */}
+    <div className="h-[40%] relative overflow-hidden bg-[var(--bg-card)] border-b border-[var(--border-color)] flex-shrink-0">
       <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100 scale-110 group-hover:scale-100">
         <ProjectCard
           id={project.id}
@@ -114,26 +114,26 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
         />
       </div>
       {/* Visual Redactions */}
-      <div className="absolute top-4 left-4 w-16 h-1 bg-blue-500/30 blur-md"></div>
-      <div className="absolute bottom-4 right-4 w-16 h-1 bg-purple-500/30 blur-md"></div>
+      <div className="absolute top-4 left-4 w-16 h-1 bg-[var(--accent-blue)]/30 blur-md"></div>
+      <div className="absolute bottom-4 right-4 w-16 h-1 bg-[var(--accent-purple)]/30 blur-md"></div>
     </div>
 
     {/* Bottom Content Section */}
     <div className="flex-1 p-6 relative z-20 flex flex-col justify-between">
       <div>
         <div className="flex items-center gap-2 mb-3">
-          <div className="p-1.5 border border-blue-500/30 rounded bg-blue-500/10">
-            <Cpu size={14} className="text-blue-400" />
+          <div className="p-1.5 border border-[var(--accent-blue)]/30 rounded bg-[var(--accent-blue)]/10">
+            <Cpu size={14} className="text-[var(--accent-blue)]" />
           </div>
-          <span className="font-mono text-[9px] tracking-widest text-blue-400 uppercase">
+          <span className="font-mono text-[9px] tracking-widest text-[var(--accent-blue)] uppercase">
             System Core // Agentic Workflow
           </span>
         </div>
 
-        <h3 className="text-3xl font-serif italic mb-3 text-white group-hover:text-blue-100 transition-colors">
+        <h3 className="text-3xl font-serif italic mb-3 text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
           {title}
         </h3>
-        <p className="text-gray-400 text-sm font-light mb-4 line-clamp-3">
+        <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-3">
           {desc}
         </p>
       </div>
@@ -142,7 +142,7 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
         {project.stack.slice(0, 3).map((tech) => (
           <span
             key={tech}
-            className="px-2 py-0.5 border border-white/10 rounded-full font-mono text-[8px] text-gray-500 uppercase"
+            className="px-2 py-0.5 border border-[var(--border-color)] rounded-full font-mono text-[8px] text-[var(--text-secondary)] uppercase"
           >
             {tech}
           </span>

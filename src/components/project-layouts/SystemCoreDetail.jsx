@@ -88,7 +88,7 @@ const SystemCoreDetail = ({
         </header>
 
         {/* 2. SPECS TERMINAL */}
-        <section className="border-b border-[var(--border-color)] bg-[var(--bg-void)] relative z-20">
+        <section className="border-b border-[var(--border-color)] bg-[var(--bg-surface)] relative z-20">
           <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-[10px] md:text-xs">
             <div className="flex items-center gap-4">
               {project.links.demo && project.links.demo !== "#" && (

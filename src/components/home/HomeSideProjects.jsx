@@ -86,8 +86,8 @@ const HomeSideProjects = ({ t, isId }) => {
             }}
             className="relative overflow-hidden rounded-3xl h-[450px] lg:h-full w-full will-change-[flex,filter,transform] shadow-sm hover:shadow-2xl hover:z-10"
           >
-            {/* Wrapper prevents content from squishing when container shrinks */}
-            <div className="absolute inset-0 w-full lg:w-[450px] h-full left-0 origin-left">
+            {/* Wrapper allows content to fill the card */}
+            <div className="absolute inset-0 w-full h-full">
               <ScrollReveal delay={i * 100} className="h-full block">
                 <VentureCard
                   project={item}
@@ -134,7 +134,7 @@ const HomeSideProjects = ({ t, isId }) => {
           <ScrollReveal delay={300} className="h-full block">
             <Link
               to="/side-projects"
-              className="absolute inset-0 w-full lg:w-[350px] h-full group flex flex-col justify-center items-center text-center p-8 hover:bg-[var(--text-secondary)]/5 transition-colors cursor-pointer block z-10 mx-auto"
+              className="absolute inset-0 w-full h-full group flex flex-col justify-center items-center text-center p-8 hover:bg-[var(--text-secondary)]/5 transition-colors cursor-pointer block z-10"
             >
               <Archive
                 size={48}

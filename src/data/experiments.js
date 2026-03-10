@@ -17,7 +17,7 @@ export const EXPERIMENTS = [
     links: { demo: "#", repo: "#" },
     iconName: "Brain",
     type: "Case Study",
-    date: "March 2026",
+    date: "February 2026",
     brandColor: "var(--accent-purple)", // Pivot Purple
     coverImage: "airy:hierarchy",
     snapshot: {
@@ -26,8 +26,8 @@ export const EXPERIMENTS = [
     },
     context: {
       role: "Product Owner",
-      timeline: "Mar 2026",
-      team: "Social Media Giant",
+      timeline: "Feb 2026",
+      team: "Solo",
       client: "Internal Research",
     },
     challenge:
@@ -181,7 +181,7 @@ export const EXPERIMENTS = [
     iconName: "Shield",
     featured: true,
     type: "Fintech Lock",
-    date: "February 2026",
+    date: "September 2025",
     coverImage: "airy:chart",
     brandColor: "var(--accent-green)", // Fintech Green
     snapshot: {
@@ -190,8 +190,8 @@ export const EXPERIMENTS = [
     },
     context: {
       role: "Product Owner",
-      timeline: "Feb 2026",
-      team: "Growth Team",
+      timeline: "Sep 2025",
+      team: "Solo",
       client: "Internal Product",
     },
     challenge:
@@ -306,7 +306,7 @@ export const EXPERIMENTS = [
     iconName: "Gift",
     featured: true,
     type: "Logistics Kinship",
-    date: "February 2026",
+    date: "March 2025",
     coverImage: "airy:venn",
     brandColor: "var(--accent-pink)", // Kinship Pink
     snapshot: {
@@ -315,8 +315,8 @@ export const EXPERIMENTS = [
     },
     context: {
       role: "Product Owner",
-      timeline: "Feb 2026",
-      team: "Logistics Team",
+      timeline: "Mar 2025",
+      team: "Solo",
       client: "Grab (Internal Product)",
     },
     challenge:
@@ -446,7 +446,7 @@ export const EXPERIMENTS = [
     },
     context: {
       role: "Product Owner",
-      timeline: "2024",
+      timeline: "Oct 2024",
       team: "Solo",
       client: "Jakarta Smart City (Unofficial)",
     },
@@ -555,6 +555,7 @@ export const EXPERIMENTS = [
     links: { demo: "#", repo: "#" },
     iconName: "AlertTriangle",
     type: "IoT Prototype",
+    date: "October 2024",
     coverImage: "airy:map",
     hidden: false,
     featured: false,
@@ -578,7 +579,7 @@ export const EXPERIMENTS = [
     iconName: "Zap",
     featured: true,
     type: "Conceptual Redesign",
-    date: "October 2023",
+    date: "April 2024",
     coverImage: "airy:funnel",
     brandColor: "var(--accent-red)",
     snapshot: {
@@ -587,8 +588,8 @@ export const EXPERIMENTS = [
     },
     context: {
       role: "Product Design (Outsider)",
-      timeline: "Oct 2023",
-      team: "Solo / Concept",
+      timeline: "Apr 2024",
+      team: "Solo",
       client: "Netflix (Conceptual)",
     },
     challenge:

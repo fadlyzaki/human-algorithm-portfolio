@@ -197,7 +197,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
         </section>
 
         {/* 2. CONTEXT STRIP */}
-        <section className="bg-[var(--bg-card)] border-y border-[var(--border-color)] py-12 relative overflow-hidden">
+        <section className="bg-[var(--bg-surface)] border-y border-[var(--border-color)] py-12 relative overflow-hidden">
           {/* Watermark */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 text-6xl sm:text-8xl md:text-[10rem] font-black text-black/5 pointer-events-none select-none whitespace-nowrap z-0">
             TOP SECRET

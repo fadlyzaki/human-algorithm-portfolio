@@ -76,14 +76,13 @@ const Navbar = ({
       <div
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 transform ${showNav ? "translate-y-0" : "-translate-y-full"}`}
       >
-        <div className="bg-[var(--bg-surface)]/80 backdrop-blur-md border-b border-[var(--border-color)] px-6 py-3 flex justify-between items-center shadow-sm">
+        <div className="bg-[var(--bg-surface)]/80 backdrop-blur-md border-b border-[var(--border-color)] px-6 py-3 flex justify-between items-center">
           {/* LEFT: IDENTITY or BACK BUTTON */}
           <div className="flex items-center gap-2 sm:gap-6 z-10 relative">
             {title ? (
               <BackButton
                 to={backPath}
                 label="Back"
-                className="hover:bg-[var(--text-secondary)]/10 px-2 sm:px-3 py-1.5 rounded-md !text-[var(--text-secondary)] hover:!text-[var(--text-primary)] transition-colors sm:border-r border-[var(--border-color)] pr-2 sm:pr-6"
               />
             ) : (
               <div className="flex items-center gap-6">

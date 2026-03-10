@@ -20,6 +20,8 @@ import BackButton from "../components/BackButton";
 import ProjectCard from "../components/ProjectCard";
 import VentureCard from "../components/VentureCard";
 import NexusAI from "../components/interactions/NexusAI";
+import PageShell from "../components/PageShell";
+const ChaosCanvas = React.lazy(() => import("../components/ChaosCanvas"));
 
 // Configuration
 const CONFIG = {
@@ -33,8 +35,6 @@ const SideProjectsIndex = () => {
   const { isDark } = useTheme();
   const { isIndonesian, t } = useLanguage();
   const navigate = useNavigate();
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Interaction Refs
   const canvasRef = useRef(null);
@@ -174,25 +174,14 @@ const SideProjectsIndex = () => {
         description="Full log of side projects, prototypes, and daemons."
       />
 
-      {/* Neural Network Overlay */}
-      <canvas
-        ref={canvasRef}
-        className="fixed inset-0 pointer-events-none z-50 mix-blend-difference" // z-50 but pointer-events-none allows clicks through
-      />
+      {/* Background Atmosphere */}
+      <React.Suspense fallback={null}>
+        <ChaosCanvas />
+      </React.Suspense>
 
-      {/* --- NAVIGATION SYSTEM --- */}
-      <Navbar
-        onOpenMenu={() => setIsMenuOpen(true)}
-        title="Project Archives"
-        backPath="/"
-      />
+      <PageShell navbarProps={{ title: "Project Archives", backPath: "/" }}>
 
-      <NavigationMenu
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-      />
-
-      <main className="max-w-6xl mx-auto px-6 pt-32 pb-24" ref={containerRef}>
+      <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-12 md:pt-24 pb-0 border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl" ref={containerRef}>
         <header className="mb-32 relative min-h-[50vh] flex flex-col justify-center text-center md:text-left">
           {/* Background Visual */}
           <div className="absolute inset-0 z-0 opacity-40 grayscale blur-[1px]">
@@ -222,10 +211,10 @@ const SideProjectsIndex = () => {
 
         {SIDE_PROJECTS.length > 0 && (
           <div className="mb-32">
-            <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
-              <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
+            <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-12 flex items-center gap-4">
+              <span className="w-8 h-[1px] bg-[var(--border-color)]"></span>
               Launched Ventures
-              <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
+              <span className="flex-1 h-[1px] bg-[var(--border-color)]"></span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000 auto-rows-auto">
               {SIDE_PROJECTS.filter((p) => !p.hidden).map((project, idx) => (
@@ -244,15 +233,15 @@ const SideProjectsIndex = () => {
         {/* EXPERIMENTS Section */}
         {EXPERIMENTS.length > 0 && (
           <div className="mb-12">
-            <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--accent-line)] mb-12 flex items-center gap-4">
-              <span className="w-8 h-[1px] bg-[var(--accent-line)]"></span>
+            <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-12 flex items-center gap-4">
+              <span className="w-8 h-[1px] bg-[var(--border-color)]"></span>
               <span>
                 Experiments & Explorations
                 <span className="block text-[10px] text-[var(--text-secondary)] normal-case mt-1 max-w-md">
                   Thinking, building, and attempts to solve problems.
                 </span>
               </span>
-              <span className="flex-1 h-[1px] bg-[var(--accent-line)]"></span>
+              <span className="flex-1 h-[1px] bg-[var(--border-color)]"></span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
               {EXPERIMENTS.map((project, idx) => (
@@ -301,6 +290,7 @@ const SideProjectsIndex = () => {
           </div>
         )}
       </main>
+      </PageShell>
       <Footer />
     </div>
   );
