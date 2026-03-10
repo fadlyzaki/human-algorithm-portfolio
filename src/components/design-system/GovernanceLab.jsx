@@ -210,9 +210,9 @@ const GovernanceLab = ({ isXRayMode }) => (
         <span className="text-[var(--text-primary)]">
           Q1: Modules (Complete)
         </span>
-        <span>Q2: A11y Automation</span>
-        <span>Q3: Token Migration</span>
-        <span>Q4: Mobile Motion</span>
+        <span className="text-[var(--accent-green)]">Q2: Token Migration (Complete)</span>
+        <span className="text-[var(--accent-green)]">Q3: Vitest Integration (Complete)</span>
+        <span>Q4: Mobile System Parity</span>
       </div>
     </div>
   </div>

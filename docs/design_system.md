@@ -6,7 +6,7 @@ A comprehensive design system for Fadly Zaki's portfolio, embodying a cyberpunk 
 
 ## 🎨 Color Palette
 
-### Core Colors (from `useThemeStyles.js`)
+### Core Colors (from `src/index.css` variables)
 
 | Token | Dark Mode | Light Mode | Usage |
 |-------|-----------|------------|-------|
@@ -295,12 +295,12 @@ STATUS: ACTIVE
 ## 🎯 Design Principles
 
 1. **Privacy First** - All processing local (hand tracking)
-2. **Graceful Degradation** - Fallbacks for all features
+2. **Graceful Degradation** - Fallbacks for all features and structural unit tests
 3. **Accessible Defaults** - ESC shortcuts, keyboard navigation
-4. **Performance** - Lazy loading, lite models
+4. **Performance** - Lazy loading, lite models, vitest coverage >0%
 5. **Human-Centered** - Built for users "at their limit"
 
 ---
 
-*Last updated: March 4, 2026*
-*Version: 3.1 (Token Audit Cycle)*
+*Last updated: March 10, 2026*
+*Version: 3.2 (Vitest Integration & Token Audit)*

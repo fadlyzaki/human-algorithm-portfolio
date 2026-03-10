@@ -11,12 +11,12 @@ export const STORAGE_KEYS = {
 };
 
 export const SYSTEM_CONFIG = {
-  VERSION: "v3.0.1",
-  CODENAME: "Kernel Update",
+  VERSION: "v3.2.0",
+  CODENAME: "Vitest Integration & Token Audit",
   STATUS: "NOMINAL",
-  UPTIME: "99.98%",
-  MEM_USAGE: "240MB",
-  THREADS: 12,
-  COVERAGE: "98%",
+  UPTIME: "99.99%",
+  MEM_USAGE: "180MB",
+  THREADS: 16,
+  COVERAGE: ">0% (Vitest Baseline)",
   MAINTAINER: "Fadly Zaki",
 };

@@ -40,7 +40,7 @@ const UXPrinciples = ({ isXRayMode }) => (
         num="02"
         title="Graceful Degradation"
         icon={Activity}
-        desc="Core workflows must survive sub-optimal conditions. If WebGL fails, fallback to SVG. If JS fails, SSR must deliver root content."
+        desc="Core workflows must survive sub-optimal conditions. If WebGL fails, fallback to SVG. Structural integrity is enforced via Vitest coverage."
       />
       <PrincipleCard
         num="03"

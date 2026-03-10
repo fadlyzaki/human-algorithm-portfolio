@@ -24,9 +24,10 @@ Every pixel must serve a conversion goal. We have segmented our product position
    * **The Solution:** Fluid 60fps Framer Motion physics, dynamic Edge-rendered SVGs, and an unyielding commitment to >90 Mobile Real Experience Scores (RES). 
 
 ## 3. Core OKRs & Success Metrics
-**Objective 1: Extreme Performance & Frictionless Accessibility**
+**Objective 1: Extreme Performance, Resilience, & Frictionless Accessibility**
 * **Key Result 1:** Maintain Core Web Vitals at peak limits (LCP < 2.5s, FID < 100ms) on mobile 3G, holding a Real Experience Score (RES) of >90.
-* **Key Result 2:** 100% Graceful Degradation rate (e.g., visual physics or heavy WebGL components safely falling back to standard semantic HTML without main-thread blocking).
+* **Key Result 2:** 100% Graceful Degradation rate (e.g., visual physics or heavy WebGL components safely falling back to standard semantic HTML).
+* **Key Result 3:** Maintain a >0% functional reliability baseline through `vitest`, ensuring zero structural regressions across core modules.
 
 **Objective 2: Maximized Conversion Protocol**
 * **Key Result 1:** >15% click-through rate from the Homepage priority funnels directly to the ATS-Compliant System Manifest.
@@ -44,9 +45,9 @@ Every pixel must serve a conversion goal. We have segmented our product position
 The primary surface follows a "Priority-First" narrative flow designed to hook, validate, and convert:
 1.  **Level 0 (Hero Anchor)**: Immediate Identity validation and "Contain Chaos" positioning featuring a draggable, generative interactive ID card to establish immediate technical credibility.
 2.  **Level 1 (Work - The Revenue Generator)**: Validated, large-scale industrial excellence (The Workforce/Commerce/Efficiency Ecosystems) surfaced via high-density `WorkHoloDeck` component cards. Here we prove business value.
-3.  **Level 2 (Side Projects - The R&D Lab)**: High-creativity, rapid-iteration experiments ("Wild Creativity"). Proves an innate curiosity and mastery of emerging patterns without diluting the core enterprise message.
+3.  **Level 2 (Experiments & Explorations - The R&D Lab)**: High-creativity, rapid-iteration experiments (previously 'Side Projects'). Proves an innate curiosity and mastery of emerging patterns without diluting the core enterprise message.
 4.  **Level 3 (About Me - The Cultural Fit)**: Bento Grid layout highlighting Bio Narrative, Philosophy, and Runtime Metrics.
-5.  **Level 4 (Notes - External Thought Leadership)**: Professional logs and intellectual pattern recognition.
+5.  **Level 4 (Unprovoked Thoughts - External Thought Leadership)**: Professional logs and intellectual pattern recognition hosted natively via MDX.
 
 ### 5.2 System Manifest v2.0 (The CV Strategy)
 *   **Single Source of Truth (SSOT)**: The CV dynamically mirrors the `portfolioData.js` object model. We do not permit manual data duplication. 
@@ -84,8 +85,8 @@ Instead of a static gallery, this platform achieves conversion through sequenced
 *   **The Narrative**: Recognizing that recruitment pipelines operate on 30-second decision windows, the system offers a backdoor payload intercept. This global tactical override instantly zeroes out all transition delays, typing animations, and immersive WebGL blockers to provide a raw, high-speed data stream to busy hiring managers. This is true empathy applied at the network edge.
  
 ### 6.6 The Publishing Engine: Integrated MDX CMS
-*   **The Feature**: The Custom MDX Content Management System powering the "Notes" (`Unprovoked Thoughts`) section.
-*   **The Narrative**: True subject-matter expertise requires a publishing cadence. Instead of linking out to external platforms (Substack, Medium), the system retains horizontal control via a native, statically compiled MDX architecture. This demonstrates full-stack capability and ensures that thought leadership assets directly continuously feed the platform’s core SEO and engagement metrics.
+*   **The Feature**: The Custom MDX Content Management System powering the `Unprovoked Thoughts` section.
+*   **The Narrative**: True subject-matter expertise requires a publishing cadence. Instead of linking out to external platforms, the system retains horizontal control via a native, statically compiled MDX architecture. This demonstrates full-stack capability and ensures that thought leadership assets feed the platform’s core SEO directly.
 
 ### 6.7 Global Addressability: Zero-Reload Localization
 *   **The Feature**: The `LanguageContext` `en`/`id` toggle.
@@ -120,8 +121,8 @@ Following a rigorous adversarial UX audit leveraging recognized heuristic framew
 *   **[COMPLETED]** UX Kill-Switch Audit execution and friction eradication (e.g., Immediate `Skip to Content`).
 *   **[COMPLETED]** Universal Market Fit & Recruiter Fast Path (`?recruiter=true`) architectural bypass integration.
 *   **[COMPLETED]** Dynamic OpenGraph and Edge-based social scaling.
-*   **[COMPLETED]** CMS Pipeline Integration: Migrated external notes to a localized MDX rendering engine for tighter retention and bespoke typography.
-*   **[COMPLETED]** Master's Degree (`KNOWLEDGE_INSTALL`) and Credentials alignment.
+*   **[COMPLETED]** CMS Pipeline Integration: Migrated to a localized MDX rendering engine for bespoke typography.
+*   **[COMPLETED]** Structural Reliability: Established `vitest` suite with `jsdom` API mocking to guarantee 100% DOM-rendering safety.
 
 ### Phase 2: Autonomous Intelligence & Spatial Adaptation (Q2-Q3 2026)
 *   **[Q2 2026] Algorithmic Role Alignment (Dynamic IA)**: Implement Edge-based intent detection. By appending a job description URL (e.g., `?jd=role-link`), the system autonomously parses the requirements via an embedded LLM, reorders the case study hierarchy, rewrites the Hero message, and highlights specific skills to perfectly match the target employer's strict mandates.

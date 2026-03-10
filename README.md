@@ -16,7 +16,7 @@ This repository is deliberately over-engineered. It is not a static portfolio; i
 
 A robust system is measured by its fault tolerance, its Developer Experience (DevX), and its render budget. We utilize a modern, highly optimized edge-native stack tailored for O(1) velocity and 60fps tactile interfaces.
 
-* **The Engine**: **React 18 + Vite** (Migrated from legacy CRA to achieve blazing fast HMR, isolated module reloading, and aggressive Rollup tree-shaking for optimized parse times).
+* **The Engine**: **React 18 + Vite** (Migrated from legacy CRA to achieve blazing fast HMR, isolated module reloading, and aggressive Rollup tree-shaking for optimized parse times). Includes a **Vitest/jsdom** CI testing baseline.
 * **The Physics**: **Framer Motion**. We strictly enforce GPU-accelerated CSS transforms (`translate3d`, `scale`) and structural `layoutId` animations to completely bypass main-thread layout thrashing and composite paint blocking.
 * **The Syntax**: **Tailwind CSS**. A utility-first styling architecture that enables rapid molecular component design. It guarantees absolute design system adherence via an unyielding token schema (`var(--text-primary)`, `var(--bg-void)`) while ensuring zero runtime CSS extraction overhead.
 * **The Edge**: **Vercel Edge Network**. Utilizing Edge Middleware for instantaneous bot-detection and dynamic OpenGraph image generation via `@vercel/og` to ensure lossless social previews.
@@ -36,7 +36,7 @@ We optimize for **Device Computational Load** just as rigorously as we optimize 
 A polymorphic generative "ID Card" engine yielding 7 distinct design architectures (Industrial, Cyberpunk, Glassmorphism, Swiss, Retro, Neo-Brutalism, Holographic). All variants strictly adhere to a standardized, decoupled payload interface (`ID_NO`, `ROLE`, `EXP`) bound to our bilingual context API.
 
 ### 2. The Fluid Mechanics (`HomeSideProjects.jsx`)
-A master class in Flexbox and Spring Physics. We abandoned rigid grid constraints to implement a dynamic `flex-row` accumulator. Active hover states commandeer the available viewport bandwidth (`flex-basis: 50%`) while siblings mathematically compress (`flex-basis: 15%`), natively dimming via hardware-accelerated CSS filters (`grayscale`, `brightness`, `blur`).
+A master class in Flexbox and Spring Physics powering the "Experiments & Explorations" tier. We abandoned rigid grid constraints to implement a dynamic `flex-row` accumulator. Active hover states commandeer the available viewport bandwidth (`flex-basis: 50%`) while siblings mathematically compress (`flex-basis: 15%`), natively dimming via hardware-accelerated CSS filters (`grayscale`, `brightness`, `blur`).
 
 ### 3. SVG Schematic Engine (`AiryDiagram.jsx`)
 Shipping megabytes of raster PNGs to communicate architecture is an anti-pattern. We engineered a proprietary charting engine that compiles technical diagrams (Flow, Radar, Hierarchy) directly into <5KB raw SVG payloads, dynamically adapting `currentColor` to our exact Dark/Light theme matrices with infinite scalability.
@@ -89,7 +89,10 @@ npm install
 # 2. Boot the Edge Emulation Server
 npm run dev
 
-# 3. Compile Production Asset Bundle
+# 3. Verify System Structural Integrity
+npm run test
+
+# 4. Compile Production Asset Bundle
 npm run build
 ```
 
