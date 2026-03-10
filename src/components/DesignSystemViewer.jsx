@@ -91,7 +91,7 @@ const DesignSystemViewer = () => {
 
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row">
         {/* Sticky Sidebar */}
-        <aside className="w-full md:w-64 border-r border-[var(--border-color)] backdrop-blur-md z-40 md:sticky md:top-[72px] md:h-[calc(100vh-72px)] overflow-y-auto">
+        <aside className="w-full md:w-64 border-b md:border-b-0 md:border-r border-[var(--border-color)] backdrop-blur-md z-40 md:sticky md:top-[72px] md:h-[calc(100vh-72px)] overflow-y-auto">
           <div className="p-8 space-y-8">
             <div>
               <h2 className="text-xl font-bold tracking-tighter text-[var(--text-primary)] mb-1">

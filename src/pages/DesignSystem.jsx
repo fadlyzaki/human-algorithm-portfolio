@@ -3,6 +3,7 @@ import DesignSystemViewer from "../components/DesignSystemViewer";
 import SEO from "../components/SEO";
 import { useTheme } from "../context/ThemeContext";
 import PageShell from "../components/PageShell";
+import Footer from "../components/Footer";
 const ChaosCanvas = lazy(() => import("../components/ChaosCanvas"));
 
 const DesignSystem = () => {
@@ -30,10 +31,11 @@ const DesignSystem = () => {
       </Suspense>
 
       <PageShell navbarProps={{ backPath: "/side-project/human-algorithm", title: "design_kernel.sys" }}>
-        <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-12 md:pt-24 pb-0 border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
-          <div className="pt-16">
-            <DesignSystemViewer />
-          </div>
+        <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-12 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
+          <DesignSystemViewer />
+          <section className="mb-0">
+            <Footer />
+          </section>
         </main>
       </PageShell>
     </div>

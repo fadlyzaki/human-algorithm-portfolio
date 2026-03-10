@@ -124,7 +124,7 @@ const AboutPage = () => {
         <ScrollProgressBar />
 
         {/* --- CONTENT --- */}
-        <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-20 border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-2xl overflow-x-hidden transition-colors duration-500">
+        <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-12 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-2xl overflow-x-hidden transition-colors duration-500">
           {/* Padding for fixed header */}
           <div className="h-24 md:h-32"></div>
 
@@ -266,7 +266,7 @@ const AboutPage = () => {
           </section>
 
           {/* FOOTER */}
-          <section>
+          <section className="mb-0">
             <Footer />
           </section>
         </main>
