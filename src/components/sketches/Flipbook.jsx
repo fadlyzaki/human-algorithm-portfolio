@@ -93,10 +93,10 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
           >
             <div className="w-[80%] h-[90%] border-2 border-dashed border-white/10 p-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/leather.png')] opacity-30 mix-blend-overlay"></div>
-              <h1 className="text-4xl font-serif text-[var(--bg-surface)] mb-4 tracking-widest uppercase opacity-90">
+              <h1 className="text-4xl font-serif text-[var(--text-primary)] mb-4 tracking-widest uppercase opacity-90">
                 Sketches
               </h1>
-              <p className="text-[var(--bg-surface)]/40 font-mono tracking-[0.3em] text-[10px] uppercase">
+              <p className="text-[var(--text-secondary)] font-mono tracking-[0.3em] text-[10px] uppercase">
                 FADLY ZAKI ARCHIVE
               </p>
             </div>
@@ -133,8 +133,8 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
           >
             <div className="w-[80%] h-[90%] flex flex-col items-center justify-center text-center relative">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/leather.png')] opacity-30 mix-blend-overlay"></div>
-              <div className="w-16 h-16 rounded-full border border-[var(--bg-surface)]/10 flex items-center justify-center">
-                <span className="text-[var(--bg-surface)]/20 font-serif italic text-xl">
+              <div className="w-16 h-16 rounded-full border border-[var(--border-color)] flex items-center justify-center">
+                <span className="text-[var(--text-secondary)] font-serif italic text-xl">
                   FZ
                 </span>
               </div>

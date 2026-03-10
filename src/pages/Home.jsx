@@ -125,7 +125,7 @@ const Home = () => {
 
           {/* Main Container */}
           <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-12 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
-            <div className="fade-in pt-12 text-left">
+            <div className="fade-in text-left">
               {/* HERO & TICKER */}
               <HomeHero
                 t={t}
