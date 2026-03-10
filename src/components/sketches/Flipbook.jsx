@@ -14,6 +14,11 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
   const [direction, setDirection] = useState(1); // 1 for forward, -1 for backward
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  // Reset to cover when the content category changes (Pencil <-> Digital)
+  useEffect(() => {
+    setSpreadIndex(0);
+  }, [pages]);
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -89,14 +94,14 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
       } else {
         return (
           <div
-            className={`w-full h-full flex flex-col items-center justify-center p-8 shadow-inner bg-[var(--bg-void)] border-[var(--bg-void)]`}
+            className={`w-full h-full flex flex-col items-center justify-center p-8 shadow-inner bg-[#2c2826] border-[#1d1b19]`}
           >
             <div className="w-[80%] h-[90%] border-2 border-dashed border-white/10 p-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/leather.png')] opacity-30 mix-blend-overlay"></div>
-              <h1 className="text-4xl font-serif text-[var(--text-primary)] mb-4 tracking-widest uppercase opacity-90">
+              <h1 className="text-4xl font-serif text-[#e4d9c7] mb-4 tracking-widest uppercase opacity-90">
                 Sketches
               </h1>
-              <p className="text-[var(--text-secondary)] font-mono tracking-[0.3em] text-[10px] uppercase">
+              <p className="text-[#e4d9c7]/40 font-mono tracking-[0.3em] text-[10px] uppercase">
                 FADLY ZAKI ARCHIVE
               </p>
             </div>
@@ -129,12 +134,12 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
       } else {
         return (
           <div
-            className={`w-full h-full flex items-center justify-center p-8 shadow-inner bg-[var(--bg-void)] border-[var(--bg-void)]`}
+            className={`w-full h-full flex items-center justify-center p-8 shadow-inner bg-[#2c2826] border-[#1d1b19]`}
           >
             <div className="w-[80%] h-[90%] flex flex-col items-center justify-center text-center relative">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/leather.png')] opacity-30 mix-blend-overlay"></div>
-              <div className="w-16 h-16 rounded-full border border-[var(--border-color)] flex items-center justify-center">
-                <span className="text-[var(--text-secondary)] font-serif italic text-xl">
+              <div className="w-16 h-16 rounded-full border border-[#e4d9c7]/10 flex items-center justify-center">
+                <span className="text-[#e4d9c7]/20 font-serif italic text-xl">
                   FZ
                 </span>
               </div>
