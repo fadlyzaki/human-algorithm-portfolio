@@ -3,7 +3,6 @@ import React, {
   useEffect,
   useMemo,
   useCallback,
-  useRef,
 } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ChaosBackground from "./ChaosBackground";
