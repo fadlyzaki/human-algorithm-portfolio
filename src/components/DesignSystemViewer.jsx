@@ -79,7 +79,7 @@ const DesignSystemViewer = () => {
   const HeaderIcon = activeHeader?.icon;
 
   return (
-    <section className="w-full bg-[var(--bg-void)] relative overflow-hidden">
+    <section className="w-full relative overflow-hidden">
       {/* Background Grid */}
       <div
         className="absolute inset-0 z-0 pointer-events-none opacity-[0.05]"
@@ -89,9 +89,9 @@ const DesignSystemViewer = () => {
         }}
       ></div>
 
-      <div className="max-w-7xl mx-auto border-x border-[var(--border-color)] bg-[var(--bg-void)]/50 backdrop-blur-sm relative z-10 flex flex-col md:flex-row">
+      <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row">
         {/* Sticky Sidebar */}
-        <aside className="w-full md:w-64 border-r border-[var(--border-color)] bg-[var(--bg-void)]/80 backdrop-blur-md z-40 md:sticky md:top-[72px] md:h-[calc(100vh-72px)] overflow-y-auto">
+        <aside className="w-full md:w-64 border-r border-[var(--border-color)] backdrop-blur-md z-40 md:sticky md:top-[72px] md:h-[calc(100vh-72px)] overflow-y-auto">
           <div className="p-8 space-y-8">
             <div>
               <h2 className="text-xl font-bold tracking-tighter text-[var(--text-primary)] mb-1">
@@ -119,7 +119,7 @@ const DesignSystemViewer = () => {
             <div className="pt-8 pb-4 border-t border-[var(--border-color)]">
               <button
                 onClick={() => setIsXRayMode(!isXRayMode)}
-                className={`w-full flex items-center justify-center gap-2 px-4 py-4 md:py-3 font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "bg-[var(--bg-void)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
+                className={`w-full flex items-center justify-center gap-2 px-4 py-4 md:py-3 font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
               >
                 <Eye size={12} className={isXRayMode ? "animate-pulse" : ""} />
                 {isXRayMode ? "X-Ray Active" : "Enable X-Ray"}

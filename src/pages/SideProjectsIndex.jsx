@@ -289,9 +289,9 @@ const SideProjectsIndex = () => {
             </div>
           </div>
         )}
+        <Footer />
       </main>
       </PageShell>
-      <Footer />
     </div>
   );
 };
