@@ -9,7 +9,7 @@ const HomeBlogSection = () => {
       id="writing"
       className="py-24 md:py-32 border-b border-[var(--border-color)]"
     >
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-[1072px] mx-auto px-6">
         {/* SECTION HEADER */}
         <ScrollReveal>
           <div className="flex items-end justify-between mb-16">

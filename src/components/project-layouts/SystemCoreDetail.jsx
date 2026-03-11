@@ -70,7 +70,7 @@ const SystemCoreDetail = ({
             ))}
           </div>
 
-          <div className="max-w-5xl mx-auto relative z-30 space-y-8 backdrop-blur-sm p-8 border border-[var(--border-color)] bg-[var(--bg-surface)] opacity-95">
+          <div className="max-w-[1072px] mx-auto relative z-30 space-y-8 backdrop-blur-sm p-8 border border-[var(--border-color)] bg-[var(--bg-surface)] opacity-95">
             <div className="inline-flex items-center gap-3 px-4 py-2 border border-blue-500/30 bg-[var(--bg-void)]">
               <Cpu size={14} className="text-blue-400 animate-pulse" />
               <span className="font-mono text-[10px] uppercase tracking-widest text-blue-400 text-shadow-glow">

@@ -141,7 +141,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif italic mb-6 md:mb-8 leading-[1.1] md:leading-[0.9] tracking-tight max-w-5xl mx-auto px-4 md:px-0">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif italic mb-6 md:mb-8 leading-[1.1] md:leading-[0.9] tracking-tight max-w-[1072px] mx-auto px-4 md:px-0">
               {isId ? project.title_id || project.title : project.title}
             </h1>
 
