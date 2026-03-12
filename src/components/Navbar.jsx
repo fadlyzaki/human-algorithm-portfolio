@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
+import { useRecruiterMode } from "../context/RecruiterModeContext";
 import LiveClock from "./LiveClock";
 
 import BackButton from "./BackButton";
@@ -66,6 +67,7 @@ const Navbar = ({
 }) => {
   const { isDark, setIsDark } = useTheme();
   const { t, language, toggleLanguage } = useLanguage();
+  const { isRecruiterMode, toggleRecruiterMode } = useRecruiterMode();
 
   const hookShowNav = useScrollDirection(false);
   const showNav = showNavOverride !== undefined ? showNavOverride : hookShowNav;
@@ -155,6 +157,21 @@ const Navbar = ({
               )}
 
               <button
+                onClick={toggleRecruiterMode}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded transition-all duration-300 border ${
+                  isRecruiterMode 
+                    ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30" 
+                    : "bg-[var(--bg-void)] text-[var(--text-secondary)] border-[var(--border-color)] hover:text-[var(--accent-blue)]"
+                }`}
+                title="Toggle Recruiter Mode"
+              >
+                <ScanEye size={14} className={isRecruiterMode ? "animate-pulse" : ""} />
+                <span className="font-mono text-[10px] uppercase tracking-wider hidden min-[400px]:inline-block">
+                  {isRecruiterMode ? "Recruiter" : "Terminal"}
+                </span>
+              </button>
+
+              <button
                 onClick={() => setIsDark(!isDark)}
                 className="p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-amber)] hover:bg-[var(--text-secondary)]/10 transition-colors"
                 aria-label="Toggle Theme"
@@ -205,6 +222,19 @@ const Navbar = ({
           >
             Contact
           </Link>
+          
+          {/* Toggle Recruiter Mode (Mobile) */}
+          <div className="w-px h-5 bg-[var(--border-color)]"></div>
+
+          <button
+            onClick={toggleRecruiterMode}
+            className={`transition-colors p-1 ${
+              isRecruiterMode ? "text-emerald-500" : "text-[var(--text-secondary)] hover:text-[var(--accent-blue)]"
+            }`}
+            aria-label="Toggle Recruiter Mode"
+          >
+            <ScanEye size={18} />
+          </button>
         </div>
       </div>
     </>

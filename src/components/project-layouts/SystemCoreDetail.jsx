@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import AiryDiagram from "../AiryDiagram";
 import ZoomableImage from "../ZoomableImage";
+import { useRecruiterMode } from "../../context/RecruiterModeContext";
 
 const SystemCoreDetail = ({
   project,
@@ -37,16 +38,20 @@ const SystemCoreDetail = ({
     });
   }, []);
 
+  const { isRecruiterMode } = useRecruiterMode();
+
   return (
     <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-sans min-h-screen selection:bg-blue-500/30">
-      {/* Terminal Grid Background */}
-      <div
-        className="fixed inset-0 z-0 pointer-events-none opacity-10"
-        style={{
-          backgroundImage: `linear-gradient(var(--border-color) 1px, transparent 1px), linear-gradient(90deg, var(--border-color) 1px, transparent 1px)`,
-          backgroundSize: "40px 40px",
-        }}
-      ></div>
+      {/* Terminal Grid Background - Removed when not in Hero, or dynamically suppressed in recruiter mode */}
+      {!isRecruiterMode && (
+        <div
+          className="fixed inset-0 z-0 pointer-events-none opacity-10"
+          style={{
+            backgroundImage: `linear-gradient(var(--border-color) 1px, transparent 1px), linear-gradient(90deg, var(--border-color) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        ></div>
+      )}
 
       {/* Ambient Shadow */}
       <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
@@ -55,14 +60,16 @@ const SystemCoreDetail = ({
         {/* 1. HERO BANNER */}
         <header className="relative border-b border-[var(--border-color)] overflow-hidden min-h-[70vh] flex flex-col justify-center px-6 text-center">
           {/* Scanning Line */}
-          <motion.div
-            className="absolute left-0 right-0 h-px bg-blue-500/50 z-20 pointer-events-none"
-            animate={{ top: ["0%", "100%"] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          />
+          {!isRecruiterMode && (
+            <motion.div
+              className="absolute left-0 right-0 h-px bg-blue-500/50 z-20 pointer-events-none"
+              animate={{ top: ["0%", "100%"] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+            />
+          )}
 
           {/* Terminal Background Flow */}
-          <div className="absolute inset-0 opacity-5 font-mono text-[10px] sm:text-[12px] leading-none pointer-events-none select-none overflow-hidden p-4 text-justify custom-scrollbar">
+          <div className={`absolute inset-0 font-mono text-[10px] sm:text-[12px] leading-none pointer-events-none select-none overflow-hidden p-4 text-justify custom-scrollbar ${isRecruiterMode ? "opacity-0" : "opacity-5"}`}>
             {randomTokens.map((token, i) => (
               <span key={i} className="mr-2 text-blue-400">
                 {`INIT_SYS >> PORTFOLIO_V2.9 >> AGENT_${i} >> DATA_STREAM=${token} `}
@@ -71,8 +78,8 @@ const SystemCoreDetail = ({
           </div>
 
           <div className="max-w-[1072px] mx-auto relative z-30 space-y-8 backdrop-blur-sm p-8 border border-[var(--border-color)] bg-[var(--bg-surface)] opacity-95">
-            <div className="inline-flex items-center gap-3 px-4 py-2 border border-blue-500/30 bg-[var(--bg-void)]">
-              <Cpu size={14} className="text-blue-400 animate-pulse" />
+            <div className={`inline-flex items-center gap-3 px-4 py-2 border bg-[var(--bg-void)] ${isRecruiterMode ? "border-[var(--border-color)]" : "border-blue-500/30"}`}>
+              <Cpu size={14} className={`text-blue-400 ${!isRecruiterMode && "animate-pulse"}`} />
               <span className="font-mono text-[10px] uppercase tracking-widest text-blue-400 text-shadow-glow">
                 {activeSnapshot.tagline} // {t("project_layouts.system_protocol")}
               </span>

@@ -21,6 +21,7 @@ const ChaosCanvas = React.lazy(() => import("../components/ChaosCanvas"));
 import BackgroundTexture from "../components/BackgroundTexture";
 import useScrollDirection from "../hooks/useScrollDirection";
 import { useLanguage } from "../context/LanguageContext";
+import { useRecruiterMode } from "../context/RecruiterModeContext";
 import ChaosToMatrixIntro from "../components/welcome/ChaosToMatrixIntro";
 import { LayoutGroup, AnimatePresence } from "framer-motion";
 import PageShell from "../components/PageShell";
@@ -47,8 +48,7 @@ const Home = () => {
   const showNav = useScrollDirection(false);
 
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const isRecruiterMode = searchParams.get("recruiter") === "true";
+  const { isRecruiterMode } = useRecruiterMode();
 
   // Handle Hash Scrolling on Mount
   useEffect(() => {

@@ -1,7 +1,7 @@
 export const humanAlgorithm = {
   id: "human-algorithm",
   title: { en: "The Human Algorithm", id: "The Human Algorithm" },
-  subtitle: { en: "Recursive Portfolio v2.9", id: "Portofolio Rekursif v2.9" },
+  subtitle: { en: "System Architecture v6.0", id: "Arsitektur Sistem v6.0" },
   desc: {
     en: 'A self-aware portfolio built by AI agents. From "Pixel Pushing" to "System Orchestration".',
     id: "Portofolio sadar diri yang dibangun oleh agen AI. Dari 'Pixel Pushing' ke 'Orkestrasi Sistem'.",
@@ -10,7 +10,7 @@ export const humanAlgorithm = {
     en: "The first portfolio built entirely through an Agentic Workflow. A proof of concept for the future of software engineering.",
     id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. Bukti konsep untuk masa depan rekayasa perangkat lunak.",
   },
-  stack: ["React", "Framer Motion", "MediaPipe", "Vite", "Tailwind"],
+  stack: ["React", "Framer Motion", "Three.js", "Vite", "Tailwind"],
   links: {
     demo: "/",
     repo: "https://github.com/fadlyzaki/human-algorithm-portfolio",
@@ -22,7 +22,7 @@ export const humanAlgorithm = {
   date: "February 2026",
   coverImage: "airy:architecture",
   snapshot: {
-    tagline: { en: "Recursive Portfolio v2.9", id: "Recursive Portfolio v2.9" },
+    tagline: { en: "System Architecture v6.0", id: "System Architecture v6.0" },
     heroImage: "airy:architecture",
   },
   context: {
@@ -42,8 +42,8 @@ export const humanAlgorithm = {
         id: "Strategi: Workflow Agentic",
       },
       desc: {
-        en: "Instead of writing every line of code, I architected the *system*. I acted as the Product Manager, defining requirements and 'negotiating' with AI agents (Gemini/Cortex) to execute the implementation. This reduced dev time by 70% while increasing complexity.",
-        id: "Alih-alih menulis setiap baris kode, saya merancang *sistem*-nya. Saya bertindak sebagai Manajer Produk, mendefinisikan persyaratan dan 'bernegosiasi' dengan agen AI untuk mengeksekusi implementasi. Ini mengurangi waktu pengembangan secara drastis sekaligus meningkatkan kompleksitas.",
+        en: "Instead of writing every line of code, I architected the *system*. I acted as the Product Manager, defining requirements and 'negotiating' with AI agents (Gemini/Cortex/Antigravity) to execute the implementation. This reduced dev time by 70% while increasing complexity.",
+        id: "Alih-alih menulis setiap baris kode, saya merancang *sistem*-nya. Saya bertindak sebagai Manajer Produk, mendefinisikan persyaratan dan 'bernegosiasi' dengan agen AI (Gemini/Cortex/Antigravity) untuk mengeksekusi implementasi. Ini mengurangi waktu pengembangan secara drastis sekaligus meningkatkan kompleksitas.",
       },
       image: "airy:flow",
     },
@@ -141,8 +141,8 @@ export const humanAlgorithm = {
       type: "ship",
       title: { en: "Agentic Workflow", id: "Workflow Agentic" },
       desc: {
-        en: "I acted as the Product Manager, 'negotiating' with AI agents (Gemini/Cortex) to execute the implementation. Reduced dev time by 70%.",
-        id: "Saya bertindak sebagai Manajer Produk, 'bernegosiasi' dengan agen AI untuk mengeksekusi implementasi. Mengurangi waktu pengembangan sebesar 70%.",
+        en: "I acted as the Product Manager, 'negotiating' with AI agents (Gemini/Cortex/Antigravity) to execute the implementation. Reduced dev time by 70%.",
+        id: "Saya bertindak sebagai Manajer Produk, 'bernegosiasi' dengan agen AI (Gemini/Cortex/Antigravity) untuk mengeksekusi implementasi. Mengurangi waktu pengembangan sebesar 70%.",
       },
       image: "airy:flow",
     },

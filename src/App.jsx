@@ -21,6 +21,7 @@ const DesignSystem = React.lazy(() => import("./pages/DesignSystem"));
 const Sketches = React.lazy(() => import("./pages/Sketches"));
 
 import { LanguageProvider } from "./context/LanguageContext";
+import { RecruiterModeProvider } from "./context/RecruiterModeContext";
 import ScrollToTop from "./components/ScrollToTop";
 
 import AnalyticsTracker from "./components/AnalyticsTracker";
@@ -38,7 +39,8 @@ const PageLoader = () => (
 function App() {
   return (
     <LanguageProvider>
-      <Router>
+      <RecruiterModeProvider>
+        <Router>
         <AnalyticsTracker />
         <ScrollToTop />
         <Suspense fallback={<PageLoader />}>
@@ -70,7 +72,8 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-      </Router>
+        </Router>
+      </RecruiterModeProvider>
     </LanguageProvider>
   );
 }
