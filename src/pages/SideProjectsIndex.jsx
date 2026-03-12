@@ -181,7 +181,7 @@ const SideProjectsIndex = () => {
 
       <PageShell navbarProps={{ title: "Project Archives", backPath: "/" }}>
 
-      <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-12 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl" ref={containerRef}>
+      <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl" ref={containerRef}>
         <header className="mb-32 relative min-h-[50vh] flex flex-col justify-center text-center md:text-left">
           {/* Background Visual */}
           <div className="absolute inset-0 z-0 opacity-40 grayscale blur-[1px]">
