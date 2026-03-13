@@ -160,11 +160,9 @@ const AboutPage = () => {
                 </h1>
 
                 {/* ENFJ-A Core Architecture Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-[var(--accent-green)]/30 bg-[var(--accent-green)]/5 rounded-md">
-                  <span className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse"></span>
-                  <span className="text-xs font-mono text-[var(--accent-green)] uppercase tracking-wider">
-                    [ KERNEL: ENFJ-A / PROTAGONIST ]
-                  </span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-sm bg-[var(--accent-green)]/10 text-[var(--accent-green)] border border-[var(--accent-green)]/20 font-mono text-[10px] uppercase tracking-widest">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-green)] animate-pulse"></span>
+                  <span>[ KERNEL: ENFJ-A / PROTAGONIST ]</span>
                 </div>
 
                 <h2 className="text-xl text-[var(--accent-amber)] font-mono mb-8 flex items-center gap-3">
@@ -204,7 +202,7 @@ const AboutPage = () => {
               <div className="mt-12 max-w-sm relative">
                 <ChaosSlider value={chaosStrength} onChange={setChaosStrength} />
                 <div className={`mt-4 transition-opacity duration-300 ${chaosStrength > 50 ? 'opacity-100' : 'opacity-0'}`}>
-                  <p className="text-xs font-mono text-[var(--accent-green)]/80 flex items-center gap-2">
+                  <p className="font-mono text-[10px] text-[var(--accent-green)] uppercase tracking-widest flex items-center gap-2">
                     <Shield size={12} />
                     WARNING: High Chaos. ENFJ-A (Assertive) Protocol engaged. Performance stable.
                   </p>
