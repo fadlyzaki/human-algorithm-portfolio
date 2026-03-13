@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { X, Globe } from "lucide-react";
+import { X, Globe, ScanEye } from "lucide-react";
 import { getNavLinks, getMetaLinks } from "../data/navigationData";
 import { useLanguage } from "../context/LanguageContext";
+import { useRecruiterMode } from "../context/RecruiterModeContext";
 
 const NavigationMenu = ({ isOpen, onClose }) => {
   const location = useLocation();
   const { t, language, toggleLanguage } = useLanguage();
+  const { isRecruiterMode, toggleRecruiterMode } = useRecruiterMode();
 
   useEffect(() => {
     const handleEsc = (e) => {
@@ -71,6 +73,20 @@ const NavigationMenu = ({ isOpen, onClose }) => {
           >
             <Globe size={20} />
             <span>{language === "en" ? "Bahasa Indonesia" : "English"}</span>
+          </button>
+
+          {/* Mobile Recruiter Toggle */}
+          <button
+            onClick={() => {
+              toggleRecruiterMode();
+              onClose();
+            }}
+            className={`flex items-center justify-center gap-2 font-mono text-xl uppercase tracking-widest mt-2 transition-colors ${
+              isRecruiterMode ? "text-emerald-500" : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+            }`}
+          >
+            <ScanEye size={20} />
+            <span>{isRecruiterMode ? "Document Mode" : "Terminal Mode"}</span>
           </button>
         </nav>
         <div className="w-16 h-px bg-[var(--border-color)] mx-auto my-8"></div>

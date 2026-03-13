@@ -147,6 +147,10 @@ export const creativeProcesses = [
     icon: PenTool,
     url: "https://www.instagram.com/stories/highlights/18140818381062819/",
   },
+  {
+    name: "ENFJ_LEADERSHIP.SYS",
+    icon: User,
+  },
   { name: "SYSTEM_IDLE", icon: Coffee }, // Filler process
 ];
 

@@ -158,6 +158,15 @@ const AboutPage = () => {
                 <h1 className="text-4xl md:text-5xl font-mono text-[var(--text-primary)] uppercase leading-[1.1] mb-6 tracking-tight">
                   Fadly Uzzaki 🧢 (Jaki)
                 </h1>
+
+                {/* ENFJ-A Core Architecture Badge */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-[var(--accent-green)]/30 bg-[var(--accent-green)]/5 rounded-md">
+                  <span className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse"></span>
+                  <span className="text-xs font-mono text-[var(--accent-green)] uppercase tracking-wider">
+                    [ KERNEL: ENFJ-A / PROTAGONIST ]
+                  </span>
+                </div>
+
                 <h2 className="text-xl text-[var(--accent-amber)] font-mono mb-8 flex items-center gap-3">
                   <span className="opacity-50 text-[var(--text-primary)]">
                   //
@@ -194,6 +203,12 @@ const AboutPage = () => {
               {/* INTERACTIVE COMPONENT: Chaos Slider */}
               <div className="mt-12 max-w-sm relative">
                 <ChaosSlider value={chaosStrength} onChange={setChaosStrength} />
+                <div className={`mt-4 transition-opacity duration-300 ${chaosStrength > 50 ? 'opacity-100' : 'opacity-0'}`}>
+                  <p className="text-xs font-mono text-[var(--accent-green)]/80 flex items-center gap-2">
+                    <Shield size={12} />
+                    WARNING: High Chaos. ENFJ-A (Assertive) Protocol engaged. Performance stable.
+                  </p>
+                </div>
               </div>
             </div>
           </section>
