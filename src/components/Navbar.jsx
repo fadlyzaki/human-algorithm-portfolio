@@ -115,7 +115,7 @@ const Navbar = ({
           </div>
 
           {/* CENTER: PROCESS LINKS (Home) or TITLE (Subpage) */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap hidden sm:block pointer-events-none">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap hidden sm:block">
             {title ? (
               <h1 className="font-mono text-[10px] sm:text-sm uppercase tracking-widest text-[var(--text-primary)] font-bold">
                 {title}
