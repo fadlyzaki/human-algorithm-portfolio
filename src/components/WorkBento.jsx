@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import ProjectCard from "./ProjectCard";
 
@@ -8,36 +9,46 @@ const WorkBento = ({ cluster, priority = false }) => {
   const navigate = useNavigate();
   const { language } = useLanguage();
   const isId = language === "id";
-  const [isHovered, setIsHovered] = useState(false);
+  const [isManualHover, setIsManualHover] = useState(false);
+  const [isAutoHover, setIsAutoHover] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
+  const containerRef = useRef(null);
 
-  // Auto-hover interaction for all devices to reveal the screenshot pan
+  const isHovered = isManualHover || isAutoHover;
+
+  // Auto-hover interaction for mobile devices to reveal the screenshot pan
   useEffect(() => {
-    let intervalId;
+    // Only run auto-hover logic on mobile/touch devices
+    const isMobile =
+      window.innerWidth < 768 ||
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0;
+    
+    if (!isMobile) return;
 
+    let intervalId;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Start hovered to immediately show off the card's active state
-          setIsHovered(true);
+          // Cycle hover state on mobile for visibility
+          setIsAutoHover(true);
           intervalId = setInterval(() => {
-            setIsHovered((prev) => !prev);
-          }, 6000); // 6s interval covers the 5s image translation
+            setIsAutoHover((prev) => !prev);
+          }, 4000); // Shorter cycle for mobile
         } else {
-          setIsHovered(false);
+          setIsAutoHover(false);
           if (intervalId) clearInterval(intervalId);
         }
       },
-      { threshold: 0.6 } // Needs to be 60% visible to trigger
+      { threshold: 0.6 }
     );
 
-    const el = document.getElementById(`work-bento-${cluster.id}`);
-    if (el) observer.observe(el);
+    if (containerRef.current) observer.observe(containerRef.current);
 
     return () => {
       if (intervalId) clearInterval(intervalId);
-      if (el) observer.unobserve(el);
+      if (containerRef.current) observer.unobserve(containerRef.current);
     };
   }, [cluster.id]);
 
@@ -62,20 +73,30 @@ const WorkBento = ({ cluster, priority = false }) => {
   }
 
   return (
-    <div
+    <motion.div
+      ref={containerRef}
       id={`work-bento-${cluster.id}`}
       onClick={() => navigate(`/work/${cluster.id}`)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setIsManualHover(true)}
+      onMouseLeave={() => setIsManualHover(false)}
       className="group relative flex flex-col h-[480px] border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
-      style={{
-        backgroundColor:
-          isHovered && cluster.brandColor ? cluster.brandColor : undefined,
+      animate={{
+        backgroundColor: isHovered && cluster.brandColor ? cluster.brandColor : "rgba(249, 250, 251, 1)", // Default light bg
       }}
+      transition={{ duration: 0.4 }}
     >
-      {/* Default Background (only visible when NOT hovered) */}
-      <div
-        className={`absolute inset-0 bg-gray-50 dark:bg-neutral-900 transition-opacity duration-500 ${isHovered ? "opacity-0" : "opacity-100"}`}
+      {/* Dark mode background override (since we can't easily animate between CSS variables and solid colors in one animate prop without complex logic) */}
+      <div className="absolute inset-0 bg-gray-50 dark:bg-neutral-900 pointer-events-none" />
+      
+      {/* Brand Color Overlay (Animated) */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        initial={false}
+        animate={{ 
+          backgroundColor: cluster.brandColor || "transparent",
+          opacity: isHovered ? 1 : 0
+        }}
+        transition={{ duration: 0.4 }}
       />
 
       {/* Hover Action (Floating - Top Right) */}
@@ -97,10 +118,13 @@ const WorkBento = ({ cluster, priority = false }) => {
                 className={`w-full h-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110`}
               />
             ) : (
-              <div
-                className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full opacity-100 ${isHovered ? "bg-white" : "bg-current"}`}
-                style={{ color: isHovered ? undefined : cluster.brandColor }}
-              ></div>
+              <motion.div
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full"
+                animate={{ 
+                  backgroundColor: isHovered ? "#FFFFFF" : cluster.brandColor,
+                  color: isHovered ? cluster.brandColor : "#FFFFFF"
+                }}
+              />
             )}
           </div>
         </div>
@@ -109,42 +133,46 @@ const WorkBento = ({ cluster, priority = false }) => {
         <div className="flex flex-col items-start sm:items-end text-left sm:text-right transition-colors duration-300 sm:max-w-[140px]">
           {/* Featured Tag */}
           {cluster.featured && (
-            <span
-              className={`font-mono text-[9px] uppercase tracking-[0.2em] mb-1.5 px-1.5 py-0.5 rounded border transition-colors duration-300 ${isHovered ? "text-white/90 border-white/30" : "text-[var(--accent-blue)] border-[var(--accent-blue)]/30"}`}
+            <motion.span
+              className="font-mono text-[9px] uppercase tracking-[0.2em] mb-1.5 px-1.5 py-0.5 rounded border"
+              animate={{
+                color: isHovered ? "rgba(255, 255, 255, 0.9)" : "var(--accent-blue)",
+                borderColor: isHovered ? "rgba(255, 255, 255, 0.3)" : "rgba(var(--accent-blue-rgb), 0.3)",
+              }}
             >
               Featured
-            </span>
+            </motion.span>
           )}
           {/* Role (Top) */}
-          <p
-            className={`text-sm font-bold leading-tight line-clamp-2 transition-colors duration-300 ${isHovered ? "text-white" : "text-gray-900 dark:text-gray-100"}`}
+          <motion.p
+            className="text-sm font-bold leading-tight line-clamp-2"
+            animate={{ color: isHovered ? "#FFFFFF" : "var(--text-primary)" }}
           >
             {role}
-          </p>
+          </motion.p>
           {/* Period (Bottom) */}
-          <p
-            className={`text-xs font-medium mt-1 transition-colors duration-300 ${isHovered ? "text-white/90" : "text-gray-500 dark:text-gray-400"}`}
+          <motion.p
+            className="text-xs font-medium mt-1"
+            animate={{ color: isHovered ? "rgba(255, 255, 255, 0.8)" : "var(--text-secondary)" }}
           >
             {yearDisplay}
-          </p>
+          </motion.p>
         </div>
       </div>
 
       {/* 2. VISUAL (Bottom / Fill) */}
       <div className="relative flex-grow w-full overflow-hidden flex items-end justify-center px-8 pb-0 mt-4 z-10">
         {/* Gradient Background to blend bottom if needed */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-32 pointer-events-none z-10 opacity-50 transition-colors duration-500"
-          style={{
+        <motion.div
+          className="absolute inset-x-0 bottom-0 h-32 pointer-events-none z-10"
+          animate={{
             background: isHovered
               ? `linear-gradient(to top, ${cluster.brandColor}, transparent)`
-              : undefined,
+              : `linear-gradient(to top, var(--bg-void), transparent)`,
+            opacity: isHovered ? 1 : 0.5
           }}
-        >
-          {!isHovered && (
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-neutral-900 to-transparent" />
-          )}
-        </div>
+          transition={{ duration: 0.4 }}
+        />
 
         {/* Device / Visual Frame */}
         <div
@@ -196,7 +224,7 @@ const WorkBento = ({ cluster, priority = false }) => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

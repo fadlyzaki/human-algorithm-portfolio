@@ -7,9 +7,13 @@ import ProjectCard from "../ProjectCard";
 import IconMapper from "../ui/IconMapper";
 
 const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isManualHover, setIsManualHover] = useState(false);
+  const [isAutoHover, setIsAutoHover] = useState(false);
   const innerRef = useRef(null);
+  const containerRef = useRef(null);
   const [innerHeight, setInnerHeight] = useState(0);
+
+  const isHovered = isManualHover || isAutoHover;
 
   useEffect(() => {
     if (innerRef.current) {
@@ -23,30 +27,30 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
       window.innerWidth < 768 ||
       "ontouchstart" in window ||
       navigator.maxTouchPoints > 0;
+    
     if (!isMobile) return;
 
     let intervalId;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsHovered(true);
+          setIsAutoHover(true);
           intervalId = setInterval(() => {
-            setIsHovered((prev) => !prev);
+            setIsAutoHover((prev) => !prev);
           }, 4000); // 4s cycle
         } else {
-          setIsHovered(false);
+          setIsAutoHover(false);
           if (intervalId) clearInterval(intervalId);
         }
       },
       { threshold: 0.6 }
     );
 
-    const el = document.getElementById(`folder-card-${project.id}`);
-    if (el) observer.observe(el);
+    if (containerRef.current) observer.observe(containerRef.current);
 
     return () => {
       if (intervalId) clearInterval(intervalId);
-      if (el) observer.unobserve(el);
+      if (containerRef.current) observer.unobserve(containerRef.current);
     };
   }, [project.id]);
 
@@ -61,11 +65,12 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
 
   return (
     <div
+      ref={containerRef}
       id={`folder-card-${project.id}`}
       className="relative cursor-pointer group"
       style={{ perspective: "800px" }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setIsManualHover(true)}
+      onMouseLeave={() => setIsManualHover(false)}
       onClick={onClick}
     >
       {/* === FOLDER TAB === */}

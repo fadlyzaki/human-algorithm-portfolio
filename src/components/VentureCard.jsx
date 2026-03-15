@@ -14,37 +14,41 @@ import ProjectCard from "./ProjectCard";
 
 const VentureCard = ({ project, isIndonesian, onClick }) => {
   const { isDark } = useTheme();
-  const [isHovered, setIsHovered] = useState(false);
+  const [isManualHover, setIsManualHover] = useState(false);
+  const [isAutoHover, setIsAutoHover] = useState(false);
+  const containerRef = React.useRef(null);
+
+  const isHovered = isManualHover || isAutoHover;
 
   useEffect(() => {
     const isMobile =
       window.innerWidth < 768 ||
       "ontouchstart" in window ||
       navigator.maxTouchPoints > 0;
+    
     if (!isMobile) return;
 
     let intervalId;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsHovered(true);
+          setIsAutoHover(true);
           intervalId = setInterval(() => {
-            setIsHovered((prev) => !prev);
+            setIsAutoHover((prev) => !prev);
           }, 4000);
         } else {
-          setIsHovered(false);
+          setIsAutoHover(false);
           if (intervalId) clearInterval(intervalId);
         }
       },
       { threshold: 0.6 }
     );
 
-    const el = document.getElementById(`venture-card-${project.id}`);
-    if (el) observer.observe(el);
+    if (containerRef.current) observer.observe(containerRef.current);
 
     return () => {
       if (intervalId) clearInterval(intervalId);
-      if (el) observer.unobserve(el);
+      if (containerRef.current) observer.unobserve(containerRef.current);
     };
   }, [project.id]);
 
@@ -58,69 +62,41 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
       : project.desc?.en || project.desc;
 
   // Dynamic Archetype Selection
+  const commonProps = {
+    project,
+    title,
+    desc,
+    onClick,
+    isHovered,
+    ref: containerRef,
+    onMouseEnter: () => setIsManualHover(true),
+    onMouseLeave: () => setIsManualHover(false),
+  };
+
   switch (project.id) {
     case "human-algorithm":
-      return (
-        <SystemCoreCard
-          project={project}
-          title={title}
-          desc={desc}
-          onClick={onClick}
-          isHovered={isHovered}
-        />
-      );
+      return <SystemCoreCard {...commonProps} />;
     case "dolphi":
-      return (
-        <CosmicPopCard
-          project={project}
-          title={title}
-          desc={desc}
-          onClick={onClick}
-          isHovered={isHovered}
-        />
-      );
+      return <CosmicPopCard {...commonProps} />;
     case "productivity-illusion":
-      return (
-        <BrutalistCard
-          project={project}
-          title={title}
-          desc={desc}
-          onClick={onClick}
-          isDark={isDark}
-          isHovered={isHovered}
-        />
-      );
+      return <BrutalistCard {...commonProps} isDark={isDark} />;
     case "year-in-review":
-      return (
-        <BentoCard
-          project={project}
-          title={title}
-          desc={desc}
-          onClick={onClick}
-          isHovered={isHovered}
-        />
-      );
+      return <BentoCard {...commonProps} />;
     case "interactive-workbook":
-      return (
-        <BlueprintCard
-          project={project}
-          title={title}
-          desc={desc}
-          onClick={onClick}
-          isDark={isDark}
-          isHovered={isHovered}
-        />
-      );
+      return <BlueprintCard {...commonProps} isDark={isDark} />;
     default:
       return null;
   }
 };
 
 // 1. THE SYSTEM CORE (Human Algorithm)
-const SystemCoreCard = ({ project, title, desc, onClick, isHovered }) => (
+const SystemCoreCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
+    ref={ref}
     id={`venture-card-${project.id}`}
     onClick={onClick}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
     className="group relative h-[450px] rounded-3xl border-2 border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
     animate={isHovered ? { borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98 } : { borderColor: "var(--border-color)", scale: 1 }}
     whileHover={{ borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98 }}
@@ -194,10 +170,13 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered }) => (
 );
 
 // 2. THE COSMIC POP (Dolphi)
-const CosmicPopCard = ({ project, title, desc, onClick, isHovered }) => (
+const CosmicPopCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
+    ref={ref}
     id={`venture-card-${project.id}`}
     onClick={onClick}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
     className="group relative h-[450px] rounded-3xl border-2 border-transparent bg-gradient-to-br from-[var(--accent-indigo)] to-[var(--accent-indigo)] overflow-hidden cursor-pointer p-8 flex flex-col justify-end transition-colors"
     animate={isHovered ? { scale: 0.98, borderColor: "var(--accent-sky)" } : { scale: 1, borderColor: "transparent" }}
     whileHover={{ scale: 0.98, borderColor: "var(--accent-sky)" }}
@@ -240,10 +219,13 @@ const CosmicPopCard = ({ project, title, desc, onClick, isHovered }) => (
 );
 
 // 3. THE BRUTALIST (Productivity Illusion)
-const BrutalistCard = ({ project, title, desc, onClick, isHovered }) => (
+const BrutalistCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
+    ref={ref}
     id={`venture-card-${project.id}`}
     onClick={onClick}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
     className="group relative h-[450px] rounded-3xl bg-[#E2E2E2] dark:bg-[var(--bg-card)] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
     animate={isHovered ? { x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" } : { x: 0, y: 0, boxShadow: "0px 0px 0px 0px var(--accent-red)" }}
     whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" }}
@@ -285,10 +267,13 @@ const BrutalistCard = ({ project, title, desc, onClick, isHovered }) => (
 );
 
 // 4. THE BENTO MAGAZINE (Year in Review)
-const BentoCard = ({ project, title, desc, onClick, isHovered }) => (
+const BentoCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
+    ref={ref}
     id={`venture-card-${project.id}`}
     onClick={onClick}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
     className="group relative h-[450px] rounded-3xl bg-[var(--bg-surface)] dark:bg-[var(--bg-void)] border border-[var(--border-color)] overflow-hidden cursor-pointer flex flex-col"
     animate={isHovered ? { scale: 1.02 } : { scale: 1 }}
     whileHover={{ scale: 1.02 }}
@@ -332,10 +317,13 @@ const BentoCard = ({ project, title, desc, onClick, isHovered }) => (
 );
 
 // 5. THE BLUEPRINT (Interactive Workbook)
-const BlueprintCard = ({ project, title, desc, onClick, isHovered }) => (
+const BlueprintCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
+    ref={ref}
     id={`venture-card-${project.id}`}
     onClick={onClick}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
     className="group relative h-[450px] rounded-3xl bg-blue-50 dark:bg-[var(--bg-void)] border border-blue-200 dark:border-blue-900 overflow-hidden cursor-pointer"
     animate={isHovered ? { scale: 1.02, y: -4 } : { scale: 1, y: 0 }}
     whileHover={{ scale: 1.02, y: -4 }}
