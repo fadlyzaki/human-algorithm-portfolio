@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import {
@@ -14,6 +14,40 @@ import ProjectCard from "./ProjectCard";
 
 const VentureCard = ({ project, isIndonesian, onClick }) => {
   const { isDark } = useTheme();
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const isMobile =
+      window.innerWidth < 768 ||
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0;
+    if (!isMobile) return;
+
+    let intervalId;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsHovered(true);
+          intervalId = setInterval(() => {
+            setIsHovered((prev) => !prev);
+          }, 4000);
+        } else {
+          setIsHovered(false);
+          if (intervalId) clearInterval(intervalId);
+        }
+      },
+      { threshold: 0.6 }
+    );
+
+    const el = document.getElementById(`venture-card-${project.id}`);
+    if (el) observer.observe(el);
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+      if (el) observer.unobserve(el);
+    };
+  }, [project.id]);
+
   const title =
     isIndonesian && project.title_id
       ? project.title_id
@@ -32,6 +66,7 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
           title={title}
           desc={desc}
           onClick={onClick}
+          isHovered={isHovered}
         />
       );
     case "dolphi":
@@ -41,6 +76,7 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
           title={title}
           desc={desc}
           onClick={onClick}
+          isHovered={isHovered}
         />
       );
     case "productivity-illusion":
@@ -51,6 +87,7 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
           desc={desc}
           onClick={onClick}
           isDark={isDark}
+          isHovered={isHovered}
         />
       );
     case "year-in-review":
@@ -60,6 +97,7 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
           title={title}
           desc={desc}
           onClick={onClick}
+          isHovered={isHovered}
         />
       );
     case "interactive-workbook":
@@ -70,6 +108,7 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
           desc={desc}
           onClick={onClick}
           isDark={isDark}
+          isHovered={isHovered}
         />
       );
     default:
@@ -78,10 +117,12 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
 };
 
 // 1. THE SYSTEM CORE (Human Algorithm)
-const SystemCoreCard = ({ project, title, desc, onClick }) => (
+const SystemCoreCard = ({ project, title, desc, onClick, isHovered }) => (
   <motion.div
+    id={`venture-card-${project.id}`}
     onClick={onClick}
     className="group relative h-[450px] rounded-3xl border-2 border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
+    animate={isHovered ? { borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98 } : { borderColor: "var(--border-color)", scale: 1 }}
     whileHover={{ borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98 }}
   >
     {/* Terminal Text Background */}
@@ -105,7 +146,7 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
 
     {/* Top Image Section */}
     <div className="h-[40%] relative overflow-hidden bg-[var(--bg-card)] border-b border-[var(--border-color)] flex-shrink-0">
-      <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100 scale-110 group-hover:scale-100">
+      <div className={`absolute inset-0 transition-all duration-700 ${isHovered ? 'grayscale-0 opacity-100 scale-100' : 'grayscale opacity-60 scale-110 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-100'}`}>
         <ProjectCard
           id={project.id}
           expanded={true}
@@ -130,7 +171,7 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
           </span>
         </div>
 
-        <h3 className="text-3xl font-serif italic mb-3 text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
+        <h3 className={`text-3xl font-serif italic mb-3 transition-colors ${isHovered ? 'text-[var(--accent-blue)]' : 'text-[var(--text-primary)] group-hover:text-[var(--accent-blue)]'}`}>
           {title}
         </h3>
         <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-3">
@@ -153,10 +194,12 @@ const SystemCoreCard = ({ project, title, desc, onClick }) => (
 );
 
 // 2. THE COSMIC POP (Dolphi)
-const CosmicPopCard = ({ project, title, desc, onClick }) => (
+const CosmicPopCard = ({ project, title, desc, onClick, isHovered }) => (
   <motion.div
+    id={`venture-card-${project.id}`}
     onClick={onClick}
-    className="group relative h-[450px] rounded-3xl border-2 border-transparent bg-gradient-to-br from-[var(--accent-indigo)] to-[var(--accent-indigo)] overflow-hidden cursor-pointer p-8 flex flex-col justify-end"
+    className="group relative h-[450px] rounded-3xl border-2 border-transparent bg-gradient-to-br from-[var(--accent-indigo)] to-[var(--accent-indigo)] overflow-hidden cursor-pointer p-8 flex flex-col justify-end transition-colors"
+    animate={isHovered ? { scale: 0.98, borderColor: "var(--accent-sky)" } : { scale: 1, borderColor: "transparent" }}
     whileHover={{ scale: 0.98, borderColor: "var(--accent-sky)" }}
   >
     {/* Floating Particles */}
@@ -170,7 +213,7 @@ const CosmicPopCard = ({ project, title, desc, onClick }) => (
     </div>
 
     <div className="relative z-10">
-      <div className="w-16 h-16 mb-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center group-hover:bg-[var(--accent-sky)]/20 group-hover:border-[var(--accent-sky)]/40 transition-all">
+      <div className={`w-16 h-16 mb-6 rounded-2xl backdrop-blur-xl flex items-center justify-center transition-all ${isHovered ? 'bg-[var(--accent-sky)]/20 border-[var(--accent-sky)]/40' : 'bg-white/5 border-white/10 group-hover:bg-[var(--accent-sky)]/20 group-hover:border-[var(--accent-sky)]/40'}`}>
         <Activity size={32} className="text-[var(--accent-sky)]" />
       </div>
       <h3 className="text-3xl font-serif italic mb-4 text-white">{title}</h3>
@@ -190,17 +233,19 @@ const CosmicPopCard = ({ project, title, desc, onClick }) => (
     </div>
 
     {/* Background Visual */}
-    <div className="absolute top-0 right-0 w-full h-full -z-0 opacity-40 group-hover:opacity-60 transition-opacity">
+    <div className={`absolute top-0 right-0 w-full h-full -z-0 transition-opacity ${isHovered ? 'opacity-60' : 'opacity-40 group-hover:opacity-60'}`}>
       <ProjectCard id={project.id} backgroundOnly />
     </div>
   </motion.div>
 );
 
 // 3. THE BRUTALIST (Productivity Illusion)
-const BrutalistCard = ({ project, title, desc, onClick }) => (
+const BrutalistCard = ({ project, title, desc, onClick, isHovered }) => (
   <motion.div
+    id={`venture-card-${project.id}`}
     onClick={onClick}
     className="group relative h-[450px] rounded-3xl bg-[#E2E2E2] dark:bg-[var(--bg-card)] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
+    animate={isHovered ? { x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" } : { x: 0, y: 0, boxShadow: "0px 0px 0px 0px var(--accent-red)" }}
     whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" }}
   >
     <div className="absolute top-4 right-4 z-20">
@@ -235,24 +280,26 @@ const BrutalistCard = ({ project, title, desc, onClick }) => (
     </div>
 
     {/* Glitch Overlay Effect */}
-    <div className="absolute inset-0 bg-[var(--accent-red)]/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+    <div className={`absolute inset-0 bg-[var(--accent-red)]/10 mix-blend-multiply transition-opacity pointer-events-none ${isHovered ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}></div>
   </motion.div>
 );
 
 // 4. THE BENTO MAGAZINE (Year in Review)
-const BentoCard = ({ project, title, desc, onClick }) => (
+const BentoCard = ({ project, title, desc, onClick, isHovered }) => (
   <motion.div
+    id={`venture-card-${project.id}`}
     onClick={onClick}
     className="group relative h-[450px] rounded-3xl bg-[var(--bg-surface)] dark:bg-[var(--bg-void)] border border-[var(--border-color)] overflow-hidden cursor-pointer flex flex-col"
+    animate={isHovered ? { scale: 1.02 } : { scale: 1 }}
     whileHover={{ scale: 1.02 }}
   >
     {/* Visual Top Half */}
     <div className="h-2/3 bg-gradient-to-tr from-pink-100 to-orange-100 dark:from-pink-900/20 dark:to-orange-900/20 relative overflow-hidden">
-      <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-1000">
+      <div className={`absolute inset-0 transition-all duration-1000 ${isHovered ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}>
         <ProjectCard id={project.id} backgroundOnly />
       </div>
       {/* Sticker Style Tag */}
-      <div className="absolute top-6 left-6 rotate-[-5deg] bg-white dark:bg-black border border-black dark:border-white px-4 py-1 flex items-center gap-2 shadow-lg scale-90 group-hover:scale-100 transition-transform">
+      <div className={`absolute top-6 left-6 rotate-[-5deg] bg-white dark:bg-black border border-black dark:border-white px-4 py-1 flex items-center gap-2 shadow-lg transition-transform ${isHovered ? 'scale-100' : 'scale-90 group-hover:scale-100'}`}>
         <Calendar size={14} />
         <span className="font-mono text-[10px] font-bold">WRAPPED_2025</span>
       </div>
@@ -285,10 +332,12 @@ const BentoCard = ({ project, title, desc, onClick }) => (
 );
 
 // 5. THE BLUEPRINT (Interactive Workbook)
-const BlueprintCard = ({ project, title, desc, onClick }) => (
+const BlueprintCard = ({ project, title, desc, onClick, isHovered }) => (
   <motion.div
+    id={`venture-card-${project.id}`}
     onClick={onClick}
     className="group relative h-[450px] rounded-3xl bg-blue-50 dark:bg-[var(--bg-void)] border border-blue-200 dark:border-blue-900 overflow-hidden cursor-pointer"
+    animate={isHovered ? { scale: 1.02, y: -4 } : { scale: 1, y: 0 }}
     whileHover={{ scale: 1.02, y: -4 }}
     transition={{ type: "spring", stiffness: 300, damping: 20 }}
   >
