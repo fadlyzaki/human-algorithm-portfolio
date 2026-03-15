@@ -12,12 +12,8 @@ const WorkBento = ({ cluster, priority = false }) => {
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
 
-  // Auto-hover interaction for mobile devices to reveal the screenshot pan
+  // Auto-hover interaction for all devices to reveal the screenshot pan
   useEffect(() => {
-    // Only auto-trigger on touch devices or small screens
-    const isMobile = window.innerWidth < 768 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-    if (!isMobile) return;
-
     let intervalId;
 
     const observer = new IntersectionObserver(
