@@ -17,6 +17,39 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
     }
   }, []);
 
+  // Auto-hover interaction for mobile devices to reveal the folder peek
+  useEffect(() => {
+    const isMobile =
+      window.innerWidth < 768 ||
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0;
+    if (!isMobile) return;
+
+    let intervalId;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsHovered(true);
+          intervalId = setInterval(() => {
+            setIsHovered((prev) => !prev);
+          }, 4000); // 4s cycle
+        } else {
+          setIsHovered(false);
+          if (intervalId) clearInterval(intervalId);
+        }
+      },
+      { threshold: 0.6 }
+    );
+
+    const el = document.getElementById(`folder-card-${project.id}`);
+    if (el) observer.observe(el);
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+      if (el) observer.unobserve(el);
+    };
+  }, [project.id]);
+
   const title = isId ? project.title_id || project.title : project.title;
   const problem = isId
     ? project.details_id?.problem || project.details.problem
@@ -28,6 +61,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
 
   return (
     <div
+      id={`folder-card-${project.id}`}
       className="relative cursor-pointer group"
       style={{ perspective: "800px" }}
       onMouseEnter={() => setIsHovered(true)}
