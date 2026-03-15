@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
@@ -11,6 +11,39 @@ const WorkBento = ({ cluster, priority = false }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
+
+  // Auto-hover interaction for mobile devices to reveal the screenshot pan
+  useEffect(() => {
+    // Only auto-trigger on touch devices or small screens
+    const isMobile = window.innerWidth < 768 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    if (!isMobile) return;
+
+    let intervalId;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Start hovered to immediately show off the card's active state
+          setIsHovered(true);
+          intervalId = setInterval(() => {
+            setIsHovered((prev) => !prev);
+          }, 6000); // 6s interval covers the 5s image translation
+        } else {
+          setIsHovered(false);
+          if (intervalId) clearInterval(intervalId);
+        }
+      },
+      { threshold: 0.6 } // Needs to be 60% visible to trigger
+    );
+
+    const el = document.getElementById(`work-bento-${cluster.id}`);
+    if (el) observer.observe(el);
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+      if (el) observer.unobserve(el);
+    };
+  }, [cluster.id]);
 
   // Extract data
   const title = isId ? cluster.title_id || cluster.title : cluster.title;
@@ -34,6 +67,7 @@ const WorkBento = ({ cluster, priority = false }) => {
 
   return (
     <div
+      id={`work-bento-${cluster.id}`}
       onClick={() => navigate(`/work/${cluster.id}`)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
