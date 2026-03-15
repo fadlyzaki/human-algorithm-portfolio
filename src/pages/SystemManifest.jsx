@@ -160,7 +160,7 @@ const SystemManifest = () => {
 
       {/* SPACER FOR FIXED HEADER & DOCUMENT SHEET */}
       <div className="h-24 md:h-32 print:hidden"></div>
-      <div className="max-w-[210mm] mx-auto bg-[var(--bg-void)] md:bg-[var(--bg-panel)] md:p-12 md:shadow-2xl md:border border-[var(--border-color)] print:border-none print:shadow-none print:p-0 print:max-w-full relative z-10">
+      <div className="max-w-[210mm] mx-auto bg-[var(--bg-void)] md:bg-[var(--bg-panel)] p-5 sm:p-8 md:p-12 md:shadow-2xl md:border border-[var(--border-color)] print:border-none print:shadow-none print:p-0 print:max-w-full relative z-10">
         {/* HEADER */}
         <header className="border-b-2 border-[var(--text-primary)] pb-6 mb-8 print:border-black print:pb-4 print:mb-6">
           <div className="mb-4 print:mb-2 text-center md:text-left print:text-left">
@@ -173,7 +173,7 @@ const SystemManifest = () => {
           </div>
 
           {/* Contact Links - Horizontal Layout with Location */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-mono text-[var(--text-secondary)] pt-4 border-t border-[var(--border-color)] print:pt-2 print:border-t-0 print:text-black print:text-xs">
+          <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-6 gap-y-3 text-sm font-mono text-[var(--text-secondary)] pt-4 border-t border-[var(--border-color)] print:pt-2 print:border-t-0 print:text-black print:text-xs">
             {header.links.map((link, i) => (
               <a
                 key={i}
@@ -205,7 +205,7 @@ const SystemManifest = () => {
         </section>
 
         {/* CONTENT GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_250px] print:grid-cols-1 gap-12 print:gap-6 print:block">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_250px] print:grid-cols-1 gap-8 md:gap-12 print:gap-6 print:block">
           {/* MAIN COLUMN (Experience) */}
           <section className="print:mb-6">
             <div className="flex items-center gap-3 mb-6 print:mb-4">
@@ -218,9 +218,9 @@ const SystemManifest = () => {
             <div className="space-y-10 print:space-y-6">
               {experience.map((job, idx) => (
                 <div key={idx} className="group print:break-inside-avoid">
-                  <div className="flex justify-between items-baseline mb-2 print:mb-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2 print:mb-1">
                     <h4 className="text-xl font-bold print:text-lg">{job.company}</h4>
-                    <span className="font-mono text-sm text-[var(--text-secondary)] print:text-black print:text-sm print:font-semibold">
+                    <span className="font-mono text-sm text-[var(--text-secondary)] mt-1 sm:mt-0 print:text-black print:text-sm print:font-semibold">
                       {job.period}
                     </span>
                   </div>

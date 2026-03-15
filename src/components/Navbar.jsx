@@ -78,7 +78,7 @@ const Navbar = ({
       <div
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 transform ${showNav ? "translate-y-0" : "-translate-y-full"}`}
       >
-        <div className="bg-[var(--bg-surface)]/80 backdrop-blur-md border-b border-[var(--border-color)] px-6 py-3 flex justify-between items-center">
+        <div className="bg-[var(--bg-surface)]/80 backdrop-blur-md border-b border-[var(--border-color)] px-4 sm:px-6 py-2 sm:py-3 flex justify-between items-center">
           {/* LEFT: IDENTITY or BACK BUTTON */}
           <div className="flex items-center gap-2 sm:gap-6 z-10 relative">
             {title ? (
@@ -115,7 +115,7 @@ const Navbar = ({
           </div>
 
           {/* CENTER: PROCESS LINKS (Home) or TITLE (Subpage) */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap hidden min-[350px]:block">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap hidden sm:block pointer-events-none">
             {title ? (
               <h1 className="font-mono text-[10px] sm:text-sm uppercase tracking-widest text-[var(--text-primary)] font-bold">
                 {title}
@@ -135,12 +135,12 @@ const Navbar = ({
             {/* Live Clock */}
             <LiveClock />
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
               {/* CV Actions */}
               {onViewCoverLetter && (
                 <button
                   onClick={onViewCoverLetter}
-                  className="p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 transition-colors"
+                  className="p-1.5 sm:p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 transition-colors"
                   title="View Cover Letter"
                 >
                   <FileText size={16} />
@@ -149,7 +149,7 @@ const Navbar = ({
               {onPrint && (
                 <button
                   onClick={onPrint}
-                  className="p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 transition-colors"
+                  className="hidden sm:flex p-1.5 sm:p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 transition-colors"
                   title="Print CV (PDF)"
                 >
                   <Printer size={16} />
@@ -173,7 +173,7 @@ const Navbar = ({
 
               <button
                 onClick={() => setIsDark(!isDark)}
-                className="p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-amber)] hover:bg-[var(--text-secondary)]/10 transition-colors"
+                className="p-1.5 sm:p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-amber)] hover:bg-[var(--text-secondary)]/10 transition-colors"
                 aria-label="Toggle Theme"
               >
                 {isDark ? <Sun size={16} /> : <Moon size={16} />}
@@ -181,7 +181,7 @@ const Navbar = ({
 
               <button
                 onClick={toggleLanguage}
-                className="px-2 py-1 font-mono text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 rounded transition-colors text-xs uppercase tracking-widest"
+                className="px-1.5 py-1 sm:px-2 sm:py-1 font-mono text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 rounded transition-colors text-[10px] sm:text-xs uppercase tracking-widest"
                 title="Switch Language"
               >
                 {language}

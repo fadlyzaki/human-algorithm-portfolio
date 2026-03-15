@@ -14,10 +14,13 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
   const [direction, setDirection] = useState(1); // 1 for forward, -1 for backward
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  // Reset to cover when the content category changes (Pencil <-> Digital)
-  useEffect(() => {
+  const [prevPages, setPrevPages] = useState(pages);
+
+  // Derived state: Reset spreadIndex when the pages array reference changes (e.g. category switch)
+  if (pages !== prevPages) {
+    setPrevPages(pages);
     setSpreadIndex(0);
-  }, [pages]);
+  }
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);

@@ -39,13 +39,13 @@ const NavigationMenu = ({ isOpen, onClose }) => {
     >
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 p-4 text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors"
+        className="absolute top-4 right-4 md:top-6 md:right-6 p-2 md:p-4 text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors"
         aria-label="Close Menu"
       >
-        <X size={32} />
+        <X size={28} className="md:w-8 md:h-8" />
       </button>
-      <div className="space-y-8 text-center">
-        <div className="font-mono text-xs text-[var(--accent-amber)] uppercase tracking-widest mb-8">
+      <div className="space-y-6 md:space-y-8 text-center px-4 w-full">
+        <div className="font-mono text-[10px] md:text-xs text-[var(--accent-amber)] uppercase tracking-widest mb-6 md:mb-8">
           {t("nav.system_directory")}
         </div>
         <nav className="flex flex-col gap-6">
@@ -54,7 +54,7 @@ const NavigationMenu = ({ isOpen, onClose }) => {
               key={idx}
               to={link.href.startsWith("/") ? link.href : "/" + link.href}
               onClick={onClose}
-              className={`font-mono text-2xl md:text-4xl transition-all ${
+              className={`font-mono text-xl sm:text-2xl md:text-4xl transition-all ${
                 isActive(link.href)
                   ? "text-[var(--accent-blue)] scale-105 font-bold"
                   : "text-[var(--text-primary)] hover:text-[var(--accent-blue)] hover:scale-105"
@@ -69,9 +69,9 @@ const NavigationMenu = ({ isOpen, onClose }) => {
               toggleLanguage();
               onClose();
             }}
-            className="flex items-center justify-center gap-2 font-mono text-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] uppercase tracking-widest mt-4"
+            className="flex items-center justify-center gap-2 font-mono text-base md:text-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] uppercase tracking-widest mt-2 md:mt-4"
           >
-            <Globe size={20} />
+            <Globe size={18} className="md:w-5 md:h-5" />
             <span>{language === "en" ? "Bahasa Indonesia" : "English"}</span>
           </button>
 
@@ -81,23 +81,23 @@ const NavigationMenu = ({ isOpen, onClose }) => {
               toggleRecruiterMode();
               onClose();
             }}
-            className={`flex items-center justify-center gap-2 font-mono text-xl uppercase tracking-widest mt-2 transition-colors ${
+            className={`flex items-center justify-center gap-2 font-mono text-base md:text-xl uppercase tracking-widest mt-1 md:mt-2 transition-colors ${
               isRecruiterMode ? "text-emerald-500" : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
             }`}
           >
-            <ScanEye size={20} />
+            <ScanEye size={18} className="md:w-5 md:h-5" />
             <span>{isRecruiterMode ? "Document Mode" : "Terminal Mode"}</span>
           </button>
         </nav>
-        <div className="w-16 h-px bg-[var(--border-color)] mx-auto my-8"></div>
-        <div className="flex gap-6 justify-center">
+        <div className="w-16 h-px bg-[var(--border-color)] mx-auto my-6 md:my-8"></div>
+        <div className="flex gap-4 md:gap-6 justify-center flex-wrap">
           {metaLinks.map((link, idx) => (
             <Link
               key={idx}
               to={link.href}
-              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-sm uppercase"
+              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono text-xs md:text-sm uppercase"
             >
-              <link.icon size={16} />
+              <link.icon size={14} className="md:w-4 md:h-4" />
               {link.label}
             </Link>
           ))}
