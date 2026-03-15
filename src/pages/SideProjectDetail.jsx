@@ -30,6 +30,8 @@ import ZoomableImage from "../components/ZoomableImage";
 import AiryDiagram from "../components/AiryDiagram";
 import SkeletonLine from "../components/ui/SkeletonLine";
 
+const ChaosCanvas = React.lazy(() => import("../components/ChaosCanvas"));
+
 // Import New Layout Architectures
 import SystemCoreDetail from "../components/project-layouts/SystemCoreDetail";
 import CosmicPopDetail from "../components/project-layouts/CosmicPopDetail";
@@ -235,13 +237,9 @@ const SideProjectDetail = () => {
       />
 
       {/* --- 0. AMBIENCE --- */}
-      <div
-        className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(${isDark ? "var(--bg-void)" : "var(--bg-void)"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "var(--bg-void)" : "var(--bg-void)"} 1px, transparent 1px)`,
-          backgroundSize: "50px 50px",
-        }}
-      ></div>
+      <React.Suspense fallback={null}>
+        <ChaosCanvas />
+      </React.Suspense>
       {/* Vignette */}
       <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
