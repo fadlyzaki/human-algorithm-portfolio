@@ -75,10 +75,10 @@ export const yearInReview = {
     },
     {
       type: "measure",
-      title: { en: "Smart Generation & AI", id: "Generasi Cerdas & AI" },
+      title: { en: "Traffic & Reach", id: "Traffic & Jangkauan" },
       desc: {
-        en: "Introduced a 'Magic Write' algorithm for instant personalized summaries. The future roadmap includes LLM integration for adaptive tone, AI vibe matching, and smart photo framing.",
-        id: "Memperkenalkan algoritma 'Tulis Ajaib' untuk ringkasan personal. Peta jalan masa depan mencakup integrasi LLM untuk nada adaptif, pencocokan getaran (vibe) AI, dan pembingkaian foto pintar.",
+        en: "Launched just two weeks before New Year 2026, the tool saw immediate organic traction with 45+ active users across 6 countries, validating the demand for privacy-first personal wrap tools.",
+        id: "Diluncurkan hanya dua minggu sebelum Tahun Baru 2026, alat ini mendapat traksi organik instan dengan 45+ pengguna aktif di 6 negara, memvalidasi permintaan akan alat wrapped yang mengutamakan privasi.",
       },
       image: "airy:data",
     },
@@ -88,7 +88,11 @@ export const yearInReview = {
     id: "Saya belajar bahwa batasan melahirkan kreativitas. Memilih tanpa backend bukan keterbatasan, itu memaksa saya berpikir berbeda tentang alur data. Hasilnya? User lebih percaya karena mereka tahu data mereka tidak pernah keluar dari perangkat. Privasi jadi nilai jual terkuat, bukan kompromi.",
   },
   metrics: [
-    { label: "Themes Available", value: "12" },
-    { label: "Backend Data", value: "Zero" },
+    { label: "Launch Window", value: "2 Weeks" },
+    { label: "Indonesia", value: "30" },
+    { label: "Singapore", value: "6" },
+    { label: "United States", value: "5" },
+    { label: "Ireland", value: "2" },
+    { label: "International", value: "1+ Users" },
   ],
 };
