@@ -505,3 +505,7 @@ html {
 .sprite-anim-walk {
   animation-duration: 0.8s !important;
 }
+
+.sprite-sleeping {
+  animation: none !important;
+}

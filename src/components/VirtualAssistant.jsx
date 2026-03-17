@@ -272,7 +272,7 @@ const VirtualAssistant = () => {
           key={isSleeping ? 'sleep' : currentScene}
           src={`/images/sprite-${isSleeping ? SCENES.IDLE : currentScene}.png`} 
           alt="Virtual Assistant Sprite" 
-          className={`sprite-img ${isSleeping ? '' : `sprite-anim-${currentScene}`}`} 
+          className={`sprite-img ${isSleeping ? 'sprite-sleeping' : `sprite-anim-${currentScene}`}`} 
         />
       </div>
     </div>
