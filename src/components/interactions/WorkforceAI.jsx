@@ -249,7 +249,7 @@ const WorkforceAI = ({ color = "var(--accent-teal)" }) => {
             return (
               <motion.path
                 key={m.id}
-                d={`M 33% ${y1} C 45% ${y1}, 55% ${y2}, 66% ${y2}`}
+                d={`M 233 ${y1} C 350 ${y1}, 350 ${y2}, 466 ${y2}`}
                 fill="none"
                 stroke={color}
                 strokeWidth="1.5"

@@ -51,7 +51,7 @@ const ScrollJourneyGuide = () => {
   return (
     <div className="fixed bottom-0 left-0 w-full h-[80px] sm:h-[128px] pointer-events-none z-40 overflow-hidden">
       <motion.div
-        className="absolute bottom-0 h-20 w-20 sm:h-32 sm:w-32"
+        className="absolute bottom-0 w-[60px] h-20 sm:w-24 sm:h-32"
         style={{
           // Map scroll progress (0-1) to translateX string (0% to calc(100vw - 128px))
           x: scrollYProgress,
@@ -66,12 +66,14 @@ const ScrollJourneyGuide = () => {
         }}
       >
         <div 
-          className={`w-full h-full bg-[url('/images/sprite-transparent.png')] sprite-anim-${currentScene} drop-shadow-md opacity-30 sm:opacity-50 ${isDark ? "brightness-90" : ""}`}
-          style={{
-            backgroundSize: "800% 800%", /* 8 columns, 8 rows */
-            imageRendering: "pixelated"
-          }}
-        />
+          className={`w-full h-full drop-shadow-md opacity-30 sm:opacity-50 ${isDark ? "brightness-90" : ""} overflow-hidden flex`}
+        >
+          <img 
+            src={`/images/sprite-${currentScene}.png`} 
+            alt="Scroll Journey Sprite" 
+            className={`sprite-img sprite-anim-${currentScene}`} 
+          />
+        </div>
       </motion.div>
     </div>
   );

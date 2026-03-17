@@ -11,7 +11,6 @@ import {
   ShieldAlert,
   ShieldCheck,
   AlertTriangle,
-  User,
 } from "lucide-react";
 import { SYSTEM_CONFIG } from "../../config/constants";
 import DefaultCard from "../cards/DefaultCard";
@@ -198,62 +197,6 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
                     Status
                   </h4>
                   <p className="font-bold text-lg">Secure Auth</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* SECTION 1.5: GAMIFIED / INTERACTIVE SPRITES */}
-        <div className="col-span-1 md:col-span-2 space-y-6 mt-8">
-          <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
-            <User size={14} /> Interactive_Sprites
-          </h3>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div
-              className={`relative ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : "p-8 border border-[var(--border-color)] bg-[var(--bg-card)]"}`}
-            >
-              {isXRayMode && (
-                <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">
-                  InteractiveAvatar.jsx // Core Component
-                </span>
-              )}
-              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-6">
-                Avatar State Machine
-              </h4>
-              <div className="flex justify-center relative z-10 w-full max-w-[200px] mx-auto">
-                <InteractiveAvatar className="w-full" />
-              </div>
-              <p className="mt-6 text-xs text-[var(--text-secondary)] text-center">
-                Hover to trigger <em>Thinking</em> state. Click to trigger <em>Walk</em>.
-              </p>
-            </div>
-
-            <div
-              className={`relative ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : "p-8 border border-[var(--border-color)] bg-[var(--bg-card)]"}`}
-            >
-              {isXRayMode && (
-                <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">
-                  div // CSS Sprite Logic
-                </span>
-              )}
-              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-6">
-                Animation Classes Definition
-              </h4>
-              
-              <div className="flex flex-col gap-6 relative z-10">
-                <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 bg-[url('/images/sprite-transparent.png')] sprite-anim-idle" style={{ backgroundSize: "800% 800%", imageRendering: "pixelated" }} />
-                  <code className="text-xs font-mono text-[var(--accent-blue)]">.sprite-anim-idle</code>
-                </div>
-                <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 bg-[url('/images/sprite-transparent.png')] sprite-anim-thinking" style={{ backgroundSize: "800% 800%", imageRendering: "pixelated" }} />
-                  <code className="text-xs font-mono text-[var(--accent-green)]">.sprite-anim-thinking</code>
-                </div>
-                <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 bg-[url('/images/sprite-transparent.png')] sprite-anim-walk" style={{ backgroundSize: "800% 800%", imageRendering: "pixelated" }} />
-                  <code className="text-xs font-mono text-[var(--accent)]">.sprite-anim-walk</code>
                 </div>
               </div>
             </div>

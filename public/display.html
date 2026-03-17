@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { background: #333; color: white; margin: 20px; }
+    h3 { margin-top: 40px; }
+    .sprite-container {
+      outline: 1px solid red;
+      width: 1024px;
+      margin-bottom: 20px;
+    }
+    .sprite-container img {
+      width: 100%;
+      image-rendering: pixelated;
+    }
+    .box {
+      width: 128px;
+      height: 128px;
+      border: 1px solid lime;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .flex-box {
+      display: flex; gap: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Sprite Inspection</h2>
+  
+  <h3>Idle (2048x351)</h3>
+  <div class="sprite-container"><img src="/public/images/sprite-idle.png" /></div>
+
+  <h3>Think (2048x341)</h3>
+  <div class="sprite-container"><img src="/public/images/sprite-think.png" /></div>
+
+  <h3>Walk (2048x333)</h3>
+  <div class="sprite-container"><img src="/public/images/sprite-walk.png" /></div>
+</body>
+</html>
