@@ -127,34 +127,42 @@ const VirtualAssistant = () => {
       return translated;
     };
 
-    if (path === "/") {
-      // On manual click, show the "Explain" message. On auto-trigger, show the greeting.
-      return isManual ? getMsg("msg_home") : getTimeGreeting();
-    } else if (path === "/about") {
-      return getMsg("msg_about");
-    } else if (path === "/side-projects") {
-      return getMsg("msg_side_projects");
-    } else if (path === "/design-system") {
-      return getMsg("context.design-system");
-    } else if (path === "/sketches") {
-      return getMsg("context.sketches");
-    } else if (path === "/contact") {
-      return getMsg("context.contact");
-    } else if (path === "/cv" || path === "/system-manifest") {
-      return getMsg("context.system-manifest");
-    } else if (path === "/thoughts" || path.includes("/thoughts/")) {
-      return getMsg("context.unprovoked-thoughts");
-    } else if (path.includes("/case-study/") || path.includes("/side-project/") || path.includes("/work/") || path.includes("/blog/")) {
-      const segments = path.split("/").filter(Boolean);
-      const id = segments[segments.length - 1];
-      
-      const specificMsg = getMsg(`context.${id}`);
-      if (specificMsg && specificMsg !== `virtual_assistant.${pov}context.${id}`) {
-        return specificMsg;
+    const msg = (() => {
+      if (path === "/") {
+        // On manual click, show the "Explain" message. On auto-trigger, show the greeting.
+        return isManual ? getMsg("msg_home") : getTimeGreeting();
+      } else if (path === "/about") {
+        return getMsg("msg_about");
+      } else if (path === "/side-projects") {
+        return getMsg("msg_side_projects");
+      } else if (path === "/design-system") {
+        return getMsg("context.design-system");
+      } else if (path === "/sketches") {
+        return getMsg("context.sketches");
+      } else if (path === "/contact") {
+        return getMsg("context.contact");
+      } else if (path === "/cv" || path === "/system-manifest") {
+        return getMsg("context.system-manifest");
+      } else if (path === "/thoughts" || path.includes("/thoughts/")) {
+        return getMsg("context.unprovoked-thoughts");
+      } else if (path.includes("/case-study/") || path.includes("/side-project/") || path.includes("/work/") || path.includes("/blog/")) {
+        const segments = path.split("/").filter(Boolean);
+        const id = segments[segments.length - 1];
+        
+        const specificMsg = getMsg(`context.${id}`);
+        if (specificMsg && specificMsg !== `virtual_assistant.${pov}context.${id}`) {
+          return specificMsg;
+        }
+        return path.includes("/case-study/") || path.includes("/work/") ? getMsg("msg_case_study") : getMsg("msg_side_projects");
       }
-      return path.includes("/case-study/") || path.includes("/work/") ? getMsg("msg_case_study") : getMsg("msg_side_projects");
+      return getMsg("msg_home");
+    })();
+
+    // Prefix with [VAKI] in terminal mode
+    if (!isRecruiterMode && !isManual && msg) {
+      return `[VAKI]: ${msg}`;
     }
-    return getMsg("msg_home");
+    return msg;
   };
 
   const handleClick = (e) => {
@@ -259,6 +267,12 @@ const VirtualAssistant = () => {
             <span className="text-[10px] leading-none">×</span>
           </button>
         )}
+        
+        <div className="absolute -top-3 left-4 bg-[var(--bg-void)] border border-[var(--border-color)] px-2 py-0.5 rounded text-[9px] font-mono font-bold tracking-[0.2em] text-[var(--accent-blue)] flex items-center gap-1.5 shadow-sm">
+          <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-pulse" />
+          {t("virtual_assistant.name") || "VAKI"}
+        </div>
+
         <MessageSquare size={16} className="text-[var(--accent-blue)] mt-0.5 shrink-0" />
         
         <div className="w-full">

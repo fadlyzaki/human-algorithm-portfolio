@@ -29,6 +29,7 @@ import ProjectCard from "../components/ProjectCard";
 import ZoomableImage from "../components/ZoomableImage";
 import AiryDiagram from "../components/AiryDiagram";
 import SkeletonLine from "../components/ui/SkeletonLine";
+import Footer from "../components/Footer";
 
 const ChaosCanvas = React.lazy(() => import("../components/ChaosCanvas"));
 
@@ -306,16 +307,7 @@ const SideProjectDetail = () => {
         })()}
       </main>
 
-      {/* --- 5. FOOTER STAMP --- */}
-      <footer className="text-center py-24 opacity-60 relative z-10">
-        <FileText
-          size={24}
-          className="mx-auto mb-4 text-[var(--text-secondary)]"
-        />
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
-          End of Record
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -437,7 +437,8 @@ export const translations = {
       planned_features: "Planned_Features"
     },
     virtual_assistant: {
-      msg_home: "Connection established. I'm your guide through this expertise matrix. How can I help you deconstruct my work?",
+      name: "VAKI",
+      msg_home: "Connection established. I'm Vaki, your guide through this expertise matrix. How can I help you deconstruct my work?",
       msg_case_study: "Deconstructing the impact. I've mapped out the research, decisions, and outcomes for your review.",
       msg_side_projects: "Entering the sandbox. These are the experimental iterations where I test new logic.",
       msg_about: "Reviewing the architect's DNA. This is where systems thinking meets human intent.",
@@ -455,15 +456,15 @@ export const translations = {
         "brand-official-store": "Official Store: Architecting premium presence for global brands.",
         "promo-engine": "Promo Center: Solving the math of growth through conflict-free logic.",
         // Side Projects
-        "human-algorithm": "The Human Algorithm: My self-aware portfolio architecture.",
+        "human-algorithm": "The Human Algorithm: Analyzing the recursive logic of this self-aware portfolio.",
         "productivity-illusion": "Productivity Research: Decoding the friction between engagement and learning.",
-        "interactive-workbook": "Interactive Workbook: Gamifying the bilingual learning loop.",
-        "year-in-review": "Year in Review: A privacy-first engine for reflecting on milestones.",
-        "dolphi": "Dolphi: Habit meta-tracking for the resilient self.",
+        "interactive-workbook": "Interactive Workbook: Exploring the mechanics of the bilingual learning loop.",
+        "year-in-review": "Year in Review: Auditing a privacy-first engine for achievement reflection.",
+        "dolphi": "Dolphi: Examining habit meta-tracking for the resilient self.",
         // Company Overviews
-        "lumina": "Lumina Ecosystem: Deconstructing the blue-collar recruitment machine.",
-        "gudang-ada": "GudangAda Core: Analyzing B2B supply chain infrastructure at scale.",
-        "stoqo": "STOQO Core: Reviewing operational resilience in F&B logistics.",
+        "lumina": "Lumina: Engineering dignity into the blue-collar recruitment machine.",
+        "gudang-ada": "GudangAda: Systematizing trust across $100B of fragmented B2B supply chains.",
+        "stoqo": "STOQO: Designing for operational resilience in the chaotic heart of F&B logistics.",
         // Route-specific contexts
         "design-system": "System DNA: Reviewing the immutable tokens that define this interface.",
         "sketches": "Visual Scratchpad: Exploring early-stage visual logic and pencil prototypes.",
@@ -521,7 +522,15 @@ export const translations = {
         context: {
           "design-system": "System DNA: Analyzing the core tokens that define this digital reality.",
           "sketches": "Raw Input: Accessing unoptimized visual thoughts and pencil-first logic.",
-          "contact": "Handshake Protocol: Initializing a direct handshake with the system architect."
+          "contact": "Handshake Protocol: Initializing a direct handshake with the system architect.",
+          "human-algorithm": "Observation: The system is examining its own creation. Meta-context detected.",
+          "productivity-illusion": "Deconstructing Focus: Analyzing the gap between metric engagement and actual learning.",
+          "interactive-workbook": "Loop Analysis: Examining how gamification affects bilingual knowledge retention.",
+          "year-in-review": "Data Audit: Reviewing the logic of achievement logging without compromising privacy.",
+          "dolphi": "Behavioral Core: Analyzing the meta-tracker's resilience mechanics and mascot reactivity.",
+          "lumina": "Analyzing the blue-collar recruitment machine. Accessing deep-field logs and reputation system logic.",
+          "gudang-ada": "Auditing $100B B2B supply chain layers. Reviewing high-volume transaction fail-safes.",
+          "stoqo": "Deconstructing F&B logistics entropy. Examining the mechanics of just-in-time resilience."
         }
       },
       sleeping: "Zzz..."
@@ -963,8 +972,9 @@ export const translations = {
       planned_features: "Fitur_Direncanakan"
     },
     virtual_assistant: {
-      msg_home: "Koneksi terjalin. Saya pemandu Anda melalui matriks keahlian ini. Apa yang ingin Anda bedah hari ini?",
-      msg_case_study: "Membedah dampak sistem. Saya sudah memetakan riset, keputusan, dan hasil akhir untuk Anda pelajari.",
+      name: "VAKI",
+      msg_home: "Koneksi terjalin. Saya Vaki, pemandu Anda dalam matriks keahlian ini. Bagaimana saya bisa membantu Anda menelaah karya-karya saya?",
+      msg_case_study: "Mendekonstruksi dampak. Saya telah memetakan riset, keputusan, dan hasil untuk Anda tinjau.",
       msg_side_projects: "Masuk ke sandbox. Ini adalah iterasi eksperimental tempat saya menguji logika baru.",
       msg_about: "Meninjau DNA sang arsitek. Titik di mana sistem berpikir bertemu dengan empati manusia.",
       context: {
@@ -981,15 +991,15 @@ export const translations = {
         "brand-official-store": "Official Store: Merancang kehadiran premium bagi brand global.",
         "promo-engine": "Promo Center: Menyelesaikan matematika pertumbuhan melalui logika tanpa konflik.",
         // Proyek Sampingan
-        "human-algorithm": "The Human Algorithm: Arsitektur portofolio yang sadar diri.",
+        "human-algorithm": "The Human Algorithm: Menganalisis logika rekursif dari portofolio yang sadar diri ini.",
         "productivity-illusion": "Riset Produktivitas: Mendekode friksi antara keterlibatan dan pembelajaran.",
-        "interactive-workbook": "Buku Kerja Interaktif: Menggamifikasi siklus pembelajaran bilingual.",
-        "year-in-review": "Year in Review: Mesin refleksi pencapaian yang mengutamakan privasi.",
-        "dolphi": "Dolphi: Meta-tracking kebiasaan untuk diri yang tangguh.",
+        "interactive-workbook": "Buku Kerja Interaktif: Mengeksplorasi mekanik siklus pembelajaran bilingual.",
+        "year-in-review": "Year in Review: Mengaudit mesin refleksi pencapaian yang mengutamakan privasi.",
+        "dolphi": "Dolphi: Menelaah meta-tracking kebiasaan untuk diri yang tangguh.",
         // Ringkasan Perusahaan
-        "lumina": "Ekosistem Lumina: Membedah mesin rekrutmen pekerja kerah biru.",
-        "gudang-ada": "GudangAda: Menganalisis infrastruktur rantai pasokan B2B skala besar.",
-        "stoqo": "STOQO: Meninjau resiliensi operasional dalam logistik F&B.",
+        "lumina": "Lumina: Merekayasa martabat ke dalam mesin rekrutmen pekerja kerah biru.",
+        "gudang-ada": "GudangAda: Mensistematiskan kepercayaan di tengah rantai pasok B2B senilai $100M.",
+        "stoqo": "STOQO: Mendesain untuk resiliensi operasional di jantung logistik F&B yang dinamis.",
         // Konteks spesifik rute
         "design-system": "DNA Sistem: Meninjau token desain yang mendefinisikan antarmuka ini.",
         "sketches": "Sketsa Visual: Mengeksplorasi logika visual tahap awal dan purwarupa pensil.",
@@ -1046,8 +1056,16 @@ export const translations = {
         msg_case_study: "Mendekonstruksi alur kerja utama dengan teliti. Menganalisis logika dampak.",
         context: {
           "design-system": "DNA Sistem: Menganalisis token inti yang mendefinisikan realitas digital ini.",
-          "sketches": "Input Mentah: Mengakses pemikiran visual tidak teroptimasi dan logika berbasis pensil.",
-          "contact": "Protokol Jabat Tangan: Menginisialisasi tautan langsung dengan sang arsitek sistem."
+          "sketches": "Input Pentah: Mengakses pemikiran visual tidak teroptimasi dan logika berbasis pensil.",
+          "contact": "Protokol Jabat Tangan: Menginisialisasi tautan langsung dengan sang arsitek sistem.",
+          "human-algorithm": "Observasi: Sistem sedang meninjau ciptaannya sendiri. Mendeteksi meta-konteks.",
+          "productivity-illusion": "Dekonstruksi Fokus: Menganalisis celah antara keterlibatan metrik dan pembelajaran nyata.",
+          "interactive-workbook": "Analisis Siklus: Membedah bagaimana gamifikasi memengaruhi retensi pengetahuan bilingual.",
+          "year-in-review": "Audit Data: Meninjau logika pencatatan pencapaian tanpa mengorbankan privasi.",
+          "dolphi": "Inti Perilaku: Menganalisis mekanik resiliensi meta-tracker dan reaktivitas maskot.",
+          "lumina": "Menganalisis mesin rekrutmen pekerja kerah biru. Mengakses log lapangan dan logika sistem reputasi.",
+          "gudang-ada": "Mengaudit lapisan rantai pasokan B2B senilai $100M. Meninjau pengaman transaksi volume tinggi.",
+          "stoqo": "Mendekonstruksi entropi logistik F&B. Menelaah mekanik resiliensi pengiriman just-in-time."
         }
       },
       sleeping: "Zzz..."

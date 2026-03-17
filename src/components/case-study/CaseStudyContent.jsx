@@ -23,6 +23,7 @@ import ProjectCard from "../ProjectCard";
 import ZoomableImage from "../ZoomableImage";
 import AiryDiagram from "../AiryDiagram";
 import AIBrainstorm from "../AIBrainstorm";
+import Footer from "../Footer";
 import { DESIGN_PROCESS_STEPS } from "../../data/processSteps";
 
 const CaseStudyContent = ({ project, parentCluster }) => {
@@ -696,14 +697,9 @@ const CaseStudyContent = ({ project, parentCluster }) => {
           <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
         </section>
 
-        {/* FOOTER */}
-        <footer className="border-t border-[var(--border-color)] py-12 text-center opacity-40 hover:opacity-100 transition-opacity">
-          <p className="font-mono text-[10px] uppercase tracking-widest">
-            Human By Design Portfolio · Fadly Uzzaki 🧢 © 2025-2026
-          </p>
-        </footer>
+        <Footer />
       </main>
-    </div >
+    </div>
   );
 };
 
