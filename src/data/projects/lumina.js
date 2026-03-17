@@ -129,26 +129,6 @@ export const lumina = {
             "Why do we treat recruitment like email when candidates live on WhatsApp?",
           heroImage: "airy:flow",
         },
-      },
-      caseStudy_id: {
-        summaries: {
-          eli5: {
-            label: "👶 ELI5",
-            title: "Mirip WhatsApp, tapi Lebih Teratur",
-            text: "Bayangkan kalau pesan teks Anda campur aduk dengan email kerja. Berantakan. Kami buat kotak masuk khusus supaya tidak ada pesan yang terlewat.",
-          },
-          recruiter: {
-            label: "👔 Recruiter",
-            title: "Dampak: Kecepatan Respon",
-            text: "Memimpin desain ulang modul komunikasi kandidat. Mengatasi hambatan di mana rekruter kewalahan data tidak terstruktur. Hasil: Mengurangi waktu rekrutmen hingga 3 hari.",
-          },
-          technical: {
-            label: "🤖 System",
-            title: "Celah Async/Sync",
-            text: "Rekruter bekerja dalam kelompok (Async), sedangkan kandidat mengharapkan respon cepat (Sync). Tantangannya adalah menjembatani dua model mental ini tanpa memaksa perubahan perilaku.",
-          },
-        },
-      },
         context: {
           client: "Internal Product",
           role: "I led the UX & UI",
@@ -284,115 +264,23 @@ export const lumina = {
         ],
       },
       caseStudy_id: {
-        locked: true,
         summaries: {
           eli5: {
             label: "👶 ELI5",
-            title: "Mirip WhatsApp, Tapi Rapi",
-            text: "Bayangkan kalau SMS pribadi campur sama email kerjaan. Pusing kan? Kita bikin inbox khusus biar pesan kerjaan gak ketimbun.",
+            title: "Mirip WhatsApp, tapi Lebih Teratur",
+            text: "Bayangkan kalau pesan teks Anda campur aduk dengan email kerja. Berantakan. Kami buat kotak masuk khusus supaya tidak ada pesan yang terlewat.",
           },
           recruiter: {
             label: "👔 Recruiter",
-            title: "Dampak: Lonjakan Respon",
-            text: "Memimpin redesign modul komunikasi kandidat. Menyelesaikan bottleneck di mana rekruter kewalahan data tidak terstruktur. Hasil: Waktu rekrutmen turun drastis & kepuasan kandidat meningkat tajam.",
+            title: "Dampak: Kecepatan Respon",
+            text: "Memimpin desain ulang modul komunikasi kandidat. Mengatasi hambatan di mana rekruter kewalahan data tidak terstruktur. Hasil: Mengurangi waktu rekrutmen hingga 3 hari.",
           },
           technical: {
-            label: "🤖 Sistem",
+            label: "🤖 System",
             title: "Celah Async/Sync",
-            text: "Rekruter kerja per-batch (Async), tapi kandidat mau respon real-time (Sync). Tantangannya: menjembatani dua model mental ini tanpa maksa ubah kebiasaan.",
+            text: "Rekruter bekerja dalam kelompok (Async), sedangkan kandidat mengharapkan respon cepat (Sync). Tantangannya adalah menjembatani dua model mental ini tanpa memaksa perubahan perilaku.",
           },
         },
-        snapshot: {
-          tagline:
-            "Kenapa rekrutmen kaku kayak email, padahal kandidat hidup di WhatsApp?",
-          heroImage: "/workforce_hero.png",
-        },
-        context: {
-          client: "Produk Internal",
-          role: "Lead UX & UI",
-          timeline: "3 Bulan",
-          team: "1 PM, 2 FE, 1 BE",
-        },
-        challenge:
-          "Rekruter kewalahan. Ngurus 200+ kandidat cuma pake Excel sama WhatsApp pribadi bikin data berantakan dan respon jadi lambat banget (rata-rata 4 hari). Kandidat kabur gara-gara kita lelet.",
-        process: [
-          {
-            title: "Observasi Langsung",
-            desc: "Saya duduk bareng 5 rekruter selama satu shift. Saya liat mereka copy-paste pesan yang sama 50 kali. Ini bukan masalah 'tracking', ini masalah 'ngetik'.",
-            image: "airy:timeline",
-          },
-          {
-            title: "Konflik",
-            desc: "Tim Engineering mau bikin sistem tiket. Saya ngotot minta antarmuka Chat. Tiket rasanya kayak kerjaan admin; Chat rasanya kayak ngobrol.",
-            image: "airy:venn",
-          },
-          {
-            title: "Prototipe",
-            desc: "Saya bikin prototipe mirip WhatsApp dan verifikasi langsung sama pekerja kerah biru. Kalau mereka bisa pake WhatsApp, mereka pasti bisa pake ini.",
-            image: "airy:ui",
-          },
-        ],
-        insights: [
-          {
-            title: "Takut Formalitas",
-            desc: "Kandidat nyuekin email karena terlalu formal. Chat terasa aman. Mediumnya adalah pesannya.",
-          },
-          {
-            title: "Batch vs Real-time",
-            desc: "Rekruter kerja numpuk (batching); kandidat maunya real-time. Saya harus desain sistem yang ngejembatanin kesenjangan ini.",
-          },
-        ],
-        solution: [
-          {
-            title: "Inbox Terpadu",
-            desc: "Saya gabungin SMS, WhatsApp, dan In-App jadi satu thread. Gak perlu gonta-ganti tab lagi.",
-            image: "airy:layers",
-          },
-          {
-            title: "Kecepatan Satu Tap",
-            desc: "Saya desain 'Template Pintar' buat jawaban umum (misal: 'Interview Dijadwalkan') cuma pake satu tap.",
-            image: "airy:flow",
-          },
-        ],
-        metrics: [
-          { label: "Rate Respon", value: "Meningkat Signifikan" },
-          { label: "Waktu Rekrut", value: "Lebih Cepat" },
-          { label: "NPS", value: "Kepuasan Tinggi" },
-        ],
-        learnings:
-          "Proyek ini ngajarin saya kalo fitur gak nyelesain masalah; alur kerja (workflow) yang nyelesain. Dengan niru alat yang udah biasa mereka pake (WhatsApp) tapi dikasih struktur, saya dapet adopsi tanpa perlu training ribet.",
-        aiHypotheses: [
-          {
-            tech: "Agen LLM & Analisa Sentimen",
-            title: "Bot Negosiasi Otomatis",
-            desc: "Daripada rekruter ngetik manual, Agen bakal nulis draft jawaban berdasarkan mood kandidat dan ketersediaan waktu. Bisa jadwalin interview otomatis lho.",
-            impact: "Waktu Respon Cepat",
-          },
-          {
-            tech: "Voice AI & Speech-to-Text",
-            title: "Screening Berbasis Suara",
-            desc: "Kandidat rekam jawaban suara untuk pertanyaan screening. AI transkripsi, analisa nada dan kepercayaan diri, dan auto-generate skor ringkasan kandidat untuk rekruter.",
-            impact: "Waktu Screening Berkurang Drastis",
-          },
-          {
-            tech: "Predictive Analytics & ML",
-            title: "Prediktor Kecocokan Kandidat",
-            desc: "Model ML yang dilatih dari data rekrutmen historis memprediksi kandidat mana yang kemungkinan besar terima offer dan bertahan lama, bantu rekruter prioritaskan lead bernilai tinggi.",
-            impact: "Penerimaan Offer Lebih Tinggi",
-          },
-          {
-            tech: "Voice-to-Action Agents",
-            title: "Wawancara Sambil Jalan",
-            desc: "Kandidat bisa jawab pertanyaan screening lewat voice note sambil di jalan. AI transkrip, ringkas kompetensi inti, dan update kecocokan profil.",
-            impact: "Pengalaman Kandidat Terbaik",
-          },
-          {
-            tech: "Model Penalaran Besar",
-            title: "Bot Auditor Bias",
-            desc: "AI pengamat diam yang menandai potensi bias bawah sadar di pesan rekruter atau deskripsi kerja sebelum dikirim, menyarankan bahasa yang lebih inklusif.",
-            impact: "Perekrutan Diversifikasi Meningkat",
-          },
-        ],
       },
     },
     {

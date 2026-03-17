@@ -131,26 +131,6 @@ export const stoqo = {
           tagline: "Solving the 'Where is my truck?' anxiety loop.",
           heroImage: "airy:network",
         },
-      },
-      caseStudy_id: {
-        summaries: {
-          eli5: {
-            label: "👶 ELI5",
-            title: "Di mana Truk Saya?",
-            text: "Menunggu truk dalam kegelapan itu menakutkan. Saya buat aplikasi yang memberitahu Anda persis di mana truk itu berada, supaya Anda bisa berhenti khawatir dan bisa tidur.",
-          },
-          recruiter: {
-            label: "👔 Recruiter",
-            title: "Ketangguhan Layanan",
-            text: "Menyelesaikan titik kecemasan kritis dengan menerapkan pelacakan logistik real-time. Berhasil mengurangi tiket bantuan secara signifikan dan meningkatkan kepercayaan pelanggan.",
-          },
-          technical: {
-            label: "🤖 System",
-            title: "Telemetri & Push",
-            text: "Merancang antarmuka pelacakan real-time. Mengganti kecemasan dengan visibilitas menggunakan pembaruan status langsung.",
-          },
-        },
-      },
         context: {
           client: "STOQO Logistics",
           role: "End-to-End Experience",

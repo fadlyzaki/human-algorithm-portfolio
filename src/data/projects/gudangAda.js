@@ -127,26 +127,6 @@ export const gudangAda = {
             "7 steps to buy a box of noodles? We had to fix the trust gap.",
           heroImage: "airy:flow",
         },
-      },
-      caseStudy_id: {
-        summaries: {
-          eli5: {
-            label: "👶 ELI5",
-            title: "Belanja yang Aman",
-            text: "Membeli barang untuk stok warung tadinya menakutkan. Saya buat alurnya sederhana seperti memesan pizza, dan menjamin uang kembali jika ada masalah, supaya pemilik warung merasa tenang.",
-          },
-          recruiter: {
-            label: "👔 Recruiter",
-            title: "Rekayasa Kepercayaan",
-            text: "Menyederhanakan checkout B2B yang kompleks dari 7 langkah menjadi 3. Menambahkan sinyal kepercayaan seperti lencana escrow, yang secara signifikan mengurangi cart abandonment.",
-          },
-          technical: {
-            label: "🤖 System",
-            title: "Checkout State Machine",
-            text: "Memperbaiki alur checkout agar tidak kaku. Mengintegrasikan validasi real-time dan penanganan error lokal untuk mencegah frustrasi pengguna saat transaksi bernilai tinggi.",
-          },
-        },
-      },
         context: {
           client: "GudangAda",
           role: "I led the Checkout Squad",
