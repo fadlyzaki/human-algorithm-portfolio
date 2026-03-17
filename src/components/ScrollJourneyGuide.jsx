@@ -102,9 +102,9 @@ const ScrollJourneyGuide = () => {
   if (isRecruiterMode) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 w-full h-[100px] sm:h-[160px] pointer-events-none z-40 overflow-hidden">
+    <div className="fixed bottom-0 left-0 w-full h-[120px] sm:h-[160px] pointer-events-none z-40">
       <motion.div
-        className="absolute bottom-0 w-[60px] h-20 sm:w-24 sm:h-32 flex flex-col items-center pointer-events-auto cursor-pointer group"
+        className="absolute bottom-0 w-20 h-28 sm:w-24 sm:h-32 pointer-events-auto cursor-pointer group flex flex-col items-center justify-end"
         onClick={handleSpriteClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -117,14 +117,15 @@ const ScrollJourneyGuide = () => {
           return `translateX(calc(${pct} * (100vw - min(128px, 20vw)))) scaleX(${facingRight ? 1 : -1})`;
         }}
       >
-        {/* Section Label / Tooltip */}
+        {/* Section Label / Tooltip - Positioned absolutely above the sprite */}
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ 
             opacity: isHovered || showMessage ? 1 : 0.6, 
-            y: isHovered || showMessage ? -10 : 0 
+            y: isHovered || showMessage ? -110 : -90
           }}
-          className="bg-[var(--bg-card)] border border-[var(--border-color)] px-2 py-1 rounded-md mb-2 shadow-lg backdrop-blur-md"
+          className="absolute left-1/2 -translate-x-1/2 bg-[var(--bg-card)] border border-[var(--border-color)] px-2 py-1 rounded-md shadow-lg backdrop-blur-md z-10"
+          style={{ transform: `scaleX(${facingRight ? 1 : -1})` }} // Keep text readable
         >
           <p className="text-[10px] font-mono whitespace-nowrap text-[var(--text-primary)] uppercase tracking-tighter">
             {showMessage ? tipMessage : t(`scroll_guide.sections.${currentSection}`)}
@@ -133,7 +134,7 @@ const ScrollJourneyGuide = () => {
 
         {/* Character Container with Squash & Stretch */}
         <motion.div 
-          className={`w-full h-full drop-shadow-md opacity-40 sm:opacity-60 ${isDark ? "brightness-90" : ""} overflow-hidden flex transition-opacity duration-300 ${isHovered ? "opacity-100" : ""}`}
+          className={`w-full h-full drop-shadow-md opacity-40 sm:opacity-60 ${isDark ? "brightness-90" : ""} overflow-hidden transition-opacity duration-300 ${isHovered ? "opacity-100" : ""}`}
           animate={{
             scaleY: currentScene === SCENES.WALK ? [1, 0.95, 1] : 1,
             scaleX: currentScene === SCENES.WALK ? [1, 1.05, 1] : 1,
