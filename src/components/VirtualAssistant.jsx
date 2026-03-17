@@ -216,7 +216,6 @@ const VirtualAssistant = () => {
 
   return (
     <div className="fixed bottom-4 right-4 z-[100] flex flex-col items-end gap-2 animate-in fade-in slide-in-from-bottom-5 duration-700 pointer-events-none virtual-assistant-override">
-      {/* Sprite Speech Bubble (pointer-events-auto so it can be interacted with if needed) */}
       {/* Sprite Speech Bubble */}
       <div className={`
         pointer-events-auto
@@ -226,18 +225,22 @@ const VirtualAssistant = () => {
         max-w-[170px] sm:max-w-[220px] text-xs sm:text-sm text-[var(--text-primary)]
         flex items-start gap-3 relative
         transform origin-bottom-right transition-all duration-300
-        ${!showMessage ? "scale-95 opacity-0 rotate-2 translate-y-2 pointer-events-none" : "scale-100 opacity-100 rotate-0 translate-y-0"}
+        ${(!showMessage && !isSleeping) ? "scale-95 opacity-0 rotate-2 translate-y-2 pointer-events-none" : "scale-100 opacity-100 rotate-0 translate-y-0"}
       `}>
-        <button 
-          onClick={handleDismiss}
-          className="absolute -top-2 -right-2 w-5 h-5 bg-[var(--bg-void)] border border-[var(--border-color)] rounded-full flex items-center justify-center text-[var(--text-secondary)] hover:text-white hover:border-[var(--accent)] transition-colors z-10"
-        >
-          <span className="text-[10px] leading-none">×</span>
-        </button>
+        {!isSleeping && (
+          <button 
+            onClick={handleDismiss}
+            className="absolute -top-2 -right-2 w-5 h-5 bg-[var(--bg-void)] border border-[var(--border-color)] rounded-full flex items-center justify-center text-[var(--text-secondary)] hover:text-white hover:border-[var(--accent)] transition-colors z-10"
+          >
+            <span className="text-[10px] leading-none">×</span>
+          </button>
+        )}
         <MessageSquare size={16} className="text-[var(--accent-blue)] mt-0.5 shrink-0" />
         
         <div className="w-full">
-          {menuOptions ? (
+          {isSleeping ? (
+            <p className="leading-snug pr-2 font-mono animate-pulse">{t("virtual_assistant.sleeping", "Zzz...")}</p>
+          ) : menuOptions ? (
             <div className="flex flex-col gap-1.5 w-full">
               {menuOptions.map((opt, i) => (
                 <button 
@@ -254,7 +257,7 @@ const VirtualAssistant = () => {
           )}
         </div>
         
-        {/* Bubble Tail - Positioning it to point to the character */}
+        {/* Bubble Tail */}
         <div className="absolute -bottom-2 right-10 w-4 h-4 bg-[var(--bg-card)] border-r border-b border-[var(--border-color)] rotate-45 z-[-1]" />
       </div>
 
@@ -263,18 +266,13 @@ const VirtualAssistant = () => {
         onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className={`w-20 h-28 sm:w-24 sm:h-32 drop-shadow-lg scale-x-[-1] sm:scale-x-1 overflow-hidden pointer-events-auto cursor-pointer transition-transform duration-200 ${isHovered ? "scale-105" : ""} ${isDark ? "brightness-90 opacity-90" : ""} ${isSleeping ? "opacity-50 grayscale hover:grayscale-0 hover:opacity-100" : ""}`}
+        className={`w-20 h-28 sm:w-24 sm:h-32 drop-shadow-lg scale-x-[-1] sm:scale-x-1 overflow-hidden pointer-events-auto cursor-pointer transition-all duration-300 ${isHovered ? "scale-105" : ""} ${isDark ? "brightness-90 opacity-90" : ""} ${isSleeping ? "opacity-50 grayscale hover:grayscale-0 hover:opacity-100" : ""}`}
       >
-        {isSleeping && (
-          <div className="absolute -top-2 right-2 text-xs font-mono font-bold text-[var(--text-secondary)] animate-pulse">
-            {t("virtual_assistant.sleeping", "Zzz...")}
-          </div>
-        )}
         <img 
           key={isSleeping ? 'sleep' : currentScene}
           src={`/images/sprite-${isSleeping ? SCENES.IDLE : currentScene}.png`} 
           alt="Virtual Assistant Sprite" 
-          className={`sprite-img ${isSleeping ? 'sprite-anim-idle' : `sprite-anim-${currentScene}`}`} 
+          className={`sprite-img ${isSleeping ? '' : `sprite-anim-${currentScene}`}`} 
         />
       </div>
     </div>
