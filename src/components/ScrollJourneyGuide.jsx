@@ -119,29 +119,37 @@ const ScrollJourneyGuide = () => {
       >
         {/* Section Label / Tooltip - Positioned absolutely above the sprite */}
         <motion.div 
-          initial={{ opacity: 0, y: 10 }}
+          key={currentSection} // Animate on section change
+          initial={{ opacity: 0, y: 10, scale: 0.9 }}
           animate={{ 
             opacity: isHovered || showMessage ? 1 : 0.6, 
-            y: isHovered || showMessage ? -110 : -90
+            y: isHovered || showMessage ? -110 : -90,
+            scale: 1,
+            scaleX: facingRight ? 1 : -1 // Un-mirror the parent's flip
           }}
-          className="absolute left-1/2 -translate-x-1/2 bg-[var(--bg-card)] border border-[var(--border-color)] px-2 py-1 rounded-md shadow-lg backdrop-blur-md z-10"
-          style={{ transform: `scaleX(${facingRight ? 1 : -1})` }} // Keep text readable
+          transition={{
+            y: { type: "spring", stiffness: 300, damping: 20 },
+            opacity: { duration: 0.2 }
+          }}
+          className="absolute left-1/2 -translate-x-1/2 bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-1.5 rounded-xl shadow-lg backdrop-blur-md z-10 flex flex-col items-center"
         >
           <p className="text-[10px] font-mono whitespace-nowrap text-[var(--text-primary)] uppercase tracking-tighter">
             {showMessage ? tipMessage : t(`scroll_guide.sections.${currentSection}`)}
           </p>
+          {/* Bubble Tail */}
+          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[var(--bg-card)] border-r border-b border-[var(--border-color)] rotate-45" />
         </motion.div>
 
         {/* Character Container with Squash & Stretch */}
         <motion.div 
           className={`w-full h-full drop-shadow-md opacity-40 sm:opacity-60 ${isDark ? "brightness-90" : ""} overflow-hidden transition-opacity duration-300 ${isHovered ? "opacity-100" : ""}`}
           animate={{
-            scaleY: currentScene === SCENES.WALK ? [1, 0.95, 1] : 1,
-            scaleX: currentScene === SCENES.WALK ? [1, 1.05, 1] : 1,
+            scaleY: currentScene === SCENES.WALK ? [1, 0.92, 1] : 1,
+            scaleX: currentScene === SCENES.WALK ? [1, 1.08, 1] : 1,
           }}
           transition={{
             repeat: Infinity,
-            duration: 0.6,
+            duration: 0.5,
             ease: "easeInOut"
           }}
         >
