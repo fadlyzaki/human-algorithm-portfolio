@@ -148,8 +148,41 @@ const LayoutLab = ({ isXRayMode }) => (
           </div>
         </div>
       </div>
+    {/* KINETIC NAVIGATION (NEW) */}
+    <div
+      className={`space-y-6 relative z-10 ${isXRayMode ? "p-4 border border-dashed border-[var(--text-secondary)]/50" : ""}`}
+    >
+      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+        <Activity size={14} /> Global_Kinetic_Navigation
+      </h3>
+
+      <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 space-y-8">
+        <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex-1 space-y-4">
+            <h4 className="font-bold text-sm">The Scroll-Track Pattern</h4>
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+              We transformed the abstract concept of "page depth" into a physical track. A 1/8th scale sprite travels along the X-axis mapping 0-100% of the document height, providing tactile awareness of current location.
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-3 bg-[var(--bg-void)] rounded font-mono text-[9px]">
+                <span className="opacity-50">STIFFNESS:</span> 100<br/>
+                <span className="opacity-50">DAMPING:</span> 30
+              </div>
+              <div className="p-3 bg-[var(--bg-void)] rounded font-mono text-[9px]">
+                <span className="opacity-50">METHOD:</span> useSpring<br/>
+                <span className="opacity-50">RENDER:</span> fixed-bottom
+              </div>
+            </div>
+          </div>
+          <div className="w-full md:w-64 h-32 bg-[var(--bg-void)] rounded-lg relative overflow-hidden border border-[var(--border-color)]">
+             <div className="absolute bottom-4 left-4 w-12 h-16 opacity-30">
+               <img src="/images/sprite-walk.png" className="sprite-img sprite-anim-walk scale-50" alt="demo" />
+             </div>
+             <div className="absolute bottom-1 w-full h-[1px] bg-[var(--accent)] opacity-20" />
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-);
+
 
 export default LayoutLab;

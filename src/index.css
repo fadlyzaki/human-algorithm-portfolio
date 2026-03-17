@@ -488,6 +488,8 @@ html {
   width: 800%;
   max-width: none;
   object-fit: fill;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   /* 8 frames, so steps(8) from 0 to -100% covers 0 to -7/8th */
   animation: spriteSlide 1s steps(8, end) infinite !important;
 }
@@ -496,7 +498,7 @@ html {
   animation-duration: 1.2s !important;
 }
 
-.sprite-anim-thinking {
+.sprite-anim-think {
   animation-duration: 1.5s !important;
 }
 

@@ -11,8 +11,8 @@ export const STORAGE_KEYS = {
 };
 
 export const SYSTEM_CONFIG = {
-  VERSION: "v3.2.0",
-  CODENAME: "Vitest Integration & Token Audit",
+  VERSION: "v3.5.0",
+  CODENAME: "Agentic Companion & Kinetic Navigation",
   STATUS: "NOMINAL",
   UPTIME: "99.99%",
   MEM_USAGE: "180MB",

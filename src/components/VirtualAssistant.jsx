@@ -7,7 +7,7 @@ import { useTheme } from "../context/ThemeContext";
 
 const SCENES = {
   IDLE: "idle",       // Row 3 (index 2)
-  THINKING: "thinking", // Row 4 (index 3)
+  THINKING: "think",    // Row 4 (index 3) - Changed from 'thinking' to 'think' to match filename
   WALK: "walk",       // Row 1 (index 0)
 };
 
@@ -63,39 +63,58 @@ const VirtualAssistant = () => {
     setCurrentScene(SCENES.WALK);
 
     let newMsg = "";
-    if (location.pathname === "/") {
+    const path = location.pathname;
+
+    if (path === "/") {
       newMsg = t("virtual_assistant.msg_home");
-    } else if (location.pathname.includes("/case-study")) {
-      newMsg = t("virtual_assistant.msg_case_study");
-    } else if (location.pathname === "/about") {
+    } else if (path === "/about") {
       newMsg = t("virtual_assistant.msg_about");
+    } else if (path === "/side-projects") {
+      newMsg = t("virtual_assistant.msg_side_projects");
+    } else if (path.includes("/case-study/") || path.includes("/side-project/")) {
+      // Extract ID from /case-study/id or /side-project/id, handling trailing slashes
+      const segments = path.split("/").filter(Boolean);
+      const id = segments[segments.length - 1];
+      
+      // Try to find specific context message
+      const specificMsg = t(`virtual_assistant.context.${id}`);
+      
+      if (specificMsg && specificMsg !== `virtual_assistant.context.${id}`) {
+        newMsg = specificMsg;
+      } else {
+        // Fallback to generic category message
+        newMsg = path.includes("/case-study/") 
+          ? t("virtual_assistant.msg_case_study") 
+          : t("virtual_assistant.msg_side_projects");
+      }
     }
 
     // Simulate walk in, then think, then idle and show message
+    let thinkTimer;
     const walkTimer = setTimeout(() => {
       setCurrentScene(SCENES.THINKING);
       
-      const thinkTimer = setTimeout(() => {
+      thinkTimer = setTimeout(() => {
         if (newMsg) {
           setMessage(newMsg);
           setShowMessage(true);
           
           // Auto-hide the initial welcome message after 8 seconds
-          setTimeout(() => {
+          const hideTimer = setTimeout(() => {
             setShowMessage((prev) => {
               if (prev && message === newMsg) return false;
               return prev;
             });
-            setCurrentScene((prevScene) => prevScene === SCENES.IDLE ? SCENES.IDLE : prevScene);
           }, 8000);
         }
         setCurrentScene(SCENES.IDLE);
       }, 2000);
-
-      return () => clearTimeout(thinkTimer);
     }, 1500);
 
-    return () => clearTimeout(walkTimer);
+    return () => {
+      clearTimeout(walkTimer);
+      clearTimeout(thinkTimer);
+    };
   }, [location.pathname, isRecruiterMode]);
 
   if (!isRecruiterMode) return null;
@@ -132,6 +151,7 @@ const VirtualAssistant = () => {
         className={`w-20 h-28 sm:w-24 sm:h-32 drop-shadow-lg scale-x-[-1] sm:scale-x-1 overflow-hidden pointer-events-auto cursor-pointer transition-transform duration-200 ${isHovered ? "scale-105" : ""} ${isDark ? "brightness-90 opacity-90" : ""}`}
       >
         <img 
+          key={currentScene}
           src={`/images/sprite-${currentScene}.png`} 
           alt="Virtual Assistant Sprite" 
           className={`sprite-img sprite-anim-${currentScene}`} 

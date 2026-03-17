@@ -1,14 +1,14 @@
 export const humanAlgorithm = {
   id: "human-algorithm",
   title: { en: "The Human Algorithm", id: "The Human Algorithm" },
-  subtitle: { en: "System Architecture v6.0", id: "Arsitektur Sistem v6.0" },
+  subtitle: { en: "System Architecture v7.0", id: "Arsitektur Sistem v7.0" },
   desc: {
-    en: 'A self-aware portfolio built by AI agents. From "Pixel Pushing" to "System Orchestration".',
-    id: "Portofolio sadar diri yang dibangun oleh agen AI. Dari 'Pixel Pushing' ke 'Orkestrasi Sistem'.",
+    en: 'A self-aware portfolio built by AI agents. Featuring an autonomous "Virtual Assistant" and kinetic "Scroll Journey" logic.',
+    id: "Portofolio sadar diri yang dibangun oleh agen AI. Menampilkan 'Asisten Virtual' otonom dan logika 'Scroll Journey' kinetik.",
   },
   tldr: {
-    en: "The first portfolio built entirely through an Agentic Workflow. A proof of concept for the future of software engineering.",
-    id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. Bukti konsep untuk masa depan rekayasa perangkat lunak.",
+    en: "The first portfolio built entirely through an Agentic Workflow. Version 7.0 introduces the 'Companion Protocol'—a context-aware AI sprite system.",
+    id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. Versi 7.0 memperkenalkan 'Companion Protocol'—sistem sprite AI yang sadar konteks.",
   },
   stack: ["React", "Framer Motion", "Three.js", "Vite", "Tailwind"],
   links: {
@@ -22,13 +22,13 @@ export const humanAlgorithm = {
   date: "February 2026",
   coverImage: "airy:architecture",
   snapshot: {
-    tagline: { en: "System Architecture v6.0", id: "System Architecture v6.0" },
+    tagline: { en: "System Architecture v7.0", id: "System Architecture v7.0" },
     heroImage: "airy:architecture",
   },
   context: {
-    role: "Product Owner",
-    timeline: "Feb 2026",
-    team: "Human + 3 AI Agents",
+    role: "System Architect",
+    timeline: "Feb - March 2026",
+    team: "Human + 4 AI Agents",
     client: "Personal Brand",
   },
   challenge: {
@@ -61,13 +61,35 @@ export const humanAlgorithm = {
     {
       title: {
         en: "Visualization: Technical Diagrams",
-        id: "Visualization: Technical Diagrams",
-      }, // ID Content missing in legacy file, using EN
+        id: "Visualisasi: Diagram Teknis",
+      },
       desc: {
-        en: "Replaced 15+ static images with `AiryDiagram.jsx`, a custom SVG engine. Reduced payload by 3MB while enabling responsive dark/light mode themes for all technical schematics.",
-        id: "Replaced 15+ static images with `AiryDiagram.jsx`, a custom SVG engine. Reduced payload by 3MB while enabling responsive dark/light mode themes for all technical schematics.",
+        en: "Replaced 15+ static images with `AiryDiagram.jsx`, a custom SVG engine. Reduced payload by 3MB while enabling responsive dark/light mode themes.",
+        id: "Mengganti 15+ gambar statis dengan `AiryDiagram.jsx`, mesin SVG khusus. Mengurangi beban sebesar 3MB sekaligus mengaktifkan tema responsif.",
       },
       image: "airy:architecture",
+    },
+    {
+      title: {
+        en: "Intelligence: The Companion Protocol",
+        id: "Intelegensi: Protokol Pendamping",
+      },
+      desc: {
+        en: "Implemented a sprite-based 'Virtual Assistant' that recognizes user context. It provides TL;DRs and tips based on the current page, simulating a live pair-design session.",
+        id: "Mengimplementasikan 'Asisten Virtual' berbasis sprite yang mengenali konteks pengguna. Memberikan TL;DR dan tips berdasarkan halaman saat ini.",
+      },
+      image: "airy:network",
+    },
+    {
+      title: {
+        en: "Navigation: Kinetic Scroll Journey",
+        id: "Navigasi: Scroll Journey Kinetik",
+      },
+      desc: {
+        en: "Transformed global navigation into a kinetic experience. A persistent sprite travels along a 'scroll track', providing section-aware feedback and squash-and-stretch motion.",
+        id: "Mengubah navigasi global menjadi pengalaman kinetik. Sprite yang persisten bergerak di sepanjang 'scroll track', memberikan umpan balik sadar bagian.",
+      },
+      image: "airy:flow",
     },
   ],
   insights: [

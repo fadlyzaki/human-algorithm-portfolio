@@ -438,13 +438,50 @@ export const translations = {
     virtual_assistant: {
       msg_home: "Welcome to my portfolio! I'm here to help you review my work.",
       msg_case_study: "Analyzing project details... Check out the metrics and impact.",
+      msg_side_projects: "Exploring the experimental lab... These are my side projects.",
       msg_about: "This is me! My background, traits, and algorithmic stack.",
+      context: {
+        // Lumina Projects
+        "workforce-chat": "Analyzing Workforce Chat: Reducing friction in blue-collar communication.",
+        "ats-dashboard": "Reviewing the ATS Dashboard: Visualizing human stories within data pipelines.",
+        "direct-apply": "Exploring Direct Apply: humanizing the job application experience.",
+        // Stoqo Projects
+        "stoqo-logistics": "Operational Resilience: Ensuring peace of mind in logistics delivery.",
+        "stoqo-sales": "Sales Gamification: Converting confusion into commitment via clarity.",
+        "paper-to-paperless": "Digitizing Chaos: Transforming paper workflows into data integrity.",
+        // GudangAda Projects
+        "marketplace-checkout": "Commerce Engine: Systematizing trust in a high-scale B2B marketplace.",
+        "brand-official-store": "Official Store: Giving global brands a premium home in the market.",
+        "promo-engine": "Promo Center: Turning math headaches into conflict-free growth.",
+        // Side Projects
+        "human-algorithm": "The Human Algorithm: Architecting a self-aware AI portfolio.",
+        "productivity-illusion": "Productivity Illusion Research: Decoding the gap between engagement and learning.",
+        "interactive-workbook": "Interactive Workbook: A gamified bilingual learning platform.",
+        "year-in-review": "Year in Review: A privacy-first yearly milestone generator.",
+        "dolphi": "Dolphi: Habit meta-tracking for the optimized self."
+      },
       tips: [
         "Tip: Try toggling the Dark Mode switch in the top right to see how the UI adapts.",
         "Fun Fact: I built this terminal theme entirely with React and TailwindCSS.",
         "Tip: Check out the 'Interactive Settings' in the About page to see my design philosophy in action.",
         "System Log: I'm currently running on 0 cups of coffee. Impressive, right?",
         "Tip: The Case Studies are protected, but if you're a recruiter, you already have the key."
+      ]
+    },
+    scroll_guide: {
+      sections: {
+        hero: "Digital Port 01",
+        work: "Work Cluster",
+        about: "Personality Core",
+        thoughts: "Neural Echoes",
+        contact: "Signal Out-post"
+      },
+      tips: [
+        "Did you know? I move faster the harder you scroll!",
+        "Entering the Work Cluster... Accessing project repositories.",
+        "Almost at the Personal Core... Get ready for some human logic.",
+        "We're travelling through the Neural Echoes now.",
+        "Reached the Signal Out-post. Ready to transmit?"
       ]
     },
   },
@@ -885,13 +922,50 @@ export const translations = {
     virtual_assistant: {
       msg_home: "Selamat datang di portofolio saya! Saya di sini untuk membantu Anda meninjau karya saya.",
       msg_case_study: "Menganalisis detail proyek... Cek metrik dan dampaknya.",
+      msg_side_projects: "Menjelajahi laboratorium eksperimental... Ini adalah proyek sampingan saya.",
       msg_about: "Ini dia! Latar belakang, kepribadian, dan algoritma mandiri saya.",
+      context: {
+        // Proyek Lumina
+        "workforce-chat": "Menganalisis Workforce Chat: Mengurangi kendala komunikasi pekerja kerah biru.",
+        "ats-dashboard": "Meninjau Dashboard ATS: Memvisualisasikan cerita manusia dalam alur data.",
+        "direct-apply": "Menjelajahi Direct Apply: Memanusiakan pengalaman melamar pekerjaan.",
+        // Proyek Stoqo
+        "stoqo-logistics": "Resiliensi Operasional: Memberikan ketenangan pikiran dalam pengiriman logistik.",
+        "stoqo-sales": "Gamifikasi Penjualan: Mengubah kebingungan menjadi komitmen melalui kejelasan.",
+        "paper-to-paperless": "Digitalisasi Chaos: Mengubah alur kerja kertas menjadi integritas data.",
+        // Proyek GudangAda
+        "marketplace-checkout": "Commerce Engine: Mensistematiskan kepercayaan di pasar B2B skala besar.",
+        "brand-official-store": "Official Store: Memberikan wadah premium bagi brand global di pasar.",
+        "promo-engine": "Promo Center: Mengubah kerumitan hitungan menjadi pertumbuhan tanpa konflik.",
+        // Proyek Sampingan
+        "human-algorithm": "The Human Algorithm: Merancang portofolio AI yang sadar diri.",
+        "productivity-illusion": "Riset Ilusi Produktivitas: Mendekode celah antara engagement dan pembelajaran.",
+        "interactive-workbook": "Buku Kerja Interaktif: Platform pembelajaran bilingual yang digamifikasi.",
+        "year-in-review": "Year in Review: Generator pencapaian tahunan yang mengutamakan privasi.",
+        "dolphi": "Dolphi: Meta-tracking kebiasaan untuk diri yang lebih optimal."
+      },
       tips: [
         "Tips: Coba klik tombol Dark Mode di kanan atas untuk melihat adaptasi antarmukanya.",
         "Fakta Menarik: Saya membangun tema terminal ini dari nol menggunakan React dan TailwindCSS.",
         "Tips: Cek bagian 'Interactive Settings' di halaman About untuk melihat filosofi desain saya.",
         "Log Sistem: Saat ini saya beroperasi dengan 0 cangkir kopi. Mengesankan kan?",
         "Tips: Studi Kasus dilindungi, tapi jika Anda seorang rekruter, Anda pasti tahu kunci sandinya."
+      ]
+    },
+    scroll_guide: {
+      sections: {
+        hero: "Digital Port 01",
+        work: "Klaster Kerja",
+        about: "Inti Kepribadian",
+        thoughts: "Gema Neural",
+        contact: "Pos Sinyal"
+      },
+      tips: [
+        "Tahukah Anda? Saya bergerak lebih cepat jika Anda menggulir lebih kuat!",
+        "Memasuki Klaster Kerja... Mengakses repositori proyek.",
+        "Hampir sampai di Inti Personal... Bersiaplah untuk logika manusia.",
+        "Kita sedang melewati Gema Neural sekarang.",
+        "Sampai di Pos Sinyal. Siap mengirim transmisi?"
       ]
     },
   },

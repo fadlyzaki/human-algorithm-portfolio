@@ -72,7 +72,7 @@ const SystemCoreDetail = ({
           <div className={`absolute inset-0 font-mono text-[10px] sm:text-[12px] leading-none pointer-events-none select-none overflow-hidden p-4 text-justify custom-scrollbar ${isRecruiterMode ? "opacity-0" : "opacity-5"}`}>
             {randomTokens.map((token, i) => (
               <span key={i} className="mr-2 text-blue-400">
-                {`INIT_SYS >> PORTFOLIO_V2.9 >> AGENT_${i} >> DATA_STREAM=${token} `}
+                {`INIT_SYS >> PORTFOLIO_V3.5 >> AGENT_${i} >> DATA_STREAM=${token} `}
               </span>
             ))}
           </div>

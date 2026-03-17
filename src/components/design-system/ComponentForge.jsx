@@ -283,63 +283,50 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
         </div>
       </div>
 
-      {/* DESTRUCTIVE ACTION GUARDRAILS */}
+      </div>
+
+      {/* COMPANION PROTOTYPES (NEW) */}
       <div className="border-t border-[var(--border-color)] pt-12">
-        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent-red)] flex items-center gap-2 mb-8">
-          <ShieldAlert size={14} /> Destructive Action Guardrails
+        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent-blue)] flex items-center gap-2 mb-8">
+          <Cpu size={14} /> Agentic_Companion_Protocols
         </h3>
 
-        <div
-          className={`relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : "p-8 border border-[var(--accent-red)]/20 bg-[var(--bg-card)]"}`}
-        >
-          {isXRayMode && (
-            <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">
-              Guardrail // Double-Confirm Pattern
-            </span>
-          )}
-
-          <div className="absolute top-0 right-0 p-8 opacity-[0.03]">
-            <ShieldAlert size={120} className="text-[var(--accent-red)]" />
-          </div>
-          <div className="space-y-2 relative z-10 max-w-sm">
-            <h4 className="font-bold text-sm text-[var(--text-primary)]">
-              Purge Instance Data
+        <div className="grid md:grid-cols-2 gap-12 mt-8">
+          <div className="space-y-6">
+            <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2">
+              Sprite_Matrix // 1x8 Horizontal Sheet
             </h4>
-            <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-              Irreversible operation. Requires double-confirmation friction
-              pattern.
-            </p>
+            <div className="bg-[var(--bg-void)] p-8 border border-[var(--border-color)] flex items-center justify-center overflow-hidden">
+               <div className="flex gap-4">
+                 {['idle', 'walk', 'think'].map(state => (
+                   <div key={state} className="flex flex-col items-center gap-2">
+                     <div className="w-16 h-20 overflow-hidden bg-white/10 rounded-lg">
+                       <img src={`/images/sprite-${state}.png`} className={`sprite-img sprite-anim-${state} scale-75`} alt={state} />
+                     </div>
+                     <span className="font-mono text-[9px] uppercase opacity-50">{state}</span>
+                   </div>
+                 ))}
+               </div>
+            </div>
           </div>
 
-          <div className="relative z-10 w-full md:w-auto">
-            {!isConfirmingDestructive ? (
-              <button
-                onClick={() => setIsConfirmingDestructive(true)}
-                className="w-full md:w-auto border border-[var(--accent-red)]/30 text-[var(--accent-red)] hover:bg-[var(--accent-red)]/10 px-6 py-3 text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2"
-              >
-                <AlertTriangle size={14} /> Initiate Purge
-              </button>
-            ) : (
-              <div className="flex flex-col md:flex-row gap-3 w-full md:w-auto animate-in slide-in-from-right-4 duration-300">
-                <input
-                  type="text"
-                  placeholder="Type 'PURGE' to confirm"
-                  className="bg-[var(--bg-void)] border border-[var(--accent-red)]/50 p-3 font-mono text-xs text-[var(--accent-red)] focus:outline-none focus:border-[var(--accent-red)] transition-colors placeholder:text-[var(--accent-red)]/50"
-                  readOnly
-                />
-                <div className="flex gap-2">
-                  <button className="flex-1 bg-[var(--accent-red)] text-white px-6 py-3 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity whitespace-nowrap">
-                    Confirm
-                  </button>
-                  <button
-                    onClick={() => setIsConfirmingDestructive(false)}
-                    className="px-4 py-3 text-xs font-mono uppercase text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors whitespace-nowrap"
-                  >
-                    Cancel
-                  </button>
-                </div>
+          <div className="space-y-6">
+            <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2">
+              Context_Aware_Logic // TL;DR Protocols
+            </h4>
+            <div className="bg-[var(--bg-card)] p-6 border border-[var(--border-color)] space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-[var(--accent-blue)]" />
+                <span className="font-mono text-[10px] uppercase tracking-widest">Route Recognition</span>
               </div>
-            )}
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                The agent maps `location.pathname` segments to specific context strings in `translations.js`. If no match exists, it falls back to a structural generic message.
+              </p>
+              <div className="p-3 bg-[var(--bg-void)] rounded font-mono text-[9px] text-[var(--text-primary)]">
+                &gt; GET /case-study/workforce-chat<br/>
+                &gt; LOADING: virtual_assistant.context.workforce-chat
+              </div>
+            </div>
           </div>
         </div>
       </div>
