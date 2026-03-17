@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRecruiterMode } from "../context/RecruiterModeContext";
 import { useLocation } from "react-router-dom";
 import { MessageSquare } from "lucide-react";
@@ -21,6 +21,23 @@ const VirtualAssistant = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  // Use refs to store timeout IDs so we can clear them reliably
+  const hideTimerRef = useRef(null);
+  const walkTimerRef = useRef(null);
+  const thinkTimerRef = useRef(null);
+
+  // Clear all pending animation/hide timers
+  const clearAllTimers = () => {
+    if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+    if (walkTimerRef.current) clearTimeout(walkTimerRef.current);
+    if (thinkTimerRef.current) clearTimeout(thinkTimerRef.current);
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => clearAllTimers();
+  }, []);
+
   // Helper to pick a random tip that isn't the current message
   const showRandomTip = () => {
     const tips = t("virtual_assistant.tips", { returnObjects: true });
@@ -34,12 +51,13 @@ const VirtualAssistant = () => {
       attempts++;
     }
 
+    clearAllTimers(); // Cancel any existing sequences
     setMessage(randomTip);
     setShowMessage(true);
     setCurrentScene(SCENES.THINKING);
 
     // Auto-hide after 6 seconds
-    setTimeout(() => {
+    hideTimerRef.current = setTimeout(() => {
       setShowMessage(false);
       setCurrentScene(SCENES.IDLE);
     }, 6000);
@@ -96,23 +114,49 @@ const VirtualAssistant = () => {
     // Only trigger the "vocal/walk" animation sequence if the path changed
     // If only the language changed, just update the message immediately
     const prevPath = localStorage.getItem("assistant_last_path");
+    
+    // Check if we've already walked this session
+    const hasWalked = sessionStorage.getItem("assistant_has_walked");
+
     if (prevPath !== path) {
+      clearAllTimers(); // Clear any existing sequences
       setShowMessage(false);
-      setCurrentScene(SCENES.WALK);
       localStorage.setItem("assistant_last_path", path);
 
-      const walkTimer = setTimeout(() => {
+      // Only walk if it's the first route change in this session
+      if (!hasWalked) {
+        setCurrentScene(SCENES.WALK);
+        sessionStorage.setItem("assistant_has_walked", "true");
+        
+        walkTimerRef.current = setTimeout(() => {
+          setCurrentScene(SCENES.THINKING);
+          thinkTimerRef.current = setTimeout(() => {
+            if (newMsg) {
+              setMessage(newMsg);
+              setShowMessage(true);
+              
+              hideTimerRef.current = setTimeout(() => {
+                setShowMessage(false);
+              }, 10000);
+            }
+            setCurrentScene(SCENES.IDLE);
+          }, 2000);
+        }, 1500);
+      } else {
+        // If already walked, just show the message with a brief thinking animation
         setCurrentScene(SCENES.THINKING);
-        const thinkTimer = setTimeout(() => {
+        thinkTimerRef.current = setTimeout(() => {
           if (newMsg) {
             setMessage(newMsg);
             setShowMessage(true);
+            
+            hideTimerRef.current = setTimeout(() => {
+              setShowMessage(false);
+            }, 8000);
           }
           setCurrentScene(SCENES.IDLE);
-        }, 2000);
-        return () => clearTimeout(thinkTimer);
-      }, 1500);
-      return () => clearTimeout(walkTimer);
+        }, 800); // Shorter thinking time without walking
+      }
     } else {
       // Language flip: just update the message text if currently visible
       setMessage(newMsg);
