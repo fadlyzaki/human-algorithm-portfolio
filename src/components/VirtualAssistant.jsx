@@ -255,7 +255,15 @@ const VirtualAssistant = () => {
     }
   }, [location.pathname, isRecruiterMode, t, isSleeping]);
 
-  // Always visible if not explicitly hidden by user (sleep)
+  // Determine if we should hide on 404/catch-all
+  // Valid top-level paths and prefixes
+  const validPaths = ["/", "/about", "/side-projects", "/thoughts", "/design-system", "/sketches", "/contact", "/cv", "/system-manifest"];
+  const validPrefixes = ["/case-study/", "/side-project/", "/work/", "/blog/", "/thoughts/"];
+  
+  const is404 = !validPaths.includes(location.pathname) && 
+                !validPrefixes.some(p => location.pathname.startsWith(p));
+
+  if (is404) return null;
 
   return (
     <div className="fixed bottom-4 right-4 z-[100] flex flex-col items-end gap-2 animate-in fade-in slide-in-from-bottom-5 duration-700 pointer-events-none virtual-assistant-override">

@@ -16,12 +16,23 @@ const GROUND_OFFSET = 120;
 const PORTAL_SIZE = 64;
 
 // --- PLATFORM DATA (x, y, width) ---
-const makePlatforms = (vw, groundY) => [
-  { x: vw * 0.18, y: groundY - 80, w: 100 },
-  { x: vw * 0.38, y: groundY - 140, w: 120 },
-  { x: vw * 0.58, y: groundY - 90, w: 100 },
-  { x: vw * 0.75, y: groundY - 160, w: 90 },
-];
+const makePlatforms = (vw, groundY) => {
+  const isMobile = vw < 640;
+  if (isMobile) {
+    return [
+      { x: vw * 0.1, y: groundY - 70, w: 80 },
+      { x: vw * 0.45, y: groundY - 140, w: 90 },
+      { x: vw * 0.7, y: groundY - 80, w: 80 },
+      { x: vw * 0.2, y: groundY - 200, w: 70 },
+    ];
+  }
+  return [
+    { x: vw * 0.18, y: groundY - 80, w: 100 },
+    { x: vw * 0.38, y: groundY - 140, w: 120 },
+    { x: vw * 0.58, y: groundY - 90, w: 100 },
+    { x: vw * 0.75, y: groundY - 160, w: 90 },
+  ];
+};
 
 const NotFound = () => {
   const { isDark } = useTheme();
@@ -33,6 +44,7 @@ const NotFound = () => {
     x: 60, y: 0, vx: 0, vy: 0,
     onGround: false, facingRight: true, isMoving: false,
   });
+  const collectedRef = useRef(new Set());
 
   const [pos, setPos] = useState({ x: 60, y: 0 });
   const [facingRight, setFacingRight] = useState(true);
@@ -184,22 +196,16 @@ const NotFound = () => {
       setIsJumping(!g.onGround);
 
       // Check collectibles
-      setCollected((prevCollected) => {
-        let newCollected = prevCollected;
-        setCollectibles((prevCol) => {
-          prevCol.forEach((c, i) => {
-            if (
-              !prevCollected.has(i) &&
-              Math.abs(g.x + SPRITE_W / 2 - c.x) < 36 &&
-              Math.abs(g.y + SPRITE_H / 2 - c.y) < 36
-            ) {
-              newCollected = new Set([...newCollected, i]);
-              spawnParticles(c.x, c.y, "rgba(239, 68, 68, 1)");
-            }
-          });
-          return prevCol;
-        });
-        return newCollected;
+      collectibles.forEach((c, i) => {
+        if (
+          !collectedRef.current.has(i) &&
+          Math.abs(g.x + SPRITE_W / 2 - c.x) < 42 &&
+          Math.abs(g.y + SPRITE_H / 2 - c.y) < 42
+        ) {
+          collectedRef.current.add(i);
+          setCollected(new Set(collectedRef.current));
+          spawnParticles(c.x, c.y, "rgba(239, 68, 68, 1)");
+        }
       });
 
       // Check portal
@@ -388,39 +394,38 @@ const NotFound = () => {
         </div>
       </div>
 
-      {/* ─── MOBILE CONTROLS ─── */}
-      <div className="sm:hidden absolute bottom-5 left-0 right-0 z-40 flex justify-between px-5">
-        <div className="flex gap-2.5">
+      <div className="sm:hidden absolute bottom-8 left-0 right-0 z-40 flex justify-between px-8">
+        <div className="flex gap-4">
           <button
-            className="w-14 h-14 rounded-2xl bg-[var(--bg-card)]/80 backdrop-blur border border-[var(--border-color)] flex items-center justify-center active:bg-[var(--accent-error)] active:border-[var(--accent-error)] active:text-black transition-colors touch-none"
+            className="w-16 h-16 rounded-2xl bg-[var(--bg-card)]/80 backdrop-blur-md border border-[var(--border-color)] flex items-center justify-center active:bg-[var(--accent-error)] active:border-[var(--accent-error)] active:text-black active:scale-95 transition-all touch-none shadow-xl"
             onTouchStart={(e) => { e.preventDefault(); handleMobileInput("ArrowLeft", true); }}
             onTouchEnd={(e) => { e.preventDefault(); handleMobileInput("ArrowLeft", false); }}
             onMouseDown={() => handleMobileInput("ArrowLeft", true)}
             onMouseUp={() => handleMobileInput("ArrowLeft", false)}
             onMouseLeave={() => handleMobileInput("ArrowLeft", false)}
           >
-            <ArrowLeft size={22} className="text-[var(--text-primary)]" />
+            <ArrowLeft size={28} className="text-[var(--text-primary)]" />
           </button>
           <button
-            className="w-14 h-14 rounded-2xl bg-[var(--bg-card)]/80 backdrop-blur border border-[var(--border-color)] flex items-center justify-center active:bg-[var(--accent-error)] active:border-[var(--accent-error)] active:text-black transition-colors touch-none"
+            className="w-16 h-16 rounded-2xl bg-[var(--bg-card)]/80 backdrop-blur-md border border-[var(--border-color)] flex items-center justify-center active:bg-[var(--accent-error)] active:border-[var(--accent-error)] active:text-black active:scale-95 transition-all touch-none shadow-xl"
             onTouchStart={(e) => { e.preventDefault(); handleMobileInput("ArrowRight", true); }}
             onTouchEnd={(e) => { e.preventDefault(); handleMobileInput("ArrowRight", false); }}
             onMouseDown={() => handleMobileInput("ArrowRight", true)}
             onMouseUp={() => handleMobileInput("ArrowRight", false)}
             onMouseLeave={() => handleMobileInput("ArrowRight", false)}
           >
-            <ArrowRight size={22} className="text-[var(--text-primary)]" />
+            <ArrowRight size={28} className="text-[var(--text-primary)]" />
           </button>
         </div>
         <button
-          className="w-14 h-14 rounded-2xl bg-[var(--bg-card)]/80 backdrop-blur border border-[var(--border-color)] flex items-center justify-center active:bg-emerald-500 active:border-emerald-500 active:text-black transition-colors touch-none"
+          className="w-16 h-16 rounded-2xl bg-[var(--bg-card)]/80 backdrop-blur-md border border-[var(--border-color)] flex items-center justify-center active:bg-emerald-500 active:border-emerald-500 active:text-black active:scale-95 transition-all touch-none shadow-xl"
           onTouchStart={(e) => { e.preventDefault(); handleMobileInput("ArrowUp", true); }}
           onTouchEnd={(e) => { e.preventDefault(); handleMobileInput("ArrowUp", false); }}
           onMouseDown={() => handleMobileInput("ArrowUp", true)}
           onMouseUp={() => handleMobileInput("ArrowUp", false)}
           onMouseLeave={() => handleMobileInput("ArrowUp", false)}
         >
-          <ArrowUp size={22} className="text-[var(--text-primary)]" />
+          <ArrowUp size={28} className="text-[var(--text-primary)]" />
         </button>
       </div>
 
