@@ -25,6 +25,8 @@ import { RecruiterModeProvider } from "./context/RecruiterModeContext";
 import ScrollToTop from "./components/ScrollToTop";
 
 import AnalyticsTracker from "./components/AnalyticsTracker";
+import VirtualAssistant from "./components/VirtualAssistant";
+import ScrollJourneyGuide from "./components/ScrollJourneyGuide";
 
 // Loading Fallback Component
 const PageLoader = () => (
@@ -43,6 +45,8 @@ function App() {
         <Router>
         <AnalyticsTracker />
         <ScrollToTop />
+        <VirtualAssistant />
+        <ScrollJourneyGuide />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* Core Routes */}

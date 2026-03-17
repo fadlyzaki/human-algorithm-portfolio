@@ -52,7 +52,7 @@ const ChaosCanvas = lazy(() => import("../components/ChaosCanvas"));
 const NeuralEcho = lazy(() => import("../components/NeuralEcho"));
 import Footer from "../components/Footer";
 import RichText from "../components/RichText";
-import ProfileScanner from "../components/ProfileScanner";
+import InteractiveAvatar from "../components/about/InteractiveAvatar";
 import BackButton from "../components/BackButton";
 import ScrollProgressBar from "../components/ScrollProgressBar";
 import NavigationMenu from "../components/NavigationMenu"; // Assuming this is also a new component
@@ -134,7 +134,7 @@ const AboutPage = () => {
                 className="relative group w-64 mx-auto md:w-full"
                 style={chaosStyle}
               >
-                <ProfileScanner isDark={isDark} />
+                <InteractiveAvatar className={isDark ? "opacity-90" : ""} />
               </div>
 
               {/* Download CV Button - Moved here */}

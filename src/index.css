@@ -470,10 +470,32 @@ html {
 }
 
 /* --- RECRUITER FAST PATH OVERRIDES --- */
-.recruiter-mode * {
+.recruiter-mode *:not(.virtual-assistant-override):not(.virtual-assistant-override *) {
   /* Disable all CSS transitions and animations */
   transition-duration: 0.01ms !important;
   animation-duration: 0.01ms !important;
   animation-iteration-count: 1 !important;
   scroll-behavior: auto !important;
+}
+
+/* --- VIRTUAL ASSISTANT SPRITE ANIMATIONS --- */
+@keyframes playSpriteX {
+  from { background-position-x: 0px; }
+  to { background-position-x: -1024px; }
+}
+
+.sprite-anim-idle {
+  background-position-y: -256px;
+  /* !important required to override any potential specificity leaks from recruiter-mode */
+  animation: playSpriteX 1.2s steps(8) infinite !important;
+}
+
+.sprite-anim-thinking {
+  background-position-y: -384px;
+  animation: playSpriteX 1.5s steps(8) infinite !important;
+}
+
+.sprite-anim-walk {
+  background-position-y: 0px;
+  animation: playSpriteX 0.8s steps(8) infinite !important;
 }

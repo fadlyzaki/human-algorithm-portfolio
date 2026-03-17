@@ -435,6 +435,11 @@ export const translations = {
       specification_data: "Specification_Data",
       planned_features: "Planned_Features"
     },
+    virtual_assistant: {
+      msg_home: "Welcome to my portfolio! I'm here to help you review my work.",
+      msg_case_study: "Analyzing project details... Check out the metrics and impact.",
+      msg_about: "This is me! My background, traits, and algorithmic stack.",
+    },
   },
   id: {
     nav: {
@@ -869,6 +874,11 @@ export const translations = {
       user_testing_interface: "Antarmuka_Pengujian_Pengguna",
       specification_data: "Data_Spesifikasi",
       planned_features: "Fitur_Direncanakan"
+    },
+    virtual_assistant: {
+      msg_home: "Selamat datang di portofolio saya! Saya di sini untuk membantu Anda meninjau karya saya.",
+      msg_case_study: "Menganalisis detail proyek... Cek metrik dan dampaknya.",
+      msg_about: "Ini dia! Latar belakang, kepribadian, dan algoritma mandiri saya.",
     },
   },
 };
