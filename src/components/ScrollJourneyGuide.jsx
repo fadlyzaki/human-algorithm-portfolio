@@ -23,11 +23,13 @@ const ScrollJourneyGuide = () => {
     restDelta: 0.001
   });
 
-  // Map progress to X position
+  // Map progress to X position - specifically using the smoothed value
+  // We use -100px to 100vw range if we want it to walk "in", 
+  // but for a progress bar metaphor, 0 to (100vw - width) is better.
   const xPos = useTransform(
     smoothProgress, 
     [0, 1], 
-    ["0%", "calc(100vw - 96px)"] // 96px is sm:w-24
+    ["0px", "calc(100vw - 100%)"]
   );
   
   const [currentScene, setCurrentScene] = useState(SCENES.IDLE);
@@ -38,6 +40,7 @@ const ScrollJourneyGuide = () => {
   const [tipMessage, setTipMessage] = useState("");
   const [isHovered, setIsHovered] = useState(false);
 
+  // Section thresholds
   const getSection = (progress) => {
     if (progress < 0.15) return "hero";
     if (progress < 0.45) return "work";
@@ -46,28 +49,31 @@ const ScrollJourneyGuide = () => {
     return "contact";
   };
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  // SYNC FACING DIRECTION WITH SMOOTH PROGRESS
+  // Using smoothProgress ensures the character faces the direction it is ACTUALLY moving
+  useMotionValueEvent(smoothProgress, "change", (latest) => {
+    const previous = smoothProgress.getPrevious();
     const now = Date.now();
-    const previous = scrollYProgress.getPrevious();
     
-    if (latest > previous) {
+    if (latest > previous + 0.0001) {
       setFacingRight(true);
-    } else if (latest < previous) {
+      setCurrentScene(SCENES.WALK);
+      setLastScrollTime(now);
+      if (showMessage) setShowMessage(false);
+    } else if (latest < previous - 0.0001) {
       setFacingRight(false);
+      setCurrentScene(SCENES.WALK);
+      setLastScrollTime(now);
+      if (showMessage) setShowMessage(false);
     }
 
     const section = getSection(latest);
     if (section !== currentSection) {
       setCurrentSection(section);
     }
-
-    if (Math.abs(latest - previous) > 0.0001) {
-      setCurrentScene(SCENES.WALK);
-      setLastScrollTime(now);
-      if (showMessage) setShowMessage(false);
-    }
   });
 
+  // Stop walking when movement slows down
   useEffect(() => {
     const interval = setInterval(() => {
       if (Date.now() - lastScrollTime > 150) { 
@@ -100,31 +106,31 @@ const ScrollJourneyGuide = () => {
 
   return (
     <div className="fixed bottom-0 left-0 w-full h-24 sm:h-32 pointer-events-none z-40">
-      {/* Visual Track - mirroring the scroll bar metaphor */}
+      {/* Visual Track */}
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[var(--border-color)] opacity-20" />
       
       <motion.div
-        className="absolute bottom-0 w-20 h-28 sm:w-24 sm:h-32 pointer-events-auto cursor-pointer group flex flex-col items-center justify-end"
+        className="absolute bottom-0 left-0 w-20 h-28 sm:w-24 sm:h-32 pointer-events-auto cursor-pointer group flex flex-col items-center justify-end"
         onClick={handleSpriteClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{ x: xPos }}
       >
-        {/* Container that flips for direction */}
+        {/* Flip Container */}
         <motion.div 
           className="relative w-full h-full flex flex-col items-center justify-end"
           animate={{ scaleX: facingRight ? 1 : -1 }}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
         >
-          {/* Label: We flip it back to keep text readable */}
+          {/* Label / Speech Bubble */}
           <motion.div 
             key={currentSection}
-            initial={{ opacity: 0, y: 10, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.8, y: 10 }}
             animate={{ 
               opacity: isHovered || showMessage ? 1 : 0.6, 
               y: isHovered || showMessage ? -110 : -90,
               scale: 1,
-              scaleX: facingRight ? 1 : -1 // Counter-flip the parent's scaleX
+              scaleX: facingRight ? 1 : -1 // Un-mirror the flip
             }}
             className="absolute left-1/2 -translate-x-1/2 bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-1.5 rounded-xl shadow-xl backdrop-blur-md z-10 flex flex-col items-center min-w-[60px]"
           >
@@ -134,21 +140,20 @@ const ScrollJourneyGuide = () => {
             <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[var(--bg-card)] border-r border-b border-[var(--border-color)] rotate-45" />
           </motion.div>
 
-          {/* Sprite Character */}
+          {/* Character */}
           <motion.div 
             className={`w-full h-full drop-shadow-lg opacity-40 sm:opacity-60 ${isDark ? "brightness-95" : ""} overflow-hidden transition-opacity duration-300 ${isHovered ? "opacity-100" : ""}`}
             animate={{
-              scaleY: currentScene === SCENES.WALK ? [1, 0.92, 1] : 1,
-              scaleX: currentScene === SCENES.WALK ? [1, 1.08, 1] : 1,
+              scaleY: currentScene === SCENES.WALK ? [1, 0.9, 1] : 1,
+              scaleX: currentScene === SCENES.WALK ? [1, 1.1, 1] : 1,
             }}
             transition={{
               repeat: Infinity,
-              duration: 0.5,
+              duration: 0.4,
               ease: "easeInOut"
             }}
           >
             <img 
-              key={currentScene}
               src={`/images/sprite-${currentScene}.png`} 
               alt="Scroll Journey" 
               className={`sprite-img sprite-anim-${currentScene}`} 
