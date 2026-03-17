@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent, useSpring } from "framer-motion";
 import { useRecruiterMode } from "../context/RecruiterModeContext";
 import { useTheme } from "../context/ThemeContext";
@@ -79,17 +79,21 @@ const ScrollJourneyGuide = () => {
     return () => clearInterval(interval);
   }, [lastScrollTime]);
 
+  const tipTimerRef = useRef(null);
+
   const handleSpriteClick = () => {
     const tips = t("scroll_guide.tips", { returnObjects: true });
     if (!tips || !Array.isArray(tips)) return;
     
+    if (tipTimerRef.current) clearTimeout(tipTimerRef.current);
+
     const randomTip = tips[Math.floor(Math.random() * tips.length)];
     setTipMessage(randomTip);
     setShowMessage(true);
     setCurrentScene(SCENES.THINK);
 
     // Auto-hide the tip
-    setTimeout(() => {
+    tipTimerRef.current = setTimeout(() => {
       setShowMessage(false);
       setCurrentScene(SCENES.IDLE);
     }, 5000);
