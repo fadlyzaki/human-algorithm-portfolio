@@ -19,6 +19,8 @@ export default defineConfig({
     react()
   ],
   build: {
+    sourcemap: false,
+    assetsInlineLimit: 4096, // Inline assets smaller than 4KB
     rollupOptions: {
       output: {
         manualChunks: {

@@ -268,11 +268,6 @@ const VirtualAssistant = () => {
           </button>
         )}
         
-        <div className="absolute -top-3 left-4 bg-[var(--bg-void)] border border-[var(--border-color)] px-2 py-0.5 rounded text-[9px] font-mono font-bold tracking-[0.2em] text-[var(--accent-blue)] flex items-center gap-1.5 shadow-sm">
-          <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-pulse" />
-          {t("virtual_assistant.name") || "VAKI"}
-        </div>
-
         <MessageSquare size={16} className="text-[var(--accent-blue)] mt-0.5 shrink-0" />
         
         <div className="w-full">
@@ -300,18 +295,34 @@ const VirtualAssistant = () => {
       </div>
 
       {/* Sprite Character */}
-      <div 
-        onClick={handleClick}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className={`w-20 h-28 sm:w-24 sm:h-32 drop-shadow-lg scale-x-[-1] sm:scale-x-1 overflow-hidden pointer-events-auto cursor-pointer transition-all duration-300 ${isHovered ? "scale-105" : ""} ${isDark ? "brightness-90 opacity-90" : ""} ${isSleeping ? "opacity-50 grayscale hover:grayscale-0 hover:opacity-100" : ""}`}
-      >
-        <img 
-          key={isSleeping ? 'sleep' : currentScene}
-          src={`/images/sprite-${isSleeping ? SCENES.IDLE : currentScene}.png`} 
-          alt="Virtual Assistant Sprite" 
-          className={`sprite-img ${isSleeping ? 'sprite-sleeping' : `sprite-anim-${currentScene}`}`} 
-        />
+      <div className="relative pointer-events-auto cursor-pointer group/sprite">
+        <div 
+          onClick={handleClick}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className={`w-20 h-28 sm:w-24 sm:h-32 drop-shadow-lg scale-x-[-1] sm:scale-x-1 overflow-hidden transition-all duration-300 ${isHovered ? "scale-105" : ""} ${isDark ? "brightness-90 opacity-90" : ""} ${isSleeping ? "opacity-50 grayscale hover:grayscale-0 hover:opacity-100" : ""}`}
+        >
+          <img 
+            key={isSleeping ? 'sleep' : currentScene}
+            src={`/images/sprite-${isSleeping ? SCENES.IDLE : currentScene}.png`} 
+            alt="Virtual Assistant Sprite" 
+            className={`sprite-img ${isSleeping ? 'sprite-sleeping' : `sprite-anim-${currentScene}`}`} 
+          />
+        </div>
+
+        {/* Name Label at Foot */}
+        <div className={`
+          absolute -bottom-2 left-1/2 -translate-x-1/2
+          bg-[var(--bg-void)]/90 backdrop-blur-sm border border-[var(--border-color)] 
+          px-2 py-0.5 rounded text-[8px] sm:text-[9px] font-mono font-bold tracking-[0.2em] text-[var(--accent-blue)] 
+          flex items-center gap-1.5 shadow-lg whitespace-nowrap
+          transition-all duration-300
+          ${isSleeping ? "opacity-40 grayscale" : "opacity-100"}
+          ${isHovered ? "translate-y-[-2px] border-[var(--accent-blue)]/50" : "translate-y-0"}
+        `}>
+          <div className={`w-1 h-1 rounded-full bg-[var(--accent-blue)] ${isSleeping ? "" : "animate-pulse"}`} />
+          {t("virtual_assistant.name") || "VAKI"}
+        </div>
       </div>
     </div>
   );
