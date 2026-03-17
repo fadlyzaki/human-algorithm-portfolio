@@ -283,8 +283,6 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
         </div>
       </div>
 
-      </div>
-
       {/* COMPANION PROTOTYPES (NEW) */}
       <div className="border-t border-[var(--border-color)] pt-12">
         <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent-blue)] flex items-center gap-2 mb-8">

@@ -148,6 +148,8 @@ const LayoutLab = ({ isXRayMode }) => (
           </div>
         </div>
       </div>
+    </div>
+
     {/* KINETIC NAVIGATION (NEW) */}
     <div
       className={`space-y-6 relative z-10 ${isXRayMode ? "p-4 border border-dashed border-[var(--text-secondary)]/50" : ""}`}
@@ -183,6 +185,7 @@ const LayoutLab = ({ isXRayMode }) => (
         </div>
       </div>
     </div>
-
+  </div>
+);
 
 export default LayoutLab;

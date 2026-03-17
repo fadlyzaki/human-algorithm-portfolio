@@ -1,4 +1,4 @@
-# The Human Algorithm: System Architecture v6.0
+# The Human Algorithm: System Architecture v3.5.0
 
 > **Engineering Philosophy:** *"Software is a physical constraint applied to human behavior. We do not just build interfaces; we engineer resilient systems where algorithmic enforcement meets human intuition—with zero frame drops and zero cognitive friction."*
 
@@ -7,7 +7,7 @@ Welcome to the internal source matrix of **[fadlyzaki-design.vercel.app](https:/
 This repository is deliberately over-engineered. It is not a static portfolio; it is an *Interactive Manifesto* and the definitive proof of work for Fadly Uzzaki, Senior Product Designer specializing in Trust Engineering. Designed for the scrutiny of Product and Engineering leadership, this system proves the capacity to ingest chaotic business logic, tame systemic B2B complexity, and output deeply resilient, accessible workflows.
 
 [![Status](https://img.shields.io/badge/SYSTEM-NOMINAL-green?style=flat-square&logo=react)](https://fadlyzaki-design.vercel.app/)
-[![Build](https://img.shields.io/badge/EDGE_BUILD-PASSING-blue?style=flat-square&logo=vercel)](https://vercel.com)
+[![Build](https://img.shields.io/badge/VERSION-3.5.0-blue?style=flat-square&logo=vercel)](https://vercel.com)
 [![Web Vitals](https://img.shields.io/badge/LIGHTHOUSE-100-orange?style=flat-square&logo=lighthouse)](https://pagespeed.web.dev/)
 
 ---
@@ -56,8 +56,14 @@ A dedicated `/cv` route engineered purely for robotic ingestion. It utilizes agg
 ### 8. The Narrative Gateway (`ChaosToMatrixIntro.jsx`)
 A cinematic boot protocol that safely captures initial user attention while actively pre-loading subsequent React logic chunks (`React.lazy()`) in the background. It fiercely respects cognitive load boundaries by establishing an omnipresent, structural heuristic bypass (`[ Skip to Content ]`) directly fused into the DOM layer.
 
-### 9. Structural Component Integrity (`/design-system`)
-A live testing environment that acts as the platform's immutable source of truth. It exposes the raw primitives of the UI library to prove strict adherence to the project's CSS variable token schema and confirms the integration of frictionless accessibility affordances across all interactive vectors.
+### 9. The Companion Protocol (`VirtualAssistant.jsx`)
+A context-aware AI sprite companion that recognizes the user's focus and current route. It provides high-intensity TL;DRs and contextual greetings, simulating a live pair-design session across the entire portfolio matrix.
+
+### 10. Kinetic Navigation Logic (`ScrollJourneyGuide.jsx`)
+We transformed the abstract concept of "page depth" into a physical track. A persistent sprite travels along a 0-100% horizontal track based on scroll depth, featuring spring-physics-driven momentum and section-aware feedback.
+
+### 11. Structural Component Integrity (`/design-system`)
+A live testing environment that acts as the platform's immutable source of truth. Version 3.5.0 introduces dedicated sections for Agentic Prototypes and Kinetic Motion documentation, ensuring total technical transparency.
 
 ## 📂 System Topography
 
