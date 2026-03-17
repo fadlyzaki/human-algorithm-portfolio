@@ -75,7 +75,7 @@ export const normalizeProject = (project) => {
   if (project.caseStudy) {
     const cs = project.caseStudy;
     const legacyCs = { ...cs };
-    const legacyCsId = { ...cs }; // Recreate the separate caseStudy_id object
+    const legacyCsId = { ...cs, ...(project.caseStudy_id || {}) }; // Preserve existing caseStudy_id
 
     // Summaries
     if (cs.summaries) {
@@ -83,6 +83,7 @@ export const normalizeProject = (project) => {
       const idSummaries = {};
       Object.keys(cs.summaries).forEach((k) => {
         const s = cs.summaries[k];
+        const existingIdSummary = project.caseStudy_id?.summaries?.[k];
         enSummaries[k] = {
           ...s,
           title: s.title?.en || s.title,
@@ -90,8 +91,9 @@ export const normalizeProject = (project) => {
         };
         idSummaries[k] = {
           ...s,
-          title: s.title?.id || s.title,
-          text: s.text?.id || s.text,
+          ...(existingIdSummary || {}),
+          title: existingIdSummary?.title || s.title?.id || s.title,
+          text: existingIdSummary?.text || s.text?.id || s.text,
         };
       });
       legacyCs.summaries = enSummaries;
@@ -100,13 +102,15 @@ export const normalizeProject = (project) => {
 
     // Snapshot
     if (cs.snapshot) {
+      const existingIdSnapshot = project.caseStudy_id?.snapshot;
       legacyCs.snapshot = {
         ...cs.snapshot,
         tagline: cs.snapshot.tagline?.en || cs.snapshot.tagline,
       };
       legacyCsId.snapshot = {
         ...cs.snapshot,
-        tagline: cs.snapshot.tagline?.id || cs.snapshot.tagline,
+        ...(existingIdSnapshot || {}),
+        tagline: existingIdSnapshot?.tagline || cs.snapshot.tagline?.id || cs.snapshot.tagline,
       };
     }
 
@@ -127,7 +131,8 @@ export const normalizeProject = (project) => {
           return newItem;
         });
 
-        legacyCsId[arrayKey] = cs[arrayKey].map((item) => {
+        const existingIdArray = project.caseStudy_id?.[arrayKey];
+        legacyCsId[arrayKey] = existingIdArray || cs[arrayKey].map((item) => {
           const newItem = { ...item };
           Object.keys(item).forEach((k) => {
             if (item[k]?.id) newItem[k] = item[k].id;
@@ -140,7 +145,13 @@ export const normalizeProject = (project) => {
     // Top level strings in Case Study
     ["challenge", "learnings", "context"].forEach((key) => {
       if (cs[key]?.en) legacyCs[key] = cs[key].en;
-      if (cs[key]?.id) legacyCsId[key] = cs[key].id;
+      
+      const existingIdStr = project.caseStudy_id?.[key];
+      if (existingIdStr) {
+        legacyCsId[key] = existingIdStr;
+      } else if (cs[key]?.id) {
+        legacyCsId[key] = cs[key].id;
+      }
     });
 
     legacy.caseStudy = legacyCs;
