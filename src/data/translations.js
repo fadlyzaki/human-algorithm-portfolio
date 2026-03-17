@@ -489,22 +489,6 @@ export const translations = {
       },
       sleeping: "Zzz..."
     },
-    scroll_guide: {
-      sections: {
-        hero: "Digital Port 01",
-        work: "Work Cluster",
-        about: "Personality Core",
-        thoughts: "Neural Echoes",
-        contact: "Signal Out-post"
-      },
-      tips: [
-        "Did you know? I move faster the harder you scroll!",
-        "Entering the Work Cluster... Accessing project repositories.",
-        "Almost at the Personal Core... Get ready for some human logic.",
-        "We're travelling through the Neural Echoes now.",
-        "Reached the Signal Out-post. Ready to transmit?"
-      ]
-    },
   },
   id: {
     nav: {
@@ -993,22 +977,6 @@ export const translations = {
         late_night: "Sudah larut malam. Desain yang baik tidak seharusnya mengorbankan tidur. Jangan lupa istirahat."
       },
       sleeping: "Zzz..."
-    },
-    scroll_guide: {
-      sections: {
-        hero: "Digital Port 01",
-        work: "Klaster Kerja",
-        about: "Inti Kepribadian",
-        thoughts: "Gema Neural",
-        contact: "Pos Sinyal"
-      },
-      tips: [
-        "Tahukah Anda? Saya bergerak lebih cepat jika Anda menggulir lebih kuat!",
-        "Memasuki Klaster Kerja... Mengakses repositori proyek.",
-        "Hampir sampai di Inti Personal... Bersiaplah untuk logika manusia.",
-        "Kita sedang melewati Gema Neural sekarang.",
-        "Sampai di Pos Sinyal. Siap mengirim transmisi?"
-      ]
     },
   },
 };

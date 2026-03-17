@@ -59,10 +59,7 @@ A cinematic boot protocol that safely captures initial user attention while acti
 ### 9. The Companion Protocol (`VirtualAssistant.jsx`)
 A context-aware AI sprite companion that recognizes the user's focus and current route. It provides high-intensity TL;DRs and contextual greetings, simulating a live pair-design session across the entire portfolio matrix.
 
-### 10. Kinetic Navigation Logic (`ScrollJourneyGuide.jsx`)
-We transformed the abstract concept of "page depth" into a physical track. A persistent sprite travels along a 0-100% horizontal track based on scroll depth, featuring spring-physics-driven momentum and section-aware feedback.
-
-### 11. Structural Component Integrity (`/design-system`)
+### 10. Structural Component Integrity (`/design-system`)
 A live testing environment that acts as the platform's immutable source of truth. Version 3.5.0 introduces dedicated sections for Agentic Prototypes and Kinetic Motion documentation, ensuring total technical transparency.
 
 ## 📂 System Topography

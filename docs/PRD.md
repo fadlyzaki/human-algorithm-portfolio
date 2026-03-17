@@ -104,10 +104,6 @@ Instead of a static gallery, this platform achieves conversion through sequenced
 *   **The Feature**: The sprite-based `VirtualAssistant.jsx` companion system.
 *   **The Narrative**: To demonstrate readiness for the Agentic Era, we implemented an autonomous companion that recognizes user context. By mapping `location.pathname` to tailored translation strings, the assistant provides real-time "Pair Design" commentary. This proves the ability to architect complex, state-aware AI interfaces that enhance rather than distract from the core user journey.
 
-### 6.12 The Kinetic Engine: Global Scroll-Track Navigation
-*   **The Feature**: The persistent `ScrollJourneyGuide.jsx` kinetic navigator.
-*   **The Narrative**: Standard navigation is static. We engineered a horizontal "scroll-track" where a 1/8th scale sprite travels based on document depth. Utilizing `useSpring` logic for momentum and section-aware labels, it provides a physical, tactile sense of progress. This demonstrates mastery of motion design and cognitive spatial awareness in large-scale digital environments.
-
 ### 6.13 The System Ledger: Extracted ATS Manifest
 *   **The Feature**: The `/cv` System Manifest route utilizing aggressive `@media print` CSS optimization.
 *   **The Narrative**: High-concept design often fails enterprise HR algorithms. The System Manifest engine actively strips the complex React UI down to a bare HTML matrix. By leveraging exact ATS-compliant taxonomies (pipe-separated values, strict semantic grouping), it guarantees 100% parsing success rates by Workday, Greenhouse, and Lever when downloaded to PDF.
@@ -134,7 +130,6 @@ Following a rigorous adversarial UX audit leveraging recognized heuristic framew
 
 ### Phase 2: Autonomous Intelligence & Spatial Adaptation (COMPLETED)
 *   **[COMPLETED] The Companion Protocol**: Implemented a context-aware AI assistant with localized route-mapping.
-*   **[COMPLETED] Kinetic Navigation**: Deployed spring-physics-driven scroll track for tactile spatial awareness.
 *   **[COMPLETED] Agentic Design System**: Documented all new kinetic and agentic primitives in the Design Kernel.
 *   **[COMPLETED] v7.0 System Synchronization**: Unified versioning and narrative across all project indices.
 

@@ -26,7 +26,6 @@ import ScrollToTop from "./components/ScrollToTop";
 
 import AnalyticsTracker from "./components/AnalyticsTracker";
 import VirtualAssistant from "./components/VirtualAssistant";
-import ScrollJourneyGuide from "./components/ScrollJourneyGuide";
 
 // Loading Fallback Component
 const PageLoader = () => (
@@ -46,7 +45,6 @@ function App() {
         <AnalyticsTracker />
         <ScrollToTop />
         <VirtualAssistant />
-        <ScrollJourneyGuide />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* Core Routes */}
