@@ -462,9 +462,9 @@ export const translations = {
         "year-in-review": "Year in Review: Auditing a privacy-first engine for achievement reflection.",
         "dolphi": "Dolphi: Examining habit meta-tracking for the resilient self.",
         // Company Overviews
-        "lumina": "Lumina: Engineering dignity into the blue-collar recruitment machine.",
-        "gudang-ada": "GudangAda: Systematizing trust across $100B of fragmented B2B supply chains.",
-        "stoqo": "STOQO: Designing for operational resilience in the chaotic heart of F&B logistics.",
+        "workforce": "Lumina: Engineering dignity into the blue-collar recruitment machine.",
+        "commerce": "GudangAda: Systematizing trust across $100B of fragmented B2B supply chains.",
+        "efficiency": "STOQO: Designing for operational resilience in the chaotic heart of F&B logistics.",
         // Route-specific contexts
         "design-system": "System DNA: Reviewing the immutable tokens that define this interface.",
         "sketches": "Visual Scratchpad: Exploring early-stage visual logic and pencil prototypes.",
@@ -528,6 +528,20 @@ export const translations = {
           "interactive-workbook": "Loop Analysis: Examining how gamification affects bilingual knowledge retention.",
           "year-in-review": "Data Audit: Reviewing the logic of achievement logging without compromising privacy.",
           "dolphi": "Behavioral Core: Analyzing the meta-tracker's resilience mechanics and mascot reactivity.",
+          // Case Studies
+          "workforce-chat": "Reputation Mining: Analyzing the handshake between blue-collar dignity and data integrity.",
+          "ats-dashboard": "Data Taming: Deconstructing the high-volume recruitment funnel. Logic: Resilient.",
+          "direct-apply": "Friction Audit: Reducing cognitive load triggers in the application architecture.",
+          "stoqo-logistics": "Logistics Resilience: Analyzing the mechanics of just-in-time delivery reliability.",
+          "stoqo-sales": "Incentive Logic: Decoding the behavior design that replaces anxiety with commitment.",
+          "paper-to-paperless": "Digitizing Chaos: Converting physical paper load into system-verified integers.",
+          "marketplace-checkout": "Trust Engine: Auditing checkout fail-safes in a $100B B2B environment.",
+          "brand-official-store": "Brand Architecture: Shielding global identity within a chaotic market grid.",
+          "promo-engine": "Growth Logic: Solving recursive math conflicts for risk-free zero-error promos.",
+          // Companies
+          "workforce": "Analyzing the blue-collar recruitment machine. Accessing deep-field logs and reputation system logic.",
+          "commerce": "Auditing $100B B2B supply chain layers. Reviewing high-volume transaction fail-safes.",
+          "efficiency": "Deconstructing F&B logistics entropy. Examining the mechanics of just-in-time resilience.",
           "lumina": "Analyzing the blue-collar recruitment machine. Accessing deep-field logs and reputation system logic.",
           "gudang-ada": "Auditing $100B B2B supply chain layers. Reviewing high-volume transaction fail-safes.",
           "stoqo": "Deconstructing F&B logistics entropy. Examining the mechanics of just-in-time resilience."
@@ -997,9 +1011,9 @@ export const translations = {
         "year-in-review": "Year in Review: Mengaudit mesin refleksi pencapaian yang mengutamakan privasi.",
         "dolphi": "Dolphi: Menelaah meta-tracking kebiasaan untuk diri yang tangguh.",
         // Ringkasan Perusahaan
-        "lumina": "Lumina: Merekayasa martabat ke dalam mesin rekrutmen pekerja kerah biru.",
-        "gudang-ada": "GudangAda: Mensistematiskan kepercayaan di tengah rantai pasok B2B senilai $100M.",
-        "stoqo": "STOQO: Mendesain untuk resiliensi operasional di jantung logistik F&B yang dinamis.",
+        "workforce": "Lumina: Merekayasa martabat ke dalam mesin rekrutmen pekerja kerah biru.",
+        "commerce": "GudangAda: Mensistematiskan kepercayaan di tengah rantai pasok B2B senilai $100M.",
+        "efficiency": "STOQO: Mendesain untuk resiliensi operasional di jantung logistik F&B yang dinamis.",
         // Konteks spesifik rute
         "design-system": "DNA Sistem: Meninjau token desain yang mendefinisikan antarmuka ini.",
         "sketches": "Sketsa Visual: Mengeksplorasi logika visual tahap awal dan purwarupa pensil.",
@@ -1063,6 +1077,20 @@ export const translations = {
           "interactive-workbook": "Analisis Siklus: Membedah bagaimana gamifikasi memengaruhi retensi pengetahuan bilingual.",
           "year-in-review": "Audit Data: Meninjau logika pencatatan pencapaian tanpa mengorbankan privasi.",
           "dolphi": "Inti Perilaku: Menganalisis mekanik resiliensi meta-tracker dan reaktivitas maskot.",
+          // Studi Kasus
+          "workforce-chat": "Reputation Mining: Menganalisis jabat tangan antara martabat pekerja dan integritas data.",
+          "ats-dashboard": "Penjinakan Data: Mendekonstruksi corong rekrutmen volume tinggi. Logika: Tangguh.",
+          "direct-apply": "Audit Friksi: Mengurangi pemicu beban kognitif dalam arsitektur lamaran.",
+          "stoqo-logistics": "Resiliensi Logistik: Menganalisis mekanika keandalan pengiriman tepat waktu.",
+          "stoqo-sales": "Logika Insentif: Mendekode desain perilaku yang menggantikan kecemasan dengan komitmen.",
+          "paper-to-paperless": "Digitalisasi Chaos: Mengubah beban kertas fisik menjadi integer terverifikasi sistem.",
+          "marketplace-checkout": "Mesin Kepercayaan: Mengaudit pengaman checkout dalam lingkungan B2B $100M.",
+          "brand-official-store": "Arsitektur Brand: Melindungi identitas global dalam grid pasar yang kacau.",
+          "promo-engine": "Logika Pertumbuhan: Menyelesaikan konflik matematika rekursif untuk promo tanpa risiko.",
+          // Perusahaan
+          "workforce": "Menganalisis mesin rekrutmen pekerja kerah biru. Mengakses log lapangan dan logika sistem reputasi.",
+          "commerce": "Mengaudit lapisan rantai pasokan B2B senilai $100M. Meninjau pengaman transaksi volume tinggi.",
+          "efficiency": "Mendekonstruksi entropi logistik F&B. Menelaah mekanik resiliensi pengiriman just-in-time.",
           "lumina": "Menganalisis mesin rekrutmen pekerja kerah biru. Mengakses log lapangan dan logika sistem reputasi.",
           "gudang-ada": "Mengaudit lapisan rantai pasokan B2B senilai $100M. Meninjau pengaman transaksi volume tinggi.",
           "stoqo": "Mendekonstruksi entropi logistik F&B. Menelaah mekanik resiliensi pengiriman just-in-time."

@@ -118,12 +118,18 @@ const VirtualAssistant = () => {
     const getMsg = (key) => {
       const povKey = `virtual_assistant.${pov}${key}`;
       const baseKey = `virtual_assistant.${key}`;
-      const translated = t(povKey);
+      let translated = t(povKey);
       
       // If the translated value is just the key name, it means it's missing in terminal_pov
       if (translated === povKey && !isRecruiterMode) {
-        return t(baseKey);
+        translated = t(baseKey);
       }
+      
+      // Final safety: if the key is still missing (returns the key path), show home message or empty
+      if (translated.startsWith('virtual_assistant.')) {
+        return "";
+      }
+      
       return translated;
     };
 
@@ -147,12 +153,17 @@ const VirtualAssistant = () => {
         return getMsg("context.unprovoked-thoughts");
       } else if (path.includes("/case-study/") || path.includes("/side-project/") || path.includes("/work/") || path.includes("/blog/")) {
         const segments = path.split("/").filter(Boolean);
-        const id = segments[segments.length - 1];
+        let id = segments[segments.length - 1];
         
-        const specificMsg = getMsg(`context.${id}`);
-        if (specificMsg && specificMsg !== `virtual_assistant.${pov}context.${id}`) {
-          return specificMsg;
+        // If we extracted a structural segment instead of a real ID
+        if (id === 'work' || id === 'case-study' || id === 'side-project' || id === 'blog') {
+          return path.includes("/side-project") || path.includes("/blog") ? getMsg("msg_side_projects") : getMsg("msg_case_study");
         }
+
+        const specificMsg = getMsg(`context.${id}`);
+        if (specificMsg) return specificMsg;
+
+        // Generic context-aware fallback
         return path.includes("/case-study/") || path.includes("/work/") ? getMsg("msg_case_study") : getMsg("msg_side_projects");
       }
       return getMsg("msg_home");
