@@ -439,6 +439,13 @@ export const translations = {
       msg_home: "Welcome to my portfolio! I'm here to help you review my work.",
       msg_case_study: "Analyzing project details... Check out the metrics and impact.",
       msg_about: "This is me! My background, traits, and algorithmic stack.",
+      tips: [
+        "Tip: Try toggling the Dark Mode switch in the top right to see how the UI adapts.",
+        "Fun Fact: I built this terminal theme entirely with React and TailwindCSS.",
+        "Tip: Check out the 'Interactive Settings' in the About page to see my design philosophy in action.",
+        "System Log: I'm currently running on 0 cups of coffee. Impressive, right?",
+        "Tip: The Case Studies are protected, but if you're a recruiter, you already have the key."
+      ]
     },
   },
   id: {
@@ -879,6 +886,13 @@ export const translations = {
       msg_home: "Selamat datang di portofolio saya! Saya di sini untuk membantu Anda meninjau karya saya.",
       msg_case_study: "Menganalisis detail proyek... Cek metrik dan dampaknya.",
       msg_about: "Ini dia! Latar belakang, kepribadian, dan algoritma mandiri saya.",
+      tips: [
+        "Tips: Coba klik tombol Dark Mode di kanan atas untuk melihat adaptasi antarmukanya.",
+        "Fakta Menarik: Saya membangun tema terminal ini dari nol menggunakan React dan TailwindCSS.",
+        "Tips: Cek bagian 'Interactive Settings' di halaman About untuk melihat filosofi desain saya.",
+        "Log Sistem: Saat ini saya beroperasi dengan 0 cangkir kopi. Mengesankan kan?",
+        "Tips: Studi Kasus dilindungi, tapi jika Anda seorang rekruter, Anda pasti tahu kunci sandinya."
+      ]
     },
   },
 };

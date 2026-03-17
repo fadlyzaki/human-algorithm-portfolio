@@ -16,7 +16,7 @@ import { SYSTEM_CONFIG } from "../../config/constants";
 import DefaultCard from "../cards/DefaultCard";
 import SystemMonitor from "../SystemMonitor";
 import UIDiagram from "../diagrams/UIDiagram";
-import InteractiveAvatar from "../about/InteractiveAvatar";
+
 
 const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
   const [isConfirmingDestructive, setIsConfirmingDestructive] = useState(false);
