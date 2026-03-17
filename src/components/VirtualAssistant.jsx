@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useRecruiterMode } from "../context/RecruiterModeContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { MessageSquare } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
@@ -16,10 +16,21 @@ const VirtualAssistant = () => {
   const { t } = useLanguage();
   const { isDark } = useTheme();
   const location = useLocation();
+  const navigate = useNavigate();
   const [currentScene, setCurrentScene] = useState(SCENES.IDLE);
   const [message, setMessage] = useState("");
+  const [menuOptions, setMenuOptions] = useState(null); // Used to render the interactive menu
   const [showMessage, setShowMessage] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isSleeping, setIsSleeping] = useState(false);
+
+  // Restore sleep state from session storage
+  useEffect(() => {
+    const sleepState = sessionStorage.getItem("assistant_sleeping");
+    if (sleepState === "true") {
+      setIsSleeping(true);
+    }
+  }, []);
 
   // Use refs to store timeout IDs so we can clear them reliably
   const hideTimerRef = useRef(null);
@@ -38,78 +49,113 @@ const VirtualAssistant = () => {
     return () => clearAllTimers();
   }, []);
 
-  // Helper to pick a random tip that isn't the current message
-  const showRandomTip = () => {
-    const tips = t("virtual_assistant.tips", { returnObjects: true });
-    if (!tips || !Array.isArray(tips)) return;
+  const toggleSleep = () => {
+    const newState = !isSleeping;
+    setIsSleeping(newState);
+    sessionStorage.setItem("assistant_sleeping", newState.toString());
     
-    let randomTip = tips[Math.floor(Math.random() * tips.length)];
-    // Prevent showing the exact same tip twice in a row if possible
-    let attempts = 0;
-    while (randomTip === message && attempts < 3) {
-      randomTip = tips[Math.floor(Math.random() * tips.length)];
-      attempts++;
+    if (newState) {
+      clearAllTimers();
+      setShowMessage(false);
     }
+  };
 
-    clearAllTimers(); // Cancel any existing sequences
-    setMessage(randomTip);
+  // Helper to get time-based greeting
+  const getTimeGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour >= 5 && hour < 12) return t("virtual_assistant.time_greetings.morning");
+    if (hour >= 12 && hour < 17) return t("virtual_assistant.time_greetings.afternoon");
+    if (hour >= 17 && hour < 22) return t("virtual_assistant.time_greetings.evening");
+    return t("virtual_assistant.time_greetings.late_night");
+  };
+
+  const showInteractiveMenu = () => {
+    clearAllTimers();
+    const actions = t("virtual_assistant.actions", { returnObjects: true });
+    
+    setMenuOptions([
+      { label: actions[0], onClick: () => triggerContextMessage(true) }, // Explain this page
+      { label: actions[1], onClick: toggleSleep } // Go to sleep
+    ]);
+    
+    setMessage(""); // Clear text message to show menu instead
     setShowMessage(true);
     setCurrentScene(SCENES.THINKING);
 
-    // Auto-hide after 6 seconds
+    // Auto-hide menu after 10 seconds if no interaction
+    hideTimerRef.current = setTimeout(() => {
+      handleDismiss();
+    }, 10000);
+  };
+
+  const triggerContextMessage = (manualClick = false) => {
+    clearAllTimers();
+    const currentMsg = getRouteMessage(location.pathname);
+    setMenuOptions(null);
+    setMessage(currentMsg);
+    setShowMessage(true);
+    setCurrentScene(SCENES.THINKING);
+    
+    // Auto-hide after 8 seconds
     hideTimerRef.current = setTimeout(() => {
       setShowMessage(false);
       setCurrentScene(SCENES.IDLE);
-    }, 6000);
+    }, manualClick ? 10000 : 8000);
   };
 
-  const handleClick = () => {
-    showRandomTip();
-  };
-
-  const handleDismiss = (e) => {
-    e.stopPropagation();
-    setShowMessage(false);
-    setCurrentScene(SCENES.IDLE);
-  };
-
-  // Determine message and animation based on route or interactions
-  useEffect(() => {
-    if (!isRecruiterMode) return;
-
-    let newMsg = "";
-    const path = location.pathname;
-
+  const getRouteMessage = (path) => {
     if (path === "/") {
-      newMsg = t("virtual_assistant.msg_home");
+      return getTimeGreeting(); // Time-based greeting instead of generic message
     } else if (path === "/about") {
-      newMsg = t("virtual_assistant.msg_about");
+      return t("virtual_assistant.msg_about");
     } else if (path === "/side-projects") {
-      newMsg = t("virtual_assistant.msg_side_projects");
+      return t("virtual_assistant.msg_side_projects");
     } else if (path === "/design-system") {
-      newMsg = t("virtual_assistant.context.design-system");
+      return t("virtual_assistant.context.design-system");
     } else if (path === "/sketches") {
-      newMsg = t("virtual_assistant.context.sketches");
+      return t("virtual_assistant.context.sketches");
     } else if (path === "/contact") {
-      newMsg = t("virtual_assistant.context.contact");
+      return t("virtual_assistant.context.contact");
     } else if (path === "/cv" || path === "/system-manifest") {
-      newMsg = t("virtual_assistant.context.system-manifest");
-    } else if (path === "/unprovoked-thoughts" || path.includes("/unprovoked-thought/")) {
-      newMsg = t("virtual_assistant.context.unprovoked-thoughts");
-    } else if (path.includes("/case-study/") || path.includes("/side-project/")) {
-      // Extract ID from /case-study/id or /side-project/id
+      return t("virtual_assistant.context.system-manifest");
+    } else if (path === "/thoughts" || path.includes("/thoughts/")) {
+      return t("virtual_assistant.context.unprovoked-thoughts");
+    } else if (path.includes("/case-study/") || path.includes("/side-project/") || path.includes("/work/") || path.includes("/blog/")) {
       const segments = path.split("/").filter(Boolean);
       const id = segments[segments.length - 1];
       
       const specificMsg = t(`virtual_assistant.context.${id}`);
       if (specificMsg && specificMsg !== `virtual_assistant.context.${id}`) {
-        newMsg = specificMsg;
-      } else {
-        newMsg = path.includes("/case-study/") 
-          ? t("virtual_assistant.msg_case_study") 
-          : t("virtual_assistant.msg_side_projects");
+        return specificMsg;
       }
+      return path.includes("/case-study/") || path.includes("/work/") ? t("virtual_assistant.msg_case_study") : t("virtual_assistant.msg_side_projects");
     }
+    return t("virtual_assistant.msg_home");
+  };
+
+  const handleClick = (e) => {
+    e.stopPropagation();
+    if (isSleeping) {
+      toggleSleep(); // Wake up!
+      triggerContextMessage(true);
+    } else {
+      showInteractiveMenu();
+    }
+  };
+
+  const handleDismiss = (e) => {
+    if (e) e.stopPropagation();
+    setShowMessage(false);
+    setMenuOptions(null);
+    setCurrentScene(SCENES.IDLE);
+  };
+
+  // Determine message and animation based on route or interactions
+  useEffect(() => {
+    if (!isRecruiterMode || isSleeping) return;
+
+    const path = location.pathname;
+    const newMsg = getRouteMessage(path);
 
     // Only trigger the "vocal/walk" animation sequence if the path changed
     // If only the language changed, just update the message immediately
@@ -121,6 +167,7 @@ const VirtualAssistant = () => {
     if (prevPath !== path) {
       clearAllTimers(); // Clear any existing sequences
       setShowMessage(false);
+      setMenuOptions(null);
       localStorage.setItem("assistant_last_path", path);
 
       // Only walk if it's the first route change in this session
@@ -159,9 +206,11 @@ const VirtualAssistant = () => {
       }
     } else {
       // Language flip: just update the message text if currently visible
-      setMessage(newMsg);
+      if (showMessage && !menuOptions) {
+        setMessage(newMsg);
+      }
     }
-  }, [location.pathname, isRecruiterMode, t]);
+  }, [location.pathname, isRecruiterMode, t, isSleeping]);
 
   if (!isRecruiterMode) return null;
 
@@ -174,7 +223,7 @@ const VirtualAssistant = () => {
         bg-[var(--bg-card)] border border-[var(--border-color)] 
         shadow-[0_0_20px_rgba(0,0,0,0.2)] 
         p-3 rounded-2xl rounded-br-sm
-        max-w-[160px] sm:max-w-[200px] text-xs sm:text-sm text-[var(--text-primary)]
+        max-w-[170px] sm:max-w-[220px] text-xs sm:text-sm text-[var(--text-primary)]
         flex items-start gap-3 relative
         transform origin-bottom-right transition-all duration-300
         ${!showMessage ? "scale-95 opacity-0 rotate-2 translate-y-2 pointer-events-none" : "scale-100 opacity-100 rotate-0 translate-y-0"}
@@ -186,7 +235,24 @@ const VirtualAssistant = () => {
           <span className="text-[10px] leading-none">×</span>
         </button>
         <MessageSquare size={16} className="text-[var(--accent-blue)] mt-0.5 shrink-0" />
-        <p className="leading-snug pr-2">{message}</p>
+        
+        <div className="w-full">
+          {menuOptions ? (
+            <div className="flex flex-col gap-1.5 w-full">
+              {menuOptions.map((opt, i) => (
+                <button 
+                  key={i}
+                  onClick={opt.onClick}
+                  className="text-left w-full hover:bg-[var(--bg-void)] px-2 py-1.5 rounded transition-colors text-xs text-[var(--text-primary)] border border-transparent hover:border-[var(--border-color)]"
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <p className="leading-snug pr-2">{message}</p>
+          )}
+        </div>
         
         {/* Bubble Tail - Positioning it to point to the character */}
         <div className="absolute -bottom-2 right-10 w-4 h-4 bg-[var(--bg-card)] border-r border-b border-[var(--border-color)] rotate-45 z-[-1]" />
@@ -197,13 +263,18 @@ const VirtualAssistant = () => {
         onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className={`w-20 h-28 sm:w-24 sm:h-32 drop-shadow-lg scale-x-[-1] sm:scale-x-1 overflow-hidden pointer-events-auto cursor-pointer transition-transform duration-200 ${isHovered ? "scale-105" : ""} ${isDark ? "brightness-90 opacity-90" : ""}`}
+        className={`w-20 h-28 sm:w-24 sm:h-32 drop-shadow-lg scale-x-[-1] sm:scale-x-1 overflow-hidden pointer-events-auto cursor-pointer transition-transform duration-200 ${isHovered ? "scale-105" : ""} ${isDark ? "brightness-90 opacity-90" : ""} ${isSleeping ? "opacity-50 grayscale hover:grayscale-0 hover:opacity-100" : ""}`}
       >
+        {isSleeping && (
+          <div className="absolute -top-2 right-2 text-xs font-mono font-bold text-[var(--text-secondary)] animate-pulse">
+            {t("virtual_assistant.sleeping", "Zzz...")}
+          </div>
+        )}
         <img 
-          key={currentScene}
-          src={`/images/sprite-${currentScene}.png`} 
+          key={isSleeping ? 'sleep' : currentScene}
+          src={`/images/sprite-${isSleeping ? SCENES.IDLE : currentScene}.png`} 
           alt="Virtual Assistant Sprite" 
-          className={`sprite-img sprite-anim-${currentScene}`} 
+          className={`sprite-img ${isSleeping ? 'sprite-anim-idle' : `sprite-anim-${currentScene}`}`} 
         />
       </div>
     </div>

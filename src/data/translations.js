@@ -459,6 +459,10 @@ export const translations = {
         "interactive-workbook": "Interactive Workbook: A gamified bilingual learning platform.",
         "year-in-review": "Year in Review: A privacy-first yearly milestone generator.",
         "dolphi": "Dolphi: Habit meta-tracking for the optimized self.",
+        // Company Overviews
+        "lumina": "Lumina Core: A deep dive into the blue-collar recruitment ecosystem.",
+        "gudang-ada": "GudangAda Core: Analyzing B2B supply chain infrastructure at scale.",
+        "stoqo": "STOQO Core: Reviewing operational resilience in F&B logistics.",
         // Route-specific contexts
         "design-system": "The System DNA: Reviewing the immutable design tokens and component library.",
         "sketches": "The Archive: Exploring pencil explorations and visual experiments.",
@@ -469,10 +473,21 @@ export const translations = {
       tips: [
         "Tip: Try toggling the Dark Mode switch in the top right to see how the UI adapts.",
         "Fun Fact: I built this terminal theme entirely with React and TailwindCSS.",
-        "Tip: Check out the 'Interactive Settings' in the About page to see my design philosophy in action.",
+        "Tip: Notice how the interface elements subtly react to your scroll speed and cursor position.",
         "System Log: I'm currently running on 0 cups of coffee. Impressive, right?",
         "Tip: The Case Studies are protected, but if you're a recruiter, you already have the key."
-      ]
+      ],
+      actions: [
+        "Explain this page",
+        "Go to sleep"
+      ],
+      time_greetings: {
+        morning: "Good morning. Initializing daily operations.",
+        afternoon: "Good afternoon. Systems are running smoothly.",
+        evening: "Good evening. Reviewing daily logs.",
+        late_night: "It's late. Good design shouldn't require sleep deprivation. Remember to rest."
+      },
+      sleeping: "Zzz..."
     },
     scroll_guide: {
       sections: {
@@ -949,6 +964,10 @@ export const translations = {
         "interactive-workbook": "Buku Kerja Interaktif: Platform pembelajaran bilingual yang digamifikasi.",
         "year-in-review": "Year in Review: Generator pencapaian tahunan yang mengutamakan privasi.",
         "dolphi": "Dolphi: Meta-tracking kebiasaan untuk diri yang lebih optimal.",
+        // Ringkasan Perusahaan
+        "lumina": "Lumina: Menyelami ekosistem rekrutmen pekerja kerah biru.",
+        "gudang-ada": "GudangAda: Menganalisis infrastruktur rantai pasokan B2B skala besar.",
+        "stoqo": "STOQO: Meninjau ketahanan operasional dalam logistik F&B.",
         // Konteks spesifik rute
         "design-system": "DNA Sistem: Meninjau token desain dan pustaka komponen yang ada.",
         "sketches": "Arsip Visual: Menjelajahi eksplorasi pensil dan eksperimen visual.",
@@ -959,10 +978,21 @@ export const translations = {
       tips: [
         "Tips: Coba klik tombol Dark Mode di kanan atas untuk melihat adaptasi antarmukanya.",
         "Fakta Menarik: Saya membangun tema terminal ini dari nol menggunakan React dan TailwindCSS.",
-        "Tips: Cek bagian 'Interactive Settings' di halaman About untuk melihat filosofi desain saya.",
+        "Tip: Perhatikan bagaimana elemen antarmuka bereaksi halus terhadap seberapa cepat Anda scroll dan posisi kursor.",
         "Log Sistem: Saat ini saya beroperasi dengan 0 cangkir kopi. Mengesankan kan?",
         "Tips: Studi Kasus dilindungi, tapi jika Anda seorang rekruter, Anda pasti tahu kunci sandinya."
-      ]
+      ],
+      actions: [
+        "Jelaskan halaman ini",
+        "Masuk mode tidur"
+      ],
+      time_greetings: {
+        morning: "Selamat pagi. Menginisialisasi operasi harian.",
+        afternoon: "Selamat siang. Sistem berjalan dengan lancar.",
+        evening: "Selamat malam. Meninjau log harian.",
+        late_night: "Sudah larut malam. Desain yang baik tidak seharusnya mengorbankan tidur. Jangan lupa istirahat."
+      },
+      sleeping: "Zzz..."
     },
     scroll_guide: {
       sections: {

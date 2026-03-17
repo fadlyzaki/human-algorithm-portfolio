@@ -100,7 +100,7 @@ const WorkBento = ({ cluster, priority = false }) => {
       />
 
       {/* Hover Action (Floating - Top Right) */}
-      <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+      <div className={`absolute top-6 right-6 z-20 transition-all duration-300 transform ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
         <div className="bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
           View <ArrowUpRight size={12} />
         </div>
@@ -115,7 +115,7 @@ const WorkBento = ({ cluster, priority = false }) => {
               <img
                 src={cluster.logo}
                 alt={cluster.company || cluster.title}
-                className={`w-full h-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110`}
+                className={`w-full h-full object-contain drop-shadow-sm transition-transform duration-500 ${isHovered ? "scale-110" : ""}`}
               />
             ) : (
               <motion.div
@@ -176,7 +176,7 @@ const WorkBento = ({ cluster, priority = false }) => {
 
         {/* Device / Visual Frame */}
         <div
-          className={`relative transform transition-transform duration-700 ${cluster.heroImage && cluster.heroImage.startsWith("/") && !imgError ? "w-[200px] mx-auto" : "w-full max-w-[90%] group-hover:scale-105 origin-bottom"}`}
+          className={`relative transform transition-transform duration-700 ${cluster.heroImage && cluster.heroImage.startsWith("/") && !imgError ? "w-[200px] mx-auto" : `w-full max-w-[90%] origin-bottom ${isHovered ? "scale-105" : ""}`}`}
         >
           {cluster.heroImage &&
             cluster.heroImage.startsWith("/") &&
@@ -200,7 +200,7 @@ const WorkBento = ({ cluster, priority = false }) => {
                   alt={title}
                   fetchpriority={priority ? "high" : "auto"}
                   loading={priority ? "eager" : "lazy"}
-                  className={`w-full h-auto object-top transition-all duration-[5000ms] ease-in-out group-hover:translate-y-[calc(-100%+280px)] ${imgLoaded ? "opacity-100" : "opacity-0"}`}
+                  className={`w-full h-auto object-top transition-all duration-[5000ms] ease-in-out ${isHovered ? "translate-y-[calc(-100%+280px)]" : ""} ${imgLoaded ? "opacity-100" : "opacity-0"}`}
                   style={{ transformOrigin: "top" }}
                   onLoad={() => setImgLoaded(true)}
                   onError={() => setImgError(true)}
