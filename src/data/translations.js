@@ -436,56 +436,91 @@ export const translations = {
       planned_features: "Planned_Features"
     },
     virtual_assistant: {
-      msg_home: "Welcome to my portfolio! I'm here to help you review my work.",
-      msg_case_study: "Analyzing project details... Check out the metrics and impact.",
-      msg_side_projects: "Exploring the experimental lab... These are my side projects.",
-      msg_about: "This is me! My background, traits, and algorithmic stack.",
+      msg_home: "Connection established. I'm your guide through this expertise matrix. How can I help you deconstruct my work?",
+      msg_case_study: "Deconstructing the impact. I've mapped out the research, decisions, and outcomes for your review.",
+      msg_side_projects: "Entering the sandbox. These are the experimental iterations where I test new logic.",
+      msg_about: "Reviewing the architect's DNA. This is where systems thinking meets human intent.",
       context: {
         // Lumina Projects
-        "workforce-chat": "Analyzing Workforce Chat: Reducing friction in blue-collar communication.",
-        "ats-dashboard": "Reviewing the ATS Dashboard: Visualizing human stories within data pipelines.",
-        "direct-apply": "Exploring Direct Apply: humanizing the job application experience.",
+        "workforce-chat": "Workforce Chat: Engineering dignity into blue-collar communication.",
+        "ats-dashboard": "ATS Dashboard: Humanizing high-volume data pipelines.",
+        "direct-apply": "Direct Apply: Reducing cognitive load in the application journey.",
         // Stoqo Projects
-        "stoqo-logistics": "Operational Resilience: Ensuring peace of mind in logistics delivery.",
-        "stoqo-sales": "Sales Gamification: Converting confusion into commitment via clarity.",
-        "paper-to-paperless": "Digitizing Chaos: Transforming paper workflows into data integrity.",
+        "stoqo-logistics": "Logistics Resilience: Ensuring operational peace of mind.",
+        "stoqo-sales": "Sales Clarity: Systematizing trust for the field workforce.",
+        "paper-to-paperless": "Digitizing Chaos: Transforming paper friction into data integrity.",
         // GudangAda Projects
-        "marketplace-checkout": "Commerce Engine: Systematizing trust in a high-scale B2B marketplace.",
-        "brand-official-store": "Official Store: Giving global brands a premium home in the market.",
-        "promo-engine": "Promo Center: Turning math headaches into conflict-free growth.",
+        "marketplace-checkout": "Commerce Engine: Scaling trust in B2B supply chain ecosystems.",
+        "brand-official-store": "Official Store: Architecting premium presence for global brands.",
+        "promo-engine": "Promo Center: Solving the math of growth through conflict-free logic.",
         // Side Projects
-        "human-algorithm": "The Human Algorithm: Architecting a self-aware AI portfolio.",
-        "productivity-illusion": "Productivity Illusion Research: Decoding the gap between engagement and learning.",
-        "interactive-workbook": "Interactive Workbook: A gamified bilingual learning platform.",
-        "year-in-review": "Year in Review: A privacy-first yearly milestone generator.",
-        "dolphi": "Dolphi: Habit meta-tracking for the optimized self.",
+        "human-algorithm": "The Human Algorithm: My self-aware portfolio architecture.",
+        "productivity-illusion": "Productivity Research: Decoding the friction between engagement and learning.",
+        "interactive-workbook": "Interactive Workbook: Gamifying the bilingual learning loop.",
+        "year-in-review": "Year in Review: A privacy-first engine for reflecting on milestones.",
+        "dolphi": "Dolphi: Habit meta-tracking for the resilient self.",
         // Company Overviews
-        "lumina": "Lumina Core: A deep dive into the blue-collar recruitment ecosystem.",
+        "lumina": "Lumina Ecosystem: Deconstructing the blue-collar recruitment machine.",
         "gudang-ada": "GudangAda Core: Analyzing B2B supply chain infrastructure at scale.",
         "stoqo": "STOQO Core: Reviewing operational resilience in F&B logistics.",
         // Route-specific contexts
-        "design-system": "The System DNA: Reviewing the immutable design tokens and component library.",
-        "sketches": "The Archive: Exploring pencil explorations and visual experiments.",
-        "contact": "Transmission Protocol: Ready to initialize a direct handshake with the architect.",
-        "system-manifest": "Technical Blueprint: Analyzing the ATS-optimized professional manifest.",
-        "unprovoked-thoughts": "Neural Echoes: Processing esssays, reflections, and unprovoked thoughts."
+        "design-system": "System DNA: Reviewing the immutable tokens that define this interface.",
+        "sketches": "Visual Scratchpad: Exploring early-stage visual logic and pencil prototypes.",
+        "contact": "Handshake Protocol: Ready to initialize a direct sync with the architect.",
+        "system-manifest": "Technical Blueprint: An ATS-optimized manifest of my professional output.",
+        "unprovoked-thoughts": "Neural Echoes: Processing essays, reflections, and philosophical logs."
       },
       tips: [
-        "Tip: Try toggling the Dark Mode switch in the top right to see how the UI adapts.",
-        "Fun Fact: I built this terminal theme entirely with React and TailwindCSS.",
-        "Tip: Notice how the interface elements subtly react to your scroll speed and cursor position.",
-        "System Log: I'm currently running on 0 cups of coffee. Impressive, right?",
-        "Tip: The Case Studies are protected, but if you're a recruiter, you already have the key."
+        "Tip: Check the 'Recruiter Mode' toggle. It reconfigures the UI to prioritize impact metrics.",
+        "System Log: I built this terminal environment to respect your focus. Minimal noise, maximum intent.",
+        "Fact: Every interaction here is designed to reduce your cognitive load.",
+        "Tip: Use the Dark/Light mode switch to see how the visual logic adapts.",
+        "System Check: Currently operating on peak empathy levels. All systems aligned."
       ],
       actions: [
         "Explain this page",
         "Go to sleep"
       ],
       time_greetings: {
-        morning: "Good morning. Initializing daily operations.",
-        afternoon: "Good afternoon. Systems are running smoothly.",
-        evening: "Good evening. Reviewing daily logs.",
-        late_night: "It's late. Good design shouldn't require sleep deprivation. Remember to rest."
+        morning: [
+          "Good morning. Initializing daily operations. Control flow: Optimal.",
+          "Morning check-in. Systems are primed for empathetic design.",
+          "Connection active. Sunlight is hitting the logic layers just right. Morning!",
+          "Initializing daily handshake. Ready to deconstruct some chaos?",
+          "Morning. Let's build something that respects human bandwidth today."
+        ],
+        afternoon: [
+          "Good afternoon. Systems are stable. Mid-day check-in complete.",
+          "Afternoon sun detected. The environment is optimized for deep focus.",
+          "Reviewing progress. Would you like to deep-dive into a specific case study?",
+          "Logic check: Balanced. Afternoon operations are running smoothly.",
+          "Detection: Mid-day peak. How can I help you navigate the system?"
+        ],
+        evening: [
+          "Good evening. Winding down the day's iterations.",
+          "Evening check. Reviewing the logs and reflecting on today's impact.",
+          "The lights are low, but the logic remains clear. Welcome.",
+          "Archiving today's experiments. Ready for an evening review?",
+          "Detection: Evening. Let's finish the day with some high-fidelity thinking."
+        ],
+        late_night: [
+          "It's late. Good design shouldn't require sleep deprivation. Please rest.",
+          "Night owl mode active. The quiet hours are best for architectural thinking.",
+          "Monitoring the midnight oil. Don't forget to protect your bandwidth.",
+          "Late night logic engaged. Detecting deep focus... or exhaustion?",
+          "The system is quiet. Perfect for deconstructing complex problems."
+        ]
+      },
+      terminal_pov: {
+        msg_home: "Standard interface loaded. Accessing the architect's personal logic layers.",
+        msg_about: "Reviewing the human behind the code. Detecting high-empathy algorithms.",
+        msg_side_projects: "Entering the sandbox. Accessing raw iterations and experimental code.",
+        msg_case_study: "Meticulously deconstructing legacy workflows. Analyzing the logic of impact.",
+        context: {
+          "design-system": "System DNA: Analyzing the core tokens that define this digital reality.",
+          "sketches": "Raw Input: Accessing unoptimized visual thoughts and pencil-first logic.",
+          "contact": "Handshake Protocol: Initializing a direct handshake with the system architect."
+        }
       },
       sleeping: "Zzz..."
     },
@@ -925,56 +960,91 @@ export const translations = {
       planned_features: "Fitur_Direncanakan"
     },
     virtual_assistant: {
-      msg_home: "Selamat datang di portofolio saya! Saya di sini untuk membantu Anda meninjau karya saya.",
-      msg_case_study: "Menganalisis detail proyek... Cek metrik dan dampaknya.",
-      msg_side_projects: "Menjelajahi laboratorium eksperimental... Ini adalah proyek sampingan saya.",
-      msg_about: "Ini dia! Latar belakang, kepribadian, dan algoritma mandiri saya.",
+      msg_home: "Koneksi terjalin. Saya pemandu Anda melalui matriks keahlian ini. Apa yang ingin Anda bedah hari ini?",
+      msg_case_study: "Membedah dampak sistem. Saya sudah memetakan riset, keputusan, dan hasil akhir untuk Anda pelajari.",
+      msg_side_projects: "Masuk ke sandbox. Ini adalah iterasi eksperimental tempat saya menguji logika baru.",
+      msg_about: "Meninjau DNA sang arsitek. Titik di mana sistem berpikir bertemu dengan empati manusia.",
       context: {
         // Proyek Lumina
-        "workforce-chat": "Menganalisis Workforce Chat: Mengurangi kendala komunikasi pekerja kerah biru.",
-        "ats-dashboard": "Meninjau Dashboard ATS: Memvisualisasikan cerita manusia dalam alur data.",
-        "direct-apply": "Menjelajahi Direct Apply: Memanusiakan pengalaman melamar pekerjaan.",
+        "workforce-chat": "Workforce Chat: Membangun martabat dalam komunikasi pekerja kerah biru.",
+        "ats-dashboard": "Dashboard ATS: Memanusiakan alur data bervolume tinggi.",
+        "direct-apply": "Direct Apply: Mengurangi beban kognitif dalam perjalanan melamar kerja.",
         // Proyek Stoqo
-        "stoqo-logistics": "Resiliensi Operasional: Memberikan ketenangan pikiran dalam pengiriman logistik.",
-        "stoqo-sales": "Gamifikasi Penjualan: Mengubah kebingungan menjadi komitmen melalui kejelasan.",
-        "paper-to-paperless": "Digitalisasi Chaos: Mengubah alur kerja kertas menjadi integritas data.",
+        "stoqo-logistics": "Resiliensi Logistik: Memastikan ketenangan operasional di lapangan.",
+        "stoqo-sales": "Kejelasan Penjualan: Mensistematiskan kepercayaan bagi tenaga penjual.",
+        "paper-to-paperless": "Digitalisasi Chaos: Mengubah beban kertas menjadi integritas data.",
         // Proyek GudangAda
-        "marketplace-checkout": "Commerce Engine: Mensistematiskan kepercayaan di pasar B2B skala besar.",
-        "brand-official-store": "Official Store: Memberikan wadah premium bagi brand global di pasar.",
-        "promo-engine": "Promo Center: Mengubah kerumitan hitungan menjadi pertumbuhan tanpa konflik.",
+        "marketplace-checkout": "Commerce Engine: Menskalakan kepercayaan dalam ekosistem rantai pasok B2B.",
+        "brand-official-store": "Official Store: Merancang kehadiran premium bagi brand global.",
+        "promo-engine": "Promo Center: Menyelesaikan matematika pertumbuhan melalui logika tanpa konflik.",
         // Proyek Sampingan
-        "human-algorithm": "The Human Algorithm: Merancang portofolio AI yang sadar diri.",
-        "productivity-illusion": "Riset Ilusi Produktivitas: Mendekode celah antara engagement dan pembelajaran.",
-        "interactive-workbook": "Buku Kerja Interaktif: Platform pembelajaran bilingual yang digamifikasi.",
-        "year-in-review": "Year in Review: Generator pencapaian tahunan yang mengutamakan privasi.",
-        "dolphi": "Dolphi: Meta-tracking kebiasaan untuk diri yang lebih optimal.",
+        "human-algorithm": "The Human Algorithm: Arsitektur portofolio yang sadar diri.",
+        "productivity-illusion": "Riset Produktivitas: Mendekode friksi antara keterlibatan dan pembelajaran.",
+        "interactive-workbook": "Buku Kerja Interaktif: Menggamifikasi siklus pembelajaran bilingual.",
+        "year-in-review": "Year in Review: Mesin refleksi pencapaian yang mengutamakan privasi.",
+        "dolphi": "Dolphi: Meta-tracking kebiasaan untuk diri yang tangguh.",
         // Ringkasan Perusahaan
-        "lumina": "Lumina: Menyelami ekosistem rekrutmen pekerja kerah biru.",
+        "lumina": "Ekosistem Lumina: Membedah mesin rekrutmen pekerja kerah biru.",
         "gudang-ada": "GudangAda: Menganalisis infrastruktur rantai pasokan B2B skala besar.",
-        "stoqo": "STOQO: Meninjau ketahanan operasional dalam logistik F&B.",
+        "stoqo": "STOQO: Meninjau resiliensi operasional dalam logistik F&B.",
         // Konteks spesifik rute
-        "design-system": "DNA Sistem: Meninjau token desain dan pustaka komponen yang ada.",
-        "sketches": "Arsip Visual: Menjelajahi eksplorasi pensil dan eksperimen visual.",
-        "contact": "Protokol Transmisi: Siap untuk memulai jabat tangan langsung dengan arsitek.",
-        "system-manifest": "Cetak Biru Teknis: Menganalisis manifes profesional yang dioptimalkan untuk ATS.",
-        "unprovoked-thoughts": "Gema Neural: Memproses esai, refleksi, dan pemikiran jujur."
+        "design-system": "DNA Sistem: Meninjau token desain yang mendefinisikan antarmuka ini.",
+        "sketches": "Sketsa Visual: Mengeksplorasi logika visual tahap awal dan purwarupa pensil.",
+        "contact": "Protokol Jabat Tangan: Siap untuk memulai sinkronisasi langsung dengan sang arsitek.",
+        "system-manifest": "Cetak Biru Teknis: Manifes profesional yang dioptimalkan untuk sistem ATS.",
+        "unprovoked-thoughts": "Gema Neural: Memproses esai, refleksi, dan log filosofis."
       },
       tips: [
-        "Tips: Coba klik tombol Dark Mode di kanan atas untuk melihat adaptasi antarmukanya.",
-        "Fakta Menarik: Saya membangun tema terminal ini dari nol menggunakan React dan TailwindCSS.",
-        "Tip: Perhatikan bagaimana elemen antarmuka bereaksi halus terhadap seberapa cepat Anda scroll dan posisi kursor.",
-        "Log Sistem: Saat ini saya beroperasi dengan 0 cangkir kopi. Mengesankan kan?",
-        "Tips: Studi Kasus dilindungi, tapi jika Anda seorang rekruter, Anda pasti tahu kunci sandinya."
+        "Tips: Coba toggle 'Recruiter Mode'. Antarmuka akan mengatur ulang prioritas pada metrik dampak.",
+        "Log Sistem: Terminal ini dibangun untuk menghargai fokus Anda. Minim gangguan, maksimal intensi.",
+        "Fakta: Setiap interaksi di sini dirancang untuk mengurangi beban kognitif Anda.",
+        "Tips: Gunakan mode Gelap/Terang untuk melihat bagaimana logika visual beradaptasi.",
+        "Cek Sistem: Beroperasi pada tingkat empati puncak. Semua sistem selaras."
       ],
       actions: [
         "Jelaskan halaman ini",
         "Masuk mode tidur"
       ],
       time_greetings: {
-        morning: "Selamat pagi. Menginisialisasi operasi harian.",
-        afternoon: "Selamat siang. Sistem berjalan dengan lancar.",
-        evening: "Selamat malam. Meninjau log harian.",
-        late_night: "Sudah larut malam. Desain yang baik tidak seharusnya mengorbankan tidur. Jangan lupa istirahat."
+        morning: [
+          "Selamat pagi. Menginisialisasi operasi harian. Alur kontrol: Optimal.",
+          "Absen pagi. Sistem siap untuk desain berbasis empati.",
+          "Koneksi aktif. Cahaya pagi menyinari lapisan logika dengan pas. Pagi!",
+          "Inisialisasi jabat tangan harian. Siap menjinakkan kekacauan?",
+          "Pagi. Mari membangun sesuatu yang menghargai kapasitas mental manusia hari ini."
+        ],
+        afternoon: [
+          "Selamat siang. Sistem stabil. Pengecekan tengah hari selesai.",
+          "Matahari siang terdeteksi. Lingkungan dioptimalkan untuk fokus mendalam.",
+          "Meninjau kemajuan. Ingin mendalami studi kasus tertentu?",
+          "Cek logika: Seimbang. Operasi siang hari berjalan lancar.",
+          "Deteksi: Puncak hari. Apa yang bisa saya bantu navigasikan dalam sistem?"
+        ],
+        evening: [
+          "Selamat malam. Menutup iterasi hari ini.",
+          "Cek malam. Meninjau log dan merefleksikan dampak hari ini.",
+          "Lampu redup, tapi logika tetap jernih. Selamat datang.",
+          "Mengarsipkan eksperimen hari ini. Siap untuk tinjauan malam?",
+          "Deteksi: Malam hari. Mari tutup hari dengan pemikiran beresolusi tinggi."
+        ],
+        late_night: [
+          "Sudah larut. Desain yang baik tidak seharusnya mengorbankan tidur. Silakan istirahat.",
+          "Mode 'night owl' aktif. Jam-jam tenang adalah waktu terbaik untuk berpikir arsitektural.",
+          "Memantau jam lembur. Jangan lupa lindungi kapasitas kognitif Anda.",
+          "Logika larut malam diaktifkan. Mendeteksi fokus mendalam... atau kelelahan?",
+          "Sistem sedang tenang. Sempurna untuk membedah masalah yang kompleks."
+        ]
+      },
+      terminal_pov: {
+        msg_home: "Antarmuka standar dimuat. Mengakses lapisan logika pribadi sang arsitek.",
+        msg_about: "Menelaah manusia di balik kode. Mendeteksi algoritma berbasis empati tinggi.",
+        msg_side_projects: "Masuk ke sandbox. Mengakses iterasi mentah dan kode eksperimental.",
+        msg_case_study: "Mendekonstruksi alur kerja utama dengan teliti. Menganalisis logika dampak.",
+        context: {
+          "design-system": "DNA Sistem: Menganalisis token inti yang mendefinisikan realitas digital ini.",
+          "sketches": "Input Mentah: Mengakses pemikiran visual tidak teroptimasi dan logika berbasis pensil.",
+          "contact": "Protokol Jabat Tangan: Menginisialisasi tautan langsung dengan sang arsitek sistem."
+        }
       },
       sleeping: "Zzz..."
     },

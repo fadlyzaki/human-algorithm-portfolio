@@ -63,10 +63,17 @@ const VirtualAssistant = () => {
   // Helper to get time-based greeting
   const getTimeGreeting = () => {
     const hour = new Date().getHours();
-    if (hour >= 5 && hour < 12) return t("virtual_assistant.time_greetings.morning");
-    if (hour >= 12 && hour < 17) return t("virtual_assistant.time_greetings.afternoon");
-    if (hour >= 17 && hour < 22) return t("virtual_assistant.time_greetings.evening");
-    return t("virtual_assistant.time_greetings.late_night");
+    let timeKey = "late_night";
+    if (hour >= 5 && hour < 12) timeKey = "morning";
+    else if (hour >= 12 && hour < 17) timeKey = "afternoon";
+    else if (hour >= 17 && hour < 22) timeKey = "evening";
+    
+    const variants = t(`virtual_assistant.time_greetings.${timeKey}`, { returnObjects: true });
+    if (Array.isArray(variants)) {
+      const randomIndex = Math.floor(Math.random() * variants.length);
+      return variants[randomIndex];
+    }
+    return variants; // Fallback if not an array
   };
 
   const showInteractiveMenu = () => {
@@ -90,7 +97,7 @@ const VirtualAssistant = () => {
 
   const triggerContextMessage = (manualClick = false) => {
     clearAllTimers();
-    const currentMsg = getRouteMessage(location.pathname);
+    const currentMsg = getRouteMessage(location.pathname, manualClick);
     setMenuOptions(null);
     setMessage(currentMsg);
     setShowMessage(true);
@@ -103,34 +110,50 @@ const VirtualAssistant = () => {
     }, manualClick ? 10000 : 8000);
   };
 
-  const getRouteMessage = (path) => {
+  const getRouteMessage = (path, isManual = false) => {
+    const pov = isRecruiterMode ? "" : "terminal_pov.";
+
+    // Simple helper to fetch translation with fallback to base key if pov key doesn't exist
+    const getMsg = (key) => {
+      const povKey = `virtual_assistant.${pov}${key}`;
+      const baseKey = `virtual_assistant.${key}`;
+      const translated = t(povKey);
+      
+      // If the translated value is just the key name, it means it's missing in terminal_pov
+      if (translated === povKey && !isRecruiterMode) {
+        return t(baseKey);
+      }
+      return translated;
+    };
+
     if (path === "/") {
-      return getTimeGreeting(); // Time-based greeting instead of generic message
+      // On manual click, show the "Explain" message. On auto-trigger, show the greeting.
+      return isManual ? getMsg("msg_home") : getTimeGreeting();
     } else if (path === "/about") {
-      return t("virtual_assistant.msg_about");
+      return getMsg("msg_about");
     } else if (path === "/side-projects") {
-      return t("virtual_assistant.msg_side_projects");
+      return getMsg("msg_side_projects");
     } else if (path === "/design-system") {
-      return t("virtual_assistant.context.design-system");
+      return getMsg("context.design-system");
     } else if (path === "/sketches") {
-      return t("virtual_assistant.context.sketches");
+      return getMsg("context.sketches");
     } else if (path === "/contact") {
-      return t("virtual_assistant.context.contact");
+      return getMsg("context.contact");
     } else if (path === "/cv" || path === "/system-manifest") {
-      return t("virtual_assistant.context.system-manifest");
+      return getMsg("context.system-manifest");
     } else if (path === "/thoughts" || path.includes("/thoughts/")) {
-      return t("virtual_assistant.context.unprovoked-thoughts");
+      return getMsg("context.unprovoked-thoughts");
     } else if (path.includes("/case-study/") || path.includes("/side-project/") || path.includes("/work/") || path.includes("/blog/")) {
       const segments = path.split("/").filter(Boolean);
       const id = segments[segments.length - 1];
       
-      const specificMsg = t(`virtual_assistant.context.${id}`);
-      if (specificMsg && specificMsg !== `virtual_assistant.context.${id}`) {
+      const specificMsg = getMsg(`context.${id}`);
+      if (specificMsg && specificMsg !== `virtual_assistant.${pov}context.${id}`) {
         return specificMsg;
       }
-      return path.includes("/case-study/") || path.includes("/work/") ? t("virtual_assistant.msg_case_study") : t("virtual_assistant.msg_side_projects");
+      return path.includes("/case-study/") || path.includes("/work/") ? getMsg("msg_case_study") : getMsg("msg_side_projects");
     }
-    return t("virtual_assistant.msg_home");
+    return getMsg("msg_home");
   };
 
   const handleClick = (e) => {
@@ -152,7 +175,7 @@ const VirtualAssistant = () => {
 
   // Determine message and animation based on route or interactions
   useEffect(() => {
-    if (!isRecruiterMode || isSleeping) return;
+    if (isSleeping) return;
 
     const path = location.pathname;
     const newMsg = getRouteMessage(path);
@@ -212,7 +235,7 @@ const VirtualAssistant = () => {
     }
   }, [location.pathname, isRecruiterMode, t, isSleeping]);
 
-  if (!isRecruiterMode) return null;
+  // Always visible if not explicitly hidden by user (sleep)
 
   return (
     <div className="fixed bottom-4 right-4 z-[100] flex flex-col items-end gap-2 animate-in fade-in slide-in-from-bottom-5 duration-700 pointer-events-none virtual-assistant-override">

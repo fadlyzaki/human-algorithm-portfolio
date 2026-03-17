@@ -470,7 +470,7 @@ html {
 }
 
 /* --- RECRUITER FAST PATH OVERRIDES --- */
-.recruiter-mode *:not(.virtual-assistant-override):not(.virtual-assistant-override *) {
+.recruiter-mode *:not(.virtual-assistant-override):not(.virtual-assistant-override *):not(.animate-marquee):not(.animate-ping):not(.animate-pulse) {
   /* Disable all CSS transitions and animations */
   transition-duration: 0.01ms !important;
   animation-duration: 0.01ms !important;
