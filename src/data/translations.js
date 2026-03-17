@@ -458,7 +458,13 @@ export const translations = {
         "productivity-illusion": "Productivity Illusion Research: Decoding the gap between engagement and learning.",
         "interactive-workbook": "Interactive Workbook: A gamified bilingual learning platform.",
         "year-in-review": "Year in Review: A privacy-first yearly milestone generator.",
-        "dolphi": "Dolphi: Habit meta-tracking for the optimized self."
+        "dolphi": "Dolphi: Habit meta-tracking for the optimized self.",
+        // Route-specific contexts
+        "design-system": "The System DNA: Reviewing the immutable design tokens and component library.",
+        "sketches": "The Archive: Exploring pencil explorations and visual experiments.",
+        "contact": "Transmission Protocol: Ready to initialize a direct handshake with the architect.",
+        "system-manifest": "Technical Blueprint: Analyzing the ATS-optimized professional manifest.",
+        "unprovoked-thoughts": "Neural Echoes: Processing esssays, reflections, and unprovoked thoughts."
       },
       tips: [
         "Tip: Try toggling the Dark Mode switch in the top right to see how the UI adapts.",
@@ -942,7 +948,13 @@ export const translations = {
         "productivity-illusion": "Riset Ilusi Produktivitas: Mendekode celah antara engagement dan pembelajaran.",
         "interactive-workbook": "Buku Kerja Interaktif: Platform pembelajaran bilingual yang digamifikasi.",
         "year-in-review": "Year in Review: Generator pencapaian tahunan yang mengutamakan privasi.",
-        "dolphi": "Dolphi: Meta-tracking kebiasaan untuk diri yang lebih optimal."
+        "dolphi": "Dolphi: Meta-tracking kebiasaan untuk diri yang lebih optimal.",
+        // Konteks spesifik rute
+        "design-system": "DNA Sistem: Meninjau token desain dan pustaka komponen yang ada.",
+        "sketches": "Arsip Visual: Menjelajahi eksplorasi pensil dan eksperimen visual.",
+        "contact": "Protokol Transmisi: Siap untuk memulai jabat tangan langsung dengan arsitek.",
+        "system-manifest": "Cetak Biru Teknis: Menganalisis manifes profesional yang dioptimalkan untuk ATS.",
+        "unprovoked-thoughts": "Gema Neural: Memproses esai, refleksi, dan pemikiran jujur."
       },
       tips: [
         "Tips: Coba klik tombol Dark Mode di kanan atas untuk melihat adaptasi antarmukanya.",

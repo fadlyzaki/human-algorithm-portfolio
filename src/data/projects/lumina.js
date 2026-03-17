@@ -129,6 +129,26 @@ export const lumina = {
             "Why do we treat recruitment like email when candidates live on WhatsApp?",
           heroImage: "airy:flow",
         },
+      },
+      caseStudy_id: {
+        summaries: {
+          eli5: {
+            label: "👶 ELI5",
+            title: "Mirip WhatsApp, tapi Lebih Teratur",
+            text: "Bayangkan kalau pesan teks Anda campur aduk dengan email kerja. Berantakan. Kami buat kotak masuk khusus supaya tidak ada pesan yang terlewat.",
+          },
+          recruiter: {
+            label: "👔 Recruiter",
+            title: "Dampak: Kecepatan Respon",
+            text: "Memimpin desain ulang modul komunikasi kandidat. Mengatasi hambatan di mana rekruter kewalahan data tidak terstruktur. Hasil: Mengurangi waktu rekrutmen hingga 3 hari.",
+          },
+          technical: {
+            label: "🤖 System",
+            title: "Celah Async/Sync",
+            text: "Rekruter bekerja dalam kelompok (Async), sedangkan kandidat mengharapkan respon cepat (Sync). Tantangannya adalah menjembatani dua model mental ini tanpa memaksa perubahan perilaku.",
+          },
+        },
+      },
         context: {
           client: "Internal Product",
           role: "I led the UX & UI",

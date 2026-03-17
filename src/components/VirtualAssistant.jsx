@@ -59,9 +59,6 @@ const VirtualAssistant = () => {
   useEffect(() => {
     if (!isRecruiterMode) return;
 
-    setShowMessage(false);
-    setCurrentScene(SCENES.WALK);
-
     let newMsg = "";
     const path = location.pathname;
 
@@ -71,51 +68,56 @@ const VirtualAssistant = () => {
       newMsg = t("virtual_assistant.msg_about");
     } else if (path === "/side-projects") {
       newMsg = t("virtual_assistant.msg_side_projects");
+    } else if (path === "/design-system") {
+      newMsg = t("virtual_assistant.context.design-system");
+    } else if (path === "/sketches") {
+      newMsg = t("virtual_assistant.context.sketches");
+    } else if (path === "/contact") {
+      newMsg = t("virtual_assistant.context.contact");
+    } else if (path === "/cv" || path === "/system-manifest") {
+      newMsg = t("virtual_assistant.context.system-manifest");
+    } else if (path === "/unprovoked-thoughts" || path.includes("/unprovoked-thought/")) {
+      newMsg = t("virtual_assistant.context.unprovoked-thoughts");
     } else if (path.includes("/case-study/") || path.includes("/side-project/")) {
-      // Extract ID from /case-study/id or /side-project/id, handling trailing slashes
+      // Extract ID from /case-study/id or /side-project/id
       const segments = path.split("/").filter(Boolean);
       const id = segments[segments.length - 1];
       
-      // Try to find specific context message
       const specificMsg = t(`virtual_assistant.context.${id}`);
-      
       if (specificMsg && specificMsg !== `virtual_assistant.context.${id}`) {
         newMsg = specificMsg;
       } else {
-        // Fallback to generic category message
         newMsg = path.includes("/case-study/") 
           ? t("virtual_assistant.msg_case_study") 
           : t("virtual_assistant.msg_side_projects");
       }
     }
 
-    // Simulate walk in, then think, then idle and show message
-    let thinkTimer;
-    const walkTimer = setTimeout(() => {
-      setCurrentScene(SCENES.THINKING);
-      
-      thinkTimer = setTimeout(() => {
-        if (newMsg) {
-          setMessage(newMsg);
-          setShowMessage(true);
-          
-          // Auto-hide the initial welcome message after 8 seconds
-          const hideTimer = setTimeout(() => {
-            setShowMessage((prev) => {
-              if (prev && message === newMsg) return false;
-              return prev;
-            });
-          }, 8000);
-        }
-        setCurrentScene(SCENES.IDLE);
-      }, 2000);
-    }, 1500);
+    // Only trigger the "vocal/walk" animation sequence if the path changed
+    // If only the language changed, just update the message immediately
+    const prevPath = localStorage.getItem("assistant_last_path");
+    if (prevPath !== path) {
+      setShowMessage(false);
+      setCurrentScene(SCENES.WALK);
+      localStorage.setItem("assistant_last_path", path);
 
-    return () => {
-      clearTimeout(walkTimer);
-      clearTimeout(thinkTimer);
-    };
-  }, [location.pathname, isRecruiterMode]);
+      const walkTimer = setTimeout(() => {
+        setCurrentScene(SCENES.THINKING);
+        const thinkTimer = setTimeout(() => {
+          if (newMsg) {
+            setMessage(newMsg);
+            setShowMessage(true);
+          }
+          setCurrentScene(SCENES.IDLE);
+        }, 2000);
+        return () => clearTimeout(thinkTimer);
+      }, 1500);
+      return () => clearTimeout(walkTimer);
+    } else {
+      // Language flip: just update the message text if currently visible
+      setMessage(newMsg);
+    }
+  }, [location.pathname, isRecruiterMode, t]);
 
   if (!isRecruiterMode) return null;
 
@@ -141,6 +143,9 @@ const VirtualAssistant = () => {
         </button>
         <MessageSquare size={16} className="text-[var(--accent-blue)] mt-0.5 shrink-0" />
         <p className="leading-snug pr-2">{message}</p>
+        
+        {/* Bubble Tail - Positioning it to point to the character */}
+        <div className="absolute -bottom-2 right-10 w-4 h-4 bg-[var(--bg-card)] border-r border-b border-[var(--border-color)] rotate-45 z-[-1]" />
       </div>
 
       {/* Sprite Character */}
