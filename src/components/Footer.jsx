@@ -99,9 +99,47 @@ const FooterTooltipLink = ({
   );
 };
 
+import { motion, AnimatePresence } from "framer-motion";
+
+/**
+ * DynamicDeliverable — Clickable cycling text for footer headline
+ */
+const DynamicDeliverable = ({ words }) => {
+  const [index, setIndex] = useState(0);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIndex((prev) => (prev + 1) % words.length);
+  };
+
+  return (
+    <motion.span
+      onClick={handleClick}
+      className="inline-block cursor-pointer underline decoration-dotted underline-offset-8 decoration-[var(--accent-blue)] hover:text-[var(--accent-blue)] transition-colors relative"
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={words[index]}
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+          className="inline-block"
+        >
+          {words[index]}
+        </motion.span>
+      </AnimatePresence>
+    </motion.span>
+  );
+};
+
 const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const year = new Date().getFullYear();
+
+  const deliverables = t("footer.deliverables", { returnObjects: true }) || ["something"];
 
   const themeStyles = {
     "--bg-footer": "transparent",
@@ -121,7 +159,9 @@ const Footer = () => {
         {/* 1. MAIN HEADLINE (Editorial Style) */}
         <div className="max-w-7xl mx-auto mb-24">
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif italic leading-tight mb-8">
-            {t("footer.title")} <br />
+            {t("footer.title")}{" "}
+            <DynamicDeliverable words={deliverables} />
+            <br />
             <span className="text-[var(--text-secondary)] not-italic font-light">
               {t("footer.subtitle")}
             </span>

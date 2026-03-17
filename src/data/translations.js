@@ -177,7 +177,8 @@ export const translations = {
       },
     },
     footer: {
-      title: "Let's build something",
+      title: "Let's build",
+      deliverables: ["a mobile app", "a website", "a dashboard", "a design system", "a strategy", "a prototype"],
       subtitle: "resilient together.",
       index: "Index",
       connect: "Connect",
@@ -479,7 +480,8 @@ export const translations = {
       ],
       actions: [
         "Explain this page",
-        "Go to sleep"
+        "Go to sleep",
+        "Contact me"
       ],
       time_greetings: {
         morning: [
@@ -702,7 +704,8 @@ export const translations = {
       },
     },
     footer: {
-      title: "Mari membangun sesuatu",
+      title: "Mari membangun",
+      deliverables: ["aplikasi mobile", "website", "dashboard", "design system", "strategi produk", "purwarupa"],
       subtitle: "yang tangguh bersama.",
       index: "Indeks",
       connect: "Terhubung",
@@ -1003,7 +1006,8 @@ export const translations = {
       ],
       actions: [
         "Jelaskan halaman ini",
-        "Masuk mode tidur"
+        "Masuk mode tidur",
+        "Hubungi saya"
       ],
       time_greetings: {
         morning: [

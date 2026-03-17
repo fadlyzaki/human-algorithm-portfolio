@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 import { Helmet } from "react-helmet-async";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 import NavigationMenu from "../components/NavigationMenu";
 import ScrollProgressBar from "../components/ScrollProgressBar";
@@ -114,11 +113,7 @@ const Sketches = () => {
           </div>
         </div>
 
-        <Flipbook pages={nodes} initialPage={0} />
       </main>
-      <div className="relative z-50">
-        <Footer />
-      </div>
     </div>
   );
 };

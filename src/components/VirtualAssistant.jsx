@@ -82,6 +82,7 @@ const VirtualAssistant = () => {
     
     setMenuOptions([
       { label: actions[0], onClick: () => triggerContextMessage(true) }, // Explain this page
+      { label: actions[2], onClick: () => { navigate("/contact"); handleDismiss(); } }, // Contact me
       { label: actions[1], onClick: toggleSleep } // Go to sleep
     ]);
     
