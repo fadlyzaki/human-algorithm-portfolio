@@ -123,11 +123,10 @@ const DynamicDeliverable = ({ words }) => {
   const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), "");
 
   return (
-    <motion.span
+    <span
       onClick={handleClick}
-      className="inline-grid cursor-pointer text-[var(--accent-blue)] hover:text-[var(--accent-blue)]/80 transition-colors justify-items-start pb-2"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      className="inline-grid cursor-pointer text-[var(--accent-blue)] hover:text-[#00C2FF] transition-colors justify-items-start pb-2"
+      title="Click to cycle"
     >
       {/* Invisible spacer safely stretches the container to maximum needed width unconditionally */}
       <span className="col-start-1 row-start-1 invisible select-none pointer-events-none whitespace-nowrap underline decoration-dotted underline-offset-8 decoration-2 pr-1">
@@ -146,7 +145,7 @@ const DynamicDeliverable = ({ words }) => {
           {words[index]}
         </motion.span>
       </AnimatePresence>
-    </motion.span>
+    </span>
   );
 };
 
