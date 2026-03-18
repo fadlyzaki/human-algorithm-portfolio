@@ -79,18 +79,11 @@ const WorkBento = ({ cluster, priority = false }) => {
       onClick={() => navigate(`/work/${cluster.id}`)}
       onMouseEnter={() => setIsManualHover(true)}
       onMouseLeave={() => setIsManualHover(false)}
-      className="group relative flex flex-col h-[480px] border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
-      animate={{
-        backgroundColor: isHovered && cluster.brandColor ? cluster.brandColor : "rgba(249, 250, 251, 1)", // Default light bg
-      }}
-      transition={{ duration: 0.4 }}
+      className="group relative flex flex-col h-[480px] border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-gray-50 dark:bg-neutral-900"
     >
-      {/* Dark mode background override (since we can't easily animate between CSS variables and solid colors in one animate prop without complex logic) */}
-      <div className="absolute inset-0 bg-gray-50 dark:bg-neutral-900 pointer-events-none" />
-      
       {/* Brand Color Overlay (Animated) */}
       <motion.div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 pointer-events-none"
         initial={false}
         animate={{ 
           backgroundColor: cluster.brandColor || "transparent",
@@ -195,15 +188,27 @@ const WorkBento = ({ cluster, priority = false }) => {
                 {!imgLoaded && (
                   <div className="absolute inset-0 bg-gray-200 dark:bg-neutral-700 animate-pulse" />
                 )}
-                <img
+                <motion.img
                   src={cluster.heroImage}
                   alt={title}
                   fetchpriority={priority ? "high" : "auto"}
                   loading={priority ? "eager" : "lazy"}
-                  className={`w-full h-auto object-top transition-all duration-[5000ms] ease-in-out ${isHovered ? "translate-y-[calc(-100%+280px)]" : ""} ${imgLoaded ? "opacity-100" : "opacity-0"}`}
+                  className="w-full h-auto object-top"
                   style={{ transformOrigin: "top" }}
                   onLoad={() => setImgLoaded(true)}
                   onError={() => setImgError(true)}
+                  initial={{ opacity: 0, y: "0%" }}
+                  animate={{ 
+                    opacity: imgLoaded ? 1 : 0, 
+                    y: isHovered ? "calc(-100% + 280px)" : "0%" 
+                  }}
+                  transition={{
+                    y: {
+                       duration: isHovered ? 4 : 0.8,
+                       ease: isHovered ? "linear" : "easeOut"
+                    },
+                    opacity: { duration: 0.3 }
+                  }}
                 />
                 {/* Gloss/Reflection */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none mix-blend-overlay"></div>
@@ -213,7 +218,7 @@ const WorkBento = ({ cluster, priority = false }) => {
               <div className="absolute inset-0 shadow-[inset_0_2px_10px_rgba(var(--bg-void-rgb), 0.1)] pointer-events-none"></div>
             </div>
           ) : (
-            <div className="w-full aspect-[4/3] bg-white dark:bg-black/20 rounded-t-2xl border-t border-x border-black/5 flex items-center justify-center relative overflow-hidden shadow-xl">
+            <div className="w-full aspect-[4/3] bg-white dark:bg-black/20 rounded-t-2xl border-t border-x border-black/5 flex items-center justify-center relative shadow-xl">
               <ProjectCard
                 id={cluster.id}
                 expanded={true}
