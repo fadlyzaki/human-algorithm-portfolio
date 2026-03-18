@@ -119,13 +119,21 @@ const DynamicDeliverable = ({ words }) => {
     setIndex((prev) => (prev + 1) % words.length);
   };
 
+  // Find the longest word to lock the grid cell width statically
+  const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), "");
+
   return (
     <motion.span
       onClick={handleClick}
-      className="inline-grid cursor-pointer text-[var(--accent-blue)] hover:text-[var(--accent-blue)]/80 transition-colors px-2 pb-1"
+      className="inline-grid cursor-pointer text-[var(--accent-blue)] hover:text-[var(--accent-blue)]/80 transition-colors justify-items-start pb-2"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
+      {/* Invisible spacer safely stretches the container to maximum needed width unconditionally */}
+      <span className="col-start-1 row-start-1 invisible select-none pointer-events-none whitespace-nowrap underline decoration-dotted underline-offset-8 decoration-2 pr-1">
+        {longestWord}
+      </span>
+
       <AnimatePresence initial={false}>
         <motion.span
           key={words[index]}
@@ -133,7 +141,7 @@ const DynamicDeliverable = ({ words }) => {
           animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
           exit={{ y: -30, opacity: 0, filter: "blur(8px)" }}
           transition={{ type: "spring", stiffness: 350, damping: 25, mass: 1 }}
-          className="col-start-1 row-start-1 inline-block whitespace-nowrap underline decoration-dotted underline-offset-8 decoration-2"
+          className="col-start-1 row-start-1 inline-block whitespace-nowrap underline decoration-dotted underline-offset-8 decoration-2 pr-1"
         >
           {words[index]}
         </motion.span>
