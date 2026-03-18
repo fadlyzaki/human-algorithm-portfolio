@@ -1,4 +1,4 @@
-# The Human Algorithm: System Architecture v3.5.0
+# The Human Algorithm: System Architecture v4.0
 
 > **Engineering Philosophy:** *"Software is a physical constraint applied to human behavior. We do not just build interfaces; we engineer resilient systems where algorithmic enforcement meets human intuition—with zero frame drops and zero cognitive friction."*
 
@@ -7,78 +7,121 @@ Welcome to the internal source matrix of **[fadlyzaki-design.vercel.app](https:/
 This repository is deliberately over-engineered. It is not a static portfolio; it is an *Interactive Manifesto* and the definitive proof of work for Fadly Uzzaki, Senior Product Designer specializing in Trust Engineering. Designed for the scrutiny of Product and Engineering leadership, this system proves the capacity to ingest chaotic business logic, tame systemic B2B complexity, and output deeply resilient, accessible workflows.
 
 [![Status](https://img.shields.io/badge/SYSTEM-NOMINAL-green?style=flat-square&logo=react)](https://fadlyzaki-design.vercel.app/)
-[![Build](https://img.shields.io/badge/VERSION-3.5.0-blue?style=flat-square&logo=vercel)](https://vercel.com)
+[![Build](https://img.shields.io/badge/VERSION-4.0.0-blue?style=flat-square&logo=vercel)](https://vercel.com)
 [![Web Vitals](https://img.shields.io/badge/LIGHTHOUSE-100-orange?style=flat-square&logo=lighthouse)](https://pagespeed.web.dev/)
 
 ---
 
 ## 🏗 Architectural Topography & Core Infrastructure
 
-A robust system is measured by its fault tolerance, its Developer Experience (DevX), and its render budget. We utilize a modern, highly optimized edge-native stack tailored for O(1) velocity and 60fps tactile interfaces.
+A robust system is measured by its fault tolerance, Developer Experience (DevX), and render budget. We utilize a modern, highly optimized edge-native stack tailored for O(1) velocity and 60fps tactile interfaces.
 
-* **The Engine**: **React 18 + Vite** (Migrated from legacy CRA to achieve blazing fast HMR, isolated module reloading, and aggressive Rollup tree-shaking for optimized parse times). Includes a **Vitest/jsdom** CI testing baseline.
-* **The Physics**: **Framer Motion**. We strictly enforce GPU-accelerated CSS transforms (`translate3d`, `scale`) and structural `layoutId` animations to completely bypass main-thread layout thrashing and composite paint blocking.
-* **The Syntax**: **Tailwind CSS**. A utility-first styling architecture that enables rapid molecular component design. It guarantees absolute design system adherence via an unyielding token schema (`var(--text-primary)`, `var(--bg-void)`) while ensuring zero runtime CSS extraction overhead.
-* **The Edge**: **Vercel Edge Network**. Utilizing Edge Middleware for instantaneous bot-detection and dynamic OpenGraph image generation via `@vercel/og` to ensure lossless social previews.
+* **The Engine**: **React 18 + Vite** — Blazing fast HMR, isolated module reloading, and aggressive Rollup tree-shaking. Includes a **Vitest/jsdom** CI testing baseline.
+* **The Physics**: **Framer Motion** — GPU-accelerated CSS transforms (`translate3d`, `scale`) and spring-based `layoutId` animations. All major interaction surfaces (Navbar, NavigationMenu, Footer, WorkBento, ScrollReveal) operate on spring physics for 60fps consistency.
+* **The Syntax**: **Tailwind CSS** — Utility-first styling architecture with strict design token adherence via CSS custom properties (`var(--text-primary)`, `var(--bg-void)`).
+* **The Edge**: **Vercel Edge Network** — Edge Middleware for bot-detection and dynamic OpenGraph image generation via `@vercel/og`.
 
 ## ⚡ Performance Budget & Rendering Strategy
 
-We optimize for **Device Computational Load** just as rigorously as we optimize UX Cognitive Load.
-
-* **Strict Design Token Integration**: 100% of the presentation layer relies on global CSS variables. This eradicates unmanaged hex injections and guarantees O(1) client-side theme transitions (Light/Dark/Cyberpunk) without triggering expensive DOM re-paints.
-* **Aggressive DOM Culling**: Our custom 3D Physical Flipbook engine dynamically monitors structural `zIndex`. It physically unmounts (`display: none`) any DOM node that sits more than two layers deep within the Z-axis, aggressively eradicating GPU overdraw and Z-fighting on mobile devices.
-* **Suspense & Code Splitting**: Strict route-level and component-level chunking via `React.lazy()`. Heavy visual clusters (like the Chaos Canvas WebGL node) are structurally deferred off the critical render path to fiercely defend our >90 Mobile Real Experience Score (RES).
-* **Defensive Error Boundaries**: Critical interactive modules are wrapped in isolated Error Boundaries. If WebGL or heavy physics fail on a heavily throttled device, the system gracefully degrades to semantic HTML fallbacks without crashing the underlying OS.
+* **Strict Design Token Integration**: 100% CSS variables. O(1) client-side theme transitions (Light/Dark) without DOM re-paints.
+* **Aggressive DOM Culling**: 3D Flipbook engine unmounts (`display: none`) occluded Z-axis DOM nodes to eradicate GPU overdraw.
+* **Suspense & Code Splitting**: Route-level and component-level chunking via `React.lazy()`. Heavy payloads (`ChaosCanvas`, `Flipbook`) deferred off critical render path.
+* **Defensive Error Boundaries**: Critical modules wrapped in isolated Error Boundaries for graceful degradation.
 
 ## 🧬 Sub-Systems & Architectural Highlights
 
 ### 1. Generative Identity Modules (`DraggablePhoto.jsx`)
-A polymorphic generative "ID Card" engine yielding 7 distinct design architectures (Industrial, Cyberpunk, Glassmorphism, Swiss, Retro, Neo-Brutalism, Holographic). All variants strictly adhere to a standardized, decoupled payload interface (`ID_NO`, `ROLE`, `EXP`) bound to our bilingual context API.
+Polymorphic generative "ID Card" engine yielding 7 distinct design architectures (Industrial, Cyberpunk, Glassmorphism, Swiss, Retro, Neo-Brutalism, Holographic). All variants bound to bilingual context API via `LanguageContext`.
 
-### 2. The Fluid Mechanics (`HomeSideProjects.jsx`)
-A master class in Flexbox and Spring Physics powering the "Experiments & Explorations" tier. We abandoned rigid grid constraints to implement a dynamic `flex-row` accumulator. Active hover states commandeer the available viewport bandwidth (`flex-basis: 50%`) while siblings mathematically compress (`flex-basis: 15%`), natively dimming via hardware-accelerated CSS filters (`grayscale`, `brightness`, `blur`).
+### 2. Polymorphic Project Card System (`VentureCard.jsx`)
+5 distinct card archetypes (SystemCore, CosmicPop, Brutalist, Bento, Blueprint) with `BlindsReveal` 3D CSS slat overlay. Mobile parity via `IntersectionObserver` auto-toggling every 4 seconds. `ExperimentCard` shares this same mobile auto-cycle.
 
-### 3. SVG Schematic Engine (`AiryDiagram.jsx`)
-Shipping megabytes of raster PNGs to communicate architecture is an anti-pattern. We engineered a proprietary charting engine that compiles technical diagrams (Flow, Radar, Hierarchy) directly into <5KB raw SVG payloads, dynamically adapting `currentColor` to our exact Dark/Light theme matrices with infinite scalability.
+### 3. 6-Archetype Project Layout Engine (`project-layouts/`)
+Each side project renders through a unique layout: `SystemCoreDetail`, `CosmicPopDetail`, `BrutalistDetail`, `BentoDetail`, `BlueprintDetail`, `PrototypeDetail`. Transparent root containers allow `ChaosCanvas` particle fields to render behind content. Targeted glassmorphism panels ensure text readability.
 
-### 4. Semantic Intelligence & AI Dialects (`NeuralEcho.jsx`)
-A custom UI module mimicking a multi-modal reasoning AI. We implemented state-machine-driven typewriter effects (tuned to 5ms human-readable intervals) and "thinking" suspense states across `AIBrainstorm.jsx`. This transforms a standard portfolio read into a self-interrogating dialogue.
+### 4. ChaosCanvas GPU Particle System (`ChaosCanvas.jsx`)
+Canvas-based interactive particle field rendered on homepage and all side project detail pages. Lazy-loaded via `React.lazy()` to protect critical render path.
 
-### 5. Recruiter Fast-Path (`?recruiter=true`)
-Cognitive load reduction applied at the network layer. Detecting the `recruiter=true` perimeter query parameter injects a global `.recruiter-mode` CSS class that universally strips all animation delays, physics transitions, and typewriter blocks. This guarantees a hyper-scannable, zero-friction data extraction environment for high-stakes evaluators.
+### 5. SVG Schematic Engine (`AiryDiagram.jsx`)
+Proprietary charting engine compiling technical diagrams (Flow, Radar, Hierarchy) into <5KB raw SVG payloads, dynamically adapting to Dark/Light theme matrices.
 
-### 6. Physical DOM Virtualization (`Flipbook.jsx`)
-An experimental 3D CSS rendering engine powering `/sketches`. It calculates realistic pagination geometry using raw CSS transforms while simultaneously unmounting (`display: none`) occluded pages within the Z-index stack. This aggressively mitigates DOM node bloat and achieves stable 60fps frame rates for deep visual arrays on entry-level mobile silicon.
+### 6. Semantic Intelligence & AI Dialects (`NeuralEcho.jsx`)
+State-machine-driven typewriter effects (5ms intervals) and "thinking" suspense states. `AIBrainstorm.jsx` transforms portfolio reads into self-interrogating dialogues.
 
-### 7. Automated ATS Extraction (`SystemManifest.jsx`)
-A dedicated `/cv` route engineered purely for robotic ingestion. It utilizes aggressive `@media print` CSS injections to dynamically overwrite the global stylistic cascade, yielding a monochromatic, single-column, highly semantic document. This guarantees 100% parse fidelity across enterprise HR tracking algorithms without the overhead of maintaining two separate repositories of truth.
+### 7. Recruiter Mode (`RecruiterModeContext`)
+Global context toggle switchable between "Terminal Mode" and "Document Mode." Universally strips animation delays, physics transitions, and typewriter blocks for hyper-scannable evaluation. Toggled via Navbar and NavigationMenu.
 
-### 8. The Narrative Gateway (`ChaosToMatrixIntro.jsx`)
-A cinematic boot protocol that safely captures initial user attention while actively pre-loading subsequent React logic chunks (`React.lazy()`) in the background. It fiercely respects cognitive load boundaries by establishing an omnipresent, structural heuristic bypass (`[ Skip to Content ]`) directly fused into the DOM layer.
+### 8. Physical DOM Virtualization (`Flipbook.jsx`)
+Experimental 3D CSS rendering engine on `/sketches`. Dynamically unmounts occluded pages within the Z-index stack. Stable 60fps on entry-level mobile silicon.
 
-### 9. The Companion Protocol (`VirtualAssistant.jsx`)
-A context-aware AI sprite companion that recognizes the user's focus and current route. It provides high-intensity TL;DRs and contextual greetings, simulating a live pair-design session across the entire portfolio matrix.
+### 9. Automated ATS Extraction (`SystemManifest.jsx`)
+`/cv` route with aggressive `@media print` CSS. Monochromatic, single-column, highly semantic document guaranteeing 100% parse fidelity across Workday, Greenhouse, and Lever.
 
-### 10. Structural Component Integrity (`/design-system`)
-A live testing environment that acts as the platform's immutable source of truth. Version 3.5.0 introduces dedicated sections for Agentic Prototypes and Kinetic Motion documentation, ensuring total technical transparency.
+### 10. BlindsReveal Interaction System (`BlindsReveal.jsx`)
+3D CSS horizontal slat overlay that opens on hover (desktop) or auto-cycles via `IntersectionObserver` (mobile, 60% viewport threshold). Used across `VentureCard`, `ExperimentCard`, and Design System demos.
+
+### 11. The Dynamic Footer (`Footer.jsx`)
+Auto-cycling deliverable text ("Let's build a [dashboard] resilient together.") using `inline-grid` with invisible longest-word spacer guaranteeing zero layout shift. `FrequencyVisualizer` canvas background with interactive social link tooltips.
+
+### 12. Hardware-Accelerated Contact Scratch (`ContactScratch.jsx`)
+Canvas-based scratch-to-reveal interaction for contact information. Enforces user engagement before exposing email/phone fields on the About page.
+
+### 13. SpringPhysics Cursor Engine (`CustomCursor.jsx`)
+Framer Motion spring-driven custom cursor with magnetic attraction to interactive elements. Documented in Design System's `LayoutLab`.
+
+### 14. The Companion Protocol (`VirtualAssistant.jsx`)
+Context-aware AI sprite companion providing route-specific "Pair Design" commentary. Hidden on 404 pages where a pixel-art survival game takes over.
+
+### 15. The Narrative Gateway (`ChaosToMatrixIntro.jsx`)
+Cinematic boot protocol with chaotic terminal sequence resolving into structured UI. Pre-loads React chunks in background. `[ Skip to Content ]` kill-switch for instant bypass.
+
+### 16. ScrollReveal Animation System (`ScrollReveal.jsx`)
+Framer Motion `useInView`-based entrance animations with configurable directional spring physics (up/down/left/right). Applied globally across page sections.
+
+### 17. The Component Blueprint (`/design-system`)
+Live Design System Viewer with `ComponentForge` (NeuralEcho, ContactScratch, BlindsReveal demos), `LayoutLab` (Cursor Physics), `BrandIdentity` (Persona Cards), and `UXPrinciples`. X-Ray structural inspection mode.
+
+### 18. 404 Survival Game (`NotFound.jsx`)
+Interactive pixel-art survival game with item collection, score tracking, and ambient theme matching. Virtual Assistant hidden to not interfere with gameplay.
 
 ## 📂 System Topography
 
 ```text
 src/
-├── components/           # THE VIEW LAYER (Pure Functions & Render Targets)
-│   ├── welcome/          # Boot Loaders & Terminal Orchestration
-│   ├── sketches/         # Extracted 3D Flipbook Module Engine
-│   ├── interactions/     # Heavy Feature-Specific DOM Subsystems
-│   └── NeuralEcho.jsx    # AI Conversational UI Nodes
-├── context/              # THE STATE LAYER (Global Truth & Invariants)
-│   ├── ThemeContext      # Light / Dark OS Mode Topology
-│   ├── LanguageContext   # en / id Localization State Machine
-│   └── HandCursorContext # Computer Vision Sensor Data Stream
-├── data/                 # THE KNOWLEDGE GRAPH (Static Payloads)
-│   ├── portfolioData.js  # The Single Source of Truth
-│   └── translations.js   # O(1) Linguistic Database Lookup
-└── pages/                # THE ROUTING LAYER (Lazy Loaded & Suspense Boundaries)
+├── components/               # THE VIEW LAYER (55+ Components)
+│   ├── welcome/              # Boot Loaders & Terminal Orchestration
+│   ├── sketches/             # 3D Flipbook Engine
+│   ├── interactions/         # Heavy Feature-Specific Subsystems
+│   ├── project-layouts/      # 6 Polymorphic Detail Archetypes
+│   ├── design-system/        # Live DS Viewer Modules
+│   ├── cards/                # Specialized Card Components
+│   ├── id-cards/             # 7 Generative ID Card Variants
+│   ├── about/                # About Page Sub-Components
+│   ├── auth/                 # Lock Screen & Chaos Matrix BG
+│   ├── prototypes/           # Interactive Prototypes (FilterMe, FloodAlert, etc.)
+│   └── ui/                   # Shared UI Primitives
+├── context/                  # THE STATE LAYER (Global Truth)
+│   ├── ThemeContext           # Light / Dark Mode
+│   ├── LanguageContext        # en / id Localization
+│   └── RecruiterModeContext   # Terminal / Document Mode Toggle
+├── data/                     # THE KNOWLEDGE GRAPH
+│   ├── portfolioData.js      # Single Source of Truth
+│   ├── translations.js       # Bilingual Database
+│   └── navigationData.js     # Route & Link Definitions
+└── pages/                    # THE ROUTING LAYER (14 Pages)
+    ├── Home.jsx              # Conversion Funnel
+    ├── About.jsx             # System Operations Dashboard
+    ├── Contact.jsx           # Multi-Channel Contact with Scratch Reveal
+    ├── SideProjectsIndex.jsx # Experiment Grid with Canvas Proximity Lines
+    ├── SideProjectDetail.jsx # Polymorphic Layout Router + ChaosCanvas
+    ├── ProtectedCaseStudy.jsx# Gated Enterprise Case Studies
+    ├── CompanyDetail.jsx     # Company Profile Pages
+    ├── SystemManifest.jsx    # ATS-Optimized CV Engine
+    ├── DesignSystem.jsx      # Live Design System Viewer
+    ├── Sketches.jsx          # 3D Flipbook Archive
+    ├── BlogPost.jsx          # MDX Thought Leadership
+    ├── UnprovokedThoughts*.jsx # Blog Index + Detail
+    └── NotFound.jsx          # 404 Survival Game
 ```
 
 ## 🚀 Deployment Protocol & CI/CD Pipeline
@@ -100,10 +143,10 @@ npm run build
 ```
 
 ### Production Environment
-* Continuous Integration (CI) is hardlined to the `main` branch. Safe merges automatically trigger sub-60-second edge propagation across Vercel’s global CDN.
-* Next Generation Edge Middleware intercepts social crawler traffic for semantic tagging analysis and dynamic preview injection (`/api/og`).
+* CI hardlined to `main` branch. Merges trigger sub-60-second edge propagation across Vercel's global CDN.
+* Edge Middleware intercepts social crawler traffic for dynamic OpenGraph preview injection (`/api/og`).
 
 ---
-**Engineered by:** Fadly Uzzaki  
-*Code is poetry. Architecture is survival.*  
+**Engineered by:** Fadly Uzzaki
+*Code is poetry. Architecture is survival.*
 *(c) 2025-2026. All Rights Reserved.*
