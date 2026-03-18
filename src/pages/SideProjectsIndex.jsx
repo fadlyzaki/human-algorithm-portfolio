@@ -20,6 +20,7 @@ import BackButton from "../components/BackButton";
 import ProjectCard from "../components/ProjectCard";
 import VentureCard from "../components/VentureCard";
 import NexusAI from "../components/interactions/NexusAI";
+import BlindsReveal from "../components/BlindsReveal";
 import PageShell from "../components/PageShell";
 const ChaosCanvas = React.lazy(() => import("../components/ChaosCanvas"));
 
@@ -29,6 +30,55 @@ const CONFIG = {
   lineOpacity: 0.15,
   magneticForce: 0.5, // Strength of tilt
   scaleForce: 1.02, // Max scale
+};
+
+/**
+ * ExperimentCard — Inline experiment card with BlindsReveal on the image area.
+ */
+import { useState } from "react";
+
+const ExperimentCard = ({ project, idx, cardsRef, sideProjectsLength, isIndonesian, navigate }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      ref={(el) => (cardsRef.current[sideProjectsLength + idx] = el)}
+      onClick={() => navigate(`/side-project/${project.id}`)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform opacity-80 hover:opacity-100"
+    >
+      <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] border-dashed mb-6 overflow-hidden relative">
+        <BlindsReveal isOpen={isHovered} slats={6} color="black">
+          <div className="absolute inset-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
+            <ProjectCard
+              type={project.type || "Web"}
+              id={project.id}
+              expanded={true}
+              image={project.coverImage}
+            />
+          </div>
+        </BlindsReveal>
+      </div>
+
+      <h3 className="text-xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4 decoration-dotted">
+        {isIndonesian && project.title_id ? project.title_id : project.title}
+      </h3>
+      <p className="text-[var(--text-secondary)] font-light text-sm leading-relaxed mb-4 line-clamp-2">
+        {isIndonesian && project.desc_id ? project.desc_id : project.desc}
+      </p>
+      <div className="flex gap-2 flex-wrap opacity-60">
+        {project.stack.map((tech, tIdx) => (
+          <span
+            key={tIdx}
+            className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 const SideProjectsIndex = () => {
@@ -245,46 +295,15 @@ const SideProjectsIndex = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
               {EXPERIMENTS.map((project, idx) => (
-                <div
+                <ExperimentCard
                   key={project.id}
-                  ref={(el) =>
-                    (cardsRef.current[SIDE_PROJECTS.length + idx] = el)
-                  }
-                  onClick={() => navigate(`/side-project/${project.id}`)}
-                  className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform opacity-80 hover:opacity-100"
-                >
-                  <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] border-dashed mb-6 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
-                    <div className="absolute inset-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
-                      <ProjectCard
-                        type={project.type || "Web"}
-                        id={project.id}
-                        expanded={true}
-                        image={project.coverImage}
-                      />
-                    </div>
-                  </div>
-
-                  <h3 className="text-xl font-serif italic text-[var(--text-primary)] mb-2 group-hover:underline decoration-1 underline-offset-4 decoration-dotted">
-                    {isIndonesian && project.title_id
-                      ? project.title_id
-                      : project.title}
-                  </h3>
-                  <p className="text-[var(--text-secondary)] font-light text-sm leading-relaxed mb-4 line-clamp-2">
-                    {isIndonesian && project.desc_id
-                      ? project.desc_id
-                      : project.desc}
-                  </p>
-                  <div className="flex gap-2 flex-wrap opacity-60">
-                    {project.stack.map((tech, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="text-[11px] font-mono border border-[var(--border-color)] px-2 py-1 rounded-sm text-[var(--text-secondary)] uppercase tracking-wider"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                  project={project}
+                  idx={idx}
+                  cardsRef={cardsRef}
+                  sideProjectsLength={SIDE_PROJECTS.length}
+                  isIndonesian={isIndonesian}
+                  navigate={navigate}
+                />
               ))}
             </div>
           </div>

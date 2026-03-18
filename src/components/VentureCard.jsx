@@ -239,39 +239,42 @@ const BrutalistCard = ({ project, title, desc, onClick, isHovered, ref, onMouseE
     animate={isHovered ? { x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" } : { x: 0, y: 0, boxShadow: "0px 0px 0px 0px var(--accent-red)" }}
     whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" }}
   >
-    <div className="absolute top-4 right-4 z-20">
-      <ArrowUpRight size={24} className="text-black dark:text-white" />
-    </div>
-
-    <div className="p-8 h-full flex flex-col relative z-10">
-      <div className="mb-auto">
-        <div className="inline-block bg-[var(--accent-red)] text-white px-3 py-1 font-mono text-[10px] uppercase font-bold mb-4">
-          Research // Cognitive Mastery
-        </div>
-        <h3 className="text-3xl md:text-2xl font-serif font-black italic uppercase leading-tight text-black dark:text-white mb-6">
-          {title}
-        </h3>
+    {/* Blinds Reveal over full card */}
+    <BlindsReveal isOpen={isHovered} slats={10} color="#1a1a1a">
+      <div className="absolute top-4 right-4 z-20">
+        <ArrowUpRight size={24} className="text-black dark:text-white" />
       </div>
 
-      <div className="mt-auto">
-        <p className="text-black dark:text-white font-bold text-sm mb-6 leading-tight border-l-4 border-[var(--accent-red)] pl-4 line-clamp-3">
-          {desc}
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {project.stack.map((tech) => (
-            <span
-              key={tech}
-              className="bg-black dark:bg-white text-white dark:text-black text-[9px] font-bold px-2 py-0.5 uppercase tracking-tighter"
-            >
-              {tech}
-            </span>
-          ))}
+      <div className="p-8 h-full flex flex-col relative z-10">
+        <div className="mb-auto">
+          <div className="inline-block bg-[var(--accent-red)] text-white px-3 py-1 font-mono text-[10px] uppercase font-bold mb-4">
+            Research // Cognitive Mastery
+          </div>
+          <h3 className="text-3xl md:text-2xl font-serif font-black italic uppercase leading-tight text-black dark:text-white mb-6">
+            {title}
+          </h3>
+        </div>
+
+        <div className="mt-auto">
+          <p className="text-black dark:text-white font-bold text-sm mb-6 leading-tight border-l-4 border-[var(--accent-red)] pl-4 line-clamp-3">
+            {desc}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {project.stack.map((tech) => (
+              <span
+                key={tech}
+                className="bg-black dark:bg-white text-white dark:text-black text-[9px] font-bold px-2 py-0.5 uppercase tracking-tighter"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
 
-    {/* Glitch Overlay Effect */}
-    <div className={`absolute inset-0 bg-[var(--accent-red)]/10 mix-blend-multiply transition-opacity pointer-events-none ${isHovered ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}></div>
+      {/* Glitch Overlay Effect */}
+      <div className={`absolute inset-0 bg-[var(--accent-red)]/10 mix-blend-multiply transition-opacity pointer-events-none ${isHovered ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}></div>
+    </BlindsReveal>
   </motion.div>
 );
 
@@ -340,55 +343,58 @@ const BlueprintCard = ({ project, title, desc, onClick, isHovered, ref, onMouseE
     whileHover={{ scale: 1.02, y: -4 }}
     transition={{ type: "spring", stiffness: 300, damping: 20 }}
   >
-    {/* Grid Background */}
-    <div className="absolute inset-0 blueprint-grid opacity-20 dark:opacity-40"></div>
+    {/* Blinds Reveal over full blueprint card */}
+    <BlindsReveal isOpen={isHovered} slats={8} color="rgb(219, 234, 254)">
+      {/* Grid Background */}
+      <div className="absolute inset-0 blueprint-grid opacity-20 dark:opacity-40"></div>
 
-    {/* Construction Lines */}
-    <div className="absolute left-10 top-0 bottom-0 w-px bg-blue-500/20"></div>
-    <div className="absolute right-10 top-0 bottom-0 w-px bg-blue-500/20"></div>
-    <div className="absolute top-10 left-0 right-0 h-px bg-blue-500/20"></div>
-    <div className="absolute bottom-10 left-0 right-0 h-px bg-blue-500/20"></div>
+      {/* Construction Lines */}
+      <div className="absolute left-10 top-0 bottom-0 w-px bg-blue-500/20"></div>
+      <div className="absolute right-10 top-0 bottom-0 w-px bg-blue-500/20"></div>
+      <div className="absolute top-10 left-0 right-0 h-px bg-blue-500/20"></div>
+      <div className="absolute bottom-10 left-0 right-0 h-px bg-blue-500/20"></div>
 
-    <div className="relative z-10 p-12 h-full flex flex-col">
-      <div className="flex justify-between items-start mb-auto">
-        <div className="p-3 border-2 border-dashed border-blue-400/50">
-          <BookOpen className="text-blue-500" />
-        </div>
-        <div className="text-right">
-          <div className="font-mono text-[9px] text-blue-500/60 uppercase">
-            Dwg No. 2026-08
+      <div className="relative z-10 p-12 h-full flex flex-col">
+        <div className="flex justify-between items-start mb-auto">
+          <div className="p-3 border-2 border-dashed border-blue-400/50">
+            <BookOpen className="text-blue-500" />
           </div>
-          <div className="font-mono text-[9px] text-blue-500/60 uppercase">
-            Scale: 1:1
+          <div className="text-right">
+            <div className="font-mono text-[9px] text-blue-500/60 uppercase">
+              Dwg No. 2026-08
+            </div>
+            <div className="font-mono text-[9px] text-blue-500/60 uppercase">
+              Scale: 1:1
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="space-y-4">
-        <h3 className="text-3xl font-serif italic text-blue-900 dark:text-blue-100 leading-tight">
-          {title}
-        </h3>
-        <div className="w-full h-px bg-blue-500/30"></div>
-        <p className="text-blue-700/70 dark:text-blue-200 text-sm font-light leading-relaxed line-clamp-5">
-          {desc}
-        </p>
-        <div className="flex gap-4 font-mono text-[9px] text-blue-500/60">
-          {project.stack.slice(0, 3).map((tech) => (
-            <span key={tech} className="flex items-center gap-1">
-              <Layers size={10} /> {tech}
-            </span>
-          ))}
+        <div className="space-y-4">
+          <h3 className="text-3xl font-serif italic text-blue-900 dark:text-blue-100 leading-tight">
+            {title}
+          </h3>
+          <div className="w-full h-px bg-blue-500/30"></div>
+          <p className="text-blue-700/70 dark:text-blue-200 text-sm font-light leading-relaxed line-clamp-5">
+            {desc}
+          </p>
+          <div className="flex gap-4 font-mono text-[9px] text-blue-500/60">
+            {project.stack.slice(0, 3).map((tech) => (
+              <span key={tech} className="flex items-center gap-1">
+                <Layers size={10} /> {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Dimension Labels */}
+        <div className="absolute left-2 top-1/2 -rotate-90 origin-center text-[8px] font-mono text-blue-500/40 uppercase">
+          Height: 450px
+        </div>
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[8px] font-mono text-blue-500/40 uppercase">
+          Conceptual Blueprint // Education
         </div>
       </div>
-
-      {/* Dimension Labels */}
-      <div className="absolute left-2 top-1/2 -rotate-90 origin-center text-[8px] font-mono text-blue-500/40 uppercase">
-        Height: 450px
-      </div>
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[8px] font-mono text-blue-500/40 uppercase">
-        Conceptual Blueprint // Education
-      </div>
-    </div>
+    </BlindsReveal>
   </motion.div>
 );
 
