@@ -122,18 +122,18 @@ const DynamicDeliverable = ({ words }) => {
   return (
     <motion.span
       onClick={handleClick}
-      className="inline-block cursor-pointer underline decoration-dotted underline-offset-8 decoration-[var(--accent-blue)] hover:text-[var(--accent-blue)] transition-colors relative"
+      className="inline-flex relative cursor-pointer text-[var(--accent-blue)] hover:text-[var(--accent-blue)]/80 transition-colors"
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={words[index]}
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -10, opacity: 0 }}
-          transition={{ duration: 0.2, ease: "easeOut" }}
-          className="inline-block"
+          initial={{ y: 20, opacity: 0, filter: "blur(4px)" }}
+          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          exit={{ y: -20, opacity: 0, filter: "blur(4px)" }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          className="inline-block whitespace-nowrap underline decoration-dotted underline-offset-8"
         >
           {words[index]}
         </motion.span>
