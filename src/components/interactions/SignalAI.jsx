@@ -1,10 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
+
+const WAVE_INTERVAL_MS = 4000;
+const PACKET_INTERVAL_MS = 500;
+const WAVE_MAX_LENGTH = -4;
+const PACKET_MAX_LENGTH = -15;
 
 const SignalAI = ({ color = "var(--accent-blue)", manualPing = 0 }) => {
   const containerRef = useRef(null);
   const [waves, setWaves] = useState([]);
   const [packets, setPackets] = useState([]);
+
+  const waveBaseStyle = useMemo(() => ({
+    width: "40vw",
+    height: "40vw",
+    color,
+    borderWidth: "1.5px",
+  }), [color]);
+
+  const packetBaseStyle = useMemo(() => ({
+    backgroundColor: color,
+    boxShadow: `0 0 8px ${color}`,
+  }), [color]);
 
   // Respond to manual pings
   useEffect(() => {
@@ -23,10 +40,10 @@ const SignalAI = ({ color = "var(--accent-blue)", manualPing = 0 }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setWaves((prev) => [
-        ...prev.slice(-4), // Keep last 5 waves
+        ...prev.slice(WAVE_MAX_LENGTH), // Keep last 5 waves
         { id: Date.now(), scale: 0, opacity: 0.3 },
       ]);
-    }, 4000);
+    }, WAVE_INTERVAL_MS);
     return () => clearInterval(interval);
   }, []);
 
@@ -34,7 +51,7 @@ const SignalAI = ({ color = "var(--accent-blue)", manualPing = 0 }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setPackets((prev) => [
-        ...prev.slice(-15), // Keep last 15 packets
+        ...prev.slice(PACKET_MAX_LENGTH), // Keep last 15 packets
         {
           id: Math.random(),
           x: Math.random() * 100,
@@ -44,7 +61,7 @@ const SignalAI = ({ color = "var(--accent-blue)", manualPing = 0 }) => {
           opacity: Math.random() * 0.5 + 0.2,
         },
       ]);
-    }, 500);
+    }, PACKET_INTERVAL_MS);
     return () => clearInterval(interval);
   }, []);
 
@@ -74,12 +91,7 @@ const SignalAI = ({ color = "var(--accent-blue)", manualPing = 0 }) => {
           animate={{ scale: 2, opacity: 0 }}
           transition={{ duration: 8, ease: "easeOut" }}
           className="absolute border border-current rounded-full"
-          style={{
-            width: "40vw",
-            height: "40vw",
-            color: color,
-            borderWidth: "1.5px",
-          }}
+          style={waveBaseStyle}
         />
       ))}
 
@@ -91,10 +103,7 @@ const SignalAI = ({ color = "var(--accent-blue)", manualPing = 0 }) => {
           animate={{ y: "-10%" }}
           transition={{ duration: p.speed, ease: "linear" }}
           className="absolute w-px h-8"
-          style={{
-            backgroundColor: color,
-            boxShadow: `0 0 8px ${color}`,
-          }}
+          style={packetBaseStyle}
         />
       ))}
 

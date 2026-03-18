@@ -12,6 +12,21 @@ import {
 import { useTheme } from "../context/ThemeContext";
 import ProjectCard from "./ProjectCard";
 
+let CARD_MAP;
+const getCardComponent = (id) => {
+  if (!CARD_MAP) {
+    CARD_MAP = {
+      "human-algorithm": SystemCoreCard,
+      "dolphi": CosmicPopCard,
+      "productivity-illusion": BrutalistCard,
+      "year-in-review": BentoCard,
+      "interactive-workbook": BlueprintCard,
+    };
+  }
+  return CARD_MAP[id] || null;
+};
+
+
 const VentureCard = ({ project, isIndonesian, onClick }) => {
   const { isDark } = useTheme();
   const [isManualHover, setIsManualHover] = useState(false);
@@ -73,20 +88,9 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
     onMouseLeave: () => setIsManualHover(false),
   };
 
-  switch (project.id) {
-    case "human-algorithm":
-      return <SystemCoreCard {...commonProps} />;
-    case "dolphi":
-      return <CosmicPopCard {...commonProps} />;
-    case "productivity-illusion":
-      return <BrutalistCard {...commonProps} isDark={isDark} />;
-    case "year-in-review":
-      return <BentoCard {...commonProps} />;
-    case "interactive-workbook":
-      return <BlueprintCard {...commonProps} isDark={isDark} />;
-    default:
-      return null;
-  }
+  const SelectedCard = getCardComponent(project.id);
+  if (!SelectedCard) return null;
+  return <SelectedCard {...commonProps} isDark={isDark} />;
 };
 
 // 1. THE SYSTEM CORE (Human Algorithm)

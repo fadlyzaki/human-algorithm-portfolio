@@ -76,6 +76,25 @@ const FilterMeApp = React.lazy(
    Focus: High-fidelity visual storytelling, schematic layouts, rich typography.
 */
 
+const PROJECT_LAYOUT_MAP = {
+  "human-algorithm": SystemCoreDetail,
+  "dolphi": CosmicPopDetail,
+  "productivity-illusion": BrutalistDetail,
+  "year-in-review": BentoDetail,
+  "interactive-workbook": BlueprintDetail,
+};
+
+const INTERACTION_MAP = {
+  "human-algorithm": NexusAI,
+  "interactive-workbook": WorkforceAI,
+  "agency-pivot": AgencyPivot,
+  "flood-alert": FloodAlert,
+  "price-lock": PriceLock,
+  "project-kinship": ProjectKinship,
+  "project-zen": ProjectZen,
+  "filter-me": FilterMeApp,
+};
+
 const SideProjectDetail = () => {
   const { isDark } = useTheme();
   const { isIndonesian, t } = useLanguage();
@@ -201,17 +220,7 @@ const SideProjectDetail = () => {
   const activeMetrics = project.metrics;
   const activeLearnings = resolveText(project.learnings);
   // Interaction Mapping
-  const InteractionComponent =
-    {
-      "human-algorithm": NexusAI,
-      "interactive-workbook": WorkforceAI,
-      "agency-pivot": AgencyPivot,
-      "flood-alert": FloodAlert,
-      "price-lock": PriceLock,
-      "project-kinship": ProjectKinship,
-      "project-zen": ProjectZen,
-      "filter-me": FilterMeApp,
-    }[project.id] || null;
+  const InteractionComponent = INTERACTION_MAP[project.id] || null;
 
   return (
     <div
@@ -290,20 +299,8 @@ const SideProjectDetail = () => {
             return <PrototypeDetail {...commonProps} />;
           }
 
-          switch (project.id) {
-            case "human-algorithm":
-              return <SystemCoreDetail {...commonProps} />;
-            case "dolphi":
-              return <CosmicPopDetail {...commonProps} />;
-            case "productivity-illusion":
-              return <BrutalistDetail {...commonProps} />;
-            case "year-in-review":
-              return <BentoDetail {...commonProps} />;
-            case "interactive-workbook":
-              return <BlueprintDetail {...commonProps} />;
-            default:
-              return <BentoDetail {...commonProps} />;
-          }
+          const SelectedLayout = PROJECT_LAYOUT_MAP[project.id] || BentoDetail;
+          return <SelectedLayout {...commonProps} />;
         })()}
       </main>
 

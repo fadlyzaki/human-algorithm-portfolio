@@ -1,6 +1,9 @@
 import React from "react";
 import { Grid3X3, Activity } from "lucide-react";
 
+const GRID_COLUMNS = Array.from({ length: 12 });
+const SPRITE_URL = "/images/sprite-walk.png";
+
 const LayoutLab = ({ isXRayMode }) => (
   <div
     className={`space-y-16 animate-in slide-in-from-bottom-8 duration-500 relative ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : ""}`}
@@ -27,7 +30,7 @@ const LayoutLab = ({ isXRayMode }) => (
       <div className="relative border border-[var(--border-color)] bg-[var(--bg-surface)] h-48 overflow-hidden">
         {/* Visual Grid Layer */}
         <div className="absolute inset-0 grid grid-cols-12 gap-4 px-4 md:px-12 pointer-events-none opacity-20">
-          {[...Array(12)].map((_, i) => (
+          {GRID_COLUMNS.map((_, i) => (
             <div
               key={i}
               className="h-full bg-[var(--accent-red)]/20 border-x border-[var(--accent-red)]/30 flex flex-col justify-between py-2 items-center"
@@ -178,7 +181,7 @@ const LayoutLab = ({ isXRayMode }) => (
           </div>
           <div className="w-full md:w-64 h-32 bg-[var(--bg-void)] rounded-lg relative overflow-hidden border border-[var(--border-color)]">
              <div className="absolute bottom-4 left-4 w-12 h-16 opacity-30">
-               <img src="/images/sprite-walk.png" className="sprite-img sprite-anim-walk scale-50" alt="demo" />
+               <img src={SPRITE_URL} className="sprite-img sprite-anim-walk scale-50" alt="demo" />
              </div>
              <div className="absolute bottom-1 w-full h-[1px] bg-[var(--accent)] opacity-20" />
           </div>
