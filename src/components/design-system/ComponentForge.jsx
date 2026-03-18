@@ -16,6 +16,9 @@ import { SYSTEM_CONFIG } from "../../config/constants";
 import DefaultCard from "../cards/DefaultCard";
 import SystemMonitor from "../SystemMonitor";
 import UIDiagram from "../diagrams/UIDiagram";
+import NeuralEcho from "../NeuralEcho";
+import ContactScratch from "../ContactScratch";
+import BlindsReveal from "../BlindsReveal";
 
 
 const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
@@ -283,7 +286,75 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
         </div>
       </div>
 
-      {/* COMPANION PROTOTYPES (NEW) */}
+      {/* SECTION 3: HIGH-FIDELITY INTERACTIONS (NEW) */}
+      <div className="border-t border-[var(--border-color)] pt-12 space-y-6">
+        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] flex items-center gap-2 mb-8">
+          <Zap size={14} /> High-Fidelity_Interactions
+        </h3>
+
+        <div className="grid grid-cols-1 gap-12 mt-8">
+          {/* Neural Echo */}
+          <div className={`relative ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : ""}`}>
+            {isXRayMode && (
+              <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">
+                NeuralEcho.jsx // Interaction
+              </span>
+            )}
+            <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">
+              Semantic Core // NeuralEcho
+            </h4>
+            <div className="relative z-10 max-w-2xl">
+              <NeuralEcho />
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Image Scratch */}
+            <div className={`relative ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : ""}`}>
+              {isXRayMode && (
+                <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">
+                  ImageScratch.jsx // Filter Interaction
+                </span>
+              )}
+              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">
+                Hardware Accelerated Scratch // ImageScratch
+              </h4>
+              <div className="relative z-10 h-64 border border-[var(--border-color)] overflow-hidden rounded-xl">
+                 <ImageScratch
+                    coverText="SCRATCH TO REVEAL"
+                    revealContent={
+                      <div className="w-full h-full flex flex-col items-center justify-center bg-[var(--bg-surface)] text-[var(--text-primary)]">
+                        <Zap size={32} className="text-[var(--accent)] mb-2" />
+                        <span className="font-mono text-xs font-bold">PAYLOAD UNLOCKED</span>
+                      </div>
+                    }
+                 />
+              </div>
+            </div>
+
+            {/* Blinds Reveal */}
+            <div className={`relative ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : ""}`}>
+              {isXRayMode && (
+                <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">
+                  BlindsReveal.jsx // Motion Interaction
+                </span>
+              )}
+              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">
+                Slat Physics // BlindsReveal
+              </h4>
+              <div className="relative z-10 h-64 border border-[var(--border-color)] overflow-hidden rounded-xl group cursor-pointer bg-[var(--bg-card)]">
+                 <BlindsReveal isOpen={true} slats={8} color="rgba(0,0,0,0.8)" staggerDelay={0.04}>
+                    <div className="w-full h-full flex items-center justify-center">
+                       <span className="font-mono text-[10px] tracking-widest uppercase opacity-50">Hover parent to trigger</span>
+                    </div>
+                 </BlindsReveal>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* COMPANION PROTOTYPES */}
       <div className="border-t border-[var(--border-color)] pt-12">
         <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent-blue)] flex items-center gap-2 mb-8">
           <Cpu size={14} /> Agentic_Companion_Protocols

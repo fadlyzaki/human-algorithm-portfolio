@@ -185,6 +185,23 @@ const LayoutLab = ({ isXRayMode }) => (
              </div>
              <div className="absolute bottom-1 w-full h-[1px] bg-[var(--accent)] opacity-20" />
           </div>
+          {/* Cursor Physics Data */}
+          <div className="flex-1 space-y-4">
+            <h4 className="font-bold text-sm">Framer-Fidelity Cursor Physics</h4>
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+              Native cursor events are suppressed in favor of a dual-layer, framer-motion powered pointer. It features a responsive dot (stiffness: 1000, damping: 28) and a trailing ring (stiffness: 250, damping: 20) to mimic high-end interactive inertia.
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+               <div className="p-3 bg-[var(--bg-void)] rounded font-mono text-[9px]">
+                 <span className="opacity-50">DOT_STIFFNESS:</span> 1000<br/>
+                 <span className="opacity-50">DOT_DAMPING:</span> 28
+               </div>
+               <div className="p-3 bg-[var(--bg-void)] rounded font-mono text-[9px]">
+                 <span className="opacity-50">RING_STIFFNESS:</span> 250<br/>
+                 <span className="opacity-50">RING_DAMPING:</span> 20
+               </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
