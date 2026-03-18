@@ -253,26 +253,20 @@ const AboutPage = () => {
           {/* SEMANTIC MEMORY (Interactive RAG) */}
           <section className="mb-12">
             <ScrollReveal>
-              <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 rounded-xl shadow-lg relative overflow-hidden">
-                {/* Background Decoration */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-green)] opacity-[0.03] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-
-                <div className="mb-8">
-                  <h2 className="text-2xl font-mono text-[var(--text-card)] mb-2">
-                    {t("about.neural_echo.title")}
-                  </h2>
-                </div>
-
-                <Suspense
-                  fallback={
-                    <div className="h-64 flex items-center justify-center text-[var(--accent-blue)] animate-pulse">
-                      Initializing Semantic Core...
-                    </div>
-                  }
-                >
-                  <NeuralEcho />
-                </Suspense>
+              <div className="mb-6">
+                <h2 className="text-2xl font-mono text-[var(--text-primary)] mb-2 uppercase tracking-tight">
+                  {t("about.neural_echo.title")}
+                </h2>
               </div>
+              <Suspense
+                fallback={
+                  <div className="h-64 flex items-center justify-center text-[var(--accent-blue)] animate-pulse rounded-2xl border border-[var(--border-color)]">
+                    Initializing Semantic Core...
+                  </div>
+                }
+              >
+                <NeuralEcho />
+              </Suspense>
             </ScrollReveal>
           </section>
 
