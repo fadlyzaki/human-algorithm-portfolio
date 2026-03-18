@@ -106,28 +106,28 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, ref, onMouse
     animate={isHovered ? { borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98 } : { borderColor: "var(--border-color)", scale: 1 }}
     whileHover={{ borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98 }}
   >
-    {/* Terminal Text Background */}
-    <div className="absolute inset-0 opacity-5 font-mono text-[8px] leading-none pointer-events-none select-none overflow-hidden p-4 text-[var(--text-primary)]">
-      {Array.from({ length: 50 }).map((_, i) => (
-        <div key={i} className="mb-1 whitespace-nowrap">
-          {`INIT_CORE_PORTFOLIO_V2.9 >> AGENT_00${i} >> STATUS_ACTIVE >> RECURSIVE_TRUE >> PATH=/root/human-algorithm/${project.id}/kernel >> `}
-          {Math.floor((i + 1) * project.id.length * 1234567)
-            .toString(36)
-            .substring(0, 13)}
-        </div>
-      ))}
-    </div>
+    <BlindsReveal isOpen={isHovered} slats={8} color="var(--bg-void)">
+      {/* Terminal Text Background */}
+      <div className="absolute inset-0 opacity-5 font-mono text-[8px] leading-none pointer-events-none select-none overflow-hidden p-4 text-[var(--text-primary)]">
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div key={i} className="mb-1 whitespace-nowrap">
+            {`INIT_CORE_PORTFOLIO_V2.9 >> AGENT_00${i} >> STATUS_ACTIVE >> RECURSIVE_TRUE >> PATH=/root/human-algorithm/${project.id}/kernel >> `}
+            {Math.floor((i + 1) * project.id.length * 1234567)
+              .toString(36)
+              .substring(0, 13)}
+          </div>
+        ))}
+      </div>
 
-    {/* Scanning Line */}
-    <motion.div
-      className="absolute left-0 right-0 h-px bg-[var(--accent-blue)]/20 z-10 pointer-events-none"
-      animate={{ top: ["0%", "100%"] }}
-      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-    />
+      {/* Scanning Line */}
+      <motion.div
+        className="absolute left-0 right-0 h-px bg-[var(--accent-blue)]/20 z-10 pointer-events-none"
+        animate={{ top: ["0%", "100%"] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+      />
 
-    {/* Top Image Section */}
-    <div className="h-[40%] relative overflow-hidden bg-[var(--bg-card)] border-b border-[var(--border-color)] flex-shrink-0">
-      <BlindsReveal isOpen={isHovered} slats={6} color="var(--bg-void)">
+      {/* Top Image Section */}
+      <div className="h-[40%] relative overflow-hidden bg-[var(--bg-card)] border-b border-[var(--border-color)] flex-shrink-0">
         <div className={`absolute inset-0 transition-all duration-700 ${isHovered ? 'grayscale-0 opacity-100 scale-100' : 'grayscale opacity-60 scale-110 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-100'}`}>
           <ProjectCard
             id={project.id}
@@ -139,40 +139,40 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, ref, onMouse
         {/* Visual Redactions */}
         <div className="absolute top-4 left-4 w-16 h-1 bg-[var(--accent-blue)]/30 blur-md"></div>
         <div className="absolute bottom-4 right-4 w-16 h-1 bg-[var(--accent-purple)]/30 blur-md"></div>
-      </BlindsReveal>
-    </div>
+      </div>
 
-    {/* Bottom Content Section */}
-    <div className="flex-1 p-6 relative z-20 flex flex-col justify-between">
-      <div>
-        <div className="flex items-center gap-2 mb-3">
-          <div className="p-1.5 border border-[var(--accent-blue)]/30 rounded bg-[var(--accent-blue)]/10">
-            <Cpu size={14} className="text-[var(--accent-blue)]" />
+      {/* Bottom Content Section */}
+      <div className="flex-1 p-6 relative z-20 flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <div className="p-1.5 border border-[var(--accent-blue)]/30 rounded bg-[var(--accent-blue)]/10">
+              <Cpu size={14} className="text-[var(--accent-blue)]" />
+            </div>
+            <span className="font-mono text-[9px] tracking-widest text-[var(--accent-blue)] uppercase">
+              System Core // Agentic Workflow
+            </span>
           </div>
-          <span className="font-mono text-[9px] tracking-widest text-[var(--accent-blue)] uppercase">
-            System Core // Agentic Workflow
-          </span>
+
+          <h3 className={`text-3xl font-serif italic mb-3 transition-colors ${isHovered ? 'text-[var(--accent-blue)]' : 'text-[var(--text-primary)] group-hover:text-[var(--accent-blue)]'}`}>
+            {title}
+          </h3>
+          <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-3">
+            {desc}
+          </p>
         </div>
 
-        <h3 className={`text-3xl font-serif italic mb-3 transition-colors ${isHovered ? 'text-[var(--accent-blue)]' : 'text-[var(--text-primary)] group-hover:text-[var(--accent-blue)]'}`}>
-          {title}
-        </h3>
-        <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-3">
-          {desc}
-        </p>
+        <div className="flex gap-2 flex-wrap">
+          {project.stack.slice(0, 3).map((tech) => (
+            <span
+              key={tech}
+              className="px-2 py-0.5 border border-[var(--border-color)] rounded-full font-mono text-[8px] text-[var(--text-secondary)] uppercase"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
       </div>
-
-      <div className="flex gap-2 flex-wrap">
-        {project.stack.slice(0, 3).map((tech) => (
-          <span
-            key={tech}
-            className="px-2 py-0.5 border border-[var(--border-color)] rounded-full font-mono text-[8px] text-[var(--text-secondary)] uppercase"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-    </div>
+    </BlindsReveal>
   </motion.div>
 );
 
@@ -184,46 +184,48 @@ const CosmicPopCard = ({ project, title, desc, onClick, isHovered, ref, onMouseE
     onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
-    className="group relative h-[450px] rounded-3xl border-2 border-transparent bg-gradient-to-br from-[var(--accent-indigo)] to-[var(--accent-indigo)] overflow-hidden cursor-pointer p-8 flex flex-col justify-end transition-colors"
+    className="group relative h-[450px] rounded-3xl border-2 border-transparent bg-gradient-to-br from-[var(--accent-indigo)] to-[var(--accent-indigo)] overflow-hidden cursor-pointer flex flex-col justify-end transition-colors"
     animate={isHovered ? { scale: 0.98, borderColor: "var(--accent-sky)" } : { scale: 1, borderColor: "transparent" }}
     whileHover={{ scale: 0.98, borderColor: "var(--accent-sky)" }}
   >
-    {/* Floating Particles */}
-    <div className="absolute inset-0 pointer-events-none">
-      <motion.div
-        className="absolute top-20 left-20 w-32 h-32 bg-[var(--accent-sky)]/10 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 4, repeat: Infinity }}
-      />
-      <div className="absolute inset-0 opacity-20 sparkle-bg"></div>
-    </div>
+    <BlindsReveal isOpen={isHovered} slats={8} color="var(--accent-indigo)">
+      <div className="w-full h-full absolute inset-0 p-8 flex flex-col justify-end">
+        {/* Floating Particles */}
+        <div className="absolute inset-0 pointer-events-none">
+          <motion.div
+            className="absolute top-20 left-20 w-32 h-32 bg-[var(--accent-sky)]/10 rounded-full blur-3xl"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+            transition={{ duration: 4, repeat: Infinity }}
+          />
+          <div className="absolute inset-0 opacity-20 sparkle-bg"></div>
+        </div>
 
-    <div className="relative z-10">
-      <div className={`w-16 h-16 mb-6 rounded-2xl backdrop-blur-xl flex items-center justify-center transition-all ${isHovered ? 'bg-[var(--accent-sky)]/20 border-[var(--accent-sky)]/40' : 'bg-white/5 border-white/10 group-hover:bg-[var(--accent-sky)]/20 group-hover:border-[var(--accent-sky)]/40'}`}>
-        <Activity size={32} className="text-[var(--accent-sky)]" />
-      </div>
-      <h3 className="text-3xl font-serif italic mb-4 text-white">{title}</h3>
-      <p className="text-blue-100/60 font-light text-sm mb-6 leading-relaxed line-clamp-5">
-        {desc}
-      </p>
-      <div className="flex gap-2">
-        {project.stack.slice(0, 3).map((tech) => (
-          <span
-            key={tech}
-            className="text-[9px] font-mono bg-white/5 px-2 py-1 rounded text-[var(--accent-sky)] uppercase tracking-wider"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-    </div>
+        <div className="relative z-10">
+          <div className={`w-16 h-16 mb-6 rounded-2xl backdrop-blur-xl flex items-center justify-center transition-all ${isHovered ? 'bg-[var(--accent-sky)]/20 border-[var(--accent-sky)]/40' : 'bg-white/5 border-white/10 group-hover:bg-[var(--accent-sky)]/20 group-hover:border-[var(--accent-sky)]/40'}`}>
+            <Activity size={32} className="text-[var(--accent-sky)]" />
+          </div>
+          <h3 className="text-3xl font-serif italic mb-4 text-white">{title}</h3>
+          <p className="text-blue-100/60 font-light text-sm mb-6 leading-relaxed line-clamp-5">
+            {desc}
+          </p>
+          <div className="flex gap-2">
+            {project.stack.slice(0, 3).map((tech) => (
+              <span
+                key={tech}
+                className="text-[9px] font-mono bg-white/5 px-2 py-1 rounded text-[var(--accent-sky)] uppercase tracking-wider"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
 
-    {/* Background Visual */}
-    <div className={`absolute top-0 right-0 w-full h-full -z-0 transition-opacity ${isHovered ? 'opacity-60' : 'opacity-40 group-hover:opacity-60'}`}>
-      <BlindsReveal isOpen={isHovered} slats={8} color="var(--accent-indigo)">
-        <ProjectCard id={project.id} backgroundOnly />
-      </BlindsReveal>
-    </div>
+        {/* Background Visual */}
+        <div className={`absolute top-0 right-0 w-full h-full -z-0 transition-opacity ${isHovered ? 'opacity-60' : 'opacity-40 group-hover:opacity-60'}`}>
+          <ProjectCard id={project.id} backgroundOnly />
+        </div>
+      </div>
+    </BlindsReveal>
   </motion.div>
 );
 
@@ -290,9 +292,9 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter
     animate={isHovered ? { scale: 1.02 } : { scale: 1 }}
     whileHover={{ scale: 1.02 }}
   >
-    {/* Visual Top Half */}
-    <div className="h-2/3 bg-gradient-to-tr from-pink-100 to-orange-100 dark:from-pink-900/20 dark:to-orange-900/20 relative overflow-hidden">
-      <BlindsReveal isOpen={isHovered} slats={8} color="rgb(251, 207, 232)">
+    <BlindsReveal isOpen={isHovered} slats={8} color="rgb(251, 207, 232)">
+      {/* Visual Top Half */}
+      <div className="h-2/3 bg-gradient-to-tr from-pink-100 to-orange-100 dark:from-pink-900/20 dark:to-orange-900/20 relative overflow-hidden">
         <div className={`absolute inset-0 transition-all duration-1000 ${isHovered ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}>
           <ProjectCard id={project.id} backgroundOnly />
         </div>
@@ -301,32 +303,32 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter
           <Calendar size={14} />
           <span className="font-mono text-[10px] font-bold">WRAPPED_2025</span>
         </div>
-      </BlindsReveal>
-    </div>
-
-    {/* Content Bottom Half */}
-    <div className="flex-1 p-6 flex flex-col justify-center">
-      <h3 className="text-3xl font-serif italic mb-3 text-[var(--text-primary)]">
-        {title}
-      </h3>
-      <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-5">
-        {desc}
-      </p>
-      <div className="flex justify-between items-center">
-        <div className="flex gap-1">
-          {project.stack.slice(0, 3).map((tech) => (
-            <div
-              key={tech}
-              className="w-2 h-2 rounded-full bg-[var(--border-color)]"
-              title={tech}
-            ></div>
-          ))}
-        </div>
-        <span className="font-mono text-[9px] uppercase tracking-widest opacity-40">
-          Bento Mode // 1.0
-        </span>
       </div>
-    </div>
+
+      {/* Content Bottom Half */}
+      <div className="flex-1 p-6 flex flex-col justify-center">
+        <h3 className="text-3xl font-serif italic mb-3 text-[var(--text-primary)]">
+          {title}
+        </h3>
+        <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-5">
+          {desc}
+        </p>
+        <div className="flex justify-between items-center">
+          <div className="flex gap-1">
+            {project.stack.slice(0, 3).map((tech) => (
+              <div
+                key={tech}
+                className="w-2 h-2 rounded-full bg-[var(--border-color)]"
+                title={tech}
+              ></div>
+            ))}
+          </div>
+          <span className="font-mono text-[9px] uppercase tracking-widest opacity-40">
+            Bento Mode // 1.0
+          </span>
+        </div>
+      </div>
+    </BlindsReveal>
   </motion.div>
 );
 
