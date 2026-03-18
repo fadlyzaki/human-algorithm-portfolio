@@ -16,7 +16,7 @@ import {
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import FrequencyVisualizer from "./FrequencyVisualizer";
-import TerminalHandshake from "./TerminalHandshake";
+import ContactScratch from "./ContactScratch";
 import { SYSTEM_CONFIG } from "../config/constants";
 
 /**
@@ -167,7 +167,7 @@ const Footer = () => {
             </span>
           </h2>
 
-          <TerminalHandshake />
+          <ContactScratch />
         </div>
 
         {/* 2. CLUSTER NAVIGATION */}
