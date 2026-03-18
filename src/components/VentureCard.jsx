@@ -299,7 +299,7 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter
           <ProjectCard id={project.id} backgroundOnly />
         </div>
         {/* Sticker Style Tag */}
-        <div className={`absolute top-6 left-6 rotate-[-5deg] bg-white dark:bg-black border border-black dark:border-white px-4 py-1 flex items-center gap-2 shadow-lg transition-transform z-30 ${isHovered ? 'scale-100' : 'scale-90 group-hover:scale-100'}`}>
+        <div className={`absolute top-6 left-6 rotate-[-5deg] bg-white dark:bg-black border border-black dark:border-white px-4 py-1 flex items-center gap-2 shadow-lg transition-transform z-10 ${isHovered ? 'scale-100' : 'scale-90 group-hover:scale-100'}`}>
           <Calendar size={14} />
           <span className="font-mono text-[10px] font-bold">WRAPPED_2025</span>
         </div>
