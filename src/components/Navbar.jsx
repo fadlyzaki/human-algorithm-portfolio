@@ -75,8 +75,11 @@ const Navbar = ({
   return (
     <>
       {/* DESKTOP TOP BAR */}
-      <div
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 transform ${showNav ? "translate-y-0" : "-translate-y-full"}`}
+      <motion.div
+        initial={false}
+        animate={{ y: showNav ? 0 : "-100%" }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        className="fixed top-0 left-0 w-full z-50"
       >
         <div className="bg-[var(--bg-surface)]/80 backdrop-blur-md border-b border-[var(--border-color)] px-4 sm:px-6 py-2 sm:py-3 flex justify-between items-center">
           {/* LEFT: IDENTITY or BACK BUTTON */}
@@ -189,7 +192,7 @@ const Navbar = ({
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* MOBILE CONTROL DECK (Floating Bottom) */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 md:hidden animate-in slide-in-from-bottom-10 fade-in duration-700">
