@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import ProjectCard from "./ProjectCard";
+import BlindsReveal from "./BlindsReveal";
 
 let CARD_MAP;
 const getCardComponent = (id) => {
@@ -126,17 +127,19 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, ref, onMouse
 
     {/* Top Image Section */}
     <div className="h-[40%] relative overflow-hidden bg-[var(--bg-card)] border-b border-[var(--border-color)] flex-shrink-0">
-      <div className={`absolute inset-0 transition-all duration-700 ${isHovered ? 'grayscale-0 opacity-100 scale-100' : 'grayscale opacity-60 scale-110 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-100'}`}>
-        <ProjectCard
-          id={project.id}
-          expanded={true}
-          image={project.coverImage}
-          backgroundOnly
-        />
-      </div>
-      {/* Visual Redactions */}
-      <div className="absolute top-4 left-4 w-16 h-1 bg-[var(--accent-blue)]/30 blur-md"></div>
-      <div className="absolute bottom-4 right-4 w-16 h-1 bg-[var(--accent-purple)]/30 blur-md"></div>
+      <BlindsReveal isOpen={isHovered} slats={6} color="var(--bg-void)">
+        <div className={`absolute inset-0 transition-all duration-700 ${isHovered ? 'grayscale-0 opacity-100 scale-100' : 'grayscale opacity-60 scale-110 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-100'}`}>
+          <ProjectCard
+            id={project.id}
+            expanded={true}
+            image={project.coverImage}
+            backgroundOnly
+          />
+        </div>
+        {/* Visual Redactions */}
+        <div className="absolute top-4 left-4 w-16 h-1 bg-[var(--accent-blue)]/30 blur-md"></div>
+        <div className="absolute bottom-4 right-4 w-16 h-1 bg-[var(--accent-purple)]/30 blur-md"></div>
+      </BlindsReveal>
     </div>
 
     {/* Bottom Content Section */}
@@ -217,7 +220,9 @@ const CosmicPopCard = ({ project, title, desc, onClick, isHovered, ref, onMouseE
 
     {/* Background Visual */}
     <div className={`absolute top-0 right-0 w-full h-full -z-0 transition-opacity ${isHovered ? 'opacity-60' : 'opacity-40 group-hover:opacity-60'}`}>
-      <ProjectCard id={project.id} backgroundOnly />
+      <BlindsReveal isOpen={isHovered} slats={8} color="var(--accent-indigo)">
+        <ProjectCard id={project.id} backgroundOnly />
+      </BlindsReveal>
     </div>
   </motion.div>
 );
@@ -284,14 +289,16 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter
   >
     {/* Visual Top Half */}
     <div className="h-2/3 bg-gradient-to-tr from-pink-100 to-orange-100 dark:from-pink-900/20 dark:to-orange-900/20 relative overflow-hidden">
-      <div className={`absolute inset-0 transition-all duration-1000 ${isHovered ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}>
-        <ProjectCard id={project.id} backgroundOnly />
-      </div>
-      {/* Sticker Style Tag */}
-      <div className={`absolute top-6 left-6 rotate-[-5deg] bg-white dark:bg-black border border-black dark:border-white px-4 py-1 flex items-center gap-2 shadow-lg transition-transform ${isHovered ? 'scale-100' : 'scale-90 group-hover:scale-100'}`}>
-        <Calendar size={14} />
-        <span className="font-mono text-[10px] font-bold">WRAPPED_2025</span>
-      </div>
+      <BlindsReveal isOpen={isHovered} slats={8} color="rgb(251, 207, 232)">
+        <div className={`absolute inset-0 transition-all duration-1000 ${isHovered ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}>
+          <ProjectCard id={project.id} backgroundOnly />
+        </div>
+        {/* Sticker Style Tag */}
+        <div className={`absolute top-6 left-6 rotate-[-5deg] bg-white dark:bg-black border border-black dark:border-white px-4 py-1 flex items-center gap-2 shadow-lg transition-transform z-30 ${isHovered ? 'scale-100' : 'scale-90 group-hover:scale-100'}`}>
+          <Calendar size={14} />
+          <span className="font-mono text-[10px] font-bold">WRAPPED_2025</span>
+        </div>
+      </BlindsReveal>
     </div>
 
     {/* Content Bottom Half */}
