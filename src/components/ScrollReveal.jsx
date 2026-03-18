@@ -1,52 +1,39 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
+/**
+ * ScrollReveal — Hardware-accelerated entry animation using framer-motion.
+ * Provides a premium, spring-based scroll reveal effect.
+ */
 const ScrollReveal = ({
   children,
   className = "",
   threshold = 0.1,
   delay = 0,
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          if (entry.target) observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: threshold,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    );
-
-    if (el) {
-      observer.observe(el);
-    }
-
-    return () => {
-      if (el) {
-        observer.unobserve(el);
-      }
-    };
-  }, [threshold]);
-
-  const delayStyle = { transitionDelay: `${delay}ms` };
+  const isInView = useInView(ref, {
+    once: true,
+    amount: threshold,
+    margin: "0px 0px -50px 0px",
+  });
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      style={delayStyle}
-      className={`transition-all duration-1000 ease-out transform ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-      } ${className}`}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{
+        type: "spring",
+        stiffness: 80,
+        damping: 20,
+        mass: 1,
+        delay: delay ? delay / 1000 : 0, // Convert ms to seconds
+      }}
+      className={className}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
