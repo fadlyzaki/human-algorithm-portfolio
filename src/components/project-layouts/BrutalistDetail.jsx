@@ -20,7 +20,7 @@ const BrutalistDetail = ({
   // Aesthetic: Neo-Brutalism, High Contrast, Stark Grids, Thick Borders, var(--accent-red) Red Actions
 
   return (
-    <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-sans min-h-screen selection:bg-[var(--accent-red)] selection:text-white pb-32">
+    <div className="text-[var(--text-primary)] font-sans min-h-screen selection:bg-[var(--accent-red)] selection:text-white pb-32">
       <main className="max-w-7xl mx-auto px-6 pt-24 font-mono">
         {/* 1. HERO BANNER */}
         <header className="border-4 border-[var(--text-primary)] p-8 md:p-16 relative bg-[var(--bg-card)] shadow-[16px_16px_0px_0px_var(--accent-red)] mb-32">

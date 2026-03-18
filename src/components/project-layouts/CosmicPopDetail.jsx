@@ -21,7 +21,7 @@ const CosmicPopDetail = ({
   // Aesthetic: Cosmic Pop, Deep Blues/Purples, Glassmorphism, Floating Particles, Playful Typography
 
   return (
-    <div className="bg-[var(--bg-void)] text-[var(--text-primary)] font-sans min-h-screen selection:bg-[var(--accent-sky)]/30 overflow-hidden relative">
+    <div className="text-[var(--text-primary)] font-sans min-h-screen selection:bg-[var(--accent-sky)]/30 overflow-hidden relative">
       {/* Ambient Nebula Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[var(--accent-sky)]/10 rounded-full blur-[120px]"></div>
