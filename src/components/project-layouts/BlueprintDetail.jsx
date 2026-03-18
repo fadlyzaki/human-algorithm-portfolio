@@ -97,7 +97,7 @@ const BlueprintDetail = ({
         <div className="grid lg:grid-cols-12 gap-16">
           {/* LEFT COLUMN: Narrative & Process */}
           <div className="lg:col-span-8 space-y-24">
-            <section>
+            <section className="bg-[var(--bg-surface)]/95 backdrop-blur-xl p-8 md:p-12 border-2 border-blue-900/20 dark:border-blue-300/20 shadow-sm">
               <div className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-4 flex items-center gap-3">
                 <Maximize size={12} /> {t("project_layouts.problem_space")}
               </div>
@@ -108,7 +108,7 @@ const BlueprintDetail = ({
 
             {activeProcess && (
               <section>
-                <div className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-8 flex items-center gap-3">
+                <div className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-8 flex items-center gap-3 bg-[var(--bg-surface)]/95 backdrop-blur-xl p-4 border-2 border-blue-900/20 dark:border-blue-300/20">
                   <GitMerge size={12} /> {t("project_layouts.assembly_instructions")}
                 </div>
                 <div className="space-y-16">
@@ -126,7 +126,7 @@ const BlueprintDetail = ({
                         </div>
 
                         {/* Content */}
-                        <div className="flex-1 pt-4">
+                        <div className="flex-1 pt-8 pb-8 pr-8 pl-12 bg-[var(--bg-surface)]/95 backdrop-blur-xl border-2 border-blue-900/20 dark:border-blue-300/20 shadow-sm relative overflow-hidden -ml-6">
                           <h3 className="font-sans text-2xl font-bold mb-4 text-[var(--text-primary)]">
                             {step.title}
                           </h3>

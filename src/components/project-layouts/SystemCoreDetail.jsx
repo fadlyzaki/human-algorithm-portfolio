@@ -170,7 +170,7 @@ const SystemCoreDetail = ({
 
           {/* The Process */}
           {activeProcess && (
-            <div className="space-y-12">
+            <div className="space-y-12 bg-[var(--bg-surface)]/80 backdrop-blur-xl p-8 md:p-12 border border-[var(--border-color)] shadow-xl relative overflow-hidden">
               <div className="flex items-center gap-4 mb-12">
                 <Layers size={16} className="text-blue-400" />
                 <span className="font-mono text-xs uppercase tracking-widest text-blue-400">

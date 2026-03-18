@@ -80,7 +80,7 @@ const CosmicPopDetail = ({
         {/* 3. NARRATIVE BLOCKS */}
         <section className="mt-32 space-y-32">
           {/* The Challenge */}
-          <article className="bg-gradient-to-br from-[var(--bg-surface)] to-transparent border border-[var(--border-color)] rounded-[3rem] p-12 md:p-16 relative overflow-hidden group">
+          <article className="bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-surface)]/80 backdrop-blur-xl border border-[var(--border-color)] rounded-[3rem] p-12 md:p-16 relative overflow-hidden group shadow-lg">
             <div className="w-16 h-16 bg-red-500/10 rounded-2xl flex items-center justify-center mb-8">
               <Target size={32} className="text-red-400" />
             </div>

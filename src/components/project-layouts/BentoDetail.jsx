@@ -75,8 +75,8 @@ const BentoDetail = ({
         </header>
 
         {/* THE CHALLENGE INLAY */}
-        <section className="mb-24 px-8 md:px-16 border-l-4 border-pink-200 dark:border-pink-900/50">
-          <p className="text-xl md:text-3xl font-light leading-snug max-w-4xl text-[var(--text-primary)] opacity-80">
+        <section className="mb-24 px-8 md:px-16 border-l-4 border-pink-200 dark:border-pink-900/50 bg-[var(--bg-card)]/80 backdrop-blur-xl rounded-r-3xl py-12 shadow-sm">
+          <p className="text-xl md:text-3xl font-light leading-snug max-w-4xl text-[var(--text-primary)] opacity-90">
             {activeChallenge}
           </p>
         </section>

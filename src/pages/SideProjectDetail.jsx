@@ -250,8 +250,8 @@ const SideProjectDetail = () => {
       <React.Suspense fallback={null}>
         <ChaosCanvas />
       </React.Suspense>
-      {/* Vignette & Frosted Glass overlay to guarantee text readability */}
-      <div className="fixed inset-0 pointer-events-none z-0 bg-[var(--bg-void)]/70 backdrop-blur-xl bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
+      {/* Vignette */}
+      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
       {/* --- NAVIGATION SYSTEM --- */}
       <Navbar
