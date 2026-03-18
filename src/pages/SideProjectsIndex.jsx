@@ -38,14 +38,54 @@ const CONFIG = {
 import { useState } from "react";
 
 const ExperimentCard = ({ project, idx, cardsRef, sideProjectsLength, isIndonesian, navigate }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isManualHover, setIsManualHover] = useState(false);
+  const [isAutoHover, setIsAutoHover] = useState(false);
+  const cardRef = useRef(null);
+
+  const isHovered = isManualHover || isAutoHover;
+
+  // Mobile: auto-cycle BlindsReveal when card scrolls into view
+  useEffect(() => {
+    const isMobile =
+      window.innerWidth < 768 ||
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0;
+
+    if (!isMobile) return;
+
+    let intervalId;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsAutoHover(true);
+          intervalId = setInterval(() => {
+            setIsAutoHover((prev) => !prev);
+          }, 4000);
+        } else {
+          setIsAutoHover(false);
+          if (intervalId) clearInterval(intervalId);
+        }
+      },
+      { threshold: 0.6 }
+    );
+
+    if (cardRef.current) observer.observe(cardRef.current);
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+      if (cardRef.current) observer.unobserve(cardRef.current);
+    };
+  }, [project.id]);
 
   return (
     <div
-      ref={(el) => (cardsRef.current[sideProjectsLength + idx] = el)}
+      ref={(el) => {
+        cardsRef.current[sideProjectsLength + idx] = el;
+        cardRef.current = el;
+      }}
       onClick={() => navigate(`/side-project/${project.id}`)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setIsManualHover(true)}
+      onMouseLeave={() => setIsManualHover(false)}
       className="group cursor-pointer transition-transform duration-100 ease-out will-change-transform opacity-80 hover:opacity-100"
     >
       <div className="aspect-[4/3] bg-black dark:bg-white border border-[var(--border-color)] border-dashed mb-6 overflow-hidden relative">
