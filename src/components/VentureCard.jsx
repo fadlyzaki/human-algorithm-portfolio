@@ -294,7 +294,7 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter
   >
     <BlindsReveal isOpen={isHovered} slats={8} color="rgb(251, 207, 232)">
       {/* Visual Top Half */}
-      <div className="h-2/3 bg-gradient-to-tr from-pink-100 to-orange-100 dark:from-pink-900/20 dark:to-orange-900/20 relative overflow-hidden">
+      <div className="h-[55%] bg-gradient-to-tr from-pink-100 to-orange-100 dark:from-pink-900/20 dark:to-orange-900/20 relative overflow-hidden">
         <div className={`absolute inset-0 transition-all duration-1000 ${isHovered ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}>
           <ProjectCard id={project.id} backgroundOnly />
         </div>
@@ -306,15 +306,17 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter
       </div>
 
       {/* Content Bottom Half */}
-      <div className="flex-1 p-6 flex flex-col justify-center">
-        <h3 className="text-3xl font-serif italic mb-3 text-[var(--text-primary)]">
-          {title}
-        </h3>
-        <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-5">
-          {desc}
-        </p>
-        <div className="flex justify-between items-center">
-          <div className="flex gap-1">
+      <div className="flex-1 p-6 flex flex-col justify-between">
+        <div>
+          <h3 className="text-2xl font-serif italic mb-2 text-[var(--text-primary)] line-clamp-1">
+            {title}
+          </h3>
+          <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-3 leading-relaxed">
+            {desc}
+          </p>
+        </div>
+        <div className="flex justify-between items-center mt-auto">
+          <div className="flex gap-1.5">
             {project.stack.slice(0, 3).map((tech) => (
               <div
                 key={tech}
