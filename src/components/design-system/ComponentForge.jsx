@@ -313,14 +313,14 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
             <div className={`relative ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : ""}`}>
               {isXRayMode && (
                 <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">
-                  ImageScratch.jsx // Filter Interaction
+                  ContactScratch.jsx // Filter Interaction
                 </span>
               )}
               <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">
-                Hardware Accelerated Scratch // ImageScratch
+                Hardware Accelerated Scratch // ContactScratch
               </h4>
               <div className="relative z-10 h-64 border border-[var(--border-color)] overflow-hidden rounded-xl">
-                 <ImageScratch
+                 <ContactScratch
                     coverText="SCRATCH TO REVEAL"
                     revealContent={
                       <div className="w-full h-full flex flex-col items-center justify-center bg-[var(--bg-surface)] text-[var(--text-primary)]">
