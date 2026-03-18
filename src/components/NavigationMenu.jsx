@@ -11,6 +11,9 @@ const NavigationMenu = ({ isOpen, onClose }) => {
   const { t, language, toggleLanguage } = useLanguage();
   const { isRecruiterMode, toggleRecruiterMode } = useRecruiterMode();
 
+  const links = getNavLinks(t);
+  const metaLinks = getMetaLinks(t);
+
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") onClose();
