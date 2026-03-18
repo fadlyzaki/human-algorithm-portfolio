@@ -125,7 +125,7 @@ const DynamicDeliverable = ({ words }) => {
   return (
     <span
       onClick={handleClick}
-      className="inline-grid cursor-pointer text-[var(--accent-blue)] hover:text-[#00C2FF] transition-colors justify-items-start pb-2"
+      className="inline-grid cursor-pointer text-[var(--text-primary)] transition-colors justify-items-start pb-2"
       title="Click to cycle"
     >
       {/* Invisible spacer safely stretches the container to maximum needed width unconditionally */}
