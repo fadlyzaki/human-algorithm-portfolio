@@ -102,10 +102,17 @@ const FooterTooltipLink = ({
 import { motion, AnimatePresence } from "framer-motion";
 
 /**
- * DynamicDeliverable — Clickable cycling text for footer headline
+ * DynamicDeliverable — Auto-cycling & Clickable text for footer headline
  */
 const DynamicDeliverable = ({ words }) => {
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [words.length]);
 
   const handleClick = (e) => {
     e.preventDefault();
