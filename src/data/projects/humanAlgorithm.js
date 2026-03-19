@@ -1,14 +1,14 @@
 export const humanAlgorithm = {
   id: "human-algorithm",
   title: { en: "The Human Algorithm", id: "The Human Algorithm" },
-  subtitle: { en: "System Architecture v7.0", id: "Arsitektur Sistem v7.0" },
+  subtitle: { en: "System Architecture v8.0", id: "Arsitektur Sistem v8.0" },
   desc: {
-    en: 'A self-aware portfolio built by AI agents. Featuring an autonomous "Virtual Assistant" and kinetic "Scroll Journey" logic.',
-    id: "Portofolio sadar diri yang dibangun oleh agen AI. Menampilkan 'Asisten Virtual' otonom dan logika 'Scroll Journey' kinetik.",
+    en: 'A self-aware portfolio and experimental lab built by AI agents. Featuring 6 polymorphic layout engines, a context-aware AI companion, and a graveyard of beautiful deprecated experiments.',
+    id: "Portofolio sadar diri dan laboratorium eksperimental yang dibangun oleh agen AI. Menampilkan 6 mesin layout polimorfik, pendamping AI sadar konteks, dan koleksi eksperimen usang yang indah.",
   },
   tldr: {
-    en: "The first portfolio built entirely through an Agentic Workflow. Version 7.0 introduces the 'Companion Protocol'—a context-aware AI sprite system.",
-    id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. Versi 7.0 memperkenalkan 'Companion Protocol'—sistem sprite AI yang sadar konteks.",
+    en: "The first portfolio built entirely through an Agentic Workflow. v8.0 documents every experiment—shipped and killed—proving that knowing what to cut is as important as what to build.",
+    id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. v8.0 mendokumentasikan setiap eksperimen—yang dirilis dan dimatikan—membuktikan bahwa tahu apa yang harus dipotong sama pentingnya dengan apa yang harus dibangun.",
   },
   stack: ["React", "Framer Motion", "Three.js", "Vite", "Tailwind"],
   links: {
@@ -19,10 +19,10 @@ export const humanAlgorithm = {
   iconName: "Cpu",
   featured: true,
   type: "Meta-Project",
-  date: "February 2026",
+  date: "Feb – March 2026",
   coverImage: "airy:architecture",
   snapshot: {
-    tagline: { en: "System Architecture v7.0", id: "System Architecture v7.0" },
+    tagline: { en: "System Architecture v8.0", id: "System Architecture v8.0" },
     heroImage: "airy:architecture",
   },
   context: {
@@ -49,47 +49,47 @@ export const humanAlgorithm = {
     },
     {
       title: {
-        en: "Differentiation: Recursive Design",
-        id: "Diferensiasi: Desain Rekursif",
+        en: "Current Feature: Polymorphic Layout Engines",
+        id: "Fitur Saat Ini: Mesin Layout Polimorfik",
       },
       desc: {
-        en: "The product is self-aware. It lists itself as a case study. It exposes its own 'thought process' (via open-source logs). We used a 'Chaos System' aesthetic—glitch effects and raw data—to visually represent the messy, beautiful reality of human-AI collaboration.",
-        id: "Produk ini sadar diri. Ia mencantumkan dirinya sendiri sebagai studi kasus. Ia mengekspos 'proses berpikir'-nya sendiri (melalui log sumber terbuka). Kami menggunakan estetika 'Sistem Kekacauan' untuk merepresentasikan kolaborasi manusia-AI.",
-      },
-      image: "airy:cycle",
-    },
-    {
-      title: {
-        en: "Visualization: Technical Diagrams",
-        id: "Visualisasi: Diagram Teknis",
-      },
-      desc: {
-        en: "Replaced 15+ static images with `AiryDiagram.jsx`, a custom SVG engine. Reduced payload by 3MB while enabling responsive dark/light mode themes.",
-        id: "Mengganti 15+ gambar statis dengan `AiryDiagram.jsx`, mesin SVG khusus. Mengurangi beban sebesar 3MB sekaligus mengaktifkan tema responsif.",
+        en: "To avoid static templates, I engineered 6 unique layout archetypes (SystemCore, CosmicPop, Brutalist, Bento, etc.) powered by transparent backgrounds and GPU-accelerated particle fields (ChaosMatrix). It forces each case study to embody its own unique narrative identity rather than conforming to a rigid container.",
+        id: "Untuk menghindari template statis, saya merancang 6 arketipe layout unik (SystemCore, CosmicPop, Brutalist, Bento, dll.) yang ditenagai latar belakang transparan dan medan partikel GPU (ChaosMatrix). Ini memaksa setiap studi kasus mewujudkan identitas narasinya masing-masing daripada menyesuaikan diri dengan wadah yang kaku.",
       },
       image: "airy:architecture",
     },
     {
       title: {
-        en: "Intelligence: The Companion Protocol",
-        id: "Intelegensi: Protokol Pendamping",
+        en: "Current Feature: The Companion Protocol",
+        id: "Fitur Saat Ini: Protokol Pendamping",
       },
       desc: {
-        en: "Implemented a sprite-based 'Virtual Assistant' that recognizes user context. It provides TL;DRs and tips based on the current page, simulating a live pair-design session.",
-        id: "Mengimplementasikan 'Asisten Virtual' berbasis sprite yang mengenali konteks pengguna. Memberikan TL;DR dan tips berdasarkan halaman saat ini.",
+        en: "Implemented an autonomous 'Virtual Assistant' sprite that actively parses the current viewport's URL slug to provide localized, context-aware AI commentary, simulating a live pair-design session across distinct languages and recruiter modes.",
+        id: "Mengimplementasikan sprite 'Asisten Virtual' otonom yang secara aktif mengurai slug URL viewport saat ini untuk memberikan komentar AI sadar konteks yang dilokalkan, mensimulasikan sesi desain berpasangan langsung di berbagai bahasa dan mode perekrut.",
       },
       image: "airy:network",
     },
     {
       title: {
-        en: "Navigation: Kinetic Scroll Journey",
-        id: "Navigasi: Scroll Journey Kinetik",
+        en: "Experiment 01: The Decryption Lens (Deprecated)",
+        id: "Eksperimen 01: Lensa Dekripsi (Usang)",
       },
       desc: {
-        en: "Transformed global navigation into a kinetic experience. A persistent sprite travels along a 'scroll track', providing section-aware feedback and squash-and-stretch motion.",
-        id: "Mengubah navigasi global menjadi pengalaman kinetik. Sprite yang persisten bergerak di sepanjang 'scroll track', memberikan umpan balik sadar bagian.",
+        en: "I built a hyper-tactile 'Decryption Lens' utilizing MediaPipe WASM for live webcam hand-gesture tracking. It was fully functional—allowing you to navigate the site by grabbing air to uncover hidden 3D assets. I killed it. The heavy ML payload severely damaged the 3G Time-To-Interactive metrics.",
+        id: "Saya membangun 'Lensa Dekripsi' hiper-taktil menggunakan MediaPipe WASM untuk pelacakan gerakan tangan webcam langsung. Fiturnya berfungsi penuh—memungkinkan Anda menavigasi situs dengan meraih udara untuk mengungkap aset 3D tersembunyi. Saya mematikannya. Beban ML yang berat sangat merusak metrik Time-To-Interactive di 3G.",
       },
-      image: "airy:flow",
+      image: "airy:cycle",
+    },
+    {
+      title: {
+        en: "Experiment 02: Kinetic Scroll Sprite (Deprecated)",
+        id: "Eksperimen 02: Sprite Scroll Kinetik (Usang)",
+      },
+      desc: {
+        en: "A persistent 1/8th scale character sprite that mapped real-time vertical scroll depth to horizontal tracking via Framer Motion spring physics. It was visually stunning but obstructed the mobile reading viewport. Content always wins, so the kinetic track was purged.",
+        id: "Karakter sprite skala 1/8 persisten yang memetakan kedalaman gulir vertikal real-time ke pelacakan horizontal melalui fisika pegas Framer Motion. Secara visual memukau tetapi menghalangi viewport membaca di seluler. Konten selalu menang, jadi trek kinetik dihapus.",
+      },
+      image: "airy:data",
     },
   ],
   insights: [
@@ -112,20 +112,30 @@ export const humanAlgorithm = {
       },
       image: "airy:network",
     },
+    {
+      title: { en: "The Graveyard is the Lab", id: "Kuburan adalah Laboratorium" },
+      desc: {
+        en: "I shipped and killed 6+ major features (Hand Gesture ML, Kinetic Scroll Tracking, a monolithic /process route, Procurement Modules). Each removal was a deliberate product decision—not a failure—driven by Core Web Vitals, content focus, or mobile UX constraints. Documenting this archive publicly is itself a demonstration of product maturity.",
+        id: "Saya merilis dan mematikan 6+ fitur utama (ML Gestur Tangan, Pelacakan Scroll Kinetik, rute /process monolitik, Modul Pengadaan). Setiap penghapusan adalah keputusan produk yang disengaja—bukan kegagalan—didorong oleh Core Web Vitals, fokus konten, atau batasan UX seluler. Mendokumentasikan arsip ini secara publik itu sendiri adalah demonstrasi kematangan produk.",
+      },
+      image: "airy:cycle",
+    },
   ],
   solution: [
     {
       title: { en: "The Artifact", id: "Artefak" },
       desc: {
-        en: "A living, breathing system that evolves with each conversation. 100% Agent-Generated Code.",
-        id: "Sistem yang hidup dan bernapas yang berkembang dengan setiap percakapan. 100% Kode yang Dihasilkan Agen.",
+        en: "A living, breathing system that evolves with each conversation. 100% Agent-Generated Code. 6 polymorphic layouts. 20+ experimental features tested. A public archive of every deprecated experiment.",
+        id: "Sistem yang hidup dan bernapas yang berkembang dengan setiap percakapan. 100% Kode yang Dihasilkan Agen. 6 layout polimorfik. 20+ fitur eksperimental diuji. Arsip publik dari setiap eksperimen yang sudah usang.",
       },
       image: "airy:architecture",
     },
   ],
   metrics: [
-    { label: "Dev Efficiency", value: "Exponential" },
-    { label: "Ai Hallucination", value: "Standardized" },
+    { label: "Features Shipped", value: "21+" },
+    { label: "Features Deprecated", value: "6" },
+    { label: "Layout Archetypes", value: "6" },
+    { label: "AI Agents Used", value: "4" },
   ],
   learnings: {
     en: "Building this portfolio with AI agents taught me that my real skill isn't pushing pixels, it's orchestrating systems. I learned to let go of control over every line of code and instead focus on defining the 'what' and 'why'. The hardest part was trusting the process.",
