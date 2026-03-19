@@ -22,6 +22,7 @@ import { WORK_CLUSTERS } from "../data/portfolioData";
 import CoverLetterModal from "../components/CoverLetterModal";
 import Navbar from "../components/Navbar";
 import NavigationMenu from "../components/NavigationMenu";
+import MagneticTooltip from "../components/interactions/MagneticTooltip";
 
 /* --- THEME CONFIGURATION ---
    A 'High Contrast' mode designed for readability and printing.
@@ -266,58 +267,62 @@ const SystemManifest = () => {
                   <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2 print:text-black print:font-bold print:m-0 print:whitespace-nowrap print:text-sm print:capitalize">
                     {t("manifest.skills_design")}:
                   </h5>
-                  <div className="flex flex-wrap gap-2 print:gap-0 print:inline-block">
-                    {[
-                      "Product Design",
-                      "UI/UX",
-                      "User Research",
-                      "Design Systems",
-                      "Prototyping",
-                      "Wireframing",
-                      "Information Architecture",
-                    ].map((s, i, arr) => (
-                      <span
-                        key={s}
-                        className="bg-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm print:bg-transparent print:px-0 print:py-0 print:text-black print:text-sm"
-                      >
-                        {s}
-                        {i < arr.length - 1 ? (
-                          <span className="hidden print:inline">, </span>
-                        ) : (
-                          ""
-                        )}
-                      </span>
-                    ))}
-                  </div>
+                  <MagneticTooltip text="INTEGRATED">
+                    <div className="flex flex-wrap gap-2 print:gap-0 print:inline-block">
+                      {[
+                        "Product Design",
+                        "UI/UX",
+                        "User Research",
+                        "Design Systems",
+                        "Prototyping",
+                        "Wireframing",
+                        "Information Architecture",
+                      ].map((s, i, arr) => (
+                        <span
+                          key={s}
+                          className="bg-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm print:bg-transparent print:px-0 print:py-0 print:text-black print:text-sm"
+                        >
+                          {s}
+                          {i < arr.length - 1 ? (
+                            <span className="hidden print:inline">, </span>
+                          ) : (
+                            ""
+                          )}
+                        </span>
+                      ))}
+                    </div>
+                  </MagneticTooltip>
                 </div>
                 <div className="print:flex print:gap-2 print:items-start text-sm print:text-sm">
                   <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2 print:text-black print:font-bold print:m-0 print:whitespace-nowrap print:text-sm print:capitalize">
                     {t("manifest.skills_tools")}:
                   </h5>
-                  <div className="flex flex-wrap gap-2 print:gap-0 print:inline-block">
-                    {[
-                      "Figma",
-                      "Sketch",
-                      "HTML/CSS/JS",
-                      "React",
-                      "Git",
-                      "Jira",
-                      "Mixpanel",
-                      "Agile/Scrum",
-                    ].map((s, i, arr) => (
-                      <span
-                        key={s}
-                        className="border border-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm text-[var(--text-secondary)] print:border-none print:px-0 print:py-0 print:text-black print:text-sm"
-                      >
-                        {s}
-                        {i < arr.length - 1 ? (
-                          <span className="hidden print:inline">, </span>
-                        ) : (
-                          ""
-                        )}
-                      </span>
-                    ))}
-                  </div>
+                  <MagneticTooltip text="PROFICIENT">
+                    <div className="flex flex-wrap gap-2 print:gap-0 print:inline-block">
+                      {[
+                        "Figma",
+                        "Sketch",
+                        "HTML/CSS/JS",
+                        "React",
+                        "Git",
+                        "Jira",
+                        "Mixpanel",
+                        "Agile/Scrum",
+                      ].map((s, i, arr) => (
+                        <span
+                          key={s}
+                          className="border border-[var(--border-color)] px-2 py-1 text-xs font-mono rounded-sm text-[var(--text-secondary)] print:border-none print:px-0 print:py-0 print:text-black print:text-sm"
+                        >
+                          {s}
+                          {i < arr.length - 1 ? (
+                            <span className="hidden print:inline">, </span>
+                          ) : (
+                            ""
+                          )}
+                        </span>
+                      ))}
+                    </div>
+                  </MagneticTooltip>
                 </div>
               </div>
             </section>

@@ -28,6 +28,7 @@ import SEO from "../components/SEO";
 import Footer from "../components/Footer";
 import SignalAI from "../components/interactions/SignalAI";
 import NeuralDecryption from "../components/interactions/NeuralDecryption";
+import ContactScratch from "../components/ContactScratch";
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Communication Uplink"
@@ -41,7 +42,6 @@ const ContactPage = () => {
   const [copied, setCopied] = useState(false);
   const [formStatus, setFormStatus] = useState("idle"); // idle, sending, success, error
   const [pingCount, setPingCount] = useState(0);
-  const [aiMessage, setAiMessage] = useState("System idling. Awaiting human input...");
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for Navbar menu
 
   const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
@@ -103,33 +103,8 @@ const ContactPage = () => {
       }
     }
 
-    // Trigger AI Interaction
+    // Trigger Background UI Ping
     setPingCount((prev) => prev + 1);
-
-    // Tangible AI Interaction Simulation
-    const currentName = name === "name" ? value : formData.name;
-    const currentMessage = name === "message" ? value : formData.message;
-
-    if (name === "name" && value.length > 2) {
-      setAiMessage(`Operator identified as ${value}. Ready for protocol handshake.`);
-    } else if (name === "email" && value.includes("@")) {
-      setAiMessage(`Establishing secure return channel to ${value}.`);
-    }
-
-    if (name === "message" || (currentMessage.length > 5 && name !== "message")) {
-      const lower = currentMessage.toLowerCase();
-      if (lower.includes("hire") || lower.includes("job") || lower.includes("project") || lower.includes("freelance") || lower.includes("work")) {
-        setAiMessage(`I see ${currentName ? currentName : 'you'} are discussing a new project or role. Fadly prioritizes high-impact opportunities. I'll make sure this gets flagged as high priority.`);
-      } else if (lower.includes("coffee") || lower.includes("chat") || lower.includes("hello") || lower.includes("hi")) {
-        setAiMessage(`A casual transmission. Fadly is always open to connecting with fellow humans. I'll prepare the handshake.`);
-      } else if (currentMessage.length > 20) {
-        setAiMessage(`Analyzing transmission packet... Content looks substantial. Ready to dispatch to Fadly's terminal.`);
-      } else {
-        setAiMessage(`Drafting transmission... Keep typing.`);
-      }
-    } else if (value.length === 0) {
-      setAiMessage("System idling. Awaiting human input...");
-    }
   };
 
   const handleSubmit = async (e) => {
@@ -215,27 +190,10 @@ const ContactPage = () => {
 
           {/* Direct Line Card */}
           <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-6 group hover:border-[var(--accent-blue)] transition-colors">
-            <h3 className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest mb-4">
+            <h3 className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest mb-2">
               {t("contact.direct_uplink")}
             </h3>
-            <div className="flex items-center justify-between bg-[var(--bg-void)] border border-[var(--border-color)] p-4 rounded-sm">
-              <div className="flex items-center gap-3">
-                <Mail size={18} className="text-[var(--accent-blue)]" />
-                <span className="font-mono text-sm">{contactInfo.email}</span>
-              </div>
-              <button
-                onClick={handleCopy}
-                className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-                title="Copy to Clipboard"
-                aria-label="Copy Email to Clipboard"
-              >
-                {copied ? (
-                  <Check size={18} className="text-[var(--accent-green)]" />
-                ) : (
-                  <Copy size={18} />
-                )}
-              </button>
-            </div>
+            <ContactScratch email={contactInfo.email} />
           </div>
 
           {/* Telemetry Data */}
@@ -411,30 +369,30 @@ const ContactPage = () => {
             )}
           </form>
 
-          {/* TANGIBLE AI ASSISTANT OVERLAY */}
+          {/* ENCRYPTED PAYLOAD PREVIEW */}
           <div className="mt-8 pt-8 border-t border-[var(--border-color)]">
             <div className="flex items-center gap-2 mb-4 text-[var(--text-secondary)]">
               <Terminal size={14} />
               <span className="text-[10px] font-mono tracking-widest uppercase">
-                System_Proxy
+                Payload_Preview
               </span>
             </div>
 
             <motion.div
-              key={aiMessage}
-              initial={{ opacity: 0, y: 5 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-[var(--bg-void)] border border-[var(--border-color)] p-4 rounded-sm relative"
+              layout
+              className="bg-[var(--bg-void)] border border-[var(--border-color)] p-4 rounded-sm relative font-mono text-xs text-[var(--text-secondary)] overflow-x-auto"
             >
               <div className="absolute top-0 left-0 w-1 h-full bg-[var(--accent-blue)]"></div>
-
-              <div className="font-mono text-xs text-[var(--text-primary)] leading-relaxed">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-pulse"></div>
-                  <span className="text-[var(--accent-blue)] opacity-80 text-[10px] uppercase">AI Assistant Proxy</span>
-                </div>
-                <p className="min-h-[40px] text-[var(--text-secondary)]">{aiMessage}</p>
-              </div>
+              <pre className="m-0 bg-transparent p-0 leading-loose">
+<span className="text-[var(--text-primary)]">{"{"}</span>
+  <span className="opacity-70">"tx_id":</span> <span className="text-[var(--accent-green)]">"TX-{Math.abs(formData.name.length + formData.email.length + formData.message.length).toString(16).padStart(4, '0').toUpperCase()}"</span>,
+  <span className="opacity-70">"operator":</span> <span className="text-[var(--accent-green)]">"{formData.name || 'AWAITING_INPUT'}"</span>,
+  <span className="opacity-70">"contact":</span> <span className="text-[var(--accent-green)]">"{formData.email || 'AWAITING_INPUT'}"</span>,
+  <span className="opacity-70">"payload_size":</span> <span className="text-[var(--accent-amber)]">{formData.message.length} bytes</span>,
+  <span className="opacity-70">"status":</span> <span className="text-[var(--accent-blue)]">"{formStatus === 'idle' ? 'READY_FOR_UPLINK' : formStatus.toUpperCase()}"</span>,
+  <span className="opacity-70">"estimated_reply":</span> <span className="text-[var(--accent-blue)] animate-pulse">"WITHIN_5_WORKING_DAYS"</span>
+<span className="text-[var(--text-primary)]">{"}"}</span>
+              </pre>
             </motion.div>
 
             {/* Handshake Progress */}
@@ -464,7 +422,7 @@ const ContactPage = () => {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer hideHeadline={true} />
     </div>
   );
 };

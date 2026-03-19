@@ -8,6 +8,7 @@ import {
   Activity,
   BookOpen,
   PenTool,
+  Image as ImageIcon,
 } from "lucide-react";
 
 export const contactInfo = {
@@ -61,6 +62,12 @@ export const socialMatrix = [
         icon: Facebook,
         url: "https://web.facebook.com/fadly.uzzaki",
         color: "hover:text-blue-600",
+      },
+      {
+        name: "Unsplash",
+        icon: ImageIcon,
+        url: "https://unsplash.com/@midnite_ideas7",
+        color: "hover:text-zinc-500",
       },
     ],
   },

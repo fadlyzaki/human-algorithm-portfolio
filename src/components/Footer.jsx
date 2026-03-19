@@ -149,7 +149,7 @@ const DynamicDeliverable = ({ words }) => {
   );
 };
 
-const Footer = () => {
+const Footer = ({ hideHeadline = false }) => {
   const { t, language } = useLanguage();
   const year = new Date().getFullYear();
 
@@ -171,21 +171,23 @@ const Footer = () => {
 
       <div className="relative z-10">
         {/* 1. MAIN HEADLINE (Editorial Style) */}
-        <div className="max-w-7xl mx-auto mb-24">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif italic leading-tight mb-8">
-            {t("footer.title")}{" "}
-            <DynamicDeliverable words={deliverables} />
-            <br />
-            <span className="text-[var(--text-secondary)] not-italic font-light">
-              {t("footer.subtitle")}
-            </span>
-          </h2>
+        {!hideHeadline && (
+          <div className="max-w-7xl mx-auto mb-24">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif italic leading-tight mb-8">
+              {t("footer.title")}{" "}
+              <DynamicDeliverable words={deliverables} />
+              <br />
+              <span className="text-[var(--text-secondary)] not-italic font-light">
+                {t("footer.subtitle")}
+              </span>
+            </h2>
 
-          <ContactScratch />
-        </div>
+            <ContactScratch />
+          </div>
+        )}
 
         {/* 2. CLUSTER NAVIGATION */}
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 mb-24 border-t border-[var(--text-secondary)]/20 pt-12">
+        <div className={`max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 mb-24 ${!hideHeadline ? 'border-t border-[var(--text-secondary)]/20 pt-12' : ''}`}>
           {/* COL 1: SITEMAP */}
           <div className="flex flex-col gap-4">
             <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">

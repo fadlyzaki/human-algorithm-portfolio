@@ -12,6 +12,7 @@ import { getAllUnprovokedThoughts } from '../utils/mdx';
 import SEO from '../components/SEO';
 import PageShell from '../components/PageShell';
 import Footer from '../components/Footer';
+import MagneticTooltip from '../components/interactions/MagneticTooltip';
 const ChaosCanvas = lazy(() => import('../components/ChaosCanvas'));
 
 const UnprovokedThoughtsIndex = () => {
@@ -71,70 +72,71 @@ const UnprovokedThoughtsIndex = () => {
                             const { frontmatter, slug } = thought;
 
                             return (
-                                <Link
-                                    key={slug}
-                                    to={`/thoughts/${slug}`}
-                                    className="group block py-10 border-b border-[var(--border-color)] first:border-t hover:bg-[var(--bg-surface)]/50 transition-colors duration-300 -mx-6 px-6"
-                                >
-                                    <div className="flex items-start gap-6">
-                                        {/* Emoji */}
-                                        <div className="text-4xl mt-1 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 shrink-0">
-                                            {frontmatter.emoji}
-                                        </div>
+                                <MagneticTooltip key={slug} text="READ PROTOCOL" className="block">
+                                    <Link
+                                        to={`/thoughts/${slug}`}
+                                        className="group block py-10 border-b border-[var(--border-color)] first:border-t hover:bg-[var(--bg-surface)]/50 transition-colors duration-300 -mx-6 px-6"
+                                    >
+                                        <div className="flex items-start gap-6">
+                                            {/* Emoji */}
+                                            <div className="text-4xl mt-1 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 shrink-0">
+                                                {frontmatter.emoji}
+                                            </div>
 
-                                        {/* Content */}
-                                        <div className="flex-1 min-w-0">
-                                            <h2 className="text-xl md:text-2xl font-serif font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-amber)] transition-colors duration-300 leading-tight">
-                                                {frontmatter.title}
-                                            </h2>
+                                            {/* Content */}
+                                            <div className="flex-1 min-w-0">
+                                                <h2 className="text-xl md:text-2xl font-serif font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-amber)] transition-colors duration-300 leading-tight">
+                                                    {frontmatter.title}
+                                                </h2>
 
-                                            {frontmatter.subtitle && (
-                                                <p className="text-[var(--text-secondary)] font-light text-base leading-relaxed mb-4 line-clamp-2">
-                                                    {frontmatter.subtitle}
-                                                </p>
-                                            )}
-
-                                            {/* Meta */}
-                                            <div className="flex items-center gap-4 text-xs text-[var(--text-secondary)] font-mono">
-                                                {frontmatter.date && (
-                                                    <div className="flex items-center gap-1.5">
-                                                        <Calendar size={12} className="opacity-60" />
-                                                        <span>
-                                                            {new Date(frontmatter.date).toLocaleDateString('en-US', {
-                                                                year: 'numeric',
-                                                                month: 'short',
-                                                                day: 'numeric',
-                                                            })}
-                                                        </span>
-                                                    </div>
+                                                {frontmatter.subtitle && (
+                                                    <p className="text-[var(--text-secondary)] font-light text-base leading-relaxed mb-4 line-clamp-2">
+                                                        {frontmatter.subtitle}
+                                                    </p>
                                                 )}
-                                                {frontmatter.readTime && (
-                                                    <div className="flex items-center gap-1.5">
-                                                        <Clock size={12} className="opacity-60" />
-                                                        <span>{frontmatter.readTime}</span>
-                                                    </div>
-                                                )}
-                                                {frontmatter.tags?.length > 0 && (
-                                                    <div className="hidden sm:flex items-center gap-2">
-                                                        {frontmatter.tags.map((tag) => (
-                                                            <span
-                                                                key={tag}
-                                                                className="border border-[var(--border-color)] px-2 py-0.5 rounded text-[10px] uppercase tracking-wider"
-                                                            >
-                                                                {tag}
+
+                                                {/* Meta */}
+                                                <div className="flex items-center gap-4 text-xs text-[var(--text-secondary)] font-mono">
+                                                    {frontmatter.date && (
+                                                        <div className="flex items-center gap-1.5">
+                                                            <Calendar size={12} className="opacity-60" />
+                                                            <span>
+                                                                {new Date(frontmatter.date).toLocaleDateString('en-US', {
+                                                                    year: 'numeric',
+                                                                    month: 'short',
+                                                                    day: 'numeric',
+                                                                })}
                                                             </span>
-                                                        ))}
-                                                    </div>
-                                                )}
+                                                        </div>
+                                                    )}
+                                                    {frontmatter.readTime && (
+                                                        <div className="flex items-center gap-1.5">
+                                                            <Clock size={12} className="opacity-60" />
+                                                            <span>{frontmatter.readTime}</span>
+                                                        </div>
+                                                    )}
+                                                    {frontmatter.tags?.length > 0 && (
+                                                        <div className="hidden sm:flex items-center gap-2">
+                                                            {frontmatter.tags.map((tag) => (
+                                                                <span
+                                                                    key={tag}
+                                                                    className="border border-[var(--border-color)] px-2 py-0.5 rounded text-[10px] uppercase tracking-wider"
+                                                                >
+                                                                    {tag}
+                                                                </span>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </div>
+
+                                            {/* Arrow */}
+                                            <div className="hidden md:flex items-center self-center opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+                                                <ArrowRight size={20} className="text-[var(--accent-amber)]" />
                                             </div>
                                         </div>
-
-                                        {/* Arrow */}
-                                        <div className="hidden md:flex items-center self-center opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
-                                            <ArrowRight size={20} className="text-[var(--accent-amber)]" />
-                                        </div>
-                                    </div>
-                                </Link>
+                                    </Link>
+                                </MagneticTooltip>
                             );
                         })}
                     </div>

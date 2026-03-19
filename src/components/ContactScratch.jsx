@@ -8,14 +8,13 @@ import { motion, AnimatePresence } from "framer-motion";
  * Achieves 0 input lag by discarding requestAnimationFrame and pixel loops
  * in favor of synchronous stroke interpolation.
  */
-const ContactScratch = () => {
+const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
   const canvasRef = useRef(null);
   const [isScratched, setIsScratched] = useState(false);
   const [isDrawing, setIsDrawing] = useState(false);
   const [copied, setCopied] = useState(false);
   const lastPos = useRef(null);
 
-  const email = "fadly.uzzaki@gmail.com";
   const canvasConfig = { width: 300, height: 50 };
 
   useEffect(() => {
