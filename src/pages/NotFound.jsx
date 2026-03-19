@@ -35,7 +35,7 @@ const makePlatforms = (vw, groundY) => {
 };
 
 const NotFound = () => {
-  const { isDark } = useTheme();
+  useTheme();
   const navigate = useNavigate();
   const frameRef = useRef(null);
   const keysRef = useRef({});
@@ -65,11 +65,11 @@ const NotFound = () => {
     const vh = window.innerHeight;
     const groundY = vh - GROUND_OFFSET;
 
+    // Batch initial layout calculations
     const plats = makePlatforms(vw, groundY);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPlatforms(plats);
-
     setPortalPos({ x: vw - 140, y: groundY - PORTAL_SIZE });
-
     setCollectibles([
       { char: "4", x: plats[0].x + plats[0].w / 2, y: plats[0].y - 30 },
       { char: "0", x: plats[1].x + plats[1].w / 2, y: plats[1].y - 30 },

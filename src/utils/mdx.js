@@ -63,15 +63,29 @@ function parseThought(path, module) {
 }
 
 /**
- * Get all unprovoked thoughts, sorted by date (newest first)
+ * Get all unprovoked thoughts, optionally filtered or mapped by language
  */
-export function getAllUnprovokedThoughts() {
+export function getAllUnprovokedThoughts(lang = 'en') {
     const thoughts = Object.entries(thoughtModules).map(([path, module]) =>
         parseThought(path, module)
     );
 
+    // Filter out language-specific files that aren't the current language
+    // and handle fallbacks
+    const baseThoughts = thoughts.filter(t => !t.slug.endsWith('.id'));
+    
+    const localizedThoughts = baseThoughts.map(bt => {
+        if (lang === 'id') {
+            const idVersion = thoughts.find(t => t.slug === `${bt.slug}.id`);
+            if (idVersion) {
+                return { ...idVersion, slug: bt.slug }; // Return ID version but keep original slug for routing
+            }
+        }
+        return bt;
+    });
+
     // Sort by date descending
-    return thoughts.sort((a, b) => {
+    return localizedThoughts.sort((a, b) => {
         const dateA = new Date(a.frontmatter.date || 0);
         const dateB = new Date(b.frontmatter.date || 0);
         return dateB - dateA;
@@ -79,10 +93,10 @@ export function getAllUnprovokedThoughts() {
 }
 
 /**
- * Get a single thought by slug
+ * Get a single thought by slug and language
  * @returns {Object|null} The thought object, or null if not found
  */
-export function getThoughtBySlug(slug) {
-    const thoughts = getAllUnprovokedThoughts();
+export function getThoughtBySlug(slug, lang = 'en') {
+    const thoughts = getAllUnprovokedThoughts(lang);
     return thoughts.find((t) => t.slug === slug) || null;
 }

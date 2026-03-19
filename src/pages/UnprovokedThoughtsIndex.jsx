@@ -13,10 +13,12 @@ import SEO from '../components/SEO';
 import PageShell from '../components/PageShell';
 import Footer from '../components/Footer';
 import MagneticTooltip from '../components/interactions/MagneticTooltip';
+import { useLanguage } from '../context/LanguageContext';
 const ChaosCanvas = lazy(() => import('../components/ChaosCanvas'));
 
 const UnprovokedThoughtsIndex = () => {
-    const thoughts = getAllUnprovokedThoughts();
+    const { language } = useLanguage();
+    const thoughts = getAllUnprovokedThoughts(language);
 
     return (
         <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500">

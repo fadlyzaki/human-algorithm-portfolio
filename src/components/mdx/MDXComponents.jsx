@@ -58,41 +58,41 @@ const MDXComponents = {
     // --- BLOCKQUOTE ---
     blockquote: (props) => (
         <blockquote
-            className="my-10 pl-8 italic border-l-4 border-[var(--accent-amber)] text-xl md:text-2xl text-[var(--text-primary)] font-serif bg-[var(--bg-surface)] py-6 pr-6 rounded-r-lg relative"
+            className="my-12 pl-10 italic border-l-[3px] border-[var(--accent-amber)] text-xl md:text-3xl text-[var(--text-primary)] font-serif leading-relaxed bg-gradient-to-r from-[var(--bg-card)] to-transparent py-8 pr-8 rounded-r-2xl relative group"
             {...props}
-        />
+        >
+            <div className="absolute -left-[3px] top-0 w-[3px] h-0 bg-[var(--text-primary)] group-hover:h-full transition-all duration-700 ease-in-out" />
+        </blockquote>
     ),
 
     // --- CODE ---
     pre: (props) => (
-        <div className="my-8 rounded-lg overflow-hidden border border-[var(--border-color)] bg-[var(--bg-surface)]">
-            <div className="flex items-center justify-between px-4 py-2 bg-[var(--bg-card)] border-b border-[var(--border-color)]">
-                <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/50" />
+        <div className="my-10 rounded-xl overflow-hidden border border-[var(--border-color)] bg-[var(--bg-surface)]/50 backdrop-blur-sm shadow-xl shadow-black/10 group">
+            <div className="flex items-center justify-between px-5 py-3 bg-[var(--bg-card)] border-b border-[var(--border-color)]">
+                <div className="flex gap-2">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[var(--accent-red)]/40 group-hover:bg-[var(--accent-red)] transition-colors" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[var(--accent-amber)]/40 group-hover:bg-[var(--accent-amber)] transition-colors" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[var(--accent-green)]/40 group-hover:bg-[var(--accent-green)] transition-colors" />
                 </div>
-                <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-wider">
-                    code
-                </span>
+                <div className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--text-secondary)] opacity-50 group-hover:opacity-100 transition-opacity">
+                    Data_Packet_Segment
+                </div>
             </div>
-            <pre className="p-4 overflow-x-auto text-sm font-mono text-[var(--text-primary)] leading-relaxed" {...props} />
+            <pre className="p-6 overflow-x-auto text-[13px] md:text-sm font-mono text-[var(--text-primary)]/90 leading-relaxed CustomScrollbar" {...props} />
         </div>
     ),
     code: ({ className, children, ...props }) => {
-        // Inline code (not inside a pre block)
         const isInline = !className;
         if (isInline) {
             return (
                 <code
-                    className="font-mono text-sm bg-[var(--bg-surface)] border border-[var(--border-color)] px-1.5 py-0.5 rounded text-[var(--accent-amber)]"
+                    className="font-mono text-[0.9em] bg-[var(--accent-amber)]/10 border border-[var(--accent-amber)]/20 px-1.5 py-0.5 rounded text-[var(--accent-amber)] font-medium"
                     {...props}
                 >
                     {children}
                 </code>
             );
         }
-        // Block code (inside pre) — render as-is
         return (
             <code className={`${className || ''} font-mono`} {...props}>
                 {children}
@@ -103,38 +103,41 @@ const MDXComponents = {
     // --- LISTS ---
     ul: (props) => (
         <ul
-            className="my-6 ml-6 space-y-3 list-none"
+            className="my-8 ml-4 space-y-4 list-none"
             {...props}
         />
     ),
     ol: (props) => (
         <ol
-            className="my-6 ml-6 space-y-3 list-decimal marker:text-[var(--accent-amber)] marker:font-mono"
+            className="my-8 ml-4 space-y-4 list-decimal marker:text-[var(--accent-amber)] marker:font-mono marker:text-sm"
             {...props}
         />
     ),
     li: (props) => (
-        <li className="text-lg font-serif text-[var(--text-primary)] leading-relaxed pl-2 relative before:content-['—'] before:absolute before:-left-5 before:text-[var(--accent-amber)] before:opacity-60">
+        <li className="text-lg md:text-xl font-serif text-[var(--text-primary)] leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-[-1.5rem] before:top-[0.8em] before:w-4 before:h-[1px] before:bg-[var(--accent-amber)] before:opacity-40 group hover:before:opacity-100 hover:before:w-6 transition-all duration-300">
             {props.children}
         </li>
     ),
 
     // --- HORIZONTAL RULE ---
     hr: () => (
-        <hr className="my-12 border-none h-px bg-gradient-to-r from-transparent via-[var(--border-color)] to-transparent" />
+        <hr className="my-16 border-none h-px bg-gradient-to-r from-transparent via-[var(--border-color)] to-transparent opacity-50" />
     ),
 
     // --- IMAGES ---
     img: (props) => (
-        <figure className="my-8">
-            <img
-                className="w-full rounded-lg border border-[var(--border-color)]"
-                loading="lazy"
-                {...props}
-            />
+        <figure className="my-12">
+            <div className="relative group overflow-hidden rounded-2xl border border-[var(--border-color)] shadow-2xl shadow-black/20">
+                <img
+                    className="w-full transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                    loading="lazy"
+                    {...props}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
             {props.alt && (
-                <figcaption className="text-center text-sm text-[var(--text-secondary)] mt-3 font-mono">
-                    {props.alt}
+                <figcaption className="text-center text-xs text-[var(--text-secondary)] mt-4 font-mono uppercase tracking-widest opacity-60">
+                    // {props.alt}
                 </figcaption>
             )}
         </figure>

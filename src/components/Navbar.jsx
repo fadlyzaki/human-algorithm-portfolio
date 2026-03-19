@@ -93,8 +93,17 @@ const Navbar = ({
                   className="flex items-center gap-3 group"
                 >
                   {/* Logo / Glitch Text */}
-                  <span className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
-                    🧢 Fadlyzaki
+                  <span className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors flex items-center gap-2">
+                    <motion.span
+                      whileHover={{ 
+                        rotate: 360,
+                        transition: { duration: 0.8, ease: "easeInOut" }
+                      }}
+                      className="inline-block"
+                    >
+                      🧢
+                    </motion.span>
+                    Fadlyzaki
                   </span>
                 </Link>
 

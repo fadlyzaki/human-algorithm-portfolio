@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Terminal,
   Grid3X3,
@@ -22,7 +22,6 @@ import BlindsReveal from "../BlindsReveal";
 
 
 const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
-  const [isConfirmingDestructive, setIsConfirmingDestructive] = useState(false);
 
   return (
     <div className="space-y-16 animate-in slide-in-from-right-4 duration-500">

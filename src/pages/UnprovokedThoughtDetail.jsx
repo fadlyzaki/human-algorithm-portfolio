@@ -23,16 +23,16 @@ import NavigationMenu from '../components/NavigationMenu';
 import { useLanguage } from '../context/LanguageContext';
 
 const UnprovokedThoughtDetail = () => {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const { slug } = useParams();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(0);
 
-    // Resolve thought by slug
-    const thought = getThoughtBySlug(slug);
+    // Resolve thought by slug and language
+    const thought = getThoughtBySlug(slug, language);
 
     // Get all thoughts for "next thought" navigation
-    const allThoughts = getAllUnprovokedThoughts();
+    const allThoughts = getAllUnprovokedThoughts(language);
     const currentIndex = allThoughts.findIndex((t) => t.slug === slug);
     const nextThought = allThoughts[(currentIndex + 1) % allThoughts.length];
 

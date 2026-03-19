@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 
 import { Helmet } from "react-helmet-async";
@@ -9,15 +9,9 @@ import ScrollProgressBar from "../components/ScrollProgressBar";
 import { useTheme } from "../context/ThemeContext";
 
 import { useLanguage } from "../context/LanguageContext";
-import sketchesData from "../data/sketches.json";
+
 import Flipbook from "../components/sketches/Flipbook";
 
-const allDigital = [...sketchesData]
-  .filter((s) => s.medium === "digital")
-  .reverse();
-const allPencil = [...sketchesData]
-  .filter((s) => s.medium === "pencil")
-  .reverse();
 
 const Sketches = () => {
   const { isDark } = useTheme();
@@ -29,10 +23,6 @@ const Sketches = () => {
   const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
   const handleCloseMenu = useCallback(() => setIsMenuOpen(false), []);
 
-  const nodes = useMemo(
-    () => (activeMedium === "digital" ? allDigital : allPencil),
-    [activeMedium],
-  );
   const isDigital = activeMedium === "digital";
 
   return (
