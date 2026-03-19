@@ -63,12 +63,6 @@ export const socialMatrix = [
         url: "https://web.facebook.com/fadly.uzzaki",
         color: "hover:text-blue-600",
       },
-      {
-        name: "Unsplash",
-        icon: ImageIcon,
-        url: "https://unsplash.com/@midnite_ideas7",
-        color: "hover:text-zinc-500",
-      },
     ],
   },
   {
@@ -96,6 +90,12 @@ export const socialMatrix = [
         icon: Activity,
         url: "https://www.strava.com/athletes/129304799",
         color: "hover:text-orange-600",
+      },
+      {
+        name: "Unsplash",
+        icon: ImageIcon,
+        url: "https://unsplash.com/@midnite_ideas7",
+        color: "hover:text-zinc-500",
       },
     ],
   },
