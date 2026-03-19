@@ -28,6 +28,7 @@ const VirtualAssistant = () => {
   useEffect(() => {
     const sleepState = sessionStorage.getItem("assistant_sleeping");
     if (sleepState === "true") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- Initializing from sessionStorage on mount is intentional
       setIsSleeping(true);
     }
   }, []);
@@ -211,6 +212,7 @@ const VirtualAssistant = () => {
 
     if (prevPath !== path) {
       clearAllTimers(); // Clear any existing sequences
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- Batching state reset on route change is intentional
       setShowMessage(false);
       setMenuOptions(null);
       localStorage.setItem("assistant_last_path", path);

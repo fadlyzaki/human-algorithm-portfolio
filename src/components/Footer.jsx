@@ -150,7 +150,7 @@ const DynamicDeliverable = ({ words }) => {
 };
 
 const Footer = ({ hideHeadline = false }) => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const year = new Date().getFullYear();
 
   const deliverables = t("footer.deliverables", { returnObjects: true }) || ["something"];

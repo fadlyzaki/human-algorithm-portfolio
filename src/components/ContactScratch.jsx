@@ -84,7 +84,7 @@ const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
       if (transparent / total > 0.45) {
         setIsScratched(true);
       }
-    } catch(e) { /* fallback ignored */ }
+    } catch { /* fallback ignored */ }
   };
 
   const scratch = (x, y) => {
