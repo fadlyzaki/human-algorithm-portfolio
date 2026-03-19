@@ -2,7 +2,7 @@
 
 > **Engineering Philosophy:** *"Software is a physical constraint applied to human behavior. We do not just build interfaces; we engineer resilient systems where algorithmic enforcement meets human intuition—with zero frame drops and zero cognitive friction."*
 
-Welcome to the internal source matrix of **[fadlyzaki-design.vercel.app](https://fadlyzaki-design.vercel.app/)** — a production-grade, highly experimental Single Page Application (SPA).
+Welcome to the source matrix of **[fadlyzaki-design.vercel.app](https://fadlyzaki-design.vercel.app/)** — a production-grade, highly experimental Single Page Application (SPA).
 
 This repository is deliberately over-engineered. It is not a static portfolio; it is an *Interactive Manifesto* and the definitive proof of work for Fadly Uzzaki, Senior Product Designer specializing in Trust Engineering. Designed for the scrutiny of Product and Engineering leadership, this system proves the capacity to ingest chaotic business logic, tame systemic B2B complexity, and output deeply resilient, accessible workflows.
 
