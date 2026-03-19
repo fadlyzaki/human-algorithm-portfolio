@@ -23,8 +23,8 @@ const UnprovokedThoughtsIndex = () => {
     return (
         <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500">
             <SEO
-                title="Unprovoked Thoughts"
-                description="Essays, reflections, and unsolicited opinions on design, technology, and the spaces between."
+                title="Unprovoked Thoughts — Fadly Uzzaki"
+                description="Design essays, reflections, and opinions by Fadly Uzzaki on product design, technology, and the intersection of human experience and systems thinking."
                 image={`https://fadlyzaki-design.vercel.app/api/og?page=${encodeURIComponent('/thoughts')}`}
                 type="website"
                 schema={{

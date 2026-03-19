@@ -110,8 +110,8 @@ const AboutPage = () => {
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[some] transition-colors duration-500 overflow-x-hidden"
     >
       <SEO
-        title="About Me"
-        description="A timeline of my design career, philosophy, and chaos containment strategies."
+        title="About Fadly Uzzaki"
+        description="Learn about Fadly Uzzaki (Fadlyzaki) — Senior Product Designer with expertise in B2B SaaS, EdTech, and human-centered systems design. Career timeline, certifications, and design philosophy."
       />
 
       {/* 1. TEXTURE & LIGHTING */}

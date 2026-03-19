@@ -261,8 +261,8 @@ const SideProjectsIndex = () => {
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 relative"
     >
       <SEO
-        title="Archive: Experiments"
-        description="Full log of side projects, prototypes, and daemons."
+        title="Side Projects & Experiments"
+        description="Browse Fadly Uzzaki's side projects, experiments, and prototypes — from The Human Algorithm (AI-built portfolio) to interactive workbooks and design research tools."
       />
 
       {/* Background Atmosphere */}

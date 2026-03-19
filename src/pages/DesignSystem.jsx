@@ -20,8 +20,8 @@ const DesignSystem = () => {
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white"
     >
       <SEO
-        title="System Diagnostic // Fadlyzaki"
-        description="Live design system and component library for the Human Algorithm portfolio."
+        title="Design System — Human Algorithm"
+        description="Live design system and component library powering Fadly Uzzaki's Human Algorithm portfolio. Explore tokens, components, and interaction patterns."
         image="/og-square.png"
       />
 

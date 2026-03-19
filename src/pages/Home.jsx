@@ -98,20 +98,41 @@ const Home = () => {
         </AnimatePresence>
 
         <SEO
+          title="Fadly Uzzaki — Product Designer"
+          description="Fadly Uzzaki (Fadlyzaki) is a Senior Product Designer and Systems Thinker specializing in B2B SaaS, EdTech, and human-centered design. Explore case studies, experiments, and design philosophy."
           schema={{
             "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Fadly Uzzaki",
-            url: "https://fadlyzaki-design.vercel.app",
-            sameAs: [
-              "https://www.linkedin.com/in/fadlyzaki/",
-              "https://github.com/fadlyzaki",
-              "https://dribbble.com/fadlyzaki",
-              "https://medium.com/@fadlyzaki",
-            ],
-            jobTitle: "Product Designer",
-            description:
-              "Product Designer · Systems Thinker. I don't chase chaos—I contain it.",
+            "@type": "ProfilePage",
+            mainEntity: {
+              "@type": "Person",
+              name: "Fadly Uzzaki",
+              alternateName: ["Fadlyzaki", "Jaki"],
+              url: "https://fadlyzaki-design.vercel.app",
+              image: "https://fadlyzaki-design.vercel.app/og-square.png",
+              sameAs: [
+                "https://www.linkedin.com/in/fadlyzaki/",
+                "https://github.com/fadlyzaki",
+                "https://dribbble.com/fadlyzaki",
+                "https://medium.com/@fadlyzaki",
+                "https://fadlyzaki.substack.com",
+              ],
+              jobTitle: "Senior Product Designer",
+              description:
+                "Senior Product Designer & Systems Thinker specializing in B2B SaaS, recruitment technology, and EdTech. Building resilient tools for people who need them to just work.",
+              knowsAbout: [
+                "Product Design",
+                "UX Design",
+                "UI Design",
+                "Systems Thinking",
+                "B2B SaaS",
+                "EdTech",
+                "Human-Centered Design",
+                "Design Systems",
+                "Framer Motion",
+                "React",
+              ],
+              knowsLanguage: ["en", "id"],
+            },
           }}
         />
 

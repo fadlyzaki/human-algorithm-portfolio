@@ -38,8 +38,8 @@ const Sketches = () => {
       </Helmet>
 
       <SEO
-        title="Sketches"
-        description="An archive of systematic digital designs and raw pencil sketches."
+        title="Sketches & Visual Archive"
+        description="Digital and pencil sketches by Fadly Uzzaki — a raw visual archive of design thinking, ideation, and creative exploration."
         type="website"
       />
 
