@@ -1,24 +1,26 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Activity } from "lucide-react";
+import { lazyWithRetry } from "./utils/lazyWithRetry";
+import ErrorBoundary from "./components/ErrorBoundary";
 
-// Lazy Import Pages
-const Home = React.lazy(() => import("./pages/Home"));
-const About = React.lazy(() => import("./pages/About"));
-const Contact = React.lazy(() => import("./pages/Contact"));
-const SystemManifest = React.lazy(() => import("./pages/SystemManifest"));
-const ProtectedCaseStudy = React.lazy(
+// Lazy Import Pages with Retry Logic
+const Home = lazyWithRetry(() => import("./pages/Home"));
+const About = lazyWithRetry(() => import("./pages/About"));
+const Contact = lazyWithRetry(() => import("./pages/Contact"));
+const SystemManifest = lazyWithRetry(() => import("./pages/SystemManifest"));
+const ProtectedCaseStudy = lazyWithRetry(
   () => import("./pages/ProtectedCaseStudy"),
 );
-const SideProjectDetail = React.lazy(() => import("./pages/SideProjectDetail"));
-const SideProjectsIndex = React.lazy(() => import("./pages/SideProjectsIndex"));
-const CompanyDetail = React.lazy(() => import("./pages/CompanyDetail"));
-const BlogPost = React.lazy(() => import("./pages/BlogPost"));
-const UnprovokedThoughtsIndex = React.lazy(() => import("./pages/UnprovokedThoughtsIndex"));
-const UnprovokedThoughtDetail = React.lazy(() => import("./pages/UnprovokedThoughtDetail"));
-const NotFound = React.lazy(() => import("./pages/NotFound"));
-const DesignSystem = React.lazy(() => import("./pages/DesignSystem"));
-const Sketches = React.lazy(() => import("./pages/Sketches"));
+const SideProjectDetail = lazyWithRetry(() => import("./pages/SideProjectDetail"));
+const SideProjectsIndex = lazyWithRetry(() => import("./pages/SideProjectsIndex"));
+const CompanyDetail = lazyWithRetry(() => import("./pages/CompanyDetail"));
+const BlogPost = lazyWithRetry(() => import("./pages/BlogPost"));
+const UnprovokedThoughtsIndex = lazyWithRetry(() => import("./pages/UnprovokedThoughtsIndex"));
+const UnprovokedThoughtDetail = lazyWithRetry(() => import("./pages/UnprovokedThoughtDetail"));
+const NotFound = lazyWithRetry(() => import("./pages/NotFound"));
+const DesignSystem = lazyWithRetry(() => import("./pages/DesignSystem"));
+const Sketches = lazyWithRetry(() => import("./pages/Sketches"));
 
 import { LanguageProvider } from "./context/LanguageContext";
 import { RecruiterModeProvider } from "./context/RecruiterModeContext";
@@ -47,35 +49,37 @@ function App() {
         <ScrollToTop />
         <VirtualAssistant />
         <CustomCursor />
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            {/* Core Routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/cv" element={<SystemManifest />} />
-            <Route path="/design-system" element={<DesignSystem />} />
-            <Route path="/sketches" element={<Sketches />} />
+        <ErrorBoundary>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              {/* Core Routes */}
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/cv" element={<SystemManifest />} />
+              <Route path="/design-system" element={<DesignSystem />} />
+              <Route path="/sketches" element={<Sketches />} />
 
-            {/* Index Pages */}
-            <Route path="/side-projects" element={<SideProjectsIndex />} />
-            <Route path="/work/:id" element={<CompanyDetail />} />
+              {/* Index Pages */}
+              <Route path="/side-projects" element={<SideProjectsIndex />} />
+              <Route path="/work/:id" element={<CompanyDetail />} />
 
-            {/* Case Studies (Dynamic ID for future scaling) */}
-            <Route path="/case-study/:id" element={<ProtectedCaseStudy />} />
+              {/* Case Studies (Dynamic ID for future scaling) */}
+              <Route path="/case-study/:id" element={<ProtectedCaseStudy />} />
 
-            {/* Detail Pages */}
-            <Route path="/side-project/:id" element={<SideProjectDetail />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
+              {/* Detail Pages */}
+              <Route path="/side-project/:id" element={<SideProjectDetail />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
 
-            {/* Unprovoked Thoughts (MDX CMS) */}
-            <Route path="/thoughts" element={<UnprovokedThoughtsIndex />} />
-            <Route path="/thoughts/:slug" element={<UnprovokedThoughtDetail />} />
+              {/* Unprovoked Thoughts (MDX CMS) */}
+              <Route path="/thoughts" element={<UnprovokedThoughtsIndex />} />
+              <Route path="/thoughts/:slug" element={<UnprovokedThoughtDetail />} />
 
-            {/* 404 Catch-All */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+              {/* 404 Catch-All */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
         </Router>
       </RecruiterModeProvider>
     </LanguageProvider>

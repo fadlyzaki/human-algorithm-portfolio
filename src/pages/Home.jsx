@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { STORAGE_KEYS } from "../config/constants";
+import { lazyWithRetry } from "../utils/lazyWithRetry";
 import { useLocation, Link } from "react-router-dom";
 import { Sun, Moon, Grid, ArrowUp, ScanEye } from "lucide-react";
 import Footer from "../components/Footer";
@@ -11,12 +12,12 @@ import Navbar from "../components/Navbar";
 // Sub-components (Aggressively Lazy-Loaded for Mobile RES fix)
 import HomeHero from "../components/home/HomeHero";
 import HomeWorkSection from "../components/home/HomeWorkSection";
-const HomeSideProjects = React.lazy(
+const HomeSideProjects = lazyWithRetry(
   () => import("../components/home/HomeSideProjects"),
 );
-const HomeAbout = React.lazy(() => import("../components/home/HomeAbout"));
-const FaqSection = React.lazy(() => import("../components/FaqSection"));
-const ChaosCanvas = React.lazy(() => import("../components/ChaosCanvas"));
+const HomeAbout = lazyWithRetry(() => import("../components/home/HomeAbout"));
+const FaqSection = lazyWithRetry(() => import("../components/FaqSection"));
+const ChaosCanvas = lazyWithRetry(() => import("../components/ChaosCanvas"));
 
 import BackgroundTexture from "../components/BackgroundTexture";
 import useScrollDirection from "../hooks/useScrollDirection";

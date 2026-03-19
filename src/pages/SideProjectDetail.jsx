@@ -1,5 +1,6 @@
 import React, { useState, Suspense } from "react";
 import { useParams, Link } from "react-router-dom";
+import { lazyWithRetry } from "../utils/lazyWithRetry";
 import {
   Sun,
   Moon,
@@ -31,7 +32,7 @@ import AiryDiagram from "../components/AiryDiagram";
 import SkeletonLine from "../components/ui/SkeletonLine";
 import Footer from "../components/Footer";
 
-const ChaosCanvas = React.lazy(() => import("../components/ChaosCanvas"));
+const ChaosCanvas = lazyWithRetry(() => import("../components/ChaosCanvas"));
 
 // Import New Layout Architectures
 import SystemCoreDetail from "../components/project-layouts/SystemCoreDetail";
@@ -41,33 +42,33 @@ import BentoDetail from "../components/project-layouts/BentoDetail";
 import BlueprintDetail from "../components/project-layouts/BlueprintDetail";
 import PrototypeDetail from "../components/project-layouts/PrototypeDetail";
 
-// Lazy Load Interaction Components
-const WorkforceAI = React.lazy(
+// Lazy Load Interaction Components with Retry Logic
+const WorkforceAI = lazyWithRetry(
   () => import("../components/interactions/WorkforceAI"),
 );
-const CommerceAI = React.lazy(
+const CommerceAI = lazyWithRetry(
   () => import("../components/interactions/CommerceAI"),
 );
-const EfficiencyAI = React.lazy(
+const EfficiencyAI = lazyWithRetry(
   () => import("../components/interactions/EfficiencyAI"),
 );
-const NexusAI = React.lazy(() => import("../components/interactions/NexusAI"));
-const AgencyPivot = React.lazy(
+const NexusAI = lazyWithRetry(() => import("../components/interactions/NexusAI"));
+const AgencyPivot = lazyWithRetry(
   () => import("../components/interactions/AgencyPivot"),
 );
-const FloodAlert = React.lazy(
+const FloodAlert = lazyWithRetry(
   () => import("../components/interactions/FloodAlert"),
 );
-const PriceLock = React.lazy(
+const PriceLock = lazyWithRetry(
   () => import("../components/interactions/PriceLock"),
 );
-const ProjectKinship = React.lazy(
+const ProjectKinship = lazyWithRetry(
   () => import("../components/interactions/ProjectKinship"),
 );
-const ProjectZen = React.lazy(
+const ProjectZen = lazyWithRetry(
   () => import("../components/interactions/ProjectZen"),
 );
-const FilterMeApp = React.lazy(
+const FilterMeApp = lazyWithRetry(
   () => import("../components/interactions/FilterMeApp"),
 );
 

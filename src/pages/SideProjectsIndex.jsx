@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { lazyWithRetry } from "../utils/lazyWithRetry";
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -22,7 +23,7 @@ import VentureCard from "../components/VentureCard";
 import NexusAI from "../components/interactions/NexusAI";
 import BlindsReveal from "../components/BlindsReveal";
 import PageShell from "../components/PageShell";
-const ChaosCanvas = React.lazy(() => import("../components/ChaosCanvas"));
+const ChaosCanvas = lazyWithRetry(() => import("../components/ChaosCanvas"));
 
 // Configuration
 const CONFIG = {

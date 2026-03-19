@@ -2,6 +2,7 @@ import React, { Suspense, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { ScanEye, Sun, Moon, Globe } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import { lazyWithRetry } from "../utils/lazyWithRetry";
 
 import { useLanguage } from "../context/LanguageContext";
 import Navbar from "../components/Navbar";
@@ -18,14 +19,14 @@ import CompanySidebar from "../components/company/CompanySidebar";
 import CompanyProjects from "../components/company/CompanyProjects";
 import CompanyCulture from "../components/company/CompanyCulture";
 
-// Dynamic Imports for AI Interactions
-const WorkforceAI = React.lazy(
+// Dynamic Imports for AI Interactions with Retry Logic
+const WorkforceAI = lazyWithRetry(
   () => import("../components/interactions/WorkforceAI"),
 );
-const CommerceAI = React.lazy(
+const CommerceAI = lazyWithRetry(
   () => import("../components/interactions/CommerceAI"),
 );
-const EfficiencyAI = React.lazy(
+const EfficiencyAI = lazyWithRetry(
   () => import("../components/interactions/EfficiencyAI"),
 );
 

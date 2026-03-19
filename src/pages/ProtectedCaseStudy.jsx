@@ -2,6 +2,7 @@ import React, { useState, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { ShieldAlert, ArrowLeft, Activity } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { lazyWithRetry } from "../utils/lazyWithRetry";
 import Navbar from "../components/Navbar";
 import NavigationMenu from "../components/NavigationMenu";
 import useProjectData from "../hooks/useProjectData";
@@ -9,8 +10,8 @@ import LockScreen from "../components/auth/LockScreen";
 import ChaosMatrixBackground from "../components/auth/ChaosMatrixBackground";
 import SEO from "../components/SEO";
 
-// Lazy Load Heavy Content
-const CaseStudyContent = React.lazy(
+// Lazy Load Heavy Content with Retry Logic
+const CaseStudyContent = lazyWithRetry(
   () => import("../components/case-study/CaseStudyContent"),
 );
 
