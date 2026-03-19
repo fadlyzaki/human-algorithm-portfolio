@@ -93,13 +93,9 @@ const Navbar = ({
                   className="flex items-center gap-3 group"
                 >
                   {/* Logo / Glitch Text */}
-                  <motion.span 
-                    whileHover={{ rotate: 360 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                    className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors inline-block"
-                  >
+                  <span className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
                     🧢 Fadlyzaki
-                  </motion.span>
+                  </span>
                 </Link>
 
                 {/* System Status Indicator */}
