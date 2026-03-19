@@ -91,62 +91,22 @@ Application-wide implementation of a resilient lazy-loading wrapper. Automatical
 Real-time terminal log visualizer for the contact form. Tracks `[SYN]`, `[SYN-ACK]`, and `[ACK]` steps to create a high-fidelity system-sync interaction.
 
 ## 📂 System Topography
+The architecture follows a strict decoupled multi-layer pattern:
+- **View Layer**: 55+ UI components across 14 pages, emphasizing recursive performance and kinetic polish.
+- **State Layer**: Global Truth management via React Context (`Theme`, `Language`, `RecruiterMode`).
+- **Knowledge Graph**: Centralized Single Source of Truth (`portfolioData.js`) and high-fidelity bilingual databases.
+- **Infrastructure**: Resilience-first routing with dynamic import fail-safes and isolated error handling.
 
-```text
-src/
-├── components/               # THE VIEW LAYER (55+ Components)
-│   ├── welcome/              # Boot Loaders & Terminal Orchestration
-│   ├── sketches/             # 3D Flipbook Engine
-│   ├── interactions/         # Heavy Feature-Specific Subsystems
-│   ├── project-layouts/      # 6 Polymorphic Detail Archetypes
-│   ├── design-system/        # Live DS Viewer Modules
-│   ├── cards/                # Specialized Card Components
-│   ├── id-cards/             # 7 Generative ID Card Variants
-│   ├── about/                # About Page Sub-Components
-│   ├── auth/                 # Lock Screen & Chaos Matrix BG
-│   ├── prototypes/           # Interactive Prototypes (FilterMe, FloodAlert, etc.)
-│   └── ui/                   # Shared UI Primitives
-├── context/                  # THE STATE LAYER (Global Truth)
-│   ├── ThemeContext           # Light / Dark Mode
-│   ├── LanguageContext        # en / id Localization
-│   └── RecruiterModeContext   # Terminal / Document Mode Toggle
-├── data/                     # THE KNOWLEDGE GRAPH
-│   ├── portfolioData.js      # Single Source of Truth
-│   ├── translations.js       # Bilingual Database
-│   └── navigationData.js     # Route & Link Definitions
-└── pages/                    # THE ROUTING LAYER (14 Pages)
-    ├── Home.jsx              # Conversion Funnel
-    ├── About.jsx             # System Operations Dashboard
-    ├── Contact.jsx           # Multi-Channel Contact with Scratch Reveal
-    ├── SideProjectsIndex.jsx # Experiment Grid with Canvas Proximity Lines
-    ├── SideProjectDetail.jsx # Polymorphic Layout Router + ChaosCanvas
-    ├── ProtectedCaseStudy.jsx# Gated Enterprise Case Studies
-    ├── CompanyDetail.jsx     # Company Profile Pages
-    ├── SystemManifest.jsx    # ATS-Optimized CV Engine
-    ├── DesignSystem.jsx      # Live Design System Viewer
-    ├── Sketches.jsx          # 3D Flipbook Archive
-    ├── BlogPost.jsx          # MDX Thought Leadership
-    ├── UnprovokedThoughts*.jsx # Blog Index + Detail
-    └── NotFound.jsx          # 404 Survival Game
-```
 
 ## 🚀 Deployment Protocol & CI/CD Pipeline
 
 ### Local Ignition
-```bash
-# 1. Clone & Provision Dependencies
-git clone https://github.com/fadlyzaki/human-algorithm-portfolio.git
-npm install
+Standard local development requires Node.js and a package manager.
+1. Provision dependencies via `npm install`.
+2. Boot the development server with `npm run dev`.
+3. Verify system integrity via `npm run test`.
+4. Compile production assets using `npm run build`.
 
-# 2. Boot the Edge Emulation Server
-npm run dev
-
-# 3. Verify System Structural Integrity
-npm run test
-
-# 4. Compile Production Asset Bundle
-npm run build
-```
 
 ### Production Environment
 * CI hardlined to `main` branch. Merges trigger sub-60-second edge propagation across Vercel's global CDN.
