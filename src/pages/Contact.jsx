@@ -380,19 +380,55 @@ const ContactPage = () => {
 
             <motion.div
               layout
-              className="bg-[var(--bg-void)] border border-[var(--border-color)] p-4 rounded-sm relative font-mono text-xs text-[var(--text-secondary)] overflow-x-auto"
+              className="bg-[var(--bg-void)] border border-[var(--border-color)] p-5 rounded-sm relative font-mono text-[10px] sm:text-xs text-[var(--text-secondary)]"
             >
+              {/* Vertical accent and scanner effect */}
               <div className="absolute top-0 left-0 w-1 h-full bg-[var(--accent-blue)]"></div>
-              <pre className="m-0 bg-transparent p-0 leading-loose">
-<span className="text-[var(--text-primary)]">{"{"}</span>
-  <span className="opacity-70">"tx_id":</span> <span className="text-[var(--accent-green)]">"TX-{Math.abs(formData.name.length + formData.email.length + formData.message.length).toString(16).padStart(4, '0').toUpperCase()}"</span>,
-  <span className="opacity-70">"operator":</span> <span className="text-[var(--accent-green)]">"{formData.name || 'AWAITING_INPUT'}"</span>,
-  <span className="opacity-70">"contact":</span> <span className="text-[var(--accent-green)]">"{formData.email || 'AWAITING_INPUT'}"</span>,
-  <span className="opacity-70">"payload_size":</span> <span className="text-[var(--accent-amber)]">{formData.message.length} bytes</span>,
-  <span className="opacity-70">"status":</span> <span className="text-[var(--accent-blue)]">"{formStatus === 'idle' ? 'READY_FOR_UPLINK' : formStatus.toUpperCase()}"</span>,
-  <span className="opacity-70">"estimated_reply":</span> <span className="text-[var(--accent-blue)] animate-pulse">"WITHIN_5_WORKING_DAYS"</span>
-<span className="text-[var(--text-primary)]">{"}"}</span>
-              </pre>
+              <div className="absolute top-0 right-0 bottom-0 w-[2px] bg-[var(--accent-blue)]/10 animate-pulse"></div>
+
+              <div className="space-y-3">
+                <div className="flex items-baseline gap-4">
+                  <span className="w-20 opacity-40 uppercase shrink-0 font-bold">[TX_ID]</span>
+                  <span className="text-[var(--accent-green)] truncate">
+                    TX-{Math.abs(formData.name.length + formData.email.length + formData.message.length).toString(16).padStart(4, '0').toUpperCase()}
+                  </span>
+                </div>
+
+                <div className="flex items-baseline gap-4">
+                  <span className="w-20 opacity-40 uppercase shrink-0 font-bold">[SOURCE]</span>
+                  <span className={formData.name ? "text-[var(--text-primary)]" : "text-red-500/50 italic"}>
+                    {formData.name || "AWAITING_INPUT"}
+                  </span>
+                </div>
+
+                <div className="flex items-baseline gap-4">
+                  <span className="w-20 opacity-40 uppercase shrink-0 font-bold">[UPLINK]</span>
+                  <span className={formData.email ? "text-[var(--text-primary)]" : "text-red-500/50 italic"}>
+                    {formData.email || "NO_PROTOCOL_ESTABLISHED"}
+                  </span>
+                </div>
+
+                <div className="flex items-baseline gap-4">
+                  <span className="w-20 opacity-40 uppercase shrink-0 font-bold">[SIZE]</span>
+                  <span className="text-[var(--accent-amber)] font-bold">
+                    {formData.message.length.toString().padStart(3, '0')} BYTES
+                  </span>
+                </div>
+
+                <div className="flex items-baseline gap-4">
+                  <span className="w-20 opacity-40 uppercase shrink-0 font-bold">[STATUS]</span>
+                  <span className="text-[var(--accent-blue)]">
+                    {formStatus === 'idle' ? 'READY_FOR_TRANSMISSION' : formStatus.toUpperCase()}
+                  </span>
+                </div>
+
+                <div className="mt-4 pt-4 border-t border-[var(--border-color)]/30 flex items-center gap-2 text-[var(--accent-blue)]">
+                  <div className="w-1.5 h-1.5 rounded-full bg-current animate-ping"></div>
+                  <span className="font-bold tracking-widest">
+                    REPLY_ETA: WITHIN_5_WORKING_DAYS
+                  </span>
+                </div>
+              </div>
             </motion.div>
 
             {/* Handshake Progress */}
