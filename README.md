@@ -17,7 +17,7 @@ This repository is deliberately over-engineered. It is not a static portfolio; i
 A robust system is measured by its fault tolerance, Developer Experience (DevX), and render budget. We utilize a modern, highly optimized edge-native stack tailored for O(1) velocity and 60fps tactile interfaces.
 
 * **The Engine**: **React 18 + Vite** — Blazing fast HMR, isolated module reloading, and aggressive Rollup tree-shaking. Includes a **Vitest/jsdom** CI testing baseline.
-* **The Physics**: **Framer Motion** — GPU-accelerated CSS transforms (`translate3d`, `scale`) and spring-based `layoutId` animations. All major interaction surfaces (Navbar, NavigationMenu, Footer, WorkBento, ScrollReveal) operate on spring physics for 60fps consistency.
+* **The Physics**: **Framer Motion** — GPU-accelerated CSS transforms (`translate3d`, `scale`) and spring-based `layoutId` animations. All major interaction surfaces (Navbar, NavigationMenu, Footer, WorkBento, ScrollReveal) operate on spring physics with added **rotational character** (sliding pill transitions) for 60fps consistency.
 * **The Syntax**: **Tailwind CSS** — Utility-first styling architecture with strict design token adherence via CSS custom properties (`var(--text-primary)`, `var(--bg-void)`).
 * **The Edge**: **Vercel Edge Network** — Edge Middleware for bot-detection and dynamic OpenGraph image generation via `@vercel/og`.
 
@@ -83,6 +83,12 @@ Live Design System Viewer with `ComponentForge` (NeuralEcho, ContactScratch, Bli
 
 ### 18. 404 Survival Game (`NotFound.jsx`)
 Interactive pixel-art survival game with item collection, score tracking, and ambient theme matching. Virtual Assistant hidden to not interfere with gameplay.
+
+### 19. Robust Dynamic Imports (`lazyWithRetry.js`)
+Application-wide implementation of a resilient lazy-loading wrapper. Automatically detects and reloads on chunk-load failures (e.g., during a new deployment), backed by a global `ErrorBoundary` for 100% graceful degradation.
+
+### 20. Protocol Handshake Terminal (`Contact.jsx`)
+Real-time terminal log visualizer for the contact form. Tracks `[SYN]`, `[SYN-ACK]`, and `[ACK]` steps to create a high-fidelity system-sync interaction.
 
 ## 📂 System Topography
 

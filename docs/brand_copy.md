@@ -71,6 +71,8 @@ Product Designer · Systems Thinker. Building resilient tools for people who nee
 | "Antidote to digital fatigue" | Sticky note, brand identity |
 | "Human By Design" | ID card tagline, brand motto |
 | "Resilient Methodology Grids" | Design pattern, 2-col hero layout |
+| "High-bandwidth collaboration" | Contact page, work-focused outreach |
+| "Protocol Handshake" | Contact page, technical interaction |
 
 ---
 
@@ -325,6 +327,9 @@ Designed as part of [Company/Context]. Full case study → fadlyzaki-design.verc
 | **Typewriter** | `TypewriterText` | Character-by-character reveal with staggered delays |
 | **Profile scanner** | `ProfileScanner` | Pixelated → clear reveal on hover — identity decryption metaphor |
 | **Draggable photo** | `DraggablePhoto` | Physics-based drag with momentum — tangible, not flat |
+| **Protocol Handshake** | `HandshakeTerminal` | Real-time terminal status log for form initialization — builds trust through transparency |
+| **Magnetic Tooltip** | `MagneticTooltip` | Zero-latency crosshair labels that track the cursor over interactive grids |
+| **Rotational Logic** | `Navbar` | Sliding pill navigation with wobbly spring physics — inspired by Rota Buta Hova |
 
 ---
 

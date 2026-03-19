@@ -64,6 +64,7 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **Dynamic OpenGraph (v3.5)**: Vercel Edge Middleware serves dynamically generated, route-specific 1200×630 branded preview images.
 *   **Security & Sanitization**: Strict sandboxing with sanitized `RichText` rendering component.
 *   **Live Schematics**: `AiryDiagram.jsx` proprietary SVG charting engine (<5KB payloads).
+*   **System Robustness (v8.2)**: `lazyWithRetry.js` utility and `ErrorBoundary.jsx` for 100% resilience against dynamic import failures and runtime crashes.
 
 ## 6. Product Capability Matrix
 
@@ -143,6 +144,14 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **Component**: `CustomCursor.jsx`
 *   **Capability**: Framer Motion spring-driven cursor with magnetic attraction to interactive elements. Documented in Design System's `LayoutLab`.
 
+### 6.20 Protocol Handshake Visualizer
+*   **Component**: `Contact.jsx` / `HandshakeTerminal`
+*   **Capability**: Real-time terminal log showing `[SYN]`, `[SYN-ACK]`, and `[ACK]` steps as the user interacts with the contact form, visualizing the connection progress.
+
+### 6.21 Magnetic Interaction Layer
+*   **Component**: `MagneticTooltip.jsx`
+*   **Capability**: Zero-latency mouse tracking for contextual labels (e.g., "[ READ PROTOCOL ]") over interactive grids, enhancing tactical feedback.
+
 ## 7. UX Audit Post-Mortem & System Governance
 *   **Affordance Clarity**: Physical grip visuals on `ChaosSlider`.
 *   **Signal-to-Noise Optimization**: Purged superfluous decorative text.
@@ -174,6 +183,10 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **[COMPLETED]** Zero-layout-shift dynamic footer text with invisible spacer pattern.
 *   **[COMPLETED]** Full reference error audit and remediation across 118 source files.
 *   **[COMPLETED]** Design System documentation for ContactScratch, BlindsReveal, and Cursor Physics.
+*   **[COMPLETED]** Protocol Handshake terminal visualizer and high-bandwidth collaboration copy.
+*   **[COMPLETED]** Rotational physics and sliding pill navigation in Navbar (Rota Buta Hova inspired).
+*   **[COMPLETED]** Interests Selector animation fix (Consistent Burst/Toggle on interactive nodes).
+*   **[COMPLETED]** Dynamic Import Resilience (lazyWithRetry + ErrorBoundary).
 
 ### Phase 4: Advanced Agentic Workflow & Predictive UX (Q3-Q4 2026)
 *   **[Q3 2026] Algorithmic Role Alignment (Dynamic IA)**: Edge-based intent detection via job description URL parsing.

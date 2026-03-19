@@ -102,6 +102,7 @@ Based on Tailwind defaults:
 *   **BackButton**: Standard navigation return with hover animation.
 *   **SectionTitle**: Standardized heading with numbering (e.g., "01 / WORK").
 *   **ScrollReveal**: Wrapper for scroll-triggered fade-in animations.
+*   **Navbar (Rota-Style)**: Refined navigation with a sliding pill background and rotational spring physics. Supports terminal/document mode switching.
 
 ### 3. Feature Components
 *   **AiryDiagram**: Clean, technical diagrams for case studies. Uses React Flow or SVG.
@@ -115,6 +116,8 @@ Based on Tailwind defaults:
 *   **ProfileScanner**: Interactive "Identity Scan" effect in About page.
 *   **Treasure**: Gamified hidden item component (Gems, Coins, Crowns).
 *   **StickyNote**: Rotated, playful annotations.
+*   **HandshakeTerminal**: Real-time protocol visualizer (`[SYN]`, `[SYN-ACK]`, `[ACK]`) for contact form initialization.
+*   **MagneticTooltip**: Context-aware crosshair labels that track the cursor with zero latency.
 
 ### 4. ID Card (DraggablePhoto)
 *   **Path**: `src/components/DraggablePhoto.jsx`
