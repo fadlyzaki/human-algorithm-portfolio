@@ -149,14 +149,15 @@ const VirtualAssistant = () => {
         return getMsg("context.contact");
       } else if (path === "/cv" || path === "/system-manifest") {
         return getMsg("context.system-manifest");
-      } else if (path === "/thoughts" || path.includes("/thoughts/")) {
+      } else if (path === "/thoughts") {
         return getMsg("context.unprovoked-thoughts");
-      } else if (path.includes("/case-study/") || path.includes("/side-project/") || path.includes("/work/") || path.includes("/blog/")) {
+      } else if (path.includes("/thoughts/") || path.includes("/case-study/") || path.includes("/side-project/") || path.includes("/work/") || path.includes("/blog/")) {
         const segments = path.split("/").filter(Boolean);
         let id = segments[segments.length - 1];
         
         // If we extracted a structural segment instead of a real ID
-        if (id === 'work' || id === 'case-study' || id === 'side-project' || id === 'blog') {
+        if (id === 'work' || id === 'case-study' || id === 'side-project' || id === 'blog' || id === 'thoughts') {
+          if (path.includes("/thoughts")) return getMsg("context.unprovoked-thoughts");
           return path.includes("/side-project") || path.includes("/blog") ? getMsg("msg_side_projects") : getMsg("msg_case_study");
         }
 
@@ -164,6 +165,7 @@ const VirtualAssistant = () => {
         if (specificMsg) return specificMsg;
 
         // Generic context-aware fallback
+        if (path.includes("/thoughts/")) return getMsg("context.unprovoked-thoughts");
         return path.includes("/case-study/") || path.includes("/work/") ? getMsg("msg_case_study") : getMsg("msg_side_projects");
       }
       return getMsg("msg_home");

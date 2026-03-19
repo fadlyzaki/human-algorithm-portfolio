@@ -441,6 +441,9 @@ export const translations = {
         "interactive-workbook": "Interactive Workbook: Exploring the mechanics of the bilingual learning loop.",
         "year-in-review": "Year in Review: Auditing a privacy-first engine for achievement reflection.",
         "dolphi": "Dolphi: Examining habit meta-tracking for the resilient self.",
+        // Unprovoked Thoughts
+        "design-as-language": "Design is a Language: Exploring why the best designers focus on grammar over vocabulary.",
+        "dissolving-screens": "Dissolving Screens: Reflecting on the future where computation fades into the background.",
         // Company Overviews
         "workforce": "Lumina: Engineering dignity into the blue-collar recruitment machine.",
         "commerce": "GudangAda: Systematizing trust across $100B of fragmented B2B supply chains.",
@@ -508,6 +511,9 @@ export const translations = {
           "interactive-workbook": "Loop Analysis: Examining how gamification affects bilingual knowledge retention.",
           "year-in-review": "Data Audit: Reviewing the logic of achievement logging without compromising privacy.",
           "dolphi": "Behavioral Core: Analyzing the meta-tracker's resilience mechanics and mascot reactivity.",
+          // Unprovoked Thoughts
+          "design-as-language": "Linguistic Analysis: Deconstructing the grammar of interfaces rather than superficial aesthetics.",
+          "dissolving-screens": "Future State Review: Analyzing the latency of ubiquitous computing and screen dissolution.",
           // Case Studies
           "workforce-chat": "Reputation Mining: Analyzing the handshake between blue-collar dignity and data integrity.",
           "ats-dashboard": "Data Taming: Deconstructing the high-volume recruitment funnel. Logic: Resilient.",
@@ -970,6 +976,9 @@ export const translations = {
         "interactive-workbook": "Buku Kerja Interaktif: Mengeksplorasi mekanik siklus pembelajaran bilingual.",
         "year-in-review": "Year in Review: Mengaudit mesin refleksi pencapaian yang mengutamakan privasi.",
         "dolphi": "Dolphi: Menelaah meta-tracking kebiasaan untuk diri yang tangguh.",
+        // Unprovoked Thoughts
+        "design-as-language": "Desain Adalah Bahasa: Mengeksplorasi mengapa desainer terbaik fokus pada tata bahasa alih-alih kosakata.",
+        "dissolving-screens": "Meleburnya Layar: Merefleksikan masa depan di mana komputasi menyatu dengan latar belakang.",
         // Ringkasan Perusahaan
         "workforce": "Lumina: Merekayasa martabat ke dalam mesin rekrutmen pekerja kerah biru.",
         "commerce": "GudangAda: Mensistematiskan kepercayaan di tengah rantai pasok B2B senilai $100M.",
@@ -1037,6 +1046,9 @@ export const translations = {
           "interactive-workbook": "Analisis Siklus: Membedah bagaimana gamifikasi memengaruhi retensi pengetahuan bilingual.",
           "year-in-review": "Audit Data: Meninjau logika pencatatan pencapaian tanpa mengorbankan privasi.",
           "dolphi": "Inti Perilaku: Menganalisis mekanik resiliensi meta-tracker dan reaktivitas maskot.",
+          // Unprovoked Thoughts
+          "design-as-language": "Analisis Linguistik: Mendekonstruksi tata bahasa antarmuka, bukan sekadar estetika superfisial.",
+          "dissolving-screens": "Tinjauan State Ke Depan: Menganalisis latensi komputasi ubiquit dan peleburan layar.",
           // Studi Kasus
           "workforce-chat": "Reputation Mining: Menganalisis jabat tangan antara martabat pekerja dan integritas data.",
           "ats-dashboard": "Penjinakan Data: Mendekonstruksi corong rekrutmen volume tinggi. Logika: Tangguh.",
