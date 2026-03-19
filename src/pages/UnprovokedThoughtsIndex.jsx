@@ -5,6 +5,7 @@
  * Follows the same structural pattern as SideProjectsIndex.jsx.
  */
 import React, { Suspense, lazy } from 'react';
+import SystemLoader from '../components/SystemLoader';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
@@ -41,7 +42,7 @@ const UnprovokedThoughtsIndex = () => {
             />
 
             {/* Background Atmosphere */}
-            <Suspense fallback={null}>
+            <Suspense fallback={<SystemLoader />}>
                 <ChaosCanvas />
             </Suspense>
 

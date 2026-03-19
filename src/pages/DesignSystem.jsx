@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from "react";
+import SystemLoader from "../components/SystemLoader";
 import DesignSystemViewer from "../components/DesignSystemViewer";
 import SEO from "../components/SEO";
 import { useTheme } from "../context/ThemeContext";
@@ -26,7 +27,7 @@ const DesignSystem = () => {
       />
 
       {/* Background Atmosphere */}
-      <Suspense fallback={null}>
+      <Suspense fallback={<SystemLoader />}>
         <ChaosCanvas />
       </Suspense>
 

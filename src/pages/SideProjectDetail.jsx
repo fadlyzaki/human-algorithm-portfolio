@@ -1,4 +1,5 @@
 import React, { useState, Suspense } from "react";
+import SystemLoader, { SystemSectionLoader } from "../components/SystemLoader";
 import { useParams, Link } from "react-router-dom";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
 import {
@@ -248,7 +249,7 @@ const SideProjectDetail = () => {
       />
 
       {/* --- 0. AMBIENCE --- */}
-      <React.Suspense fallback={null}>
+      <React.Suspense fallback={<SystemLoader />}>
         <ChaosCanvas />
       </React.Suspense>
       {/* Vignette */}
@@ -276,12 +277,7 @@ const SideProjectDetail = () => {
             InteractionComponent: InteractionComponent
               ? () => (
                 <Suspense
-                  fallback={
-                    <div className="p-8 space-y-4">
-                      <SkeletonLine className="w-1/2 h-6" />
-                      <SkeletonLine className="w-full h-32" />
-                    </div>
-                  }
+                  fallback={<SystemSectionLoader height="h-64" />}
                 >
                   <InteractionComponent />
                 </Suspense>

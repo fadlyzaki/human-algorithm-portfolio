@@ -1,4 +1,5 @@
 import React, { useState, useMemo, Suspense, lazy } from "react";
+import SystemLoader from "../components/SystemLoader";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -115,7 +116,7 @@ const AboutPage = () => {
       />
 
       {/* 1. TEXTURE & LIGHTING */}
-      <Suspense fallback={null}>
+      <Suspense fallback={<SystemLoader />}>
         <ChaosCanvas />
       </Suspense>
 
@@ -259,11 +260,7 @@ const AboutPage = () => {
                 </h2>
               </div>
               <Suspense
-                fallback={
-                  <div className="h-64 flex items-center justify-center text-[var(--accent-blue)] animate-pulse rounded-2xl border border-[var(--border-color)]">
-                    Initializing Semantic Core...
-                  </div>
-                }
+                fallback={<SystemSectionLoader height="h-64" />}
               >
                 <NeuralEcho />
               </Suspense>

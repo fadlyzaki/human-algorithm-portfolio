@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Activity } from "lucide-react";
 import { lazyWithRetry } from "./utils/lazyWithRetry";
 import ErrorBoundary from "./components/ErrorBoundary";
 
@@ -30,15 +29,10 @@ import AnalyticsTracker from "./components/AnalyticsTracker";
 import VirtualAssistant from "./components/VirtualAssistant";
 import CustomCursor from "./components/CustomCursor";
 
+import SystemLoader from "./components/SystemLoader";
+
 // Loading Fallback Component
-const PageLoader = () => (
-  <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-black text-gray-400">
-    <Activity className="w-8 h-8 animate-pulse text-emerald-500 mb-4" />
-    <span className="font-mono text-xs tracking-widest uppercase">
-      Initializing System...
-    </span>
-  </div>
-);
+const PageLoader = () => <SystemLoader />;
 
 function App() {
   return (

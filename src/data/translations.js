@@ -27,6 +27,10 @@ export const translations = {
       ttp_dribbble: "Visual explorations",
       ttp_github: "Open source & code",
     },
+    system: {
+      initializing: "Initializing System",
+      memproses: "Memproses",
+    },
     home: {
       role: "Product Designer",
       role_sub: "Systems Thinker",
@@ -563,6 +567,10 @@ export const translations = {
       ttp_instagram: "Di balik layar",
       ttp_dribbble: "Eksplorasi visual",
       ttp_github: "Open source & kode",
+    },
+    system: {
+      initializing: "Memulai Sistem",
+      memproses: "Memproses",
     },
     home: {
       role: "Product Designer",

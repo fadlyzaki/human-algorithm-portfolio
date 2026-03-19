@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SystemLoader, { SystemSectionLoader } from "../components/SystemLoader";
 import { STORAGE_KEYS } from "../config/constants";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
 import { useLocation, Link } from "react-router-dom";
@@ -137,7 +138,7 @@ const Home = () => {
         />
 
         {/* ATMOSPHERE & CHAOS */}
-        <React.Suspense fallback={null}>
+        <React.Suspense fallback={<SystemLoader />}>
           <ChaosCanvas />
         </React.Suspense>
 
@@ -160,27 +161,21 @@ const Home = () => {
 
               {/* SECTION 2: SIDE PROJECTS (LAZY) */}
               <React.Suspense
-                fallback={
-                  <div className="h-96 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>
-                }
+                fallback={<SystemSectionLoader />}
               >
                 <HomeSideProjects t={t} isId={isId} />
               </React.Suspense>
 
               {/* SECTION 3: ABOUT ME (LAZY) */}
               <React.Suspense
-                fallback={
-                  <div className="h-96 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>
-                }
+                fallback={<SystemSectionLoader />}
               >
                 <HomeAbout t={t} />
               </React.Suspense>
 
               {/* SECTION 4: FAQs (LAZY) */}
               <React.Suspense
-                fallback={
-                  <div className="h-48 w-full animate-pulse bg-black/5 dark:bg-white/5 rounded-3xl mb-12"></div>
-                }
+                fallback={<SystemSectionLoader height="h-48" />}
               >
                 <FaqSection />
               </React.Suspense>

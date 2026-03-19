@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import SystemLoader from "../components/SystemLoader";
 import { Link, useNavigate } from "react-router-dom";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
 import {
@@ -266,7 +267,7 @@ const SideProjectsIndex = () => {
       />
 
       {/* Background Atmosphere */}
-      <React.Suspense fallback={null}>
+      <React.Suspense fallback={<SystemLoader />}>
         <ChaosCanvas />
       </React.Suspense>
 
