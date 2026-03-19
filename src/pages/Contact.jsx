@@ -278,15 +278,21 @@ const ContactPage = () => {
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center gap-3 p-3 border border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-primary)] transition-all group ${item.color}`}
+                        className={`relative flex items-center justify-between p-2 pl-4 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] overflow-hidden group transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-transparent ${item.color}`}
                       >
-                        <item.icon
-                          size={16}
-                          className="text-[var(--text-secondary)] group-hover:text-current transition-colors"
-                        />
-                        <span className="font-mono text-sm text-[var(--text-primary)]">
+                        {/* Expanding Background Circle */}
+                        <div className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[var(--text-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[30] origin-center z-0"></div>
+                        
+                        <span className="relative z-10 font-mono text-sm text-[var(--text-primary)] transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[var(--bg-void)]">
                           {item.name}
                         </span>
+                        
+                        <div className="relative z-10 w-8 h-8 flex items-center justify-center rounded-full bg-transparent">
+                          <item.icon
+                            size={14}
+                            className="text-[var(--bg-void)] transform transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 group-hover:rotate-12"
+                          />
+                        </div>
                       </a>
                     ))}
                   </div>
