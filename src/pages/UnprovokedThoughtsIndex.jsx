@@ -69,19 +69,20 @@ const UnprovokedThoughtsIndex = () => {
                     </header>
 
                     {/* Thought Cards */}
-                    <div className="space-y-0">
+                    <div className="space-y-0 border-t border-b border-[var(--border-color)] mt-8">
                         {thoughts.map((thought) => {
                             const { frontmatter, slug } = thought;
 
                             return (
-                                <MagneticTooltip key={slug} text="READ PROTOCOL" className="block">
+                                <MagneticTooltip key={slug} text="READ PROTOCOL" className="block border-b border-[var(--border-color)] last:border-0">
                                     <Link
                                         to={`/thoughts/${slug}`}
-                                        className="group block py-10 border-b border-[var(--border-color)] first:border-t hover:bg-[var(--bg-surface)]/50 transition-colors duration-300 -mx-6 px-6"
+                                        className="group block py-12 hover:bg-[var(--bg-surface)]/40 transition-all duration-500 -mx-4 px-4 sm:-mx-8 sm:px-8"
                                     >
-                                        <div className="flex items-start gap-6">
+                                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                                             {/* Emoji */}
-                                            <div className="text-4xl mt-1 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 shrink-0">
+                                            <div className="text-4xl opacity-50 group-hover:opacity-100 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500 shrink-0 bg-[var(--bg-card)] p-3 rounded-2xl border border-[var(--border-color)] group-hover:border-[var(--accent-amber)]/50 group-hover:shadow-[0_0_20px_var(--accent-amber)] group-hover:shadow-amber-500/20">
+
                                                 {frontmatter.emoji}
                                             </div>
 
@@ -133,8 +134,8 @@ const UnprovokedThoughtsIndex = () => {
                                             </div>
 
                                             {/* Arrow */}
-                                            <div className="hidden md:flex items-center self-center opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
-                                                <ArrowRight size={20} className="text-[var(--accent-amber)]" />
+                                            <div className="hidden sm:flex items-center self-center opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-500">
+                                                <ArrowRight size={20} className="text-[var(--text-primary)]" />
                                             </div>
                                         </div>
                                     </Link>

@@ -84,8 +84,8 @@ const EmojiFeedback = () => {
                             whileHover={!hasReacted ? { scale: 1.05, y: -6 } : {}}
                             whileTap={!hasReacted ? { scale: 0.95 } : {}}
                             className={`
-                                relative flex flex-col items-center gap-4 px-6 py-5 rounded-2xl
-                                border transition-all duration-500 cursor-pointer w-24 md:w-28
+                                relative flex flex-col items-center gap-3 px-2 py-4 md:py-5 rounded-2xl
+                                border transition-all duration-500 cursor-pointer flex-1 min-w-[72px] max-w-[110px]
                                 ${isSelected
                                     ? 'border-[var(--accent-amber)] bg-[var(--accent-amber)]/10 shadow-xl shadow-[var(--accent-amber)]/10'
                                     : hasReacted

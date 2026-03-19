@@ -34,7 +34,7 @@ const MDXComponents = {
     // --- TEXT ---
     p: (props) => (
         <p
-            className="mb-6 leading-relaxed text-[var(--text-primary)] font-serif text-lg"
+            className="mb-8 leading-relaxed text-[var(--text-primary)]/90 font-serif text-lg md:text-xl"
             {...props}
         />
     ),
@@ -58,10 +58,10 @@ const MDXComponents = {
     // --- BLOCKQUOTE ---
     blockquote: (props) => (
         <blockquote
-            className="my-12 pl-10 italic border-l-[3px] border-[var(--accent-amber)] text-xl md:text-3xl text-[var(--text-primary)] font-serif leading-relaxed bg-gradient-to-r from-[var(--bg-card)] to-transparent py-8 pr-8 rounded-r-2xl relative group"
+            className="my-14 pl-8 md:pl-10 italic border-l-4 border-[var(--accent-amber)] text-xl md:text-3xl text-[var(--text-primary)] font-serif leading-relaxed bg-[var(--accent-amber)]/5 py-8 pr-8 rounded-r-3xl relative group"
             {...props}
         >
-            <div className="absolute -left-[3px] top-0 w-[3px] h-0 bg-[var(--text-primary)] group-hover:h-full transition-all duration-700 ease-in-out" />
+            <div className="absolute -left-[4px] top-0 w-[4px] h-0 bg-[var(--text-primary)] group-hover:h-full transition-all duration-700 ease-in-out" />
         </blockquote>
     ),
 

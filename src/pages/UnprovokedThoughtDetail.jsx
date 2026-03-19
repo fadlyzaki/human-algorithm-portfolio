@@ -243,17 +243,18 @@ const UnprovokedThoughtDetail = () => {
                 {nextThought && nextThought.slug !== slug && (
                     <Link
                         to={`/thoughts/${nextThought.slug}`}
-                        className="block mt-12 p-8 bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] group transition-colors text-center"
+                        className="block mt-20 p-10 bg-gradient-to-b from-[var(--bg-surface)]/60 to-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] rounded-3xl group transition-all duration-500 text-center shadow-lg hover:shadow-2xl hover:shadow-[var(--accent-amber)]/10 hover:-translate-y-1 relative overflow-hidden"
                     >
-                        <h4 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">
-                            Next Thought
+                        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[var(--accent-amber)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <h4 className="font-mono text-[10px] text-[var(--accent-amber)] font-bold uppercase tracking-[0.2em] mb-3">
+                            Next_Transmission
                         </h4>
-                        <div className="text-xl font-bold flex items-center justify-center gap-2">
-                            <span className="mr-2">{nextThought.frontmatter.emoji}</span>
-                            {nextThought.frontmatter.title}
+                        <div className="text-xl md:text-2xl font-bold flex flex-col sm:flex-row items-center justify-center gap-4 font-serif text-[var(--text-primary)]">
+                            <span className="text-4xl sm:text-2xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">{nextThought.frontmatter.emoji}</span>
+                            <span>{nextThought.frontmatter.title}</span>
                             <ChevronRight
                                 size={20}
-                                className="group-hover:translate-x-1 transition-transform"
+                                className="opacity-0 -ml-4 sm:ml-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-500 text-[var(--accent-amber)] hidden sm:block"
                             />
                         </div>
                     </Link>
