@@ -431,28 +431,61 @@ const ContactPage = () => {
               </div>
             </motion.div>
 
-            {/* Handshake Progress */}
-            <div className="mt-6 space-y-1.5">
-              <div className="flex justify-between text-[9px] uppercase tracking-tighter opacity-40">
-                <span>Protocol_Handshake</span>
+            {/* Handshake Visualizer Terminal */}
+            <div className="mt-8 space-y-4">
+              <div className="flex justify-between items-center text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+                <div className="flex items-center gap-2">
+                  <Activity size={10} className="animate-pulse" />
+                  <span>Protocol_Handshake</span>
+                </div>
                 <span>
-                  {Math.round(
-                    (Object.values(formData).filter((v) => v.length > 0)
-                      .length /
-                      3) *
-                    100,
-                  )}
-                  %
+                  STATUS: {
+                    Object.values(formData).filter(v => v.length > 0).length === 3 
+                      ? "STABLE_UPLINK" 
+                      : Object.values(formData).filter(v => v.length > 0).length > 0 
+                        ? "INITIALIZING" 
+                        : "AWAITING_SIGNAL"
+                  }
                 </span>
               </div>
+
+              <div className="grid grid-cols-3 gap-2 py-2">
+                {[
+                  { label: "SYN", condition: formData.name.length > 0 },
+                  { label: "SYN-ACK", condition: formData.email.length > 0 },
+                  { label: "ACK", condition: formData.message.length > 0 }
+                ].map((step, idx) => (
+                  <div 
+                    key={idx}
+                    className={`flex flex-col items-center justify-center p-2 border transition-all duration-500 ${
+                      step.condition 
+                        ? "border-[var(--accent-green)] bg-[var(--accent-green)]/5 text-[var(--accent-green)]" 
+                        : "border-[var(--border-color)] opacity-20"
+                    }`}
+                  >
+                    <span className="font-mono text-[9px] font-bold">{step.label}</span>
+                    <div className={`w-1 h-1 rounded-full mt-1 ${step.condition ? "bg-[var(--accent-green)] animate-ping" : "bg-transparent"}`}></div>
+                  </div>
+                ))}
+              </div>
+
               <div className="h-1 bg-[var(--bg-void)] rounded-full overflow-hidden border border-[var(--border-color)]">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{
                     width: `${(Object.values(formData).filter((v) => v.length > 0).length / 3) * 100}%`,
                   }}
-                  className="h-full bg-[var(--accent-blue)] shadow-[0_0_8px_var(--accent-blue)]"
+                  className={`h-full transition-colors duration-500 ${
+                    Object.values(formData).filter(v => v.length > 0).length === 3 
+                      ? "bg-[var(--accent-green)] shadow-[0_0_8px_var(--accent-green)]" 
+                      : "bg-[var(--accent-blue)] shadow-[0_0_8px_var(--accent-blue)]"
+                  }`}
                 />
+              </div>
+              
+              <div className="flex justify-between text-[8px] font-mono uppercase opacity-30 mt-1">
+                <span>Origin: USER_TERMINAL</span>
+                <span>Target: SYSTEM_CORE</span>
               </div>
             </div>
           </div>

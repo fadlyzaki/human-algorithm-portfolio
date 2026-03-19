@@ -37,6 +37,9 @@ const HoverNavLink = ({ to, label }) => {
         <motion.div
           layoutId="navbar-pill-bg"
           className="absolute inset-0 bg-[var(--text-primary)] rounded-full shadow-md"
+          initial={{ rotate: -5 }}
+          animate={{ rotate: 0 }}
+          exit={{ rotate: 5 }}
           transition={{
             type: "spring",
             stiffness: 450,
@@ -90,9 +93,13 @@ const Navbar = ({
                   className="flex items-center gap-3 group"
                 >
                   {/* Logo / Glitch Text */}
-                  <span className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors">
+                  <motion.span 
+                    whileHover={{ rotate: 360 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                    className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors inline-block"
+                  >
                     🧢 Fadlyzaki
-                  </span>
+                  </motion.span>
                 </Link>
 
                 {/* System Status Indicator */}

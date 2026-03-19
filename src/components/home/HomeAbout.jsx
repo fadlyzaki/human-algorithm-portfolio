@@ -100,11 +100,14 @@ const InterestSelector = ({ t }) => {
           const isOn = selected.has(i);
 
           const handleClick = () => {
+            toggle(i);
+            triggerBurst(i);
+            
             if (item.url) {
-              window.open(item.url, "_blank", "noopener,noreferrer");
-            } else {
-              toggle(i);
-              triggerBurst(i);
+              // Open URL with a slight delay to allow the burst to be seen
+              setTimeout(() => {
+                window.open(item.url, "_blank", "noopener,noreferrer");
+              }, 300);
             }
           };
 
