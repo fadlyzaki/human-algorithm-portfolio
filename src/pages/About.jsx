@@ -1,5 +1,5 @@
 import React, { useState, useMemo, Suspense, lazy } from "react";
-import SystemLoader from "../components/SystemLoader";
+import SystemLoader, { SystemSectionLoader } from "../components/SystemLoader";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -128,7 +128,7 @@ const AboutPage = () => {
 
       {/* 1. TEXTURE & LIGHTING */}
       <Suspense fallback={<SystemLoader />}>
-        <ChaosCanvas />
+        <ChaosCanvas intensity={chaosStrength} />
       </Suspense>
 
       <PageShell navbarProps={{ title: "About System", backPath: "/" }}>

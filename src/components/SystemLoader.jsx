@@ -99,18 +99,18 @@ export const SystemLoader = () => {
           </div>
 
           {/* Console Log Area */}
-          <div className="h-[60px] w-full bg-[var(--bg-card)]/50 border border-[var(--border-color)] rounded-md p-3 overflow-hidden shadow-inner">
+          <div className="h-20 w-full bg-[var(--bg-card)]/50 border border-[var(--border-color)] rounded-md p-3 overflow-hidden shadow-inner flex flex-col justify-end">
             <AnimatePresence mode="popLayout">
-              {BOOT_LOGS.slice(0, logIndex + 1).slice(-3).map((log, index) => (
+              {BOOT_LOGS.slice(0, logIndex + 1).slice(-3).map((log, index, arr) => (
                 <motion.div 
                   key={log}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  className="font-mono text-[9px] sm:text-[10px] text-[var(--text-secondary)] flex gap-2 mb-1"
+                  className="font-mono text-[9px] sm:text-[10px] text-[var(--text-secondary)] flex gap-2 mb-1 w-full"
                 >
-                  <span className="text-[var(--accent-green)]">&gt;</span>
-                  <span className={index === 2 ? "text-[var(--text-primary)]" : ""}>{log}</span>
+                  <span className="text-[var(--accent-green)] shrink-0">&gt;</span>
+                  <span className={`truncate ${index === arr.length - 1 ? "text-[var(--text-primary)]" : ""}`}>{log}</span>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -158,8 +158,8 @@ export const SystemSectionLoader = ({ height = "h-96" }) => {
           <Activity size={18} className="text-[var(--accent-blue)]" />
         </motion.div>
         
-        <div className="flex flex-col gap-1">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-primary)] font-bold">
+        <div className="flex flex-col gap-1 items-center max-w-[200px]">
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-primary)] font-bold text-center whitespace-nowrap">
             {t("system.initializing") || "FETCHING CONTEXT"}
           </span>
           <div className="flex gap-1 items-center">

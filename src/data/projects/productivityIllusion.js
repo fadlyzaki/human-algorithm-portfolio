@@ -17,18 +17,18 @@ export const productivityIllusion = {
   links: { demo: "#", repo: "#" },
   iconName: "Activity",
   featured: true,
-  type: "Research",
-  date: "2025-2026",
+  type: { en: "Research", id: "Riset" },
+  date: { en: "2025-2026", id: "2025-2026" },
   coverImage: "airy:radar",
   snapshot: {
     tagline: { en: "Cognitive Mastery v1.0", id: "Cognitive Mastery v1.0" },
     heroImage: "airy:radar",
   },
   context: {
-    role: "Product Owner",
-    timeline: "2025-2026",
-    team: "Solo Research",
-    client: "Academic",
+    role: { en: "Product Owner", id: "Pemilik Produk" },
+    timeline: { en: "2025-2026", id: "2025-2026" },
+    team: { en: "Solo Research", id: "Riset Solo" },
+    client: { en: "Academic", id: "Akademik" },
   },
   challenge: {
     en: "In the age of digital accessibility, why does academic performance often remain stagnant? Students at tutoring centers were experiencing 'cognitive burnout'. Mobile devices—which should be tools for high-efficiency learning—were primarily sources of passive distraction.",
@@ -76,8 +76,8 @@ export const productivityIllusion = {
     },
   ],
   metrics: [
-    { label: "Mastery Score", value: "+9%" },
-    { label: "Effect Size", value: "r=0.62" },
+    { label: { en: "Mastery Score", id: "Skor Penguasaan" }, value: "+9%" },
+    { label: { en: "Effect Size", id: "Ukuran Efek" }, value: "r=0.62" },
   ],
   learnings: {
     en: "This research shattered one of my core assumptions: I believed that higher engagement always meant better learning. The data proved me wrong. I learned that streaks and XP can create an illusion of progress. Now I always ask: are users actually learning, or just clicking?",

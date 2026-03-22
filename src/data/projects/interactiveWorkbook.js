@@ -21,18 +21,18 @@ export const interactiveWorkbook = {
   prototypeLink: "https://buku-kerja-interaktif.web.app/",
   iconName: "BookOpen",
   featured: true,
-  type: "Education",
-  date: "February 2026",
+  type: { en: "Education", id: "Edukasi" },
+  date: { en: "February 2026", id: "Februari 2026" },
   coverImage: "airy:flow",
   snapshot: {
     tagline: { en: "Gamified Learning", id: "Pembelajaran Digamifikasi" },
     heroImage: "airy:flow",
   },
   context: {
-    role: "Product Owner",
-    timeline: "Feb 2026",
-    team: "Solo / Internal",
-    client: "Rumbel Geera",
+    role: { en: "Product Owner", id: "Pemilik Produk" },
+    timeline: { en: "Feb 2026", id: "Feb 2026" },
+    team: { en: "Solo / Internal", id: "Solo / Internal" },
+    client: { en: "Rumbel Geera", id: "Rumbel Geera" },
   },
   challenge: {
     en: "Traditional English workbooks lack interactivity, real-time progress tracking, and personalized feedback. Students struggle with motivation, and teachers have no centralized way to monitor individual performance across activities.",
@@ -133,8 +133,8 @@ export const interactiveWorkbook = {
     },
   ],
   metrics: [
-    { label: "Learning Units", value: "8" },
-    { label: "Target Audience", value: "7th-11th" },
+    { label: { en: "Learning Units", id: "Unit Pembelajaran" }, value: "8" },
+    { label: { en: "Target Audience", id: "Target Audiens" }, value: "7th-11th" },
   ],
   learnings: {
     en: "I learned that in education, the biggest barrier isn't bad content, it's friction. When I removed the password requirement and let students enter with just a dropdown, participation jumped instantly. That taught me: sometimes removing a feature is more powerful than adding ten.",

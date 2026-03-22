@@ -1,9 +1,14 @@
 import React, { useRef, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext";
 
-const ChaosCanvas = () => {
+const ChaosCanvas = ({ intensity = 0 }) => {
   const canvasRef = useRef(null);
   const { isDark } = useTheme();
+  const intensityRef = useRef(intensity);
+
+  useEffect(() => {
+    intensityRef.current = intensity;
+  }, [intensity]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -33,14 +38,18 @@ const ChaosCanvas = () => {
     };
 
     const updateParticle = (p) => {
-      p.x += p.vx;
-      p.y += p.vy;
+      const chaos = Math.pow(intensityRef.current / 100, 2);
+      
+      // Speed multiplier and extreme jitter at high chaos
+      p.x += p.vx * (1 + chaos * 15) + (Math.random() - 0.5) * chaos * 30;
+      p.y += p.vy * (1 + chaos * 15) + (Math.random() - 0.5) * chaos * 30;
 
       if (p.x < 0) p.x = canvas.width;
       if (p.x > canvas.width) p.x = 0;
       if (p.y < 0) p.y = canvas.height;
       if (p.y > canvas.height) p.y = 0;
 
+      // Mouse repel acts wildly at high chaos
       if (isMouseActive) {
         const dx = mouse.x - p.x;
         const dy = mouse.y - p.y;
@@ -50,7 +59,7 @@ const ChaosCanvas = () => {
           const force = (mouseRepelRadius - distance) / mouseRepelRadius;
           const forceDirectionX = dx / distance;
           const forceDirectionY = dy / distance;
-          const repelStrength = 4;
+          const repelStrength = 4 + (chaos * 20); // Mouse repel explodes
           p.x -= forceDirectionX * force * repelStrength;
           p.y -= forceDirectionY * force * repelStrength;
         }
@@ -58,11 +67,13 @@ const ChaosCanvas = () => {
     };
 
     const drawParticle = (p) => {
+      const chaos = Math.pow(intensityRef.current / 100, 2);
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      // Particles swell in size under chaos
+      ctx.arc(p.x, p.y, p.size * (1 + chaos * 2), 0, Math.PI * 2);
       ctx.fillStyle = isDark
-        ? "rgba(255, 255, 255, 0.4)"
-        : "rgba(0, 0, 0, 0.2)";
+        ? `rgba(255, 255, 255, ${0.4 + chaos * 0.4})`
+        : `rgba(0, 0, 0, ${0.2 + chaos * 0.6})`;
       ctx.fill();
     };
 
@@ -75,12 +86,10 @@ const ChaosCanvas = () => {
 
     // --- RENDERING PIPELINE ---
     const resize = () => {
-      // Handle high-DPI displays for crisp rendering
       const dpr = window.devicePixelRatio || 1;
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
 
-      // CSS Scaling back down
       canvas.style.width = `${window.innerWidth}px`;
       canvas.style.height = `${window.innerHeight}px`;
 
@@ -89,47 +98,71 @@ const ChaosCanvas = () => {
     };
 
     const animate = () => {
-      // Semi-transparent clear creates a slight motion trail effect
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      const chaos = Math.pow(intensityRef.current / 100, 2);
+      
+      // At very high chaos, we don't clear the rect fully, leaving intense motion trails
+      const clearOpacity = Math.max(0.1, 1 - chaos * 0.8);
+      
+      if (chaos > 0.8 && Math.random() > 0.8) {
+         // Randomly skip clearing to cause massive streaking
+      } else {
+         ctx.fillStyle = isDark ? `rgba(0,0,0,${clearOpacity})` : `rgba(255,255,255,${clearOpacity})`;
+         ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+      }
 
-      // Dynamic Theme Formatting
-      const dotOpacity = isDark ? "0.7" : "0.4";
-      const lineOpacity = isDark ? 0.35 : 0.2;
+      const dotOpacity = isDark ? 0.7 : 0.4;
+      const baseLineOpacity = isDark ? 0.35 : 0.2;
+      const lineOpacity = baseLineOpacity + (chaos * 0.4);
 
-      // We read CSS variables via literal RGBA mapping (Assuming white/black scheme)
-      const colorAccent = isDark ? [100, 200, 255] : [0, 80, 255]; // Brighter electric blue
+      // Color starts glitching (red/amber) at high chaos
+      let colorAccent = isDark ? [100, 200, 255] : [0, 80, 255];
+      if (chaos > 0.3 && Math.random() < chaos) {
+         colorAccent = [255, 50 + Math.random() * 100, 50]; 
+      }
+      
       const colorBase = isDark ? [255, 255, 255] : [0, 0, 0];
-
       ctx.fillStyle = `rgba(${colorBase[0]}, ${colorBase[1]}, ${colorBase[2]}, ${dotOpacity})`;
 
       for (let i = 0; i < particles.length; i++) {
         updateParticle(particles[i]);
         drawParticle(particles[i]);
 
-        // Draw constellation lines (Data Topology)
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < connectionDistance) {
-            const opacity = (1 - distance / connectionDistance) * lineOpacity;
+          // Connection distance increases dramatically under chaos
+          const activeConnRes = connectionDistance * (1 + chaos * 1.5);
+
+          if (distance < activeConnRes) {
+            const opacity = (1 - distance / activeConnRes) * lineOpacity;
             ctx.beginPath();
 
-            // If near mouse, lines illuminate (accent color)
             const distToMouseI = Math.sqrt(
               Math.pow(particles[i].x - mouse.x, 2) +
               Math.pow(particles[i].y - mouse.y, 2),
             );
-            if (isMouseActive && distToMouseI < mouseRepelRadius * 1.5) {
-              ctx.strokeStyle = `rgba(${colorAccent[0]}, ${colorAccent[1]}, ${colorAccent[2]}, ${opacity * 1.5})`;
+            if (isMouseActive && distToMouseI < mouseRepelRadius * (1.5 + chaos)) {
+              ctx.strokeStyle = `rgba(${colorAccent[0]}, ${colorAccent[1]}, ${colorAccent[2]}, ${opacity * (1.5 + chaos * 2)})`;
+              ctx.lineWidth = 1 + chaos * 2;
             } else {
-              ctx.strokeStyle = `rgba(${colorBase[0]}, ${colorBase[1]}, ${colorBase[2]}, ${opacity})`;
+              // Lines randomly turn red if corrupted
+              if (chaos > 0.6 && Math.random() > 0.95) {
+                 ctx.strokeStyle = `rgba(255, 0, 0, ${opacity})`;
+              } else {
+                 ctx.strokeStyle = `rgba(${colorBase[0]}, ${colorBase[1]}, ${colorBase[2]}, ${opacity})`;
+              }
+              ctx.lineWidth = 1;
             }
 
-            ctx.lineWidth = 1;
             ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
+            // Glitchy line drawing at max chaos
+            if (chaos > 0.8 && Math.random() > 0.8) {
+               ctx.lineTo(particles[j].x + (Math.random()-0.5)*50, particles[j].y + (Math.random()-0.5)*50);
+            } else {
+               ctx.lineTo(particles[j].x, particles[j].y);
+            }
             ctx.stroke();
           }
         }
@@ -138,7 +171,6 @@ const ChaosCanvas = () => {
       animationFrameId = requestAnimationFrame(animate);
     };
 
-    // --- EVENT TRIGGERS ---
     const handleMouseMove = (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
@@ -155,7 +187,6 @@ const ChaosCanvas = () => {
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseout", handleMouseLeave);
 
-    // Startup Spin
     resize();
     animate();
 
@@ -165,11 +196,21 @@ const ChaosCanvas = () => {
       window.removeEventListener("mouseout", handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [isDark]); // Re-bind if dark mode is toggled for dynamic coloring
+  }, [isDark]);
+
+  const chaosFactor = Math.pow(intensity / 100, 2);
+  const filterStyle = intensity > 0 
+    ? `hue-rotate(${chaosFactor * 90}deg) contrast(${100 + chaosFactor * 100}%) invert(${intensity > 85 && Math.random() > 0.6 ? 100 : 0}%) blur(${chaosFactor * 3}px)`
+    : "none";
+    
+  // Shake effect for the entire canvas
+  const shakeX = (Math.random() - 0.5) * chaosFactor * 40;
+  const shakeY = (Math.random() - 0.5) * chaosFactor * 40;
 
   return (
     <canvas
       ref={canvasRef}
+      style={{ filter: filterStyle, transform: `translate(${shakeX}px, ${shakeY}px) scale(${1 + chaosFactor * 0.1})` }}
       className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-1000 ${isDark ? "opacity-100 mix-blend-screen" : "opacity-100 mix-blend-multiply"}`}
       aria-hidden="true"
     />

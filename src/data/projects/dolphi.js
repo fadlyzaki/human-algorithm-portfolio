@@ -14,8 +14,8 @@ export const dolphi = {
   links: { demo: "#", repo: "#" },
   iconName: "Activity",
   featured: true,
-  type: "iOS Ecosystem",
-  date: "2026",
+  type: { en: "iOS Ecosystem", id: "Ekosistem iOS" },
+  date: { en: "2026", id: "2026" },
   coverImage: "airy:ui",
   brandColor: "var(--accent-sky)",
   snapshot: {
@@ -23,10 +23,10 @@ export const dolphi = {
     heroImage: "airy:ui",
   },
   context: {
-    role: "Product Owner",
-    timeline: "2026",
-    team: "Solo Venture",
-    client: "Indie Ship",
+    role: { en: "Product Owner", id: "Pemilik Produk" },
+    timeline: { en: "2026", id: "2026" },
+    team: { en: "Solo Venture", id: "Ventura Solo" },
+    client: { en: "Indie Ship", id: "Karya Indie" },
   },
   challenge: {
     en: "The Fragmented Self: Users rely on specific apps for specific habits (Duolingo for language, Strava for runs), but there's no centralized 'Arena' to visualize total daily progress. Breaking a streak in one app feels like a total failure.",
@@ -82,8 +82,8 @@ export const dolphi = {
     },
   ],
   metrics: [
-    { label: "Retention", value: "High" },
-    { label: "Shields Used", value: "Frequent" },
+    { label: { en: "Retention", id: "Retensi" }, value: { en: "High", id: "Tinggi" } },
+    { label: { en: "Shields Used", id: "Perisai Digunakan" }, value: { en: "Frequent", id: "Sering" } },
   ],
   learnings: {
     en: "I learned that the biggest enemy of consistency isn't laziness, it's the fear of losing progress. Building the 'Streak Shield' mechanic taught me that forgiveness in system design isn't weakness; it's what keeps people coming back.",

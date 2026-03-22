@@ -194,18 +194,18 @@ const SideProjectDetail = () => {
   const activeContext = {
     client:
       (isIndonesian && project.context_id?.client) ||
-      rawContext.client ||
+      resolveText(rawContext.client) ||
       "Personal",
     role:
       (isIndonesian && project.context_id?.role) ||
-      rawContext.role ||
+      resolveText(rawContext.role) ||
       "Creator",
     timeline:
       (isIndonesian && project.context_id?.timeline) ||
-      rawContext.timeline ||
-      project.date,
+      resolveText(rawContext.timeline) ||
+      resolveText(project.date),
     team:
-      (isIndonesian && project.context_id?.team) || rawContext.team || "Solo",
+      (isIndonesian && project.context_id?.team) || resolveText(rawContext.team) || "Solo",
   };
 
 
@@ -217,12 +217,25 @@ const SideProjectDetail = () => {
       desc: resolveText(item.desc),
     }));
   };
-  const activeChallenge = resolveText(project.challenge, project.desc);
+  const activeChallenge = resolveText(project.challenge) || resolveText(project.desc);
   const activeProcess = resolveArray(project.designProcess || project.process);
   const activeInsights = resolveArray(project.insights);
   const activeSolution = resolveArray(project.solution);
-  const activeMetrics = project.metrics;
+  const activeMetrics = project.metrics
+    ? project.metrics.map((m) => ({
+        ...m,
+        label: resolveText(m.label),
+        value: resolveText(m.value),
+      }))
+    : null;
   const activeLearnings = resolveText(project.learnings);
+
+  // Deeply resolved clone of project properties for sub-components (like project.type)
+  const activeProject = {
+    ...project,
+    type: resolveText(project.type),
+    date: resolveText(project.date),
+  };
   // Interaction Mapping
   const InteractionComponent = INTERACTION_MAP[project.id] || null;
 
@@ -268,7 +281,7 @@ const SideProjectDetail = () => {
         {/* --- LAYOUT ORCHESTRATOR --- */}
         {(() => {
           const commonProps = {
-            project,
+            project: activeProject,
             activeContext,
             activeChallenge,
             activeProcess,
