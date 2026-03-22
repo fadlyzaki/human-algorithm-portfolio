@@ -16,8 +16,8 @@ export const EXPERIMENTS = [
     stack: ["UX Research", "Behavioral Psych", "Figma"],
     links: { demo: "#", repo: "#" },
     iconName: "Brain",
-    type: "Case Study",
-    date: "February 2026",
+    type: { en: "Case Study", id: "Studi Kasus" },
+    date: { en: "February 2026", id: "Februari 2026" },
     brandColor: "var(--accent-purple)", // Pivot Purple
     coverImage: "airy:hierarchy",
     snapshot: {
@@ -25,10 +25,10 @@ export const EXPERIMENTS = [
       heroImage: "airy:hierarchy",
     },
     context: {
-      role: "Product Owner",
-      timeline: "Feb 2026",
-      team: "Solo",
-      client: "Internal Research",
+      role: { en: "Product Owner", id: "Pemilik Produk" },
+      timeline: { en: "Feb 2026", id: "Feb 2026" },
+      team: { en: "Solo", id: "Solo" },
+      client: { en: "Internal Research", id: "Riset Internal" },
     },
     challenge:
       "Social media transitioned from Connecting People to Retaining Attention. This stripped users of agency, creating a 'Feed of Slop' that prioritizes cheap dopamine. Users feel manipulated and anxious.",
@@ -69,8 +69,8 @@ export const EXPERIMENTS = [
       },
     ],
     metrics: [
-      { label: "Trust Score", value: "High Increase" },
-      { label: "Friend Interaction", value: "Tripled" },
+      { label: { en: "Trust Score", id: "Skor Kepercayaan" }, value: { en: "High Increase", id: "Peningkatan Tinggi" } },
+      { label: { en: "Friend Interaction", id: "Interaksi Teman" }, value: { en: "Tripled", id: "Naik 3x Lipat" } },
     ],
     designProcess: [
       {
@@ -180,8 +180,8 @@ export const EXPERIMENTS = [
     },
     iconName: "Shield",
     featured: true,
-    type: "Fintech Lock",
-    date: "September 2025",
+    type: { en: "Fintech Lock", id: "Kunci Fintech" },
+    date: { en: "September 2025", id: "September 2025" },
     coverImage: "airy:chart",
     brandColor: "var(--accent-green)", // Fintech Green
     snapshot: {
@@ -189,10 +189,10 @@ export const EXPERIMENTS = [
       heroImage: "airy:chart",
     },
     context: {
-      role: "Product Owner",
-      timeline: "Sep 2025",
-      team: "Solo",
-      client: "Internal Product",
+      role: { en: "Product Owner", id: "Pemilik Produk" },
+      timeline: { en: "Sep 2025", id: "Sep 2025" },
+      team: { en: "Solo", id: "Solo" },
+      client: { en: "Internal Product", id: "Produk Internal" },
     },
     challenge:
       "The specific anxiety of watching a flight price jump $50 while you wait for your boss's approval. In a world of dynamic pricing, the user is always the loser.",
@@ -239,8 +239,8 @@ export const EXPERIMENTS = [
       },
     ],
     metrics: [
-      { label: "User Anxiety", value: "Reduced" },
-      { label: "Trust Score", value: "Elevated" },
+      { label: { en: "User Anxiety", id: "Kecemasan User" }, value: { en: "Reduced", id: "Menurun" } },
+      { label: { en: "Trust Score", id: "Skor Kepercayaan" }, value: { en: "Elevated", id: "Meningkat" } },
     ],
 
     challenge_id:
@@ -305,8 +305,8 @@ export const EXPERIMENTS = [
     },
     iconName: "Gift",
     featured: true,
-    type: "Logistics Kinship",
-    date: "March 2025",
+    type: { en: "Logistics Kinship", id: "Logistik Kekerabatan" },
+    date: { en: "March 2025", id: "Maret 2025" },
     coverImage: "airy:venn",
     brandColor: "var(--accent-pink)", // Kinship Pink
     snapshot: {
@@ -314,10 +314,10 @@ export const EXPERIMENTS = [
       heroImage: "airy:venn",
     },
     context: {
-      role: "Product Owner",
-      timeline: "Mar 2025",
-      team: "Solo",
-      client: "Grab (Internal Product)",
+      role: { en: "Product Owner", id: "Pemilik Produk" },
+      timeline: { en: "Mar 2025", id: "Mar 2025" },
+      team: { en: "Solo", id: "Solo" },
+      client: { en: "Grab (Internal Product)", id: "Grab (Produk Internal)" },
     },
     challenge:
       "I am a perantau. Far from Padang. When I hear Mom is sick in Padang, I want to send her Martabak Hayuda or Sate Mak Syukur. But GPS locks me in Jakarta. Grab exists in Jakarta, and Grab exists in Padang. Why can't I bridge them? Technology today forces you to 'be there' to order. We set out to fix that.",
@@ -348,8 +348,8 @@ export const EXPERIMENTS = [
       },
     ],
     metrics: [
-      { label: "Target AOV", value: "2.5x" },
-      { label: "App Penetration", value: "90%" },
+      { label: { en: "Target AOV", id: "Target AOV" }, value: { en: "2.5x", id: "2.5x" } },
+      { label: { en: "App Penetration", id: "Penetrasi Aplikasi" }, value: { en: "90%", id: "90%" } },
     ],
     designProcess: [
       {
@@ -445,10 +445,10 @@ export const EXPERIMENTS = [
       heroImage: "airy:map",
     },
     context: {
-      role: "Product Owner",
-      timeline: "Oct 2024",
-      team: "Solo",
-      client: "Jakarta Smart City (Unofficial)",
+      role: { en: "Product Owner", id: "Pemilik Produk" },
+      timeline: { en: "Oct 2024", id: "Okt 2024" },
+      team: { en: "Solo", id: "Solo" },
+      client: { en: "Jakarta Smart City (Unofficial)", id: "Jakarta Smart City (Tidak Resmi)" },
     },
     challenge:
       "Jakarta sinks 10cm/year. Traditional alerts are city-wide and vague, leaving citizens trapped in 'blindspot' neighborhoods during flash floods.",
@@ -474,8 +474,8 @@ export const EXPERIMENTS = [
       },
     ],
     metrics: [
-      { label: "Response", value: "Real-time" },
-      { label: "Trust", value: "High" },
+      { label: { en: "Response", id: "Respon" }, value: { en: "Real-time", id: "Real-time" } },
+      { label: { en: "Trust", id: "Kepercayaan" }, value: { en: "High", id: "Tinggi" } },
     ],
     designProcess: [
       {
@@ -554,8 +554,8 @@ export const EXPERIMENTS = [
     stack: ["Node.js", "PostGIS", "Flutter"],
     links: { demo: "#", repo: "#" },
     iconName: "AlertTriangle",
-    type: "IoT Prototype",
-    date: "October 2024",
+    type: { en: "IoT Prototype", id: "Prototipe IoT" },
+    date: { en: "October 2024", id: "Oktober 2024" },
     coverImage: "airy:map",
     hidden: false,
     featured: false,
@@ -578,8 +578,8 @@ export const EXPERIMENTS = [
     },
     iconName: "Zap",
     featured: true,
-    type: "Conceptual Redesign",
-    date: "April 2024",
+    type: { en: "Conceptual Redesign", id: "Desain Ulang Konseptual" },
+    date: { en: "April 2024", id: "April 2024" },
     coverImage: "airy:funnel",
     brandColor: "var(--accent-red)",
     snapshot: {
@@ -587,10 +587,10 @@ export const EXPERIMENTS = [
       heroImage: "airy:funnel",
     },
     context: {
-      role: "Product Design (Outsider)",
-      timeline: "Apr 2024",
-      team: "Solo",
-      client: "Netflix (Conceptual)",
+      role: { en: "Product Design (Outsider)", id: "Desain Produk (Pihak Luar)" },
+      timeline: { en: "Apr 2024", id: "Apr 2024" },
+      team: { en: "Solo", id: "Solo" },
+      client: { en: "Netflix (Conceptual)", id: "Netflix (Konseptual)" },
     },
     challenge:
       "Current streaming interfaces prioritize content inventory (Genres) over user context (Time & Energy). This mismatch causes 'Decision Fatigue', leading to high abandonment rates where users leave to consume passive content like TikTok.",
@@ -626,8 +626,8 @@ export const EXPERIMENTS = [
       },
     ],
     metrics: [
-      { label: "Time-to-Play", value: "-40%" },
-      { label: "Bounce Rate", value: "-15%" },
+      { label: { en: "Time-to-Play", id: "Waktu-ke-Putar" }, value: { en: "-40%", id: "-40%" } },
+      { label: { en: "Bounce Rate", id: "Rasio Pentalan" }, value: { en: "-15%", id: "-15%" } },
     ],
     designProcess: [
       {
@@ -729,26 +729,26 @@ export const EXPERIMENTS = [
     links: { demo: "", repo: "#" },
     iconName: "Camera",
     featured: false,
-    type: "AR Camera",
-    date: "January 2018",
+    type: { en: "AR Camera", id: "Kamera AR" },
+    date: { en: "January 2018", id: "Januari 2018" },
     coverImage: "airy:face",
     snapshot: {
       tagline: "AR Commerce Experiment",
       heroImage: "airy:face",
     },
     context: {
-      role: "Product Designer",
-      timeline: "Jan 2018 (3 Weeks)",
-      team: "SUX Team (Ifa, Kevin, Zaki)",
-      client: "CHIuXID 2018 Design Challenge",
+      role: { en: "Product Designer", id: "Desainer Produk" },
+      timeline: { en: "Jan 2018 (3 Weeks)", id: "Jan 2018 (3 Minggu)" },
+      team: { en: "SUX Team (Ifa, Kevin, Zaki)", id: "Tim SUX (Ifa, Kevin, Zaki)" },
+      client: { en: "CHIuXID 2018 Design Challenge", id: "Tantangan Desain CHIuXID 2018" },
     },
     challenge:
       "The 'Trust Gap' in online shopping is real. Users hesitate to buy because they can't physically try products on. In the CHIuXID 2018 challenge, we explored how 'Intelligence' could solve this lack of 'Realness' in the digital journey.",
     challenge_id:
       "'Celah Kepercayaan' dalam belanja online itu nyata. User ragu beli karena gak bisa coba fisik. Di CHIuXID 2018, kami cari tahu gimana 'Intelligence' bisa kasih rasa 'Realness' di perjalanan digital.",
     metrics: [
-      { label: "Confidence", value: "Boosted" },
-      { label: "Return Rate", value: "Lowered" },
+      { label: { en: "Confidence", id: "Kepercayaan Diri" }, value: { en: "Boosted", id: "Meningkat" } },
+      { label: { en: "Return Rate", id: "Tingkat Pengembalian" }, value: { en: "Lowered", id: "Menurun" } },
     ],
     designProcess: [
       {

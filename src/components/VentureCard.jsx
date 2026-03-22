@@ -77,6 +77,7 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
     project,
     title,
     desc,
+    isIndonesian,
     onClick,
     isHovered,
     ref: containerRef,
@@ -101,7 +102,7 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
 };
 
 // 1. THE SYSTEM CORE (Human Algorithm)
-const SystemCoreCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
+const SystemCoreCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
     ref={ref}
     id={`venture-card-${project.id}`}
@@ -155,7 +156,9 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, ref, onMouse
               <Cpu size={14} className="text-[var(--accent-blue)]" />
             </div>
             <span className="font-mono text-[9px] tracking-widest text-[var(--accent-blue)] uppercase">
-              System Core // Agentic Workflow
+              {isIndonesian
+                ? "Sistem Inti // Alur Kerja Agen"
+                : "System Core // Agentic Workflow"}
             </span>
           </div>
 
@@ -183,7 +186,7 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, ref, onMouse
 );
 
 // 2. THE COSMIC POP (Dolphi)
-const CosmicPopCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
+const CosmicPopCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
     ref={ref}
     id={`venture-card-${project.id}`}
@@ -236,7 +239,7 @@ const CosmicPopCard = ({ project, title, desc, onClick, isHovered, ref, onMouseE
 );
 
 // 3. THE BRUTALIST (Productivity Illusion)
-const BrutalistCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
+const BrutalistCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
     ref={ref}
     id={`venture-card-${project.id}`}
@@ -256,7 +259,9 @@ const BrutalistCard = ({ project, title, desc, onClick, isHovered, ref, onMouseE
       <div className="p-8 h-full flex flex-col relative z-10">
         <div className="mb-auto">
           <div className="inline-block bg-[var(--accent-red)] text-white px-3 py-1 font-mono text-[10px] uppercase font-bold mb-4">
-            Research // Cognitive Mastery
+            {isIndonesian
+              ? "Riset // Penguasaan Kognitif"
+              : "Research // Cognitive Mastery"}
           </div>
           <h3 className="text-3xl md:text-2xl font-serif font-black italic uppercase leading-tight text-black dark:text-white mb-6">
             {title}
@@ -287,7 +292,7 @@ const BrutalistCard = ({ project, title, desc, onClick, isHovered, ref, onMouseE
 );
 
 // 4. THE BENTO MAGAZINE (Year in Review)
-const BentoCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
+const BentoCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
     ref={ref}
     id={`venture-card-${project.id}`}
@@ -332,7 +337,9 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter
             ))}
           </div>
           <span className="font-mono text-[9px] uppercase tracking-widest opacity-40">
-            Bento Mode // 1.0
+            {isIndonesian
+              ? "Mode Bento // 1.0"
+              : "Bento Mode // 1.0"}
           </span>
         </div>
       </div>
@@ -341,7 +348,7 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter
 );
 
 // 5. THE BLUEPRINT (Interactive Workbook)
-const BlueprintCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
+const BlueprintCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
     ref={ref}
     id={`venture-card-${project.id}`}
@@ -401,7 +408,9 @@ const BlueprintCard = ({ project, title, desc, onClick, isHovered, ref, onMouseE
           Height: 450px
         </div>
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[8px] font-mono text-blue-500/40 uppercase">
-          Conceptual Blueprint // Education
+          {isIndonesian
+            ? "Cetak Biru Konseptual // Edukasi"
+            : "Conceptual Blueprint // Education"}
         </div>
       </div>
     </BlindsReveal>
