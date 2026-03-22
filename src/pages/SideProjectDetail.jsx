@@ -217,18 +217,30 @@ const SideProjectDetail = () => {
       desc: resolveText(item.desc),
     }));
   };
-  const activeChallenge = resolveText(project.challenge) || resolveText(project.desc);
-  const activeProcess = resolveArray(project.designProcess || project.process);
-  const activeInsights = resolveArray(project.insights);
-  const activeSolution = resolveArray(project.solution);
-  const activeMetrics = project.metrics
-    ? project.metrics.map((m) => ({
+
+  const getLocalArray = (key) => (isIndonesian && project[`${key}_id`] ? project[`${key}_id`] : project[key]);
+
+  const activeChallenge =
+    (isIndonesian && project.challenge_id) ||
+    resolveText(project.challenge) ||
+    (isIndonesian && project.desc_id) ||
+    resolveText(project.desc);
+
+  const rawProcess = getLocalArray('designProcess') || getLocalArray('process');
+  const activeProcess = resolveArray(rawProcess);
+  const activeInsights = resolveArray(getLocalArray('insights'));
+  const activeSolution = resolveArray(getLocalArray('solution'));
+  
+  const rawMetrics = getLocalArray('metrics');
+  const activeMetrics = rawMetrics
+    ? rawMetrics.map((m) => ({
         ...m,
         label: resolveText(m.label),
         value: resolveText(m.value),
       }))
     : null;
-  const activeLearnings = resolveText(project.learnings);
+    
+  const activeLearnings = (isIndonesian && project.learnings_id) || resolveText(project.learnings);
 
   // Deeply resolved clone of project properties for sub-components (like project.type)
   const activeProject = {
