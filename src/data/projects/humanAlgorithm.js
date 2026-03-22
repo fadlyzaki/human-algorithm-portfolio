@@ -113,6 +113,14 @@ export const humanAlgorithm = {
       image: "airy:network",
     },
     {
+      title: { en: "The Humble Guide (Vaki API)", id: "Sang Pemandu yang Rendah Hati (API Vaki)" },
+      desc: {
+        en: "Instead of aggressive AI sales pitches, we engineered Vaki to be a candid, context-aware navigator. Using Vercel Edge Serverless functions, strict 'out-of-scope' prompt guardrails ensure the Gemini model only answers portfolio-relevant questions, guiding recruiters efficiently without hallucinating.",
+        id: "Berbeda dengan AI yang agresif, kami mendesain Vaki sebagai pemandu sadar konteks yang jujur. Menggunakan fungsi Vercel Serverless Edge, batasan ketat memastikan Gemini hanya menjawab pertanyaan terkait portofolio, memandu perekrut dengan aman tanpa halusinasi.",
+      },
+      image: "airy:radar",
+    },
+    {
       title: { en: "The Graveyard is the Lab", id: "Kuburan adalah Laboratorium" },
       desc: {
         en: "I shipped and killed 6+ major features (Hand Gesture ML, Kinetic Scroll Tracking, a monolithic /process route, Procurement Modules). Each removal was a deliberate product decision—not a failure—driven by Core Web Vitals, content focus, or mobile UX constraints. Documenting this archive publicly is itself a demonstration of product maturity.",
