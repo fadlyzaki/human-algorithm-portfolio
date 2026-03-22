@@ -159,14 +159,21 @@ const SideProjectDetail = () => {
   };
 
   // Content Resolution Fallbacks
+  const resolveText = (field, fallback) => {
+    if (!field) return fallback || null;
+    if (typeof field === "object" && field.en)
+      return isIndonesian ? field.id || field.en : field.en;
+    return field;
+  };
+
   const activeTitle =
-    isIndonesian && project.title_id ? project.title_id : project.title;
+    isIndonesian && project.title_id ? project.title_id : resolveText(project.title);
   const activeSubtitle =
     isIndonesian && project.subtitle_id
       ? project.subtitle_id
-      : project.subtitle;
+      : resolveText(project.subtitle);
   const activeTldr =
-    isIndonesian && project.tldr_id ? project.tldr_id : project.tldr;
+    isIndonesian && project.tldr_id ? project.tldr_id : resolveText(project.tldr);
 
   // Framework Data
   const rawSnapshot = project.snapshot || {};
@@ -201,12 +208,7 @@ const SideProjectDetail = () => {
       (isIndonesian && project.context_id?.team) || rawContext.team || "Solo",
   };
 
-  const resolveText = (field, fallback) => {
-    if (!field) return fallback || null;
-    if (typeof field === "object" && field.en)
-      return isIndonesian ? field.id || field.en : field.en;
-    return field;
-  };
+
   const resolveArray = (arr) => {
     if (!arr) return null;
     return arr.map((item) => ({

@@ -87,22 +87,33 @@ const AboutPage = () => {
   // --- DATA: KNOWLEDGE UPGRADES (Certifications) ---
   // Imported directly
 
-  // Chaos Style Generator
   const chaosStyle = useMemo(() => {
     if (chaosStrength === 0) return {};
 
-    // Use deterministic "randomness" based on chaosStrength to satisfy purity
-    // We add arbitrary multipliers to create pseudo-random distribution
     const s = chaosStrength;
-    const randomX = (Math.sin(s * 12.34) - 0.5) * s * 0.5;
-    const randomY = (Math.cos(s * 56.78) - 0.5) * s * 0.5;
-    const skew = (Math.sin(s * 90.12) - 0.5) * s * 0.1;
-    const blur = s * 0.05;
+    // Non-linear scaling: gets exponentially more chaotic toward 100
+    const intensity = Math.pow(s / 100, 2); 
+
+    const randomX = (Math.sin(s * 12.34)) * intensity * 60; // Up to 60px shake
+    const randomY = (Math.cos(s * 56.78)) * intensity * 30; // Up to 30px shake
+    const skew = (Math.sin(s * 90.12)) * intensity * 25; // Up to 25deg skew
+    const blur = intensity * 3; // Keep blur low enough to still see shapes
+    
+    // Aggressive color warping
+    const hueShift = intensity * 180; // Shift colors drastically
+    const contrast = 100 + (intensity * 150); // Up to 250% contrast
+    
+    // Strobe inversion kicks in at high chaos (>80)
+    const invert = s > 80 ? (Math.sin(s * 45.67) > 0 ? 100 : 0) : 0;
+    
+    // RGB Split effect
+    const splitDistance = intensity * 20;
+    const rgbSplit = `drop-shadow(${splitDistance}px 0 rgba(255,0,0,0.6)) drop-shadow(-${splitDistance}px ${splitDistance/2}px rgba(0,255,255,0.6))`;
 
     return {
-      transform: `translate(${randomX}px, ${randomY}px) skew(${skew}deg)`,
-      filter: `blur(${blur}px) contrast(${100 + s} %)`,
-      transition: "all 0.1s ease",
+      transform: `translate(${randomX}px, ${randomY}px) skew(${skew}deg) scale(${1 + intensity * 0.1})`,
+      filter: `blur(${blur}px) contrast(${contrast}%) hue-rotate(${hueShift}deg) invert(${invert}%) ${rgbSplit}`,
+      transition: "all 0.05s linear", // Faster transition for jerkier movement
     };
   }, [chaosStrength]);
 

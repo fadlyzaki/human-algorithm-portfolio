@@ -131,25 +131,26 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
                   div // Kinetic_Load
                 </span>
               )}
-              <div className="space-y-4 relative z-10">
-                <div className="space-y-2">
-                  <div className="flex justify-between font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
-                    <span>System Load</span>
-                    <span className="text-[var(--accent)]">84%</span>
+              <div className="space-y-6 relative z-10 p-6 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg">
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
+                    <span className="flex items-center gap-2"><Cpu size={12} className="text-[var(--accent)]" /> System Load</span>
+                    <span className="text-[var(--accent)] font-bold">84%</span>
                   </div>
-                  <div className="h-1 w-full bg-[var(--bg-void)] overflow-hidden">
-                    <div className="h-full bg-[var(--accent)] w-[84%] relative animate-pulse">
-                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-[var(--accent)] shadow-[0_0_10px_var(--accent)]"></div>
+                  <div className="h-1.5 w-full bg-[var(--bg-void)] overflow-hidden rounded-full border border-[var(--border-color)]">
+                    <div className="h-full bg-[var(--accent)] w-[84%] relative shadow-[0_0_10px_var(--accent)]">
+                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white shadow-[0_0_8px_white] rounded-full"></div>
                     </div>
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
-                    <span>Network Flux</span>
-                    <span className="text-[var(--accent-blue)]">62%</span>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
+                    <span className="flex items-center gap-2"><Zap size={12} className="text-[var(--accent-blue)]" /> Network Flux</span>
+                    <span className="text-[var(--accent-blue)] font-bold">62%</span>
                   </div>
-                  <div className="h-1 w-full bg-[var(--bg-void)] overflow-hidden">
-                    <div className="h-full bg-[var(--accent-blue)] w-[62%] relative opacity-70"></div>
+                  <div className="h-1.5 w-full bg-[var(--bg-void)] overflow-hidden rounded-full border border-[var(--border-color)]">
+                    <div className="h-full bg-[var(--accent-blue)] w-[62%] relative opacity-80 shadow-[0_0_10px_var(--accent-blue)]">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -228,11 +229,13 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
                   Primary_Directives
                 </label>
                 <div className="flex flex-wrap gap-4">
-                  <button className="bg-[var(--text-primary)] text-[var(--bg-void)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">
+                  <button className="group relative inline-flex items-center gap-2 px-6 py-3 bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent)] text-[var(--text-primary)] transition-all font-mono text-xs uppercase tracking-widest shadow-sm hover:shadow-[0_0_15px_-5px_var(--accent)]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] group-hover:animate-pulse"></span>
                     Primary Action
                   </button>
-                  <button className="px-6 py-3 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] text-xs font-bold uppercase tracking-widest transition-all">
+                  <button className="group relative inline-flex items-center gap-2 px-6 py-3 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-all font-mono text-xs uppercase tracking-widest bg-transparent">
                     Secondary
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity font-mono text-[10px]">&gt;</span>
                   </button>
                 </div>
               </div>
@@ -242,16 +245,18 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
                 <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
                   Terminal_Input
                 </label>
-                <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-[var(--accent)] text-xs">
-                    &gt;
-                  </span>
+                <div className="relative group">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 p-1.5 bg-[var(--bg-void)] rounded text-[var(--accent)] border border-transparent group-focus-within:border-[var(--accent)]/30 transition-colors">
+                    <Terminal size={12} />
+                  </div>
                   <input
                     type="text"
-                    placeholder="Awaiting command..."
-                    className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] p-3 pl-8 font-mono text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] transition-colors placeholder:text-[var(--text-secondary)]/50"
-                    readOnly
+                    placeholder="Awaiting command_ sequence..."
+                    className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] p-4 pl-12 font-mono text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]/20 transition-all placeholder:text-[var(--text-secondary)]/40 rounded-sm"
                   />
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[9px] uppercase tracking-widest text-[var(--text-secondary)] font-mono opacity-0 group-focus-within:opacity-100 transition-opacity">
+                    [ENTER] TO SUBMIT
+                  </div>
                 </div>
               </div>
             </div>

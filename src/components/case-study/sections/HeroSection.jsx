@@ -63,35 +63,6 @@ const HeroSection = ({ project, caseData, isId, t }) => {
         </div>
       </div>
 
-      {/* NEURAL SUMMARY: AI-Generated TL;DR */}
-      <div className="mt-16 w-full max-w-4xl mx-auto">
-        <div className="bg-white dark:bg-[var(--bg-surface)] border border-[var(--brand)]/30 rounded-2xl p-6 md:p-8 text-left relative overflow-hidden group hover:border-[var(--brand)]/60 transition-all shadow-xl dark:shadow-[0_0_30px_-10px_rgba(var(--bg-void-rgb), 0.5)]">
-          <div className="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-10 transition-opacity">
-            <Activity size={48} className="text-[var(--brand)]" />
-          </div>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-8 rounded-lg bg-[var(--brand)]/10 flex items-center justify-center text-[var(--brand)] border border-[var(--brand)]/20">
-              <ScanEye size={18} />
-            </div>
-            <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--brand)] font-bold">
-              Neural_Summary // AI_TL;DR
-            </span>
-          </div>
-          <p className="text-lg md:text-xl font-serif italic text-black dark:text-gray-200 leading-relaxed relative z-10">
-            {caseData.neuralSummary ||
-              caseData.summaries?.recruiter?.text ||
-              caseData.summaries?.eli5?.text ||
-              "Neural engine synthesizing project core... This project demonstrates the intersection of complex systems logic and human-centered resilience."}
-          </p>
-          <div className="mt-4 flex items-center gap-4 text-[10px] font-mono uppercase tracking-widest opacity-40">
-            <span className="flex items-center gap-1">
-              <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] animate-pulse" />
-              Confidence: 98.4%
-            </span>
-            <span>Ver: 4.2.0-stable</span>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };

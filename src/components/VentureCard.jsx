@@ -55,14 +55,22 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
     };
   }, [project.id]);
 
+  const resolveText = (field) => {
+    if (!field) return "";
+    if (typeof field === "object") {
+      return isIndonesian ? field.id || field.en : field.en;
+    }
+    return field;
+  };
+
   const title =
     isIndonesian && project.title_id
       ? project.title_id
-      : project.title?.en || project.title;
+      : resolveText(project.title);
   const desc =
     isIndonesian && project.desc_id
       ? project.desc_id
-      : project.desc?.en || project.desc;
+      : resolveText(project.desc);
 
   // Dynamic Archetype Selection
   const commonProps = {

@@ -29,7 +29,7 @@ export default async function handler(req) {
     }
 
     const payload = {
-      system_instruction: {
+      systemInstruction: {
         parts: [{ text: SYSTEM_INSTRUCTION }]
       },
       contents: [
@@ -70,7 +70,7 @@ export default async function handler(req) {
     });
   } catch (error) {
     console.error("Vaki Chat API Error:", error);
-    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
+    return new Response(JSON.stringify({ error: error.message || "Internal Server Error" }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });
