@@ -25,6 +25,8 @@ dist-ssr
 .env
 
 # Private documents
+docs/job_hunting.md
+docs/job-analysis/
 docs/
 .skills/
 *.skill

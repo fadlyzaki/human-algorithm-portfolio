@@ -60,12 +60,12 @@ export const humanAlgorithm = {
     },
     {
       title: {
-        en: "Current Feature: The Companion Protocol",
-        id: "Fitur Saat Ini: Protokol Pendamping",
+        en: "Agentic Update: The Companion Protocol (Vaki)",
+        id: "Pembaruan Agentic: Protokol Pendamping (Vaki)",
       },
       desc: {
-        en: "Implemented an autonomous 'Virtual Assistant' sprite that actively parses the current viewport's URL slug to provide localized, context-aware AI commentary, simulating a live pair-design session across distinct languages and recruiter modes.",
-        id: "Mengimplementasikan sprite 'Asisten Virtual' otonom yang secara aktif mengurai slug URL viewport saat ini untuk memberikan komentar AI sadar konteks yang dilokalkan, mensimulasikan sesi desain berpasangan langsung di berbagai bahasa dan mode perekrut.",
+        en: "Upgraded the Virtual Assistant (Vaki) from a static rule-based tooltip into a live conversational agent using Vercel Serverless Edge Functions and the Gemini 1.5 Flash API. Features native Chat UI and a 1-click 'Cognitive Load TL;DR' summarizing specific case studies in real-time.",
+        id: "Meningkatkan Asisten Virtual (Vaki) dari tooltip statis berbasis aturan menjadi agen percakapan langsung menggunakan Vercel Serverless Edge Functions dan Gemini 1.5 Flash API. Dilengkapi UI Obrolan asli dan 'Cognitive Load TL;DR' 1-klik untuk merangkum studi kasus secara real-time.",
       },
       image: "airy:network",
     },

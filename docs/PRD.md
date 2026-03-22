@@ -4,7 +4,7 @@
 **Product Name:** Human Algorithm (Portfolio Platform)
 **Product Owner:** Fadly Uzzaki (Senior Product Designer · Trust Engineering)
 **Target Domain:** B2B System Design & High-Converting Talent Acquisition Assets
-**Version:** 8.0 — *Kinetic Resilience Update*
+**Version:** 8.1 — *The Agentic Reality Update*
 
 ### The North Star
 The "Human Algorithm" is not a standard digital portfolio—it is an *Interactive Manifesto* and our primary acquisition wedge. We build a high-performance, narrative-driven platform that physically deploys our core thesis: "Designing where software logic meets human intuition."
@@ -152,6 +152,10 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **Component**: `MagneticTooltip.jsx`
 *   **Capability**: Zero-latency mouse tracking for contextual labels (e.g., "[ READ PROTOCOL ]") over interactive grids, enhancing tactical feedback.
 
+### 6.22 Automated Opportunity Analysis & Strategy
+*   **Documentation**: `docs/job_hunting.md`, `docs/job-analysis/`
+*   **Capability**: Systematic ingestion and Agentic generation of >30 strategic job fit analyses, ranked natively within the portfolio docs to auto-generate a targeted B2B/Enterprise application campaign.
+
 ## 7. UX Audit Post-Mortem & System Governance
 *   **Affordance Clarity**: Physical grip visuals on `ChaosSlider`.
 *   **Signal-to-Noise Optimization**: Purged superfluous decorative text.
@@ -170,9 +174,10 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **[COMPLETED]** `vitest` structural reliability baseline.
 
 ### Phase 2: Autonomous Intelligence & Spatial Adaptation ✅
-*   **[COMPLETED]** Context-aware AI assistant with localized route-mapping.
+*   **[COMPLETED]** Vaki Agentic Upgrade: Gemini 1.5 Flash-powered chat assistant via Vercel Edge Serverless functions.
+*   **[COMPLETED]** Agentic "TL;DR" cognitive load summarization engine for deep reading nodes.
 *   **[COMPLETED]** Agentic Design System documentation.
-*   **[COMPLETED]** v7.0 System Synchronization.
+*   **[COMPLETED]** Automated Job Analysis engine & strategic ranking system.
 
 ### Phase 3: Kinetic Resilience & Polish ✅ (Current)
 *   **[COMPLETED]** Framer Motion spring physics migration across all animation surfaces (Navbar, NavigationMenu, WorkBento, Footer, ScrollReveal).
@@ -199,6 +204,6 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 
 ---
 **Document Status**: *ACTIVE*
-**Last Updated**: March 2026 · v8.0
+**Last Updated**: March 2026 · v8.1
 **Product Strategy**: Fadly Uzzaki
 *Optimizing for human bandwidth. Operating at the intersection of complex constraints and profound simplicity.*

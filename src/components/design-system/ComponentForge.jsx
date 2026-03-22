@@ -380,19 +380,20 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
 
           <div className="space-y-6">
             <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2">
-              Context_Aware_Logic // TL;DR Protocols
+              Gemini_Agentic_Logic // Edge Protocols
             </h4>
             <div className="bg-[var(--bg-card)] p-6 border border-[var(--border-color)] space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[var(--accent-blue)]" />
-                <span className="font-mono text-[10px] uppercase tracking-widest">Route Recognition</span>
+                <div className="w-2 h-2 rounded-full bg-[var(--accent-blue)] animate-pulse" />
+                <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--accent-blue)]">Live LLM Connection Active</span>
               </div>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                The agent maps `location.pathname` segments to specific context strings in `translations.js`. If no match exists, it falls back to a structural generic message.
+                The agent intercepts chat and TL;DR commands, injecting the portfolio context directly into a secure <span className="text-[var(--text-primary)] font-mono">/api/vaki-chat</span> Serverless Edge Function powered by Gemini 1.5 Flash.
               </p>
               <div className="p-3 bg-[var(--bg-void)] rounded font-mono text-[9px] text-[var(--text-primary)]">
-                &gt; GET /case-study/workforce-chat<br/>
-                &gt; LOADING: virtual_assistant.context.workforce-chat
+                &gt; POST /api/vaki-chat<br/>
+                &gt; PAYLOAD: &#123; message, currentPath &#125;<br/>
+                &gt; STATUS: 200 OK (85ms latency)
               </div>
             </div>
           </div>

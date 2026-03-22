@@ -69,8 +69,8 @@ Canvas-based scratch-to-reveal interaction for contact information. Enforces use
 ### 13. SpringPhysics Cursor Engine (`CustomCursor.jsx`)
 Framer Motion spring-driven custom cursor with magnetic attraction to interactive elements. Documented in Design System's `LayoutLab`.
 
-### 14. The Companion Protocol (`VirtualAssistant.jsx`)
-Context-aware AI sprite companion providing route-specific "Pair Design" commentary. Hidden on 404 pages where a pixel-art survival game takes over.
+### 14. The Intelligence Engine: True Agentic UX (Vaki)
+Context-aware Gemini 1.5 Flash-powered AI sprite companion. Provides real-time "Pair Design" commentary, deep Q&A about portfolio contents, and a 1-click "Cognitive Load TL;DR" case study summarization. Safely bridged via a secure Vercel Edge Serverless function (`api/vaki-chat.js`). Hidden on the 404 pixel-art survival game.
 
 ### 15. The Narrative Gateway (`ChaosToMatrixIntro.jsx`)
 Cinematic boot protocol with chaotic terminal sequence resolving into structured UI. Pre-loads React chunks in background. `[ Skip to Content ]` kill-switch for instant bypass.

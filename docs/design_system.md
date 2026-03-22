@@ -106,6 +106,7 @@ Based on Tailwind defaults:
 
 ### 3. Feature Components
 *   **AiryDiagram**: Clean, technical diagrams for case studies. Uses React Flow or SVG.
+*   **VirtualAssistant (Vaki)**: Gemini 1.5 Flash-powered conversational AI sprite. Features real-time RAG chat UI and 1-click case-study cognitive load TL;DRs served securely via Vercel Edge functions.
 *   **Diagrams Library**: A comprehensive set of specialized technical diagrams located in `src/components/diagrams/`, including:
     *   **ArchitectureDiagram**: System component relationships.
     *   **FlowDiagram**: Sequence and logic flows.
