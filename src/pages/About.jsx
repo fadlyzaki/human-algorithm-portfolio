@@ -123,7 +123,7 @@ const AboutPage = () => {
     >
       <SEO
         title="About Fadly Uzzaki"
-        description="Learn about Fadly Uzzaki (Fadlyzaki) — Senior Product Designer with expertise in B2B SaaS, EdTech, and human-centered systems design. Career timeline, certifications, and design philosophy."
+        description="Learn about Fadly Uzzaki (Fadlyzaki)  -  Senior Product Designer with expertise in B2B SaaS, EdTech, and human-centered systems design. Career timeline, certifications, and design philosophy."
       />
 
       {/* 1. TEXTURE & LIGHTING */}

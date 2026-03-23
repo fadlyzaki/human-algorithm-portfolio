@@ -10,7 +10,7 @@ const ChaosCanvas = lazy(() => import("../components/ChaosCanvas"));
 const DesignSystem = () => {
   const { isDark } = useTheme();
 
-  // Only page-specific accent override needed — core tokens come from index.css
+  // Only page-specific accent override needed  -  core tokens come from index.css
   const themeStyles = {
     "--accent": isDark ? "some" : "some", // Amber for System
   };
@@ -21,7 +21,7 @@ const DesignSystem = () => {
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white"
     >
       <SEO
-        title="Design System — Human Algorithm"
+        title="Design System  -  Human Algorithm"
         description="Live design system and component library powering Fadly Uzzaki's Human Algorithm portfolio. Explore tokens, components, and interaction patterns."
         image="/og-square.png"
       />

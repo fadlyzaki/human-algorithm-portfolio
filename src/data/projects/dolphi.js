@@ -44,8 +44,8 @@ export const dolphi = {
     {
       title: { en: "Mechanic: Streak Saves", id: "Mekanik: Penyelamat Streak" },
       desc: {
-        en: "Anxiety kills consistency. We introduced 'Shields'—a forgiveness mechanic where a missed day consumes a shield instead of resetting the global streak. This prioritizes persistence over perfection.",
-        id: "Kecemasan membunuh konsistensi. Kami memperkenalkan 'Perisai'—mekanisme pengampunan di mana hari yang terlewat memakan perisai, bukan mereset statistik.",
+        en: "Anxiety kills consistency. We introduced a forgiveness mechanic called 'Shields' where a missed day consumes a shield instead of resetting the global streak. This prioritizes persistence over perfection.",
+        id: "Kecemasan membunuh konsistensi. Kami memperkenalkan mekanisme pengampunan bernama 'Perisai' di mana absen harian akan mengonsumsi perisai alih-alih mereset sebuah statistik mutlak.",
       },
       image: "airy:shield",
     },

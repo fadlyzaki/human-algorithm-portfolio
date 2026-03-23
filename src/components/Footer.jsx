@@ -20,7 +20,7 @@ import ContactScratch from "./ContactScratch";
 import { SYSTEM_CONFIG } from "../config/constants";
 
 /**
- * FooterTooltipLink — Pill-shaped tooltip with icon + CTA text.
+ * FooterTooltipLink  -  Pill-shaped tooltip with icon + CTA text.
  * Inspired by footer-tooltip.learnframer.site
  */
 const FooterTooltipLink = ({
@@ -102,7 +102,7 @@ const FooterTooltipLink = ({
 import { motion, AnimatePresence } from "framer-motion";
 
 /**
- * DynamicDeliverable — Auto-cycling & Clickable text for footer headline
+ * DynamicDeliverable  -  Auto-cycling & Clickable text for footer headline
  */
 const DynamicDeliverable = ({ words }) => {
   const [index, setIndex] = useState(0);

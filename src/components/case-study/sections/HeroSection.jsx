@@ -58,7 +58,7 @@ const HeroSection = ({ project, caseData, isId, t }) => {
             priority={true}
           />
           <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-white dark:text-black bg-black/80 dark:bg-white/80 border border-[var(--border-color)] px-3 py-2 rounded shadow-xl hidden">
-            Fig. 1.0 — System Architecture
+            Fig. 1.0  -  System Architecture
           </div>
         </div>
       </div>

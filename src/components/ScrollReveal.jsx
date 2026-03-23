@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 /**
- * ScrollReveal — Hardware-accelerated entry animation using framer-motion.
+ * ScrollReveal  -  Hardware-accelerated entry animation using framer-motion.
  * Provides a premium, spring-based scroll reveal effect.
  */
 const ScrollReveal = ({

@@ -68,7 +68,7 @@ const CompanyDetail = () => {
       className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--brand)] selection:text-white"
     >
       <SEO
-        title={`${cluster.company} — ${cluster.title}`}
+        title={`${cluster.company}  -  ${cluster.title}`}
         description={isId ? cluster.hook_id || cluster.hook : cluster.hook}
         image={cluster.logo}
         type="article"

@@ -15,8 +15,8 @@ const SEO = ({
   const siteUrl = "https://fadlyzaki-design.vercel.app";
   const canonicalUrl = `${siteUrl}${pathname}`;
   const fullTitle = title
-    ? `${title} | Fadly Uzzaki — Product Designer`
-    : "Fadly Uzzaki — Product Designer · Systems Thinker";
+    ? `${title} | Fadly Uzzaki  -  Product Designer`
+    : "Fadly Uzzaki  -  Product Designer · Systems Thinker";
   const defaultDesc =
     "Product Designer & Systems Thinker specializing in B2B SaaS, EdTech, and human-centered design. Building resilient tools for people who need them to just work.";
   const metaDesc = description || defaultDesc;
@@ -26,7 +26,7 @@ const SEO = ({
   const structuredData = schema || {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Fadly Uzzaki — Product Designer",
+    name: "Fadly Uzzaki  -  Product Designer",
     url: siteUrl,
     description: defaultDesc,
     author: {
@@ -53,7 +53,7 @@ const SEO = ({
       <meta property="og:image" content={metaImage} />
       <meta property="og:locale" content="en_US" />
       <meta property="og:locale:alternate" content="id_ID" />
-      <meta property="og:site_name" content="Fadly Uzzaki — Product Designer" />
+      <meta property="og:site_name" content="Fadly Uzzaki  -  Product Designer" />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />

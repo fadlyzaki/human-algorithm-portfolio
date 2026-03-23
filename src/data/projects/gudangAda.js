@@ -39,7 +39,7 @@ export const gudangAda = {
   culture: {
     title: "The Arena",
     description:
-      "As Product Designer 2, I orchestrated the digital transformation of a traditional supply chain. Beyond pixels, I built the design culture from scratch—establishing Design Ops, mentoring a growing team, and bridging the gap between chaotic offline markets and intuitive digital tools.",
+      "As Product Designer 2, I orchestrated the digital transformation of a traditional supply chain. Beyond pixels, I built the design culture from scratch - establishing Design Ops, mentoring a growing team, and bridging the gap between chaotic offline markets and intuitive digital tools.",
     disclaimer:
       "If anyone on the team is uncomfortable with their image being featured here, please reach out to me and I'll remove it immediately.",
     layout: "symmetric-grid",
@@ -507,7 +507,7 @@ export const gudangAda = {
           {
             tech: "Real-time Analytics & Personalization",
             title: "Dynamic Store Personalization",
-            desc: "Store layout auto-adjusts based on visitor behavior—showing trending products to browsers and reorder suggestions to returning buyers.",
+            desc: "Store layout auto-adjusts based on visitor behavior - showing trending products to browsers and reorder suggestions to returning buyers.",
             impact: "Higher Store Conversion",
           },
           {
@@ -609,7 +609,7 @@ export const gudangAda = {
           {
             tech: "Real-time Analytics & Personalization",
             title: "Personalisasi Toko Dinamis",
-            desc: "Layout toko auto-adjust berdasarkan perilaku pengunjung—menampilkan produk trending ke browser dan saran reorder ke pembeli langganan.",
+            desc: "Layout toko auto-adjust berdasarkan perilaku pengunjung - menampilkan produk trending ke browser dan saran reorder ke pembeli langganan.",
             impact: "Konversi Lebih Tinggi",
           },
           {

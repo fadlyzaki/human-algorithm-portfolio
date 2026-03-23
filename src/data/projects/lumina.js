@@ -646,7 +646,7 @@ export const lumina = {
           { label: "Trust", value: "High Candidate Trust" },
         ],
         learnings:
-          "Lowering the barrier to entry increases volume, but you need checks for quality. Voice notes were the perfect middle ground—easy to send, but rich in signal.",
+          "Lowering the barrier to entry increases volume, but you need checks for quality. Voice notes were the perfect middle ground - easy to send, but rich in signal.",
         designProcess: [
           {
             type: "research",
@@ -794,7 +794,7 @@ export const lumina = {
           { label: "Trust", value: "Kepercayaan Tinggi" },
         ],
         learnings:
-          "Nurunin hambatan masuk ningkatin volume, tapi butuh filter kualitas. Voice note itu jalan tengah sempurna—gampang dikirim, tapi kaya info.",
+          "Nurunin hambatan masuk ningkatin volume, tapi butuh filter kualitas. Voice note itu jalan tengah sempurna - gampang dikirim, tapi kaya info.",
         aiHypotheses: [
           {
             tech: "Audio-ke-Data-Terstruktur (Whisper)",

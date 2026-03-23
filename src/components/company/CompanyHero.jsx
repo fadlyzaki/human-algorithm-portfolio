@@ -37,7 +37,7 @@ const CompanyHero = ({
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-8 bg-[var(--brand)]"></div>
               <span className="text-[var(--brand)] font-mono text-xs uppercase tracking-[0.2em]">
-                {cluster.company} — {cluster.title}
+                {cluster.company}  -  {cluster.title}
               </span>
             </div>
             <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif italic mb-8 leading-[0.9] tracking-tight">

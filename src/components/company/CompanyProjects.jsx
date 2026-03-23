@@ -94,18 +94,18 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
         className="relative h-[400px]"
         style={{ clipPath: "inset(-8px -4px -10px -4px)" }}
       >
-        {/* ——— INNER LAYER: "Documents Inside the Folder" ——— */}
+        {/*  -  -  -  INNER LAYER: "Documents Inside the Folder"  -  -  -  */}
         <div className="absolute inset-0 rounded-2xl rounded-tl-none border border-[var(--border-color)] bg-[var(--bg-card)]">
           {/* Stacked paper edge lines for depth */}
           <div className="absolute -bottom-[3px] left-3 right-3 h-[3px] rounded-b-xl bg-[var(--bg-card)] border border-t-0 border-[var(--border-color)] opacity-60" />
           <div className="absolute -bottom-[6px] left-6 right-6 h-[3px] rounded-b-xl bg-[var(--bg-card)] border border-t-0 border-[var(--border-color)] opacity-30" />
 
-          {/* Inner Content — problem/outcome at bottom so it's revealed by cover lift */}
+          {/* Inner Content  -  problem/outcome at bottom so it's revealed by cover lift */}
           <div
             ref={innerRef}
             className="absolute bottom-0 left-0 right-0 p-5 pb-6"
           >
-            {/* Problem / Outcome Grid (bottom area — visible when cover peeks) */}
+            {/* Problem / Outcome Grid (bottom area  -  visible when cover peeks) */}
             <div className="grid grid-cols-2 gap-5 mb-4">
               <div className="space-y-2">
                 <span className="font-mono text-[9px] uppercase tracking-[0.2em] flex items-center gap-1.5 text-red-400">
@@ -151,7 +151,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
           </div>
         </div>
 
-        {/* ——— COVER LAYER: Lifts to reveal documents ——— */}
+        {/*  -  -  -  COVER LAYER: Lifts to reveal documents  -  -  -  */}
         <motion.div
           className="absolute inset-0 z-10 rounded-2xl rounded-tl-none"
           style={{

@@ -1,8 +1,8 @@
 # The Human Algorithm: System Architecture v4.0
 
-> **Engineering Philosophy:** *"Software is a physical constraint applied to human behavior. We do not just build interfaces; we engineer resilient systems where algorithmic enforcement meets human intuition—with zero frame drops and zero cognitive friction."*
+> **Engineering Philosophy:** *"Software is a physical constraint applied to human behavior. We do not just build interfaces; we engineer resilient systems where algorithmic enforcement meets human intuition - with zero frame drops and zero cognitive friction."*
 
-Welcome to the source matrix of **[fadlyzaki-design.vercel.app](https://fadlyzaki-design.vercel.app/)** — a production-grade, highly experimental Single Page Application (SPA).
+Welcome to the source matrix of **[fadlyzaki-design.vercel.app](https://fadlyzaki-design.vercel.app/)** - a production-grade, highly experimental Single Page Application (SPA).
 
 This repository is deliberately over-engineered. It is not a static portfolio; it is an *Interactive Manifesto* and the definitive proof of work for Fadly Uzzaki, Senior Product Designer specializing in Trust Engineering. Designed for the scrutiny of Product and Engineering leadership, this system proves the capacity to ingest chaotic business logic, tame systemic B2B complexity, and output deeply resilient, accessible workflows.
 
@@ -16,10 +16,10 @@ This repository is deliberately over-engineered. It is not a static portfolio; i
 
 A robust system is measured by its fault tolerance, Developer Experience (DevX), and render budget. We utilize a modern, highly optimized edge-native stack tailored for O(1) velocity and 60fps tactile interfaces.
 
-* **The Engine**: **React 18 + Vite** — Blazing fast HMR, isolated module reloading, and aggressive Rollup tree-shaking. Includes a **Vitest/jsdom** CI testing baseline.
-* **The Physics**: **Framer Motion** — GPU-accelerated CSS transforms (`translate3d`, `scale`) and spring-based `layoutId` animations. All major interaction surfaces (Navbar, NavigationMenu, Footer, WorkBento, ScrollReveal) operate on spring physics with added **rotational character** (sliding pill transitions) for 60fps consistency.
-* **The Syntax**: **Tailwind CSS** — Utility-first styling architecture with strict design token adherence via CSS custom properties (`var(--text-primary)`, `var(--bg-void)`).
-* **The Edge**: **Vercel Edge Network** — Edge Middleware for bot-detection and dynamic OpenGraph image generation via `@vercel/og`.
+* **The Engine**: **React 18 + Vite** - Blazing fast HMR, isolated module reloading, and aggressive Rollup tree-shaking. Includes a **Vitest/jsdom** CI testing baseline.
+* **The Physics**: **Framer Motion** - GPU-accelerated CSS transforms (`translate3d`, `scale`) and spring-based `layoutId` animations. All major interaction surfaces (Navbar, NavigationMenu, Footer, WorkBento, ScrollReveal) operate on spring physics with added **rotational character** (sliding pill transitions) for 60fps consistency.
+* **The Syntax**: **Tailwind CSS** - Utility-first styling architecture with strict design token adherence via CSS custom properties (`var(--text-primary)`, `var(--bg-void)`).
+* **The Edge**: **Vercel Edge Network** - Edge Middleware for bot-detection and dynamic OpenGraph image generation via `@vercel/og`.
 
 ## ⚡ Performance Budget & Rendering Strategy
 
@@ -69,8 +69,8 @@ Canvas-based scratch-to-reveal interaction for contact information. Enforces use
 ### 13. SpringPhysics Cursor Engine (`CustomCursor.jsx`)
 Framer Motion spring-driven custom cursor with magnetic attraction to interactive elements. Documented in Design System's `LayoutLab`.
 
-### 14. The Intelligence Engine: True Agentic UX (Vaki)
-Context-aware Gemini 1.5 Flash-powered AI sprite companion. Provides real-time "Pair Design" commentary, deep Q&A about portfolio contents, and a 1-click "Cognitive Load TL;DR" case study summarization. Safely bridged via a secure Vercel Edge Serverless function (`api/vaki-chat.js`). Hidden on the 404 pixel-art survival game.
+### 14. The Intelligence Engine: True Agentic UX (Echo.Z)
+Context-aware Gemini 1.5 Flash-powered AI sprite companion. Provides real-time "Pair Design" commentary, deep Q&A about portfolio contents, and a 1-click "Cognitive Load TL;DR" case study summarization. Safely bridged via a secure Vercel Edge Serverless function (`api/echoz-chat.js`). Hidden on the 404 pixel-art survival game.
 
 ### 15. The Narrative Gateway (`ChaosToMatrixIntro.jsx`)
 Cinematic boot protocol with chaotic terminal sequence resolving into structured UI. Pre-loads React chunks in background. `[ Skip to Content ]` kill-switch for instant bypass.

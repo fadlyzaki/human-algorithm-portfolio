@@ -7,8 +7,8 @@ export const humanAlgorithm = {
     id: "Portofolio sadar diri dan laboratorium eksperimental yang dibangun oleh agen AI. Menampilkan 6 mesin layout polimorfik, pendamping AI sadar konteks, dan koleksi eksperimen usang yang indah.",
   },
   tldr: {
-    en: "The first portfolio built entirely through an Agentic Workflow. v8.0 documents every experiment—shipped and killed—proving that knowing what to cut is as important as what to build.",
-    id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. v8.0 mendokumentasikan setiap eksperimen—yang dirilis dan dimatikan—membuktikan bahwa tahu apa yang harus dipotong sama pentingnya dengan apa yang harus dibangun.",
+    en: "The first portfolio built entirely through an Agentic Workflow. v8.0 documents every shipped and killed experiment, proving that knowing what to cut is just as important as knowing what to build.",
+    id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. v8.0 mendokumentasikan setiap rilis dan fitur yang dibatalkan, membuktikan bahwa tahu apa yang harus dipotong sama pentingnya dengan apa yang ingin dibangun.",
   },
   stack: ["React", "Framer Motion", "Three.js", "Vite", "Tailwind"],
   links: {
@@ -32,8 +32,8 @@ export const humanAlgorithm = {
     client: { en: "Personal Brand", id: "Personal Brand" },
   },
   challenge: {
-    en: "The Market Gap: Traditional portfolios are static artifacts that fail to demonstrate *how* a designer thinks in the age of AI. They show the 'what', but miss the 'shift'—the transition from creator to conductor.",
-    id: "Celah Pasar: Portofolio tradisional adalah artefak statis yang gagal menunjukkan *bagaimana* seorang desainer berpikir di era AI. Mereka menunjukkan 'apa', tetapi melewatkan 'pergeseran'—transisi dari pencipta menjadi konduktor.",
+    en: "The Market Gap: Traditional portfolios are static artifacts that fail to demonstrate *how* a designer thinks in the age of AI. They show the 'what' but completely miss the crucial transition from creator to conductor.",
+    id: "Celah Pasar: Portofolio tradisional adalah artefak statis yang gagal menunjukkan *bagaimana* seorang desainer berpikir di era AI. Mereka menunjukkan 'apa' tetapi sepenuhnya melewatkan proses transisi krusial dari seorang kreator menjadi konduktor.",
   },
   process: [
     {
@@ -60,12 +60,12 @@ export const humanAlgorithm = {
     },
     {
       title: {
-        en: "Agentic Update: The Companion Protocol (Vaki)",
-        id: "Pembaruan Agentic: Protokol Pendamping (Vaki)",
+        en: "Agentic Update: The Companion Protocol (Echo.Z)",
+        id: "Pembaruan Agentic: Protokol Pendamping (Echo.Z)",
       },
       desc: {
-        en: "Upgraded the Virtual Assistant (Vaki) from a static rule-based tooltip into a live conversational agent using Vercel Serverless Edge Functions and the Gemini 1.5 Flash API. Features native Chat UI and a 1-click 'Cognitive Load TL;DR' summarizing specific case studies in real-time.",
-        id: "Meningkatkan Asisten Virtual (Vaki) dari tooltip statis berbasis aturan menjadi agen percakapan langsung menggunakan Vercel Serverless Edge Functions dan Gemini 1.5 Flash API. Dilengkapi UI Obrolan asli dan 'Cognitive Load TL;DR' 1-klik untuk merangkum studi kasus secara real-time.",
+        en: "Upgraded the Virtual Assistant (Echo.Z) from a static rule-based tooltip into a live conversational agent using Vercel Serverless Edge Functions and the Gemini 1.5 Flash API. Features native Chat UI and a 1-click 'Cognitive Load TL;DR' summarizing specific case studies in real-time.",
+        id: "Meningkatkan Asisten Virtual (Echo.Z) dari tooltip statis berbasis aturan menjadi agen percakapan langsung menggunakan Vercel Serverless Edge Functions dan Gemini 1.5 Flash API. Dilengkapi UI Obrolan asli dan 'Cognitive Load TL;DR' 1-klik untuk merangkum studi kasus secara real-time.",
       },
       image: "airy:network",
     },
@@ -75,8 +75,8 @@ export const humanAlgorithm = {
         id: "Eksperimen 01: Lensa Dekripsi (Usang)",
       },
       desc: {
-        en: "I built a hyper-tactile 'Decryption Lens' utilizing MediaPipe WASM for live webcam hand-gesture tracking. It was fully functional—allowing you to navigate the site by grabbing air to uncover hidden 3D assets. I killed it. The heavy ML payload severely damaged the 3G Time-To-Interactive metrics.",
-        id: "Saya membangun 'Lensa Dekripsi' hiper-taktil menggunakan MediaPipe WASM untuk pelacakan gerakan tangan webcam langsung. Fiturnya berfungsi penuh—memungkinkan Anda menavigasi situs dengan meraih udara untuk mengungkap aset 3D tersembunyi. Saya mematikannya. Beban ML yang berat sangat merusak metrik Time-To-Interactive di 3G.",
+        en: "I built a hyper-tactile 'Decryption Lens' utilizing MediaPipe WASM for live webcam hand-gesture tracking. It was fully functional, allowing you to completely navigate the site by grabbing air to uncover hidden 3D assets. I killed it. The heavy ML payload severely damaged the 3G Time-To-Interactive metrics.",
+        id: "Saya membangun 'Lensa Dekripsi' hiper-taktil menggunakan MediaPipe WASM untuk pelacakan gerakan tangan webcam langsung. Fiturnya berfungsi penuh yang memungkinkan Anda menavigasi situs secara utuh dengan meraih udara untuk mengungkap aset 3D tersembunyi. Saya mematikannya. Beban ML yang berat sangat merusak metrik Time-To-Interactive di 3G.",
       },
       image: "airy:cycle",
     },
@@ -113,18 +113,18 @@ export const humanAlgorithm = {
       image: "airy:network",
     },
     {
-      title: { en: "The Humble Guide (Vaki API)", id: "Sang Pemandu yang Rendah Hati (API Vaki)" },
+      title: { en: "The Humble Guide (Echo.Z API)", id: "Sang Pemandu yang Rendah Hati (API Echo.Z)" },
       desc: {
-        en: "Instead of aggressive AI sales pitches, we engineered Vaki to be a candid, context-aware navigator. Using Vercel Edge Serverless functions, strict 'out-of-scope' prompt guardrails ensure the Gemini model only answers portfolio-relevant questions, guiding recruiters efficiently without hallucinating.",
-        id: "Berbeda dengan AI yang agresif, kami mendesain Vaki sebagai pemandu sadar konteks yang jujur. Menggunakan fungsi Vercel Serverless Edge, batasan ketat memastikan Gemini hanya menjawab pertanyaan terkait portofolio, memandu perekrut dengan aman tanpa halusinasi.",
+        en: "Instead of aggressive AI sales pitches, we engineered Echo.Z to be a candid, context-aware navigator. Using Vercel Edge Serverless functions, strict 'out-of-scope' prompt guardrails ensure the Gemini model only answers portfolio-relevant questions, guiding recruiters efficiently without hallucinating.",
+        id: "Berbeda dengan AI yang agresif, kami mendesain Echo.Z sebagai pemandu sadar konteks yang jujur. Menggunakan fungsi Vercel Serverless Edge, batasan ketat memastikan Gemini hanya menjawab pertanyaan terkait portofolio, memandu perekrut dengan aman tanpa halusinasi.",
       },
       image: "airy:radar",
     },
     {
       title: { en: "The Graveyard is the Lab", id: "Kuburan adalah Laboratorium" },
       desc: {
-        en: "I shipped and killed 6+ major features (Hand Gesture ML, Kinetic Scroll Tracking, a monolithic /process route, Procurement Modules). Each removal was a deliberate product decision—not a failure—driven by Core Web Vitals, content focus, or mobile UX constraints. Documenting this archive publicly is itself a demonstration of product maturity.",
-        id: "Saya merilis dan mematikan 6+ fitur utama (ML Gestur Tangan, Pelacakan Scroll Kinetik, rute /process monolitik, Modul Pengadaan). Setiap penghapusan adalah keputusan produk yang disengaja—bukan kegagalan—didorong oleh Core Web Vitals, fokus konten, atau batasan UX seluler. Mendokumentasikan arsip ini secara publik itu sendiri adalah demonstrasi kematangan produk.",
+        en: "I shipped and killed 6+ major features (Hand Gesture ML, Kinetic Scroll Tracking, a monolithic /process route, Procurement Modules). Each removal was a deliberate product decision driven by Core Web Vitals, content focus, or mobile UX constraints rather than a failure. Documenting this archive publicly is itself a demonstration of product maturity.",
+        id: "Saya merilis dan mematikan 6+ fitur utama (ML Gestur Tangan, Pelacakan Scroll Kinetik, rute /process monolitik, Modul Pengadaan). Setiap penghapusan adalah keputusan produk yang matang akibat batasan UX seluler dan Core Web Vitals, bukan sebuah kegagalan teknis. Mendokumentasikan arsip ini secara publik itu sendiri adalah demonstrasi kematangan produk.",
       },
       image: "airy:cycle",
     },

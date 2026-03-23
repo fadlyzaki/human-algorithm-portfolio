@@ -43,7 +43,7 @@ export const SUBSTACK_POSTS = [
   {
     title: "The Human Algorithm: Designing for Resilience",
     description:
-      "Resilient systems aren't the ones that never break—they're the ones designed to hold you when you do. A deep dive into my design philosophy.",
+      "Sustainable systems don't just push you to your peak; they support you realistically when bandwidth is low. A deep dive into my design philosophy.",
     pubDate: "2026-01-15",
     link: "https://fadlyzaki.substack.com",
   },

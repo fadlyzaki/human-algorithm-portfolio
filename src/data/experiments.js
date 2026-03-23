@@ -282,9 +282,9 @@ export const EXPERIMENTS = [
       },
     ],
     learnings:
-      "I discovered early on that Price Lock is not a fintech product—it's anxiety medication. Building this taught me that users are often willing to pay a premium just for the feeling of control.",
+      "I discovered early on that Price Lock functions more like an anxiety medication than a standard fintech product. Building this taught me that users are often willing to pay a premium just for the feeling of control.",
     learnings_id:
-      "Saya menyadari bahwa Price Lock sebenarnya bukan produk fintech—ini obat anti-cemas. Membangun ini mengajarkan saya bahwa user seringkali rela membayar lebih hanya untuk mendapatkan perasaan memegang kendali.",
+      "Saya menyadari bahwa Price Lock sebenarnya lebih berfungsi sebagai obat anti-cemas dibandingkan produk fintech biasa. Membangun ini mengajarkan saya bahwa user seringkali rela membayar lebih hanya untuk mendapatkan perasaan memegang kendali.",
   },
   {
     id: "project-kinship",
@@ -343,7 +343,7 @@ export const EXPERIMENTS = [
     solution: [
       {
         title: "Ibu-Friendly UX Design",
-        desc: "Video Message: Sender records a short video. When food arrives, the Driver says 'This is a message from your child in Jakarta,' and Mom clicks a big play button in her browser. Web-Microsite: Because Mom might not have phone memory to install an app, the system sends a unique link. One click, she can track the driver. Voice Reply: Mom doesn't need to type — just press the mic icon.",
+        desc: "Video Message: Sender records a short video. When food arrives, the Driver says 'This is a message from your child in Jakarta,' and Mom clicks a big play button in her browser. Web-Microsite: Because Mom might not have phone memory to install an app, the system sends a unique link. One click, she can track the driver. Voice Reply: Mom can simply press the mic icon without needing to type.",
         image: "airy:ui",
       },
     ],
@@ -355,10 +355,10 @@ export const EXPERIMENTS = [
       {
         type: "research",
         title: "The Perantau's Pain",
-        desc: "I am a perantau, far from Padang. When Mom is sick, I want to send her favorite food. But GPS locks me in Jakarta. Grab exists in both cities — why can't I bridge them?",
+        desc: "I am a perantau, far from Padang. When Mom is sick, I want to send her favorite food. But GPS locks me in Jakarta. Grab exists in both cities, so I wanted to figure out how to bridge them.",
         title_id: "Sakit Hati Perantau",
         desc_id:
-          "Saya perantau, jauh dari Padang. Saat Ibu sakit, saya ingin kirim makanan kesukaannya. Tapi GPS mengunci saya di Jakarta. Grab ada di dua kota — kenapa tidak bisa dijembatani?",
+          "Saya perantau, jauh dari Padang. Saat Ibu sakit, saya ingin kirim makanan kesukaannya. Tapi GPS mengunci saya di Jakarta. Grab ada di dua kota, dan saya ingin menjembatani keduanya.",
         image: "airy:radar",
       },
       {
@@ -373,28 +373,28 @@ export const EXPERIMENTS = [
       {
         type: "design",
         title: "AI Concierge + Zero-UI Receiver",
-        desc: "AI acts like a local cousin: 'Find warm food for Mom who has the flu.' Web-Microsite means Mom doesn't need to install anything — one click to track the driver in her browser.",
+        desc: "AI acts like a local cousin: 'Find warm food for Mom who has the flu.' The Web-Microsite allows Mom to track the driver with one click in her browser without installing anything.",
         title_id: "AI Concierge + Penerima Tanpa-UI",
         desc_id:
-          "AI bertindak seperti sepupu lokal: 'Cari makanan hangat buat Ibu yang flu.' Web-Microsite artinya Ibu gak perlu install apa-apa — satu klik untuk lacak driver di browser.",
+          "AI bertindak seperti sepupu lokal: 'Cari makanan hangat buat Ibu yang flu.' Web-Microsite memungkinkan Ibu untuk melacak driver hanya dengan satu klik di browser tanpa perlu menginstal apa-apa.",
         image: "airy:ecosystem",
       },
       {
         type: "ship",
         title: "Ibu-Friendly UX",
-        desc: "Video Message from sender played on delivery. Voice Reply so Mom doesn't need to type. Big buttons, browser-based — designed for the least tech-savvy user.",
+        desc: "Video Message from sender played on delivery. Voice Reply so Mom doesn't need to type. It features big, browser-based buttons designed specifically for users with zero tech experience.",
         title_id: "UX Ramah Ibu",
         desc_id:
-          "Pesan Video dari pengirim diputar saat makanan tiba. Balas Suara supaya Ibu gak perlu ngetik. Tombol besar, berbasis browser — didesain untuk pengguna paling gaptek.",
+          "Pesan Video dari pengirim diputar saat makanan tiba. Balas Suara supaya Ibu gak perlu ngetik. Tombol besar berbasis browser yang didesain khusus untuk pengguna yang kurang paham teknologi.",
         image: "airy:ui",
       },
       {
         type: "measure",
         title: "Moving Love, Not Just Goods",
-        desc: "I brought this idea because I personally feel the pain of distance. I want to build a Grab that moves love — with 2.5x AOV target and 90% messaging app penetration as the bridge.",
+        desc: "I brought this idea because I personally feel the pain of distance. I wanted to build a version of Grab that moves love. We targeted a 2.5x AOV by leveraging the 90% messaging app penetration as a bridge.",
         title_id: "Memindahkan Kasih, Bukan Cuma Barang",
         desc_id:
-          "Saya bawa ide ini karena saya merasakan sendiri sakitnya jarak. Saya ingin membangun Grab yang memindahkan kasih sayang — dengan target AOV 2.5x dan penetrasi 90% aplikasi pesan sebagai jembatan.",
+          "Saya bawa ide ini karena saya merasakan sendiri sakitnya jarak. Saya berkeinginan membangun versi Grab yang memindahkan kasih sayang. Kami menargetkan 2.5x AOV dengan memanfaatkan 90% penetrasi aplikasi perpesanan sebagai jembatannya.",
         image: "airy:venn",
       },
     ],
@@ -427,9 +427,9 @@ export const EXPERIMENTS = [
       },
     ],
     learnings:
-      "I brought this idea not just because I understand APIs or GTV calculations, but because I know the pain of distance. This project reinforced for me that the best logistics products don't just move goods—they move love.",
+      "I brought this idea not just because I understand APIs or GTV calculations, but because I know the pain of distance. This project reinforced for me that the best logistics products are capable of doing much more than just moving goods; they bring people closer together.",
     learnings_id:
-      "Saya membawa ide ini bukan sekadar karena mengerti API atau cara menghitung GTV, tapi karena saya tahu sakitnya jarak geografis. Proyek ini menegaskan bagi saya bahwa produk logistik terbaik tidak hanya memindahkan barang—mereka memindahkan kasih sayang.",
+      "Saya membawa ide ini bukan sekadar karena mengerti API atau cara menghitung GTV, tapi karena saya tahu sakitnya jarak geografis. Proyek ini menegaskan bagi saya bahwa produk logistik terbaik mampu melakukan lebih dari sekadar memindahkan barang; hal itu menyatukan cinta dan kasih.",
   },
   {
     id: "flood-alert",

@@ -31,8 +31,8 @@ export const productivityIllusion = {
     client: { en: "Academic", id: "Akademik" },
   },
   challenge: {
-    en: "In the age of digital accessibility, why does academic performance often remain stagnant? Students at tutoring centers were experiencing 'cognitive burnout'. Mobile devices—which should be tools for high-efficiency learning—were primarily sources of passive distraction.",
-    id: "Di era aksesibilitas digital, mengapa kinerja akademik seringkali stagnan? Perangkat seluler—yang seharusnya menjadi alat efisiensi tinggi—malah jadi sumber gangguan pasif.",
+    en: "In the age of digital accessibility, why does academic performance often remain stagnant? Students at tutoring centers were experiencing 'cognitive burnout'. Mobile devices - which should be tools for high-efficiency learning - were primarily sources of passive distraction.",
+    id: "Di era aksesibilitas digital, mengapa kinerja akademik seringkali stagnan? Perangkat seluler - yang seharusnya menjadi alat efisiensi tinggi - malah jadi sumber gangguan pasif.",
   },
   process: [
     {

@@ -92,7 +92,7 @@ const VirtualAssistant = () => {
     const isCaseStudyPage = validPrefixes.some(p => location.pathname.startsWith(p)) && !location.pathname.includes("/thoughts/");
 
     const options = [
-      { label: "💬 Ask Vaki a question", onClick: () => setChatMode(true) }
+      { label: "💬 Ask Echo.Z a question", onClick: () => setChatMode(true) }
     ];
 
     if (isCaseStudyPage) {
@@ -139,7 +139,7 @@ const VirtualAssistant = () => {
     setCurrentScene(SCENES.THINKING);
 
     try {
-      const res = await fetch("/api/vaki-chat", {
+      const res = await fetch("/api/echoz-chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
@@ -244,9 +244,9 @@ const VirtualAssistant = () => {
       return getMsg("msg_home");
     })();
 
-    // Prefix with [VAKI] in terminal mode
+    // Prefix with [ECHO.Z] in terminal mode
     if (!isRecruiterMode && !isManual && msg) {
-      return `[VAKI]: ${msg}`;
+      return `[ECHO.Z]: ${msg}`;
     }
     return msg;
   };
@@ -372,7 +372,7 @@ const VirtualAssistant = () => {
             <p className="leading-snug pr-2 font-mono animate-pulse">{t("virtual_assistant.sleeping", "Zzz...")}</p>
           ) : chatMode ? (
             <form onSubmit={handleChatSubmit} className="flex flex-col gap-2 w-full pr-2">
-              <p className="text-[10px] text-[var(--accent-blue)] font-mono font-bold uppercase tracking-wider mb-0.5">Ask Vaki Anything</p>
+              <p className="text-[10px] text-[var(--accent-blue)] font-mono font-bold uppercase tracking-wider mb-0.5">Ask Echo.Z Anything</p>
               <div className="flex gap-1.5 relative">
                 <input
                   ref={chatInputRef}
@@ -449,7 +449,7 @@ const VirtualAssistant = () => {
           ${isHovered ? "translate-y-[-2px] border-[var(--accent-blue)]/50" : "translate-y-0"}
         `}>
           <div className={`w-1 h-1 rounded-full bg-[var(--accent-blue)] ${isSleeping ? "" : "animate-pulse"}`} />
-          {t("virtual_assistant.name") || "VAKI"}
+          {t("virtual_assistant.name") || "ECHO.Z"}
         </div>
       </div>
     </div>

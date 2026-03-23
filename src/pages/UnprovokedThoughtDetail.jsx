@@ -1,5 +1,5 @@
 /**
- * UnprovokedThoughtDetail — Individual MDX thought reader page
+ * UnprovokedThoughtDetail  -  Individual MDX thought reader page
  *
  * Resolves slug from URL params > renders MDX content inside MDXProvider.
  * Includes scroll progress, editorial header, and EmojiFeedback.

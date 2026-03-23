@@ -23,15 +23,15 @@ export const stoqo = {
     ],
   },
   motivation:
-    "Coming from a non-urban city like Padang—where culinary culture is global—made me deeply aware of how supply chains impact daily life. I wanted to help ease the pain points of my fellow people from Padang, ensuring they get fresher ingredients at cheaper prices.",
+    "Coming from a non-urban city like Padang made me deeply aware of how global culinary supply chains directly impact daily life. I wanted to help ease the pain points of my fellow people from Padang, ensuring they get fresher ingredients at cheaper prices.",
   motivation_id:
-    "Berasal dari kota non-metropolitan seperti Padang—di mana budaya kulinernya mendunia—membuat saya sadar betapa rantai pasok berdampak pada hidup sehari-hari. Saya ingin membantu meringankan beban sesama perantau Minang, memastikan mereka mendapatkan bahan baku lebih segar dengan harga lebih murah.",
+    "Berasal dari kota non-metropolitan seperti Padang membuat saya sadar betapa rantai pasok kuliner berdampak luas pada kehidupan sehari-hari. Saya ingin membantu meringankan beban sesama perantau Minang, memastikan mereka mendapatkan bahan baku lebih segar dengan harga lebih murah.",
   brandColor: "var(--accent-orange)", // Stoqo Orange
   linkedinUrl: "https://www.linkedin.com/company/stoqo-technologies/about/",
   heroImage: "/work/stoqo-hero.png",
-  hook: "Designing for Operational Resilience. Ensuring the people who feed Jakarta have the information bandwidth to sleep until the truck arrives.",
+  hook: "Designing for Operational Resilience. Ensuring the people who feed Jakarta have clear, actionable data to manage their logistics efficiently.",
   miniDesc:
-    'Logistics isn\'t just about moving boxes; it\'s about managing entropy. We built information systems that turn "Unknown Chaos" into "Predictable Data", reducing the cognitive toll on business owners.',
+    'Logistics isn\'t just about moving boxes; it\'s about managing complexity. We built information systems that turn "Unknown Chaos" into "Predictable Data", reducing the cognitive toll on business owners.',
   hook_id:
     "Mendesain untuk jam-jam tak terlihat. Memastikan mereka yang memberi makan Jakarta bisa tidur nyenyak sampai truk datang.",
   miniDesc_id:
@@ -46,7 +46,7 @@ export const stoqo = {
   culture: {
     title: "The Arena",
     description:
-      "As an early Product Designer, I was instrumental in digitizing a chaotic supply chain. I designed across the entire ecosystem—from customer apps to warehouse logistics—while establishing Design Ops and mentoring new hires. We built a culture of 'Get Your Hands Dirty' to truly understand our users.",
+      "As an early Product Designer, I was instrumental in digitizing a chaotic supply chain. I designed across the entire ecosystem - from customer apps to warehouse logistics - while establishing Design Ops and mentoring new hires. We built a culture of 'Get Your Hands Dirty' to truly understand our users.",
     disclaimer:
       "If anyone on the team is uncomfortable with their image being featured here, please reach out to me and I'll remove it immediately.",
     layout: "symmetric-grid",
@@ -81,7 +81,7 @@ export const stoqo = {
   culture_id: {
     title: "Garis Depan",
     description:
-      "Sebagai salah satu desainer awal, saya menyentuh hampir semua lini produk—mulai dari aplikasi pelanggan hingga logistik gudang yang kompleks. Kami membangun budaya untuk berani 'Turun Tangan' (Get Your Hands Dirty).",
+      "Sebagai salah satu desainer awal, saya menyentuh hampir semua lini produk - mulai dari aplikasi pelanggan hingga logistik gudang yang kompleks. Kami membangun budaya untuk berani 'Turun Tangan' (Get Your Hands Dirty).",
     disclaimer:
       "Jika ada anggota tim yang tidak nyaman dengan fotonya ditampilkan di sini, silakan hubungi saya dan saya akan segera menghapusnya.",
   },
@@ -167,7 +167,7 @@ export const stoqo = {
           },
           {
             title: "Ideation",
-            desc: "The focus shifted to: 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks'—it was 'better information'.",
+            desc: "The focus shifted to: 'How Might We manage user anxiety?'. The solution was not simply deploying faster trucks, but distributing better information.",
             image: "airy:architecture",
           },
           {
@@ -232,10 +232,10 @@ export const stoqo = {
           {
             type: "design",
             title: "Ideation",
-            desc: "The focus shifted to: 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks'—it was 'better information'.",
+            desc: "The focus shifted to: 'How Might We manage user anxiety?'. The answer wasn't just 'faster trucks' - it was 'better information'.",
             title_id: "Ideasi",
             desc_id:
-              "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Jawabannya bukan 'truk lebih cepat'—tapi 'informasi yang lebih baik'.",
+              "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Solusinya bukan sekadar mengerahkan truk yang lebih cepat, melainkan mendistribusikan informasi yang lebih baik.",
             image: "airy:architecture",
           },
           {
@@ -350,7 +350,7 @@ export const stoqo = {
           },
           {
             title: "Ideasi",
-            desc: "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Jawabannya bukan 'truk lebih cepat'—tapi 'informasi yang lebih baik'.",
+            desc: "Fokus berubah ke: 'Gimana cara kita kelola kecemasan user?'. Jawabannya bukan 'truk lebih cepat' - tapi 'informasi yang lebih baik'.",
             image: "airy:architecture",
           },
           {
@@ -493,7 +493,7 @@ export const stoqo = {
           },
           {
             title: "Brainstorming: 'Chewable' KPI",
-            desc: "How might we give consistent understanding? We moved from complex dashboards to 'Chewable Information'—breaking down monthly targets into daily, edible goals.",
+            desc: "How might we give consistent understanding? We transitioned entirely from complex dashboards to clear 'Chewable Information', breaking down abstract monthly targets into edible daily goals.",
             image: "airy:matrix",
           },
           {
@@ -529,10 +529,10 @@ export const stoqo = {
           {
             type: "design",
             title: "Brainstorming: 'Chewable' KPI",
-            desc: "How might we give consistent understanding? We moved from complex dashboards to 'Chewable Information'—breaking down monthly targets into daily, edible goals.",
+            desc: "How might we give consistent understanding? We moved from complex dashboards to 'Chewable Information' - breaking down monthly targets into daily, edible goals.",
             title_id: "Brainstorming: KPI 'Kunyahan'",
             desc_id:
-              "Kami ubah dashboard rumit jadi 'Informasi Kunyahan'—memecah target bulanan jadi tujuan harian yang bisa dimakan.",
+              "Kami bertransisi dari dashboard rumit menjadi 'Informasi Kunyahan', memecah target abstak bulanan menjadi tujuan harian yang lebih dapat dicerna.",
             image: "airy:matrix",
           },
           {

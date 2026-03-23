@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * BackgroundTexture — Reusable SVG noise overlay
+ * BackgroundTexture  -  Reusable SVG noise overlay
  *
  * Replaces duplicated noise texture blocks across pages
  * (Home, About, CompanyDetail, NotFound, Sketches, etc.)

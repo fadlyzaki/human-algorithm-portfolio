@@ -35,7 +35,7 @@ const CONFIG = {
 };
 
 /**
- * ExperimentCard — Inline experiment card with BlindsReveal on the image area.
+ * ExperimentCard  -  Inline experiment card with BlindsReveal on the image area.
  */
 import { useState } from "react";
 
@@ -263,7 +263,7 @@ const SideProjectsIndex = () => {
     >
       <SEO
         title="Side Projects & Experiments"
-        description="Browse Fadly Uzzaki's side projects, experiments, and prototypes — from The Human Algorithm (AI-built portfolio) to interactive workbooks and design research tools."
+        description="Browse Fadly Uzzaki's side projects, experiments, and prototypes  -  from The Human Algorithm (AI-built portfolio) to interactive workbooks and design research tools."
       />
 
       {/* Background Atmosphere */}

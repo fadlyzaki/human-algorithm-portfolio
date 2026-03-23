@@ -52,7 +52,7 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
       const matrixX = startX + col * GRID_SIZE;
       const matrixY = startY + row * GRID_SIZE;
 
-      // Chaos Initial Position — deterministic pseudo-random
+      // Chaos Initial Position  -  deterministic pseudo-random
       const rx = pseudoRandom(i + 1);
       const ry = pseudoRandom(i + 2);
       const rr = pseudoRandom(i + 3);
@@ -67,7 +67,7 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
       const chaosY = ry * height;
       const chaosRotate = rr * 360;
 
-      // Floating Animation Offsets — large range for dramatic wandering
+      // Floating Animation Offsets  -  large range for dramatic wandering
       const floatDuration = 2.5 + rfD * 4;
       const floatOffsetX = (rfX - 0.5) * 250;
       const floatOffsetY = (rfY - 0.5) * 250;

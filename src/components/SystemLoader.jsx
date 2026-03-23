@@ -8,7 +8,7 @@ const BOOT_LOGS = [
   "Mounting VDOM physics engine [framer-motion]",
   "Initializing GPU Canvas [ChaosMatrix]",
   "Establishing secure LLM uplink...",
-  "Waking Companion Protocol (Vaki)...",
+  "Waking Companion Protocol (Echo.Z)...",
   "Resolving polymorphic layout archetypes...",
   "Applying CSS Token Architecture...",
   "Awaiting user input syntax..."

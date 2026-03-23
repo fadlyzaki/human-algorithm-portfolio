@@ -44,43 +44,43 @@ const AUDIT_DATA = {
     {
       value: "var(--text-primary) / var(--text-primary)",
       token: "var(--text-primary)",
-      rec: "Already tokenized — replace inline hex with var()",
+      rec: "Already tokenized  -  replace inline hex with var()",
       files: 12,
     },
     {
       value: "var(--text-secondary) / var(--text-secondary)",
       token: "var(--text-secondary)",
-      rec: "Already tokenized — replace inline hex with var()",
+      rec: "Already tokenized  -  replace inline hex with var()",
       files: 10,
     },
     {
       value: "var(--bg-void) / var(--bg-void)",
       token: "var(--bg-void)",
-      rec: "Already tokenized — use var() in style objects",
+      rec: "Already tokenized  -  use var() in style objects",
       files: 8,
     },
     {
       value: "var(--bg-card) / var(--bg-card)",
       token: "var(--bg-card)",
-      rec: "Near-match to --bg-card dark — replace with var()",
+      rec: "Near-match to --bg-card dark  -  replace with var()",
       files: 7,
     },
     {
       value: "var(--border-color) / var(--border-color)",
       token: "var(--border-color)",
-      rec: "Already tokenized — replace hardcoded borders with var()",
+      rec: "Already tokenized  -  replace hardcoded borders with var()",
       files: 9,
     },
     {
       value: "var(--accent-red)",
       token: "var(--accent-red)",
-      rec: "Already tokenized — use var() instead of raw hex",
+      rec: "Already tokenized  -  use var() instead of raw hex",
       files: 4,
     },
     {
       value: "var(--accent-green)",
       token: "var(--accent-green)",
-      rec: "Already tokenized — use var() instead of raw hex",
+      rec: "Already tokenized  -  use var() instead of raw hex",
       files: 5,
     },
     {
@@ -335,7 +335,7 @@ const AuditReport = ({ isXRayMode }) => (
       </div>
       <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest text-center flex items-center justify-center gap-2">
         <ShieldCheck size={10} />
-        Excluded: {AUDIT_DATA.excluded.join(", ")} — not part of portfolio
+        Excluded: {AUDIT_DATA.excluded.join(", ")}  -  not part of portfolio
         design system
       </div>
     </div>

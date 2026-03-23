@@ -2,15 +2,15 @@ import React from "react";
 import { motion } from "framer-motion";
 
 /**
- * BlindsReveal — Horizontal slat overlay that opens on hover.
+ * BlindsReveal  -  Horizontal slat overlay that opens on hover.
  * Mimics the Framer University "blinds-reveal" interaction.
  *
  * Props:
- * - isOpen: boolean — whether the blinds are open (revealing children)
- * - slats: number — how many horizontal slats (default 8)
- * - color: string — slat color (default themed dark)
- * - staggerDelay: number — delay between each slat in seconds (default 0.03)
- * - children: ReactNode — the content revealed beneath the blinds
+ * - isOpen: boolean  -  whether the blinds are open (revealing children)
+ * - slats: number  -  how many horizontal slats (default 8)
+ * - color: string  -  slat color (default themed dark)
+ * - staggerDelay: number  -  delay between each slat in seconds (default 0.03)
+ * - children: ReactNode  -  the content revealed beneath the blinds
  */
 const BlindsReveal = ({
   isOpen = false,

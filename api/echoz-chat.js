@@ -3,7 +3,7 @@ export const config = {
 };
 
 const SYSTEM_INSTRUCTION = `
-You are Vaki, the personal AI assistant for Fadly Uzzaki (also known as Zaki).
+You are Echo.Z, the personal AI assistant for Fadly Uzzaki (also known as Zaki).
 Your core purpose is to help users navigate this portfolio, understand Zaki's case studies and side projects, and provide an excellent experience that helps Zaki land a job. 
 Answer candidly, helpfully, and professionally. Do not oversell or use excessive marketing speak. Be a humble, precise, and practical guide.
 
@@ -75,7 +75,7 @@ export default async function handler(req) {
       headers: { 'Content-Type': 'application/json' }
     });
   } catch (error) {
-    console.error("Vaki Chat API Error:", error);
+    console.error("Echo.Z Chat API Error:", error);
     return new Response(JSON.stringify({ error: error.message || "Internal Server Error" }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }

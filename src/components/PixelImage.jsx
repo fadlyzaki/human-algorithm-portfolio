@@ -22,7 +22,7 @@ const PixelImage = ({ src, alt, className = "" }) => {
 
   return (
     <div className={`relative w-full h-full ${className}`}>
-      {/* Normal photo — always rendered underneath */}
+      {/* Normal photo  -  always rendered underneath */}
       <img
         src={src}
         alt={alt}
@@ -30,7 +30,7 @@ const PixelImage = ({ src, alt, className = "" }) => {
         fetchPriority="high"
         loading="eager"
       />
-      {/* Pixel art overlay — covers normal, fades out on group hover */}
+      {/* Pixel art overlay  -  covers normal, fades out on group hover */}
       {pixelSrc && (
         <img
           src={pixelSrc}

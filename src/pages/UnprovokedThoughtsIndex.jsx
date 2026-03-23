@@ -1,5 +1,5 @@
 /**
- * UnprovokedThoughtsIndex — Listing page for all MDX thoughts
+ * UnprovokedThoughtsIndex  -  Listing page for all MDX thoughts
  *
  * Displays all "Unprovoked Thoughts" posts in a clean editorial layout.
  * Follows the same structural pattern as SideProjectsIndex.jsx.
@@ -24,7 +24,7 @@ const UnprovokedThoughtsIndex = () => {
     return (
         <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500">
             <SEO
-                title="Unprovoked Thoughts — Fadly Uzzaki"
+                title="Unprovoked Thoughts  -  Fadly Uzzaki"
                 description="Design essays, reflections, and opinions by Fadly Uzzaki on product design, technology, and the intersection of human experience and systems thinking."
                 image={`https://fadlyzaki-design.vercel.app/api/og?page=${encodeURIComponent('/thoughts')}`}
                 type="website"

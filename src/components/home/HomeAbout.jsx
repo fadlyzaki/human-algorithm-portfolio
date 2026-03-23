@@ -55,6 +55,7 @@ const INTERESTS = [
     emoji: "📷",
     label: "Photography",
     val: "City, beach & life",
+    url: "https://unsplash.com/@fadlyzaki",
     color: "var(--accent-sky)",
   },
   {
@@ -288,7 +289,7 @@ const HomeAbout = ({ t }) => {
           </p>
         </div>
 
-        {/* 5. PERSONAL INTERESTS — Interactive Emoji Selector */}
+        {/* 5. PERSONAL INTERESTS  -  Interactive Emoji Selector */}
         <InterestSelector t={t} />
 
         {/* 6. SKETCHES & THOUGHTS TEASERS (Span 3 cols split into 2) */}

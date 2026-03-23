@@ -46,7 +46,7 @@ export const translations = {
       section_side_projects: "Side Projects",
       view_experiments: "VIEW EXPERIMENTS",
       side_projects_desc:
-        "Where I let my creativity run wild. These are experiments, explorations, and side quests—built for learning, not perfection.",
+        "Where I let my creativity run wild. These are experiments, explorations, and side quests - built for learning, not perfection.",
       archive_title: "The Archive",
       archive_desc:
         "A collection of prototypes, failed experiments, and weekend hacks.",
@@ -56,14 +56,14 @@ export const translations = {
         "After a severe health crisis required a system shutdown and career break, I kept my logic sharp by building experimental tools and weekend hacks. View my ",
       work_subtitle_link: "Side Projects.",
       section_about: "ABOUT ME",
-      about_quote: '"I don\'t chase chaos—I contain it."',
+      about_quote: '"Translating complex system logic into human workflows."',
       about_p1:
-        "I started as a Computer Science student, loving the certainty of logic. But I saw how an obsession with 'efficiency' created brittle systems that treated users like data points, not pilots.",
+        "I originally studied Computer Science, drawn to building logical systems. But I quickly saw the massive gap between how systems are engineered and how real people actually use them under pressure.",
       about_p2:
-        "Now, I build resilient systems—not to optimize life, but to hold it gently when it breaks. I design tools that respect your cognitive bandwidth, built for people at their limit, not just their peak.",
+        "Now, as a Product Designer, I bridge that gap. I tackle heavy B2B ecosystems and messy logistics workflows, applying Cognitive Load Theory to turn overwhelming complexity into clear, actionable interfaces.",
       philosophy_title: "Core Philosophy",
       philosophy_quote:
-        "I build resilient tools that respect your cognitive bandwidth. When you're at your limit, you don't need clever design. You need systems that scaffold your intent.",
+        "Design isn't about making software look pretty. It's about reducing ambiguity so real people can do hard jobs without fighting the interface.",
       read_philosophy: "READ FULL PHILOSOPHY",
       current_focus: "Current Focus",
       current_focus_desc:
@@ -73,7 +73,7 @@ export const translations = {
       more_logs: "More logs incoming...",
       status_location: "Jakarta, Indonesia",
       status_reading: "Reading: The Creative Act: A Way of Being by Rick Rubin",
-      status_listening: "Let's get things done — together",
+      status_listening: "Let's get things done  -  together",
       status_training: "Running 5K & Swimming 1K Weekly",
       status_reflecting: "Reflecting on Life Weekly",
       status_collab: "Open to Collaboration",
@@ -82,18 +82,18 @@ export const translations = {
     },
     about: {
       main_terminal: "Main Terminal",
-      intro_title: "Designer who Codes",
+      intro_title: "Pragmatic Builder",
       intro_p1:
-        "I started as a Computer Science student, drawn to the if-then clarity of logic. But as an ENFJ, my true calling wasn't in the code itself—it was in the people using it. Systems made sense, but it was human connection that gave them purpose.",
+        "I started as a Computer Science student, drawn to the if-then clarity of logic. But as my career progressed, I realized that the most 'efficient' systems in theory often fail in practice if they ignore human psychology. Systems made sense, but it was understanding human workflows that gave them purpose.",
       intro_p2:
-        "This obsession with 'efficiency' creates brittle systems. We stopped treating users like pilots and started treating them like data points. We optimized for 'Time on Site' instead of 'Time Well Spent'. My empathy as a designer couldn't ignore users struggling with interfaces built by people who never had to use them in a crisis. Bad UX isn't just annoying; it's an erasure of human agency.",
+        "This realization was tested early on at GudangAda and STOQO. I learned that in high-volume B2B products - serving principals, distributors, and frontline workers - reducing friction isn't just a UX goal. It is a fundamental revenue metric. We can't treat users like data points; we have to empower them to do their jobs without fighting the software.",
       intro_p3:
-        "My approach to design is rooted in the Protagonist archetype: advocating for the user, aligning teams, and finding structure within chaos (Judging). When you're exhausted, scared, or in pain—you don't have bandwidth for clever UX. You need tools that just work. Quietly. Reliably. Without asking for applause.",
+        "My approach to design is rooted in the Protagonist (ENFJ) archetype: advocating for the user, aligning complex team requirements, and organizing chaotic enterprise scopes into clear, structured paths. Real users don't have bandwidth for overly-clever UX. They need tools that just work.",
       intro_p4:
-        "So now I build resilient systems—not to optimize life, but to hold it gently when it breaks. Relying on an Assertive resilience, I design for people at their limit, not their peak.",
+        "To deepen this approach, I completed a Master's in Educational Technology, specializing in Cognitive Load Theory. Now, I systematically apply these academic principles to product design. I build resilient tools for people doing heavy operational lifting - structured, quiet, and steady.",
       quote_highlight: "just work",
       quote_full:
-        "I build tools for people who need them to just work. Systems that hold up under pressure—empathetic, resilient, quiet, and steady—like the people who actually use them.",
+        "I build reliable tools for people who need them to just work. My systems are structured to hold up under pressure and stay out of the user's way.",
       download_cv: "Download_CV.pdf",
       section_ops: "OPS",
       section_maintenance: "System Maintenance",
@@ -122,7 +122,7 @@ export const translations = {
         "My first deep dive into operational complexity. STOQO streamlines the F&B supply chain, empowering micro & small businesses with easy access to competitively-priced ingredients. My job was to digitize offline routines so business owners could focus on cooking, not shopping. I also contributed to Design Ops by mentoring interns and supporting the hiring process.",
       log_3_title: "Product Designer 2 @ GudangAda",
       log_3_desc:
-        "This was my crash course in scale. GudangAda transforms Indonesia's B2B distribution chain through end-to-end digital solutions. I learned that in high-volume B2B tools serving principals, distributors, and retailers, reducing friction isn't just a UX goal—it's a revenue metric. I established Design Ops practices here, mentoring interns, conducting design reviews, and interviewing new designers.",
+        "This was my crash course in scale. GudangAda transforms Indonesia's B2B distribution chain through end-to-end digital solutions. I learned that in high-volume B2B tools serving principals, distributors, and retailers, reducing friction isn't just a UX goal - it's a revenue metric. I established Design Ops practices here, mentoring interns, conducting design reviews, and interviewing new designers.",
       log_4_title: "UI/UX Consultant @ Du Anyam",
       log_4_desc:
         "A study in social impact. I consulted for a social enterprise empowering rural women through wicker crafts. The interface had to connect rural skills with modern markets.",
@@ -131,9 +131,9 @@ export const translations = {
         "Designing for the blue-collar economy requires radical honesty. Lumina revolutionizes recruitment through a highly engaged job community platform. I wasn't just building features; I was building a trust layer connecting hundreds of thousands of workers with SMEs. Beyond products, I helped manage freelance designers to scale our output.",
       log_6_title: "System Recalibration (Health Crisis)",
       log_6_desc:
-        "A severe health crisis forced a system shutdown. This wasn't just a break; it was a survival necessity. As part of my recovery, I completed a Master's in EdTech, studying cognitive load and human adaptation. I shifted my focus from 'Optimization' to 'Resilience', rebuilding my philosophy to prioritize user agency.",
+        "A health crisis forced a temporary system shutdown. This wasn't just a break; it was a survival necessity. During my recovery, I completed a Master's in Educational Technology (EdTech), studying cognitive load and human adaptation. This period fundamentally shifted my focus from raw 'Optimization' to structured 'Resilience'.",
       log_6_quote:
-        '"I learned that resilient systems aren\'t the ones that never break, but the ones that hold you when you do."',
+        '"I learned that sustainable systems don\'t just push you to your peak; they support you realistically when bandwidth is low."',
       log_master_title: "Master's in Educational Technology",
       log_master_desc:
         "Specializing in Cognitive Load Theory. Thesis: 'The Impact of Duolingo Usage Intensity on Vocabulary Mastery and English Motivation'. This was a deep dive into how humans learn and how interfaces can scaffold that process.",
@@ -148,7 +148,7 @@ export const translations = {
           "CORE_PRINCIPLE: Design is the bridge between human impulse and machine efficiency.",
           "ANOMALY: User interaction patterns suggest a preference for non-linear storytelling.",
           "DIAGNOSTIC: Kernel stability verified. Narrative layers successfully merged.",
-          "INSIGHT: Resilient systems aren't the ones that never break, but the ones that hold you when you do.",
+          "INSIGHT: Sustainable systems don't just push you to your peak; they support you when bandwidth is low.",
           "HEURISTIC: In a crisis, the most sophisticated UI is the one that disappears.",
           "OBS: User agency is the north star. Never automate what should be empowered.",
           "BUFFER: Systems should hold life gently, not optimize it to death.",
@@ -178,7 +178,7 @@ export const translations = {
       system_listening: "SYSTEM_LISTENING",
       title: "Initialize",
       subtitle: "Handshake Protocol",
-      desc: "Seeking high-bandwidth collaborations to architect resilient digital systems. If you have a challenge that requires an algorithmic approach to human-centric design, let's initialize a sync.",
+      desc: "Seeking collaborations to architect resilient digital systems. If you have a complex B2B challenge or need to restructure overwhelming workflows, let's talk.",
       direct_uplink: "Direct Uplink",
       location: "Location",
       timezone: "Timezone",
@@ -202,7 +202,7 @@ export const translations = {
       status: "",
       summary_title: "Professional Summary",
       summary_text:
-        "Product Designer specializing in resilient systems. I combine Computer Science logic with Cognitive Science (EdTech) to build tools that optimize cognitive load. Bridging the gap between engineering complexity and human behavior. Technical expertise covers the full end-to-end product design lifecycle—from initial research and logic-based prototyping to high-fidelity interaction design and design QA.",
+        "Product Designer specializing in resilient systems. I combine Computer Science logic with Cognitive Science (EdTech) to build tools that optimize cognitive load. Bridging the gap between engineering complexity and human behavior. Technical expertise covers the full end-to-end product design lifecycle - from initial research and logic-based prototyping to high-fidelity interaction design and design QA.",
       exp_title: "Professional Experience",
       skills_title: "Skills & Expertise",
       skills_design: "Design",
@@ -312,7 +312,7 @@ export const translations = {
     process: {
       page_title: "Design Process",
       title: "The Process",
-      subtitle: "Scaling Empathy",
+      subtitle: "Scaling Usability",
       description:
         "Design isn't just about pixels. It's about reducing ambiguity. My process is a loop of diverging to understand and converging to execute.",
       cta_title: "Ready to build something resilient?",
@@ -348,7 +348,7 @@ export const translations = {
       p3: "<strong>I’m looking for a team that wants to reverse that drift.</strong>",
       p4: "Whether I was designing for <strong>Lumina</strong> (helping blue-collar workers find dignity, not just jobs) or <strong>GudangAda</strong> (building trust in a $100B supply chain), my goal has always been the same: <strong>To hand the steering wheel back to the user.</strong>",
       p5: 'I don\'t just want to "increase conversion." I want to increase confidence. I want to build software that respects the human on the other side of the screen.',
-      p6: "If you’re building something that actually solves a problem—not just an engagement loop—then I’d love to help you build it.",
+      p6: "If you’re building something that actually solves a problem - not just an engagement loop - then I’d love to help you build it.",
       authorized_by: "Authorized By",
       status_label: "Status",
       status_ready: "Ready to Build",
@@ -421,8 +421,8 @@ export const translations = {
       planned_features: "Planned_Features"
     },
     virtual_assistant: {
-      name: "VAKI",
-      msg_home: "Connection established. I'm Vaki, your guide through this expertise matrix. How can I help you deconstruct my work?",
+      name: "ECHO.Z",
+      msg_home: "Connection established. I'm Echo.Z, your guide through this expertise matrix. How can I help you deconstruct my work?",
       msg_case_study: "Deconstructing the impact. I've mapped out the research, decisions, and outcomes for your review.",
       msg_side_projects: "Entering the sandbox. These are the experimental iterations where I test new logic.",
       msg_about: "Reviewing the architect's DNA. This is where systems thinking meets human intent.",
@@ -464,7 +464,7 @@ export const translations = {
         "System Log: I built this terminal environment to respect your focus. Minimal noise, maximum intent.",
         "Fact: Every interaction here is designed to reduce your cognitive load.",
         "Tip: Use the Dark/Light mode switch to see how the visual logic adapts.",
-        "System Check: Currently operating on peak empathy levels. All systems aligned."
+        "System Check: Currently optimizing for cognitive load. All systems aligned."
       ],
       actions: [
         "Explain this page",
@@ -477,7 +477,7 @@ export const translations = {
           "Morning check-in. Systems are primed for empathetic design.",
           "Connection active. Sunlight is hitting the logic layers just right. Morning!",
           "Initializing daily handshake. Ready to deconstruct some chaos?",
-          "Morning. Let's build something that respects human bandwidth today."
+          "Morning. Let's build something that reduces cognitive friction today."
         ],
         afternoon: [
           "Good afternoon. Systems are stable. Mid-day check-in complete.",
@@ -496,14 +496,14 @@ export const translations = {
         late_night: [
           "It's late. Good design shouldn't require sleep deprivation. Please rest.",
           "Night owl mode active. The quiet hours are best for architectural thinking.",
-          "Monitoring the midnight oil. Don't forget to protect your bandwidth.",
+          "Monitoring the midnight oil. Don't forget to protect your focus.",
           "Late night logic engaged. Detecting deep focus... or exhaustion?",
           "The system is quiet. Perfect for deconstructing complex problems."
         ]
       },
       terminal_pov: {
         msg_home: "Standard interface loaded. Accessing the architect's personal logic layers.",
-        msg_about: "Reviewing the human behind the code. Detecting high-empathy algorithms.",
+        msg_about: "Reviewing the logic behind the code. Detecting pragmatic design patterns.",
         msg_side_projects: "Entering the sandbox. Accessing raw iterations and experimental code.",
         msg_case_study: "Meticulously deconstructing legacy workflows. Analyzing the logic of impact.",
         context: {
@@ -587,7 +587,7 @@ export const translations = {
       section_side_projects: "Proyek Sampingan",
       view_experiments: "LIHAT EKSPERIMEN",
       side_projects_desc:
-        "Ruang bermain kreatif. Eksperimen, eksplorasi, dan 'side quests'—dibangun untuk belajar, bukan kesempurnaan.",
+        "Ruang bermain kreatif. Eksperimen, eksplorasi, dan 'side quests' - dibangun untuk belajar, bukan kesempurnaan.",
       archive_title: "Arsip",
       archive_desc: "Koleksi purwarupa, ide yang gagal, dan kode akhir pekan.",
       open_archive: "BUKA ARSIP LENGKAP",
@@ -596,14 +596,14 @@ export const translations = {
         "Setelah krisis kesehatan memaksa jeda karir total, saya menjaga ketajaman logika dengan membangun alat eksperimental dan peretasan akhir pekan. Lihat ",
       work_subtitle_link: "Proyek Sampingan.",
       section_about: "TENTANG SAYA",
-      about_quote: '"Saya tidak mengejar kekacauan — saya mewadahinya."',
+      about_quote: '"Menerjemahkan logika sistem yang kompleks ke dalam alur kerja manusia."',
       about_p1:
-        "Saya bermula dari Ilmu Komputer, terobsesi dengan kepastian logika. Namun saya melihat bagaimana obsesi pada 'efisiensi' menciptakan sistem rapuh yang memperlakukan user sebagai data, bukan manusia.",
+        "Saya awalnya belajar Ilmu Komputer karena tertarik merancang sistem logis. Namun saya menyadari besarnya kesenjangan antara bagaimana sistem dibangun dan bagaimana manusia sungguhan menggunakannya di bawah tekanan.",
       about_p2:
-        "Kini, saya membangun sistem yang tangguh—bukan untuk mengoptimalkan hidup, tapi untuk menopangnya saat hal buruk terjadi. Saya mendesain alat yang menghargai kapasitas kognitif Anda, untuk manusia di batas kemampuannya.",
+        "Kini, sebagai Desainer Produk, saya menjembatani celah tersebut. Saya menangani ekosistem B2B yang berat dan alur kerja logistik, menerapkan Teori Beban Kognitif untuk mengubah kerumitan menjadi antarmuka yang efisien dan jelas.",
       philosophy_title: "Filosofi Desain",
       philosophy_quote:
-        "Saya membangun alat tangguh yang menghargai kapasitas kognitif Anda. Saat lelah, Anda tidak butuh desain 'pintar'. Anda butuh sistem yang menopang (scaffold) intensi Anda.",
+        "Desain bukan sekadar membuat perangkat lunak terlihat cantik. Ini tentang mengurangi ambiguitas sehingga pengguna dapat melakukan pekerjaan yang sulit tanpa harus 'berkelahi' dengan UI.",
       read_philosophy: "BACA FILOSOFI",
       current_focus: "Fokus Saat Ini",
       current_focus_desc:
@@ -613,7 +613,7 @@ export const translations = {
       more_logs: "Menunggu log baru...",
       status_location: "Jakarta, Indonesia",
       status_reading: "Membaca: The Creative Act: A Way of Being - Rick Rubin",
-      status_listening: "Mari menyelesaikan masalah — bersama",
+      status_listening: "Mari menyelesaikan masalah  -  bersama",
       status_training: "Lari 5K & Renang 1K / Minggu",
       status_reflecting: "Refleksi Mingguan",
       status_collab: "Terbuka untuk Kolaborasi",
@@ -622,18 +622,18 @@ export const translations = {
     },
     about: {
       main_terminal: "Terminal Utama",
-      intro_title: "Human By Design",
+      intro_title: "Pembangun Pragmatis",
       intro_p1:
-        "Saya bermula sebagai mahasiswa Ilmu Komputer, tertarik pada kejelasan logika 'if-then'. Namun sebagai seorang ENFJ, panggilan sejati saya bukan pada kode itu sendiri—melainkan pada manusia yang menggunakannya. Sistem itu logis, tapi koneksi manusialah yang memberinya makna.",
+        "Saya bermula dari Ilmu Komputer, tertarik pada kejelasan logika 'if-then'. Namun seiring waktu, saya sadar bahwa sistem yang paling 'efisien' di atas kertas sering kali gagal jika mengabaikan psikologi manusia. Memahami jalan pikiran manusia adalah kunci.",
       intro_p2:
-        "Obsesi terhadap 'efisiensi' ini menciptakan sistem yang rapuh. Kita berhenti memperlakukan user sebagai pilot dan mulai memperlakukan mereka sebagai titik data. Kita mengoptimalkan 'Durasi di Aplikasi' bukannya 'Waktu yang Berkualitas'. Empati saya sebagai desainer tidak bisa mengabaikan user yang berjuang dengan antarmuka yang dibuat oleh orang yang tidak pernah menggunakannya saat krisis. UX yang buruk bukan cuma menyebalkan; itu penghapusan agensi manusia.",
+        "Hal ini saya pelajari secara langsung di GudangAda dan STOQO. Dalam produk B2B bervolume tinggi, mengurangi friksi (hambatan) bukan sekadar target UX - itu adalah metrik pendapatan yang fundamental. Kita tidak bisa memperlakukan user sebagai sekadar data; kita harus memberdayakan mereka untuk bekerja tanpa berjuang melawan sistem.",
       intro_p3:
-        "Pendekatan desain saya berakar pada arketipe Protagonis: mengadvokasi pengguna, menyelaraskan tim, dan menemukan struktur di tengah kekacauan. Saat Anda lelah, takut, atau kesakitan—Anda tidak butuh UX yang 'pintar'. Anda butuh alat yang berfungsi. Tanpa drama. Tanpa meminta tepuk tangan.",
+        "Pendekatan desain saya berakar pada karakter Protagonis (ENFJ): mengadvokasi pengguna, menyelaraskan kebutuhan tim yang kompleks, dan mengurai persyaratan korporat menjadi struktur yang jelas. Pekerja lapangan tidak punya waktu untuk UX yang 'pintar' dan bertele-tele. Mereka butuh alat yang andal.",
       intro_p4:
-        "Kini saya membangun sistem yang tangguh—bukan untuk mengoptimalkan hidup, tapi untuk menopangnya saat hal buruk terjadi. Mengandalkan ketahanan Asertif, saya mendesain untuk manusia di titik terlemahnya, bukan hanya di puncak performanya.",
-      quote_highlight: "sekadar berfungsi",
+        "Untuk mendalami pendekatan ini, saya menyelesaikan S2 Teknologi Pendidikan dengan fokus pada Teori Beban Kognitif. Kini, saya menerapkan prinsip akademis tersebut ke dalam produk riil. Saya membangun alat yang tangguh - terstruktur, tenang, dan stabil - bagi mereka yang melakukan pekerjaan operasional berat.",
+      quote_highlight: "andal",
       quote_full:
-        "Saya membangun alat untuk mereka yang butuh solusi yang penting jalan. Sistem yang tahan banting di bawah tekanan—penuh empati, tenang, dan stabil—seperti manusia yang menggunakannya.",
+        "Saya membangun sistem andal untuk orang-orang yang hanya butuh agar alatnya bisa bekerja. Alat saya terstruktur agar tahan banting di bawah tekanan dan tidak membebani pengguna.",
       download_cv: "Unduh_CV.pdf",
       section_ops: "OPS",
       section_maintenance: "Pemeliharaan Sistem",
@@ -662,7 +662,7 @@ export const translations = {
         "Penyelaman pertama ke kompleksitas operasional. STOQO merampingkan rantai pasok F&B, memberdayakan UMKM dengan akses bahan baku murah. Tugas saya mendigitalkan rutinitas offline agar pemilik bisnis bisa fokus memasak, bukan belanja. Saya juga berkontribusi pada Design Ops dengan mementori magang dan mendukung proses hiring.",
       log_3_title: "Product Designer 2 @ GudangAda",
       log_3_desc:
-        "Kursus kilat tentang skala (scale). GudangAda mentransformasi distribusi B2B Indonesia. Saya belajar bahwa dalam tool B2B volume tinggi, mengurangi friksi bukan sekadar tujuan UX—itu adalah metrik pendapatan (Revenue Metric). Saya membangun praktik Design Ops, mementori magang, melakukan review desain, dan menginterview desainer baru.",
+        "Kursus kilat tentang skala (scale). GudangAda mentransformasi distribusi B2B Indonesia. Saya belajar bahwa dalam tool B2B volume tinggi, mengurangi friksi bukan sekadar tujuan UX - itu adalah metrik pendapatan (Revenue Metric). Saya membangun praktik Design Ops, mementori magang, melakukan review desain, dan menginterview desainer baru.",
       log_4_title: "UI/UX Consultant @ Du Anyam",
       log_4_desc:
         "Studi dampak sosial. Konsultasi untuk wirausaha sosial yang memberdayakan perempuan pedesaan. Antarmuka harus menjembatani keterampilan tradisional dengan pasar modern.",
@@ -671,15 +671,15 @@ export const translations = {
         "Desain untuk 'Blue Collar Economy' butuh kejujuran radikal. Kami membangun platform komunitas kerja. Bukan sekadar fitur, tapi lapisan kepercayaan (trust layer) yang menghubungkan ratusan ribu pekerja dengan pemberi kerja. Di luar produk, saya membantu mengelola desainer freelance untuk meningkatkan output tim.",
       log_6_title: "Kalibrasi Ulang Sistem (Krisis Kesehatan)",
       log_6_desc:
-        "Krisis kesehatan serius memaksa sistem berhenti total. Ini bukan sekadar istirahat; ini adalah keharusan untuk bertahan hidup. Sebagai bagian dari pemulihan, saya menyelesaikan S2 EdTech. Saya mengalihkan fokus dari 'Optimasi' ke 'Ketangguhan', membangun kembali filosofi saya untuk memprioritaskan manusia.",
+        "Krisis kesehatan memaksa sistem saya untuk berhenti sementara. Selama masa pemulihan ini, saya menyelesaikan S2 EdTech, mendalami beban kognitif dan adaptasi manusia. Periode ini secara fundamental mengalihkan fokus saya dari 'Optimasi Mutlak' menjadi 'Ketangguhan Terstruktur'.",
       log_6_quote:
-        '"Sistem yang tangguh bukan yang anti-gagal, tapi yang menopang saat kegagalan terjadi."',
+        '"Saya belajar bahwa sistem yang berkelanjutan tidak hanya mendorong Anda hingga batas maksimal; melainkan mendukung Anda secara realistis saat beban sedang tinggi."',
       log_master_title: "Magister Teknologi Pendidikan",
       log_master_desc:
         "Spesialisasi dalam Teori Beban Kognitif. Tesis: 'Pengaruh Intensitas Penggunaan Duolingo terhadap Penguasaan Kosakata dan Motivasi Belajar Bahasa Inggris'. Ini adalah pendalaman tentang bagaimana manusia belajar dan bagaimana antarmuka dapat menopang proses tersebut.",
       log_7_title: "Kolaborasi",
       log_7_desc:
-        "Kembali online dengan arsitektur baru. Menggabungkan ketelitian Engineering dengan empati Desain. Saat ini bereksperimen di ranah EdTech dan AI.",
+        "Kembali online dengan arsitektur baru. Menggabungkan ketelitian Engineering dengan desain produk yang pragmatis. Saat ini bereksperimen di ranah EdTech dan AI.",
       neural_echo: {
         title: "Neural Echo",
         subtitle: "Kernel Insights",
@@ -718,7 +718,7 @@ export const translations = {
       system_listening: "SISTEM_MENDENGARKAN",
       title: "Inisialisasi",
       subtitle: "Protokol Jabat Tangan",
-      desc: "Mencari kolaborasi ber-bandwidth tinggi untuk membangun sistem digital yang tangguh. Jika Anda memiliki tantangan yang membutuhkan pendekatan algoritma dalam desain yang berpusat pada manusia, mari kita inisialisasi sinkronisasi.",
+      desc: "Mencari kolaborasi untuk membangun sistem digital yang tangguh. Jika Anda memiliki tantangan B2B yang kompleks atau perlu merestrukturisasi alur kerja yang rumit, mari kita diskusikan.",
       direct_uplink: "Uplink Langsung",
       location: "Lokasi",
       timezone: "Zona Waktu",
@@ -742,7 +742,7 @@ export const translations = {
       status: "",
       summary_title: "Ringkasan Profesional",
       summary_text:
-        "Product Designer dengan spesialisasi sistem tangguh. Menggabungkan logika Computer Science dengan Sains Kognitif (EdTech) untuk membangun alat yang mengoptimalkan beban kognitif. Keahlian teknis mencakup siklus desain produk end-to-end—mulai dari riset awal dan prototyping berbasis logika, hingga desain interaksi fidelitas tinggi dan QA desain.",
+        "Product Designer dengan spesialisasi sistem tangguh. Menggabungkan logika Computer Science dengan Sains Kognitif (EdTech) untuk membangun alat yang mengoptimalkan beban kognitif. Keahlian teknis mencakup siklus desain produk end-to-end - mulai dari riset awal dan prototyping berbasis logika, hingga desain interaksi fidelitas tinggi dan QA desain.",
       exp_title: "Pengalaman Profesional",
       skills_title: "Keahlian",
       skills_design: "Desain",
@@ -851,7 +851,7 @@ export const translations = {
     process: {
       page_title: "Proses Desain",
       title: "Proses",
-      subtitle: "Menskalakan Empati",
+      subtitle: "Menskalakan Kegunaan",
       description:
         "Desain bukan hanya soal piksel. Ini soal mengurangi ambiguitas. Proses saya adalah siklus menyebar untuk memahami dan memusat untuk mengeksekusi.",
       cta_title: "Siap membangun sesuatu yang tangguh?",
@@ -887,7 +887,7 @@ export const translations = {
       p3: "<strong>Saya mencari tim yang ingin membalikkan arus itu.</strong>",
       p4: "Baik saat mendesain untuk <strong>Lumina</strong> (membantu pekerja kerah biru menemukan martabat, bukan sekadar pekerjaan) atau <strong>GudangAda</strong> (membangun kepercayaan dalam rantai pasok $100M), tujuan saya selalu sama: <strong>Mengembalikan kendali kepada pengguna.</strong>",
       p5: 'Saya tidak hanya ingin "meningkatkan konversi." Saya ingin meningkatkan kepercayaan diri. Saya ingin membangun perangkat lunak yang menghargai manusia di balik layar.',
-      p6: "Jika Anda membangun sesuatu yang benar-benar memecahkan masalah—bukan sekadar loop keterlibatan—maka saya ingin membantu Anda membangunnya.",
+      p6: "Jika Anda membangun sesuatu yang benar-benar memecahkan masalah - bukan sekadar loop keterlibatan - maka saya ingin membantu Anda membangunnya.",
       authorized_by: "Diotorisasi Oleh",
       status_label: "Status",
       status_ready: "Siap Membangun",
@@ -960,11 +960,11 @@ export const translations = {
       planned_features: "Fitur_Direncanakan"
     },
     virtual_assistant: {
-      name: "VAKI",
-      msg_home: "Koneksi terjalin. Saya Vaki, pemandu Anda dalam matriks keahlian ini. Bagaimana saya bisa membantu Anda menelaah karya-karya saya?",
+      name: "ECHO.Z",
+      msg_home: "Koneksi terjalin. Saya Echo.Z, pemandu Anda dalam matriks keahlian ini. Bagaimana saya bisa membantu Anda menelaah karya-karya saya?",
       msg_case_study: "Mendekonstruksi dampak. Saya telah memetakan riset, keputusan, dan hasil untuk Anda tinjau.",
       msg_side_projects: "Masuk ke sandbox. Ini adalah iterasi eksperimental tempat saya menguji logika baru.",
-      msg_about: "Meninjau DNA sang arsitek. Titik di mana sistem berpikir bertemu dengan empati manusia.",
+      msg_about: "Meninjau DNA sang arsitek. Titik di mana sistem logis bertemu dengan efisiensi alur kerja.",
       context: {
         // Proyek Lumina
         "workforce-chat": "Workforce Chat: Membangun martabat dalam komunikasi pekerja kerah biru.",
@@ -1003,7 +1003,7 @@ export const translations = {
         "Log Sistem: Terminal ini dibangun untuk menghargai fokus Anda. Minim gangguan, maksimal intensi.",
         "Fakta: Setiap interaksi di sini dirancang untuk mengurangi beban kognitif Anda.",
         "Tips: Gunakan mode Gelap/Terang untuk melihat bagaimana logika visual beradaptasi.",
-        "Cek Sistem: Beroperasi pada tingkat empati puncak. Semua sistem selaras."
+        "Cek Sistem: Mengoptimalkan beban kognitif. Semua sistem selaras."
       ],
       actions: [
         "Jelaskan halaman ini",
@@ -1013,7 +1013,7 @@ export const translations = {
       time_greetings: {
         morning: [
           "Selamat pagi. Menginisialisasi operasi harian. Alur kontrol: Optimal.",
-          "Absen pagi. Sistem siap untuk desain berbasis empati.",
+          "Absen pagi. Sistem siap untuk mengurangi friksi kognitif.",
           "Koneksi aktif. Cahaya pagi menyinari lapisan logika dengan pas. Pagi!",
           "Inisialisasi jabat tangan harian. Siap menjinakkan kekacauan?",
           "Pagi. Mari membangun sesuatu yang menghargai kapasitas mental manusia hari ini."
@@ -1042,7 +1042,7 @@ export const translations = {
       },
       terminal_pov: {
         msg_home: "Antarmuka standar dimuat. Mengakses lapisan logika pribadi sang arsitek.",
-        msg_about: "Menelaah manusia di balik kode. Mendeteksi algoritma berbasis empati tinggi.",
+        msg_about: "Menelaah logika di balik kode. Mendeteksi pola desain yang pragmatis.",
         msg_side_projects: "Masuk ke sandbox. Mengakses iterasi mentah dan kode eksperimental.",
         msg_case_study: "Mendekonstruksi alur kerja utama dengan teliti. Menganalisis logika dampak.",
         context: {

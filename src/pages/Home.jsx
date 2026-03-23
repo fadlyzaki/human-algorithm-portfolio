@@ -99,7 +99,7 @@ const Home = () => {
         </AnimatePresence>
 
         <SEO
-          title="Fadly Uzzaki — Product Designer"
+          title="Fadly Uzzaki  -  Product Designer"
           description="Fadly Uzzaki (Fadlyzaki) is a Senior Product Designer and Systems Thinker specializing in B2B SaaS, EdTech, and human-centered design. Explore case studies, experiments, and design philosophy."
           schema={{
             "@context": "https://schema.org",

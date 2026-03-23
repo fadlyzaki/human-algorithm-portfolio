@@ -9,7 +9,7 @@ const NeuralDecryption = ({
 }) => {
   const [displayText, setDisplayText] = useState(text);
   const [isAnimating, setIsAnimating] = useState(false);
-  const chars = "!<>-_\\/[]{}—=+*^?#________";
+  const chars = "!<>-_\\/[]{} - =+*^?#________";
 
   const scramble = useCallback(() => {
     if (isAnimating) return;

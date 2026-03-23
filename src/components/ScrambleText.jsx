@@ -4,11 +4,11 @@ import React, { useState, useRef, useCallback, useEffect } from "react";
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@&%";
 
 /**
- * ScrambleText — A text component that scrambles its characters on hover/view,
+ * ScrambleText  -  A text component that scrambles its characters on hover/view,
  * then resolves back to the original text character by character.
  *
  * Each character is rendered in a fixed-width inline-block span to prevent
- * layout reflow during scramble — eliminating visual jank.
+ * layout reflow during scramble  -  eliminating visual jank.
  *
  * @param {string} text - The original text to display
  * @param {string} className - CSS classes to apply
@@ -62,7 +62,7 @@ const ScrambleText = ({
         scrambleTicks++;
 
         if (scrambleTicks <= maxScrambleTicks) {
-          // Full scramble phase — all non-space characters randomize
+          // Full scramble phase  -  all non-space characters randomize
           const scrambled = original.map((char) =>
             char === " " || char === "\n"
               ? char
@@ -76,7 +76,7 @@ const ScrambleText = ({
           setChars(scrambled);
           setScrambledIndices(indices);
         } else {
-          // Resolve phase — progressively reveal original characters
+          // Resolve phase  -  progressively reveal original characters
           resolvedCount = Math.min(resolvedCount + charsPerTick, totalChars);
 
           const mixed = original.map((char, i) => {

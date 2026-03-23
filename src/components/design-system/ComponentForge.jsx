@@ -393,10 +393,10 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
                 <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--accent-blue)]">Live LLM Connection Active</span>
               </div>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                The agent intercepts chat and TL;DR commands, injecting the portfolio context directly into a secure <span className="text-[var(--text-primary)] font-mono">/api/vaki-chat</span> Serverless Edge Function powered by Gemini 1.5 Flash.
+                The agent intercepts chat and TL;DR commands, injecting the portfolio context directly into a secure <span className="text-[var(--text-primary)] font-mono">/api/echoz-chat</span> Serverless Edge Function powered by Gemini 1.5 Flash.
               </p>
               <div className="p-3 bg-[var(--bg-void)] rounded font-mono text-[9px] text-[var(--text-primary)]">
-                &gt; POST /api/vaki-chat<br/>
+                &gt; POST /api/echoz-chat<br/>
                 &gt; PAYLOAD: &#123; message, currentPath &#125;<br/>
                 &gt; STATUS: 200 OK (85ms latency)
               </div>

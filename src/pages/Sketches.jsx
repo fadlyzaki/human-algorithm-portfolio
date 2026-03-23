@@ -39,7 +39,7 @@ const Sketches = () => {
 
       <SEO
         title="Sketches & Visual Archive"
-        description="Digital and pencil sketches by Fadly Uzzaki — a raw visual archive of design thinking, ideation, and creative exploration."
+        description="Digital and pencil sketches by Fadly Uzzaki  -  a raw visual archive of design thinking, ideation, and creative exploration."
         type="website"
       />
 

@@ -4,7 +4,7 @@ import NavigationMenu from "./NavigationMenu";
 import { useTheme } from "../context/ThemeContext";
 
 /**
- * PageShell — Shared layout wrapper
+ * PageShell  -  Shared layout wrapper
  * Encapsulates the Navbar, mobile NavigationMenu, and the global background texture.
  */
 const PageShell = ({ children, navbarProps = {}, showTexture = true }) => {
