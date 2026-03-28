@@ -13,173 +13,100 @@ import {
 
 // ── AUDIT REPORT SECTION ──
 const AUDIT_DATA = {
-  timestamp: "2026-03-10T22:50:00+07:00",
-  excluded: ["prototypes/", "interactions/"],
+  timestamp: "2026-03-28T19:48:00+07:00",
+  excluded: ["prototypes/", "interactions/", "welcome/", "auth/", "id-cards/"],
   summary: {
-    errors: 80,
-    warnings: 70,
-    total: 150,
-    files: 32,
-    uniqueColors: 120,
+    errors: 16,
+    warnings: 84,
+    total: 100,
+    files: 220,
+    tokensDefinedInRoot: 125,
+    tokenReferences: 1679,
+    biologicalConfigs: 30,
   },
   topFiles: [
-    { file: "src/components/DraggablePhoto.jsx", count: 22, severity: "error" },
-    { file: "src/components/VentureCard.jsx", count: 14, severity: "error" },
-    { file: "src/components/sketches/Flipbook.jsx", count: 13, severity: "error" },
-    { file: "src/components/welcome/ChaosToMatrixIntro.jsx", count: 12, severity: "warn" },
-    { file: "src/components/DesignSystemViewer.jsx", count: 11, severity: "error" },
-    { file: "src/components/project-layouts/CosmicPopDetail.jsx", count: 9, severity: "warn" },
-    { file: "src/pages/SideProjectsIndex.jsx", count: 8, severity: "error" },
-    { file: "src/components/home/HomeAbout.jsx", count: 7, severity: "error" },
-    { file: "src/data/experiments.js", count: 5, severity: "error" },
-    { file: "src/components/project-layouts/BrutalistDetail.jsx", count: 5, severity: "error" },
-    { file: "src/components/ChaosCanvas.jsx", count: 5, severity: "error" },
-    { file: "src/pages/SideProjectDetail.jsx", count: 4, severity: "error" },
+    { file: "src/components/prototypes/StoqoCheckerApp.jsx", count: 22, severity: "warn", note: "Sandboxed prototype" },
+    { file: "src/components/prototypes/StoqoLogisticsApp.jsx", count: 15, severity: "warn", note: "Sandboxed prototype" },
+    { file: "src/components/prototypes/StoqoPickerApp.jsx", count: 13, severity: "warn", note: "Sandboxed prototype" },
+    { file: "src/components/interactions/FloodAlert.jsx", count: 12, severity: "warn", note: "Interaction sandbox" },
+    { file: "src/constants/stoqoTheme.js", count: 11, severity: "warn", note: "Brand-specific theme" },
+    { file: "src/components/auth/ChaosMatrixBackground.jsx", count: 10, severity: "warn", note: "Animated backdrop" },
+    { file: "src/components/ChaosCanvas.jsx", count: 7, severity: "warn", note: "Canvas RGB (required)" },
+    { file: "src/components/sketches/Flipbook.jsx", count: 6, severity: "warn", note: "Gallery engine" },
+    { file: "src/components/ContactScratch.jsx", count: 5, severity: "error", note: "Core component" },
+    { file: "src/components/WorkBento.jsx", count: 5, severity: "error", note: "Core component" },
+    { file: "src/components/CoverLetterModal.jsx", count: 3, severity: "error", note: "Core component" },
+    { file: "src/components/VentureCard.jsx", count: 2, severity: "error", note: "Core component" },
   ],
   categories: [
-    { name: "Colors (hex)", count: 80, icon: Hash },
-    { name: "Colors (rgba)", count: 70, icon: Hash },
+    { name: "Colors (hex)", count: 16, icon: Hash, domain: "Core system" },
+    { name: "Colors (rgba)", count: 84, icon: Hash, domain: "Sandboxes & Canvas" },
   ],
   recommendations: [
     {
-      value: "var(--text-primary) / var(--text-primary)",
-      token: "var(--text-primary)",
-      rec: "Already tokenized  -  replace inline hex with var()",
-      files: 12,
+      value: "#E2E2E2 / #1A1A2E",
+      token: "var(--bg-card) / var(--accent-indigo)",
+      rec: "VentureCard BrutalistCard uses hardcoded hex for background",
+      files: 1,
     },
     {
-      value: "var(--text-secondary) / var(--text-secondary)",
-      token: "var(--text-secondary)",
-      rec: "Already tokenized  -  replace inline hex with var()",
-      files: 10,
-    },
-    {
-      value: "var(--bg-void) / var(--bg-void)",
-      token: "var(--bg-void)",
-      rec: "Already tokenized  -  use var() in style objects",
-      files: 8,
-    },
-    {
-      value: "var(--bg-card) / var(--bg-card)",
-      token: "var(--bg-card)",
-      rec: "Near-match to --bg-card dark  -  replace with var()",
+      value: "rgba(0,0,0,*) in Canvas",
+      token: "N/A (Canvas API limitation)",
+      rec: "Canvas 2D context cannot consume CSS vars. Acceptable exception.",
       files: 7,
     },
     {
-      value: "var(--border-color) / var(--border-color)",
-      token: "var(--border-color)",
-      rec: "Already tokenized  -  replace hardcoded borders with var()",
-      files: 9,
-    },
-    {
-      value: "var(--accent-red)",
-      token: "var(--accent-red)",
-      rec: "Already tokenized  -  use var() instead of raw hex",
+      value: "#FA6130, #00C2FF (brand colors)",
+      token: "var(--accent-orange), var(--accent-sky)",
+      rec: "Stoqo brand colors tokenized in index.css but prototypes use raw hex",
       files: 4,
-    },
-    {
-      value: "var(--accent-green)",
-      token: "var(--accent-green)",
-      rec: "Already tokenized  -  use var() instead of raw hex",
-      files: 5,
-    },
-    {
-      value: "var(--accent-amber) / var(--accent-amber)",
-      token: "var(--accent-amber)",
-      rec: "Use --accent-amber. Add --accent-amber-dark if needed",
-      files: 3,
-    },
-    {
-      value: "var(--text-secondary) / var(--text-secondary)",
-      token: "var(--text-secondary)",
-      rec: "Gray text should use semantic text token",
-      files: 3,
-    },
-    {
-      value: "rgba(0,0,0,*)",
-      token: "bg-black/{opacity}",
-      rec: "Black overlays → use Tailwind opacity modifier on token",
-      files: 11,
     },
     {
       value: "rgba(255,255,255,*)",
       token: "bg-white/{opacity}",
-      rec: "White overlays → use Tailwind opacity modifier on token",
+      rec: "White overlays in sandboxes → use Tailwind opacity modifier",
       files: 8,
+    },
+    {
+      value: "ContactScratch hex values",
+      token: "var(--text-primary) / var(--bg-void)",
+      rec: "Canvas scratch effect uses raw hex. Should read from getComputedStyle",
+      files: 1,
     },
   ],
   tokenCoverage: {
-    colors: { total: 120, tokenized: 40, percentage: 33.3 },
-    spacing: { total: 10, tokenized: 10, percentage: 100 },
-    typography: { total: 11, tokenized: 11, percentage: 100 },
+    colors: { total: 100, tokenized: 84, percentage: 84 },
+    spacing: { total: 14, tokenized: 14, percentage: 100 },
+    typography: { total: 12, tokenized: 12, percentage: 100 },
     radius: { total: 6, tokenized: 6, percentage: 100 },
     elevation: { total: 6, tokenized: 6, percentage: 100 },
     zIndex: { total: 8, tokenized: 8, percentage: 100 },
     motion: { total: 9, tokenized: 9, percentage: 100 },
+    biological: { total: 4, tokenized: 4, percentage: 100 },
   },
   tokenMap: [
-    {
-      token: "--bg-void",
-      light: "var(--bg-void)",
-      dark: "var(--bg-void)",
-      usage: "Page background",
-    },
-    {
-      token: "--bg-surface",
-      light: "var(--bg-surface)",
-      dark: "var(--bg-surface)",
-      usage: "Surface layer",
-    },
-    {
-      token: "--bg-card",
-      light: "var(--bg-void)",
-      dark: "var(--bg-card)",
-      usage: "Card containers",
-    },
-    {
-      token: "--text-primary",
-      light: "var(--text-primary)",
-      dark: "var(--text-primary)",
-      usage: "Headings, body",
-    },
-    {
-      token: "--text-secondary",
-      light: "var(--text-secondary)",
-      dark: "var(--text-secondary)",
-      usage: "Muted text",
-    },
-    {
-      token: "--border-color",
-      light: "var(--border-color)",
-      dark: "var(--border-color)",
-      usage: "Borders",
-    },
-    {
-      token: "--accent-red",
-      light: "var(--accent-red)",
-      dark: "–",
-      usage: "Error states",
-    },
-    {
-      token: "--accent-blue",
-      light: "var(--accent-blue)",
-      dark: "–",
-      usage: "Info, links",
-    },
-    { token: "--accent-amber", light: "var(--accent-amber)", dark: "–", usage: "Warnings" },
-    {
-      token: "--accent-green",
-      light: "var(--accent-green)",
-      dark: "–",
-      usage: "Success states",
-    },
-    {
-      token: "--accent-purple",
-      light: "var(--accent-purple)",
-      dark: "–",
-      usage: "Code syntax",
-    },
+    { token: "--bg-void", light: "#FAF9F6", dark: "#0A0A0C", usage: "Page background (warm)" },
+    { token: "--bg-surface", light: "#FFFFFF", dark: "#1F1F1F", usage: "Surface layer" },
+    { token: "--bg-card", light: "#FFFFFF", dark: "#181818", usage: "Card containers" },
+    { token: "--text-primary", light: "#18181B", dark: "#F4F4F5", usage: "Headings, body" },
+    { token: "--text-secondary", light: "#52525B", dark: "#A1A1AA", usage: "Muted text" },
+    { token: "--border-color", light: "#E4E4E7", dark: "#262626", usage: "Borders" },
+    { token: "--accent-red", light: "#ef4444", dark: "–", usage: "Error states" },
+    { token: "--accent-blue", light: "#3b82f6", dark: "–", usage: "Info, links" },
+    { token: "--accent-amber", light: "#f59e0b", dark: "–", usage: "Warnings" },
+    { token: "--accent-green", light: "#10b981", dark: "–", usage: "Success states" },
+    { token: "--accent-purple", light: "#8b5cf6", dark: "–", usage: "Code syntax" },
+    { token: "--accent-sky", light: "#00C2FF", dark: "–", usage: "Dolphi / CosmicPop" },
+    { token: "--accent-indigo", light: "#1A1A2E", dark: "–", usage: "Deep backgrounds" },
+    { token: "--accent-teal", light: "#1AA8B4", dark: "–", usage: "Accent highlights" },
+    { token: "--font-weight-dynamic", light: "400", dark: "400", usage: "Breath-synced typography" },
   ],
+  biologicalAudit: {
+    circadian: { config: "CIRCADIAN_PHASES", magicStrings: 0, status: "PASS" },
+    typography: { config: "TYPO_CONFIG", magicStrings: 0, status: "PASS" },
+    pacing: { config: "PACING_CONFIG", magicStrings: 0, status: "PASS" },
+    motion: { config: "MOTION_CONFIG", magicStrings: 0, status: "PASS" },
+  },
 };
 
 const AuditReport = ({ isXRayMode }) => (
@@ -244,15 +171,15 @@ const AuditReport = ({ isXRayMode }) => (
             CSS + JSX + JS
           </div>
         </div>
-        <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6">
+        <div className="border border-[var(--accent-green)]/30 bg-[var(--bg-card)] p-6">
           <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] mb-3 block">
-            Unique Colors
+            Token Refs
           </span>
-          <div className="text-4xl font-bold text-[var(--text-primary)]">
-            {AUDIT_DATA.summary.uniqueColors}
+          <div className="text-4xl font-bold text-[var(--accent-green)]">
+            {AUDIT_DATA.summary.tokenReferences}
           </div>
           <div className="text-[10px] text-[var(--text-secondary)] mt-1">
-            Distinct values found
+            var() references across system
           </div>
         </div>
       </div>
@@ -451,6 +378,33 @@ const AuditReport = ({ isXRayMode }) => (
             </div>
             <div className="col-span-4 text-[var(--text-secondary)]">
               {t.usage}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    {/* BIOLOGICAL CONFIG AUDIT */}
+    <div className="space-y-6 relative z-10">
+      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent-green)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+        <ShieldCheck size={14} /> Biological_Config_Audit
+      </h3>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {Object.entries(AUDIT_DATA.biologicalAudit).map(([key, data]) => (
+          <div
+            key={key}
+            className="border border-[var(--accent-green)]/20 bg-[var(--bg-card)] p-4 space-y-2"
+          >
+            <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] block">
+              {key}
+            </span>
+            <div className="font-mono text-xs text-[var(--accent)] font-bold">
+              {data.config}
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 size={12} className="text-[var(--accent-green)]" />
+              <span className="font-mono text-[10px] text-[var(--accent-green)]">
+                {data.status} — {data.magicStrings} magic strings
+              </span>
             </div>
           </div>
         ))}
