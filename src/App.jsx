@@ -28,8 +28,16 @@ import ScrollToTop from "./components/ScrollToTop";
 import AnalyticsTracker from "./components/AnalyticsTracker";
 import VirtualAssistant from "./components/VirtualAssistant";
 import CustomCursor from "./components/CustomCursor";
+import CircadianOverlay from "./components/CircadianOverlay";
+import { useVariableTypography } from "./hooks/useVariableTypography";
 
 import SystemLoader from "./components/SystemLoader";
+
+// Thin wrapper to consume the typography hook at top-level
+const VariableTypographyController = () => {
+  useVariableTypography();
+  return null;
+};
 
 // Loading Fallback Component
 const PageLoader = () => <SystemLoader />;
@@ -43,6 +51,8 @@ function App() {
         <ScrollToTop />
         <VirtualAssistant />
         <CustomCursor />
+        <CircadianOverlay />
+        <VariableTypographyController />
         <ErrorBoundary>
           <Suspense fallback={<PageLoader />}>
             <Routes>
