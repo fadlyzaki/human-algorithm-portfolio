@@ -110,7 +110,8 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, isIndonesian
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
     className="group relative h-[450px] rounded-3xl border-2 border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
-    animate={isHovered ? { borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98 } : { borderColor: "var(--border-color)", scale: 1 }}
+    animate={isHovered ? { borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98, y: 0 } : { borderColor: "var(--border-color)", scale: 1, y: [0, -3, 0] }}
+    transition={isHovered ? { type: "spring", stiffness: 300, damping: 20 } : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
     whileHover={{ borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98 }}
   >
     <BlindsReveal isOpen={isHovered} slats={8} color="var(--bg-void)">
@@ -194,7 +195,8 @@ const CosmicPopCard = ({ project, title, desc, onClick, isHovered, isIndonesian,
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
     className="group relative h-[450px] rounded-3xl border-2 border-transparent bg-gradient-to-br from-[var(--accent-indigo)] to-[var(--accent-indigo)] overflow-hidden cursor-pointer flex flex-col justify-end transition-colors"
-    animate={isHovered ? { scale: 0.98, borderColor: "var(--accent-sky)" } : { scale: 1, borderColor: "transparent" }}
+    animate={isHovered ? { scale: 0.98, borderColor: "var(--accent-sky)", y: 0 } : { scale: 1, borderColor: "transparent", y: [0, -3, 0] }}
+    transition={isHovered ? { type: "spring", stiffness: 300, damping: 20 } : { duration: 5, repeat: Infinity, ease: "easeInOut" }}
     whileHover={{ scale: 0.98, borderColor: "var(--accent-sky)" }}
   >
     <BlindsReveal isOpen={isHovered} slats={8} color="var(--accent-indigo)">
@@ -247,7 +249,8 @@ const BrutalistCard = ({ project, title, desc, onClick, isHovered, isIndonesian,
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
     className="group relative h-[450px] rounded-3xl bg-[#E2E2E2] dark:bg-[var(--bg-card)] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
-    animate={isHovered ? { x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" } : { x: 0, y: 0, boxShadow: "0px 0px 0px 0px var(--accent-red)" }}
+    animate={isHovered ? { x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" } : { x: 0, y: [0, -2, 0], boxShadow: "0px 0px 0px 0px var(--accent-red)" }}
+    transition={isHovered ? { type: "spring", stiffness: 300, damping: 20 } : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
     whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" }}
   >
     {/* Blinds Reveal over full card */}
@@ -300,7 +303,8 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
     className="group relative h-[450px] rounded-3xl bg-[var(--bg-surface)] dark:bg-[var(--bg-void)] border border-[var(--border-color)] overflow-hidden cursor-pointer flex flex-col"
-    animate={isHovered ? { scale: 1.02 } : { scale: 1 }}
+    animate={isHovered ? { scale: 1.02, y: 0 } : { scale: 1, y: [0, -3, 0] }}
+    transition={isHovered ? { type: "spring", stiffness: 300, damping: 20 } : { duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
     whileHover={{ scale: 1.02 }}
   >
     <BlindsReveal isOpen={isHovered} slats={8} color="rgb(251, 207, 232)">
@@ -356,9 +360,9 @@ const BlueprintCard = ({ project, title, desc, onClick, isHovered, isIndonesian,
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
     className="group relative h-[450px] rounded-3xl bg-blue-50 dark:bg-[var(--bg-void)] border border-blue-200 dark:border-blue-900 overflow-hidden cursor-pointer"
-    animate={isHovered ? { scale: 1.02, y: -4 } : { scale: 1, y: 0 }}
+    animate={isHovered ? { scale: 1.02, y: -4 } : { scale: 1, y: [0, -3, 0] }}
     whileHover={{ scale: 1.02, y: -4 }}
-    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    transition={isHovered ? { type: "spring", stiffness: 300, damping: 20 } : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
   >
     {/* Blinds Reveal over full blueprint card */}
     <BlindsReveal isOpen={isHovered} slats={8} color="rgb(219, 234, 254)">

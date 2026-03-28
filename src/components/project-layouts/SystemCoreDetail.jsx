@@ -148,6 +148,17 @@ const SystemCoreDetail = ({
                   {project.stack.slice(0, 3).join(" / ")}
                 </span>
               </div>
+              {project.humanImpact && (
+                <>
+                  <div className="hidden md:block w-px h-6 bg-[var(--border-color)]"></div>
+                  <div className="flex flex-col">
+                    <span className="opacity-50 mb-1 text-purple-400">Human_Impact</span>
+                    <span className="text-[var(--text-primary)] max-w-xs truncate" title={typeof project.humanImpact === 'object' ? project.humanImpact.en : project.humanImpact}>
+                      {typeof project.humanImpact === 'object' ? project.humanImpact.en : project.humanImpact}
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </section>

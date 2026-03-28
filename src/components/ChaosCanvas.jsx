@@ -1,10 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext";
+import { useScrollPacing } from "../hooks/useScrollPacing";
 
 const ChaosCanvas = ({ intensity = 0 }) => {
   const canvasRef = useRef(null);
   const { isDark } = useTheme();
   const intensityRef = useRef(intensity);
+  const pace = useScrollPacing();
 
   useEffect(() => {
     intensityRef.current = intensity;
@@ -98,6 +100,7 @@ const ChaosCanvas = ({ intensity = 0 }) => {
     };
 
     const animate = () => {
+      const currentPace = typeof pace.get === 'function' ? pace.get() : 1;
       const chaos = Math.pow(intensityRef.current / 100, 2);
       
       // At very high chaos, we don't clear the rect fully, leaving intense motion trails
@@ -124,7 +127,15 @@ const ChaosCanvas = ({ intensity = 0 }) => {
       ctx.fillStyle = `rgba(${colorBase[0]}, ${colorBase[1]}, ${colorBase[2]}, ${dotOpacity})`;
 
       for (let i = 0; i < particles.length; i++) {
+        // Adjust particle speed using currentPace to respond to reading speed (cognitive pacing)
+        const cachedVx = particles[i].vx;
+        const cachedVy = particles[i].vy;
+        particles[i].vx *= currentPace;
+        particles[i].vy *= currentPace;
         updateParticle(particles[i]);
+        // Restore original velocities for next frame context
+        particles[i].vx = cachedVx;
+        particles[i].vy = cachedVy;
         drawParticle(particles[i]);
 
         for (let j = i + 1; j < particles.length; j++) {

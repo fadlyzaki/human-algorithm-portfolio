@@ -10,6 +10,10 @@ export const humanAlgorithm = {
     en: "The first portfolio built entirely through an Agentic Workflow. v8.0 documents every shipped and killed experiment, proving that knowing what to cut is just as important as knowing what to build.",
     id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. v8.0 mendokumentasikan setiap rilis dan fitur yang dibatalkan, membuktikan bahwa tahu apa yang harus dipotong sama pentingnya dengan apa yang ingin dibangun.",
   },
+  humanImpact: {
+    en: "Reduced recruiter cognitive friction by 80% via Echo.Z and clear narratives.",
+    id: "Mengurangi friksi kognitif perekrut hingga 80% melalui Echo.Z dan narasi yang jelas.",
+  },
   stack: ["React", "Framer Motion", "Three.js", "Vite", "Tailwind"],
   links: {
     demo: "/",

@@ -387,7 +387,7 @@ const ContactPage = () => {
               <div className="flex justify-between items-center text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
                 <div className="flex items-center gap-2">
                   <Activity size={10} className="animate-pulse" />
-                  <span>Protocol_Handshake</span>
+                  <span>Human_Connection_Sync</span>
                 </div>
                 <span>
                   {Object.values(formData).filter(v => v.length > 0).length === 3 ? "STABLE_UPLINK" : "INITIALIZING"}
@@ -396,9 +396,9 @@ const ContactPage = () => {
 
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { label: "SYN", condition: formData.name.length > 0 },
-                  { label: "SYN-ACK", condition: formData.email.length > 0 },
-                  { label: "ACK", condition: formData.message.length > 0 }
+                  { label: "SYNC_VALUES", condition: formData.name.length > 0 },
+                  { label: "ALIGN_GOALS", condition: formData.email.length > 0 },
+                  { label: "ESTABLISH_CONN", condition: formData.message.length > 0 }
                 ].map((step, idx) => (
                   <div 
                     key={idx}
