@@ -10,8 +10,16 @@ import { useTheme } from "../context/ThemeContext";
 
 import { useLanguage } from "../context/LanguageContext";
 
+import sketchesData from "../data/sketches.json";
 import Flipbook from "../components/sketches/Flipbook";
+import Footer from "../components/Footer";
 
+const allDigital = [...sketchesData]
+  .filter((s) => s.medium === "digital")
+  .reverse();
+const allPencil = [...sketchesData]
+  .filter((s) => s.medium === "pencil")
+  .reverse();
 
 const Sketches = () => {
   const { isDark } = useTheme();
@@ -23,11 +31,15 @@ const Sketches = () => {
   const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
   const handleCloseMenu = useCallback(() => setIsMenuOpen(false), []);
 
+  const nodes = React.useMemo(
+    () => (activeMedium === "digital" ? allDigital : allPencil),
+    [activeMedium],
+  );
   const isDigital = activeMedium === "digital";
 
   return (
     <div
-      className={`min-h-[100dvh] flex flex-col ${isDark ? "bg-[some]" : "bg-[some]"} text-[var(--text-primary)] font-sans selection:bg-zinc-800 selection:text-white transition-colors duration-700 overflow-hidden relative`}
+      className={`min-h-[100dvh] flex flex-col bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-zinc-800 selection:text-white transition-colors duration-700 overflow-hidden relative`}
     >
       <Helmet>
         <title>Sketches | Fadly Zaki</title>
@@ -103,7 +115,12 @@ const Sketches = () => {
           </div>
         </div>
 
+        <Flipbook pages={nodes} initialPage={0} />
       </main>
+
+      <div className="relative z-50">
+        <Footer />
+      </div>
     </div>
   );
 };
