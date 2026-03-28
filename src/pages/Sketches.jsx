@@ -12,7 +12,6 @@ import { useLanguage } from "../context/LanguageContext";
 
 import sketchesData from "../data/sketches.json";
 import Flipbook from "../components/sketches/Flipbook";
-import Footer from "../components/Footer";
 
 const allDigital = [...sketchesData]
   .filter((s) => s.medium === "digital")
@@ -117,10 +116,6 @@ const Sketches = () => {
 
         <Flipbook pages={nodes} initialPage={0} />
       </main>
-
-      <div className="relative z-50">
-        <Footer />
-      </div>
     </div>
   );
 };
