@@ -4,10 +4,10 @@
 **Product Name:** Human Algorithm (Portfolio Platform)
 **Product Owner:** Fadly Uzzaki (Senior Product Designer · Trust Engineering)
 **Target Domain:** B2B System Design & High-Converting Talent Acquisition Assets
-**Version:** 8.1 — *The Agentic Reality Update*
+**Version:** 9.0 — *The Human by Design Update*
 
 ### The North Star
-The "Human Algorithm" is not a standard digital portfolio—it is an *Interactive Manifesto* and our primary acquisition wedge. We build a high-performance, narrative-driven platform that physically deploys our core thesis: "Designing where software logic meets human intuition."
+The "Human Algorithm" is not a standard digital portfolio—it is an *Interactive Manifesto* and our primary acquisition wedge. We build a high-performance, narrative-driven platform that physically deploys our core thesis: "Designing where software logic meets human intuition. Human by Design."
 
 This product serves as undeniable, executable proof of work. It is designed to survive the highest levels of scrutiny from executive leadership (Product, Design, and Engineering), proving the ability to ingest chaotic business requirements, tame systemic complexity, and output deeply resilient, accessible workflows that drive measurable conversion.
 
@@ -144,9 +144,9 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **Component**: `CustomCursor.jsx`
 *   **Capability**: Framer Motion spring-driven cursor with magnetic attraction to interactive elements. Documented in Design System's `LayoutLab`.
 
-### 6.20 Protocol Handshake Visualizer
+### 6.20 Human Connection Sync Terminal
 *   **Component**: `Contact.jsx` / `HandshakeTerminal`
-*   **Capability**: Real-time terminal log showing `[SYN]`, `[SYN-ACK]`, and `[ACK]` steps as the user interacts with the contact form, visualizing the connection progress.
+*   **Capability**: Human-centric connection terminal. Tracks `SYNC_VALUES`, `ALIGN_GOALS`, and `ESTABLISH_CONN` steps to visualize the formation of a genuine human connection, replacing deprecated networking jargon.
 
 ### 6.21 Magnetic Interaction Layer
 *   **Component**: `MagneticTooltip.jsx`
@@ -155,6 +155,22 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 ### 6.22 Automated Opportunity Analysis & Strategy
 *   **Documentation**: `docs/job_hunting.md`, `docs/job-analysis/`
 *   **Capability**: Systematic ingestion and Agentic generation of >30 strategic job fit analyses, ranked natively within the portfolio docs to auto-generate a targeted B2B/Enterprise application campaign.
+
+### 6.23 Circadian UI Overlay (Biological Time Sync)
+*   **Component**: `CircadianOverlay.jsx`
+*   **Capability**: Fixed full-screen overlay shifting global color temperature based on local time (Morning=cool blue, Midday=neutral, Golden Hour=warm amber, Night=deep indigo). All gradient values housed in a `CIRCADIAN_PHASES` config. Re-evaluates every 10 minutes.
+
+### 6.24 Breath-Synced Variable Typography
+*   **Component**: `useVariableTypography.js` hook
+*   **Capability**: Modulates `--font-weight-dynamic` CSS property via `requestAnimationFrame`. Idle/reading mode oscillates between weights 370–410 (breathing), fast scrolling snaps to 440 (legibility). Powered by Inter Variable Font (100–900) via Google Fonts CDN. Zero React re-renders.
+
+### 6.25 Adaptive Cognitive Pacing
+*   **Component**: `useScrollPacing.js` hook → `ChaosCanvas.jsx`
+*   **Capability**: Maps scroll velocity to a pacing multiplier. Reading (idle) = 0.2x particle speed. Scanning (fast scroll) = 2.0x. All values in `PACING_CONFIG`. Writes via Framer Motion `MotionValues` bypassing React state.
+
+### 6.26 Biomimetic Motion System
+*   **Component**: `VentureCard.jsx` via `MOTION_CONFIG`
+*   **Capability**: All 5 card archetypes inherit a biological "breathing" idle animation (`y: [0, -3, 0]`) with per-archetype timing. Hover engagement overrides breathing with spring physics (`stiffness: 300, damping: 20`).
 
 ## 7. UX Audit Post-Mortem & System Governance
 *   **Affordance Clarity**: Physical grip visuals on `ChaosSlider`.
@@ -193,6 +209,15 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **[COMPLETED]** Interests Selector animation fix (Consistent Burst/Toggle on interactive nodes).
 *   **[COMPLETED]** Dynamic Import Resilience (lazyWithRetry + ErrorBoundary).
 
+### Phase 3.5: Human by Design ✅
+*   **[COMPLETED]** Biomimetic breathing idle animations on all VentureCard archetypes.
+*   **[COMPLETED]** Adaptive Cognitive Pacing via `useScrollPacing` hook → ChaosCanvas.
+*   **[COMPLETED]** Warm Analog-Digital Synthesis (off-white/warm charcoal palettes + SVG noise grain).
+*   **[COMPLETED]** Empathetic AI Companion (Echo.Z rebrand from terminal to collaborative co-pilot).
+*   **[COMPLETED]** Purpose-Driven Narrative (Contact page rebrand, `humanImpact` metrics in project data).
+*   **[COMPLETED]** Circadian UI Overlay (Biological Time Sync).
+*   **[COMPLETED]** Breath-Synced Variable Typography via Inter Variable Font.
+
 ### Phase 4: Advanced Agentic Workflow & Predictive UX (Q3-Q4 2026)
 *   **[Q3 2026] Algorithmic Role Alignment (Dynamic IA)**: Edge-based intent detection via job description URL parsing.
 
@@ -204,6 +229,6 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 
 ---
 **Document Status**: *ACTIVE*
-**Last Updated**: March 2026 · v8.1
+**Last Updated**: March 2026 · v9.0
 **Product Strategy**: Fadly Uzzaki
-*Optimizing for human bandwidth. Operating at the intersection of complex constraints and profound simplicity.*
+*Human by Design. Operating at the intersection of complex constraints and profound simplicity.*

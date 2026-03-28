@@ -7,3 +7,4 @@ export { default as LayoutLab } from "./LayoutLab";
 export { default as GovernanceLab } from "./GovernanceLab";
 export { default as BrandStrategy } from "./BrandStrategy";
 export { default as AuditReport } from "./AuditReport";
+export { default as BiologicalLab } from "./BiologicalLab";

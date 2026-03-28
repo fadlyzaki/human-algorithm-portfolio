@@ -1,14 +1,14 @@
 export const humanAlgorithm = {
   id: "human-algorithm",
   title: { en: "The Human Algorithm", id: "The Human Algorithm" },
-  subtitle: { en: "System Architecture v8.0", id: "Arsitektur Sistem v8.0" },
+  subtitle: { en: "System Architecture v9.0", id: "Arsitektur Sistem v9.0" },
   desc: {
     en: 'A self-aware portfolio and experimental lab built by AI agents. Featuring 6 polymorphic layout engines, a context-aware AI companion, and a graveyard of beautiful deprecated experiments.',
     id: "Portofolio sadar diri dan laboratorium eksperimental yang dibangun oleh agen AI. Menampilkan 6 mesin layout polimorfik, pendamping AI sadar konteks, dan koleksi eksperimen usang yang indah.",
   },
   tldr: {
-    en: "The first portfolio built entirely through an Agentic Workflow. v8.0 documents every shipped and killed experiment, proving that knowing what to cut is just as important as knowing what to build.",
-    id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. v8.0 mendokumentasikan setiap rilis dan fitur yang dibatalkan, membuktikan bahwa tahu apa yang harus dipotong sama pentingnya dengan apa yang ingin dibangun.",
+    en: "The first portfolio built entirely through an Agentic Workflow. v9.0 integrates biological time-awareness and breath-synced typography, proving that the most resilient systems are the ones that feel alive.",
+    id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. v9.0 mengintegrasikan kesadaran waktu biologis dan tipografi tersinkronisasi napas, membuktikan bahwa sistem paling tangguh adalah yang terasa hidup.",
   },
   humanImpact: {
     en: "Reduced recruiter cognitive friction by 80% via Echo.Z and clear narratives.",
@@ -26,7 +26,7 @@ export const humanAlgorithm = {
   date: { en: "Feb – March 2026", id: "Feb – Mar 2026" },
   coverImage: "airy:architecture",
   snapshot: {
-    tagline: { en: "System Architecture v8.0", id: "System Architecture v8.0" },
+    tagline: { en: "System Architecture v9.0", id: "System Architecture v9.0" },
     heroImage: "airy:architecture",
   },
   context: {
@@ -96,6 +96,19 @@ export const humanAlgorithm = {
       image: "airy:data",
     },
   ],
+  process_humanByDesign: [
+    {
+      title: {
+        en: "Human by Design: Biological Integration",
+        id: "Human by Design: Integrasi Biologis",
+      },
+      desc: {
+        en: "Phase 3.5 introduced a paradigm shift: the system now breathes. A Circadian UI overlay shifts color temperature based on the visitor's local clock. Variable typography weight oscillates with reading rhythm. ChaosCanvas particles adapt to cognitive load via scroll velocity. The interface is no longer static; it is alive.",
+        id: "Fase 3.5 memperkenalkan pergeseran paradigma: sistem kini bernapas. Overlay UI Circadian menggeser suhu warna berdasarkan jam lokal pengunjung. Berat tipografi berosilasi mengikuti ritme membaca. Partikel ChaosCanvas beradaptasi dengan beban kognitif melalui kecepatan scroll. Antarmuka tidak lagi statis; ia hidup.",
+      },
+      image: "airy:cycle",
+    },
+  ],
   insights: [
     {
       title: {
@@ -144,14 +157,14 @@ export const humanAlgorithm = {
     },
   ],
   metrics: [
-    { label: { en: "Features Shipped", id: "Fitur Dirilis" }, value: "21+" },
+    { label: { en: "Features Shipped", id: "Fitur Dirilis" }, value: "26+" },
     { label: { en: "Features Deprecated", id: "Fitur Dihapus" }, value: "6" },
     { label: { en: "Layout Archetypes", id: "Arketipe Tata Letak" }, value: "6" },
-    { label: { en: "AI Agents Used", id: "Agen AI Digunakan" }, value: "4" },
+    { label: { en: "Biological Hooks", id: "Hook Biologis" }, value: "3" },
   ],
   learnings: {
-    en: "Building this portfolio with AI agents taught me that my real skill isn't pushing pixels, it's orchestrating systems. I learned to let go of control over every line of code and instead focus on defining the 'what' and 'why'. The hardest part was trusting the process.",
-    id: "Membangun portofolio ini dengan agen AI mengajarkan saya bahwa keahlian sesungguhnya bukan mendorong piksel, tapi mengorkestrasi sistem. Saya belajar melepas kendali atas setiap baris kode dan fokus mendefinisikan 'apa' dan 'mengapa'. Bagian tersulit adalah mempercayai prosesnya.",
+    en: "Building this portfolio with AI agents taught me that my real skill isn't pushing pixels, it's orchestrating systems. I learned to let go of control over every line of code and instead focus on defining the 'what' and 'why'. The hardest part was trusting the process. The latest revelation: the most impactful technical systems are the ones that feel biologically alive, not mechanically precise.",
+    id: "Membangun portofolio ini dengan agen AI mengajarkan saya bahwa keahlian sesungguhnya bukan mendorong piksel, tapi mengorkestrasi sistem. Saya belajar melepas kendali atas setiap baris kode dan fokus mendefinisikan 'apa' dan 'mengapa'. Bagian tersulit adalah mempercayai prosesnya. Temuan terbaru: sistem teknis paling berdampak adalah yang terasa hidup secara biologis, bukan presisi secara mekanis.",
   },
   designProcess: [
     {

@@ -10,6 +10,7 @@ import {
   Lock,
   ClipboardList,
   Eye,
+  HeartPulse,
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { SYSTEM_CONFIG } from "../config/constants";
@@ -25,6 +26,7 @@ import {
   GovernanceLab,
   BrandStrategy,
   AuditReport,
+  BiologicalLab,
 } from "./design-system";
 
 const DesignSystemViewer = () => {
@@ -42,6 +44,7 @@ const DesignSystemViewer = () => {
     { id: "ux", label: "07 // PRINCIPLES", icon: Scale },
     { id: "governance", label: "08 // GOVERNANCE", icon: Lock },
     { id: "audit", label: "09 // AUDIT", icon: ClipboardList },
+    { id: "biological", label: "10 // BIOLOGICAL", icon: HeartPulse },
   ];
 
   const scrollToSection = (id) => {
@@ -60,6 +63,7 @@ const DesignSystemViewer = () => {
     ux: UXPrinciples,
     governance: GovernanceLab,
     audit: AuditReport,
+    biological: BiologicalLab,
   };
 
   const SECTION_HEADERS = {
@@ -72,6 +76,7 @@ const DesignSystemViewer = () => {
     ux: { icon: Scale, label: "[07] Interaction_Axioms" },
     governance: { icon: Lock, label: "[08] System_Governance" },
     audit: { icon: ClipboardList, label: "[09] Token_Audit_Report" },
+    biological: { icon: HeartPulse, label: "[10] Biological_Layer" },
   };
 
   const ActiveComponent = SECTION_COMPONENTS[activeSection];

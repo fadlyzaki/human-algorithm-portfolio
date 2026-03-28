@@ -1,13 +1,13 @@
-# The Human Algorithm: System Architecture v4.0
+# The Human Algorithm: System Architecture v5.0
 
-> **Engineering Philosophy:** *"Software is a physical constraint applied to human behavior. We do not just build interfaces; we engineer resilient systems where algorithmic enforcement meets human intuition - with zero frame drops and zero cognitive friction."*
+> **Engineering Philosophy:** *"Software is a physical constraint applied to human behavior. We do not just build interfaces; we engineer resilient systems where algorithmic enforcement meets human intuition - with zero frame drops and zero cognitive friction. Human by Design."*
 
 Welcome to the source matrix of **[fadlyzaki-design.vercel.app](https://fadlyzaki-design.vercel.app/)** - a production-grade, highly experimental Single Page Application (SPA).
 
 This repository is deliberately over-engineered. It is not a static portfolio; it is an *Interactive Manifesto* and the definitive proof of work for Fadly Uzzaki, Senior Product Designer specializing in Trust Engineering. Designed for the scrutiny of Product and Engineering leadership, this system proves the capacity to ingest chaotic business logic, tame systemic B2B complexity, and output deeply resilient, accessible workflows.
 
 [![Status](https://img.shields.io/badge/SYSTEM-NOMINAL-green?style=flat-square&logo=react)](https://fadlyzaki-design.vercel.app/)
-[![Build](https://img.shields.io/badge/VERSION-4.0.0-blue?style=flat-square&logo=vercel)](https://vercel.com)
+[![Build](https://img.shields.io/badge/VERSION-5.0.0-blue?style=flat-square&logo=vercel)](https://vercel.com)
 [![Web Vitals](https://img.shields.io/badge/LIGHTHOUSE-100-orange?style=flat-square&logo=lighthouse)](https://pagespeed.web.dev/)
 
 ---
@@ -87,14 +87,27 @@ Interactive pixel-art survival game with item collection, score tracking, and am
 ### 19. Robust Dynamic Imports (`lazyWithRetry.js`)
 Application-wide implementation of a resilient lazy-loading wrapper. Automatically detects and reloads on chunk-load failures (e.g., during a new deployment), backed by a global `ErrorBoundary` for 100% graceful degradation.
 
-### 20. Protocol Handshake Terminal (`Contact.jsx`)
-Real-time terminal log visualizer for the contact form. Tracks `[SYN]`, `[SYN-ACK]`, and `[ACK]` steps to create a high-fidelity system-sync interaction.
+### 20. Human Connection Sync Terminal (`Contact.jsx`)
+Human-centric connection terminal replacing aggressive networking jargon. Tracks `SYNC_VALUES`, `ALIGN_GOALS`, and `ESTABLISH_CONN` steps to visualize the formation of a genuine human connection.
+
+### 21. Circadian UI Overlay (`CircadianOverlay.jsx`)
+A fixed, full-screen overlay that shifts the global color temperature based on the user's local time. Morning (cool blue), Midday (neutral), Golden Hour (warm amber), Night (deep indigo). Re-evaluates every 10 minutes with proper cleanup. All color values housed in a `CIRCADIAN_PHASES` config object.
+
+### 22. Breath-Synced Variable Typography (`useVariableTypography.js`)
+Custom hook modulating the `--font-weight-dynamic` CSS property via `requestAnimationFrame`. Idle/reading state generates a slow sine-wave oscillation (weights 370–410) simulating breathing rhythm. Fast scrolling snaps to weight 440 for immediate legibility. Powered by Inter Variable Font (100–900 continuous weight axis) loaded from Google Fonts CDN.
+
+### 23. Adaptive Cognitive Pacing (`useScrollPacing.js`)
+Framer Motion hook that maps scroll velocity to a pacing multiplier consumed by `ChaosCanvas`. When reading (idle), background particles slow to a calm 0.2x pace. When scanning (fast scroll), they accelerate to 2.0x. All values abstracted into `PACING_CONFIG`.
+
+### 24. Biomimetic Motion (`VentureCard.jsx`)
+All VentureCard archetypes inherit a biological "breathing" idle animation (`y: [0, -3, 0]`) via Framer Motion spring physics with per-archetype timing configurations housed in `MOTION_CONFIG`.
 
 ## 📂 System Topography
 The architecture follows a strict decoupled multi-layer pattern:
-- **View Layer**: 55+ UI components across 14 pages, emphasizing recursive performance and kinetic polish.
+- **View Layer**: 60+ UI components across 14 pages, emphasizing recursive performance and kinetic polish.
 - **State Layer**: Global Truth management via React Context (`Theme`, `Language`, `RecruiterMode`).
 - **Knowledge Graph**: Centralized Single Source of Truth (`portfolioData.js`) and high-fidelity bilingual databases.
+- **Biological Layer**: Circadian time-sync, breath-synced typography, and adaptive cognitive pacing.
 - **Infrastructure**: Resilience-first routing with dynamic import fail-safes and isolated error handling.
 
 
