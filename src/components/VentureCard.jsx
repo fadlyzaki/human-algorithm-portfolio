@@ -254,13 +254,13 @@ const BrutalistCard = ({ project, title, desc, onClick, isHovered, isIndonesian,
     onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
-    className="group relative h-[450px] rounded-3xl bg-[#E2E2E2] dark:bg-[var(--bg-card)] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
+    className="group relative h-[450px] rounded-3xl bg-[var(--border-color)] dark:bg-[var(--bg-card)] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
     animate={isHovered ? { x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" } : { x: 0, y: [0, -2, 0], boxShadow: "0px 0px 0px 0px var(--accent-red)" }}
     transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_BRUTALIST}
     whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" }}
   >
     {/* Blinds Reveal over full card */}
-    <BlindsReveal isOpen={isHovered} slats={10} color="#1a1a1a">
+    <BlindsReveal isOpen={isHovered} slats={10} color="var(--text-primary)">
       <div className="absolute top-4 right-4 z-20">
         <ArrowUpRight size={24} className="text-black dark:text-white" />
       </div>

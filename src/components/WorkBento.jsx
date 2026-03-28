@@ -114,8 +114,8 @@ const WorkBento = ({ cluster, priority = false }) => {
               <motion.div
                 className="w-16 h-16 sm:w-20 sm:h-20 rounded-full"
                 animate={{ 
-                  backgroundColor: isHovered ? "#FFFFFF" : cluster.brandColor,
-                  color: isHovered ? cluster.brandColor : "#FFFFFF"
+                  backgroundColor: isHovered ? "var(--bg-surface)" : cluster.brandColor,
+                  color: isHovered ? cluster.brandColor : "var(--bg-surface)"
                 }}
               />
             )}
@@ -139,7 +139,7 @@ const WorkBento = ({ cluster, priority = false }) => {
           {/* Role (Top) */}
           <motion.p
             className="text-sm font-bold leading-tight line-clamp-2"
-            animate={{ color: isHovered ? "#FFFFFF" : "var(--text-primary)" }}
+            animate={{ color: isHovered ? "var(--bg-surface)" : "var(--text-primary)" }}
           >
             {role}
           </motion.p>

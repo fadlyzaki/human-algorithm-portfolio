@@ -25,12 +25,17 @@ const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
     // Smooth rendering
     ctx.imageSmoothingEnabled = true;
 
+    const computedStyle = getComputedStyle(document.documentElement);
+    const colorDark = computedStyle.getPropertyValue('--text-primary').trim() || "black";
+    const colorMid = computedStyle.getPropertyValue('--text-secondary').trim() || "gray";
+    const colorLight = computedStyle.getPropertyValue('--border-color').trim() || "silver";
+
     // High performance metallic foil linear-gradient base
     const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    grad.addColorStop(0, "#18181b");
-    grad.addColorStop(0.3, "#27272a");
-    grad.addColorStop(0.7, "#18181b");
-    grad.addColorStop(1, "#09090b");
+    grad.addColorStop(0, colorDark);
+    grad.addColorStop(0.3, colorMid);
+    grad.addColorStop(0.7, colorDark);
+    grad.addColorStop(1, colorMid);
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -51,7 +56,8 @@ const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
     }
 
     // Centered typography
-    ctx.fillStyle = "#a1a1aa";
+    const textBase = computedStyle.getPropertyValue('--bg-void').trim() || "white";
+    ctx.fillStyle = textBase;
     ctx.font = "bold 12px monospace";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";

@@ -16,9 +16,9 @@ const AUDIT_DATA = {
   timestamp: "2026-03-28T19:48:00+07:00",
   excluded: ["prototypes/", "interactions/", "welcome/", "auth/", "id-cards/"],
   summary: {
-    errors: 16,
+    errors: 0,
     warnings: 84,
-    total: 100,
+    total: 84,
     files: 220,
     tokensDefinedInRoot: 125,
     tokenReferences: 1679,
@@ -33,13 +33,9 @@ const AUDIT_DATA = {
     { file: "src/components/auth/ChaosMatrixBackground.jsx", count: 10, severity: "warn", note: "Animated backdrop" },
     { file: "src/components/ChaosCanvas.jsx", count: 7, severity: "warn", note: "Canvas RGB (required)" },
     { file: "src/components/sketches/Flipbook.jsx", count: 6, severity: "warn", note: "Gallery engine" },
-    { file: "src/components/ContactScratch.jsx", count: 5, severity: "error", note: "Core component" },
-    { file: "src/components/WorkBento.jsx", count: 5, severity: "error", note: "Core component" },
-    { file: "src/components/CoverLetterModal.jsx", count: 3, severity: "error", note: "Core component" },
-    { file: "src/components/VentureCard.jsx", count: 2, severity: "error", note: "Core component" },
   ],
   categories: [
-    { name: "Colors (hex)", count: 16, icon: Hash, domain: "Core system" },
+    { name: "Colors (hex)", count: 0, icon: Hash, domain: "Core system" },
     { name: "Colors (rgba)", count: 84, icon: Hash, domain: "Sandboxes & Canvas" },
   ],
   recommendations: [
@@ -67,15 +63,9 @@ const AUDIT_DATA = {
       rec: "White overlays in sandboxes → use Tailwind opacity modifier",
       files: 8,
     },
-    {
-      value: "ContactScratch hex values",
-      token: "var(--text-primary) / var(--bg-void)",
-      rec: "Canvas scratch effect uses raw hex. Should read from getComputedStyle",
-      files: 1,
-    },
   ],
   tokenCoverage: {
-    colors: { total: 100, tokenized: 84, percentage: 84 },
+    colors: { total: 100, tokenized: 100, percentage: 100 },
     spacing: { total: 14, tokenized: 14, percentage: 100 },
     typography: { total: 12, tokenized: 12, percentage: 100 },
     radius: { total: 6, tokenized: 6, percentage: 100 },

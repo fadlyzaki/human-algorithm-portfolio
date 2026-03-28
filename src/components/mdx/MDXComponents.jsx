@@ -74,8 +74,8 @@ const MDXComponents = {
             lang = props.children.props.className.replace('language-', '').toUpperCase();
         }
         return (
-            <div className="my-12 rounded-2xl overflow-hidden border border-[var(--border-color)] bg-[#111111] shadow-2xl">
-                <div className="flex items-center justify-between px-4 py-3 bg-[#1A1A1A] border-b border-white/10">
+            <div className="my-12 rounded-2xl overflow-hidden border border-[var(--border-color)] bg-neutral-950 shadow-2xl">
+                <div className="flex items-center justify-between px-4 py-3 bg-neutral-900 border-b border-white/10">
                     <div className="flex gap-2">
                         <div className="w-3 h-3 rounded-full bg-red-500" />
                         <div className="w-3 h-3 rounded-full bg-amber-500" />

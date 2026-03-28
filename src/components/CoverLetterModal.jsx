@@ -65,7 +65,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                     setIsLetterOpen(false);
                   }
                 }}
-                className={`bg-[#EAE6DF] dark:bg-[var(--bg-card)] p-6 sm:p-8 flex justify-between items-start z-30 relative shadow-md transition-colors ${!isLetterOpen ? "cursor-pointer hover:bg-[#E2DDD5] dark:hover:bg-[var(--border-color)]" : "cursor-pointer"}`}
+                className={`bg-[var(--bg-card)] p-6 sm:p-8 flex justify-between items-start z-30 relative shadow-md transition-colors ${!isLetterOpen ? "cursor-pointer hover:bg-[var(--border-color)]" : "cursor-pointer"}`}
                 style={{
                   borderTopLeftRadius: "0.5rem",
                   borderTopRightRadius: "0.5rem",
@@ -115,7 +115,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                   // Slight stagger entering vs exiting
                   opacity: { duration: 0.2 },
                 }}
-                className="bg-[#FAF8F5] dark:bg-[var(--bg-surface)] overflow-hidden z-20 relative border-x border-[var(--border-color)]"
+                className="bg-[var(--bg-void)] overflow-hidden z-20 relative border-x border-[var(--border-color)]"
                 // The inner shadow creates the illusion that this sits *below* the top fold
                 style={{
                   boxShadow:
@@ -170,7 +170,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                   // Delay the footer expanding out to create a 3-part cascading fold effect
                   delay: isLetterOpen ? 0.05 : 0,
                 }}
-                className="bg-[#EAE6DF] dark:bg-[var(--bg-card)] overflow-hidden z-10 relative border border-[var(--border-color)]"
+                className="bg-[var(--bg-card)] overflow-hidden z-10 relative border border-[var(--border-color)]"
                 style={{
                   borderBottomLeftRadius: "0.5rem",
                   borderBottomRightRadius: "0.5rem",
