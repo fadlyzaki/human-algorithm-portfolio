@@ -18,7 +18,7 @@ import CompanyStats from "../components/company/CompanyStats";
 import CompanySidebar from "../components/company/CompanySidebar";
 import CompanyProjects from "../components/company/CompanyProjects";
 import CompanyCulture from "../components/company/CompanyCulture";
-import ChaosMatrixBackground from "../components/auth/ChaosMatrixBackground";
+import ChaosCanvas from "../components/ChaosCanvas";
 
 // Dynamic Imports for AI Interactions with Retry Logic
 const WorkforceAI = lazyWithRetry(
@@ -39,15 +39,6 @@ const CompanyDetail = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { project: cluster, loading } = useProjectData(id);
-  const [bgPhase, setBgPhase] = useState("chaos");
-
-  // Animate background from chaos to matrix after a short delay to represent structuring info
-  React.useEffect(() => {
-    if (!loading && cluster) {
-      const timer = setTimeout(() => setBgPhase("matrix"), 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [loading, cluster]);
 
   if (loading) return <div className="min-h-screen bg-black" />; // Minimal loader
   if (!cluster) return null; // Or 404
@@ -105,9 +96,9 @@ const CompanyDetail = () => {
         }}
       ></div>
       
-      {/* CHAOS TO MATRIX BACKGROUND LAYER */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-30">
-        <ChaosMatrixBackground phase={bgPhase} />
+      {/* ATMOSPHERE BACKGROUND LAYER */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen">
+        <ChaosCanvas />
       </div>
 
       {/* --- NAVIGATION SYSTEM --- */}
