@@ -1,7 +1,6 @@
 import React, { Suspense, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { ScanEye, Sun, Moon, Globe } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
 
 import { useLanguage } from "../context/LanguageContext";
@@ -18,7 +17,9 @@ import CompanyStats from "../components/company/CompanyStats";
 import CompanySidebar from "../components/company/CompanySidebar";
 import CompanyProjects from "../components/company/CompanyProjects";
 import CompanyCulture from "../components/company/CompanyCulture";
-import ChaosCanvas from "../components/ChaosCanvas";
+import SystemLoader from "../components/SystemLoader";
+
+const ChaosCanvas = lazyWithRetry(() => import("../components/ChaosCanvas"));
 
 // Dynamic Imports for AI Interactions with Retry Logic
 const WorkforceAI = lazyWithRetry(
@@ -32,7 +33,6 @@ const EfficiencyAI = lazyWithRetry(
 );
 
 const CompanyDetail = () => {
-  const { isDark } = useTheme();
   const { t, language } = useLanguage();
   const { id } = useParams();
 
@@ -88,18 +88,12 @@ const CompanyDetail = () => {
         }}
       />
 
-      {/* BACKGROUND NOISE TEXTURE */}
-      <div
-        className={`fixed inset-0 z-0 pointer-events-none opacity-[0.05] ${isDark ? "mix-blend-overlay" : "mix-blend-multiply"}`}
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
-      ></div>
-      
-      {/* ATMOSPHERE BACKGROUND LAYER */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen">
+      {/* --- 0. AMBIENCE --- */}
+      <Suspense fallback={<SystemLoader />}>
         <ChaosCanvas />
-      </div>
+      </Suspense>
+      {/* Vignette */}
+      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
       {/* --- NAVIGATION SYSTEM --- */}
       <Navbar
