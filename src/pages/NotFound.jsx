@@ -67,7 +67,7 @@ const NotFound = () => {
 
     // Batch initial layout calculations
     const plats = makePlatforms(vw, groundY);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+     
     setPlatforms(plats);
     setPortalPos({ x: vw - 140, y: groundY - PORTAL_SIZE });
     setCollectibles([
@@ -230,6 +230,7 @@ const NotFound = () => {
 
     frameRef.current = requestAnimationFrame(loop);
     return () => { if (frameRef.current) cancelAnimationFrame(frameRef.current); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [portalReached, portalPos, navigate, spawnParticles]);
 
   const handleMobileInput = useCallback((key, isDown) => { keysRef.current[key] = isDown; }, []);

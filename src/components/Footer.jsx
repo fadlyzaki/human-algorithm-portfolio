@@ -149,6 +149,47 @@ const DynamicDeliverable = ({ words }) => {
   );
 };
 
+const DoNotPressButton = () => {
+  const [chaosCount, setChaosCount] = useState(0);
+
+  const triggerChaos = () => {
+    setChaosCount((prev) => prev + 1);
+
+    const root = document.getElementById("root");
+    if (!root) return;
+
+    if (chaosCount === 0) {
+      root.style.transition = "transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)";
+      root.style.transform = "rotate(1.5deg) skew(-1deg)";
+    } else if (chaosCount === 1) {
+      root.style.transform = "rotate(-2deg) skew(2deg) scale(0.98)";
+    } else {
+      root.style.transform = "rotate(0deg) skew(0deg) scale(1)";
+      setTimeout(() => setChaosCount(0), 500);
+    }
+  };
+
+  const getLabel = () => {
+    if (chaosCount === 1) return "I told you not to";
+    if (chaosCount === 2) return "Fix it please";
+    return "Do Not Click";
+  };
+
+  return (
+    <button
+      onClick={triggerChaos}
+      className={`text-[9px] font-mono uppercase tracking-widest px-2 py-1 rounded transition-colors ${
+        chaosCount > 0
+          ? "bg-red-500/10 text-red-500 border border-red-500/30"
+          : "text-[var(--text-secondary)] border border-[var(--text-secondary)]/30 hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/30"
+      }`}
+      title="Seriously, don't."
+    >
+      {getLabel()}
+    </button>
+  );
+};
+
 const Footer = ({ hideHeadline = false }) => {
   const { t } = useLanguage();
   const year = new Date().getFullYear();
@@ -313,12 +354,13 @@ const Footer = ({ hideHeadline = false }) => {
         </div>
 
         {/* 3. SIGNATURE */}
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end md:items-center text-xs font-mono text-[var(--text-secondary)] uppercase tracking-wider">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end md:items-center text-xs font-mono text-[var(--text-secondary)] uppercase tracking-wider gap-4">
           <div>
             © {year} Fadly Uzzaki.{" "}
             <span className="opacity-50">{t("footer.rights")}</span>
           </div>
-          <div className="mt-4 md:mt-0 flex items-center gap-4">
+          <div className="mt-4 md:mt-0 flex items-center gap-4 flex-wrap justify-end">
+            <DoNotPressButton />
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-pulse" />
               Neural-Enhanced Environment

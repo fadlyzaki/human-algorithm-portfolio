@@ -1,11 +1,9 @@
-import React from "react";
-import { useTheme } from "../../context/ThemeContext";
+import { Clock, Users, Activity, ExternalLink } from "lucide-react";
 
 /**
  * BiologicalLab — Design System section documenting Human by Design subsystems
  */
 const BiologicalLab = () => {
-  const { isDark } = useTheme();
 
   const systems = [
     {

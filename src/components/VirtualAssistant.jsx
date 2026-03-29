@@ -34,7 +34,6 @@ const VirtualAssistant = () => {
   useEffect(() => {
     const sleepState = sessionStorage.getItem("assistant_sleeping");
     if (sleepState === "true") {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- Initializing from sessionStorage on mount is intentional
       setIsSleeping(true);
     }
   }, []);
@@ -150,7 +149,7 @@ const VirtualAssistant = () => {
       const data = await res.json();
       setMessage(data.reply || "Glitch encountered. Matrix reset.");
       setCurrentScene(SCENES.IDLE);
-    } catch (err) {
+    } catch {
       setMessage("Connection error. Neural link severed.");
       setCurrentScene(SCENES.IDLE);
     } finally {
@@ -286,7 +285,7 @@ const VirtualAssistant = () => {
 
     if (prevPath !== path) {
       clearAllTimers(); // Clear any existing sequences
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- Batching state reset on route change is intentional
+
       setShowMessage(false);
       setMenuOptions(null);
       localStorage.setItem("assistant_last_path", path);
@@ -331,6 +330,7 @@ const VirtualAssistant = () => {
         setMessage(newMsg);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname, isRecruiterMode, t, isSleeping]);
 
   // Determine if we should hide on 404/catch-all
@@ -414,7 +414,7 @@ const VirtualAssistant = () => {
               ))}
             </div>
           ) : (
-            <div className="leading-snug pr-2 text-xs sm:text-sm prose-sm prose-invert" dangerouslySetInnerHTML={{ __html: message.replace(/\n/g, '<br />') }} />
+            <div className="leading-snug pr-2 text-xs sm:text-sm prose-sm prose-invert overflow-y-auto max-h-[250px] custom-scrollbar pointer-events-auto" dangerouslySetInnerHTML={{ __html: message.replace(/\n/g, '<br />') }} />
           )}
         </div>
         

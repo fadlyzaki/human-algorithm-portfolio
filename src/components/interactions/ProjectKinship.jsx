@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectKinship = () => {
   return (
-    <div className="w-full h-full min-h-[85vh] rounded-xl overflow-hidden bg-[#1e293b] shadow-inner">
+    <div className="w-full h-full min-h-[85vh] rounded-xl overflow-hidden shadow-inner flex justify-center">
       <iframe
         src="/project-kinship-proto.html"
         title="Grab Merantau Prototype"

@@ -72,7 +72,7 @@ const AgencyPivot = () => {
   };
 
   return (
-    <div className="flex justify-center bg-slate-900 font-sans antialiased text-slate-900 selection:bg-indigo-100 rounded-xl overflow-hidden">
+    <div className="flex justify-center font-sans antialiased text-slate-900 selection:bg-indigo-100 rounded-xl overflow-hidden">
       <div className="w-full max-w-md bg-white h-[600px] relative shadow-[0_0_40px_rgba(var(--bg-void-rgb), 0.3)] flex flex-col overflow-hidden">
         {/* --- TOAST NOTIFICATION --- */}
         <div

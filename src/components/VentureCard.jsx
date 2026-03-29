@@ -53,11 +53,12 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
       { threshold: 0.6 }
     );
 
-    if (containerRef.current) observer.observe(containerRef.current);
+    const currentRef = containerRef.current;
+    if (currentRef) observer.observe(currentRef);
 
     return () => {
       if (intervalId) clearInterval(intervalId);
-      if (containerRef.current) observer.unobserve(containerRef.current);
+      if (currentRef) observer.unobserve(currentRef);
     };
   }, [project.id]);
 
@@ -193,7 +194,7 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, isIndonesian
 );
 
 // 2. THE COSMIC POP (Dolphi)
-const CosmicPopCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => (
+const CosmicPopCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
     ref={ref}
     id={`venture-card-${project.id}`}

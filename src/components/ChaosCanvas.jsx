@@ -207,16 +207,16 @@ const ChaosCanvas = ({ intensity = 0 }) => {
       window.removeEventListener("mouseout", handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [isDark]);
+  }, [isDark, pace]);
 
   const chaosFactor = Math.pow(intensity / 100, 2);
   const filterStyle = intensity > 0 
-    ? `hue-rotate(${chaosFactor * 90}deg) contrast(${100 + chaosFactor * 100}%) invert(${intensity > 85 && Math.random() > 0.6 ? 100 : 0}%) blur(${chaosFactor * 3}px)`
+    ? `hue-rotate(${chaosFactor * 90}deg) contrast(${100 + chaosFactor * 100}%) blur(${chaosFactor * 3}px)`
     : "none";
     
   // Shake effect for the entire canvas
-  const shakeX = (Math.random() - 0.5) * chaosFactor * 40;
-  const shakeY = (Math.random() - 0.5) * chaosFactor * 40;
+  const shakeX = 0;
+  const shakeY = 0;
 
   return (
     <canvas

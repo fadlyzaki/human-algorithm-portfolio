@@ -28,7 +28,6 @@ const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
     const computedStyle = getComputedStyle(document.documentElement);
     const colorDark = computedStyle.getPropertyValue('--text-primary').trim() || "black";
     const colorMid = computedStyle.getPropertyValue('--text-secondary').trim() || "gray";
-    const colorLight = computedStyle.getPropertyValue('--border-color').trim() || "silver";
 
     // High performance metallic foil linear-gradient base
     const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);

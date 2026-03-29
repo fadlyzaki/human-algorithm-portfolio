@@ -44,11 +44,12 @@ const WorkBento = ({ cluster, priority = false }) => {
       { threshold: 0.6 }
     );
 
-    if (containerRef.current) observer.observe(containerRef.current);
+    const currentRef = containerRef.current;
+    if (currentRef) observer.observe(currentRef);
 
     return () => {
       if (intervalId) clearInterval(intervalId);
-      if (containerRef.current) observer.unobserve(containerRef.current);
+      if (currentRef) observer.unobserve(currentRef);
     };
   }, [cluster.id]);
 

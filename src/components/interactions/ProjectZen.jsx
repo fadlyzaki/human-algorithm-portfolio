@@ -316,7 +316,7 @@ function ContentCard({ item, isHovered, setHovered, isCalmMode }) {
   // PRD 5.3: Duration must be visible on the unselected state.
   return (
     <div
-      className="relative group h-full"
+      className={`relative group h-full ${isHovered ? "z-[60]" : "z-10"}`}
       onMouseEnter={() => setHovered(item.id)}
       onMouseLeave={() => setHovered(null)}
     >
