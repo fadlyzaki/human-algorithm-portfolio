@@ -172,6 +172,10 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **Component**: `VentureCard.jsx` via `MOTION_CONFIG`
 *   **Capability**: All 5 card archetypes inherit a biological "breathing" idle animation (`y: [0, -3, 0]`) with per-archetype timing. Hover engagement overrides breathing with spring physics (`stiffness: 300, damping: 20`).
 
+### 6.27 The Benchmarking Engine (ADK + MCP)
+*   **Component**: `SummarizerAI.jsx`
+*   **Capability**: Live integration of Google ADK and Model Context Protocol (MCP). Extracts, structuralizes, and parses public competitor landing pages into structured JSON product-design insights via a custom `load_web_page` Tool.
+
 ## 7. UX Audit Post-Mortem & System Governance
 *   **Affordance Clarity**: Physical grip visuals on `ChaosSlider`.
 *   **Signal-to-Noise Optimization**: Purged superfluous decorative text.

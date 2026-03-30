@@ -102,6 +102,9 @@ Framer Motion hook that maps scroll velocity to a pacing multiplier consumed by 
 ### 24. Biomimetic Motion (`VentureCard.jsx`)
 All VentureCard archetypes inherit a biological "breathing" idle animation (`y: [0, -3, 0]`) via Framer Motion spring physics with per-archetype timing configurations housed in `MOTION_CONFIG`.
 
+### 25. The Benchmarking Engine (`SummarizerAI.jsx`)
+Real-world application of Google ADK (Agent Development Kit) and Model Context Protocol (MCP). An AI-powered interaction simulating the process of converting unstructured public landing pages into structured product-design benchmarking JSON.
+
 ## 📂 System Topography
 The architecture follows a strict decoupled multi-layer pattern:
 - **View Layer**: 60+ UI components across 14 pages, emphasizing recursive performance and kinetic polish.

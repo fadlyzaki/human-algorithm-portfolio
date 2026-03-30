@@ -72,6 +72,9 @@ const ProjectZen = lazyWithRetry(
 const FilterMeApp = lazyWithRetry(
   () => import("../components/interactions/FilterMeApp"),
 );
+const SummarizerAI = lazyWithRetry(
+  () => import("../components/interactions/SummarizerAI"),
+);
 
 /* --- DESIGN SYSTEM: THE MAKER'S LOG ---
    Aesthetic: "Industrial / Technical Blueprint" (Similar to ProtectedCaseStudy)
@@ -84,6 +87,7 @@ const PROJECT_LAYOUT_MAP = {
   "productivity-illusion": BrutalistDetail,
   "year-in-review": BentoDetail,
   "interactive-workbook": BlueprintDetail,
+  "competitor-summarizer": SystemCoreDetail,
 };
 
 const INTERACTION_MAP = {
@@ -95,6 +99,7 @@ const INTERACTION_MAP = {
   "project-kinship": ProjectKinship,
   "project-zen": ProjectZen,
   "filter-me": FilterMeApp,
+  "competitor-summarizer": SummarizerAI,
 };
 
 const SideProjectDetail = () => {
