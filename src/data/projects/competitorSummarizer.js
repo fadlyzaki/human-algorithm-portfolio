@@ -18,6 +18,7 @@ export const competitorSummarizer = {
   links: {
     demo: "https://competitor-summarizer-frontend-593545324546.us-central1.run.app",
     repo: "https://github.com/fadlyzaki/comp-landing-page-summarizer-",
+    pitch_deck: "https://docs.google.com/presentation/d/1P_c7JoDaEcb1ddnNYLKY2RhwUXyumv0B/edit?usp=sharing",
   },
   prototypeLink: "https://competitor-summarizer-frontend-593545324546.us-central1.run.app",
   iconName: "Globe", 
@@ -34,6 +35,8 @@ export const competitorSummarizer = {
     timeline: { en: "March 2026", id: "Maret 2026" },
     team: { en: "Solo", id: "Sendiri" },
     client: { en: "Personal Project", id: "Proyek Pribadi" },
+    event: { en: "APAC GenAI Academy Hackathon", id: "Hackathon APAC GenAI Academy" },
+    event_url: "https://vision.hack2skill.com/event/apac-genaiacademy/?utm_source=hack2skill&utm_medium=homepage"
   },
   challenge: {
     en: "Product designers frequently analyze competitor landing pages to understand positioning, value proposition, CTA strategy, and structure. However, this workflow remains highly manual and chaotic, consuming massive cognitive bandwidth just to generate fragmented, inconsistent notes.",

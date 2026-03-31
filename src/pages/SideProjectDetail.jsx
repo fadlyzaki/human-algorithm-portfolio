@@ -212,6 +212,8 @@ const SideProjectDetail = () => {
       resolveText(project.date),
     team:
       (isIndonesian && project.context_id?.team) || resolveText(rawContext.team) || "Solo",
+    event: resolveText(rawContext.event),
+    event_url: rawContext.event_url,
   };
 
 

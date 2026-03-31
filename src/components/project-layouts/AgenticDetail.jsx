@@ -10,6 +10,8 @@ import {
   Box,
   Cpu,
   ArrowRight,
+  ExternalLink,
+  Presentation,
 } from "lucide-react";
 import AiryDiagram from "../AiryDiagram";
 
@@ -92,6 +94,19 @@ const AgenticDetail = ({
                        <div className="text-[var(--text-secondary)] opacity-60 uppercase text-[9px] tracking-wider mb-1">Timeline</div>
                        <div className="text-[var(--accent-purple)]">{activeContext.timeline}</div>
                      </div>
+                     {activeContext.event && (
+                       <div>
+                         <div className="text-[var(--text-secondary)] opacity-60 uppercase text-[9px] tracking-wider mb-1">Hackathon_Event</div>
+                         <a 
+                           href={activeContext.event_url} 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           className="text-[var(--accent-purple)] hover:text-white transition-colors underline decoration-[var(--border-color)] underline-offset-4"
+                         >
+                           {activeContext.event}
+                         </a>
+                       </div>
+                     )}
                    </div>
                  </div>
 
@@ -249,9 +264,19 @@ const AgenticDetail = ({
               <span className="hidden sm:inline">React/ADK</span>
             </div>
             <div className="flex gap-4">
+               {project.links?.pitch_deck && (
+                 <a href={project.links.pitch_deck} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 flex items-center gap-1.5 px-3 py-0.5 bg-yellow-500/10 text-yellow-500 rounded border border-yellow-500/20">
+                   Pitch Deck <Presentation size={10} />
+                 </a>
+               )}
+               {project.links?.demo && (
+                 <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 flex items-center gap-1.5 px-3 py-0.5 bg-emerald-500/10 text-emerald-500 rounded border border-emerald-500/20">
+                   Live Prototype <ExternalLink size={10} />
+                 </a>
+               )}
                {project.links?.repo && (
                  <a href={project.links.repo} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 flex items-center gap-1">
-                   View Source <ArrowRight size={10} />
+                   Source <ArrowRight size={10} />
                  </a>
                )}
             </div>
