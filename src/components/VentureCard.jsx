@@ -103,6 +103,8 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
       return <BentoCard {...commonProps} isDark={isDark} />;
     case "interactive-workbook":
       return <BlueprintCard {...commonProps} isDark={isDark} />;
+    case "competitor-summarizer":
+      return <AgenticCard {...commonProps} isDark={isDark} />;
     default:
       return null;
   }
@@ -422,6 +424,89 @@ const BlueprintCard = ({ project, title, desc, onClick, isHovered, isIndonesian,
           {isIndonesian
             ? "Cetak Biru Konseptual // Edukasi"
             : "Conceptual Blueprint // Education"}
+        </div>
+      </div>
+    </BlindsReveal>
+  </motion.div>
+);
+
+// 6. THE AGENTIC (Competitor Summarizer)
+const AgenticCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => (
+  <motion.div
+    ref={ref}
+    id={`venture-card-${project.id}`}
+    onClick={onClick}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+    className="group relative h-[450px] rounded-3xl border-2 border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
+    animate={isHovered ? { borderColor: "var(--accent-green, #10b981)", scale: 0.98, y: 0 } : { borderColor: "var(--border-color)", scale: 1, y: [0, -3, 0] }}
+    transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_SYSTEM}
+    whileHover={{ scale: 0.98 }}
+  >
+    <BlindsReveal isOpen={isHovered} slats={8} color="var(--bg-void)">
+      {/* Matrix Text Background */}
+      <div className="absolute inset-0 opacity-10 font-mono text-[8px] leading-none pointer-events-none select-none overflow-hidden p-4 text-emerald-500">
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div key={i} className="mb-1 whitespace-nowrap">
+            {`MCP_SERVER_INIT >> AGENT_00${i} >> PARSING_DOM >> EXTRACTING_UX_DATA >> SCHEMA_VALID_TRUE >> `}
+            {Math.floor((i + 1) * 9876543)
+              .toString(36)
+              .substring(0, 13)}
+          </div>
+        ))}
+      </div>
+
+      {/* Top Image Section */}
+      <div className="h-[40%] relative overflow-hidden bg-[var(--bg-card)] border-b border-[var(--border-color)] flex-shrink-0">
+        <div className={`absolute inset-0 transition-all duration-700 ${isHovered ? 'grayscale-0 opacity-100 scale-100 mix-blend-normal' : 'grayscale opacity-60 scale-110 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-100 mix-blend-luminosity'}`}>
+          <ProjectCard
+            id={project.id}
+            expanded={true}
+            image={project.coverImage}
+            backgroundOnly
+          />
+        </div>
+        {/* Visual Data Points */}
+        <div className="absolute top-4 left-4 flex gap-1">
+            <div className="w-2 h-2 rounded-sm bg-emerald-500 animate-pulse"></div>
+            <div className="w-2 h-2 rounded-sm bg-emerald-500/50"></div>
+        </div>
+        <div className="absolute bottom-4 right-4 text-[8px] font-mono text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded backdrop-blur-md">
+            JSON_READY
+        </div>
+      </div>
+
+      {/* Bottom Content Section */}
+      <div className="flex-1 p-6 relative z-20 flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <div className="p-1.5 border border-emerald-500/30 rounded bg-emerald-500/10">
+              <Activity size={14} className="text-emerald-500" />
+            </div>
+            <span className="font-mono text-[9px] tracking-widest text-emerald-500 uppercase">
+              {isIndonesian
+                ? "Ekstraksi Data // ADK + MCP"
+                : "Data Extraction // ADK + MCP"}
+            </span>
+          </div>
+
+          <h3 className={`text-3xl font-serif italic mb-3 transition-colors ${isHovered ? 'text-emerald-500' : 'text-[var(--text-primary)] group-hover:text-emerald-500'}`}>
+            {title}
+          </h3>
+          <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-3 leading-relaxed">
+            {desc}
+          </p>
+        </div>
+
+        <div className="flex gap-2 flex-wrap">
+          {project.stack.slice(0, 3).map((tech) => (
+            <span
+              key={tech}
+              className="px-2 py-0.5 border border-[var(--border-color)] rounded-full font-mono text-[8px] text-[var(--text-secondary)] uppercase bg-[var(--bg-card)]"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
       </div>
     </BlindsReveal>
