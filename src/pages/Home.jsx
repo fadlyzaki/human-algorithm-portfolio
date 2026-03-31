@@ -85,7 +85,7 @@ const Home = () => {
   return (
     <LayoutGroup>
       <div
-        className={`min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[some] overflow-x-hidden transition-colors duration-500 ${isRecruiterMode ? "recruiter-mode" : ""}`}
+        className={`min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[some] overflow-x-hidden transition-colors duration-500 ${isRecruiterMode ? "recruiter-mode" : ""}`}
       >
         <AnimatePresence>
           {showIntro && (
@@ -147,7 +147,7 @@ const Home = () => {
           <ProgressBar />
 
           {/* Main Container */}
-          <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
+          <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-[100dvh] bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
             <div className="fade-in text-left">
               {/* HERO & TICKER */}
               <HomeHero

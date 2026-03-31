@@ -28,7 +28,7 @@ const ProtectedCaseStudy = () => {
   // --- LOADING PROTOTYPE ---
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-[100dvh] bg-black flex items-center justify-center">
         <Activity className="animate-pulse text-gray-500" />
       </div>
     );
@@ -37,7 +37,7 @@ const ProtectedCaseStudy = () => {
   // --- ERROR / 404 HANDLING ---
   if (error || !project) {
     return (
-      <div className="min-h-screen bg-black text-white font-mono flex items-center justify-center p-6 relative overflow-hidden">
+      <div className="min-h-[100dvh] bg-black text-white font-mono flex items-center justify-center p-6 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
@@ -85,7 +85,7 @@ const ProtectedCaseStudy = () => {
       ) : (
         <Suspense
           fallback={
-            <div className="min-h-screen bg-transparent relative z-10 flex items-center justify-center">
+            <div className="min-h-[100dvh] bg-transparent relative z-10 flex items-center justify-center">
               <div className="font-mono text-xs uppercase tracking-widest animate-pulse text-emerald-400">
                 Loading_Case_File...
               </div>

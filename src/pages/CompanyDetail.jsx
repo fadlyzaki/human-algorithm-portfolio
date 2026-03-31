@@ -40,7 +40,7 @@ const CompanyDetail = () => {
 
   const { project: cluster, loading } = useProjectData(id);
 
-  if (loading) return <div className="min-h-screen bg-black" />; // Minimal loader
+  if (loading) return <div className="min-h-[100dvh] bg-black" />; // Minimal loader
   if (!cluster) return null; // Or 404
 
   // Defensive routing: If this ID is a sub-project (no .projects array), redirect to case-study
@@ -66,7 +66,7 @@ const CompanyDetail = () => {
   return (
     <div
       style={themeStyles}
-      className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--brand)] selection:text-white"
+      className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--brand)] selection:text-white"
     >
       <SEO
         title={`${cluster.company}  -  ${cluster.title}`}

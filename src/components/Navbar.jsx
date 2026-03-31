@@ -240,7 +240,7 @@ const Navbar = ({
           {/* Menu */}
           <button
             onClick={onOpenMenu}
-            className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors p-1"
+            className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors p-3 min-w-[44px] min-h-[44px] flex items-center justify-center -my-2"
             aria-label="Open Menu"
           >
             <Grid size={18} />

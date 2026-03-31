@@ -68,7 +68,7 @@ const UnprovokedThoughtDetail = () => {
     // 404 fallback
     if (!thought) {
         return (
-            <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] flex flex-col items-center justify-center font-sans">
+            <div className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] flex flex-col items-center justify-center font-sans">
                 <Navbar
                     onOpenMenu={() => setIsMenuOpen(true)}
                     title="404"
@@ -101,7 +101,7 @@ const UnprovokedThoughtDetail = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-500 font-sans">
+        <div className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-500 font-sans">
             <SEO
                 title={frontmatter.title}
                 description={frontmatter.subtitle}

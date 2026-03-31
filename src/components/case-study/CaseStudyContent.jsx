@@ -36,7 +36,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
   return (
     <div
       style={themeStyles}
-      className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--brand)] selection:text-white transition-colors duration-500"
+      className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--brand)] selection:text-white transition-colors duration-500"
     >
       <SEO
         title={isId ? project.title_id || project.title : project.title}

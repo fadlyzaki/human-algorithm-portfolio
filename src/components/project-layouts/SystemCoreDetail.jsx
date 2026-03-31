@@ -41,7 +41,7 @@ const SystemCoreDetail = ({
   const { isRecruiterMode } = useRecruiterMode();
 
   return (
-    <div className="text-[var(--text-primary)] font-sans min-h-screen selection:bg-blue-500/30">
+    <div className="text-[var(--text-primary)] font-sans min-h-[100dvh] selection:bg-blue-500/30">
       {/* Terminal Grid Background - Removed when not in Hero, or dynamically suppressed in recruiter mode */}
       {!isRecruiterMode && (
         <div

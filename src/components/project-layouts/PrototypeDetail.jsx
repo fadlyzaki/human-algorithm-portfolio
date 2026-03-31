@@ -37,7 +37,7 @@ const PrototypeDetail = ({
   return (
     <div
       ref={containerRef}
-      className="text-[var(--text-primary)] font-sans min-h-screen selection:bg-[var(--accent)] selection:text-white pb-32 relative overflow-hidden"
+      className="text-[var(--text-primary)] font-sans min-h-[100dvh] selection:bg-[var(--accent)] selection:text-white pb-32 relative overflow-hidden"
       style={{ "--local-accent": accentColor }}
     >
       {/* Ambient Background Glow */}

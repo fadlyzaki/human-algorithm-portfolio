@@ -20,7 +20,7 @@ const BentoDetail = ({
   // Aesthetic: Bento Grid, Magazine Editorial, Pastel Gradients, Rounded Corners, Sticker Tags
 
   return (
-    <div className="text-[var(--text-primary)] font-sans min-h-screen selection:bg-pink-300/50 pb-32">
+    <div className="text-[var(--text-primary)] font-sans min-h-[100dvh] selection:bg-pink-300/50 pb-32">
       <main className="max-w-6xl mx-auto px-4 md:px-8 pt-24">
         {/* 1. HERO BENTO SECTION */}
         <header className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">

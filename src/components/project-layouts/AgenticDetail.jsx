@@ -35,7 +35,7 @@ const AgenticDetail = ({
   return (
     <div
       ref={containerRef}
-      className="text-[var(--text-primary)] font-sans min-h-screen pt-24 pb-32 px-4 md:px-8 selection:bg-[var(--accent-purple)] selection:text-white"
+      className="text-[var(--text-primary)] font-sans min-h-[100dvh] pt-24 pb-32 px-4 md:px-8 selection:bg-[var(--accent-purple)] selection:text-white"
     >
       <div className="max-w-[1600px] mx-auto">
         {/* IDE SHELL CONTAINER */}

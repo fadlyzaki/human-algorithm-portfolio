@@ -26,7 +26,7 @@ const BlueprintDetail = ({
   // Aesthetic: Civil/Architectural Blueprint, Blue Graph Paper, Precise Lines, Technical Fonts
 
   return (
-    <div className="text-[var(--text-primary)] font-mono min-h-screen selection:bg-blue-300/40 relative overflow-hidden pb-32">
+    <div className="text-[var(--text-primary)] font-mono min-h-[100dvh] selection:bg-blue-300/40 relative overflow-hidden pb-32">
       {/* Grid Background */}
       <div className="absolute inset-0 blueprint-grid opacity-30 dark:opacity-20 pointer-events-none z-0"></div>
 

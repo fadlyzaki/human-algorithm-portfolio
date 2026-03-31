@@ -22,7 +22,7 @@ const UnprovokedThoughtsIndex = () => {
     const thoughts = getAllUnprovokedThoughts(language);
 
     return (
-        <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500">
+        <div className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500">
             <SEO
                 title="Unprovoked Thoughts  -  Fadly Uzzaki"
                 description="Design essays, reflections, and opinions by Fadly Uzzaki on product design, technology, and the intersection of human experience and systems thinking."
@@ -47,7 +47,7 @@ const UnprovokedThoughtsIndex = () => {
             </Suspense>
 
             <PageShell navbarProps={{ title: "Unprovoked Thoughts", backPath: "/" }}>
-                <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-screen bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
+                <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-[100dvh] bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
                     <div>
                     {/* Editorial Header */}
                     <header className="mb-20 text-center">

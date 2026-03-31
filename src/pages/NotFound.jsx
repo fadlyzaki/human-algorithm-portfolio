@@ -239,7 +239,7 @@ const NotFound = () => {
   const formatTime = (s) => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
 
   return (
-    <div className="min-h-screen font-mono select-none overflow-hidden relative bg-[var(--bg-void)]" style={{ touchAction: "none" }}>
+    <div className="min-h-[100dvh] font-mono select-none overflow-hidden relative bg-[var(--bg-void)]" style={{ touchAction: "none" }}>
       <SEO title="404  -  Lost in the System" description="Page not found. But you found a game." noindex>
         <meta name="robots" content="noindex, nofollow" />
       </SEO>

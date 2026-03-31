@@ -116,7 +116,7 @@ const SideProjectDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-[100dvh] bg-black flex items-center justify-center">
         <div className="animate-pulse text-gray-500">{t("project_layouts.loading")}</div>
       </div>
     );
@@ -124,7 +124,7 @@ const SideProjectDetail = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-black text-white font-mono flex items-center justify-center p-6 relative overflow-hidden">
+      <div className="min-h-[100dvh] bg-black text-white font-mono flex items-center justify-center p-6 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
@@ -262,7 +262,7 @@ const SideProjectDetail = () => {
   return (
     <div
       style={themeStyles}
-      className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white pb-32"
+      className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white pb-32"
     >
       <SEO
         title={activeTitle}

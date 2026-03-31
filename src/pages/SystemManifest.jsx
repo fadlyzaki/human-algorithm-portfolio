@@ -133,7 +133,7 @@ const SystemManifest = () => {
   return (
     <div
       style={themeStyles}
-      className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] font-mono selection:bg-black selection:text-white print:bg-white print:text-black"
+      className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-mono selection:bg-black selection:text-white print:bg-white print:text-black"
     >
       <SEO
         title="Curriculum Vitae"

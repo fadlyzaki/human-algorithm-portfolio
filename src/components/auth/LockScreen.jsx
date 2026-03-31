@@ -82,7 +82,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
   if (!project || !parentCluster) return null;
 
   return (
-    <div className="min-h-screen bg-transparent text-[var(--text-primary)] font-mono flex items-center justify-center p-6 relative overflow-hidden transition-colors duration-500">
+    <div className="min-h-[100dvh] bg-transparent text-[var(--text-primary)] font-mono flex items-center justify-center p-6 relative overflow-hidden transition-colors duration-500">
       <SEO
         title={`🔒 Protected: ${project.title}`}
         description="Confidential Case Study. Access Restricted."

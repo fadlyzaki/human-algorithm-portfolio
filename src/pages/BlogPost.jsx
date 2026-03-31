@@ -62,7 +62,7 @@ const BlogPost = () => {
   return (
     <div
       style={themeStyles}
-      className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-500 font-sans selection:bg-[var(--accent-color)] selection:text-white"
+      className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-500 font-sans selection:bg-[var(--accent-color)] selection:text-white"
     >
       <SEO
         title={post.title}

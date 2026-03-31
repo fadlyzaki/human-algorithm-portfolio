@@ -138,7 +138,7 @@ export default function NetflixContextUI() {
   const isCalmMode = activeFilter === "chill" || activeFilter === "quick";
 
   return (
-    <div className="bg-[var(--bg-card)] min-h-screen text-white font-sans overflow-x-hidden pb-20 relative">
+    <div className="bg-[var(--bg-card)] min-h-[100dvh] text-white font-sans overflow-x-hidden pb-20 relative">
       {/* --- HEADER --- */}
       <div
         className={`absolute top-0 w-full z-50 transition-all duration-300 px-4 md:px-12 py-4 flex justify-between items-center ${isScrolled ? "bg-[var(--bg-card)]/95 shadow-lg" : "bg-gradient-to-b from-black/80 to-transparent"}`}

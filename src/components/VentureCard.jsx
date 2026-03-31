@@ -43,23 +43,19 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          // Permanently open on mobile once in viewport to eliminate the "Double Tap" routing trap.
           setIsAutoHover(true);
-          intervalId = setInterval(() => {
-            setIsAutoHover((prev) => !prev);
-          }, 4000);
         } else {
           setIsAutoHover(false);
-          if (intervalId) clearInterval(intervalId);
         }
       },
-      { threshold: 0.6 }
+      { threshold: 0.2 }
     );
 
     const currentRef = containerRef.current;
     if (currentRef) observer.observe(currentRef);
 
     return () => {
-      if (intervalId) clearInterval(intervalId);
       if (currentRef) observer.unobserve(currentRef);
     };
   }, [project.id]);

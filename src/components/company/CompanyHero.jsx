@@ -12,7 +12,7 @@ const CompanyHero = ({
   const [showNarrative, setShowNarrative] = useState(false);
 
   return (
-    <header className="min-h-screen flex flex-col pt-24 md:pt-32 px-6 lg:px-12 relative overflow-hidden border-b border-[var(--border-color)]">
+    <header className="min-h-[100dvh] flex flex-col pt-24 md:pt-32 px-6 lg:px-12 relative overflow-hidden border-b border-[var(--border-color)]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center flex-grow mb-12">
         {/* Text Content */}
         <ScrollReveal>
