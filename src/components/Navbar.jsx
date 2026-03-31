@@ -173,6 +173,22 @@ const Navbar = ({
                 </button>
               )}
 
+              {/* Universal View CV Button */}
+              <Link
+                to="/cv"
+                className={`hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded transition-all duration-300 border ${
+                  isRecruiterMode 
+                    ? "bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] border-[var(--accent-blue)]/30 hover:bg-[var(--accent-blue)]/20 shadow-[0_0_10px_var(--accent-blue)] shadow-[var(--accent-blue)]/10" 
+                    : "bg-[var(--bg-void)] text-[var(--text-secondary)] border-[var(--border-color)] hover:text-[var(--text-primary)]"
+                }`}
+                title="View Resume / CV"
+              >
+                <FileText size={14} />
+                <span className="font-mono text-[10px] uppercase tracking-wider">
+                  Resume
+                </span>
+              </Link>
+
               <button
                 onClick={toggleRecruiterMode}
                 className={`hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded transition-all duration-300 border ${
