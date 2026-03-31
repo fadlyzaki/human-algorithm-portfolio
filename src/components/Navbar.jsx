@@ -68,6 +68,17 @@ const Navbar = ({
 
   return (
     <>
+      {/* STATIC GHOST NAVIGATION FOR SCRAPERS/SEO */}
+      <nav aria-label="Static Navigation" className="sr-only">
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">{t("nav.about") || "About"}</Link></li>
+          <li><Link to="/#work">{t("nav.work") || "Work"}</Link></li>
+          <li><Link to="/#side-projects">Side Projects</Link></li>
+          <li><Link to="/contact">{t("nav.contact") || "Contact"}</Link></li>
+        </ul>
+      </nav>
+
       {/* DESKTOP TOP BAR */}
       <motion.div
         initial={false}
