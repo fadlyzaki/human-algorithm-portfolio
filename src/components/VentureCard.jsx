@@ -444,69 +444,51 @@ const AgenticCard = ({ project, title, desc, onClick, isHovered, isIndonesian, r
     whileHover={{ scale: 0.98 }}
   >
     <BlindsReveal isOpen={isHovered} slats={8} color="var(--bg-void)">
-      {/* Matrix Text Background */}
-      <div className="absolute inset-0 opacity-10 font-mono text-[8px] leading-none pointer-events-none select-none overflow-hidden p-4 text-[var(--accent-purple)]">
-        {Array.from({ length: 50 }).map((_, i) => (
-          <div key={i} className="mb-1 whitespace-nowrap">
-            {`ADK_KERNEL_INIT >> MCP_ROUTING_ACTIVE >> PARSING_DOM_MATRIX >> COGNITIVE_LOAD_REDUCED >> `}
-            {Math.floor((i + 1) * 9876543)
-              .toString(36)
-              .substring(0, 13)}
-          </div>
-        ))}
-      </div>
-
-      {/* Top Image Section */}
-      <div className="h-[40%] relative overflow-hidden bg-[var(--bg-card)] border-b border-[var(--border-color)] flex-shrink-0">
-        <div className={`absolute inset-0 transition-all duration-700 ${isHovered ? 'grayscale-0 opacity-100 scale-100 mix-blend-normal' : 'grayscale opacity-60 scale-110 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-100 mix-blend-luminosity'}`}>
-          <ProjectCard
-            id={project.id}
-            expanded={true}
-            image={project.coverImage}
-            backgroundOnly
-          />
-        </div>
-        {/* Visual Data Points */}
-        <div className="absolute top-4 left-4 flex gap-1">
-            <div className="w-2 h-2 rounded-sm bg-[var(--accent-purple)] animate-pulse"></div>
-            <div className="w-2 h-2 rounded-sm bg-[var(--accent-purple)] opacity-50"></div>
-        </div>
-        <div className="absolute bottom-4 right-4 text-[8px] font-mono text-[var(--accent-purple)] bg-[var(--accent-purple)]/10 border border-[var(--accent-purple)]/20 px-2 py-0.5 rounded backdrop-blur-md">
-            MCP_SECURE_TUNNEL
+      {/* IDE Top Bar */}
+      <div className="h-8 bg-[#1e1e1e] border-b border-[#333] flex items-center px-4 gap-2 w-full absolute top-0 z-10 transition-colors duration-500" style={{ backgroundColor: isHovered ? '#1e1e1e' : '#111' }}>
+        <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+        <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+        <div className="ml-2 text-[9px] font-mono text-[#858585] truncate">
+          agent_orchestrator.json — {project.id}
         </div>
       </div>
-
-      {/* Bottom Content Section */}
-      <div className="flex-1 p-6 relative z-20 flex flex-col justify-between">
-        <div>
-          <div className="flex items-center gap-2 mb-3">
-            <div className="p-1.5 border border-[var(--accent-purple)]/30 rounded bg-[var(--accent-purple)]/10">
-              <Activity size={14} className="text-[var(--accent-purple)]" />
-            </div>
-            <span className="font-mono text-[9px] tracking-widest text-[var(--accent-purple)] uppercase">
-              {isIndonesian
-                ? "Agen Otonom // ADK + MCP"
-                : "Autonomous Agent // ADK + MCP"}
-            </span>
-          </div>
-
-          <h3 className={`text-3xl font-serif italic mb-3 transition-colors ${isHovered ? 'text-[var(--accent-purple)]' : 'text-[var(--text-primary)] group-hover:text-[var(--accent-purple)]'}`}>
-            {title}
-          </h3>
-          <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-3 leading-relaxed">
-            {desc}
-          </p>
-        </div>
-
-        <div className="flex gap-2 flex-wrap">
-          {project.stack.slice(0, 3).map((tech) => (
-            <span
-              key={tech}
-              className="px-2 py-0.5 border border-[var(--border-color)] rounded-full font-mono text-[8px] text-[var(--text-secondary)] uppercase bg-[var(--bg-card)]"
-            >
-              {tech}
-            </span>
+      
+      {/* IDE Body */}
+      <div className="pt-8 h-full bg-[#1e1e1e] flex text-[10px] sm:text-xs">
+        {/* Line Numbers */}
+        <div className="w-8 shrink-0 border-r border-[#333] flex flex-col items-center py-4 text-[#858585] font-mono select-none">
+          {Array.from({ length: 14 }).map((_, i) => (
+            <div key={i} className="leading-[1.7] opacity-40">{i + 1}</div>
           ))}
+        </div>
+
+        {/* Code/Data Content */}
+        <div className="flex-1 p-4 font-mono leading-[1.7] overflow-hidden relative text-left">
+          <div className="text-[#d4d4d4]">
+            <span className="text-[#569cd6]">const</span> <span className="text-[#4fc1ff]">CompetitorSummarizer</span> = {"{"}
+          </div>
+          <div className="pl-4">
+            <span className="text-[#9cdcfe]">"id"</span>: <span className="text-[#ce9178]">"{project.id}"</span>,<br/>
+            <span className="text-[#9cdcfe]">"focus"</span>: <span className="text-[#ce9178]">"{isIndonesian ? "Ekstraksi UI/UX Otonom" : "Autonomous UX Extraction"}"</span>,<br/>
+            <span className="text-[#9cdcfe]">"stack"</span>: [
+            <span className="text-[var(--accent-purple)]">"{project.stack[0]}"</span>, <span className="text-[var(--accent-purple)]">"{project.stack[3]}"</span>, <span className="text-[var(--accent-purple)]">"{project.stack[4]}"</span>
+            ],<br/>
+            <span className="text-[#6a9955] my-2 block">/* {isIndonesian ? "Data Desain Diekstrak:" : "Extracted Design Data:"} */</span>
+            <span className="text-[#9cdcfe]">"title"</span>: <span className="text-[#ce9178]">"{title}"</span>,<br/>
+            <span className="text-[#9cdcfe]">"description"</span>: <span className="text-[#ce9178]">"{desc.slice(0, 90)}..."</span>
+          </div>
+          <div className="text-[#d4d4d4]">{"}"};</div>
+
+          {/* Activity Status overlaying the IDE */}
+          <div className={`absolute bottom-4 right-4 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+             <div className="flex items-center gap-2 bg-[var(--accent-purple)]/10 border border-[var(--accent-purple)]/30 px-3 py-1.5 rounded backdrop-blur-md">
+                 <div className="w-2 h-2 rounded-sm bg-[var(--accent-purple)] animate-pulse"></div>
+                 <span className="font-mono text-[9px] text-[var(--accent-purple)] font-bold tracking-widest">
+                     MCP_ROUTING_ACTIVE
+                 </span>
+             </div>
+          </div>
         </div>
       </div>
     </BlindsReveal>

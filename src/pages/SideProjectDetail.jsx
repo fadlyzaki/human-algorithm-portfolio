@@ -87,7 +87,7 @@ const PROJECT_LAYOUT_MAP = {
   "productivity-illusion": BrutalistDetail,
   "year-in-review": BentoDetail,
   "interactive-workbook": BlueprintDetail,
-  "competitor-summarizer": SystemCoreDetail,
+  "competitor-summarizer": PrototypeDetail,
 };
 
 const INTERACTION_MAP = {
