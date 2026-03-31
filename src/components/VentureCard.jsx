@@ -439,16 +439,16 @@ const AgenticCard = ({ project, title, desc, onClick, isHovered, isIndonesian, r
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
     className="group relative h-[450px] rounded-3xl border-2 border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
-    animate={isHovered ? { borderColor: "var(--accent-green, #10b981)", scale: 0.98, y: 0 } : { borderColor: "var(--border-color)", scale: 1, y: [0, -3, 0] }}
+    animate={isHovered ? { borderColor: "var(--accent-purple, #8b5cf6)", scale: 0.98, y: 0 } : { borderColor: "var(--border-color)", scale: 1, y: [0, -3, 0] }}
     transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_SYSTEM}
     whileHover={{ scale: 0.98 }}
   >
     <BlindsReveal isOpen={isHovered} slats={8} color="var(--bg-void)">
       {/* Matrix Text Background */}
-      <div className="absolute inset-0 opacity-10 font-mono text-[8px] leading-none pointer-events-none select-none overflow-hidden p-4 text-emerald-500">
+      <div className="absolute inset-0 opacity-10 font-mono text-[8px] leading-none pointer-events-none select-none overflow-hidden p-4 text-[var(--accent-purple)]">
         {Array.from({ length: 50 }).map((_, i) => (
           <div key={i} className="mb-1 whitespace-nowrap">
-            {`MCP_SERVER_INIT >> AGENT_00${i} >> PARSING_DOM >> EXTRACTING_UX_DATA >> SCHEMA_VALID_TRUE >> `}
+            {`ADK_KERNEL_INIT >> MCP_ROUTING_ACTIVE >> PARSING_DOM_MATRIX >> COGNITIVE_LOAD_REDUCED >> `}
             {Math.floor((i + 1) * 9876543)
               .toString(36)
               .substring(0, 13)}
@@ -468,11 +468,11 @@ const AgenticCard = ({ project, title, desc, onClick, isHovered, isIndonesian, r
         </div>
         {/* Visual Data Points */}
         <div className="absolute top-4 left-4 flex gap-1">
-            <div className="w-2 h-2 rounded-sm bg-emerald-500 animate-pulse"></div>
-            <div className="w-2 h-2 rounded-sm bg-emerald-500/50"></div>
+            <div className="w-2 h-2 rounded-sm bg-[var(--accent-purple)] animate-pulse"></div>
+            <div className="w-2 h-2 rounded-sm bg-[var(--accent-purple)] opacity-50"></div>
         </div>
-        <div className="absolute bottom-4 right-4 text-[8px] font-mono text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded backdrop-blur-md">
-            JSON_READY
+        <div className="absolute bottom-4 right-4 text-[8px] font-mono text-[var(--accent-purple)] bg-[var(--accent-purple)]/10 border border-[var(--accent-purple)]/20 px-2 py-0.5 rounded backdrop-blur-md">
+            MCP_SECURE_TUNNEL
         </div>
       </div>
 
@@ -480,17 +480,17 @@ const AgenticCard = ({ project, title, desc, onClick, isHovered, isIndonesian, r
       <div className="flex-1 p-6 relative z-20 flex flex-col justify-between">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <div className="p-1.5 border border-emerald-500/30 rounded bg-emerald-500/10">
-              <Activity size={14} className="text-emerald-500" />
+            <div className="p-1.5 border border-[var(--accent-purple)]/30 rounded bg-[var(--accent-purple)]/10">
+              <Activity size={14} className="text-[var(--accent-purple)]" />
             </div>
-            <span className="font-mono text-[9px] tracking-widest text-emerald-500 uppercase">
+            <span className="font-mono text-[9px] tracking-widest text-[var(--accent-purple)] uppercase">
               {isIndonesian
-                ? "Ekstraksi Data // ADK + MCP"
-                : "Data Extraction // ADK + MCP"}
+                ? "Agen Otonom // ADK + MCP"
+                : "Autonomous Agent // ADK + MCP"}
             </span>
           </div>
 
-          <h3 className={`text-3xl font-serif italic mb-3 transition-colors ${isHovered ? 'text-emerald-500' : 'text-[var(--text-primary)] group-hover:text-emerald-500'}`}>
+          <h3 className={`text-3xl font-serif italic mb-3 transition-colors ${isHovered ? 'text-[var(--accent-purple)]' : 'text-[var(--text-primary)] group-hover:text-[var(--accent-purple)]'}`}>
             {title}
           </h3>
           <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-3 leading-relaxed">

@@ -3,16 +3,16 @@ export const competitorSummarizer = {
   title: { en: "Competitor Landing Page Summarizer", id: "Ringkasan Halaman Arahan Kompetitor" },
   subtitle: { en: "Turn competitor pages into structured product-design insights", id: "Ubah halaman kompetitor menjadi wawasan desain produk terstruktur" },
   desc: { 
-    en: "A web application that helps product designers transform competitor landing pages into structured product-design insights utilizing an ADK-powered agent via Model Context Protocol (MCP).",
-    id: "Aplikasi web yang membantu desainer produk mengubah halaman arahan kompetitor menjadi wawasan desain produk terstruktur memanfaatkan agen bertenaga ADK melalui Model Context Protocol (MCP)."
+    en: "A resilient extraction engine powered by Google ADK and MCP. Engineered to autonomously parse live competitor DOM architectures and output clean, structured benchmarking data—replacing manual scanning with high-fidelity signal.",
+    id: "Mesin ekstraksi tangguh yang ditenagai oleh Google ADK dan MCP. Direkayasa untuk secara otonom mengurai arsitektur DOM kompetitor secara langsung dan menghasilkan data benchmarking yang terstruktur—menggantikan pemindaian manual dengan sinyal fidelitas tinggi."
   },
   tldr: {
-    en: "Built an ADK + MCP powered tool that fetches and analyzes public landing pages to auto-generate structured, product-design focused benchmarking insights.",
-    id: "Membangun alat bertenaga ADK + MCP yang mengambil dan menganalisis halaman arahan publik untuk membuat wawasan benchmarking fokus desain produk yang terstruktur secara otomatis."
+    en: "An autonomous agent leveraging Google ADK to parse competitor architectures into structured JSON benchmarks, eradicating repetitive cognitive load.",
+    id: "Agen otonom yang memanfaatkan Google ADK untuk mengurai arsitektur kompetitor menjadi tolok ukur JSON terstruktur, menghentikan beban kognitif yang berulang."
   },
   humanImpact: {
-    en: "Reduces repetitive manual scanning for designers, freeing up time for actual interpretation and decision-making.",
-    id: "Mengurangi pemindaian manual berulang bagi pembuat desain, meluangkan waktu untuk interpretasi aktual dan pengambilan keputusan."
+    en: "Eliminates repetitive manual scanning for designers, freeing up cognitive bandwidth for high-leverage interpretation and strategic decision-making.",
+    id: "Menghilangkan pemindaian manual berulang bagi desainer, membebaskan ruang kognitif untuk interpretasi tingkat tinggi dan pengambilan keputusan strategis."
   },
   stack: ["React", "Vite", "Tailwind", "Google ADK", "MCP", "Python", "Gemini 2.5 Flash"],
   links: {
@@ -36,39 +36,39 @@ export const competitorSummarizer = {
     client: { en: "Personal Project", id: "Proyek Pribadi" },
   },
   challenge: {
-    en: "Product designers frequently analyze competitor landing pages to understand positioning, value proposition, CTA strategy, and structure. However, this workflow remains highly manual, repetitive, inconsistent, and difficult to document in a reusable format.",
-    id: "Desainer produk sering menganalisis halaman arahan kompetitor untuk memahami positioning, proposisi nilai, strategi CTA, dan struktur. Namun, alur kerja ini tetap sangat manual, repetitif, tidak konsisten, dan sulit didokumentasikan dalam format yang dapat digunakan kembali."
+    en: "Product designers frequently analyze competitor landing pages to understand positioning, value proposition, CTA strategy, and structure. However, this workflow remains highly manual and chaotic, consuming massive cognitive bandwidth just to generate fragmented, inconsistent notes.",
+    id: "Desainer produk sering menganalisis halaman arahan kompetitor untuk memahami positioning, proposisi nilai, strategi CTA, dan struktur. Namun, alur kerja ini tetap sangat manual dan kacau, memakan ruang kognitif besar hanya untuk menghasilkan catatan yang terpisah dan tidak konsisten."
   },
   process: [
     {
-      title: { en: "The Problem", id: "Masalah" },
+      title: { en: "The Cognitive Drain", id: "Pengurasan Kognitif" },
       desc: {
-        en: "Designers often open several competitor websites, scan each page manually, take fragmented notes, and spend time converting those into benchmarking documents. This slows down early-stage discovery and creates unnecessary cognitive load.",
-        id: "Desainer sering membuka beberapa situs web kompetitor, memindai setiap halaman secara manual, membuat catatan terpisah, dan menghabiskan waktu mengubahnya menjadi dokumen benchmarking."
+        en: "When analyzing competitors, designers often drown in a sea of disconnected tabs framing isolated screenshots. This brutally slows down early-stage discovery and active erasure of human agency through repetitive 'copy-pasting' labor.",
+        id: "Saat menganalisis kompetitor, desainer sering tenggelam dalam lautan tab yang tidak terhubung membingkai tangkapan layar yang terisolasi. Ini secara brutal memperlambat penemuan tahap awal."
       },
       image: "airy:flow",
     },
     {
-      title: { en: "Meeting the Build Criteria with ADK + MCP", id: "Memenuhi Kriteria Build dengan ADK + MCP" },
+      title: { en: "Architecting the Logic (ADK + MCP)", id: "Merancang Logika (ADK + MCP)" },
       desc: {
-        en: "The solution uses ADK as the reasoning layer and MCP as the tool integration layer. The backend runs the official ADK runtime hosting a 'competitor_summarizer' LlmAgent (gemini-2.5-flash). An MCP server exposes a 'load_web_page' tool, enabling the agent to retrieve and analyze webpages through standardized stdio transport.",
-        id: "Solusi menggunakan ADK sebagai lapisan penalaran dan MCP sebagai lapisan integrasi alat. Backend menjalankan agen ADK resmi menghosting LlmAgent 'competitor_summarizer'."
+        en: "I engineered a resilient solution combining Google's Agent Development Kit (ADK) as the reasoning core and Model Context Protocol (MCP) as the strict capability bridge. A dedicated 'load_web_page' tool acts locally via stdio, feeding the parsed DOM into a Gemini 2.5 Flash agent.",
+        id: "Saya merekayasa solusi tangguh yang menggabungkan Google Agent Development Kit (ADK) sebagai inti penalaran dan Model Context Protocol (MCP) sebagai jembatan kapabilitas."
       },
       image: "airy:architecture",
     },
     {
-      title: { en: "Unique Value Proposition", id: "Proposisi Nilai Unik" },
+      title: { en: "Strict Schema Enforcement", id: "Pemberlakuan Skema Ketat" },
       desc: {
-        en: "Unlike generic summarizers, this is tailored for product-design analysis. The agent's system instruction enforces analysis through UX-specific lenses: value proposition clarity, CTA strategy, trust signals, friction points, and design opportunities, outputting a consistent structured JSON.",
-        id: "Tidak seperti perangkum generik, ini disesuaikan untuk analisis desain produk. Instruksi sistem agen memaksakan analisis melalui lensa khusus UX."
+        en: "Unlike generic LLM wrappers, this system operates on a zero-friction constraint. The agent's system prompt restricts output to specifically structured JSON parameters (Value Prop, Audience, CTA, Trust Signals), stripping away marketing fluff.",
+        id: "Tidak seperti pembungkus LLM generik, sistem ini beroperasi pada batasan tanpa gesekan. Perintah sistem agen membatasi output ke parameter JSON yang terstruktur."
       },
       image: "airy:data",
     },
     {
-      title: { en: "Key Features & UI", id: "Fitur Utama & UI" },
+      title: { en: "The Terminal Output", id: "Output Terminal" },
       desc: {
-        en: "Features include a monospace single-URL input, loading states with spinning icons, an animated card-based layout for the structured JSON response, and 1-click export to JSON or Markdown. The UX bridges raw API output and a polished product designer's tool.",
-        id: "Fitur-fitur mencakup input URL tunggal monospace, status pemuatan dengan ikon berputar, tata letak berbasis kartu animasi untuk respons JSON terstruktur."
+        en: "The interface respects the viewport. It features a monospace URL injector, definitive system-loading mechanics, and 1-click JSON or Markdown extraction. High-bandwidth collaboration extracted instantly.",
+        id: "Antarmuka menghormati area pandang. Menampilkan injektor URL monospace, mekanik pemuatan sistem definitif, dan ekstraksi 1-klik JSON. Kolaborasi bandwidth tinggi diekstraksi."
       },
       image: "airy:radar",
     }
