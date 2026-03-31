@@ -106,7 +106,7 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
     case "interactive-workbook":
       return <BlueprintCard {...commonProps} isDark={isDark} />;
     case "competitor-summarizer":
-      return <PrototypeCard {...commonProps} isDark={isDark} />;
+      return <AgenticCard {...commonProps} isDark={isDark} />;
     default:
       return null;
   }
@@ -432,99 +432,69 @@ const BlueprintCard = ({ project, title, desc, onClick, isHovered, isIndonesian,
   </motion.div>
 );
 
-// 6. THE EXPERIMENTAL PROTOTYPE (Competitor Summarizer)
-const PrototypeCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => {
-  const accentColor = "var(--accent-purple, #8b5cf6)";
-  const glowStyle = {
-    background: `radial-gradient(circle at 50% 0%, ${accentColor}15 0%, transparent 60%)`,
-  };
-  
-  return (
-    <motion.div
-      ref={ref}
-      id={`venture-card-${project.id}`}
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      className="group relative h-[450px] rounded-3xl border border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
-      animate={isHovered ? { borderColor: accentColor, scale: 0.98, y: 0 } : { borderColor: "var(--border-color)", scale: 1, y: [0, -3, 0] }}
-      transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_SYSTEM}
-      whileHover={{ scale: 0.98 }}
-    >
-      <BlindsReveal isOpen={isHovered} slats={8} color="var(--bg-card)">
-        
-        {/* Ambient Glow matching PrototypeDetail */}
-        <div className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-700 opacity-20 group-hover:opacity-40" style={glowStyle}></div>
-
-        {/* Subtle Grid overlay for 'Lab' feel matching PrototypeDetail */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none opacity-[0.05]"
-          style={{
-            backgroundImage: `linear-gradient(var(--text-primary) 1px, transparent 1px), linear-gradient(90deg, var(--text-primary) 1px, transparent 1px)`,
-            backgroundSize: "20px 20px",
-          }}
-        ></div>
-
-        {/* Decorative Top Bar matching PrototypeDetail */}
-        <div className="h-10 border-b border-[var(--border-color)] flex items-center px-4 gap-2 bg-[var(--bg-surface)] relative z-10">
-          <div className="w-2.5 h-2.5 rounded-full bg-[var(--text-secondary)] opacity-30"></div>
-          <div className="w-2.5 h-2.5 rounded-full bg-[var(--text-secondary)] opacity-30"></div>
-          <div className="w-2.5 h-2.5 rounded-full bg-[var(--text-secondary)] opacity-30"></div>
-          <div className="ml-2 text-[9px] font-mono text-[var(--text-secondary)] lowercase tracking-widest truncate">
-            {project.id}.test_env
-          </div>
+// 6. THE AGENTIC (Competitor Summarizer)
+const AgenticCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => (
+  <motion.div
+    ref={ref}
+    id={`venture-card-${project.id}`}
+    onClick={onClick}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+    className="group relative h-[450px] rounded-3xl border border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
+    animate={isHovered ? { borderColor: "var(--accent-purple, #8b5cf6)", scale: 0.98, y: 0 } : { borderColor: "var(--border-color)", scale: 1, y: [0, -3, 0] }}
+    transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_SYSTEM}
+    whileHover={{ scale: 0.98 }}
+  >
+    <BlindsReveal isOpen={isHovered} slats={8} color="var(--bg-void)">
+      {/* IDE Top Bar */}
+      <div className="h-10 bg-[var(--bg-surface)] border-b border-[var(--border-color)] flex items-center px-4 gap-2 w-full absolute top-0 z-10 transition-colors duration-500">
+        <div className="w-2.5 h-2.5 rounded-full bg-[var(--text-secondary)] opacity-30 group-hover:bg-red-500 group-hover:opacity-80 transition-colors"></div>
+        <div className="w-2.5 h-2.5 rounded-full bg-[var(--text-secondary)] opacity-30 group-hover:bg-yellow-500 group-hover:opacity-80 transition-delay-75"></div>
+        <div className="w-2.5 h-2.5 rounded-full bg-[var(--text-secondary)] opacity-30 group-hover:bg-green-500 group-hover:opacity-80 transition-delay-150"></div>
+        <div className="ml-2 text-[9px] font-mono text-[var(--text-secondary)] truncate">
+          agent_orchestrator.json — {project.id}
+        </div>
+      </div>
+      
+      {/* IDE Body */}
+      <div className="pt-10 h-full bg-[var(--bg-void)] flex text-[10px] sm:text-xs">
+        {/* Line Numbers */}
+        <div className="w-8 shrink-0 border-r border-[var(--border-color)] flex flex-col items-center py-4 text-[var(--text-secondary)] font-mono select-none bg-[var(--bg-surface)]">
+          {Array.from({ length: 14 }).map((_, i) => (
+            <div key={i} className="leading-[1.7] opacity-40">{i + 1}</div>
+          ))}
         </div>
 
-        {/* Image / Interaction Section */}
-        <div className="h-[40%] relative overflow-hidden bg-[var(--bg-void)] border-b border-[var(--border-color)] flex-shrink-0 z-10 p-6 flex items-center justify-center">
-             <div className="absolute inset-0 transition-opacity duration-700 opacity-40 group-hover:opacity-100 grayscale mix-blend-luminosity">
-               <ProjectCard id={project.id} expanded image={project.coverImage} backgroundOnly />
-             </div>
-             
-             {/* Center visual: Lab beaker / experiment vibe */}
-             <div className="relative z-20 transition-transform duration-500 group-hover:scale-110">
-               <div className="w-16 h-16 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)]/80 backdrop-blur-md flex items-center justify-center text-[var(--text-secondary)] shadow-sm group-hover:border-[var(--accent-purple)] group-hover:text-[var(--accent-purple)] transition-colors">
-                 <TestTube size={24} />
-               </div>
-             </div>
-             
-             {/* Sparkles pill matching PrototypeDetail Hero */}
-             <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] backdrop-blur-md text-[8px] uppercase tracking-widest text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -translate-y-2 group-hover:translate-y-0 shadow-sm z-20">
-               <Sparkles size={10} style={{ color: accentColor }} />
-               {isIndonesian ? "Prototipe Eksperimental" : "Experimental Prototype"}
-             </div>
-        </div>
-
-        {/* Bottom Content Section */}
-        <div className="flex-1 p-6 relative z-20 flex flex-col justify-between bg-[var(--bg-card)]">
+        {/* Code/Data Content */}
+        <div className="flex-1 p-4 font-mono leading-[1.7] overflow-hidden relative text-left text-[var(--text-primary)]">
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="font-mono text-[9px] tracking-widest text-[var(--text-secondary)] uppercase">
-                {isIndonesian ? "Lingkungan Pengujian" : "Testing Ground"}
-              </span>
-            </div>
-            <h3 className={`text-3xl font-bold tracking-tight mb-2 transition-colors duration-300 group-hover:text-[var(--accent-purple)] leading-[1.1]`}>
-              {title}
-            </h3>
-            <p className="text-[var(--text-secondary)] text-sm font-light mt-3 line-clamp-2 leading-relaxed">
-              {desc}
-            </p>
+            <span className="text-blue-500 dark:text-blue-400">const</span> <span className="text-emerald-500 dark:text-emerald-400">CompetitorSummarizer</span> = {"{"}
           </div>
+          <div className="pl-4">
+            <span className="text-slate-500">"id"</span>: <span className="text-[var(--accent-purple)]">"{project.id}"</span>,<br/>
+            <span className="text-slate-500">"focus"</span>: <span className="text-[var(--accent-purple)]">"{isIndonesian ? "Ekstraksi UI/UX Otonom" : "Autonomous UX Extraction"}"</span>,<br/>
+            <span className="text-slate-500">"stack"</span>: [
+            <span className="text-[var(--accent-purple)]">"{project.stack[0]}"</span>, <span className="text-[var(--accent-purple)]">"{project.stack[3]}"</span>, <span className="text-[var(--accent-purple)]">"{project.stack[4]}"</span>
+            ],<br/>
+            <span className="text-[var(--text-secondary)] opacity-50 my-2 block">/* {isIndonesian ? "Data Desain Diekstrak:" : "Extracted Design Data:"} */</span>
+            <span className="text-slate-500">"title"</span>: <span className="text-[var(--accent-purple)]">"{title}"</span>,<br/>
+            <span className="text-slate-500">"description"</span>: <span className="text-[var(--accent-purple)]">"{desc.slice(0, 90)}..."</span>
+          </div>
+          <div>{"}"};</div>
 
-          <div className="flex gap-2 flex-wrap pb-2">
-            {project.stack.slice(0, 3).map((tech) => (
-              <span
-                key={tech}
-                className="px-2 py-0.5 border border-[var(--border-color)] rounded-full font-mono text-[8px] text-[var(--text-secondary)] uppercase bg-[var(--bg-surface)]"
-              >
-                {tech}
-              </span>
-            ))}
+          {/* Activity Status overlaying the IDE */}
+          <div className={`absolute bottom-4 right-4 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+             <div className="flex items-center gap-2 bg-[var(--accent-purple)]/10 border border-[var(--accent-purple)]/30 px-3 py-1.5 rounded backdrop-blur-md">
+                 <div className="w-2 h-2 rounded-sm bg-[var(--accent-purple)] animate-pulse"></div>
+                 <span className="font-mono text-[9px] text-[var(--accent-purple)] font-bold tracking-widest">
+                     MCP_ROUTING_ACTIVE
+                 </span>
+             </div>
           </div>
         </div>
-      </BlindsReveal>
-    </motion.div>
-  );
-};
+      </div>
+    </BlindsReveal>
+  </motion.div>
+);
 
 export default VentureCard;

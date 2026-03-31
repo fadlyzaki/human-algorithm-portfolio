@@ -42,6 +42,7 @@ import BrutalistDetail from "../components/project-layouts/BrutalistDetail";
 import BentoDetail from "../components/project-layouts/BentoDetail";
 import BlueprintDetail from "../components/project-layouts/BlueprintDetail";
 import PrototypeDetail from "../components/project-layouts/PrototypeDetail";
+import AgenticDetail from "../components/project-layouts/AgenticDetail";
 
 // Lazy Load Interaction Components with Retry Logic
 const WorkforceAI = lazyWithRetry(
@@ -87,7 +88,7 @@ const PROJECT_LAYOUT_MAP = {
   "productivity-illusion": BrutalistDetail,
   "year-in-review": BentoDetail,
   "interactive-workbook": BlueprintDetail,
-  "competitor-summarizer": PrototypeDetail,
+  "competitor-summarizer": AgenticDetail,
 };
 
 const INTERACTION_MAP = {
