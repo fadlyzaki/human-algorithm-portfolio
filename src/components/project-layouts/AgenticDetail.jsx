@@ -11,6 +11,7 @@ import {
   Cpu,
   ArrowRight,
 } from "lucide-react";
+import AiryDiagram from "../AiryDiagram";
 
 const AgenticDetail = ({
   project,
