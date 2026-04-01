@@ -47,7 +47,7 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 1. **Level 0 (Hero Anchor)**: Immediate Identity validation featuring a draggable, generative interactive ID card with `CustomCursor` spring physics.
 2. **Level 1 (Work - The Revenue Generator)**: Enterprise excellence via `WorkBento` component cards with Framer Motion pan animations and brand color hover reveals.
 3. **Level 2 (Experiments & Explorations - The R&D Lab)**: High-creativity experiments via polymorphic `VentureCard` system with 5 distinct card archetypes and `BlindsReveal` overlay interaction.
-4. **Level 3 (About Me - The Cultural Fit)**: Bento Grid layout with Bio, Philosophy, Runtime Metrics, `NeuralEcho` semantic AI, and `ContactScratch` hardware-accelerated reveal.
+4. **Level 3 (About Me - The Cultural Fit)**: Interactive OS Desktop layout with Framer Motion drag physics, `TerminalWindowCard` archetypes, `NeuralEcho` semantic AI, and `ContactScratch` hardware-accelerated reveal.
 5. **Level 4 (Unprovoked Thoughts - External Thought Leadership)**: Professional logs via native MDX.
 
 ### 5.2 Side Project Ecosystem
@@ -86,7 +86,7 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 
 ### 6.5 Recruiter Mode: Global Context Toggle
 *   **Component**: `RecruiterModeContext` + Navbar toggle.
-*   **Capability**: Globally strips animation delays, physics transitions, and noise. Switchable between "Terminal Mode" and "Document Mode" for fast, hyper-scannable data extraction.
+*   **Capability**: Globally strips animation delays, physics transitions, and noise. Bypasses the About section's Interactive Terminal UI to immediately render readable glassmorphic content. Switchable between "Terminal Mode" and "Document Mode" for fast, hyper-scannable data extraction.
 
 ### 6.6 The Publishing Engine: Integrated MDX CMS
 *   **Route**: `/unprovoked-thoughts`
@@ -180,7 +180,7 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **Affordance Clarity**: Physical grip visuals on `ChaosSlider`.
 *   **Signal-to-Noise Optimization**: Purged superfluous decorative text.
 *   **Structural Fail-Safes**: Immediate `[ Skip to Content ]` fallback.
-*   **Monolithic Deconstruction**: `About.jsx` factored into single-responsibility grids.
+*   **Monolithic Deconstruction**: `About.jsx` factored into a Draggable OS Bento grid with `TerminalWindowCard` abstractions.
 *   **Animation Smoothness Audit**: All major components (Navbar, NavigationMenu, WorkBento, Footer, ScrollReveal) migrated to Framer Motion spring physics for 60fps consistency.
 *   **Mobile Interaction Parity**: `IntersectionObserver` auto-cycle applied to both `VentureCard` and `ExperimentCard` ensuring BlindsReveal works on touch devices.
 

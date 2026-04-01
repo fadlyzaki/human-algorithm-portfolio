@@ -49,7 +49,7 @@ Proprietary charting engine compiling technical diagrams (Flow, Radar, Hierarchy
 State-machine-driven typewriter effects (5ms intervals) and "thinking" suspense states. `AIBrainstorm.jsx` transforms portfolio reads into self-interrogating dialogues.
 
 ### 7. Recruiter Mode (`RecruiterModeContext`)
-Global context toggle switchable between "Terminal Mode" and "Document Mode." Universally strips animation delays, physics transitions, and typewriter blocks for hyper-scannable evaluation. Toggled via Navbar and NavigationMenu.
+Global context toggle switchable between "Terminal Mode" and "Document Mode." Universally strips animation delays, physics transitions, and typewriter blocks for hyper-scannable evaluation. Also bypasses the interactive Terminal GUI in the About section's OS Desktop, instantly rendering readable glassmorphic content. Toggled via Navbar and NavigationMenu.
 
 ### 8. Physical DOM Virtualization (`Flipbook.jsx`)
 Experimental 3D CSS rendering engine on `/sketches`. Dynamically unmounts occluded pages within the Z-index stack. Stable 60fps on entry-level mobile silicon.
@@ -68,6 +68,9 @@ Canvas-based scratch-to-reveal interaction for contact information. Enforces use
 
 ### 13. SpringPhysics Cursor Engine (`CustomCursor.jsx`)
 Framer Motion spring-driven custom cursor with magnetic attraction to interactive elements. Documented in Design System's `LayoutLab`.
+
+### 14. Interactive OS Desktop (`DraggableBento.jsx` & `TerminalWindowCard.jsx`)
+Framer Motion-powered drag physics engine deployed across the "About Me" section. Transitions static bento grids into a draggable, z-index-aware workspace on desktop viewports. Implements `TerminalWindowCard` archetypes requiring user "command execution" to expand into glassmorphic content areas.
 
 ### 14. The Intelligence Engine: True Agentic UX (Echo.Z)
 Context-aware Gemini 1.5 Flash-powered AI sprite companion. Provides real-time "Pair Design" commentary, deep Q&A about portfolio contents, and a 1-click "Cognitive Load TL;DR" case study summarization. Safely bridged via a secure Vercel Edge Serverless function (`api/echoz-chat.js`). Hidden on the 404 pixel-art survival game.
