@@ -196,11 +196,11 @@ const Navbar = ({
                     ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30" 
                     : "bg-[var(--bg-void)] text-[var(--text-secondary)] border-[var(--border-color)] hover:text-[var(--accent-blue)]"
                 }`}
-                title="Toggle Recruiter Mode"
+                title={isRecruiterMode ? "Switch to Immersive View" : "Prioritize Outcomes & Scannability"}
               >
                 <ScanEye size={14} className={isRecruiterMode ? "animate-pulse" : ""} />
                 <span className="font-mono text-[10px] uppercase tracking-wider">
-                  {isRecruiterMode ? "Recruiter" : "Terminal"}
+                  {isRecruiterMode ? "Standard View" : "Recruiter View"}
                 </span>
               </button>
 

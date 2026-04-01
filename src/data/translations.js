@@ -120,13 +120,13 @@ export const translations = {
       log_2_title: "Product Designer @ STOQO",
       log_2_desc:
         "My first deep dive into operational complexity. STOQO streamlines the F&B supply chain, empowering micro & small businesses with easy access to competitively-priced ingredients. My job was to digitize offline routines so business owners could focus on cooking, not shopping. I also contributed to Design Ops by mentoring interns and supporting the hiring process.",
-      log_3_title: "Product Designer 2 @ GudangAda",
+      log_3_title: "Product Designer @ GudangAda",
       log_3_desc:
         "This was my crash course in scale. GudangAda transforms Indonesia's B2B distribution chain through end-to-end digital solutions. I learned that in high-volume B2B tools serving principals, distributors, and retailers, reducing friction isn't just a UX goal - it's a revenue metric. I established Design Ops practices here, mentoring interns, conducting design reviews, and interviewing new designers.",
       log_4_title: "UI/UX Consultant @ Du Anyam",
       log_4_desc:
         "A study in social impact. I consulted for a social enterprise empowering rural women through wicker crafts. The interface had to connect rural skills with modern markets.",
-      log_5_title: "Senior Product Designer @ Lumina (YC W22)",
+      log_5_title: "Product Designer @ Lumina (YC W22)",
       log_5_desc:
         "Designing for the blue-collar economy requires radical honesty. Lumina revolutionizes recruitment through a highly engaged job community platform. I wasn't just building features; I was building a trust layer connecting hundreds of thousands of workers with SMEs. Beyond products, I helped manage freelance designers to scale our output.",
       log_6_title: "System Recalibration (Health Crisis)",
@@ -660,13 +660,13 @@ export const translations = {
       log_2_title: "Product Designer @ STOQO",
       log_2_desc:
         "Penyelaman pertama ke kompleksitas operasional. STOQO merampingkan rantai pasok F&B, memberdayakan UMKM dengan akses bahan baku murah. Tugas saya mendigitalkan rutinitas offline agar pemilik bisnis bisa fokus memasak, bukan belanja. Saya juga berkontribusi pada Design Ops dengan mementori magang dan mendukung proses hiring.",
-      log_3_title: "Product Designer 2 @ GudangAda",
+      log_3_title: "Product Designer @ GudangAda",
       log_3_desc:
         "Kursus kilat tentang skala (scale). GudangAda mentransformasi distribusi B2B Indonesia. Saya belajar bahwa dalam tool B2B volume tinggi, mengurangi friksi bukan sekadar tujuan UX - itu adalah metrik pendapatan (Revenue Metric). Saya membangun praktik Design Ops, mementori magang, melakukan review desain, dan menginterview desainer baru.",
       log_4_title: "UI/UX Consultant @ Du Anyam",
       log_4_desc:
         "Studi dampak sosial. Konsultasi untuk wirausaha sosial yang memberdayakan perempuan pedesaan. Antarmuka harus menjembatani keterampilan tradisional dengan pasar modern.",
-      log_5_title: "Senior Product Designer @ Lumina (YC W22)",
+      log_5_title: "Product Designer @ Lumina (YC W22)",
       log_5_desc:
         "Desain untuk 'Blue Collar Economy' butuh kejujuran radikal. Kami membangun platform komunitas kerja. Bukan sekadar fitur, tapi lapisan kepercayaan (trust layer) yang menghubungkan ratusan ribu pekerja dengan pemberi kerja. Di luar produk, saya membantu mengelola desainer freelance untuk meningkatkan output tim.",
       log_6_title: "Kalibrasi Ulang Sistem (Krisis Kesehatan)",

@@ -100,7 +100,7 @@ const Home = () => {
 
         <SEO
           title="Fadly Uzzaki  -  Product Designer"
-          description="Fadly Uzzaki (Fadlyzaki) is a Senior Product Designer and Systems Thinker specializing in B2B SaaS, EdTech, and human-centered design. Explore case studies, experiments, and design philosophy."
+          description="Fadly Uzzaki (Fadlyzaki) is a Product Designer and Systems Thinker specializing in B2B SaaS, EdTech, and human-centered design. System-driven and outcome-focused."
           schema={{
             "@context": "https://schema.org",
             "@type": "ProfilePage",
@@ -117,9 +117,9 @@ const Home = () => {
                 "https://medium.com/@fadlyzaki",
                 "https://fadlyzaki.substack.com",
               ],
-              jobTitle: "Senior Product Designer",
+              jobTitle: "Product Designer",
               description:
-                "Senior Product Designer & Systems Thinker specializing in B2B SaaS, recruitment technology, and EdTech. Building resilient tools for people who need them to just work.",
+                "Product Designer & Systems Thinker specializing in B2B SaaS, recruitment technology, and EdTech. Building resilient tools with measurable impact.",
               knowsAbout: [
                 "Product Design",
                 "UX Design",

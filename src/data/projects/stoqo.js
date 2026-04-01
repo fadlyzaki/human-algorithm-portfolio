@@ -133,7 +133,7 @@ export const stoqo = {
         },
         context: {
           client: "STOQO Logistics",
-          role: "End-to-End Experience",
+          role: "Product Designer",
           timeline: "2 Months",
           team: "Ops & Engineering",
         },
@@ -316,7 +316,7 @@ export const stoqo = {
         },
         context: {
           client: "STOQO Logistics",
-          role: "End-to-End Experience",
+          role: "Product Designer",
           timeline: "2 Bulan",
           team: "Ops & Engineering",
         },
@@ -432,7 +432,7 @@ export const stoqo = {
       title: "Incentive Sales Agent",
       tag: "Gamification",
       type: "Mobile App",
-      role: "UX Strategist",
+      role: "Product Designer",
       timeline: "3 Months",
       route: "/case-study/stoqo-sales",
       previewImage: "/efficiency_hero.png",
@@ -474,7 +474,7 @@ export const stoqo = {
         },
         context: {
           client: "Sales Force",
-          role: "UX Researcher & Strategist",
+          role: "Product Designer",
           timeline: "3 Months",
           team: "Sales Ops & Regional Heads",
         },
@@ -628,7 +628,7 @@ export const stoqo = {
       title: "Paper-to-Paperless (Concept)",
       tag: "Sustainability",
       type: "Concept",
-      role: "Concept Artist",
+      role: "Product Designer",
       timeline: "1 Month",
       route: "/case-study/paper-to-paperless",
       previewImage: "/efficiency_hero.png",
@@ -670,7 +670,7 @@ export const stoqo = {
         },
         context: {
           client: "Internal Ops",
-          role: "I envisioned the Future",
+          role: "Product Designer",
           timeline: "1 Month",
           team: "Solo Project",
         },
