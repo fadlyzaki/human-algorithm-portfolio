@@ -19,7 +19,7 @@ import {
 
 export const getRuntimeLog = (t) => [
   {
-    year: "2025 - Present",
+    year: "2026 - Present",
     type: "ACTIVE_DEPLOYMENT",
     title: t("about.log_7_title"),
     desc: t("about.log_7_desc"),
