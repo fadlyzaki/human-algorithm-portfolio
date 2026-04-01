@@ -185,17 +185,26 @@ const InterestSelector = ({ t }) => {
   );
 };
 
-const TerminalBioCard = ({ t }) => {
+const TerminalWindowCard = ({ 
+  lsOutput,
+  terminalCommand,
+  executeLabel,
+  accentColorClass = "text-[var(--accent-blue)]",
+  accentBgClass = "bg-[var(--accent-blue)]/10",
+  accentBorderClass = "border-[var(--accent-blue)]/30",
+  hoverBorderClass = "hover:border-[var(--accent-blue)]",
+  children 
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <motion.div
       layout
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className={`md:col-span-2 relative overflow-hidden group ${
+      className={`relative overflow-hidden group h-full w-full flex flex-col transition-colors duration-300 ${
         isExpanded
           ? "bg-[var(--bg-surface)] backdrop-blur-2xl border border-[var(--border-color)] shadow-2xl rounded-3xl p-6 md:p-8"
-          : "bg-[var(--bg-void)] border border-[var(--border-color)] rounded-2xl p-6 md:p-8 cursor-pointer hover:border-[var(--accent-blue)]"
+          : `bg-[var(--bg-void)] border border-[var(--border-color)] rounded-2xl p-6 md:p-8 cursor-pointer ${hoverBorderClass}`
       }`}
       onClick={() => {
         if (!isExpanded) setIsExpanded(true);
@@ -225,13 +234,13 @@ const TerminalBioCard = ({ t }) => {
             <p>
               <span className="text-emerald-500">root@human-algorithm</span>:<span className="text-blue-400">~/system</span>$ ls
               <br />
-              <span className="opacity-70">manifest.json  architect_bio.md  execute_logic.sh</span>
+              <span className="opacity-70">{lsOutput}</span>
             </p>
             <p>
-              <span className="text-emerald-500">root@human-algorithm</span>:<span className="text-blue-400">~/system</span>$ cat architect_bio.md
+              <span className="text-emerald-500">root@human-algorithm</span>:<span className="text-blue-400">~/system</span>$ {terminalCommand}
               <br />
-              <span className="inline-block mt-6 px-4 py-2 bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] rounded border border-[var(--accent-blue)]/30 animate-pulse text-xs uppercase tracking-widest font-bold">
-                [ Click to Execute Payload ]
+              <span className={`inline-block mt-6 px-4 py-2 rounded border animate-pulse text-xs uppercase tracking-widest font-bold ${accentBgClass} ${accentColorClass} ${accentBorderClass}`}>
+                {executeLabel}
               </span>
             </p>
           </motion.div>
@@ -242,7 +251,7 @@ const TerminalBioCard = ({ t }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ delay: 0.05, duration: 0.3 }}
-            className="relative z-10 w-full"
+            className="relative z-10 w-full h-full flex flex-col justify-center"
           >
             <button
               onClick={(e) => {
@@ -253,25 +262,7 @@ const TerminalBioCard = ({ t }) => {
             >
               <X size={16} />
             </button>
-
-            <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-              <User size={120} strokeWidth={0.5} />
-            </div>
-
-            <div className="prose prose-invert max-w-none relative z-10">
-              <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic drop-shadow-sm">
-                {typeof t("home.about_quote") === "string" ? t("home.about_quote").replace(/<[^>]*>/g, "") : t("home.about_quote")}
-              </p>
-
-              <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
-                <p>
-                  {typeof t("home.about_p1") === "string" ? t("home.about_p1").replace(/<[^>]*>/g, "") : t("home.about_p1")}
-                </p>
-                <p>
-                  {typeof t("home.about_p2") === "string" ? t("home.about_p2").replace(/<[^>]*>/g, "") : t("home.about_p2")}
-                </p>
-              </div>
-            </div>
+            {children}
           </motion.div>
         )}
       </AnimatePresence>
@@ -320,7 +311,34 @@ const HomeAbout = ({ t }) => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 w-full h-full">
         {/* 1. MAIN BIO (Span 2 cols) - Command Line to Glassmorphism interaction */}
         <DraggableBento id="bio" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="md:col-span-2">
-          <TerminalBioCard t={t} />
+          <TerminalWindowCard
+            lsOutput="manifest.json  architect_bio.md  execute_logic.sh"
+            terminalCommand="cat architect_bio.md"
+            executeLabel="[ Click to Execute Payload ]"
+            accentColorClass="text-[var(--accent-blue)]"
+            accentBgClass="bg-[var(--accent-blue)]/10"
+            accentBorderClass="border-[var(--accent-blue)]/30"
+            hoverBorderClass="hover:border-[var(--accent-blue)]"
+          >
+            <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+              <User size={120} strokeWidth={0.5} />
+            </div>
+
+            <div className="prose prose-invert max-w-none relative z-10">
+              <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic drop-shadow-sm">
+                {typeof t("home.about_quote") === "string" ? t("home.about_quote").replace(/<[^>]*>/g, "") : t("home.about_quote")}
+              </p>
+
+              <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
+                <p>
+                  {typeof t("home.about_p1") === "string" ? t("home.about_p1").replace(/<[^>]*>/g, "") : t("home.about_p1")}
+                </p>
+                <p>
+                  {typeof t("home.about_p2") === "string" ? t("home.about_p2").replace(/<[^>]*>/g, "") : t("home.about_p2")}
+                </p>
+              </div>
+            </div>
+          </TerminalWindowCard>
         </DraggableBento>
 
         {/* 2. VISUAL MODULE (Span 1 col) */}
@@ -334,106 +352,157 @@ const HomeAbout = ({ t }) => {
         </DraggableBento>
 
         {/* 3. PHILOSOPHY (Span 1 col) */}
-        <DraggableBento id="philosophy" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex flex-col justify-between group hover:border-[var(--accent-amber)] transition-colors">
-          <div>
-            <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-              <Heart size={14} className="text-[var(--accent-amber)]" />{" "}
-              {t("home.philosophy_title")}
-            </h4>
-            <blockquote className="text-lg text-[var(--text-primary)] font-light leading-relaxed mb-6">
-              {typeof t("home.philosophy_quote") === "string"
-                ? t("home.philosophy_quote").replace(/<[^>]*>/g, "")
-                : t("home.philosophy_quote")}
-            </blockquote>
-          </div>
-          <Link
-            to="/about"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--accent-amber)] transition-colors"
+        <DraggableBento id="philosophy" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="h-full">
+          <TerminalWindowCard
+            lsOutput="core_values.json  ethics.md  philosophy.json"
+            terminalCommand="cat philosophy.json"
+            executeLabel="[ Decrypt Core Values ]"
+            accentColorClass="text-[var(--accent-amber)]"
+            accentBgClass="bg-[var(--accent-amber)]/10"
+            accentBorderClass="border-[var(--accent-amber)]/30"
+            hoverBorderClass="hover:border-[var(--accent-amber)]"
           >
-            {t("home.read_philosophy")} <ArrowRight size={14} />
-          </Link>
+            <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+              <Heart size={120} strokeWidth={0.5} />
+            </div>
+            
+            <div className="flex flex-col justify-between h-full relative z-10">
+              <div>
+                <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <Heart size={14} className="text-[var(--accent-amber)]" />{" "}
+                  {t("home.philosophy_title")}
+                </h4>
+                <blockquote className="text-lg text-[var(--text-primary)] font-light leading-relaxed mb-6">
+                  {typeof t("home.philosophy_quote") === "string"
+                    ? t("home.philosophy_quote").replace(/<[^>]*>/g, "")
+                    : t("home.philosophy_quote")}
+                </blockquote>
+              </div>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors self-start"
+              >
+                {t("home.read_philosophy")} <ArrowRight size={14} />
+              </Link>
+            </div>
+          </TerminalWindowCard>
         </DraggableBento>
 
         {/* 4. CURRENT FOCUS (Span 1 col) */}
-        <DraggableBento id="focus" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl relative overflow-hidden group hover:border-[var(--accent-blue)] transition-colors">
-          <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-30 transition-opacity">
-            <Cpu size={64} strokeWidth={1} />
-          </div>
-          <h4 className="font-mono text-[var(--accent-blue)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-            <Cpu size={14} className="text-[var(--accent-blue)]" />
-            {t("home.current_focus")}
-          </h4>
-          <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
-            {typeof t("home.current_focus_desc") === "string"
-              ? t("home.current_focus_desc").replace(/<[^>]*>/g, "")
-              : t("home.current_focus_desc")}
-          </p>
+        <DraggableBento id="focus" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="h-full">
+          <TerminalWindowCard
+            lsOutput="system_focus.exe  memory.log"
+            terminalCommand="run system_focus.exe"
+            executeLabel="[ Compile Logic ]"
+            accentColorClass="text-[#a855f7]"
+            accentBgClass="bg-[#a855f7]/10"
+            accentBorderClass="border-[#a855f7]/30"
+            hoverBorderClass="hover:border-[#a855f7]"
+          >
+            <div className="absolute top-0 right-0 p-3 opacity-5 pointer-events-none">
+              <Cpu size={120} strokeWidth={0.5} />
+            </div>
+
+            <div className="relative z-10">
+              <h4 className="font-mono text-[#a855f7] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                <Cpu size={14} className="text-[#a855f7]" />
+                {t("home.current_focus")}
+              </h4>
+              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                {typeof t("home.current_focus_desc") === "string"
+                  ? t("home.current_focus_desc").replace(/<[^>]*>/g, "")
+                  : t("home.current_focus_desc")}
+              </p>
+            </div>
+          </TerminalWindowCard>
         </DraggableBento>
 
         {/* 5. PERSONAL INTERESTS  -  Interactive Emoji Selector */}
         <DraggableBento id="interests" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="h-full">
-          <InterestSelector t={t} />
+          <TerminalWindowCard
+            lsOutput="hobbies/  sports/  leisure/"
+            terminalCommand="./start_human_hobbies.sh"
+            executeLabel="[ Boot Applications ]"
+            accentColorClass="text-emerald-500"
+            accentBgClass="bg-emerald-500/10"
+            accentBorderClass="border-emerald-500/30"
+            hoverBorderClass="hover:border-emerald-500"
+          >
+            <div className="relative z-10 pt-4">
+              <InterestSelector t={t} />
+            </div>
+          </TerminalWindowCard>
         </DraggableBento>
 
         {/* 6. SKETCHES & THOUGHTS TEASERS (Span 3 cols split into 2) */}
         <DraggableBento id="links" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="md:col-span-3">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-            <Link
-              to="/sketches"
-              className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-amber)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors shrink-0">
-                    <Palette
-                      size={20}
-                      className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
-                    />
+          <TerminalWindowCard
+            lsOutput="archives/ sketches/ thoughts/"
+            terminalCommand="ls -la /archives/"
+            executeLabel="[ Mount Directory ]"
+            accentColorClass="text-[var(--text-secondary)]"
+            accentBgClass="bg-[var(--text-secondary)]/10"
+            accentBorderClass="border-[var(--text-secondary)]/30"
+            hoverBorderClass="hover:border-[var(--text-secondary)]"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full relative z-10 pt-4 pb-2">
+              <Link
+                to="/sketches"
+                className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-amber)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors shrink-0">
+                      <Palette
+                        size={20}
+                        className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                        {t("nav.sketches")}
+                      </h4>
+                      <p className="text-[var(--text-primary)] text-sm font-light">
+                        {t("about.sketches_desc")}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
-                      {t("nav.sketches")}
-                    </h4>
-                    <p className="text-[var(--text-primary)] text-sm font-light">
-                      {t("about.sketches_desc")}
-                    </p>
+                  <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
+                    {t("about.sketches_count")}
                   </div>
                 </div>
-                <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
-                  {t("about.sketches_count")}
-                </div>
-              </div>
-            </Link>
+              </Link>
 
-            <Link
-              to="/thoughts"
-              className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--accent-amber)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors shrink-0">
-                    <BookOpen
-                      size={20}
-                      className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
-                    />
+              <Link
+                to="/thoughts"
+                className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--accent-amber)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors shrink-0">
+                      <BookOpen
+                        size={20}
+                        className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                        {t("nav.notes")}
+                      </h4>
+                      <p className="text-[var(--text-primary)] text-sm font-light">
+                        {t("about.thoughts_desc")}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
-                      {t("nav.notes")}
-                    </h4>
-                    <p className="text-[var(--text-primary)] text-sm font-light">
-                      {t("about.thoughts_desc")}
-                    </p>
+                  <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
+                    {t("about.read_btn")}
                   </div>
                 </div>
-                <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
-                  {t("about.read_btn")}
-                </div>
-              </div>
-            </Link>
-          </div>
+              </Link>
+            </div>
+          </TerminalWindowCard>
         </DraggableBento>
       </div>
     </section>
