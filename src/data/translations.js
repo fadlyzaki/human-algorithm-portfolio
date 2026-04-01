@@ -67,7 +67,7 @@ export const translations = {
       read_philosophy: "READ FULL PHILOSOPHY",
       current_focus: "Current Focus",
       current_focus_desc:
-        "I'm applying Cognitive Load Theory to Product Design through my Master’s in EdTech. Beyond just designing screens, I architect how users learn, adapt, and master complex systems. My goal is to reduce mental friction in high-stakes environments, ensuring that technology amplifies human intent rather than consuming it.",
+        "Having recently completed my Master's in Educational Technology specializing in Cognitive Load Theory, I now systematically apply these behavioral principles to product architecture. I don't just design screens; I design how users learn, adapt, and master complex tools. My goal is to eliminate mental friction in high-stakes environments, ensuring every interface empowers human intent rather than exhausting it.",
       personal_interests: "Personal Interests",
       section_notes: "UNPROVOKED THOUGHTS",
       more_logs: "More logs incoming...",
@@ -607,7 +607,7 @@ export const translations = {
       read_philosophy: "BACA FILOSOFI",
       current_focus: "Fokus Saat Ini",
       current_focus_desc:
-        "Saya menerapkan Teori Beban Kognitif dalam Desain Produk melalui S2 Teknologi Pendidikan. Lebih dari sekadar mendesain layar, saya merancang bagaimana pengguna belajar, beradaptasi, dan menguasai sistem yang kompleks. Tujuan saya adalah mengurangi friksi mental dalam lingkungan berisiko tinggi, memastikan teknologi memperkuat intensi manusia, bukan menghabiskannya.",
+        "Setelah menyelesaikan S2 Teknologi Pendidikan dengan spesialisasi Teori Beban Kognitif, saya kini menerapkan prinsip sains perilaku tersebut secara sistematis ke dalam arsitektur produk. Saya tidak sekadar mendesain layar; saya merancang bagaimana pengguna belajar, beradaptasi dan menguasai sistem kompleks. Tujuan saya adalah memusnahkan friksi mental dalam lingkungan berisiko tinggi, memastikan antarmuka memberdayakan intensi manusia, bukan menghabiskannya.",
       personal_interests: "Minat Pribadi",
       section_notes: "UNPROVOKED THOUGHTS",
       more_logs: "Menunggu log baru...",
