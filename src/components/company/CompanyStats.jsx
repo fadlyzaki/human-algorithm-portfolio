@@ -7,7 +7,7 @@ const CompanyStats = ({ cluster, t }) => {
       <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-8 gap-x-12">
         {(
           cluster.stats || [
-            { label: "Role", value: "Lead Product Designer" },
+            { label: "Role", value: "Product Designer" },
             { label: "Timeline", value: "2020 - 2023" },
             { label: "Impact", value: "Workforce Accessibility" },
             { label: "Platform", value: "Mobile Apps & Website" },

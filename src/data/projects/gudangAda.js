@@ -30,7 +30,7 @@ export const gudangAda = {
   miniDesc:
     "Digitizing the supply chain by scaffolding existing relationships. Established Design Ops, mentored interns, and scaled the design team.",
   stats: [
-    { label: "Role", value: "Product Designer 2" },
+    { label: "Role", value: "Product Designer" },
     { label: "Teams", value: "B2B Marketplace, Logistics Tech, Design Ops" },
     { label: "Timeline", value: "April 2020 - April 2022" },
     { label: "Impact", value: "Trust & Transaction Safety" },
@@ -39,7 +39,7 @@ export const gudangAda = {
   culture: {
     title: "The Arena",
     description:
-      "As Product Designer 2, I orchestrated the digital transformation of a traditional supply chain. Beyond pixels, I built the design culture from scratch - establishing Design Ops, mentoring a growing team, and bridging the gap between chaotic offline markets and intuitive digital tools.",
+      "As a Product Designer, I orchestrated the digital transformation of a traditional supply chain. Beyond pixels, I built the design culture from scratch - establishing Design Ops, mentoring a growing team, and bridging the gap between chaotic offline markets and intuitive digital tools.",
     disclaimer:
       "If anyone on the team is uncomfortable with their image being featured here, please reach out to me and I'll remove it immediately.",
     layout: "symmetric-grid",

@@ -123,7 +123,7 @@ export const translations = {
       log_3_title: "Product Designer @ GudangAda",
       log_3_desc:
         "This was my crash course in scale. GudangAda transforms Indonesia's B2B distribution chain through end-to-end digital solutions. I learned that in high-volume B2B tools serving principals, distributors, and retailers, reducing friction isn't just a UX goal - it's a revenue metric. I established Design Ops practices here, mentoring interns, conducting design reviews, and interviewing new designers.",
-      log_4_title: "UI/UX Consultant @ Du Anyam",
+      log_4_title: "Product Designer @ Du Anyam",
       log_4_desc:
         "A study in social impact. I consulted for a social enterprise empowering rural women through wicker crafts. The interface had to connect rural skills with modern markets.",
       log_5_title: "Product Designer @ Lumina (YC W22)",
@@ -663,7 +663,7 @@ export const translations = {
       log_3_title: "Product Designer @ GudangAda",
       log_3_desc:
         "Kursus kilat tentang skala (scale). GudangAda mentransformasi distribusi B2B Indonesia. Saya belajar bahwa dalam tool B2B volume tinggi, mengurangi friksi bukan sekadar tujuan UX - itu adalah metrik pendapatan (Revenue Metric). Saya membangun praktik Design Ops, mementori magang, melakukan review desain, dan menginterview desainer baru.",
-      log_4_title: "UI/UX Consultant @ Du Anyam",
+      log_4_title: "Product Designer @ Du Anyam",
       log_4_desc:
         "Studi dampak sosial. Konsultasi untuk wirausaha sosial yang memberdayakan perempuan pedesaan. Antarmuka harus menjembatani keterampilan tradisional dengan pasar modern.",
       log_5_title: "Product Designer @ Lumina (YC W22)",

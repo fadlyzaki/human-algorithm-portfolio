@@ -93,7 +93,7 @@ const ContactPage = () => {
     <div className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-mono selection:bg-[var(--text-primary)] selection:text-[var(--bg-void)] transition-colors duration-500 flex flex-col items-center justify-center p-6 relative overflow-hidden">
       <SEO
         title="Contact Fadly Uzzaki"
-        description="Get in touch with Fadly Uzzaki (Fadlyzaki) for product design collaborations, freelance inquiries, or design consulting. Senior Product Designer specializing in B2B SaaS and EdTech."
+        description="Get in touch with Fadly Uzzaki (Fadlyzaki) for product design collaborations, freelance inquiries, or design consulting. Product Designer specializing in B2B SaaS and EdTech."
       />
 
       {/* GENERATIVE AI BACKGROUND */}

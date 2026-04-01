@@ -77,7 +77,7 @@ const FAQ_POOL = [
   {
     id: "15",
     q: "Are you currently available for new projects or full-time roles?",
-    a: "I am exclusively focused on finding a high-impact, full-time Senior Product Designer role, though I occasionally accept select, technically challenging freelance inquiries.",
+    a: "I am exclusively focused on finding a high-impact, full-time Product Designer role, though I occasionally accept select, technically challenging freelance inquiries.",
   },
 ];
 

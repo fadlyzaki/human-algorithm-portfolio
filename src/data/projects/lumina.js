@@ -29,7 +29,7 @@ export const lumina = {
   miniDesc:
     'Building a "Trust Layer" for the blue-collar economy. Architected a reputation system and established Design Ops practices to manage freelance workflows.',
   stats: [
-    { label: "Role", value: "Senior Product Designer" },
+    { label: "Role", value: "Product Designer" },
     { label: "Teams", value: "Recruiter ATS, Worker App, Design Ops" },
     { label: "Timeline", value: "May 2022 - Nov 2022" },
     { label: "Impact", value: "Workforce Accessibility" },

@@ -32,7 +32,7 @@ const SEO = ({
     author: {
       "@type": "Person",
       name: "Fadly Uzzaki",
-      jobTitle: "Senior Product Designer",
+      jobTitle: "Product Designer",
       url: siteUrl,
     },
   };
