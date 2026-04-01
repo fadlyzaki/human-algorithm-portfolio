@@ -1,4 +1,5 @@
 import React from "react";
+import { TerminalWindowCard } from "../home/HomeAbout";
 import {
   Terminal,
   Grid3X3,
@@ -353,6 +354,35 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
                     </div>
                  </BlindsReveal>
               </div>
+            </div>
+          </div>
+
+          {/* Terminal Window Card (OS Desktop) */}
+          <div className={`relative ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : ""}`}>
+            {isXRayMode && (
+              <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">
+                TerminalWindowCard.jsx // OS Desktop Card
+              </span>
+            )}
+            <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">
+              Interactive OS Desktop // TerminalWindowCard
+            </h4>
+            <div className="relative z-10 h-80 border border-[var(--border-color)] overflow-hidden rounded-xl bg-[var(--bg-card)] p-4">
+               <TerminalWindowCard
+                  lsOutput="secure_payload.exe"
+                  terminalCommand="run secure_payload.exe"
+                  executeLabel="[ Execute Prototype ]"
+                  accentColorClass="text-[var(--accent)]"
+                  accentBgClass="bg-[var(--accent)]/10"
+                  accentBorderClass="border-[var(--accent)]/30"
+                  hoverBorderClass="hover:border-[var(--accent)]"
+               >
+                  <div className="w-full h-full flex flex-col items-center justify-center text-[var(--text-primary)] relative z-10 p-6 text-center">
+                     <Terminal size={48} className="text-[var(--accent)] mb-4 opacity-50" />
+                     <h3 className="font-mono text-sm uppercase tracking-widest text-[var(--accent)] mb-2">Payload Executed</h3>
+                     <p className="text-xs text-[var(--text-secondary)] text-center max-w-xs">The TerminalWindowCard safely isolates state to maintain draggable physics constraints across the grid layout.</p>
+                  </div>
+               </TerminalWindowCard>
             </div>
           </div>
         </div>

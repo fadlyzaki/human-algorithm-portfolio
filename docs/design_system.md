@@ -139,6 +139,11 @@ Based on Tailwind defaults:
 *   **Style**: Amber-accented cards in 2-column grid.
 *   **Differentiation**: Distinct from "Certifications" (Blue/Green) to highlight competitive awards.
 
+### 8. Interactive OS Desktop
+*   **Path**: `src/components/home/HomeAbout.jsx`
+*   **Behavior**: Transitions static grids into a draggable, z-index-aware workspace on desktop viewports via `DraggableBento.jsx`.
+*   **Terminal Module**: `TerminalWindowCard.jsx` requires user "command execution" to expand into interactive glassmorphic panels seamlessly natively supported by Recruiter Mode contexts.
+
 
 ---
 

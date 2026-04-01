@@ -186,7 +186,7 @@ const InterestSelector = ({ t }) => {
   );
 };
 
-const TerminalWindowCard = ({ 
+export const TerminalWindowCard = ({ 
   lsOutput,
   terminalCommand,
   executeLabel,
