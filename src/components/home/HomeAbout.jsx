@@ -17,7 +17,6 @@ import {
 import SectionTitle from "../SectionTitle";
 import ProfileScanner from "../ProfileScanner";
 import RichText from "../RichText";
-import ScrambleText from "../ScrambleText";
 
 const INTERESTS = [
   {
@@ -261,25 +260,15 @@ const TerminalBioCard = ({ t }) => {
 
             <div className="prose prose-invert max-w-none relative z-10">
               <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic drop-shadow-sm">
-                <ScrambleText text={t("home.about_quote")} as="span" triggerOnView={false} speed={25} />
+                {typeof t("home.about_quote") === "string" ? t("home.about_quote").replace(/<[^>]*>/g, "") : t("home.about_quote")}
               </p>
 
               <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
                 <p>
-                  <ScrambleText
-                    text={typeof t("home.about_p1") === "string" ? t("home.about_p1").replace(/<[^>]*>/g, "") : t("home.about_p1")}
-                    as="span"
-                    triggerOnView={false}
-                    speed={15}
-                  />
+                  {typeof t("home.about_p1") === "string" ? t("home.about_p1").replace(/<[^>]*>/g, "") : t("home.about_p1")}
                 </p>
                 <p>
-                  <ScrambleText
-                    text={typeof t("home.about_p2") === "string" ? t("home.about_p2").replace(/<[^>]*>/g, "") : t("home.about_p2")}
-                    as="span"
-                    triggerOnView={false}
-                    speed={15}
-                  />
+                  {typeof t("home.about_p2") === "string" ? t("home.about_p2").replace(/<[^>]*>/g, "") : t("home.about_p2")}
                 </p>
               </div>
             </div>
@@ -317,15 +306,9 @@ const HomeAbout = ({ t }) => {
               {t("home.philosophy_title")}
             </h4>
             <blockquote className="text-lg text-[var(--text-primary)] font-light leading-relaxed mb-6">
-              <ScrambleText
-                text={
-                  typeof t("home.philosophy_quote") === "string"
-                    ? t("home.philosophy_quote").replace(/<[^>]*>/g, "")
-                    : t("home.philosophy_quote")
-                }
-                as="span"
-                speed={20}
-              />
+              {typeof t("home.philosophy_quote") === "string"
+                ? t("home.philosophy_quote").replace(/<[^>]*>/g, "")
+                : t("home.philosophy_quote")}
             </blockquote>
           </div>
           <Link
@@ -346,15 +329,9 @@ const HomeAbout = ({ t }) => {
             {t("home.current_focus")}
           </h4>
           <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
-            <ScrambleText
-              text={
-                typeof t("home.current_focus_desc") === "string"
-                  ? t("home.current_focus_desc").replace(/<[^>]*>/g, "")
-                  : t("home.current_focus_desc")
-              }
-              as="span"
-              speed={12}
-            />
+            {typeof t("home.current_focus_desc") === "string"
+              ? t("home.current_focus_desc").replace(/<[^>]*>/g, "")
+              : t("home.current_focus_desc")}
           </p>
         </div>
 
