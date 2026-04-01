@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -10,6 +11,8 @@ import {
   BookOpen,
   PenLine,
   Palette,
+  Terminal,
+  X,
 } from "lucide-react";
 import SectionTitle from "../SectionTitle";
 import ProfileScanner from "../ProfileScanner";
@@ -183,52 +186,118 @@ const InterestSelector = ({ t }) => {
   );
 };
 
+const TerminalBioCard = ({ t }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <motion.div
+      layout
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      className={`md:col-span-2 relative overflow-hidden group ${
+        isExpanded
+          ? "bg-[var(--bg-surface)] backdrop-blur-2xl border border-[var(--border-color)] shadow-2xl rounded-3xl p-6 md:p-8"
+          : "bg-[var(--bg-void)] border border-[var(--border-color)] rounded-2xl p-6 md:p-8 cursor-pointer hover:border-[var(--accent-blue)]"
+      }`}
+      onClick={() => {
+        if (!isExpanded) setIsExpanded(true);
+      }}
+    >
+      <AnimatePresence mode="wait">
+        {!isExpanded ? (
+          <motion.div
+            key="terminal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="font-mono text-sm sm:text-base space-y-4 text-[var(--text-secondary)] h-full flex flex-col justify-center"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Terminal size={18} className="text-[var(--text-primary)]" />
+                <span className="text-[var(--text-primary)] font-bold tracking-wider uppercase text-xs">Terminal</span>
+              </div>
+              <div className="flex gap-1.5 opacity-50">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+              </div>
+            </div>
+
+            <p>
+              <span className="text-emerald-500">root@human-algorithm</span>:<span className="text-blue-400">~/system</span>$ ls
+              <br />
+              <span className="opacity-70">manifest.json  architect_bio.md  execute_logic.sh</span>
+            </p>
+            <p>
+              <span className="text-emerald-500">root@human-algorithm</span>:<span className="text-blue-400">~/system</span>$ cat architect_bio.md
+              <br />
+              <span className="inline-block mt-6 px-4 py-2 bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] rounded border border-[var(--accent-blue)]/30 animate-pulse text-xs uppercase tracking-widest font-bold">
+                [ Click to Execute Payload ]
+              </span>
+            </p>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="glass"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ delay: 0.05, duration: 0.3 }}
+            className="relative z-10 w-full"
+          >
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsExpanded(false);
+              }}
+              className="absolute -top-2 -right-2 md:-top-4 md:-right-4 p-2 rounded-full bg-[var(--text-secondary)]/10 hover:bg-[var(--text-secondary)]/20 transition-colors text-[var(--text-primary)] z-20"
+            >
+              <X size={16} />
+            </button>
+
+            <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+              <User size={120} strokeWidth={0.5} />
+            </div>
+
+            <div className="prose prose-invert max-w-none relative z-10">
+              <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic drop-shadow-sm">
+                <ScrambleText text={t("home.about_quote")} as="span" triggerOnView={false} speed={25} />
+              </p>
+
+              <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
+                <p>
+                  <ScrambleText
+                    text={typeof t("home.about_p1") === "string" ? t("home.about_p1").replace(/<[^>]*>/g, "") : t("home.about_p1")}
+                    as="span"
+                    triggerOnView={false}
+                    speed={15}
+                  />
+                </p>
+                <p>
+                  <ScrambleText
+                    text={typeof t("home.about_p2") === "string" ? t("home.about_p2").replace(/<[^>]*>/g, "") : t("home.about_p2")}
+                    as="span"
+                    triggerOnView={false}
+                    speed={15}
+                  />
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
 const HomeAbout = ({ t }) => {
   return (
     <section id="about" className="mb-24 scroll-mt-24">
       <SectionTitle number="3" title={t("home.section_about")} />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* 1. MAIN BIO (Span 2 cols) */}
-        <div className="md:col-span-2 p-8 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-            <User size={120} strokeWidth={0.5} />
-          </div>
-          <div className="prose prose-invert max-w-none relative z-10">
-            <p className="text-xl md:text-3xl text-[var(--text-primary)] leading-tight mb-8 font-serif italic opacity-90">
-              <ScrambleText
-                text={t("home.about_quote")}
-                as="span"
-                triggerOnView={true}
-                speed={25}
-              />
-            </p>
-            <div className="text-[var(--text-secondary)] space-y-6 text-lg font-light leading-relaxed">
-              <p>
-                <ScrambleText
-                  text={
-                    typeof t("home.about_p1") === "string"
-                      ? t("home.about_p1").replace(/<[^>]*>/g, "")
-                      : t("home.about_p1")
-                  }
-                  as="span"
-                  speed={15}
-                />
-              </p>
-              <p>
-                <ScrambleText
-                  text={
-                    typeof t("home.about_p2") === "string"
-                      ? t("home.about_p2").replace(/<[^>]*>/g, "")
-                      : t("home.about_p2")
-                  }
-                  as="span"
-                  speed={15}
-                />
-              </p>
-            </div>
-          </div>
-        </div>
+        {/* 1. MAIN BIO (Span 2 cols) - Command Line to Glassmorphism interaction */}
+        <TerminalBioCard t={t} />
 
         {/* 2. VISUAL MODULE (Span 1 col) */}
         <div className="md:col-span-1 h-full min-h-[300px]">
