@@ -279,27 +279,62 @@ const TerminalBioCard = ({ t }) => {
   );
 };
 
-const HomeAbout = ({ t }) => {
+const DraggableBento = ({ id, activeId, setActiveId, constraintsRef, className, children }) => {
+  const [isDesktop, setIsDesktop] = React.useState(false);
+  const isActive = activeId === id;
+
+  React.useEffect(() => {
+    const checkWidth = () => setIsDesktop(window.innerWidth >= 768);
+    checkWidth();
+    window.addEventListener("resize", checkWidth);
+    return () => window.removeEventListener("resize", checkWidth);
+  }, []);
+
+  if (!isDesktop) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
-    <section id="about" className="mb-24 scroll-mt-24">
+    <motion.div
+      drag
+      dragConstraints={constraintsRef}
+      onPointerDown={() => setActiveId(id)}
+      whileDrag={{ scale: 1.02, cursor: "grabbing" }}
+      dragElastic={0.1}
+      className={`${className} cursor-grab relative`}
+      style={{ zIndex: isActive ? 50 : 1 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+const HomeAbout = ({ t }) => {
+  const constraintsRef = useRef(null);
+  const [activeId, setActiveId] = useState(null);
+
+  return (
+    <section id="about" ref={constraintsRef} className="mb-24 scroll-mt-24 relative">
       <SectionTitle number="3" title={t("home.section_about")} />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 w-full h-full">
         {/* 1. MAIN BIO (Span 2 cols) - Command Line to Glassmorphism interaction */}
-        <TerminalBioCard t={t} />
+        <DraggableBento id="bio" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="md:col-span-2">
+          <TerminalBioCard t={t} />
+        </DraggableBento>
 
         {/* 2. VISUAL MODULE (Span 1 col) */}
-        <div className="md:col-span-1 h-full min-h-[300px]">
+        <DraggableBento id="visual" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="md:col-span-1 h-full min-h-[300px]">
           <ProfileScanner
             imageSrc="/about-fadly.jpg"
             aspectRatio="h-full"
             showBadge={true}
             className="shadow-xl h-full"
           />
-        </div>
+        </DraggableBento>
 
         {/* 3. PHILOSOPHY (Span 1 col) */}
-        <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex flex-col justify-between group hover:border-[var(--accent-amber)] transition-colors">
+        <DraggableBento id="philosophy" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex flex-col justify-between group hover:border-[var(--accent-amber)] transition-colors">
           <div>
             <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
               <Heart size={14} className="text-[var(--accent-amber)]" />{" "}
@@ -317,10 +352,10 @@ const HomeAbout = ({ t }) => {
           >
             {t("home.read_philosophy")} <ArrowRight size={14} />
           </Link>
-        </div>
+        </DraggableBento>
 
         {/* 4. CURRENT FOCUS (Span 1 col) */}
-        <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl relative overflow-hidden group hover:border-[var(--accent-blue)] transition-colors">
+        <DraggableBento id="focus" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl relative overflow-hidden group hover:border-[var(--accent-blue)] transition-colors">
           <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-30 transition-opacity">
             <Cpu size={64} strokeWidth={1} />
           </div>
@@ -333,69 +368,73 @@ const HomeAbout = ({ t }) => {
               ? t("home.current_focus_desc").replace(/<[^>]*>/g, "")
               : t("home.current_focus_desc")}
           </p>
-        </div>
+        </DraggableBento>
 
         {/* 5. PERSONAL INTERESTS  -  Interactive Emoji Selector */}
-        <InterestSelector t={t} />
+        <DraggableBento id="interests" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="h-full">
+          <InterestSelector t={t} />
+        </DraggableBento>
 
         {/* 6. SKETCHES & THOUGHTS TEASERS (Span 3 cols split into 2) */}
-        <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link
-            to="/sketches"
-            className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-amber)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors shrink-0">
-                  <Palette
-                    size={20}
-                    className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
-                  />
+        <DraggableBento id="links" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="md:col-span-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+            <Link
+              to="/sketches"
+              className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-amber)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors shrink-0">
+                    <Palette
+                      size={20}
+                      className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                      {t("nav.sketches")}
+                    </h4>
+                    <p className="text-[var(--text-primary)] text-sm font-light">
+                      {t("about.sketches_desc")}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
-                    {t("nav.sketches")}
-                  </h4>
-                  <p className="text-[var(--text-primary)] text-sm font-light">
-                    {t("about.sketches_desc")}
-                  </p>
+                <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
+                  {t("about.sketches_count")}
                 </div>
               </div>
-              <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
-                {t("about.sketches_count")}
-              </div>
-            </div>
-          </Link>
+            </Link>
 
-          <Link
-            to="/thoughts"
-            className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--accent-amber)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors shrink-0">
-                  <BookOpen
-                    size={20}
-                    className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
-                  />
+            <Link
+              to="/thoughts"
+              className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--accent-amber)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors shrink-0">
+                    <BookOpen
+                      size={20}
+                      className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                      {t("nav.notes")}
+                    </h4>
+                    <p className="text-[var(--text-primary)] text-sm font-light">
+                      {t("about.thoughts_desc")}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
-                    {t("nav.notes")}
-                  </h4>
-                  <p className="text-[var(--text-primary)] text-sm font-light">
-                    {t("about.thoughts_desc")}
-                  </p>
+                <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
+                  {t("about.read_btn")}
                 </div>
               </div>
-              <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
-                {t("about.read_btn")}
-              </div>
-            </div>
-          </Link>
-        </div>
+            </Link>
+          </div>
+        </DraggableBento>
       </div>
     </section>
   );
