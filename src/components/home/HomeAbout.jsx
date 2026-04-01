@@ -17,6 +17,7 @@ import {
 import SectionTitle from "../SectionTitle";
 import ProfileScanner from "../ProfileScanner";
 import RichText from "../RichText";
+import { useRecruiterMode } from "../../context/RecruiterModeContext";
 
 const INTERESTS = [
   {
@@ -193,9 +194,14 @@ const TerminalWindowCard = ({
   accentBgClass = "bg-[var(--accent-blue)]/10",
   accentBorderClass = "border-[var(--accent-blue)]/30",
   hoverBorderClass = "hover:border-[var(--accent-blue)]",
-  children 
+  children,
+  defaultExpanded = false 
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+
+  React.useEffect(() => {
+    setIsExpanded(defaultExpanded);
+  }, [defaultExpanded]);
 
   return (
     <motion.div
@@ -303,6 +309,7 @@ const DraggableBento = ({ id, activeId, setActiveId, constraintsRef, className, 
 const HomeAbout = ({ t }) => {
   const constraintsRef = useRef(null);
   const [activeId, setActiveId] = useState(null);
+  const { isRecruiterMode } = useRecruiterMode();
 
   return (
     <section id="about" ref={constraintsRef} className="mb-24 scroll-mt-24 relative">
@@ -319,6 +326,7 @@ const HomeAbout = ({ t }) => {
             accentBgClass="bg-[var(--accent-blue)]/10"
             accentBorderClass="border-[var(--accent-blue)]/30"
             hoverBorderClass="hover:border-[var(--accent-blue)]"
+            defaultExpanded={isRecruiterMode}
           >
             <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
               <User size={120} strokeWidth={0.5} />
@@ -361,6 +369,7 @@ const HomeAbout = ({ t }) => {
             accentBgClass="bg-[var(--accent-amber)]/10"
             accentBorderClass="border-[var(--accent-amber)]/30"
             hoverBorderClass="hover:border-[var(--accent-amber)]"
+            defaultExpanded={isRecruiterMode}
           >
             <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
               <Heart size={120} strokeWidth={0.5} />
@@ -398,6 +407,7 @@ const HomeAbout = ({ t }) => {
             accentBgClass="bg-[#a855f7]/10"
             accentBorderClass="border-[#a855f7]/30"
             hoverBorderClass="hover:border-[#a855f7]"
+            defaultExpanded={isRecruiterMode}
           >
             <div className="absolute top-0 right-0 p-3 opacity-5 pointer-events-none">
               <Cpu size={120} strokeWidth={0.5} />
@@ -427,6 +437,7 @@ const HomeAbout = ({ t }) => {
             accentBgClass="bg-emerald-500/10"
             accentBorderClass="border-emerald-500/30"
             hoverBorderClass="hover:border-emerald-500"
+            defaultExpanded={isRecruiterMode}
           >
             <div className="relative z-10 pt-4">
               <InterestSelector t={t} />
@@ -444,6 +455,7 @@ const HomeAbout = ({ t }) => {
             accentBgClass="bg-[var(--text-secondary)]/10"
             accentBorderClass="border-[var(--text-secondary)]/30"
             hoverBorderClass="hover:border-[var(--text-secondary)]"
+            defaultExpanded={isRecruiterMode}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full relative z-10 pt-4 pb-2">
               <Link
