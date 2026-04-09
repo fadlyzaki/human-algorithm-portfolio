@@ -17,27 +17,29 @@
 
 ---
 
-## Bio Variants
+## Bio Variants (Platform Ready)
 
-### One-liner
-Senior Product Designer · Trust Engineering. I design where software logic meets human intuition.
+### The 10-Second Pitch (Headline / Twitter Bio)
+Senior Product Designer · B2B & Trust Engineering. I apply Cognitive Load Theory to architect resilient systems that don't break under pressure.
 
-### Short (2 sentences — for social profiles)
-Senior Product Designer · Trust Engineering. I build resilient workflows that tame B2B complexity and free up mental bandwidth for operators when it matters most.
+### Short Form (AngelList / Wellfound / Dribbble)
+I'm a Senior Product Designer specializing in Trust Engineering and B2B complexity. Having just completed my Master’s in Educational Technology (EdTech), I apply Cognitive Load Theory directly to frontend system architecture. I don't just design screens—I build resilient, zero-friction workflows that tame chaotic business logic and free up mental bandwidth for operators when it matters most.
 
-### Medium (LinkedIn "About" / Dribbble Bio)
-I started as a Computer Science student, obsessed with the mathematical certainty of logic. But over 5+ years of designing Enterprise and B2B platforms, I saw how an obsession with raw 'efficiency' created brittle systems that treated users like data points, not pilots.
+### Medium Form (LinkedIn "About" Section)
+I started my career obsessed with algorithmic efficiency, but over 5+ years of scaling complex enterprise platforms (B2B SaaS, Logistics, Talent Acquisition), I realized that an obsession with raw 'efficiency' creates brittle systems. We treat users like algorithmic data points instead of human pilots operating under intense pressure.
 
-Now, I design resilient architectures—not just to optimize performance, but to scaffold human agency when cognitive load is highest. I build zero-friction systems designed for people operating at their absolute limit.
+Having recently completed my Master’s in Educational Technology, I now apply Cognitive Load Theory directly to Product Design. My focus has shifted entirely to Trust Engineering and Systems Architecture. I engineer zero-friction interfaces at the intersection of complex business constraints and human cognition. 
 
-### Long (Portfolio About Page)
+When a supply-chain operator is exhausted, stressed, or under fire—they don't have the mental bandwidth for clever, over-animated UX. They need tools that just work. Quietly. Reliably. Automatically. I don't chase chaos; I contain it. 
+
+### Long Form (Portfolio "About Me" Expansion)
 I started as a Computer Science student. I loved the certainty. The if-then clarity. Systems made sense when people didn't. 
 
-But over the last 5+ years of scaling complex enterprise platforms (B2B SaaS, Logistics, Talent Acquisition), I learned that this obsession with 'efficiency' creates brittle systems. We stopped treating users like pilots and started treating them like algorithmic data points. We optimized for 'Time on Site' instead of 'Time Well Spent'. I saw teams struggling with interfaces built by developers who never had to use them in a 2 AM supply-chain crisis. Bad UX isn't just an annoyance; it is an active erasure of human agency.
+But over the last 5+ years of scaling complex enterprise platforms, I learned that this obsession with 'efficiency' creates brittle workflows. We stopped treating users like pilots and started treating them like data points. I saw teams struggling with interfaces built by developers who never had to use them during a 2 AM supply-chain crisis. Bad UX isn't just an annoyance; it is an active erasure of human agency.
 
-That realization taught me more about human-centered systems than any degree. When an operator is exhausted, stressed, or under fire—they don't have the bandwidth for your clever, over-animated UX. They need tools that just work. Quietly. Reliably. Automatically.
+To understand how humans actually process complex information, I pursued and completed a Master's degree in Educational Technology. That shift taught me more about human-centered systems than any engineering degree. I learned to apply Cognitive Load Theory to UI/UX—proving that when an operator is overwhelmed, they need systems that scaffold their intent, not consume their attention.
 
-So now I build resilient systems. I engineer at the intersection of cognitive load theory and high-performance front-end architecture, designing for people at their limit, not just their peak.
+Today, I build resilient systems. I engineer at the intersection of cognitive science and high-performance front-end architecture, designing for people at their limit, not just their peak.
 
 ---
 

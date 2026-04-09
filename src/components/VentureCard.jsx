@@ -39,7 +39,6 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
     
     if (!isMobile) return;
 
-    let intervalId;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -103,6 +102,8 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
       return <BlueprintCard {...commonProps} isDark={isDark} />;
     case "competitor-summarizer":
       return <AgenticCard {...commonProps} isDark={isDark} />;
+    case "learning-progress-architect":
+      return <LearningArchitectCard {...commonProps} isDark={isDark} />;
     default:
       return null;
   }
@@ -489,6 +490,127 @@ const AgenticCard = ({ project, title, desc, onClick, isHovered, isIndonesian, r
           </div>
         </div>
       </div>
+    </BlindsReveal>
+  </motion.div>
+);
+
+// 7. THE LEARNING ARCHITECT (Learning Progress Architect)
+const LOOP_STEPS = [
+  { label: "Goal", color: "#10b981" },
+  { label: "Roadmap", color: "#3b82f6" },
+  { label: "Session", color: "#8b5cf6" },
+  { label: "Review", color: "#14b8a6" },
+];
+
+const LearningArchitectCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => (
+  <motion.div
+    ref={ref}
+    id={`venture-card-${project.id}`}
+    onClick={onClick}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+    className="group relative h-[450px] rounded-3xl border border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
+    animate={isHovered ? { borderColor: "rgba(16,185,129,0.4)", scale: 0.98, y: 0 } : { borderColor: "var(--border-color)", scale: 1, y: [0, -3, 0] }}
+    transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_SYSTEM}
+    whileHover={{ scale: 0.98 }}
+  >
+    <BlindsReveal isOpen={isHovered} slats={8} color="var(--bg-void)">
+      {/* Ambient gradient top zone */}
+      <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/60 via-transparent to-transparent pointer-events-none" />
+
+      {/* Grid texture */}
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(16,185,129,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.5) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+
+      {/* Scanning line */}
+      <motion.div
+        className="absolute left-0 right-0 h-px bg-emerald-400/15 pointer-events-none z-10"
+        animate={{ top: ["0%", "100%"] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+      />
+
+      {/* Learning loop visual — top half */}
+      <div className="h-[48%] relative p-6 flex flex-col justify-between">
+        {/* Badge */}
+        <div className="flex items-center gap-2">
+          <div className="px-2 py-1 rounded-full border border-emerald-500/30 bg-emerald-900/30 flex items-center gap-1.5">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-400">
+              {isIndonesian ? "Loop Pembelajaran" : "Learning Loop"}
+            </span>
+          </div>
+        </div>
+
+        {/* Loop step pills */}
+        <div className="flex items-center gap-2">
+          {LOOP_STEPS.map((step, i) => (
+            <React.Fragment key={step.label}>
+              <motion.div
+                animate={isHovered ? { scale: [1, 1.05, 1], opacity: 1 } : { opacity: 0.7 }}
+                transition={{ delay: i * 0.1, duration: 0.6, repeat: isHovered ? Infinity : 0 }}
+                className="flex items-center gap-1 px-2 py-1 rounded-lg border text-[9px] font-mono uppercase tracking-tight"
+                style={{
+                  borderColor: step.color + "40",
+                  background: step.color + "10",
+                  color: step.color,
+                }}
+              >
+                <div className="w-1 h-1 rounded-full" style={{ background: step.color }} />
+                {step.label}
+              </motion.div>
+              {i < LOOP_STEPS.length - 1 && (
+                <div className="w-3 h-px bg-[var(--border-color)]" />
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="h-px bg-[var(--border-color)] mx-0" />
+
+      {/* Content bottom half */}
+      <div className="flex-1 p-6 flex flex-col justify-between relative z-20">
+        <div>
+          <h3 className={`text-2xl font-serif italic mb-3 transition-colors leading-tight ${
+            isHovered ? "text-emerald-400" : "text-[var(--text-primary)] group-hover:text-emerald-400"
+          }`}>
+            {title}
+          </h3>
+          <p className="text-[var(--text-secondary)] text-sm font-light mb-4 line-clamp-3 leading-relaxed">
+            {desc}
+          </p>
+        </div>
+
+        <div className="flex gap-2 flex-wrap">
+          {project.stack.slice(0, 4).map((tech) => (
+            <span
+              key={tech}
+              className="px-2 py-0.5 border border-[var(--border-color)] rounded-full font-mono text-[8px] text-[var(--text-secondary)] uppercase"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Hover status */}
+      <motion.div
+        className="absolute bottom-4 right-4 pointer-events-none"
+        animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 6 }}
+        transition={{ duration: 0.2 }}
+      >
+        <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full backdrop-blur-md">
+          <div className="w-1.5 h-1.5 rounded-sm bg-emerald-400 animate-pulse" />
+          <span className="font-mono text-[8px] text-emerald-400 tracking-widest uppercase">ADK ACTIVE</span>
+        </div>
+      </motion.div>
     </BlindsReveal>
   </motion.div>
 );
