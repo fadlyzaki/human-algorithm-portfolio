@@ -214,55 +214,54 @@ const BrutalistDetail = ({
           </section>
         )}
 
-          {/* Interaction / Demo */}
-          {(project.prototypeLink || InteractionComponent) && (
-            <div className="mb-32 border-4 border-[var(--text-primary)] p-8 md:p-16 bg-[var(--accent-red)] text-white">
-              <h3 className="text-4xl font-black uppercase mb-12 flex items-center gap-4">
-                <Square /> {t("project_layouts.widget_demo")}
-              </h3>
-              <div className="bg-[var(--bg-surface)] border-4 border-[var(--text-primary)] text-[var(--text-primary)] p-8 shadow-[16px_16px_0px_0px_var(--text-primary)]">
-                {project.prototypeLink ? (
-                  <div className="w-full h-[600px] bg-black">
-                    <iframe
-                      src={project.prototypeLink}
-                      title={`${activeTitle} Preview`}
-                      className="w-full h-full border-0"
-                      sandbox="allow-scripts allow-same-origin"
-                    />
-                  </div>
-                ) : (
-                  <div className="max-w-md">
-                    <InteractionComponent />
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* Footer Stats Only */}
-          {activeMetrics && (
-            <div className="grid lg:grid-cols-4 gap-8 border-t-8 border-[var(--text-primary)] pt-16">
-              <div className="lg:col-span-4 block">
-                <h4 className="font-mono text-3xl uppercase font-black bg-[var(--accent-red)] text-white px-4 py-2 inline-block">
-                  {t("project_layouts.data_output") || "SYSTEM METRICS"}
-                </h4>
-              </div>
-              {activeMetrics.map((m, i) => (
-                <div
-                  key={i}
-                  className="border-4 border-[var(--text-primary)] bg-[var(--text-primary)] text-[var(--bg-void)] p-8 shadow-[8px_8px_0_0_var(--accent-red)]"
-                >
-                  <div className="text-4xl md:text-5xl font-black tracking-tighter mb-4">
-                    {m.value}
-                  </div>
-                  <div className="font-mono text-sm uppercase font-bold text-[var(--bg-surface)]">
-                    {m.label}
-                  </div>
+        {/* Interaction / Demo */}
+        {(project.prototypeLink || InteractionComponent) && (
+          <div className="mb-32 border-4 border-[var(--text-primary)] p-8 md:p-16 bg-[var(--accent-red)] text-white">
+            <h3 className="text-4xl font-black uppercase mb-12 flex items-center gap-4">
+              <Square /> {t("project_layouts.widget_demo")}
+            </h3>
+            <div className="bg-[var(--bg-surface)] border-4 border-[var(--text-primary)] text-[var(--text-primary)] p-8 shadow-[16px_16px_0px_0px_var(--text-primary)]">
+              {project.prototypeLink ? (
+                <div className="w-full h-[600px] bg-black">
+                  <iframe
+                    src={project.prototypeLink}
+                    title={`${activeTitle} Preview`}
+                    className="w-full h-full border-0"
+                    sandbox="allow-scripts allow-same-origin"
+                  />
                 </div>
-              ))}
+              ) : (
+                <div className="max-w-md">
+                  <InteractionComponent />
+                </div>
+              )}
             </div>
-          )}
-        </section>
+          </div>
+        )}
+
+        {/* Footer Stats Only */}
+        {activeMetrics && (
+          <div className="grid lg:grid-cols-4 gap-8 border-t-8 border-[var(--text-primary)] pt-16">
+            <div className="lg:col-span-4 block">
+              <h4 className="font-mono text-3xl uppercase font-black bg-[var(--accent-red)] text-white px-4 py-2 inline-block">
+                {t("project_layouts.data_output") || "SYSTEM METRICS"}
+              </h4>
+            </div>
+            {activeMetrics.map((m, i) => (
+              <div
+                key={i}
+                className="border-4 border-[var(--text-primary)] bg-[var(--text-primary)] text-[var(--bg-void)] p-8 shadow-[8px_8px_0_0_var(--accent-red)]"
+              >
+                <div className="text-4xl md:text-5xl font-black tracking-tighter mb-4">
+                  {m.value}
+                </div>
+                <div className="font-mono text-sm uppercase font-bold text-[var(--bg-surface)]">
+                  {m.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </main>
     </div>
   );
