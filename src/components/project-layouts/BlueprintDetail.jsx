@@ -1,5 +1,5 @@
-import React from "react";
-import {
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
   BookOpen,
   Layers,
   Maximize,
@@ -24,6 +24,8 @@ const BlueprintDetail = ({
   t,
 }) => {
   // Aesthetic: Civil/Architectural Blueprint, Blue Graph Paper, Precise Lines, Technical Fonts
+  const [activeTab, setActiveTab] = useState("challenge");
+  const [activePhase, setActivePhase] = useState(0);
 
   return (
     <div className="text-[var(--text-primary)] font-mono min-h-[100dvh] selection:bg-blue-300/40 relative overflow-hidden pb-32">
@@ -97,66 +99,147 @@ const BlueprintDetail = ({
         <div className="grid lg:grid-cols-12 gap-16">
           {/* LEFT COLUMN: Narrative & Process */}
           <div className="lg:col-span-8 space-y-24">
-            <section className="bg-[var(--bg-surface)]/95 backdrop-blur-xl p-8 md:p-12 border-2 border-blue-900/20 dark:border-blue-300/20 shadow-sm">
-              <div className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-4 flex items-center gap-3">
-                <Maximize size={12} /> {t("project_layouts.problem_space")}
+            {/* 3. NARRATIVE TABS BLOCK */}
+            <section className="mb-24">
+              {/* Tab Navigation */}
+              <div className="flex border-b-2 border-blue-900/20 dark:border-blue-300/20 mb-8 overflow-x-auto hide-scrollbar">
+                {[
+                  { id: "challenge", label: t("project_layouts.problem_space") || "Problem Space" },
+                  { id: "insights", label: "Planned Features" },
+                  { id: "learnings", label: t("project_layouts.lesson_learned") || "Post Mortem" },
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`px-8 py-4 font-mono text-[10px] uppercase tracking-[0.2em] transition-all flex items-center gap-3 shrink-0 ${
+                      activeTab === tab.id
+                        ? "bg-blue-600 text-white shadow-inner"
+                        : "text-blue-500 hover:bg-blue-50 hover:dark:bg-blue-950/30"
+                    }`}
+                  >
+                    {activeTab === tab.id && <Maximize size={12} />} {tab.label}
+                  </button>
+                ))}
               </div>
-              <p className="font-sans text-2xl md:text-3xl leading-snug font-light border-l-2 border-blue-600/30 pl-6 dark:border-blue-400/30">
-                {activeChallenge}
-              </p>
+
+              <div className="bg-[var(--bg-surface)]/95 backdrop-blur-xl border-2 border-blue-900/20 dark:border-blue-300/20 shadow-sm relative min-h-[300px]">
+                 <div className="absolute top-2 right-2 text-[8px] uppercase tracking-widest text-blue-500">SCHEMATIC_VIEW.dwg</div>
+                 <AnimatePresence mode="wait">
+                    {activeTab === "challenge" && (
+                      <motion.div
+                        key="challenge"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 10 }}
+                        className="p-8 md:p-12 text-2xl md:text-3xl leading-relaxed font-light border-l-2 border-blue-600/30 pl-6 dark:border-blue-400/30 font-sans"
+                      >
+                        {activeChallenge}
+                      </motion.div>
+                    )}
+
+                    {activeTab === "insights" && activeInsights && (
+                      <motion.div
+                        key="insights"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 10 }}
+                        className="p-8 grid md:grid-cols-2 gap-8"
+                      >
+                        {activeInsights.map((insight, idx) => (
+                          <div key={idx} className="border border-blue-900/10 dark:border-blue-300/10 p-6 bg-[var(--bg-card)]">
+                            <h5 className="font-bold text-lg mb-2 text-[var(--text-primary)]">
+                              FIG 0{idx + 1} // {insight.title}
+                            </h5>
+                            <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                              {insight.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+
+                    {activeTab === "learnings" && activeLearnings && (
+                      <motion.div
+                        key="learnings"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 10 }}
+                        className="p-8 md:p-12"
+                      >
+                         <p className="font-serif italic text-2xl leading-relaxed text-blue-800 dark:text-blue-200">
+                           "{activeLearnings}"
+                         </p>
+                      </motion.div>
+                    )}
+                 </AnimatePresence>
+              </div>
             </section>
 
+            {/* Interactive Assembly Slider */}
             {activeProcess && (
-              <section>
-                <div className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-8 flex items-center gap-3 bg-[var(--bg-surface)]/95 backdrop-blur-xl p-4 border-2 border-blue-900/20 dark:border-blue-300/20">
+              <section className="mb-24">
+                <div className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-8 flex items-center gap-3">
                   <GitMerge size={12} /> {t("project_layouts.assembly_instructions")}
                 </div>
-                <div className="space-y-16">
-                  {activeProcess.map((step, idx) => (
-                    <div key={idx} className="relative">
-                      {/* Connecting node line */}
-                      {idx !== activeProcess.length - 1 && (
-                        <div className="absolute left-[31px] top-16 bottom-[-64px] w-px border-l-2 border-dashed border-[var(--border-color)]"></div>
-                      )}
+                
+                <div className="grid lg:grid-cols-12 gap-8 items-start relative">
+                   {/* Left Axis: Process Nav */}
+                   <div className="lg:col-span-4 sticky top-24 border-l-2 border-dashed border-blue-600/30 dark:border-blue-400/30 pl-6 space-y-6">
+                      {activeProcess.map((step, idx) => {
+                        const isActive = activePhase === idx;
+                        return (
+                          <button
+                            key={idx}
+                            onClick={() => setActivePhase(idx)}
+                            className={`w-full text-left relative flex items-center gap-4 group transition-all`}
+                          >
+                            <div className={`absolute -left-[35px] w-4 h-4 rounded-full border-2 bg-[var(--bg-card)] transition-colors ${isActive ? "border-blue-600 border-[6px]" : "border-blue-400/50 group-hover:border-blue-600"}`}></div>
+                            <span className={`font-mono text-[10px] tracking-widest ${isActive ? "text-blue-600 font-bold" : "text-[var(--text-secondary)]"}`}>SEC_0{idx+1}</span>
+                            <span className={`truncate font-bold font-sans ${isActive ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]"}`}>{step.title}</span>
+                          </button>
+                        );
+                      })}
+                   </div>
 
-                      <div className="flex gap-8">
-                        {/* Node */}
-                        <div className="w-16 h-16 shrink-0 rounded-full border-2 border-blue-600 dark:border-blue-400 bg-[var(--bg-card)] flex items-center justify-center text-xl font-serif italic text-blue-600 dark:text-blue-400 z-10 shadow-[0_0_15px_rgba(37,99,235,0.2)]">
-                          {idx + 1}
-                        </div>
+                   {/* Right Axis: Details Content Window */}
+                   <div className="lg:col-span-8">
+                     <AnimatePresence mode="wait">
+                       <motion.div
+                         key={activePhase}
+                         initial={{ opacity: 0, x: 20 }}
+                         animate={{ opacity: 1, x: 0 }}
+                         exit={{ opacity: 0, x: -20 }}
+                         className="flex-1 pt-8 pb-8 pr-8 pl-10 bg-[var(--bg-surface)]/95 backdrop-blur-xl border-2 border-blue-900/20 dark:border-blue-300/20 shadow-sm relative overflow-hidden"
+                       >
+                         <h3 className="font-sans text-3xl font-bold mb-4 text-[var(--text-primary)] relative z-10">
+                           {activeProcess[activePhase].title}
+                         </h3>
+                         <p className="font-sans text-xl text-[var(--text-secondary)] leading-relaxed mb-6 font-light relative z-10">
+                           {activeProcess[activePhase].desc}
+                         </p>
 
-                        {/* Content */}
-                        <div className="flex-1 pt-8 pb-8 pr-8 pl-12 bg-[var(--bg-surface)]/95 backdrop-blur-xl border-2 border-blue-900/20 dark:border-blue-300/20 shadow-sm relative overflow-hidden -ml-6">
-                          <h3 className="font-sans text-2xl font-bold mb-4 text-[var(--text-primary)]">
-                            {step.title}
-                          </h3>
-                          <p className="font-sans text-lg text-[var(--text-secondary)] leading-relaxed mb-6">
-                            {step.desc}
-                          </p>
-
-                          {step.image && (
-                            <div className="border border-blue-900/20 dark:border-blue-300/20 bg-blue-50/50 dark:bg-blue-950/30 p-4 relative">
-                              <div className="absolute top-2 left-2 text-[8px] uppercase tracking-widest text-blue-500">
-                                FIG_{idx + 1}.dwg
-                              </div>
-                              {step.image.startsWith("airy:") ? (
-                                <div className="h-48 mt-4">
-                                  <AiryDiagram
-                                    type={step.image.split(":")[1]}
-                                  />
-                                </div>
-                              ) : (
-                                <ZoomableImage
-                                  src={step.image}
-                                  className="w-full h-auto mt-4 mix-blend-multiply dark:mix-blend-screen opacity-80 hover:opacity-100 transition-opacity"
-                                />
-                              )}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                         {activeProcess[activePhase].image && (
+                           <div className="border border-blue-900/20 dark:border-blue-300/20 bg-blue-50/50 dark:bg-blue-950/30 p-4 relative h-64 md:h-[400px]">
+                             <div className="absolute top-2 left-2 text-[8px] uppercase tracking-widest text-blue-500">
+                               FIG_{activePhase + 1}.dwg
+                             </div>
+                             {activeProcess[activePhase].image.startsWith("airy:") ? (
+                               <div className="h-full w-full flex items-center justify-center scale-110">
+                                 <AiryDiagram
+                                   type={activeProcess[activePhase].image.split(":")[1]}
+                                 />
+                               </div>
+                             ) : (
+                               <ZoomableImage
+                                 src={activeProcess[activePhase].image}
+                                 className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-screen opacity-80 hover:opacity-100 transition-opacity"
+                               />
+                             )}
+                           </div>
+                         )}
+                       </motion.div>
+                     </AnimatePresence>
+                   </div>
                 </div>
               </section>
             )}
@@ -183,58 +266,26 @@ const BlueprintDetail = ({
             )}
           </div>
 
-          {/* RIGHT COLUMN: Sidebar Stats & Learnings */}
+          {/* Sidebar Stats (Metrics only now, Learns & Insights moved to Tabs) */}
           <aside className="lg:col-span-4 space-y-12 shrink-0">
-            {(activeMetrics || activeInsights) && (
+            {activeMetrics && (
               <div className="border border-[var(--border-color)] p-8 bg-[var(--bg-card)] backdrop-blur-sm sticky top-32 shadow-sm">
                 <h4 className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-8 pb-4 border-b border-[var(--border-color)]">
                   {t("project_layouts.specification_data")}
                 </h4>
 
-                {activeMetrics && (
-                  <div className="space-y-6 mb-12">
-                    {activeMetrics.map((m, i) => (
-                      <div key={i}>
-                        <div className="font-sans text-4xl font-bold text-[var(--text-primary)] mb-1">
-                          {m.value}
-                        </div>
-                        <div className="text-[10px] uppercase font-bold text-[var(--text-secondary)]">
-                          {m.label}
-                        </div>
+                <div className="space-y-6 mb-12">
+                  {activeMetrics.map((m, i) => (
+                    <div key={i}>
+                      <div className="font-sans text-4xl font-bold text-[var(--text-primary)] mb-1">
+                        {m.value}
                       </div>
-                    ))}
-                  </div>
-                )}
-
-                {activeInsights && (
-                  <div className="space-y-8 border-t border-[var(--border-color)] pt-8">
-                    <h4 className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-6">
-                      {t("project_layouts.planned_features")}
-                    </h4>
-                    {activeInsights.map((insight, idx) => (
-                      <div key={idx}>
-                        <h5 className="font-bold text-sm mb-2 font-sans text-[var(--text-primary)]">
-                          {insight.title}
-                        </h5>
-                        <p className="text-xs text-[var(--text-secondary)] font-sans leading-relaxed">
-                          {insight.desc}
-                        </p>
+                      <div className="text-[10px] uppercase font-bold text-[var(--text-secondary)]">
+                        {m.label}
                       </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-
-            {activeLearnings && (
-              <div className="bg-blue-600 text-white p-8">
-                <FileText className="mb-6 opacity-50" />
-                <h4 className="text-[10px] uppercase tracking-[0.2em] mb-4 opacity-70">
-                  {t("project_layouts.lesson_learned")}
-                </h4>
-                <p className="font-serif italic text-xl leading-relaxed">
-                  "{activeLearnings}"
-                </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </aside>
