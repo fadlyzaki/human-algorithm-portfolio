@@ -62,7 +62,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
   const outcome = isId
     ? project.details_id?.outcome || project.details.outcome
     : project.details.outcome;
-  const isWip = !["stoqo-logistics", "stoqo-sales"].includes(project.id);
+  const isWip = !["stoqo-logistics", "stoqo-sales", "design-system-gudangada"].includes(project.id);
 
   return (
     <div
