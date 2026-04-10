@@ -51,26 +51,38 @@ const JTBD = [
     core: true,
     job: "When I want to learn something complex on my own",
     outcome: "help me turn that goal into a realistic plan and keep me moving without constantly re-deciding what to do next.",
+    icon: Compass,
+    color: "emerald-400"
   },
   {
     job: "When I sit down to study",
     outcome: "show me the highest-leverage next task immediately.",
+    icon: Zap,
+    color: "blue-400"
   },
   {
     job: "When I get stuck",
     outcome: "help me understand the concept in the context of my current task.",
+    icon: Target,
+    color: "orange-400"
   },
   {
     job: "When I finish a session",
     outcome: "capture what I understood and what remains weak.",
+    icon: Database,
+    color: "purple-400"
   },
   {
     job: "When I am at risk of forgetting something",
     outcome: "bring it back at the right time.",
+    icon: Brain,
+    color: "pink-400"
   },
   {
     job: "When I lose momentum",
     outcome: "remind me of progress in a way that is actionable, not just informational.",
+    icon: TrendingUp,
+    color: "amber-400"
   },
 ];
 
@@ -285,49 +297,61 @@ const LearningArchitectDetail = ({
             </h2>
           </div>
 
-          <div className="space-y-3">
-            {JTBD.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
-                className={`flex gap-6 items-start p-6 rounded-2xl border transition-colors ${
-                  item.core
-                    ? "border-emerald-500/30 bg-emerald-950/20"
-                    : "border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-emerald-500/15"
-                }`}
-              >
-                <div className="shrink-0 mt-1">
-                  <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-mono font-bold"
-                    style={{
-                      background: item.core ? "#10b98120" : "var(--bg-card)",
-                      border: `1px solid ${item.core ? "#10b98140" : "var(--border-color)"}`,
-                      color: item.core ? "#10b981" : "var(--text-secondary)",
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                    <span className="text-[var(--text-secondary)] text-sm font-light italic">{item.job} —</span>
-                    <span className={`text-sm font-medium ${item.core ? "text-emerald-300" : "text-[var(--text-primary)]"}`}>
-                      {item.outcome}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {JTBD.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, ease: "easeOut" }}
+                  className={`group relative overflow-hidden flex flex-col p-8 rounded-2xl border transition-all duration-500 hover:-translate-y-1 ${
+                    item.core
+                      ? "border-emerald-500/40 bg-emerald-950/30 hover:border-emerald-500/80 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]"
+                      : "border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent-blue)]/50 hover:bg-[var(--bg-card)] hover:shadow-2xl"
+                  }`}
+                >
+                  {/* Background Radial Gradient */}
+                  <div className={`absolute top-0 right-0 w-32 h-32 bg-${item.color}/10 rounded-full blur-3xl -mr-10 -mt-10 transition-opacity duration-500 opacity-0 group-hover:opacity-100`} />
+                  
+                  {/* Header Row: Number + Icon */}
+                  <div className="flex items-center justify-between mb-8 relative z-10">
+                    <div
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 ${
+                        item.core
+                          ? "bg-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.2)] text-emerald-400"
+                          : "bg-[var(--border-color)] text-[var(--text-secondary)] group-hover:bg-[var(--accent-blue)]/20 group-hover:text-[var(--accent-blue)]"
+                      }`}
+                    >
+                      <Icon size={22} strokeWidth={1.5} />
+                    </div>
+                    <span className="font-mono text-[10px] font-bold text-[var(--text-secondary)] opacity-50 tracking-widest">
+                      0{i + 1}
                     </span>
                   </div>
-                  {item.core && (
-                    <div className="mt-2">
-                      <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-500/60 border border-emerald-500/20 px-2 py-0.5 rounded-full">
-                        Core Job
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+
+                  {/* Core Content */}
+                  <div className="flex-1 relative z-10 flex flex-col">
+                    {item.core && (
+                      <div className="mb-4">
+                        <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-sm">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          Core Architecture Job
+                        </span>
+                      </div>
+                    )}
+                    <h3 className={`text-lg md:text-xl font-serif italic leading-snug mb-3 transition-colors duration-300 ${item.core ? "text-emerald-50" : "text-[var(--text-primary)] group-hover:text-white"}`}>
+                      {item.job}
+                    </h3>
+                    <p className={`text-sm leading-relaxed mt-auto border-t pt-4 transition-colors duration-300 ${item.core ? "text-emerald-200/80 border-emerald-500/20" : "text-[var(--text-secondary)] border-[var(--border-color)] group-hover:text-gray-300"}`}>
+                      {item.outcome}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
