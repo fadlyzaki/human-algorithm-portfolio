@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { Activity, Shield, Star, Rocket, Target, Play } from "lucide-react";
 import AiryDiagram from "../AiryDiagram";
@@ -19,6 +19,8 @@ const CosmicPopDetail = ({
   t,
 }) => {
   // Aesthetic: Cosmic Pop, Deep Blues/Purples, Glassmorphism, Floating Particles, Playful Typography
+  const [activeTab, setActiveTab] = useState("challenge");
+  const [activePhase, setActivePhase] = useState(0);
 
   return (
     <div className="text-[var(--text-primary)] font-sans min-h-[100dvh] selection:bg-[var(--accent-sky)]/30 overflow-hidden relative">
@@ -77,56 +79,176 @@ const CosmicPopDetail = ({
           </div>
         </header>
 
-        {/* 3. NARRATIVE BLOCKS */}
+        {/* 3. NARRATIVE TABS BLOCK */}
         <section className="mt-32 space-y-32">
-          {/* The Challenge */}
-          <article className="bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-surface)]/80 backdrop-blur-xl border border-[var(--border-color)] rounded-[3rem] p-12 md:p-16 relative overflow-hidden group shadow-lg">
-            <div className="w-16 h-16 bg-red-500/10 rounded-2xl flex items-center justify-center mb-8">
-              <Target size={32} className="text-red-400" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold leading-relaxed text-[var(--text-primary)] max-w-3xl">
-              "{activeChallenge}"
-            </h2>
-          </article>
-
-          {/* The Process */}
-          {activeProcess && (
-            <div className="grid md:grid-cols-2 gap-8">
-              {activeProcess.map((step, idx) => (
-                <article
-                  key={idx}
-                  className={`bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2rem] overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-500 ${idx === 0 ? "md:col-span-2" : ""}`}
+          
+          <div className="flex flex-col items-center">
+            {/* Pill Tabs */}
+            <div className="flex bg-[var(--bg-card)] backdrop-blur-xl border border-[var(--border-color)] rounded-full p-2 gap-2 mb-12 shadow-[0_0_30px_rgba(139,92,246,0.1)]">
+              {[
+                { id: "challenge", label: t("project_layouts.the_problem") || "The Challenge" },
+                { id: "insights", label: "Insights" },
+                { id: "learnings", label: "Learnings" },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest transition-all ${
+                    activeTab === tab.id
+                      ? "bg-gradient-to-r from-[var(--accent-sky)] to-[var(--accent-purple)] text-white shadow-lg"
+                      : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]"
+                  }`}
                 >
-                  {step.image && (
-                    <div
-                      className={`bg-black/30 w-full overflow-hidden p-8 flex items-center justify-center ${idx === 0 ? "h-[280px]" : "h-64"}`}
-                    >
-                      {step.image.startsWith("airy:") ? (
-                        <AiryDiagram type={step.image.split(":")[1]} />
-                      ) : (
-                        <ZoomableImage
-                          src={step.image}
-                          alt={step.title}
-                          className="w-full h-full object-contain mix-blend-screen"
-                        />
-                      )}
-                    </div>
-                  )}
-                  <div className="p-8 flex-1 flex flex-col">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 rounded-full bg-[var(--accent-sky)]/20 text-[var(--accent-sky)] flex items-center justify-center font-bold">
-                        {idx + 1}
-                      </div>
-                      <h3 className="text-2xl font-bold text-[var(--text-primary)]">
-                        {step.title}
-                      </h3>
-                    </div>
-                    <p className="text-[var(--text-secondary)] leading-relaxed font-medium">
-                      {step.desc}
-                    </p>
-                  </div>
-                </article>
+                  {tab.label}
+                </button>
               ))}
+            </div>
+
+            <div className="w-full">
+              <AnimatePresence mode="wait">
+                {activeTab === "challenge" && (
+                  <motion.div
+                    key="challenge"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-surface)]/80 backdrop-blur-xl border border-blue-500/20 rounded-[3rem] p-12 md:p-16 relative overflow-hidden group shadow-[0_20px_60px_rgba(0,194,255,0.1)]"
+                  >
+                    <div className="absolute -inset-2 bg-gradient-to-r from-[var(--accent-sky)]/10 to-[var(--accent-purple)]/10 blur-xl group-hover:opacity-100 opacity-50 transition-opacity pointer-events-none" />
+                    <div className="w-16 h-16 bg-red-500/10 rounded-2xl flex items-center justify-center mb-8 relative z-10">
+                      <Target size={32} className="text-red-400" />
+                    </div>
+                    <h2 className="text-2xl md:text-4xl font-bold leading-relaxed text-[var(--text-primary)] max-w-4xl relative z-10 italic font-serif">
+                      "{activeChallenge}"
+                    </h2>
+                  </motion.div>
+                )}
+
+                {activeTab === "insights" && activeInsights && (
+                  <motion.div
+                    key="insights"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="grid md:grid-cols-2 gap-8"
+                  >
+                    {activeInsights.map((insight, idx) => (
+                      <div
+                        key={idx}
+                        className="group p-10 rounded-[3rem] bg-[var(--bg-surface)] border border-blue-500/20 hover:bg-gradient-to-br hover:from-blue-500/10 hover:to-purple-500/10 transition-all shadow-[0_10px_40px_rgba(139,92,246,0.05)] hover:shadow-[0_20px_50px_rgba(139,92,246,0.15)] hover:-translate-y-2"
+                      >
+                        <div className="mb-6 w-16 h-16 rounded-2xl bg-[var(--bg-card)] flex items-center justify-center text-[var(--accent-sky)] shadow-inner">
+                          <Star size={28} />
+                        </div>
+                        <h3 className="text-2xl font-black mb-4 text-[var(--text-primary)]">
+                          {insight.title}
+                        </h3>
+                        <p className="text-[var(--text-secondary)] leading-relaxed font-medium text-lg">
+                          {insight.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+
+                {activeTab === "learnings" && activeLearnings && (
+                  <motion.div
+                    key="learnings"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="bg-gradient-to-r from-[var(--accent-purple)]/20 to-[var(--accent-sky)]/20 rounded-[3rem] p-12 md:p-16 border border-purple-500/30 flex flex-col md:flex-row items-center gap-16 relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-white/5 mix-blend-overlay pointer-events-none" />
+                    <div className="flex-1 relative z-10">
+                      <div className="flex items-center gap-3 mb-6 text-[var(--accent-sky)]">
+                        <Shield size={24} />
+                        <span className="font-bold uppercase tracking-widest text-sm">
+                          {t("project_layouts.lesson_learned")}
+                        </span>
+                      </div>
+                      <p className="text-3xl lg:text-5xl font-black italic text-transparent bg-clip-text bg-gradient-to-br from-white to-[var(--accent-sky)] leading-tight">
+                        "{activeLearnings}"
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* Interactive Process Loop (Cosmic) */}
+          {activeProcess && (
+            <div className="grid lg:grid-cols-12 gap-8 items-start relative">
+              
+              {/* Floating Orbit Bubbles Selector */}
+              <div className="lg:col-span-4 flex flex-col gap-4 sticky top-32">
+                {activeProcess.map((step, idx) => {
+                  const isActive = activePhase === idx;
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => setActivePhase(idx)}
+                      className={`text-left px-6 py-5 rounded-3xl border transition-all duration-300 flex items-center justify-between group ${
+                        isActive
+                          ? "bg-gradient-to-r from-[var(--accent-sky)]/20 to-[var(--accent-purple)]/20 border-[var(--accent-sky)]/50 shadow-[0_0_30px_rgba(0,194,255,0.2)]"
+                          : "border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-purple-500/30 hover:bg-purple-500/5 text-[var(--text-secondary)]"
+                      }`}
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className={`w-8 h-8 rounded-full flex justify-center items-center font-bold text-xs ${isActive ? 'bg-[var(--accent-sky)] text-white shadow-[0_0_15px_rgba(0,194,255,0.4)]' : 'bg-[var(--bg-card)]'}`}>
+                          {idx + 1}
+                        </div>
+                        <span className={`font-bold ${isActive ? 'text-[var(--text-primary)]' : ''}`}>{step.title}</span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Cosmic Detail Window */}
+              <div className="lg:col-span-8">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activePhase}
+                    initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                    exit={{ opacity: 0, filter: "blur(10px)" }}
+                    transition={{ duration: 0.3 }}
+                    className="border border-[var(--border-color)] bg-[var(--bg-card)] rounded-[3rem] overflow-hidden shadow-2xl relative"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-sky)]/5 to-[var(--accent-purple)]/5 pointer-events-none" />
+                    
+                    {activeProcess[activePhase].image && (
+                      <div className="h-64 md:h-[400px] border-b border-[var(--border-color)] flex items-center justify-center p-8 bg-black/40 relative">
+                        {activeProcess[activePhase].image.startsWith("airy:") ? (
+                          <div className="relative z-0 h-full w-full flex items-center justify-center mix-blend-screen opacity-80">
+                            <AiryDiagram type={activeProcess[activePhase].image.split(":")[1]} />
+                          </div>
+                        ) : (
+                          <ZoomableImage
+                            src={activeProcess[activePhase].image}
+                            className="h-full object-contain mix-blend-screen"
+                          />
+                        )}
+                      </div>
+                    )}
+                    <div className="p-10 md:p-14 relative z-10">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[var(--accent-sky)] to-[var(--accent-purple)] text-white flex items-center justify-center font-black text-xl shadow-[0_0_20px_rgba(139,92,246,0.4)]">
+                          {activePhase + 1}
+                        </div>
+                        <h3 className="text-3xl md:text-4xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-white to-[var(--accent-sky)] leading-none">
+                          {activeProcess[activePhase].title}
+                        </h3>
+                      </div>
+                      <p className="text-xl leading-relaxed text-[var(--text-secondary)] font-medium">
+                        {activeProcess[activePhase].desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
           )}
 
@@ -155,58 +277,24 @@ const CosmicPopDetail = ({
             </div>
           )}
 
-          {/* Insights */}
-          {activeInsights && activeInsights.length > 0 && (
-            <div className="grid md:grid-cols-2 gap-8">
-              {activeInsights.map((insight, idx) => (
-                <div
-                  key={idx}
-                  className="group p-8 rounded-3xl bg-[var(--bg-surface)] border border-blue-500/20 hover:bg-blue-500/10 transition-colors"
-                >
-                  <div className="mb-6 w-12 h-12 rounded-xl bg-[var(--bg-card)] flex items-center justify-center text-[var(--accent-sky)]">
-                    <Star size={24} />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-[var(--text-primary)]">
-                    {insight.title}
-                  </h3>
-                  <p className="text-[var(--text-secondary)] leading-relaxed font-medium">
-                    {insight.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
-
           {/* Metrics Footer */}
-          {(activeMetrics || activeLearnings) && (
-            <div className="bg-gradient-to-r from-[var(--accent-purple)]/20 to-[var(--accent-sky)]/20 rounded-[3rem] p-12 md:p-16 border border-[var(--border-color)] flex flex-col md:flex-row items-center gap-16">
-              {activeLearnings && (
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-6 text-[var(--accent-sky)]">
-                    <Shield size={20} />
-                    <span className="font-bold uppercase tracking-wider text-sm">
-                      {t("project_layouts.lesson_learned")}
-                    </span>
-                  </div>
-                  <p className="text-2xl font-black italic text-[var(--text-primary)] leading-relaxed">
-                    "{activeLearnings}"
-                  </p>
-                </div>
-              )}
-              {activeMetrics && (
-                <div className="flex gap-8 border-l border-[var(--border-color)] pl-16">
+          {activeMetrics && (
+            <div className="bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-card)] rounded-[3rem] p-12 md:p-16 border border-[var(--border-color)] text-center shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
+               <h4 className="text-sm font-bold uppercase tracking-widest text-[var(--accent-sky)] mb-12">
+                 Mission Telemetry
+               </h4>
+               <div className="flex flex-wrap justify-center gap-x-16 gap-y-12">
                   {activeMetrics.map((m, i) => (
-                    <div key={i} className="text-center">
-                      <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[var(--text-primary)] to-[var(--accent-sky)] mb-2">
+                    <div key={i} className="flex flex-col items-center">
+                      <div className="text-5xl md:text-7xl font-black italic text-transparent bg-clip-text bg-gradient-to-br from-white to-[var(--accent-purple)] mb-4 drop-shadow-lg">
                         {m.value}
                       </div>
-                      <div className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">
+                      <div className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] px-4 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-void)]">
                         {m.label}
                       </div>
                     </div>
                   ))}
-                </div>
-              )}
+               </div>
             </div>
           )}
         </section>
