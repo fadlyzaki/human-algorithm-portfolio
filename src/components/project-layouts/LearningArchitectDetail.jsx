@@ -309,7 +309,7 @@ const LearningArchitectDetail = ({
                   transition={{ delay: i * 0.1, ease: "easeOut" }}
                   className={`group relative overflow-hidden flex flex-col p-8 rounded-2xl border transition-all duration-500 hover:-translate-y-1 ${
                     item.core
-                      ? "border-emerald-500/40 bg-emerald-950/30 hover:border-emerald-500/80 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]"
+                      ? "border-emerald-500/40 bg-emerald-50 dark:bg-emerald-950/30 hover:border-emerald-500/80 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]"
                       : "border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent-blue)]/50 hover:bg-[var(--bg-card)] hover:shadow-2xl"
                   }`}
                 >
@@ -321,7 +321,7 @@ const LearningArchitectDetail = ({
                     <div
                       className={`w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 ${
                         item.core
-                          ? "bg-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.2)] text-emerald-400"
+                          ? "bg-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.2)] text-emerald-600 dark:text-emerald-400"
                           : "bg-[var(--border-color)] text-[var(--text-secondary)] group-hover:bg-[var(--accent-blue)]/20 group-hover:text-[var(--accent-blue)]"
                       }`}
                     >
@@ -342,10 +342,10 @@ const LearningArchitectDetail = ({
                         </span>
                       </div>
                     )}
-                    <h3 className={`text-lg md:text-xl font-serif italic leading-snug mb-3 transition-colors duration-300 ${item.core ? "text-emerald-50" : "text-[var(--text-primary)] group-hover:text-white"}`}>
+                    <h3 className={`text-lg font-medium leading-snug mb-3 transition-colors duration-300 ${item.core ? "text-emerald-900 dark:text-emerald-100" : "text-[var(--text-primary)]"}`}>
                       {item.job}
                     </h3>
-                    <p className={`text-sm leading-relaxed mt-auto border-t pt-4 transition-colors duration-300 ${item.core ? "text-emerald-200/80 border-emerald-500/20" : "text-[var(--text-secondary)] border-[var(--border-color)] group-hover:text-gray-300"}`}>
+                    <p className={`text-sm leading-relaxed mt-auto border-t pt-4 transition-colors duration-300 ${item.core ? "text-emerald-800 dark:text-emerald-200/80 border-emerald-500/20" : "text-[var(--text-secondary)] border-[var(--border-color)] group-hover:text-[var(--text-primary)]"}`}>
                       {item.outcome}
                     </p>
                   </div>
