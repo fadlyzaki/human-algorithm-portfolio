@@ -446,6 +446,91 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
         </EvidenceLog>
       )}
 
+      {/* ═══════ BLUEPRINT & EXPLORATION (Requested Additions) ═══════ */}
+      <EvidenceLog logId="SYS_ARCH" title="Blueprint & Exploration" classification="DESIGN_ARTIFACTS" className="blueprint-grid bg-[var(--bg-card)]">
+        <div className="space-y-16">
+          
+          {/* Interaction Flow & User Journey */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-6 h-6 rounded bg-[var(--brand)]/10 border border-[var(--brand)]/30 flex items-center justify-center">
+                <Target size={12} className="text-[var(--brand)]" />
+              </div>
+              <h3 className="font-mono text-sm uppercase tracking-[0.1em] text-[var(--text-primary)]">
+                Interaction Flow & User Journey
+              </h3>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="p-8 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-lg relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 font-mono text-6xl font-black">01</div>
+                <h4 className="font-medium text-lg text-[var(--text-primary)] mb-2 group-hover:text-[var(--brand)] transition-colors">Micro-commitments</h4>
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">Mapping the exact friction points from login to the "Siap Komandan!" daily target acceptance.</p>
+                <div className="h-[200px] w-full border border-[var(--border-color)] border-dashed rounded-lg flex items-center justify-center opacity-60 bg-black/5 dark:bg-white/5">
+                  <AiryDiagram type="flow" />
+                </div>
+              </div>
+              
+              <div className="p-8 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-lg relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 font-mono text-6xl font-black">02</div>
+                <h4 className="font-medium text-lg text-[var(--text-primary)] mb-2 group-hover:text-[var(--brand)] transition-colors">Cognitive Load Mapping</h4>
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">Journey map tracking the emotional variance of field agents during a typical 12-hour shift.</p>
+                <div className="h-[200px] w-full border border-[var(--border-color)] border-dashed rounded-lg flex items-center justify-center opacity-60 bg-black/5 dark:bg-white/5">
+                  <AiryDiagram type="chart" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Wireframes & Design Exploration */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-6 h-6 rounded bg-[var(--brand)]/10 border border-[var(--brand)]/30 flex items-center justify-center">
+                <Layers size={12} className="text-[var(--brand)]" />
+              </div>
+              <h3 className="font-mono text-sm uppercase tracking-[0.1em] text-[var(--text-primary)]">
+                Wireframes & Low Fidelity Specs
+              </h3>
+            </div>
+            
+            <div className="relative p-10 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-lg overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--brand)] via-[var(--accent-red)] to-[var(--brand)] opacity-20" />
+              
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {[
+                  { title: "Dashboard Skeleton", type: "ui" },
+                  { title: "Target Verification", type: "architecture" },
+                  { title: "Reward Architecture", type: "matrix" }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex flex-col">
+                    <div className="aspect-[4/5] bg-[var(--bg-card)] border border-[var(--border-color)] border-dashed rounded-lg mb-4 flex items-center justify-center relative group overflow-hidden">
+                      {/* Grid background for wireframe feel */}
+                      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px]" />
+                      <div className="relative z-10 w-full h-[70%] px-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                         <AiryDiagram type={item.type} />
+                      </div>
+                      
+                      <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-[var(--accent-red)] rounded-full animate-pulse" />
+                        <span className="font-mono text-[8px] text-[var(--text-secondary)] uppercase">V.0{idx+1}</span>
+                      </div>
+                    </div>
+                    <h5 className="font-mono text-xs uppercase tracking-wider text-[var(--text-primary)]">{item.title}</h5>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-8 pt-6 border-t border-[var(--border-color)] text-center">
+                <p className="text-sm text-[var(--text-secondary)] font-mono">
+                  &gt; INITIAL_EXPLORATION_VECTORS: DISCARDED_COMPLEXITY IN FAVOR OF 'CHEWABLE' DAILY GOALS.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </EvidenceLog>
+
       {/* ═══════ DEPLOYMENT BRIEF (Ship / Offline-First) ═══════ */}
       {shipStep && (
         <EvidenceLog logId="DEPLOY_BRIEF" title="Offline-First Rollout" classification="EDUCATION_&_ADOPTION">
