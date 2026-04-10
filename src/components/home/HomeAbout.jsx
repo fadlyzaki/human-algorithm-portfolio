@@ -413,16 +413,24 @@ const HomeAbout = ({ t }) => {
               <Cpu size={120} strokeWidth={0.5} />
             </div>
 
-            <div className="relative z-10">
-              <h4 className="font-mono text-[#a855f7] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                <Cpu size={14} className="text-[#a855f7]" />
-                {t("home.current_focus")}
-              </h4>
-              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                {typeof t("home.current_focus_desc") === "string"
-                  ? t("home.current_focus_desc").replace(/<[^>]*>/g, "")
-                  : t("home.current_focus_desc")}
-              </p>
+            <div className="flex flex-col justify-between h-full relative z-10">
+              <div>
+                <h4 className="font-mono text-[#a855f7] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <Cpu size={14} className="text-[#a855f7]" />
+                  {t("home.current_focus")}
+                </h4>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">
+                  {typeof t("home.current_focus_desc") === "string"
+                    ? t("home.current_focus_desc").replace(/<[^>]*>/g, "")
+                    : t("home.current_focus_desc")}
+                </p>
+              </div>
+              <Link
+                to="/side-project/productivity-illusion"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] hover:text-[#a855f7] transition-colors self-start"
+              >
+                {t("home.read_thesis") || "Read Thesis Findings"} <ArrowRight size={14} />
+              </Link>
             </div>
           </TerminalWindowCard>
         </DraggableBento>
