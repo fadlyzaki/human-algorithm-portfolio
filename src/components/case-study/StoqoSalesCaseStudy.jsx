@@ -501,7 +501,7 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
                 <div className="flex flex-col">
                   <div className="aspect-[3/4] md:aspect-auto md:h-[600px] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl mb-4 overflow-hidden relative group">
                     <ZoomableImage 
-                      src="/case-studies/stoqo-sales/wireframes.jpg" 
+                      src="/case-studies/stoqo-sales/wireframe.jpg" 
                       alt="Early Wireframes and Information Architecture" 
                       className="w-full h-full object-cover md:object-contain bg-black/5 dark:bg-white/5"
                     />
