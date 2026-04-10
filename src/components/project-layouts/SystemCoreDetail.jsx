@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import {
   Cpu,
@@ -30,6 +30,8 @@ const SystemCoreDetail = ({
   t,
 }) => {
   // Aesthetic: Terminal Data, Scanning Lines, Dark Void, High Contrast Blue/Green Monospace
+  const [activeTab, setActiveTab] = useState("challenge");
+  const [activePhase, setActivePhase] = useState(0);
 
   // Fix purity warning by generating predictable pseudo-random tokens instead of Math.random
   const randomTokens = React.useMemo(() => {
@@ -163,94 +165,172 @@ const SystemCoreDetail = ({
           </div>
         </section>
 
-        {/* 3. CORE LOGIC (Narrative) */}
+        {/* 3. NARRATIVE TABS BLOCK */}
         <section className="max-w-4xl mx-auto px-6 py-24 space-y-32">
-          {/* The Challenge */}
-          <article className="border border-[var(--border-color)] p-8 md:p-12 bg-[var(--bg-card)] shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-full h-1 bg-red-500/50"></div>
-            <div className="flex items-center gap-4 mb-8">
-              <Terminal size={16} className="text-red-400" />
-              <span className="font-mono text-xs uppercase tracking-widest text-red-400">
-                {t("project_layouts.the_challenge")}
-              </span>
+          
+          <div className="border border-[var(--border-color)] bg-[var(--bg-card)] shadow-2xl relative overflow-hidden">
+            {/* Tab Navigation (CLI Headers) */}
+            <div className="flex overflow-x-auto hide-scrollbar bg-[var(--bg-surface)] border-b border-[var(--border-color)]">
+              {[
+                { id: "challenge", label: "INIT_REQ.sys" },
+                { id: "insights", label: "DATA_EXTRACTION.log" },
+                { id: "learnings", label: "DEBUG_POSTMORTEM.txt" },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-6 py-4 font-mono text-xs tracking-widest transition-colors flex items-center gap-3 shrink-0 ${
+                    activeTab === tab.id
+                      ? "bg-[var(--bg-card)] text-blue-400 border-t-2 border-t-blue-500 shadow-[inset_0_20px_20px_-20px_rgba(59,130,246,0.1)]"
+                      : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-void)] border-t-2 border-t-transparent"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
-            <h2 className="text-2xl md:text-4xl font-sans font-medium text-[var(--text-primary)] leading-tight">
-              {activeChallenge}
-            </h2>
-          </article>
 
-          {/* The Process */}
+            <div className="p-8 md:p-12 min-h-[300px]">
+              <AnimatePresence mode="wait">
+                {activeTab === "challenge" && (
+                  <motion.div
+                    key="challenge"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="space-y-6"
+                  >
+                    <div className="absolute top-0 left-0 w-full h-1 bg-red-500/50"></div>
+                    <div className="flex items-center gap-4">
+                      <Terminal size={16} className="text-red-400" />
+                      <span className="font-mono text-xs uppercase tracking-widest text-red-400">
+                        {t("project_layouts.the_challenge") || "KERNEL_PANIC"}
+                      </span>
+                    </div>
+                    <h2 className="text-2xl md:text-4xl font-sans font-medium text-[var(--text-primary)] leading-tight">
+                      {activeChallenge}
+                    </h2>
+                  </motion.div>
+                )}
+
+                {activeTab === "insights" && activeInsights && (
+                  <motion.div
+                    key="insights"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="grid md:grid-cols-2 gap-8"
+                  >
+                    {activeInsights.map((insight, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-[var(--bg-void)] border border-[var(--border-color)] p-6 relative hover:border-purple-500/50 transition-colors"
+                      >
+                        <div className="absolute top-2 right-2 text-purple-500/20 font-mono text-2xl font-bold">
+                          0{idx + 1}
+                        </div>
+                        <h3 className="text-lg font-bold mb-3 text-[var(--text-primary)] font-mono">
+                          &gt; {insight.title}
+                        </h3>
+                        <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10 font-mono">
+                          {insight.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+
+                {activeTab === "learnings" && activeLearnings && (
+                  <motion.div
+                    key="learnings"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <div className="bg-[var(--text-primary)] text-[var(--bg-void)] p-8 font-serif italic text-xl leading-relaxed relative">
+                      <div className="absolute -top-3 -left-3 bg-blue-500 text-[var(--bg-void)] font-mono text-[10px] px-2 py-1 uppercase font-bold">
+                        Lesson_Learned
+                      </div>
+                      "{activeLearnings}"
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* Interactive Process List */}
           {activeProcess && (
-            <div className="space-y-12 bg-[var(--bg-surface)]/80 backdrop-blur-xl p-8 md:p-12 border border-[var(--border-color)] shadow-xl relative overflow-hidden">
-              <div className="flex items-center gap-4 mb-12">
+            <div className="space-y-12 bg-[var(--bg-surface)]/80 backdrop-blur-xl border border-[var(--border-color)] shadow-xl relative mt-24">
+              <div className="p-8 border-b border-[var(--border-color)] flex items-center gap-4">
                 <Layers size={16} className="text-blue-400" />
                 <span className="font-mono text-xs uppercase tracking-widest text-blue-400">
                   {t("project_layouts.execution_flow")}
                 </span>
               </div>
-              {activeProcess.map((step, idx) => (
-                <article
-                  key={idx}
-                  className="grid md:grid-cols-5 gap-8 items-start"
-                >
-                  <div className="md:col-span-2 space-y-4">
-                    <div className="font-mono text-[10px] text-[var(--text-secondary)]">
-                      STEP_0{idx + 1}
-                    </div>
-                    <h3 className="text-xl font-bold text-[var(--text-primary)] border-l-2 border-blue-500 pl-4">
-                      {step.title}
-                    </h3>
-                  </div>
-                  <div className="md:col-span-3 space-y-6">
-                    <p className="text-[var(--text-secondary)] leading-relaxed">
-                      {step.desc}
-                    </p>
-                    {step.image && (
-                      <div className="border border-[var(--border-color)] bg-[var(--bg-surface)] p-4">
-                        {step.image.startsWith("airy:") ? (
-                          <div className="w-full h-[250px]">
-                            <AiryDiagram type={step.image.split(":")[1]} />
-                          </div>
-                        ) : (
-                          <ZoomableImage
-                            src={step.image}
-                            alt={step.title}
-                            className="w-full opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
-                          />
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </article>
-              ))}
-            </div>
-          )}
+              
+              <div className="grid lg:grid-cols-12 items-start relative pb-8">
+                 {/* Left Side: Sequence Nav */}
+                 <div className="lg:col-span-4 border-r border-[var(--border-color)] flex flex-col sticky top-24">
+                   {activeProcess.map((step, idx) => {
+                     const isActive = activePhase === idx;
+                     return (
+                       <button
+                         key={idx}
+                         onClick={() => setActivePhase(idx)}
+                         className={`text-left px-8 py-5 border-b border-[var(--border-color)] font-mono text-xs tracking-widest flex items-center justify-between group transition-colors ${
+                           isActive 
+                             ? "bg-blue-500/10 text-blue-400 shadow-[inset_3px_0_0_#3b82f6]" 
+                             : "text-[var(--text-secondary)] hover:bg-[var(--bg-void)] hover:text-[var(--text-primary)]"
+                         }`}
+                       >
+                         <span className="truncate">{step.title}</span>
+                         <span className="opacity-50">_0{idx+1}</span>
+                       </button>
+                     );
+                   })}
+                 </div>
 
-          {/* Insights */}
-          {activeInsights && activeInsights.length > 0 && (
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="md:col-span-2 flex items-center gap-4 mb-4">
-                <Box size={16} className="text-purple-400" />
-                <span className="font-mono text-xs uppercase tracking-widest text-purple-400">
-                  Data_Extraction
-                </span>
+                 {/* Right Side: Process Data Component */}
+                 <div className="lg:col-span-8 p-8 md:p-12 min-h-[500px]">
+                   <AnimatePresence mode="wait">
+                     <motion.div
+                       key={activePhase}
+                       initial={{ opacity: 0, scale: 0.98 }}
+                       animate={{ opacity: 1, scale: 1 }}
+                       exit={{ opacity: 0 }}
+                       className="space-y-6"
+                     >
+                        <div className="font-mono text-[10px] text-[var(--text-secondary)] mb-4">
+                          ROOT/EXE &gt; ./run_step_0{activePhase + 1}.sh
+                        </div>
+                        <h3 className="text-2xl font-bold text-[var(--text-primary)] border-l-2 border-blue-500 pl-4">
+                          {activeProcess[activePhase].title}
+                        </h3>
+                        <p className="text-[var(--text-secondary)] leading-relaxed text-lg">
+                          {activeProcess[activePhase].desc}
+                        </p>
+                        
+                        {activeProcess[activePhase].image && (
+                          <div className="mt-8 border border-[var(--border-color)] bg-[var(--bg-void)] p-1 group relative">
+                            <div className="absolute inset-0 bg-blue-500/30 opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity"></div>
+                            {activeProcess[activePhase].image.startsWith("airy:") ? (
+                              <div className="w-full h-[300px] bg-black/50">
+                                <AiryDiagram type={activeProcess[activePhase].image.split(":")[1]} />
+                              </div>
+                            ) : (
+                              <ZoomableImage
+                                src={activeProcess[activePhase].image}
+                                alt={activeProcess[activePhase].title}
+                                className="w-full opacity-70 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0 relative z-10"
+                              />
+                            )}
+                          </div>
+                        )}
+                     </motion.div>
+                   </AnimatePresence>
+                 </div>
               </div>
-              {activeInsights.map((insight, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[var(--bg-card)] border border-[var(--border-color)] p-8 relative"
-                >
-                  <div className="absolute top-4 right-4 text-purple-500/20 font-mono text-4xl font-bold">
-                    0{idx + 1}
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-[var(--text-primary)]">
-                    {insight.title}
-                  </h3>
-                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed relative z-10">
-                    {insight.desc}
-                  </p>
-                </div>
-              ))}
             </div>
           )}
 
@@ -283,38 +363,26 @@ const SystemCoreDetail = ({
           )}
 
           {/* Metrics Footer */}
-          {(activeMetrics || activeLearnings) && (
-            <div className="border-t border-[var(--border-color)] pt-16 grid md:grid-cols-2 gap-16">
-              {activeMetrics && (
-                <div>
-                  <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-8">
-                    Telemetry_Output
-                  </h4>
-                  <div className="space-y-6">
-                    {activeMetrics.map((m, i) => (
-                      <div
-                        key={i}
-                        className="flex justify-between items-end border-b border-[var(--border-color)] pb-2"
-                      >
-                        <span className="text-sm text-[var(--text-secondary)] uppercase tracking-wide font-mono">
-                          {m.label}
-                        </span>
-                        <span className="text-2xl font-bold text-[var(--text-primary)] font-mono">
-                          {m.value}
-                        </span>
-                      </div>
-                    ))}
+          {activeMetrics && (
+            <div className="border-t border-[var(--border-color)] pt-16">
+              <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-8">
+                Telemetry_Output
+              </h4>
+              <div className="space-y-6">
+                {activeMetrics.map((m, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col md:flex-row md:justify-between items-start md:items-end border-b border-[var(--border-color)] pb-2 gap-2"
+                  >
+                    <span className="text-sm text-[var(--text-secondary)] uppercase tracking-wide font-mono">
+                      {m.label}
+                    </span>
+                    <span className="text-2xl font-bold text-[var(--text-primary)] font-mono text-blue-400">
+                      {m.value}
+                    </span>
                   </div>
-                </div>
-              )}
-              {activeLearnings && (
-                <div className="bg-[var(--text-primary)] text-[var(--bg-void)] p-8 font-serif italic text-xl leading-relaxed relative">
-                  <div className="absolute -top-3 -left-3 bg-blue-500 text-[var(--bg-void)] font-mono text-[10px] px-2 py-1 uppercase font-bold">
-                    Lesson_Learned
-                  </div>
-                  "{activeLearnings}"
-                </div>
-              )}
+                ))}
+              </div>
             </div>
           )}
         </section>
