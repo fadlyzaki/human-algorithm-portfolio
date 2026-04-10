@@ -23,7 +23,7 @@ const PixelImage = ({ src, alt, className = "" }) => {
   return (
     <div className={`relative w-full h-full ${className}`}>
       {/* Normal photo  -  always rendered underneath */}
-      <img
+      <img loading="lazy" decoding="async"
         src={src}
         alt={alt}
         className="w-full h-full object-cover"
@@ -32,7 +32,7 @@ const PixelImage = ({ src, alt, className = "" }) => {
       />
       {/* Pixel art overlay  -  covers normal, fades out on group hover */}
       {pixelSrc && (
-        <img
+        <img loading="lazy" decoding="async"
           src={pixelSrc}
           alt=""
           aria-hidden="true"

@@ -181,7 +181,7 @@ const LayoutLab = ({ isXRayMode }) => (
           </div>
           <div className="w-full md:w-64 h-32 bg-[var(--bg-void)] rounded-lg relative overflow-hidden border border-[var(--border-color)]">
              <div className="absolute bottom-4 left-4 w-12 h-16 opacity-30">
-               <img src={SPRITE_URL} className="sprite-img sprite-anim-walk scale-50" alt="demo" />
+               <img loading="lazy" decoding="async" src={SPRITE_URL} className="sprite-img sprite-anim-walk scale-50" alt="demo" />
              </div>
              <div className="absolute bottom-1 w-full h-[1px] bg-[var(--accent)] opacity-20" />
           </div>

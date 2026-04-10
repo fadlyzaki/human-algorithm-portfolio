@@ -358,7 +358,7 @@ const NotFound = () => {
         }}
       >
         <div className="w-full h-full overflow-hidden drop-shadow-lg">
-          <img
+          <img loading="lazy" decoding="async"
             src={`/images/sprite-${spriteScene}.png`}
             alt="Player character"
             className={`sprite-img sprite-anim-${spriteScene}`}

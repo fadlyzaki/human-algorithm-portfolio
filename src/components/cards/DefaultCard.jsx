@@ -14,7 +14,7 @@ const DefaultCard = ({ type, expanded, image, showChrome, backgroundOnly }) => (
         <AiryDiagram type={image.split(":")[1]} />
       </div>
     ) : image ? (
-      <img src={image} alt={type} className="w-full h-full object-cover" />
+      <img loading="lazy" decoding="async" src={image} alt={type} className="w-full h-full object-cover" />
     ) : (
       <div className="w-full h-full flex items-center justify-center">
         <AiryDiagram type="default" />

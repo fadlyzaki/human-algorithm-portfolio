@@ -179,7 +179,7 @@ export const Flipbook = ({ pages, initialPage = 0 }) => {
         )}
 
         <div className="relative z-20 flex-1 w-full flex items-center justify-center">
-          <img
+          <img loading="lazy" decoding="async"
             src={item.url}
             alt={item.title}
             draggable={false}

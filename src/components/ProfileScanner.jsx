@@ -110,7 +110,7 @@ const ProfileScanner = ({
           {/* 1. BASE LAYER (PIXELATED & GRAYSCALE) - Always visible underneath */}
           <div className="absolute inset-0">
             {pixelSrc ? (
-              <img
+              <img loading="lazy" decoding="async"
                 src={pixelSrc}
                 alt="Scan Target Pixelated"
                 className="w-full h-full object-cover grayscale opacity-50 scale-105"
@@ -133,7 +133,7 @@ const ProfileScanner = ({
             transition={{ duration: 2.5, ease: "easeInOut", delay: 0.5 }}
             className="absolute inset-0 z-10"
           >
-            <img
+            <img loading="lazy" decoding="async"
               src={imageSrc}
               alt="Target Revealed"
               className={`w-full h-full object-cover transition-all duration-700 ease-out ${hasScanned || isHovered ? "grayscale-0 opacity-100 scale-105" : "grayscale opacity-80"}`}

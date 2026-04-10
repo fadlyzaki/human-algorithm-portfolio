@@ -133,7 +133,7 @@ const DraggablePhoto = () => {
             ) : (
               /* Generic Card Back / Alt Image */
               <div className="w-full h-full border border-[var(--border-color)] overflow-hidden relative select-none rounded-xl bg-black group-inner shadow-2xl">
-                <img
+                <img loading="lazy" decoding="async"
                   src={currentItem.src}
                   alt={currentItem.alt}
                   fetchPriority="high"

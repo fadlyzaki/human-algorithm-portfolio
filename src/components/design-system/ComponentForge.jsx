@@ -404,7 +404,7 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
                  {['idle', 'walk', 'think'].map(state => (
                    <div key={state} className="flex flex-col items-center gap-2">
                      <div className="w-16 h-20 overflow-hidden bg-white/10 rounded-lg">
-                       <img src={`/images/sprite-${state}.png`} className={`sprite-img sprite-anim-${state} scale-75`} alt={state} />
+                       <img loading="lazy" decoding="async" src={`/images/sprite-${state}.png`} className={`sprite-img sprite-anim-${state} scale-75`} alt={state} />
                      </div>
                      <span className="font-mono text-[9px] uppercase opacity-50">{state}</span>
                    </div>

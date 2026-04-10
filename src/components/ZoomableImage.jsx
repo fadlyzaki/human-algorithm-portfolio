@@ -59,7 +59,7 @@ const ZoomableImage = ({
         className={`relative cursor-zoom-in group w-full h-full ${containerClassName}`}
         onClick={handleClick}
       >
-        <img
+        <img loading="lazy" decoding="async"
           src={src}
           alt={alt}
           className={className}

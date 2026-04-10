@@ -94,7 +94,7 @@ const CompanySidebar = ({ cluster, t, isId, id }) => {
                 </span>
               </div>
               <div className="w-8 h-8 rounded-full border border-[var(--border-color)] p-1 bg-[var(--bg-void)]">
-                <img
+                <img loading="lazy" decoding="async"
                   src="/about-portrait-new.jpg"
                   alt="Author"
                   className="w-full h-full object-cover rounded-full grayscale"

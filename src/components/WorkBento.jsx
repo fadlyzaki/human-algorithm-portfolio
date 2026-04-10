@@ -106,7 +106,7 @@ const WorkBento = ({ cluster, priority = false }) => {
         <div className="shrink-0">
           <div className="w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center">
             {cluster.logo ? (
-              <img
+              <img loading="lazy" decoding="async"
                 src={cluster.logo}
                 alt={cluster.company || cluster.title}
                 className={`w-full h-full object-contain drop-shadow-sm transition-transform duration-500 ${isHovered ? "scale-110" : ""}`}

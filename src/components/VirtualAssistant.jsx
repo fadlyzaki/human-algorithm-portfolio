@@ -430,7 +430,7 @@ const VirtualAssistant = () => {
           onMouseLeave={() => setIsHovered(false)}
           className={`w-20 h-28 sm:w-24 sm:h-32 drop-shadow-lg scale-x-[-1] sm:scale-x-1 overflow-hidden transition-all duration-300 ${isHovered ? "scale-105" : ""} ${isDark ? "brightness-90 opacity-90" : ""} ${isSleeping ? "opacity-50 grayscale hover:grayscale-0 hover:opacity-100" : ""}`}
         >
-          <img 
+          <img loading="lazy" decoding="async"
             key={isSleeping ? 'sleep' : currentScene}
             src={`/images/sprite-${isSleeping ? SCENES.IDLE : currentScene}.png`} 
             alt="Virtual Assistant Sprite" 

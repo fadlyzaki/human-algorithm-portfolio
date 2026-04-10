@@ -202,7 +202,7 @@ const AgenticDetail = ({
                                       <AiryDiagram type={step.image.split(":")[1]} />
                                     </div>
                                   ) : (
-                                    <img src={step.image} alt={step.title} className="w-full object-cover rounded-lg" />
+                                    <img loading="lazy" decoding="async" src={step.image} alt={step.title} className="w-full object-cover rounded-lg" />
                                   )}
                                 </div>
                               )}

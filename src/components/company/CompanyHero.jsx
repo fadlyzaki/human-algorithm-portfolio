@@ -20,7 +20,7 @@ const CompanyHero = ({
             {/* Company Logo Space */}
             <div className="mb-6 h-12 flex items-center">
               {cluster.logo ? (
-                <img
+                <img loading="lazy" decoding="async"
                   src={cluster.logo}
                   alt={`${cluster.company} Logo`}
                   className="h-full w-auto object-contain"
