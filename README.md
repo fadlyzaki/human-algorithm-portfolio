@@ -72,8 +72,8 @@ Framer Motion spring-driven custom cursor with magnetic attraction to interactiv
 ### 14. Interactive OS Desktop (`DraggableBento.jsx` & `TerminalWindowCard.jsx`)
 Framer Motion-powered drag physics engine deployed across the "About Me" section. Transitions static bento grids into a draggable, z-index-aware workspace on desktop viewports. Implements `TerminalWindowCard` archetypes requiring user "command execution" to expand into glassmorphic content areas.
 
-### 14. The Intelligence Engine: True Agentic UX (Echo.Z)
-Context-aware Gemini 1.5 Flash-powered AI sprite companion. Provides real-time "Pair Design" commentary, deep Q&A about portfolio contents, and a 1-click "Cognitive Load TL;DR" case study summarization. Safely bridged via a secure Vercel Edge Serverless function (`api/echoz-chat.js`). Hidden on the 404 pixel-art survival game.
+### 15. The Context Navigator: Echo.Z Sprite (LLM Features Deprecated)
+Persistent pixel-art sprite companion providing passive, context-aware route commentary and page explanations. **LLM-powered features deprecated in v9.1**: the "Ask Echo.Z" chat (Gemini 1.5 Flash via `api/echoz-chat.js`) and "1-click TL;DR" summarization were removed after profiling showed that serverless LLM round-trips degraded Time-To-Interactive. The sprite retains its rule-based context messaging, sleep mode, and interactive menu (Explain / Contact / Sleep). Hidden on the 404 pixel-art survival game.
 
 ### 15. The Narrative Gateway (`ChaosToMatrixIntro.jsx`)
 Cinematic boot protocol with chaotic terminal sequence resolving into structured UI. Pre-loads React chunks in background. `[ Skip to Content ]` kill-switch for instant bypass.

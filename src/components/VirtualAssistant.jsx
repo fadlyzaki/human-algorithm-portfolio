@@ -24,11 +24,7 @@ const VirtualAssistant = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isSleeping, setIsSleeping] = useState(false);
 
-  // Agentic States
-  const [chatMode, setChatMode] = useState(false);
-  const [chatInput, setChatInput] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
-  const chatInputRef = useRef(null);
+  // Agentic States (Chat & TL;DR deprecated in v9.1 — LLM payload was degrading TTI)
 
   // Restore sleep state from session storage
   useEffect(() => {
@@ -85,24 +81,12 @@ const VirtualAssistant = () => {
   const showInteractiveMenu = () => {
     clearAllTimers();
     const actions = t("virtual_assistant.actions", { returnObjects: true });
-    
-    // Check if on a case study/side project page to offer TL;DR
-    const validPrefixes = ["/case-study/", "/side-project/", "/work/", "/blog/", "/thoughts/"];
-    const isCaseStudyPage = validPrefixes.some(p => location.pathname.startsWith(p)) && !location.pathname.includes("/thoughts/");
 
     const options = [
-      { label: "💬 Ask Echo.Z a question", onClick: () => setChatMode(true) }
-    ];
-
-    if (isCaseStudyPage) {
-      options.push({ label: "⚡ Give me the TL;DR", onClick: () => handleTLDR() });
-    }
-
-    options.push(
       { label: actions[0], onClick: () => triggerContextMessage(true) }, // Explain this page
       { label: actions[2], onClick: () => { navigate("/contact"); handleDismiss(); } }, // Contact me
       { label: actions[1], onClick: toggleSleep } // Go to sleep
-    );
+    ];
     
     setMenuOptions(options);
     
@@ -112,61 +96,12 @@ const VirtualAssistant = () => {
 
     // Auto-hide menu after 15 seconds if no interaction
     hideTimerRef.current = setTimeout(() => {
-      // Don't auto-dismiss if user opened chat
-      setChatMode((prev) => {
-        if (!prev) handleDismiss();
-        return prev;
-      });
+      handleDismiss();
     }, 15000);
   };
 
-  const handleTLDR = () => {
-    setChatMode(false);
-    handleChatSubmit(null, "Please give me a 3-bullet Cognitive Load optimized TL;DR of the exact case study I am currently reading.");
-  };
-
-  const handleChatSubmit = async (e, forcedMessage = null) => {
-    if (e) e.preventDefault();
-    const messageToSend = forcedMessage || chatInput.trim();
-    if (!messageToSend) return;
-
-    setChatInput("");
-    setChatMode(false);
-    setIsTyping(true);
-    setMessage(messageToSend); // Briefly show user message
-    setMenuOptions(null);
-    setCurrentScene(SCENES.THINKING);
-
-    try {
-      const res = await fetch("/api/echoz-chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          message: messageToSend, 
-          contextPath: location.pathname 
-        })
-      });
-      const data = await res.json();
-      setMessage(data.reply || "Glitch encountered. Matrix reset.");
-      setCurrentScene(SCENES.IDLE);
-    } catch {
-      setMessage("Connection error. Neural link severed.");
-      setCurrentScene(SCENES.IDLE);
-    } finally {
-      setIsTyping(false);
-      clearAllTimers();
-      hideTimerRef.current = setTimeout(() => {
-        handleDismiss();
-      }, 20000); // 20s to read LLM answer
-    }
-  };
-
-  useEffect(() => {
-    if (chatMode) {
-      clearAllTimers();
-      setTimeout(() => chatInputRef.current?.focus(), 50);
-    }
-  }, [chatMode]);
+  // handleTLDR and handleChatSubmit deprecated in v9.1
+  // LLM-powered features (Ask Echo.Z, Give TL;DR) removed to improve TTI performance
 
   const triggerContextMessage = (manualClick = false) => {
     clearAllTimers();
@@ -264,8 +199,6 @@ const VirtualAssistant = () => {
     if (e) e.stopPropagation();
     setShowMessage(false);
     setMenuOptions(null);
-    setChatMode(false);
-    setChatInput("");
     setCurrentScene(SCENES.IDLE);
   };
 
@@ -370,37 +303,6 @@ const VirtualAssistant = () => {
         <div className="w-full">
           {isSleeping ? (
             <p className="leading-snug pr-2 font-mono animate-pulse">{t("virtual_assistant.sleeping", "Zzz...")}</p>
-          ) : chatMode ? (
-            <form onSubmit={handleChatSubmit} className="flex flex-col gap-2 w-full pr-2">
-              <p className="text-[10px] text-[var(--accent-blue)] font-mono font-bold uppercase tracking-wider mb-0.5">Ask Echo.Z Anything</p>
-              <div className="flex gap-1.5 relative">
-                <input
-                  ref={chatInputRef}
-                  type="text"
-                  value={chatInput}
-                  onChange={(e) => setChatInput(e.target.value)}
-                  placeholder="What is Zaki's philosophy?"
-                  className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] rounded px-2 py-1.5 text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-blue)]"
-                  autoFocus
-                />
-                <button 
-                  type="submit" 
-                  disabled={isTyping || !chatInput.trim()}
-                  className="bg-[var(--accent-blue)] text-white px-2.5 rounded hover:brightness-110 disabled:opacity-50 text-xs font-bold transition-all"
-                >
-                  ↑
-                </button>
-              </div>
-            </form>
-          ) : isTyping ? (
-            <div className="flex flex-col gap-1.5 pr-2">
-              <p className="leading-snug">Thinking...</p>
-              <div className="flex gap-1 items-center h-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--text-secondary)] animate-bounce" style={{ animationDelay: "0ms" }}></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--text-secondary)] animate-bounce" style={{ animationDelay: "150ms" }}></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--text-secondary)] animate-bounce" style={{ animationDelay: "300ms" }}></span>
-              </div>
-            </div>
           ) : menuOptions ? (
             <div className="flex flex-col gap-1.5 w-full pr-2 custom-scrollbar overflow-y-auto max-h-[200px]">
               {menuOptions.map((opt, i) => (

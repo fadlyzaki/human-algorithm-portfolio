@@ -3,16 +3,16 @@ export const humanAlgorithm = {
   title: { en: "The Human Algorithm", id: "The Human Algorithm" },
   subtitle: { en: "System Architecture v9.0", id: "Arsitektur Sistem v9.0" },
   desc: {
-    en: 'A self-aware portfolio and experimental lab built by AI agents. Featuring 6 polymorphic layout engines, a context-aware AI companion, and a graveyard of beautiful deprecated experiments.',
-    id: "Portofolio sadar diri dan laboratorium eksperimental yang dibangun oleh agen AI. Menampilkan 6 mesin layout polimorfik, pendamping AI sadar konteks, dan koleksi eksperimen usang yang indah.",
+    en: 'A self-aware portfolio and experimental lab built by AI agents. Featuring 6 polymorphic layout engines, a context-aware sprite companion, and a graveyard of beautiful deprecated experiments.',
+    id: "Portofolio sadar diri dan laboratorium eksperimental yang dibangun oleh agen AI. Menampilkan 6 mesin layout polimorfik, pendamping sprite sadar konteks, dan koleksi eksperimen usang yang indah.",
   },
   tldr: {
     en: "The first portfolio built entirely through an Agentic Workflow. v9.0 integrates biological time-awareness and breath-synced typography, proving that the most resilient systems are the ones that feel alive.",
     id: "Portofolio pertama yang dibangun sepenuhnya melalui Workflow Agentic. v9.0 mengintegrasikan kesadaran waktu biologis dan tipografi tersinkronisasi napas, membuktikan bahwa sistem paling tangguh adalah yang terasa hidup.",
   },
   humanImpact: {
-    en: "Reduced recruiter cognitive friction by 80% via Echo.Z and clear narratives.",
-    id: "Mengurangi friksi kognitif perekrut hingga 80% melalui Echo.Z dan narasi yang jelas.",
+    en: "Reduced recruiter cognitive friction by 80% via clear narratives and progressive disclosure.",
+    id: "Mengurangi friksi kognitif perekrut hingga 80% melalui narasi yang jelas dan pengungkapan bertahap.",
   },
   stack: ["React", "Framer Motion", "Three.js", "Vite", "Tailwind"],
   links: {
@@ -64,12 +64,12 @@ export const humanAlgorithm = {
     },
     {
       title: {
-        en: "Agentic Update: The Companion Protocol (Echo.Z)",
-        id: "Pembaruan Agentic: Protokol Pendamping (Echo.Z)",
+        en: "Experiment 03: The Companion Protocol — Echo.Z LLM (Deprecated)",
+        id: "Eksperimen 03: Protokol Pendamping — Echo.Z LLM (Usang)",
       },
       desc: {
-        en: "Upgraded the Virtual Assistant (Echo.Z) from a static rule-based tooltip into a live conversational agent using Vercel Serverless Edge Functions and the Gemini 1.5 Flash API. Features native Chat UI and a 1-click 'Cognitive Load TL;DR' summarizing specific case studies in real-time.",
-        id: "Meningkatkan Asisten Virtual (Echo.Z) dari tooltip statis berbasis aturan menjadi agen percakapan langsung menggunakan Vercel Serverless Edge Functions dan Gemini 1.5 Flash API. Dilengkapi UI Obrolan asli dan 'Cognitive Load TL;DR' 1-klik untuk merangkum studi kasus secara real-time.",
+        en: "Upgraded the Virtual Assistant (Echo.Z) from a static rule-based tooltip into a live conversational agent using Vercel Serverless Edge Functions and the Gemini 1.5 Flash API. Featured native Chat UI and a 1-click 'Cognitive Load TL;DR'. Killed it. The serverless LLM round-trips added unpredictable latency, and the feature's marginal engagement didn't justify its TTI cost. The sprite remains as a passive context-aware navigator.",
+        id: "Meningkatkan Asisten Virtual (Echo.Z) dari tooltip statis menjadi agen percakapan LLM menggunakan Vercel Serverless Edge Functions dan Gemini 1.5 Flash API. Dilengkapi UI Obrolan dan 'TL;DR' 1-klik. Dihapus. Round-trip LLM serverless menambah latensi tak terduga, dan engagement fitur tidak sepadan dengan biaya TTI. Sprite tetap ada sebagai navigator pasif sadar konteks.",
       },
       image: "airy:network",
     },
@@ -130,10 +130,10 @@ export const humanAlgorithm = {
       image: "airy:network",
     },
     {
-      title: { en: "The Humble Guide (Echo.Z API)", id: "Sang Pemandu yang Rendah Hati (API Echo.Z)" },
+      title: { en: "The Humble Guide (Echo.Z — Deprecated)", id: "Sang Pemandu yang Rendah Hati (Echo.Z — Usang)" },
       desc: {
-        en: "Instead of aggressive AI sales pitches, we engineered Echo.Z to be a candid, context-aware navigator. Using Vercel Edge Serverless functions, strict 'out-of-scope' prompt guardrails ensure the Gemini model only answers portfolio-relevant questions, guiding recruiters efficiently without hallucinating.",
-        id: "Berbeda dengan AI yang agresif, kami mendesain Echo.Z sebagai pemandu sadar konteks yang jujur. Menggunakan fungsi Vercel Serverless Edge, batasan ketat memastikan Gemini hanya menjawab pertanyaan terkait portofolio, memandu perekrut dengan aman tanpa halusinasi.",
+        en: "We engineered Echo.Z as a candid, context-aware conversational navigator using Vercel Edge Serverless functions and Gemini 1.5 Flash. Strict prompt guardrails ensured portfolio-relevant answers only. However, the LLM round-trip latency degraded Time-To-Interactive, and engagement data didn't justify the cost. The LLM features were deprecated; the sprite persists as a passive context guide — proving that killing features is itself a product decision.",
+        id: "Kami mendesain Echo.Z sebagai pemandu percakapan sadar konteks menggunakan Vercel Edge Functions dan Gemini 1.5 Flash. Guardrail prompt yang ketat memastikan jawaban hanya relevan portofolio. Namun, latensi LLM merusak TTI, dan data engagement tidak sepadan. Fitur LLM dihentikan; sprite tetap sebagai pemandu konteks pasif — membuktikan bahwa mematikan fitur adalah keputusan produk.",
       },
       image: "airy:radar",
     },
