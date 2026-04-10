@@ -977,9 +977,14 @@ export const gudangAda = {
             image: "airy:layers",
           },
           {
-            title: "Component Library",
-            desc: "Built a comprehensive Figma library with auto-layout components that consumed the token system. Every component — from buttons to complex data tables — referenced tokens instead of raw hex values. A design-to-code workflow ensured that updating a token in Figma automatically propagated to the React component library via synced npm packages.",
-            image: "airy:cycle",
+            title: "Component Architecture",
+            desc: "Structured all definitions into an Atomic Design hierarchy. Atoms included icons (standardized to 16/20/24px bounds), typography (Inter with semantic mobile headers), and tokens. Molecules were form inputs and list items. Organisms handled complex product cards and cart logic.",
+            image: "airy:hierarchy",
+          },
+          {
+            title: "Spatial & Elevation System",
+            desc: "Enforced structural consistency through a strict Base-8 grid spanning 2px to 40px offsets. Semantic border radii (Small 4px, Medium 8px, Large 12px, Circular 100px) and a precise 3-tier elevation shadow system ensured a professional, predictable UI depth.",
+            image: "airy:layers",
           },
         ],
         metrics: [
@@ -1020,12 +1025,12 @@ export const gudangAda = {
           },
           {
             type: "ship",
-            title: "Synced Component Library",
-            desc: "Built a comprehensive Figma library with auto-layout components consuming the token system. A design-to-code pipeline ensured Figma updates automatically synced to the React component library via npm packages. Update once, deploy everywhere.",
-            title_id: "Library Komponen Tersinkronisasi",
+            title: "Atomic Architecture & Spacing",
+            desc: "Constructed the system via Atomic Design. Defined typography using 'Inter', a Base-8 grid scale (2px to 40px offsets), semantic radii (4px/8px/12px/100px), and an English/Indonesian unified voice and tone (Professional, helpful, concise).",
+            title_id: "Arsitektur Atomic & Sistem Spasi",
             desc_id:
-              "Membangun library Figma komprehensif dengan komponen auto-layout yang mengkonsumsi sistem token. Pipeline design-to-code memastikan update Figma otomatis tersinkronisasi ke library komponen React via paket npm. Update sekali, deploy di mana saja.",
-            image: "airy:cycle",
+              "Membangun sistem melalui Atomic Design. Menentukan tipografi menggunakan 'Inter', skala grid Base-8 (offset 2px ke 40px), radius semantik (4px/8px/12px/100px), dan panduan voice & tone yang profesional, helpful, dan ringkas.",
+            image: "airy:architecture",
           },
           {
             type: "measure",
@@ -1126,9 +1131,14 @@ export const gudangAda = {
             image: "airy:layers",
           },
           {
-            title: "Library Komponen",
-            desc: "Membangun library Figma lengkap dengan komponen auto-layout yang mengkonsumsi sistem token. Setiap komponen — dari tombol sampai tabel data kompleks — mereferensikan token, bukan hex mentah. Pipeline design-to-code memastikan update token di Figma otomatis menyebar ke library komponen React via paket npm tersinkronisasi.",
-            image: "airy:cycle",
+            title: "Arsitektur Komponen",
+            desc: "Menyusun definisi ke dalam hierarki Atomic Design. Atoms mencakup ikon (terstandar 16/20/24px), tipografi (Inter dengan header mobile semantik), dan token warna. Molecules untuk input form. Organisms untuk kartu produk dan logika keranjang kompleks.",
+            image: "airy:hierarchy",
+          },
+          {
+            title: "Sistem Spasi & Elevasi",
+            desc: "Menegakkan konsistensi struktural lewat grid Base-8 yang ketat (2px hingga 40px). Semantic border radii (Small 4px, Medium 8px, Large 12px, Circular 100px) dan sistem bayangan elevasi 3 tingkat memastikan kedalaman UI yang profesional dan terprediksi.",
+            image: "airy:layers",
           },
         ],
         metrics: [
