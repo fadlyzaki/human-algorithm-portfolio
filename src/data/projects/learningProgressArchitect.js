@@ -32,7 +32,7 @@ export const learningProgressArchitect = {
     "Cloud Run",
   ],
   links: {
-    demo: "https://cloud.google.com/run",
+    demo: "https://learning-architect-service-423182843084.us-central1.run.app/",
     repo: null,
   },
   iconName: "GraduationCap",
