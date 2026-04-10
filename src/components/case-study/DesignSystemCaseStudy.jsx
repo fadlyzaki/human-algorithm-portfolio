@@ -12,8 +12,8 @@ import ScrollReveal from "../ScrollReveal";
 // ─── Section Wrapper ───
 const Section = ({ number, title, children, className = "" }) => (
   <ScrollReveal>
-    <section className={`max-w-5xl mx-auto px-6 py-20 md:py-28 ${className}`}>
-      <div className="flex items-baseline gap-4 mb-12">
+    <section className={`max-w-5xl mx-auto px-6 py-12 md:py-16 ${className}`}>
+      <div className="flex items-baseline gap-4 mb-8">
         <span className="font-mono text-[var(--brand)] text-sm tracking-widest opacity-60">
           {String(number).padStart(2, "0")}
         </span>
@@ -49,10 +49,10 @@ const TokenSwatch = ({ name, colors }) => (
 
 // ─── Component Card ───
 const ComponentCard = ({ icon: Icon, title, desc }) => (
-  <div className="p-5 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl hover:border-[var(--brand)] transition-all group">
-    <div className="flex items-center gap-3 mb-3">
-      <div className="w-8 h-8 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--brand)] transition-colors">
-        <Icon size={14} className="text-[var(--brand)] opacity-60 group-hover:opacity-100 transition-opacity" />
+  <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-[var(--brand)] transition-all group">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="w-10 h-10 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--brand)] transition-colors shrink-0">
+        <Icon size={16} className="text-[var(--brand)] opacity-60 group-hover:opacity-100 transition-opacity" />
       </div>
       <h4 className="font-medium text-sm text-[var(--text-primary)]">{title}</h4>
     </div>
@@ -95,7 +95,7 @@ const DesignSystemCaseStudy = ({ caseData, t }) => {
   return (
     <>
       {/* ═══════ HERO ═══════ */}
-      <section className="max-w-5xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28">
+      <section className="max-w-5xl mx-auto px-6 pt-32 pb-12 md:pt-40 md:pb-16">
         <ScrollReveal>
           <div className="space-y-6">
             <div className="flex items-center gap-3">
@@ -139,16 +139,18 @@ const DesignSystemCaseStudy = ({ caseData, t }) => {
 
       {/* ═══════ 02. PROBLEM ═══════ */}
       <Section number={2} title="Problem Statement">
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           {[
             { icon: Palette, text: "UI inconsistencies existed across products — 14 different hex codes for 'Brand Blue'" },
             { icon: Layers, text: "Designers relied on manual duplication with no shared component library" },
             { icon: GitBranch, text: "Engineers reused fragmented code with no single source of truth" },
             { icon: MessageSquare, text: "Terminology lacked standardization — e.g., snackbar vs toast vs alert" },
           ].map((item, i) => (
-            <div key={i} className="flex gap-4 p-5 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl">
-              <item.icon size={18} className="text-red-400 mt-0.5 shrink-0" />
-              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{item.text}</p>
+            <div key={i} className="flex gap-4 p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-red-500/50 transition-colors group">
+              <div className="w-10 h-10 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-red-500/50 transition-colors shrink-0">
+                <item.icon size={16} className="text-red-400 opacity-80" />
+              </div>
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed mt-2">{item.text}</p>
             </div>
           ))}
         </div>
@@ -156,22 +158,14 @@ const DesignSystemCaseStudy = ({ caseData, t }) => {
 
       {/* ═══════ 03. OBJECTIVES ═══════ */}
       <Section number={3} title="Objectives">
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           {[
             { icon: Target, title: "Unified Language", desc: "Establish a single design language across all platforms and products" },
             { icon: Zap, title: "Efficiency", desc: "Improve design-to-development handoff speed and eliminate redundancy" },
             { icon: Layers, title: "Scalability", desc: "Enable rapid scaling across Web, Android, and internal tools" },
             { icon: Users, title: "Shared Vocabulary", desc: "Create a common terminology between design and engineering teams" },
           ].map((item, i) => (
-            <div key={i} className="flex gap-4 p-5 border border-[var(--border-color)] rounded-xl hover:border-[var(--brand)] transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center shrink-0">
-                <item.icon size={16} className="text-[var(--brand)]" />
-              </div>
-              <div>
-                <h4 className="text-sm font-medium text-[var(--text-primary)] mb-1">{item.title}</h4>
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{item.desc}</p>
-              </div>
-            </div>
+            <ComponentCard key={i} icon={item.icon} title={item.title} desc={item.desc} />
           ))}
         </div>
       </Section>
@@ -342,14 +336,16 @@ const DesignSystemCaseStudy = ({ caseData, t }) => {
 
       {/* ═══════ 08. CHALLENGES ═══════ */}
       <Section number={8} title="Challenges">
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-4">
           {[
             { icon: AlertTriangle, title: "No Initial SSOT", desc: "Siloed teams had no single source of truth. Components were duplicated across Figma files with no versioning." },
             { icon: MessageSquare, title: "Naming Inconsistency", desc: "Teams used different names for the same components — snackbar vs toast vs notification — creating communication gaps." },
             { icon: GitBranch, title: "Partial Eng. Integration", desc: "Initial engineering adoption was uneven. Some squads adopted tokens immediately, others continued with hardcoded values." },
           ].map((item, i) => (
-            <div key={i} className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl">
-              <item.icon size={18} className="text-amber-500 mb-4" />
+            <div key={i} className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-amber-500/50 transition-colors group">
+              <div className="w-10 h-10 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center mb-4 group-hover:border-amber-500/50 transition-colors shrink-0">
+                <item.icon size={16} className="text-amber-500 opacity-80" />
+              </div>
               <h4 className="text-sm font-medium text-[var(--text-primary)] mb-2">{item.title}</h4>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{item.desc}</p>
             </div>
@@ -380,20 +376,14 @@ const DesignSystemCaseStudy = ({ caseData, t }) => {
 
       {/* ═══════ 10. LEARNINGS ═══════ */}
       <Section number={10} title="Learnings">
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           {[
             { icon: BookOpen, title: "Strong Governance Required", desc: "A design system is a product, not a project. 30% is building; 70% is evangelizing and managing breaking changes." },
             { icon: Palette, title: "Token Standardization is Critical", desc: "Without strict token discipline, visual debt re-accumulates within months. Tokens are the immune system." },
             { icon: Lightbulb, title: "Documentation = Components", desc: "An undocumented component is a liability. Documentation is as important as the component itself." },
             { icon: Users, title: "Cross-Functional Alignment", desc: "Design system success depends on designer-engineer symbiosis. Neither can build it alone." },
           ].map((item, i) => (
-            <div key={i} className="flex gap-4 p-5 border border-[var(--border-color)] rounded-xl">
-              <item.icon size={18} className="text-[var(--brand)] mt-0.5 shrink-0" />
-              <div>
-                <h4 className="text-sm font-medium text-[var(--text-primary)] mb-1">{item.title}</h4>
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{item.desc}</p>
-              </div>
-            </div>
+            <ComponentCard key={i} icon={item.icon} title={item.title} desc={item.desc} />
           ))}
         </div>
       </Section>
@@ -444,7 +434,7 @@ const DesignSystemCaseStudy = ({ caseData, t }) => {
       )}
 
       {/* ═══════ 12. REFLECTION ═══════ */}
-      <section className="max-w-3xl mx-auto px-6 py-32 text-center">
+      <section className="max-w-3xl mx-auto px-6 py-20 md:py-32 text-center">
         <ScrollReveal>
           <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-8 block">
             12 — Reflection
