@@ -904,7 +904,7 @@ export const gudangAda = {
       title: "Architecting Scale: The GudangAda Design System",
       tag: "Architecture",
       type: "Design System",
-      role: "Lead Product Designer / Design Systems Architect",
+      role: "Product Designer / Design Systems Architect",
       timeline: "Q1 - Q3 2021",
       route: "/case-study/design-system-gudangada",
       previewImage: "/commerce_hero.png",
@@ -947,7 +947,7 @@ export const gudangAda = {
         },
         context: {
           client: "B2B FMCG E-commerce",
-          role: "Lead Product Designer / Design Systems Architect",
+          role: "Product Designer / Design Systems Architect",
           timeline: "Q1 - Q3 2021",
           team: "Riska Amalia, Fadly Uzzaki, Iqbal Ramadhan",
         },
