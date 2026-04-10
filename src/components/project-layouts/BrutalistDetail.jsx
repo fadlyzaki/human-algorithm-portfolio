@@ -94,10 +94,10 @@ const BrutalistDetail = ({
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0 }}
-                className="grid md:grid-cols-2 gap-16 items-center"
               >
-                <div>
-                  <p className="text-xl md:text-3xl font-bold leading-tight bg-[var(--text-primary)] text-[var(--bg-void)] p-8 shadow-[16px_16px_0_0_var(--accent-red)]">
+                <div className="border-4 border-[var(--text-primary)] p-12 md:p-24 bg-[var(--text-primary)] text-[var(--bg-void)] shadow-[16px_16px_0_0_var(--accent-red)] flex gap-8 items-start">
+                  <Slash size={64} className="shrink-0 hidden md:block text-[var(--accent-red)]" strokeWidth={3} />
+                  <p className="text-3xl md:text-5xl font-black uppercase italic leading-[1.1]">
                     {activeChallenge}
                   </p>
                 </div>
