@@ -489,40 +489,52 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
                 <Layers size={12} className="text-[var(--brand)]" />
               </div>
               <h3 className="font-mono text-sm uppercase tracking-[0.1em] text-[var(--text-primary)]">
-                Wireframes & Low Fidelity Specs
+                Wireframes & Design Exploration
               </h3>
             </div>
             
-            <div className="relative p-10 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-lg overflow-hidden">
+            <div className="relative p-6 md:p-10 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-lg overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--brand)] via-[var(--accent-red)] to-[var(--brand)] opacity-20" />
               
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {[
-                  { title: "Dashboard Skeleton", type: "ui" },
-                  { title: "Target Verification", type: "architecture" },
-                  { title: "Reward Architecture", type: "matrix" }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex flex-col">
-                    <div className="aspect-[4/5] bg-[var(--bg-card)] border border-[var(--border-color)] border-dashed rounded-lg mb-4 flex items-center justify-center relative group overflow-hidden">
-                      {/* Grid background for wireframe feel */}
-                      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px]" />
-                      <div className="relative z-10 w-full h-[70%] px-4 opacity-50 group-hover:opacity-100 transition-opacity">
-                         <AiryDiagram type={item.type} />
-                      </div>
-                      
-                      <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                        <span className="w-2 h-2 bg-[var(--accent-red)] rounded-full animate-pulse" />
-                        <span className="font-mono text-[8px] text-[var(--text-secondary)] uppercase">V.0{idx+1}</span>
-                      </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Wireframes */}
+                <div className="flex flex-col">
+                  <div className="aspect-[3/4] md:aspect-auto md:h-[600px] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl mb-4 overflow-hidden relative group">
+                    <ZoomableImage 
+                      src="/case-studies/stoqo-sales/wireframes.jpg" 
+                      alt="Early Wireframes and Information Architecture" 
+                      className="w-full h-full object-cover md:object-contain bg-black/5 dark:bg-white/5"
+                    />
+                    <div className="absolute bottom-4 left-4 flex items-center gap-2 pointer-events-none">
+                      <span className="w-2 h-2 bg-[var(--accent-red)] rounded-full animate-pulse" />
+                      <span className="font-mono text-[10px] md:text-xs font-bold text-[var(--accent-red)] bg-white/80 dark:bg-black/80 px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">LO-FI WIREFRAMES</span>
                     </div>
-                    <h5 className="font-mono text-xs uppercase tracking-wider text-[var(--text-primary)]">{item.title}</h5>
                   </div>
-                ))}
+                  <h5 className="font-mono text-sm uppercase tracking-wider text-[var(--text-primary)]">Structural Constraints</h5>
+                  <p className="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Early low-fidelity layouts tracing out the minimum required data for a field agent to feel secure about their targets before we applied high-fidelity UI elements.</p>
+                </div>
+
+                {/* Design Exploration */}
+                <div className="flex flex-col">
+                  <div className="aspect-[3/4] md:aspect-auto md:h-[600px] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl mb-4 overflow-hidden relative group">
+                    <ZoomableImage 
+                      src="/case-studies/stoqo-sales/exploration.jpg" 
+                      alt="High-Fidelity Design Explorations" 
+                      className="w-full h-full object-cover md:object-contain bg-black/5 dark:bg-white/5"
+                    />
+                    <div className="absolute bottom-4 left-4 flex items-center gap-2 pointer-events-none">
+                      <span className="w-2 h-2 bg-[var(--accent-green)] rounded-full animate-pulse" />
+                      <span className="font-mono text-[10px] md:text-xs font-bold text-[var(--accent-green)] bg-white/80 dark:bg-black/80 px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">HI-FI EXPLORATIONS</span>
+                    </div>
+                  </div>
+                  <h5 className="font-mono text-sm uppercase tracking-wider text-[var(--text-primary)]">Visual Language Evolution</h5>
+                  <p className="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Iterating through the cognitive load of high-fidelity screens. The goal was maintaining 'Chewable' information states across complex dashboard drill-downs.</p>
+                </div>
               </div>
               
               <div className="mt-8 pt-6 border-t border-[var(--border-color)] text-center">
-                <p className="text-sm text-[var(--text-secondary)] font-mono">
-                  &gt; INITIAL_EXPLORATION_VECTORS: DISCARDED_COMPLEXITY IN FAVOR OF 'CHEWABLE' DAILY GOALS.
+                <p className="text-xs text-[var(--text-secondary)] font-mono">
+                  &gt; ITERATION_LOG: 34_VARIATIONS_TESTED // SELECTED_UI_FOCUS: 'CHEWABLE_GOALS'
                 </p>
               </div>
             </div>
