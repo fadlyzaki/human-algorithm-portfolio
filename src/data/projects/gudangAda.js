@@ -901,7 +901,7 @@ export const gudangAda = {
     },
     {
       id: "design-system-gudangada",
-      title: "Architecting Scale: The GudangAda Design System",
+      title: "Design System",
       tag: "Architecture",
       type: "Design System",
       role: "Product Designer / Design Systems Architect",
@@ -910,16 +910,16 @@ export const gudangAda = {
       previewImage: "/commerce_hero.png",
       iconName: "Box",
       details: {
-        problem: "15 shades of blue and 4 date pickers — our design debt was a tax on every feature.",
-        system: "GADA Design: a token-based system built for developers first.",
-        outcome: "One source of truth. Unified UI across 5 product squads.",
+        problem: "14 blues, 8 buttons, zero consistency.",
+        system: "Three-pillar token architecture.",
+        outcome: "+35% engineering velocity. One source of truth.",
       },
       details_id: {
-        problem: "15 warna biru dan 4 date picker — hutang desain kami jadi pajak di setiap fitur.",
-        system: "GADA Design: sistem berbasis token yang dibangun untuk developer.",
-        outcome: "Satu sumber kebenaran. UI seragam di 5 squad produk.",
+        problem: "14 biru, 8 tombol, nol konsistensi.",
+        system: "Arsitektur token tiga pilar.",
+        outcome: "+35% kecepatan engineering. Satu sumber kebenaran.",
       },
-      title_id: "GudangAda Design System",
+      title_id: "Design System",
       tag_id: "Arsitektur",
       caseStudy: {
         locked: true,
