@@ -951,95 +951,69 @@ export const gudangAda = {
           team: "Riska Amalia, Fadly Uzzaki, Iqbal Ramadhan",
         },
         challenge:
-          "We had 15 different shades of blue, 4 different date pickers, and zero shared language between designers and developers. Every new feature took 3 days just to style because engineers were guessing hex codes from screenshots. Our design debt wasn't just ugly — it was a tax on every sprint. Color decisions were arbitrary, accessibility was an afterthought, and onboarding a new designer meant weeks of 'just copy that other screen'.",
-        process: [
-          {
-            title: "The Color Audit",
-            desc: "I screenshotted every screen in the app and extracted every unique color value. We found 47 distinct grays, 15 blues, and zero documentation. I laid them all out on a single Figma canvas — that wall of chaos was the pitch deck that got leadership buy-in.",
-            image: "airy:matrix",
-          },
-          {
-            title: "Tooling the Palette",
-            desc: "We used Coolors to define and manually adjust our base palette, checking for color harmony and color blindness accessibility. Then we ran every color through ColorBox to auto-generate shade scales (50–900) with balanced contrast ratios. The result: a systematic palette where every shade had a reason to exist.",
-            image: "airy:hierarchy",
-          },
-        ],
+          "Prior to the design system, GudangAda faced severe UI inconsistencies across products, fragmented code reuse, and a lack of standardized terminology (e.g., snackbar vs toast). Designers relied on manual duplication. These challenges drastically reduced efficiency and product quality. The objective became clear: Establish a unified design language, improve design-to-development execution, enable scalability, and create a shared vocabulary.",
         insights: [
           {
-            title: "Developers Are the Real Users",
-            desc: "I realized a design system isn't for designers — it's for developers. They don't think in 'Brand Teal'; they think in Props and API contracts. So I wrote the documentation in their language: token names, usage rules, and code snippets — not Figma annotations.",
+            title: "The Audit & The Gap",
+            desc: "A comprehensive audit was conducted across all existing products. We identified massive component duplication, color inconsistencies, and typography variations. We also uncovered the core operational challenges: a lack of a Single Source of Truth, inconsistent naming, and only partial engineering integration.",
           },
         ],
         solution: [
           {
-            title: "Token Architecture",
-            desc: "Defined 6 semantic color categories with explicit HEX values and rules. Neutral (White #FFFFFF to Black 500 #383838) for surfaces; Primary Teal (500: #03A199) for positive actions; Secondary Blue (500: #0470C8) for progress; Success Green (500: #07A650); Warning Orange (500: #F27D07) for badges; Error Red (500: #D42867) for destructive tasks.",
-            image: "airy:layers",
+            title: "Key Components: Buttons & Forms",
+            desc: "Established clear button hierarchies (FAB → Primary → Outline → Text) mapped to strict states (Default, Hover, Pressed, Disabled). Forms were deeply standardized with strict text field validation states, dropdowns, and file upload behaviors.",
+            image: "airy:architecture",
           },
           {
-            title: "Component Architecture",
-            desc: "Structured all definitions into an Atomic Design hierarchy. Atoms included icons (standardized to 16/20/24px bounds), typography (Inter with semantic mobile headers), and tokens. Molecules were form inputs and list items. Organisms handled complex product cards and cart logic.",
-            image: "airy:hierarchy",
-          },
-          {
-            title: "Spatial & Elevation System",
-            desc: "Enforced structural consistency through a strict Base-8 grid spanning 2px to 40px offsets. Semantic border radii (Small 4px, Medium 8px, Large 12px, Circular 100px) and a precise 3-tier elevation shadow system ensured a professional, predictable UI depth.",
-            image: "airy:layers",
+            title: "Feedback Systems",
+            desc: "Standardized all system feedback mechanisms. We created clear definitions and usage guidelines for Banners (persistent), Snackbars (temporary), and Dialogs (modal) to clear up all inconsistent terminology.",
+            image: "airy:kanban",
           },
         ],
         metrics: [
-          { label: "Dev Velocity", value: "Feature Styling 3× Faster" },
-          { label: "Design Debt", value: "47 Grays → 7 Tokens" },
-          { label: "Consistency", value: "Unified UI Across 5 Squads" },
-          { label: "Accessibility", value: "Color-Blind Safe Palette" },
+          { label: "Efficiency", value: "Reduced Design Redundancy" },
+          { label: "Velocity", value: "Faster Designer Onboarding" },
+          { label: "Consistency", value: "Unified Cross-Product UI" },
+          { label: "Collaboration", value: "Enhanced Design-Eng Sync" },
         ],
         learnings:
-          "A design system is a product, not a project. It needs maintenance, versioning, and a roadmap. The moment you stop treating it like a living system, it dies — and you're back to 47 shades of gray.",
+          "Design systems require strong governance and cross-functional alignment. Token standardization is critical, and documentation is as important as the components. Ultimately, GADA DS established a powerful transitional foundation for scalable future growth.",
         designProcess: [
           {
             type: "research",
-            title: "The Color Audit",
-            desc: "I screenshotted every screen in the app and extracted every unique color value. We found 47 distinct grays, 15 blues, and zero documentation. That wall of chaos was the pitch deck that got leadership buy-in.",
-            title_id: "Audit Warna",
+            title: "Design Tokens",
+            desc: "Defined the core visual DNA: a color system using semantic roles, a typography system based on a modular scale (base 15px), and a spatial system built on a 2px–48px scale.",
+            title_id: "Design Token",
             desc_id:
-              "Saya screenshot setiap layar di aplikasi dan ekstrak setiap warna unik. Kami temukan 47 abu-abu berbeda, 15 biru, dan nol dokumentasi. Dinding kekacauan itu jadi pitch deck yang meyakinkan manajemen.",
+              "Mendefinisikan DNA visual inti: sistem warna menggunakan peran semantik, tipografi berdasarkan skala modular (basis 15px), dan sistem spasial yang dibangun di atas skala 2px–48px.",
             image: "airy:matrix",
           },
           {
-            type: "insight",
-            title: "Developer-First Documentation",
-            desc: "I realized a design system isn't for designers — it's for developers. They don't think in 'Brand Teal'; they think in Props and API contracts. So I wrote documentation in their language: token names like 'color.primary.500', usage rules, and code snippets.",
-            title_id: "Dokumentasi Developer-First",
+            type: "design",
+            title: "Component Architecture",
+            desc: "Adopted the Atomic Design methodology. Components were strictly categorized into Inputs, Navigation, Feedback, and Data Display to ensure high reusability and systematic growth.",
+            title_id: "Arsitektur Komponen",
             desc_id:
-              "Saya sadar design system bukan buat desainer — tapi buat developer. Mereka nggak mikir 'Teal Brand'; mereka mikir dalam Props dan API. Jadi saya tulis dokumentasi pakai bahasa mereka: nama token kayak 'color.primary.500', aturan pakai, dan code snippet.",
-            image: "airy:kanban",
+              "Mengadopsi metodologi Atomic Design. Komponen dikategorikan secara ketat ke dalam Input, Navigasi, Feedback, dan Tampilan Data untuk memastikan penggunaan ulang yang tinggi.",
+            image: "airy:hierarchy",
           },
           {
-            type: "design",
-            title: "Token Architecture (GADA Design)",
-            desc: "Defined semantic categories using Coolors for harmony/color-blindness and ColorBox for shade generation. Neutral (#383838) for surfaces, Primary Teal (#03A199) for interactive elements, Secondary Blue (#0470C8), Success Green (#07A650), Warning Orange (#F27D07) for badges/text-prices, Error Red (#D42867).",
-            title_id: "Arsitektur Token (GADA Design)",
+            type: "insight",
+            title: "Layout System",
+            desc: "Standardized how components behave consistently across viewports by implementing a 12-column grid for desktop environments and a robust 4-column grid for mobile interfaces.",
+            title_id: "Sistem Layout",
             desc_id:
-              "Mendefinisikan kategori semantik pakai Coolors (harmoni/buta warna) & ColorBox. Neutral (#383838) untuk surface, Primary Teal (#03A199) untuk elemen interaktif, Secondary Blue (#0470C8), Success Green (#07A650), Warning Orange (#F27D07) untuk badge/harga, Error Red (#D42867).",
+              "Menstandarkan perilaku komponen di berbagai viewport dengan menerapkan grid 12-kolom untuk desktop dan grid 4-kolom yang solid untuk antarmuka mobile.",
             image: "airy:layers",
           },
           {
             type: "ship",
-            title: "Atomic Architecture & Spacing",
-            desc: "Constructed the system via Atomic Design. Defined typography using 'Inter', a Base-8 grid scale (2px to 40px offsets), semantic radii (4px/8px/12px/100px), and an English/Indonesian unified voice and tone (Professional, helpful, concise).",
-            title_id: "Arsitektur Atomic & Sistem Spasi",
+            title: "Process & Governance",
+            desc: "Established weekly design reviews and a Component Ownership (PIC) model. Combined with deep collaboration with engineers, this iterative improvement cycle ensured the system remained alive and adopted.",
+            title_id: "Proses & Tata Kelola",
             desc_id:
-              "Membangun sistem melalui Atomic Design. Menentukan tipografi menggunakan 'Inter', skala grid Base-8 (offset 2px ke 40px), radius semantik (4px/8px/12px/100px), dan panduan voice & tone yang profesional, helpful, dan ringkas.",
-            image: "airy:architecture",
-          },
-          {
-            type: "measure",
-            title: "Unified UI Across Squads",
-            desc: "Feature styling went from 3 days to under 1 day. Reduced 47 unique grays to 7 semantic tokens. Achieved color-blind safe palette across all products. 5 product squads now speak the same visual language.",
-            title_id: "UI Terpadu di Semua Squad",
-            desc_id:
-              "Styling fitur turun dari 3 hari jadi kurang dari 1 hari. Mengurangi 47 abu-abu unik jadi 7 token semantik. Mencapai palet yang aman untuk buta warna di semua produk. 5 squad produk kini berbicara bahasa visual yang sama.",
-            image: "airy:chart",
+              "Membentuk review desain mingguan dan model Kepemilikan Komponen (PIC). Siklus iterasi ini, dikombinasikan dengan kolaborasi yang kuat bersama engineer, memastikan sistem tetap hidup.",
+            image: "airy:cycle",
           },
         ],
         aiHypotheses: [
@@ -1105,50 +1079,71 @@ export const gudangAda = {
           team: "Riska Amalia, Fadly Uzzaki, Iqbal Ramadhan",
         },
         challenge:
-          "Kami punya 15 warna biru berbeda, 4 date picker berbeda, dan nol bahasa bersama antara desainer dan developer. Setiap fitur baru butuh 3 hari hanya untuk styling karena engineer menebak-nebak hex code dari screenshot. Hutang desain kami bukan sekadar jelek — itu pajak di setiap sprint. Keputusan warna asal-asalan, aksesibilitas cuma afterthought, dan onboarding desainer baru berarti minggu-minggu 'tinggal contek layar itu'.",
-        process: [
-          {
-            title: "Audit Warna",
-            desc: "Saya screenshot setiap layar di aplikasi dan ekstrak setiap nilai warna unik. Kami temukan 47 abu-abu berbeda, 15 biru, dan nol dokumentasi. Saya pajang semua di satu canvas Figma — dinding kekacauan itu jadi pitch deck yang meyakinkan manajemen.",
-            image: "airy:matrix",
-          },
-          {
-            title: "Tooling Palet",
-            desc: "Kami pakai Coolors untuk mendefinisikan dan menyesuaikan palet dasar secara manual, mengecek harmoni dan aksesibilitas buta warna. Lalu kami jalankan setiap warna melalui ColorBox untuk auto-generate skala shade (50–900) dengan rasio kontras yang seimbang. Hasilnya: palet sistematis di mana setiap shade punya alasan untuk ada.",
-            image: "airy:hierarchy",
-          },
-        ],
+          "Sebelum adanya design system, GudangAda menghadapi inkonsistensi UI yang parah di berbagai produk, penggunaan ulang kode yang terfragmentasi, dan kurangnya standarisasi terminologi (mis. snackbar vs toast). Desainer mengandalkan duplikasi manual. Tantangan ini secara drastis mengurangi efisiensi dan kualitas produk. Tujuannya menjadi jelas: Membangun bahasa desain terpadu, meningkatkan eksekusi dari desain ke pengembangan, memungkinkan skalabilitas, dan menciptakan kosakata bersama.",
         insights: [
           {
-            title: "Developer Adalah User Sebenarnya",
-            desc: "Saya sadar design system bukan buat desainer — tapi buat developer. Mereka nggak mikir pakai 'Teal Brand'; mereka mikir pakai Props dan kontrak API. Jadi saya tulis dokumentasi pakai bahasa mereka: nama token, aturan penggunaan, dan code snippet — bukan anotasi Figma.",
+            title: "Audit & Ketimpangan (The Gap)",
+            desc: "Audit komprehensif dilakukan di seluruh produk. Kami mengidentifikasi duplikasi komponen masif, inkonsistensi warna, dan variasi tipografi. Kami juga menemukan tantangan operasional inti: tidak adanya Sumber Kebenaran Tunggal, penamaan yang tidak konsisten, dan hanya separuh integrasi engineering.",
           },
         ],
         solution: [
           {
-            title: "Arsitektur Token",
-            desc: "Mendefinisikan 6 kategori warna dengan nilai HEX & aturan eksak. Neutral (White #FFFFFF ke Black 500 #383838) untuk surface; Primary Teal (500: #03A199) untuk aksi positif; Secondary Blue (500: #0470C8) untuk progres; Success Green (500: #07A650); Warning Orange (500: #F27D07) untuk badge; Error Red (500: #D42867) untuk destruktif.",
-            image: "airy:layers",
+            title: "Komponen Kunci: Tombol & Form",
+            desc: "Menetapkan hierarki tombol yang jelas (FAB → Primary → Outline → Text) yang dipetakan ke state ketat (Default, Hover, Pressed, Disabled). Form distandarisasi secara mendalam dengan state validasi field teks yang ketat, dropdown, dan perilaku unggah file.",
+            image: "airy:architecture",
           },
           {
-            title: "Arsitektur Komponen",
-            desc: "Menyusun definisi ke dalam hierarki Atomic Design. Atoms mencakup ikon (terstandar 16/20/24px), tipografi (Inter dengan header mobile semantik), dan token warna. Molecules untuk input form. Organisms untuk kartu produk dan logika keranjang kompleks.",
-            image: "airy:hierarchy",
-          },
-          {
-            title: "Sistem Spasi & Elevasi",
-            desc: "Menegakkan konsistensi struktural lewat grid Base-8 yang ketat (2px hingga 40px). Semantic border radii (Small 4px, Medium 8px, Large 12px, Circular 100px) dan sistem bayangan elevasi 3 tingkat memastikan kedalaman UI yang profesional dan terprediksi.",
-            image: "airy:layers",
+            title: "Sistem Feedback",
+            desc: "Menstandarisasi semua mekanisme feedback sistem. Kami membuat definisi yang jelas dan panduan penggunaan untuk Banners (persisten), Snackbars (temporer), dan Dialogs (modal) untuk menjernihkan seluruh terminologi yang tidak konsisten.",
+            image: "airy:kanban",
           },
         ],
         metrics: [
-          { label: "Kecepatan Dev", value: "Styling Fitur 3× Lebih Cepat" },
-          { label: "Hutang Desain", value: "47 Abu-abu → 7 Token" },
-          { label: "Konsistensi", value: "UI Terpadu di 5 Squad" },
-          { label: "Aksesibilitas", value: "Palet Aman Buta Warna" },
+          { label: "Efisiensi", value: "Redundansi Desain Berkurang" },
+          { label: "Kecepatan", value: "Onboarding Desainer Lebih Cepat" },
+          { label: "Konsistensi", value: "UI Lintas Produk Terpadu" },
+          { label: "Kolaborasi", value: "Sinkronisasi Desain-Eng Meningkat" },
         ],
         learnings:
-          "Design system itu produk, bukan proyek. Dia butuh maintenance, versioning, dan roadmap. Begitu kamu berhenti memperlakukannya sebagai sistem hidup, dia mati — dan kamu kembali ke 47 warna abu-abu.",
+          "Design system membutuhkan tata kelola yang kuat dan keselarasan lintas fungsi. Standarisasi token sangat kritis, dan dokumentasi sama pentingnya dengan komponen itu sendiri. GADA DS pada akhirnya berhasil membangun landasan transisi yang kuat untuk pertumbuhan yang terukur.",
+        designProcess: [
+          {
+            type: "research",
+            title: "Design Token",
+            desc: "Mendefinisikan DNA visual inti: sistem warna menggunakan peran semantik, tipografi berdasarkan skala modular (basis 15px), dan sistem spasial yang dibangun di atas skala 2px–48px.",
+            title_id: "Design Token",
+            desc_id:
+              "Mendefinisikan DNA visual inti: sistem warna menggunakan peran semantik, tipografi berdasarkan skala modular (basis 15px), dan sistem spasial yang dibangun di atas skala 2px–48px.",
+            image: "airy:matrix",
+          },
+          {
+            type: "design",
+            title: "Arsitektur Komponen",
+            desc: "Mengadopsi metodologi Atomic Design. Komponen dikategorikan secara ketat ke dalam Input, Navigasi, Feedback, dan Tampilan Data untuk memastikan penggunaan ulang yang tinggi.",
+            title_id: "Arsitektur Komponen",
+            desc_id:
+              "Mengadopsi metodologi Atomic Design. Komponen dikategorikan secara ketat ke dalam Input, Navigasi, Feedback, dan Tampilan Data untuk memastikan penggunaan ulang yang tinggi.",
+            image: "airy:hierarchy",
+          },
+          {
+            type: "insight",
+            title: "Sistem Layout",
+            desc: "Menstandarkan perilaku komponen di berbagai viewport dengan menerapkan grid 12-kolom untuk desktop dan grid 4-kolom yang solid untuk antarmuka mobile.",
+            title_id: "Sistem Layout",
+            desc_id:
+              "Menstandarkan perilaku komponen di berbagai viewport dengan menerapkan grid 12-kolom untuk desktop dan grid 4-kolom yang solid untuk antarmuka mobile.",
+            image: "airy:layers",
+          },
+          {
+            type: "ship",
+            title: "Proses & Tata Kelola",
+            desc: "Membentuk review desain mingguan dan model Kepemilikan Komponen (PIC). Siklus iterasi ini, dikombinasikan dengan kolaborasi yang kuat bersama engineer, memastikan sistem tetap hidup.",
+            title_id: "Proses & Tata Kelola",
+            desc_id:
+              "Membentuk review desain mingguan dan model Kepemilikan Komponen (PIC). Siklus iterasi ini, dikombinasikan dengan kolaborasi yang kuat bersama engineer, memastikan sistem tetap hidup.",
+            image: "airy:cycle",
+          },
+        ],
         aiHypotheses: [
           {
             tech: "Multimodal LLM (Vision-to-Code)",
