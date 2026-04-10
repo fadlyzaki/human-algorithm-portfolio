@@ -952,7 +952,7 @@ export const gudangAda = {
           team: "Cross-functional: Design, Front-End Engineering, Android Engineering",
         },
         challenge:
-          "By early 2021, GudangAda was experiencing explosive growth — rapidly digitizing Indonesia's traditional FMCG supply chain, connecting massive principals with regional wholesalers and local retail warungs. But hyper-growth without a foundation quickly breeds terminal design and technical debt. Operating in isolated pods meant teams were reinventing the wheel every sprint. A comprehensive UI audit revealed the damage: 14 different hex codes passing for 'Brand Blue', 8 structurally distinct primary buttons, inconsistent interaction models alienating traditional merchants already hesitant about digital transformation, and front-end velocity plummeting as engineers spent excessive cycles building bespoke UI elements. We didn't just need a UI kit — we needed a scalable product infrastructure.",
+          "Hyper-growth was breeding terminal design debt. A comprehensive UI audit revealed the damage: 14 hex codes for 'Brand Blue', 8 distinct primary buttons, and inconsistent interaction models alienating merchants already hesitant about digital transformation. Front-end velocity was plummeting as engineers rebuilt bespoke UI every sprint. We didn't need a UI kit — we needed scalable product infrastructure.",
         process: [
           {
             title: "Architectural Philosophy: Rejecting the Monolith",
