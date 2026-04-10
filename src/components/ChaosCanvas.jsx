@@ -181,7 +181,7 @@ const ChaosCanvas = ({ intensity = 0 }) => {
         }
       }
 
-      if (canvasRef.current && isVisibleRef.current) {
+      if (canvasRef.current && isVisible) {
          animationFrameId = requestAnimationFrame(animate);
       }
     };
@@ -199,11 +199,11 @@ const ChaosCanvas = ({ intensity = 0 }) => {
     };
 
     // INP Optimization: Pause canvas when off-screen
-    const isVisibleRef = useRef(true);
+    let isVisible = true;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          isVisibleRef.current = entry.isIntersecting;
+          isVisible = entry.isIntersecting;
           if (entry.isIntersecting) {
             // Resume if it comes back
             if (!animationFrameId) {
