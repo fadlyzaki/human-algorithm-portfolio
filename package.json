@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm --prefix 'docs/case-studies/Design System Documentation Website' install && npm --prefix 'docs/case-studies/Design System Documentation Website' run build && rm -rf public/prototype-gada && cp -r 'docs/case-studies/Design System Documentation Website/dist' public/prototype-gada && vite build",
+    "build": "npm --prefix 'prototype-source/gudangada' install && npm --prefix 'prototype-source/gudangada' run build && rm -rf public/prototype-gada && cp -r 'prototype-source/gudangada/dist' public/prototype-gada && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
