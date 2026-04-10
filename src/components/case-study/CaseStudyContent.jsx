@@ -15,6 +15,7 @@ import SolutionSection from "./sections/SolutionSection";
 import PrototypeViewer from "./sections/PrototypeViewer";
 import ImpactMetrics from "./sections/ImpactMetrics";
 import DesignSystemCaseStudy from "./DesignSystemCaseStudy";
+import StoqoSalesCaseStudy from "./StoqoSalesCaseStudy";
 
 const CaseStudyContent = ({ project, parentCluster }) => {
   const { t, language, toggleLanguage } = useLanguage();
@@ -99,6 +100,33 @@ const CaseStudyContent = ({ project, parentCluster }) => {
         {/* Design System gets its own custom layout, decoupled from ProcessFramework */}
         {project.id === "design-system-gudangada" ? (
           <DesignSystemCaseStudy caseData={caseData} t={t} />
+        ) : project.id === "stoqo-sales" ? (
+          <>
+            <StoqoSalesCaseStudy caseData={caseData} project={project} t={t} />
+
+            {/* AI BRAINSTORM */}
+            {(caseData.aiHypotheses || caseData.aiHypothesis) && (
+              <AIBrainstorm
+                hypotheses={caseData.aiHypotheses || [caseData.aiHypothesis]}
+                t={t}
+              />
+            )}
+
+            {/* TAKEAWAYS (ARCHITECT'S NOTE) */}
+            <section className="max-w-3xl mx-auto px-6 py-40 text-center">
+              <FileText
+                className="mx-auto text-[var(--text-secondary)] mb-8"
+                size={32}
+              />
+              <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">
+                {t("protected.architect_debrief") || "// Architect's Debrief"}
+              </h4>
+              <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
+                "{caseData.learnings || caseData.memo || "Confidential"}"
+              </p>
+              <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
+            </section>
+          </>
         ) : (
           <>
             <HeroSection project={project} caseData={caseData} isId={isId} t={t} />
