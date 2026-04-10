@@ -14,6 +14,7 @@ import KeyInsights from "./sections/KeyInsights";
 import SolutionSection from "./sections/SolutionSection";
 import PrototypeViewer from "./sections/PrototypeViewer";
 import ImpactMetrics from "./sections/ImpactMetrics";
+import DesignSystemCaseStudy from "./DesignSystemCaseStudy";
 
 const CaseStudyContent = ({ project, parentCluster }) => {
   const { t, language, toggleLanguage } = useLanguage();
@@ -95,42 +96,49 @@ const CaseStudyContent = ({ project, parentCluster }) => {
       </nav>
 
       <main className="relative z-10 w-full pb-32">
-        <HeroSection project={project} caseData={caseData} isId={isId} t={t} />
-        
-        <ContextStrip project={project} caseData={caseData} />
+        {/* Design System gets its own custom layout, decoupled from ProcessFramework */}
+        {project.id === "design-system-gudangada" ? (
+          <DesignSystemCaseStudy caseData={caseData} t={t} />
+        ) : (
+          <>
+            <HeroSection project={project} caseData={caseData} isId={isId} t={t} />
+            
+            <ContextStrip project={project} caseData={caseData} />
 
-        <ProcessFramework caseData={caseData} t={t} />
+            <ProcessFramework caseData={caseData} t={t} />
 
-        <KeyInsights caseData={caseData} t={t} />
+            <KeyInsights caseData={caseData} t={t} />
 
-        <SolutionSection caseData={caseData} t={t} />
+            <SolutionSection caseData={caseData} t={t} />
 
-        <PrototypeViewer caseData={caseData} t={t} />
+            <PrototypeViewer caseData={caseData} t={t} />
 
-        <ImpactMetrics caseData={caseData} t={t} />
+            <ImpactMetrics caseData={caseData} t={t} />
 
-        {/* 7. AI BRAINSTORM (HUMAN + AI COLLABORATION) */}
-        {(caseData.aiHypotheses || caseData.aiHypothesis) && (
-          <AIBrainstorm
-            hypotheses={caseData.aiHypotheses || [caseData.aiHypothesis]}
-            t={t}
-          />
+            {/* AI BRAINSTORM */}
+            {(caseData.aiHypotheses || caseData.aiHypothesis) && (
+              <AIBrainstorm
+                hypotheses={caseData.aiHypotheses || [caseData.aiHypothesis]}
+                t={t}
+              />
+            )}
+
+            {/* TAKEAWAYS (ARCHITECT'S NOTE) */}
+            <section className="max-w-3xl mx-auto px-6 py-40 text-center">
+              <FileText
+                className="mx-auto text-[var(--text-secondary)] mb-8"
+                size={32}
+              />
+              <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">
+                {t("protected.architect_debrief") || "// Architect's Debrief"}
+              </h4>
+              <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
+                "{caseData.learnings || caseData.memo || "Confidential"}"
+              </p>
+              <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
+            </section>
+          </>
         )}
-
-        {/* 8. TAKEAWAYS (ARCHITECT'S NOTE) */}
-        <section className="max-w-3xl mx-auto px-6 py-40 text-center">
-          <FileText
-            className="mx-auto text-[var(--text-secondary)] mb-8"
-            size={32}
-          />
-          <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">
-            {t("protected.architect_debrief") || "// Architect's Debrief"}
-          </h4>
-          <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
-            "{caseData.learnings || caseData.memo || "Confidential"}"
-          </p>
-          <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
-        </section>
 
         <Footer />
       </main>
