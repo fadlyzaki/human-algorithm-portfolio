@@ -22,40 +22,24 @@ const LINE_GAP = 0.3;
 
 const TypewriterText = ({ text, delay = 0, start = true }) => {
   if (!text) return null;
-  const characters = Array.from(text);
 
+  // LCP Optimization: Render as a single text node instead of mapping 100+ DOM nodes
   return (
     <motion.span
-      initial="hidden"
-      animate={start ? "visible" : "hidden"}
-      variants={{
-        visible: {
-          transition: { staggerChildren: CHAR_SPEED, delayChildren: delay },
-        },
-        hidden: {},
-      }}
-      aria-label={text}
+      initial={{ opacity: 0, y: 8 }}
+      animate={start ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+      transition={{ duration: 0.4, delay: delay, ease: "easeOut" }}
     >
-      {characters.map((char, index) => (
-        <motion.span
-          key={`${char} -${index} `}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 },
-          }}
-        >
-          {char}
-        </motion.span>
-      ))}
+      {text}
     </motion.span>
   );
 };
 
 const getDelay = (lines) => {
-  let total = 0;
-  return lines.map((text) => {
+  let total = 0.1; // Initial rapid paint delay
+  return lines.map(() => {
     const d = total;
-    total += Array.from(text).length * CHAR_SPEED + LINE_GAP;
+    total += 0.15; // Fast block stagger instead of character length
     return d;
   });
 };

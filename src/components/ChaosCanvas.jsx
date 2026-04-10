@@ -19,9 +19,9 @@ const ChaosCanvas = ({ intensity = 0 }) => {
     let animationFrameId;
     let particles = [];
 
-    // Performance optimization: limit particle density on mobile
+    // Performance optimization: limit particle density on mobile to fix INP
     const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 60 : 130;
+    const particleCount = isMobile ? 40 : 85;
     const connectionDistance = isMobile ? 130 : 200;
     const mouseRepelRadius = 250;
 
@@ -141,12 +141,14 @@ const ChaosCanvas = ({ intensity = 0 }) => {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+          const sqDistance = dx * dx + dy * dy; // INP Fix: Avoid Math.sqrt here
 
           // Connection distance increases dramatically under chaos
           const activeConnRes = connectionDistance * (1 + chaos * 1.5);
+          const sqRes = activeConnRes * activeConnRes;
 
-          if (distance < activeConnRes) {
+          if (sqDistance < sqRes) {
+            const distance = Math.sqrt(sqDistance); // Only math.sqrt if strictly necessary
             const opacity = (1 - distance / activeConnRes) * lineOpacity;
             ctx.beginPath();
 
@@ -179,7 +181,9 @@ const ChaosCanvas = ({ intensity = 0 }) => {
         }
       }
 
-      animationFrameId = requestAnimationFrame(animate);
+      if (canvasRef.current && isVisibleRef.current) {
+         animationFrameId = requestAnimationFrame(animate);
+      }
     };
 
     const handleMouseMove = (e) => {
@@ -194,6 +198,30 @@ const ChaosCanvas = ({ intensity = 0 }) => {
       mouse.y = -1000;
     };
 
+    // INP Optimization: Pause canvas when off-screen
+    const isVisibleRef = useRef(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisibleRef.current = entry.isIntersecting;
+          if (entry.isIntersecting) {
+            // Resume if it comes back
+            if (!animationFrameId) {
+               animate();
+            }
+          } else {
+             if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = undefined;
+             }
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    if (canvas) observer.observe(canvas);
+    
     window.addEventListener("resize", resize);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseout", handleMouseLeave);
@@ -202,10 +230,12 @@ const ChaosCanvas = ({ intensity = 0 }) => {
     animate();
 
     return () => {
+      if (canvas) observer.unobserve(canvas);
+      observer.disconnect();
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseout", handleMouseLeave);
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, [isDark, pace]);
 
