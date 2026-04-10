@@ -901,11 +901,11 @@ export const gudangAda = {
     },
     {
       id: "design-system-gudangada",
-      title: "GudangAda Design System",
+      title: "Architecting Scale: The GudangAda Design System",
       tag: "Architecture",
       type: "Design System",
-      role: "Product Designer",
-      timeline: "1 Year",
+      role: "Lead Product Designer / Design Systems Architect",
+      timeline: "Q1 - Q3 2021",
       route: "/case-study/design-system-gudangada",
       previewImage: "/commerce_hero.png",
       iconName: "Box",
@@ -946,39 +946,39 @@ export const gudangAda = {
           heroImage: "airy:architecture",
         },
         context: {
-          client: "Infrastructure",
-          role: "I co-built the System",
-          timeline: "Started 2021, 1 Year",
+          client: "B2B FMCG E-commerce",
+          role: "Lead Product Designer / Design Systems Architect",
+          timeline: "Q1 - Q3 2021",
           team: "Riska Amalia, Fadly Uzzaki, Iqbal Ramadhan",
         },
         challenge:
-          "Prior to the design system, GudangAda faced severe UI inconsistencies across products, fragmented code reuse, and a lack of standardized terminology (e.g., snackbar vs toast). Designers relied on manual duplication. These challenges drastically reduced efficiency and product quality. The objective became clear: Establish a unified design language, improve design-to-development execution, enable scalability, and create a shared vocabulary.",
+          "By early 2021, GudangAda was experiencing explosive growth. We were rapidly digitizing Indonesia's traditional FMCG supply chain, connecting massive principals with regional wholesalers and local retail warungs. To meet aggressive market demands, our engineering and product pods were shipping features at breakneck speed. But hyper-growth without a foundation quickly breeds terminal design and technical debt. Operating in isolated pods meant teams were reinventing the wheel every sprint. I led a comprehensive UI audit across our web dashboards and native Android applications, and the data was stark: 14 different hex codes passing for 'Brand Blue' and 8 structurally distinct primary buttons. Inconsistent interaction models were alienating our core demographic—traditional merchants who were already hesitant about digital transformation. The goal was to establish a single source of truth that unified our visual language, drastically reduced time-to-market, and respected the distinct paradigms of our heavy Android user base.",
         insights: [
           {
-            title: "The Audit & The Gap",
-            desc: "A comprehensive audit was conducted across all existing products. We identified massive component duplication, color inconsistencies, and typography variations. We also uncovered the core operational challenges: a lack of a Single Source of Truth, inconsistent naming, and only partial engineering integration.",
+            title: "Architectural Philosophy: Rejecting the Monolith",
+            desc: "A common trap in early-stage design systems is attempting to force a single, monolithic library across all platforms. Given our ecosystem—complex internal web tools vs. a consumer-facing native Android app—we knew a one-size-fits-all approach would fail. Through cross-functional alignment with Engineering leadership, I architected the GudangAda Design System into three decoupled, manageable pillars: Tokens (The DNA), Core Components (Platform-Agnostic), and Android-Specific Components.",
           },
         ],
         solution: [
           {
-            title: "Key Components: Buttons & Forms",
-            desc: "Established clear button hierarchies (FAB → Primary → Outline → Text) mapped to strict states (Default, Hover, Pressed, Disabled). Forms were deeply standardized with strict text field validation states, dropdowns, and file upload behaviors.",
+            title: "Pillar 1: Tokens & Semantic Foundations",
+            desc: "We stripped the UI down to its atoms. Hard-coded values were deprecated in favor of a robust design token taxonomy, ensuring changes cascaded predictably across platforms. We consolidated the 14 blues into a strict, semantic scale and rebuilt the responsive typography scale prioritizing legibility on low-brightness mobile displays.",
             image: "airy:architecture",
           },
           {
-            title: "Feedback Systems",
-            desc: "Standardized all system feedback mechanisms. We created clear definitions and usage guidelines for Banners (persistent), Snackbars (temporary), and Dialogs (modal) to clear up all inconsistent terminology.",
-            image: "airy:kanban",
+            title: "Pillar 2: Universal Inventory & Forms",
+            desc: "Built the molecular UI inventory. Subtlety fails in harsh environments. We designed interactive elements with massive tap targets (minimum 48x48dp) and AAA-compliant contrast ratios. We standardized form behaviors, error validations, and API-level documentation to guide users through high-friction bulk uploads.",
+            image: "airy:matrix",
           },
         ],
         metrics: [
-          { label: "Efficiency", value: "Reduced Design Redundancy" },
-          { label: "Velocity", value: "Faster Designer Onboarding" },
-          { label: "Consistency", value: "Unified Cross-Product UI" },
-          { label: "Collaboration", value: "Enhanced Design-Eng Sync" },
+          { label: "Velocity", value: "35% Increase in Engineering Output" },
+          { label: "Quality", value: "Drastic QA & Regression Reduction" },
+          { label: "UX Synergy", value: "Cohesive Merchant Journey" },
+          { label: "Scale", value: "Rapid MVPs within Weeks" },
         ],
         learnings:
-          "Design systems require strong governance and cross-functional alignment. Token standardization is critical, and documentation is as important as the components. Ultimately, GADA DS established a powerful transitional foundation for scalable future growth.",
+          "Adoption is a Product Lifecycle. A design system is not a project; it's a product serving internal customers. 30% of the work is building it; 70% is evangelizing it. Pragmatism over Purity: True user-centricity means prioritizing native Android usability and familiarity over academic, 1:1 cross-platform web parity.",
         designProcess: [
           {
             type: "research",
@@ -990,17 +990,17 @@ export const gudangAda = {
             image: "airy:matrix",
           },
           {
-            type: "design",
-            title: "Component Architecture",
-            desc: "Adopted the Atomic Design methodology. Components were strictly categorized into Inputs, Navigation, Feedback, and Data Display to ensure high reusability and systematic growth.",
-            title_id: "Arsitektur Komponen",
+            type: "research",
+            title: "Android-Native Primitives",
+            desc: "Escewed standard web modals for critical mobile flows. Designed bespoke Android bottom sheets for actions like cart management, optimizing for one-handed ergonomics on large devices. Adopted Material-native paradigms like Snackbars and Toasts for non-blocking feedback.",
+            title_id: "Primitif Native Android",
             desc_id:
-              "Mengadopsi metodologi Atomic Design. Komponen dikategorikan secara ketat ke dalam Input, Navigasi, Feedback, dan Tampilan Data untuk memastikan penggunaan ulang yang tinggi.",
+              "Menghindari modal web standar untuk alur seluler kritis. Merancang bottom sheets Android khusus untuk tindakan seperti manajemen keranjang, dioptimalkan untuk perangkat layar besar. Mengadopsi paradigma Material-native seperti Snackbar untuk umpan balik yang tidak menghalangi aliran pemindaian dan pemesanan yang cepat.",
             image: "airy:hierarchy",
           },
           {
             type: "insight",
-            title: "Layout System",
+            title: "API-Level Documentation",
             desc: "Standardized how components behave consistently across viewports by implementing a 12-column grid for desktop environments and a robust 4-column grid for mobile interfaces.",
             title_id: "Sistem Layout",
             desc_id:
@@ -1009,11 +1009,11 @@ export const gudangAda = {
           },
           {
             type: "ship",
-            title: "Process & Governance",
-            desc: "Established weekly design reviews and a Component Ownership (PIC) model. Combined with deep collaboration with engineers, this iterative improvement cycle ensured the system remained alive and adopted.",
+            title: "Governance & Handoff",
+            desc: "A system without governance rots. We mapped our Figma auto-layout components 1:1 with the Engineering repositories (React/Jetpack Compose) via Storybook. Established a bi-weekly governance council to manage deprecations and symbiotic UI scaling.",
             title_id: "Proses & Tata Kelola",
             desc_id:
-              "Membentuk review desain mingguan dan model Kepemilikan Komponen (PIC). Siklus iterasi ini, dikombinasikan dengan kolaborasi yang kuat bersama engineer, memastikan sistem tetap hidup.",
+              "Memetakan komponen auto-layout Figma 1:1 dengan repositori Engineering (React/Jetpack Compose) menggunakan Storybook. Membentuk dewan tata kelola dua mingguan untuk mengelola penghentian dan memastikan penyekalaan UI berkembang secara simbiotik.",
             image: "airy:cycle",
           },
         ],
