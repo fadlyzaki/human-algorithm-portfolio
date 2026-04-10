@@ -65,6 +65,7 @@ export const translations = {
       philosophy_quote:
         "Design isn't about making software look pretty. It's about reducing ambiguity so real people can do hard jobs without fighting the interface.",
       read_philosophy: "READ FULL PHILOSOPHY",
+      read_thesis: "READ THESIS FINDINGS",
       current_focus: "Current Focus",
       current_focus_desc:
         "Having recently completed my Master's in Educational Technology specializing in Cognitive Load Theory, I now systematically apply these behavioral principles to product architecture. I don't just design screens; I design how users learn, adapt, and master complex tools. My goal is to eliminate mental friction in high-stakes environments, ensuring every interface empowers human intent rather than exhausting it.",
@@ -605,6 +606,7 @@ export const translations = {
       philosophy_quote:
         "Desain bukan sekadar membuat perangkat lunak terlihat cantik. Ini tentang mengurangi ambiguitas sehingga pengguna dapat melakukan pekerjaan yang sulit tanpa harus 'berkelahi' dengan UI.",
       read_philosophy: "BACA FILOSOFI",
+      read_thesis: "BACA TEMUAN TESIS",
       current_focus: "Fokus Saat Ini",
       current_focus_desc:
         "Setelah menyelesaikan S2 Teknologi Pendidikan dengan spesialisasi Teori Beban Kognitif, saya kini menerapkan prinsip sains perilaku tersebut secara sistematis ke dalam arsitektur produk. Saya tidak sekadar mendesain layar; saya merancang bagaimana pengguna belajar, beradaptasi dan menguasai sistem kompleks. Tujuan saya adalah memusnahkan friksi mental dalam lingkungan berisiko tinggi, memastikan antarmuka memberdayakan intensi manusia, bukan menghabiskannya.",
