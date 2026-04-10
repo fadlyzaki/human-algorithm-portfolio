@@ -928,93 +928,141 @@ export const gudangAda = {
           eli5: {
             label: "👶 ELI5",
             title: "The Color Rulebook",
-            text: "Every designer was picking their own colors. I made a rulebook called 'GADA Design' with exact color codes and rules, so every button and every screen looks like it belongs together.",
+            text: "Every designer was picking their own colors and buttons. I made a rulebook called 'GADA Design' with exact rules, so every button and screen looks like it belongs together — whether it's on a phone or a computer.",
           },
           recruiter: {
             label: "👔 Recruiter",
             title: "Scalable Design System",
-            text: "Co-created 'GADA Design', a comprehensive token-based Design System unifying UI across 5 product squads. Used Coolors and ColorBox to define an accessible, harmonized color palette. Accelerated developer velocity and eliminated design debt.",
+            text: "Architected a three-pillar Design System (Tokens, Core Components, Android-Specific) that unified UI across Web, Native Android, and Internal Tools. Delivered 35% engineering velocity increase and eliminated cross-platform visual regressions.",
           },
           technical: {
             label: "🤖 System",
             title: "Tokenized UI Architecture",
-            text: "Architected a design token system with atomic color primitives (Neutral, Primary-Teal, Secondary-Blue, Success, Warning, Error) validated through Coolors for harmony/color-blindness and ColorBox for contrast ratios. Synced Figma tokens to a React component library via design-to-code pipeline.",
+            text: "Architected a decoupled design token system with semantic color scales, responsive typography optimized for low-brightness displays, and a strict 4pt/8pt spatial grid. Mapped Figma auto-layout components 1:1 with React/Jetpack Compose repositories via Storybook, with bi-weekly governance council for deprecation management.",
           },
         },
         snapshot: {
-          tagline: "From 15 shades of chaos to one tokenized source of truth.",
+          tagline: "From 14 shades of chaos to one tokenized source of truth.",
           heroImage: "airy:architecture",
         },
         context: {
           client: "B2B FMCG E-commerce",
           role: "Product Designer / Design Systems Architect",
           timeline: "Q1 - Q3 2021",
-          team: "Riska Amalia, Fadly Uzzaki, Iqbal Ramadhan",
+          team: "Cross-functional: Design, Front-End Engineering, Android Engineering",
         },
         challenge:
-          "By early 2021, GudangAda was experiencing explosive growth. We were rapidly digitizing Indonesia's traditional FMCG supply chain, connecting massive principals with regional wholesalers and local retail warungs. To meet aggressive market demands, our engineering and product pods were shipping features at breakneck speed. But hyper-growth without a foundation quickly breeds terminal design and technical debt. Operating in isolated pods meant teams were reinventing the wheel every sprint. I led a comprehensive UI audit across our web dashboards and native Android applications, and the data was stark: 14 different hex codes passing for 'Brand Blue' and 8 structurally distinct primary buttons. Inconsistent interaction models were alienating our core demographic—traditional merchants who were already hesitant about digital transformation. The goal was to establish a single source of truth that unified our visual language, drastically reduced time-to-market, and respected the distinct paradigms of our heavy Android user base.",
-        insights: [
+          "By early 2021, GudangAda was experiencing explosive growth — rapidly digitizing Indonesia's traditional FMCG supply chain, connecting massive principals with regional wholesalers and local retail warungs. But hyper-growth without a foundation quickly breeds terminal design and technical debt. Operating in isolated pods meant teams were reinventing the wheel every sprint. A comprehensive UI audit revealed the damage: 14 different hex codes passing for 'Brand Blue', 8 structurally distinct primary buttons, inconsistent interaction models alienating traditional merchants already hesitant about digital transformation, and front-end velocity plummeting as engineers spent excessive cycles building bespoke UI elements. We didn't just need a UI kit — we needed a scalable product infrastructure.",
+        process: [
           {
             title: "Architectural Philosophy: Rejecting the Monolith",
-            desc: "A common trap in early-stage design systems is attempting to force a single, monolithic library across all platforms. Given our ecosystem—complex internal web tools vs. a consumer-facing native Android app—we knew a one-size-fits-all approach would fail. Through cross-functional alignment with Engineering leadership, I architected the GudangAda Design System into three decoupled, manageable pillars: Tokens (The DNA), Core Components (Platform-Agnostic), and Android-Specific Components.",
+            desc: "A common trap in early-stage design systems is forcing a single, monolithic library across all platforms. Given our ecosystem — complex internal web tools vs. a consumer-facing native Android app — a one-size-fits-all approach would fail. Through cross-functional alignment with Engineering leadership, the system was architected into three decoupled, manageable pillars: Tokens (The DNA), Core Components (Platform-Agnostic Building Blocks), and Android-Specific Components (Native Mobile Paradigm).",
+            image: "airy:architecture",
+          },
+          {
+            title: "Pillar 1: Tokens — Semantic Foundations",
+            desc: "We stripped the UI down to its atoms. Hard-coded values were deprecated in favor of a robust design token taxonomy. The 14 blues were consolidated into a strict, semantic scale (brand-primary, action-hover, surface-subdued). System feedback colors (Success, Warning, Critical) were hardened to ensure order statuses and inventory alerts were instantly recognizable. Typography was rebuilt prioritizing legibility on low-fidelity, low-brightness mobile displays — the reality of a busy warehouse floor. A rigid 4pt/8pt spatial system completely eliminated guesswork in padding and margins.",
+            image: "airy:matrix",
+          },
+          {
+            title: "Pillar 2: Core Components — The Universal Inventory",
+            desc: "With the atomic layer secure, we built the molecular UI inventory — platform-agnostic components for all touchpoints. Subtlety fails in harsh environments: interactive elements were designed with massive tap targets (minimum 48x48dp) and AAA-compliant contrast ratios. Buttons were built to be unmistakable, even for users wearing gloves or operating in direct sunlight. B2B checkouts and bulk inventory uploads required robust form architecture with standardized error validations and helper texts. Every component was documented with states (Default, Hover, Focus, Disabled), constraints, and prop structures.",
+            image: "airy:layers",
+          },
+          {
+            title: "Pillar 3: Android-Specific — Respecting the Platform",
+            desc: "This pillar was our most critical strategic pivot. GudangAda's primary users operate almost entirely on Android. Forcing generic web components into a native environment degrades usability. We designed bespoke Android bottom sheets for cart management, optimized for one-handed ergonomics on large devices. Adopted native paradigms like Snackbars and Toasts for non-blocking feedback, preventing interruption of fast-paced scanning and ordering workflows. Custom bottom navigation and tab structures aligned strictly with Material Design while radiating GudangAda's brand identity.",
+            image: "airy:hierarchy",
+          },
+          {
+            title: "Governance & Engineering Handoff",
+            desc: "A system without governance rots. Delivering the Figma files was only the beginning. Figma auto-layout components and variants were mapped 1:1 with Engineering repositories (React for Web, XML/Jetpack Compose for Android) via Storybook. A bi-weekly governance council with front-end leads and product designers was established — the forum to propose new components, report deprecations, and ensure symbiotic evolution with the product roadmap. Designers could drag-and-drop fully configured components; engineers could invoke them with a single line of code.",
+            image: "airy:cycle",
+          },
+        ],
+        insights: [
+          {
+            title: "Visual Fragmentation Was Killing Trust",
+            desc: "14 different hex codes for 'Brand Blue' and 8 structurally distinct primary buttons. Inconsistent interaction models were alienating traditional merchants already hesitant about digital transformation. The chaos wasn't cosmetic — it was eroding user confidence in the product.",
+          },
+          {
+            title: "Operational Drag Was a Hidden Tax",
+            desc: "Front-end velocity was plummeting. Engineers were spending excessive cycles building bespoke UI elements rather than focusing on core business logic. Every sprint, teams were reinventing the wheel in isolation.",
+          },
+          {
+            title: "Monoliths Don't Scale Across Paradigms",
+            desc: "Forcing web components into native Android degrades usability. True user-centricity means prioritizing native usability and familiarity over academic 1:1 cross-platform parity. The three-pillar architecture was born from this insight.",
+          },
+          {
+            title: "Adoption Is 70% Evangelism",
+            desc: "A design system is not a project; it's a product serving internal customers. 30% of the work is building it; 70% is evangelizing it, managing breaking changes, and shifting company culture. Without governance, even the best system rots.",
           },
         ],
         solution: [
           {
-            title: "Pillar 1: Tokens & Semantic Foundations",
-            desc: "We stripped the UI down to its atoms. Hard-coded values were deprecated in favor of a robust design token taxonomy, ensuring changes cascaded predictably across platforms. We consolidated the 14 blues into a strict, semantic scale and rebuilt the responsive typography scale prioritizing legibility on low-brightness mobile displays.",
+            title: "Three-Pillar Architecture",
+            desc: "Tokens (semantic color, typography, spacing DNA), Core Components (platform-agnostic building blocks with API-level documentation), and Android-Specific Components (native bottom sheets, Snackbars, Material-aligned navigation). Each pillar is decoupled and independently versionable.",
             image: "airy:architecture",
           },
           {
-            title: "Pillar 2: Universal Inventory & Forms",
-            desc: "Built the molecular UI inventory. Subtlety fails in harsh environments. We designed interactive elements with massive tap targets (minimum 48x48dp) and AAA-compliant contrast ratios. We standardized form behaviors, error validations, and API-level documentation to guide users through high-friction bulk uploads.",
-            image: "airy:matrix",
+            title: "The 'Warung-Proof' Interface Standard",
+            desc: "Massive tap targets (minimum 48x48dp), AAA-compliant contrast ratios, buttons unmistakable even for users wearing gloves in direct sunlight, and responsive typography optimized for low-brightness warehouse environments.",
+            image: "airy:ui",
           },
         ],
         metrics: [
-          { label: "Velocity", value: "35% Increase in Engineering Output" },
-          { label: "Quality", value: "Drastic QA & Regression Reduction" },
-          { label: "UX Synergy", value: "Cohesive Merchant Journey" },
-          { label: "Scale", value: "Rapid MVPs within Weeks" },
+          { label: "Eng. Velocity", value: "+35%" },
+          { label: "Visual Regressions", value: "~0" },
+          { label: "Brand Colors", value: "14→1" },
+          { label: "New Vertical MVP", value: "Weeks" },
         ],
         learnings:
-          "Adoption is a Product Lifecycle. A design system is not a project; it's a product serving internal customers. 30% of the work is building it; 70% is evangelizing it. Pragmatism over Purity: True user-centricity means prioritizing native Android usability and familiarity over academic, 1:1 cross-platform web parity.",
+          "Adoption is a Product Lifecycle: A design system is not a project; it's a product serving internal customers. 30% of the work is building it; 70% is evangelizing it, managing breaking changes, and shifting company culture. Pragmatism Over Purity: Acknowledging the necessity of the 'Android Specific' pillar was a vital lesson. True user-centricity means prioritizing native usability and familiarity over academic, 1:1 cross-platform parity.",
         designProcess: [
           {
             type: "research",
-            title: "Design Tokens",
-            desc: "Defined the core visual DNA: a color system using semantic roles, a typography system based on a modular scale (base 15px), and a spatial system built on a 2px–48px scale.",
-            title_id: "Design Token",
+            title: "The UI Audit",
+            desc: "Led a comprehensive audit across web dashboards and native Android applications. Catalogued 14 hex codes for 'Brand Blue', 8 distinct button structures, and inconsistent interaction models that were alienating traditional merchants.",
+            title_id: "Audit UI",
             desc_id:
-              "Mendefinisikan DNA visual inti: sistem warna menggunakan peran semantik, tipografi berdasarkan skala modular (basis 15px), dan sistem spasial yang dibangun di atas skala 2px–48px.",
-            image: "airy:matrix",
+              "Memimpin audit komprehensif di seluruh dashboard web dan aplikasi Android native. Mengkatalogkan 14 kode hex untuk 'Brand Blue', 8 struktur tombol berbeda, dan model interaksi yang tidak konsisten.",
+            image: "airy:radar",
           },
           {
             type: "research",
-            title: "Android-Native Primitives",
-            desc: "Escewed standard web modals for critical mobile flows. Designed bespoke Android bottom sheets for actions like cart management, optimizing for one-handed ergonomics on large devices. Adopted Material-native paradigms like Snackbars and Toasts for non-blocking feedback.",
-            title_id: "Primitif Native Android",
+            title: "Semantic Token System",
+            desc: "Stripped the UI down to atoms. Consolidated the 14 blues into a strict semantic scale. Rebuilt typography for low-brightness displays. Implemented a rigid 4pt/8pt spatial system eliminating guesswork.",
+            title_id: "Sistem Token Semantik",
             desc_id:
-              "Menghindari modal web standar untuk alur seluler kritis. Merancang bottom sheets Android khusus untuk tindakan seperti manajemen keranjang, dioptimalkan untuk perangkat layar besar. Mengadopsi paradigma Material-native seperti Snackbar untuk umpan balik yang tidak menghalangi aliran pemindaian dan pemesanan yang cepat.",
-            image: "airy:hierarchy",
+              "Menelanjangi UI hingga atom terkecil. Mengkonsolidasikan 14 warna biru menjadi skala semantik ketat. Membangun ulang tipografi untuk layar redup. Menerapkan sistem spasial 4pt/8pt yang kaku.",
+            image: "airy:matrix",
           },
           {
             type: "insight",
-            title: "API-Level Documentation",
-            desc: "Standardized how components behave consistently across viewports by implementing a 12-column grid for desktop environments and a robust 4-column grid for mobile interfaces.",
-            title_id: "Sistem Layout",
+            title: "Platform-Specific Design",
+            desc: "GudangAda's primary users operate on Android. Forcing web components into native apps degrades usability. Designed bespoke bottom sheets, Snackbars, and Material-aligned navigation that felt native to the OS.",
+            title_id: "Desain Spesifik Platform",
             desc_id:
-              "Menstandarkan perilaku komponen di berbagai viewport dengan menerapkan grid 12-kolom untuk desktop dan grid 4-kolom yang solid untuk antarmuka mobile.",
-            image: "airy:layers",
+              "Pengguna utama GudangAda beroperasi di Android. Memaksakan komponen web ke aplikasi native menurunkan usabilitas. Merancang bottom sheet, Snackbar, dan navigasi Material yang terasa native.",
+            image: "airy:hierarchy",
           },
           {
             type: "ship",
             title: "Governance & Handoff",
-            desc: "A system without governance rots. We mapped our Figma auto-layout components 1:1 with the Engineering repositories (React/Jetpack Compose) via Storybook. Established a bi-weekly governance council to manage deprecations and symbiotic UI scaling.",
-            title_id: "Proses & Tata Kelola",
+            desc: "Mapped Figma auto-layout components 1:1 with Engineering repos (React/Jetpack Compose) via Storybook. Established a bi-weekly governance council for continuous evolution.",
+            title_id: "Tata Kelola & Handoff",
             desc_id:
-              "Memetakan komponen auto-layout Figma 1:1 dengan repositori Engineering (React/Jetpack Compose) menggunakan Storybook. Membentuk dewan tata kelola dua mingguan untuk mengelola penghentian dan memastikan penyekalaan UI berkembang secara simbiotik.",
+              "Memetakan komponen auto-layout Figma 1:1 dengan repo Engineering (React/Jetpack Compose) melalui Storybook. Mendirikan dewan tata kelola dua mingguan.",
             image: "airy:cycle",
+          },
+          {
+            type: "measure",
+            title: "Business Impact",
+            desc: "35% increase in engineering velocity. Visual regressions virtually eliminated. Cohesive merchant experience across web and mobile. When a new Logistics vertical was mandated, the team prototyped, tested, and shipped the MVP in weeks — entirely on the established component library.",
+            title_id: "Dampak Bisnis",
+            desc_id:
+              "Peningkatan kecepatan engineering 35%. Regresi visual hampir dihilangkan. Pengalaman merchant yang kohesif di web dan mobile. Saat vertikal Logistik baru dimandatkan, tim mampu memprototype, menguji, dan mengirim MVP dalam hitungan minggu.",
+            image: "airy:chart",
           },
         ],
         aiHypotheses: [
