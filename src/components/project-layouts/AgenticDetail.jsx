@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import {
   Terminal,
@@ -30,6 +30,8 @@ const AgenticDetail = ({
   t,
 }) => {
   const containerRef = useRef(null);
+  const [activeTab, setActiveTab] = useState("challenge");
+  const [activePhase, setActivePhase] = useState(0);
   const accentColor = "var(--accent-purple, #8b5cf6)";
 
   return (
@@ -166,62 +168,146 @@ const AgenticDetail = ({
                     </p>
                  </div>
 
-                 {/* The Challenge */}
-                 <div className="mb-20">
-                    <div className="text-[var(--accent-purple)] font-mono text-sm mb-6 flex items-center gap-2">
-                       <span>## The_Challenge</span>
+                 {/* Interactive Tabs Terminal */}
+                 <div className="mb-16">
+                    <div className="flex border-b border-[var(--border-color)] mb-8 overflow-x-auto hide-scrollbar">
+                      {[
+                        { id: "challenge",  label: "README.md" },
+                        { id: "insights",   label: "architecture-insights.json" },
+                        { id: "learnings",  label: "post-mortem.log" },
+                      ].map((tab) => (
+                        <button
+                          key={tab.id}
+                          onClick={() => setActiveTab(tab.id)}
+                          className={`px-4 py-2 font-mono text-xs uppercase tracking-widest transition-colors border-b-2 -mb-px shrink-0 ${
+                            activeTab === tab.id
+                              ? "border-[var(--accent-purple)] text-[var(--accent-purple)]"
+                              : "border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                          }`}
+                        >
+                          {tab.label}
+                        </button>
+                      ))}
                     </div>
-                    <div className="prose prose-lg max-w-none text-[var(--text-primary)]">
-                       <p className="text-xl leading-relaxed font-light border-l-2 border-[var(--border-color)] pl-6">
-                           {activeChallenge}
-                       </p>
-                    </div>
+
+                    <AnimatePresence mode="wait">
+                      {activeTab === "challenge" && (
+                        <motion.div
+                          key="challenge"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0 }}
+                          className="prose prose-lg max-w-none text-[var(--text-primary)]"
+                        >
+                          <p className="text-xl leading-relaxed font-light border-l-2 border-[var(--accent-purple)] pl-6">
+                            {activeChallenge}
+                          </p>
+                        </motion.div>
+                      )}
+
+                      {activeTab === "insights" && activeInsights && (
+                        <motion.div
+                          key="insights"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0 }}
+                          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                        >
+                          {activeInsights.map((insight, i) => (
+                            <div key={i} className="p-6 border border-[var(--border-color)] bg-[var(--bg-void)] rounded-lg font-mono relative group">
+                               <div className="absolute top-0 right-0 px-2 py-0.5 bg-[var(--accent-purple)]/10 text-[var(--accent-purple)] text-[10px] rounded-bl-lg">
+                                  insight_{i+1}.sys
+                               </div>
+                               <h3 className="font-bold text-sm mb-3 mt-2 text-[var(--text-primary)]">&gt; {insight.title}</h3>
+                               <p className="text-[var(--text-secondary)] text-xs leading-relaxed">{insight.desc}</p>
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+
+                      {activeTab === "learnings" && activeLearnings && (
+                        <motion.div
+                          key="learnings"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0 }}
+                          className="p-6 bg-[var(--bg-void)] border border-[var(--border-color)] font-mono text-sm leading-relaxed text-[var(--text-secondary)]"
+                        >
+                          <div className="text-[var(--accent-purple)] mb-2">root@system:~# cat post_mortem.log</div>
+                          {activeLearnings}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                  </div>
 
-                 {/* The Process */}
+                 {/* Interactive Execution Flow (The Process) */}
                  {activeProcess && (
                    <div className="mb-20">
-                      <div className="text-[var(--accent-purple)] font-mono text-sm mb-10 flex items-center gap-2">
-                         <span>## Methodology_Execution</span>
+                      <div className="text-[var(--accent-purple)] font-mono text-sm mb-8 flex items-center gap-2">
+                         <span>## execution_loop_stdout</span>
                       </div>
                       
-                      <div className="space-y-16">
-                        {activeProcess.map((step, idx) => (
-                           <div key={idx} className="relative group">
-                              <div className="absolute -left-6 top-1 text-[var(--border-color)] font-mono text-xl group-hover:text-[var(--accent-purple)] transition-colors">
-                                 {idx + 1}
-                              </div>
-                              <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                              <p className="text-[var(--text-secondary)] leading-relaxed mb-6 font-light">
-                                 {step.desc}
-                              </p>
-                              {step.image && (
-                                <div className="rounded-xl border border-[var(--border-color)] overflow-hidden bg-[var(--bg-surface)] p-2">
-                                  {step.image.startsWith("airy:") ? (
-                                    <div className="h-64 flex items-center justify-center">
-                                      <AiryDiagram type={step.image.split(":")[1]} />
-                                    </div>
-                                  ) : (
-                                    <img loading="lazy" decoding="async" src={step.image} alt={step.title} className="w-full object-cover rounded-lg" />
-                                  )}
-                                </div>
-                              )}
-                           </div>
-                        ))}
-                      </div>
-                   </div>
-                 )}
+                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
+                        {/* Phase Selector (Left Axis) */}
+                        <div className="lg:col-span-4 space-y-2 sticky top-20">
+                          {activeProcess.map((step, idx) => {
+                            const isActive = activePhase === idx;
+                            return (
+                              <button
+                                key={idx}
+                                onClick={() => setActivePhase(idx)}
+                                className={`w-full text-left px-4 py-3 rounded border transition-all duration-200 flex items-center gap-3 font-mono text-xs group ${
+                                  isActive
+                                    ? "border-[var(--accent-purple)] bg-[var(--accent-purple)]/10 text-[var(--accent-purple)] shadow-[inset_2px_0_0_var(--accent-purple)]"
+                                    : "border-[var(--border-color)] bg-[var(--bg-void)] hover:border-[var(--accent-purple)]/30 text-[var(--text-secondary)]"
+                                }`}
+                              >
+                                <span>{String(idx + 1).padStart(2, "0")}</span>
+                                <span className="truncate flex-1">{step.title}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
 
-                 {/* Learnings */}
-                 {activeLearnings && (
-                   <div className="mb-10">
-                      <div className="text-[var(--accent-purple)] font-mono text-sm mb-6 flex items-center gap-2">
-                         <span>## Post_Mortem</span>
-                      </div>
-                      <div className="p-8 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-2xl">
-                         <p className="font-serif italic text-lg text-[var(--text-secondary)] leading-relaxed">
-                           "{activeLearnings}"
-                         </p>
+                        {/* Phase Detail Viewer (Right Axis) */}
+                        <div className="lg:col-span-8">
+                          <AnimatePresence mode="wait">
+                            <motion.div
+                              key={activePhase}
+                              initial={{ opacity: 0, x: 20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: -20 }}
+                              transition={{ duration: 0.2 }}
+                              className="border border-[var(--border-color)] bg-[var(--bg-void)] p-8 relative overflow-hidden"
+                            >
+                               <div className="font-mono text-[9px] uppercase text-[var(--text-secondary)] mb-6 border-b border-[var(--border-color)] pb-2 flex justify-between">
+                                  <span>Step_{String(activePhase + 1).padStart(2, "0")}.exe</span>
+                                  <span className="text-[var(--accent-purple)]">STATUS: RUNNING</span>
+                               </div>
+                               <h3 className="text-xl font-bold mb-4 font-mono text-[var(--text-primary)]">
+                                  {activeProcess[activePhase].title}
+                               </h3>
+                               <p className="text-sm font-mono leading-relaxed text-[var(--text-secondary)] mb-6">
+                                  {activeProcess[activePhase].desc}
+                               </p>
+                               {activeProcess[activePhase].image && (
+                                  <div className="border border-[var(--border-color)] bg-[#0d0d0d] p-4 flex justify-center items-center h-48 relative overflow-hidden group">
+                                     <div className="absolute inset-0 bg-[var(--accent-purple)]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none md:block hidden"></div>
+                                     <div className="absolute inset-0 grid grid-cols-[repeat(20,1fr)] grid-rows-[repeat(10,1fr)] opacity-5 md:block hidden">
+                                       {Array.from({length: 200}).map((_, i) => <div key={i} className="border-r border-b border-white mix-blend-overlay"></div>)}
+                                     </div>
+                                     {activeProcess[activePhase].image.startsWith("airy:") ? (
+                                       <div className="relative z-10 w-full h-full flex items-center justify-center">
+                                          <AiryDiagram type={activeProcess[activePhase].image.split(":")[1]} />
+                                       </div>
+                                     ) : (
+                                       <img loading="lazy" decoding="async" src={activeProcess[activePhase].image} alt="diagram" className="max-h-full rounded z-10 relative" />
+                                     )}
+                                  </div>
+                               )}
+                            </motion.div>
+                          </AnimatePresence>
+                        </div>
                       </div>
                    </div>
                  )}
