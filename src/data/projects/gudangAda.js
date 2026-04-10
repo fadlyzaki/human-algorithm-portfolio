@@ -910,14 +910,14 @@ export const gudangAda = {
       previewImage: "/commerce_hero.png",
       iconName: "Box",
       details: {
-        problem: "50 shades of grey buttons created chaos.",
-        system: "A shared language for devs.",
-        outcome: "Peace due to consistency.",
+        problem: "15 shades of blue and 4 date pickers — our design debt was a tax on every feature.",
+        system: "GADA Design: a token-based system built for developers first.",
+        outcome: "One source of truth. Unified UI across 5 product squads.",
       },
       details_id: {
-        problem: "50 warna tombol abu-abu bikin kacau.",
-        system: "Bahasa bersama buat developer.",
-        outcome: "Damai karena konsistensi.",
+        problem: "15 warna biru dan 4 date picker — hutang desain kami jadi pajak di setiap fitur.",
+        system: "GADA Design: sistem berbasis token yang dibangun untuk developer.",
+        outcome: "Satu sumber kebenaran. UI seragam di 5 squad produk.",
       },
       title_id: "GudangAda Design System",
       tag_id: "Arsitektur",
@@ -926,112 +926,114 @@ export const gudangAda = {
         summaries: {
           eli5: {
             label: "👶 ELI5",
-            title: "Button Rulebook",
-            text: "We had too many different buttons. I made a rulebook so all buttons look the same and work perfectly, anywhere in the app.",
+            title: "The Color Rulebook",
+            text: "Every designer was picking their own colors. I made a rulebook called 'GADA Design' with exact color codes and rules, so every button and every screen looks like it belongs together.",
           },
           recruiter: {
             label: "👔 Recruiter",
             title: "Scalable Design System",
-            text: "Established a comprehensive Design System to unify UI across products. Accelerated developer velocity and reduced technical debt.",
+            text: "Co-created 'GADA Design', a comprehensive token-based Design System unifying UI across 5 product squads. Used Coolors and ColorBox to define an accessible, harmonized color palette. Accelerated developer velocity and eliminated design debt.",
           },
           technical: {
             label: "🤖 System",
-            title: "Tokenized UI Library",
-            text: "Designed a tokenized UI kit synced with Figma tokens. Enforced atomic design principles to ensure consistency and maintainability across the codebase.",
+            title: "Tokenized UI Architecture",
+            text: "Architected a design token system with atomic color primitives (Neutral, Primary-Teal, Secondary-Blue, Success, Warning, Error) validated through Coolors for harmony/color-blindness and ColorBox for contrast ratios. Synced Figma tokens to a React component library via design-to-code pipeline.",
           },
         },
         snapshot: {
-          tagline: "Ending the '50 Shades of Grey' button chaos.",
+          tagline: "From 15 shades of chaos to one tokenized source of truth.",
           heroImage: "airy:architecture",
         },
         context: {
           client: "Infrastructure",
-          role: "I built the System",
-          timeline: "1 Year",
-          team: "All Designers",
+          role: "I co-built the System",
+          timeline: "Started 2021, 1 Year",
+          team: "Riska Amalia, Fadly Uzzaki, Iqbal Ramadhan",
         },
         challenge:
-          "We had 15 different shades of blue and 4 different date pickers. Every new feature took 3 days just to style. Our design debt was slowing us down.",
+          "We had 15 different shades of blue, 4 different date pickers, and zero shared language between designers and developers. Every new feature took 3 days just to style because engineers were guessing hex codes from screenshots. Our design debt wasn't just ugly — it was a tax on every sprint. Color decisions were arbitrary, accessibility was an afterthought, and onboarding a new designer meant weeks of 'just copy that other screen'.",
         process: [
           {
-            title: "Inventory",
-            desc: "I collected every button in the app. Seeing them all in one place was the wake-up call management needed.",
+            title: "The Color Audit",
+            desc: "I screenshotted every screen in the app and extracted every unique color value. We found 47 distinct grays, 15 blues, and zero documentation. I laid them all out on a single Figma canvas — that wall of chaos was the pitch deck that got leadership buy-in.",
             image: "airy:matrix",
           },
           {
-            title: "Atomic Tokens",
-            desc: "I defined the core variables: Color, Spacing, Typography. If it wasn't a token, it didn't exist.",
+            title: "Tooling the Palette",
+            desc: "We used Coolors to define and manually adjust our base palette, checking for color harmony and color blindness accessibility. Then we ran every color through ColorBox to auto-generate shade scales (50–900) with balanced contrast ratios. The result: a systematic palette where every shade had a reason to exist.",
             image: "airy:hierarchy",
           },
         ],
         insights: [
           {
-            title: "Dev First",
-            desc: "I realized a design system isn't for designers; it's for developers. I wrote the documentation in their language (Props, API), not ours.",
+            title: "Developers Are the Real Users",
+            desc: "I realized a design system isn't for designers — it's for developers. They don't think in 'Brand Teal'; they think in Props and API contracts. So I wrote the documentation in their language: token names, usage rules, and code snippets — not Figma annotations.",
           },
         ],
         solution: [
           {
-            title: "UI Kit",
-            desc: "A comprehensive Figma library with auto-layout components.",
-            image: "airy:ui",
+            title: "Token Architecture",
+            desc: "Defined 6 semantic color categories with explicit HEX values and rules. Neutral (White #FFFFFF to Black 500 #383838) for surfaces; Primary Teal (500: #03A199) for positive actions; Secondary Blue (500: #0470C8) for progress; Success Green (500: #07A650); Warning Orange (500: #F27D07) for badges; Error Red (500: #D42867) for destructive tasks.",
+            image: "airy:layers",
           },
           {
-            title: "Synced Components",
-            desc: "A design-to-code workflow. Update Figma, sync to production.",
+            title: "Component Library",
+            desc: "Built a comprehensive Figma library with auto-layout components that consumed the token system. Every component — from buttons to complex data tables — referenced tokens instead of raw hex values. A design-to-code workflow ensured that updating a token in Figma automatically propagated to the React component library via synced npm packages.",
             image: "airy:cycle",
           },
         ],
         metrics: [
-          { label: "Dev Velocity", value: "Accelerated Development" },
-          { label: "Design Debt", value: "Eliminated Debt" },
-          { label: "Consistency", value: "Unified UI" },
+          { label: "Dev Velocity", value: "Feature Styling 3× Faster" },
+          { label: "Design Debt", value: "47 Grays → 7 Tokens" },
+          { label: "Consistency", value: "Unified UI Across 5 Squads" },
+          { label: "Accessibility", value: "Color-Blind Safe Palette" },
         ],
         learnings:
-          "A design system is a product, not a project. It needs maintenance, versioning, and a roadmap.",
+          "A design system is a product, not a project. It needs maintenance, versioning, and a roadmap. The moment you stop treating it like a living system, it dies — and you're back to 47 shades of gray.",
         designProcess: [
           {
             type: "research",
-            title: "Inventory",
-            desc: "I collected every button in the app. Seeing them all in one place was the wake-up call management needed.",
-            title_id: "Inventaris",
+            title: "The Color Audit",
+            desc: "I screenshotted every screen in the app and extracted every unique color value. We found 47 distinct grays, 15 blues, and zero documentation. That wall of chaos was the pitch deck that got leadership buy-in.",
+            title_id: "Audit Warna",
             desc_id:
-              "Saya kumpulkan semua tombol di aplikasi. Melihat semuanya di satu tempat adalah tamparan yang dibutuhkan manajemen.",
+              "Saya screenshot setiap layar di aplikasi dan ekstrak setiap warna unik. Kami temukan 47 abu-abu berbeda, 15 biru, dan nol dokumentasi. Dinding kekacauan itu jadi pitch deck yang meyakinkan manajemen.",
             image: "airy:matrix",
           },
           {
             type: "insight",
-            title: "Dev First",
-            desc: "I realized a design system isn't for designers; it's for developers. I wrote the documentation in their language (Props, API), not ours.",
-            title_id: "Dev First",
+            title: "Developer-First Documentation",
+            desc: "I realized a design system isn't for designers — it's for developers. They don't think in 'Brand Teal'; they think in Props and API contracts. So I wrote documentation in their language: token names like 'color.primary.500', usage rules, and code snippets.",
+            title_id: "Dokumentasi Developer-First",
             desc_id:
-              "Saya sadar design system bukan buat desainer; tapi buat developer. Saya tulis dokumentasi pakai bahasa mereka (Props, API), bukan bahasa desain.",
+              "Saya sadar design system bukan buat desainer — tapi buat developer. Mereka nggak mikir 'Teal Brand'; mereka mikir dalam Props dan API. Jadi saya tulis dokumentasi pakai bahasa mereka: nama token kayak 'color.primary.500', aturan pakai, dan code snippet.",
             image: "airy:kanban",
           },
           {
             type: "design",
-            title: "UI Kit",
-            desc: "A comprehensive Figma library with auto-layout components.",
-            title_id: "UI Kit",
-            desc_id: "Library Figma komprehensif dengan komponen auto-layout.",
-            image: "airy:ui",
+            title: "Token Architecture (GADA Design)",
+            desc: "Defined semantic categories using Coolors for harmony/color-blindness and ColorBox for shade generation. Neutral (#383838) for surfaces, Primary Teal (#03A199) for interactive elements, Secondary Blue (#0470C8), Success Green (#07A650), Warning Orange (#F27D07) for badges/text-prices, Error Red (#D42867).",
+            title_id: "Arsitektur Token (GADA Design)",
+            desc_id:
+              "Mendefinisikan kategori semantik pakai Coolors (harmoni/buta warna) & ColorBox. Neutral (#383838) untuk surface, Primary Teal (#03A199) untuk elemen interaktif, Secondary Blue (#0470C8), Success Green (#07A650), Warning Orange (#F27D07) untuk badge/harga, Error Red (#D42867).",
+            image: "airy:layers",
           },
           {
             type: "ship",
-            title: "Synced Components",
-            desc: "A design-to-code workflow. Update Figma, sync to production.",
-            title_id: "Library React",
+            title: "Synced Component Library",
+            desc: "Built a comprehensive Figma library with auto-layout components consuming the token system. A design-to-code pipeline ensured Figma updates automatically synced to the React component library via npm packages. Update once, deploy everywhere.",
+            title_id: "Library Komponen Tersinkronisasi",
             desc_id:
-              "Paket npm yang tersinkronisasi sempurna. Desain sekali, impor di mana saja.",
+              "Membangun library Figma komprehensif dengan komponen auto-layout yang mengkonsumsi sistem token. Pipeline design-to-code memastikan update Figma otomatis tersinkronisasi ke library komponen React via paket npm. Update sekali, deploy di mana saja.",
             image: "airy:cycle",
           },
           {
             type: "measure",
-            title: "Dev Velocity",
-            desc: "Accelerated development velocity and eliminated design debt through a unified UI.",
-            title_id: "Kecepatan Dev",
+            title: "Unified UI Across Squads",
+            desc: "Feature styling went from 3 days to under 1 day. Reduced 47 unique grays to 7 semantic tokens. Achieved color-blind safe palette across all products. 5 product squads now speak the same visual language.",
+            title_id: "UI Terpadu di Semua Squad",
             desc_id:
-              "Mempercepat kecepatan pengembangan dan menghilangkan hutang desain melalui UI yang terpadu.",
+              "Styling fitur turun dari 3 hari jadi kurang dari 1 hari. Mengurangi 47 abu-abu unik jadi 7 token semantik. Mencapai palet yang aman untuk buta warna di semua produk. 5 squad produk kini berbicara bahasa visual yang sama.",
             image: "airy:chart",
           },
         ],
@@ -1066,9 +1068,81 @@ export const gudangAda = {
             desc: "Designers describe a flow: 'Login screen with OTP and social auth'. AI assembles the screen using existing atomic tokens, adhering strictly to spacing guidelines.",
             impact: "Rapid Prototyping",
           },
+        ],
+      },
+      caseStudy_id: {
+        locked: true,
+        summaries: {
+          eli5: {
+            label: "👶 ELI5",
+            title: "Buku Aturan Warna",
+            text: "Setiap desainer pilih warna sendiri-sendiri. Saya bikin buku aturan namanya 'GADA Design' dengan kode warna pasti dan aturan, biar setiap tombol dan layar terlihat satu keluarga.",
+          },
+          recruiter: {
+            label: "👔 Recruiter",
+            title: "Design System Skalabel",
+            text: "Bersama tim, membangun 'GADA Design', Design System berbasis token yang menyatukan UI di 5 squad produk. Menggunakan Coolors dan ColorBox untuk palet warna yang aksesibel dan harmonis. Mempercepat kecepatan development dan menghilangkan hutang desain.",
+          },
+          technical: {
+            label: "🤖 Sistem",
+            title: "Arsitektur UI Tokenized",
+            text: "Merancang sistem token desain dengan primitif warna atomik (Neutral, Primary-Teal, Secondary-Blue, Success, Warning, Error) yang divalidasi melalui Coolors untuk harmoni/buta warna dan ColorBox untuk rasio kontras. Sinkronisasi token Figma ke library komponen React via pipeline design-to-code.",
+          },
+        },
+        snapshot: {
+          tagline: "Dari 15 warna kacau jadi satu sumber kebenaran yang ter-tokenisasi.",
+          heroImage: "airy:architecture",
+        },
+        context: {
+          client: "Infrastruktur",
+          role: "Co-builder Sistem",
+          timeline: "Dimulai 2021, 1 Tahun",
+          team: "Riska Amalia, Fadly Uzzaki, Iqbal Ramadhan",
+        },
+        challenge:
+          "Kami punya 15 warna biru berbeda, 4 date picker berbeda, dan nol bahasa bersama antara desainer dan developer. Setiap fitur baru butuh 3 hari hanya untuk styling karena engineer menebak-nebak hex code dari screenshot. Hutang desain kami bukan sekadar jelek — itu pajak di setiap sprint. Keputusan warna asal-asalan, aksesibilitas cuma afterthought, dan onboarding desainer baru berarti minggu-minggu 'tinggal contek layar itu'.",
+        process: [
+          {
+            title: "Audit Warna",
+            desc: "Saya screenshot setiap layar di aplikasi dan ekstrak setiap nilai warna unik. Kami temukan 47 abu-abu berbeda, 15 biru, dan nol dokumentasi. Saya pajang semua di satu canvas Figma — dinding kekacauan itu jadi pitch deck yang meyakinkan manajemen.",
+            image: "airy:matrix",
+          },
+          {
+            title: "Tooling Palet",
+            desc: "Kami pakai Coolors untuk mendefinisikan dan menyesuaikan palet dasar secara manual, mengecek harmoni dan aksesibilitas buta warna. Lalu kami jalankan setiap warna melalui ColorBox untuk auto-generate skala shade (50–900) dengan rasio kontras yang seimbang. Hasilnya: palet sistematis di mana setiap shade punya alasan untuk ada.",
+            image: "airy:hierarchy",
+          },
+        ],
+        insights: [
+          {
+            title: "Developer Adalah User Sebenarnya",
+            desc: "Saya sadar design system bukan buat desainer — tapi buat developer. Mereka nggak mikir pakai 'Teal Brand'; mereka mikir pakai Props dan kontrak API. Jadi saya tulis dokumentasi pakai bahasa mereka: nama token, aturan penggunaan, dan code snippet — bukan anotasi Figma.",
+          },
+        ],
+        solution: [
+          {
+            title: "Arsitektur Token",
+            desc: "Mendefinisikan 6 kategori warna dengan nilai HEX & aturan eksak. Neutral (White #FFFFFF ke Black 500 #383838) untuk surface; Primary Teal (500: #03A199) untuk aksi positif; Secondary Blue (500: #0470C8) untuk progres; Success Green (500: #07A650); Warning Orange (500: #F27D07) untuk badge; Error Red (500: #D42867) untuk destruktif.",
+            image: "airy:layers",
+          },
+          {
+            title: "Library Komponen",
+            desc: "Membangun library Figma lengkap dengan komponen auto-layout yang mengkonsumsi sistem token. Setiap komponen — dari tombol sampai tabel data kompleks — mereferensikan token, bukan hex mentah. Pipeline design-to-code memastikan update token di Figma otomatis menyebar ke library komponen React via paket npm tersinkronisasi.",
+            image: "airy:cycle",
+          },
+        ],
+        metrics: [
+          { label: "Kecepatan Dev", value: "Styling Fitur 3× Lebih Cepat" },
+          { label: "Hutang Desain", value: "47 Abu-abu → 7 Token" },
+          { label: "Konsistensi", value: "UI Terpadu di 5 Squad" },
+          { label: "Aksesibilitas", value: "Palet Aman Buta Warna" },
+        ],
+        learnings:
+          "Design system itu produk, bukan proyek. Dia butuh maintenance, versioning, dan roadmap. Begitu kamu berhenti memperlakukannya sebagai sistem hidup, dia mati — dan kamu kembali ke 47 warna abu-abu.",
+        aiHypotheses: [
           {
             tech: "Multimodal LLM (Vision-to-Code)",
-            title: "Screenshot-to-Component",
+            title: "Screenshot-ke-Komponen",
             desc: "Desainer upload screenshot pola UI baru. AI scan komponen itu lawan library yang ada dan output kode React persis pakai token Design System kami.",
             impact: "Handoff Desain Instan",
           },

@@ -21,7 +21,7 @@ const HeroSection = ({ project, caseData, isId, t }) => {
       {/* Content Wrapper */}
       <div className="relative z-10 w-full flex flex-col items-center">
         {/* WIP Label for incomplete projects */}
-        {!["stoqo-logistics", "stoqo-sales"].includes(project.id) && (
+        {!["stoqo-logistics", "stoqo-sales", "design-system-gudangada"].includes(project.id) && (
           <div className="mb-6 flex items-center justify-center">
             <div className="bg-amber-500/10 border border-amber-500/50 text-amber-600 dark:text-amber-400 px-4 py-2 rounded-full flex items-center gap-2 backdrop-blur-sm">
               <AlertTriangle size={14} />
