@@ -20,7 +20,7 @@ export const competitorSummarizer = {
     repo: "https://github.com/fadlyzaki/comp-landing-page-summarizer-",
     pitch_deck: "https://docs.google.com/presentation/d/1P_c7JoDaEcb1ddnNYLKY2RhwUXyumv0B/edit?usp=sharing",
   },
-  prototypeLink: "https://competitor-summarizer-frontend-593545324546.us-central1.run.app",
+  prototypeLink: null,
   iconName: "Globe", 
   featured: false,
   type: { en: "Full-Stack Web App", id: "Aplikasi Web Full-Stack" },
