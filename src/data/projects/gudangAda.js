@@ -923,6 +923,7 @@ export const gudangAda = {
       tag_id: "Arsitektur",
       caseStudy: {
         locked: true,
+        prototypeUrl: "/prototype-gada/index.html",
         summaries: {
           eli5: {
             label: "👶 ELI5",
@@ -1051,6 +1052,7 @@ export const gudangAda = {
       },
       caseStudy_id: {
         locked: true,
+        prototypeUrl: "/prototype-gada/index.html",
         summaries: {
           eli5: {
             label: "👶 ELI5",

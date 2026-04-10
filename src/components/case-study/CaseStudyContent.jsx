@@ -12,6 +12,7 @@ import ContextStrip from "./sections/ContextStrip";
 import ProcessFramework from "./sections/ProcessFramework";
 import KeyInsights from "./sections/KeyInsights";
 import SolutionSection from "./sections/SolutionSection";
+import PrototypeViewer from "./sections/PrototypeViewer";
 import ImpactMetrics from "./sections/ImpactMetrics";
 
 const CaseStudyContent = ({ project, parentCluster }) => {
@@ -103,6 +104,8 @@ const CaseStudyContent = ({ project, parentCluster }) => {
         <KeyInsights caseData={caseData} t={t} />
 
         <SolutionSection caseData={caseData} t={t} />
+
+        <PrototypeViewer caseData={caseData} t={t} />
 
         <ImpactMetrics caseData={caseData} t={t} />
 
