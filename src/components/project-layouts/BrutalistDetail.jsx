@@ -97,7 +97,7 @@ const BrutalistDetail = ({
               >
                 <div className="border-4 border-[var(--text-primary)] p-12 md:p-24 bg-[var(--text-primary)] text-[var(--bg-void)] shadow-[16px_16px_0_0_var(--accent-red)] flex gap-8 items-start">
                   <Slash size={64} className="shrink-0 hidden md:block text-[var(--accent-red)]" strokeWidth={3} />
-                  <p className="text-3xl md:text-5xl font-black uppercase italic leading-[1.1]">
+                  <p className="text-2xl md:text-3xl font-black uppercase italic leading-[1.1]">
                     {activeChallenge}
                   </p>
                 </div>
@@ -133,7 +133,7 @@ const BrutalistDetail = ({
               >
                 <div className="border-4 border-[var(--text-primary)] p-12 md:p-24 bg-[var(--accent-red)] text-white shadow-[16px_16px_0_0_var(--text-primary)] flex gap-8 items-start">
                   <Slash size={64} className="shrink-0 hidden md:block" strokeWidth={3} />
-                  <p className="text-3xl md:text-5xl font-black uppercase italic leading-[1.1]">
+                  <p className="text-2xl md:text-3xl font-black uppercase italic leading-[1.1]">
                     "{activeLearnings}"
                   </p>
                 </div>

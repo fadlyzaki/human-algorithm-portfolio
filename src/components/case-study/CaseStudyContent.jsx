@@ -16,6 +16,7 @@ import PrototypeViewer from "./sections/PrototypeViewer";
 import ImpactMetrics from "./sections/ImpactMetrics";
 import DesignSystemCaseStudy from "./DesignSystemCaseStudy";
 import StoqoSalesCaseStudy from "./StoqoSalesCaseStudy";
+import StoqoLogisticsCaseStudy from "./StoqoLogisticsCaseStudy";
 
 const CaseStudyContent = ({ project, parentCluster }) => {
   const { t, language, toggleLanguage } = useLanguage();
@@ -100,6 +101,8 @@ const CaseStudyContent = ({ project, parentCluster }) => {
         {/* Design System gets its own custom layout, decoupled from ProcessFramework */}
         {project.id === "design-system-gudangada" ? (
           <DesignSystemCaseStudy caseData={caseData} t={t} />
+        ) : project.id === "stoqo-logistics" ? (
+          <StoqoLogisticsCaseStudy caseData={caseData} project={project} t={t} />
         ) : project.id === "stoqo-sales" ? (
           <>
             <StoqoSalesCaseStudy caseData={caseData} project={project} t={t} />
