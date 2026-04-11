@@ -102,7 +102,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
         {project.id === "design-system-gudangada" ? (
           <DesignSystemCaseStudy caseData={caseData} t={t} />
         ) : project.id === "stoqo-logistics" ? (
-          <StoqoLogisticsCaseStudy caseData={caseData} project={project} t={t} />
+          <StoqoLogisticsCaseStudy caseData={caseData} project={project} t={t} language={language} />
         ) : project.id === "stoqo-sales" ? (
           <>
             <StoqoSalesCaseStudy caseData={caseData} project={project} t={t} />
