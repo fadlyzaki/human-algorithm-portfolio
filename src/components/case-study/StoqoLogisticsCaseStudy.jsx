@@ -203,7 +203,20 @@ const StoqoLogisticsCaseStudy = ({ caseData, project, t }) => {
             "Biasanya nyampe jam 4 atau jam 5, mas. Kemaren nyampe jam 8. Saya jadi terpaksa ke pasar buat beli barang lagi" — Warteg F (Customer)
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="space-y-4">
+              <div className="aspect-[4/3] bg-[var(--bg-surface)] rounded-xl border border-[var(--border-color)] overflow-hidden shadow-lg p-2">
+                <ZoomableImage 
+                  src={`${assetPath}/user-interview.png`} 
+                  alt="Customer Interview Session" 
+                  className="w-full h-full object-cover rounded-lg bg-black/5 dark:bg-white/5"
+                />
+              </div>
+              <p className="font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] flex items-center justify-between">
+                <span>User Interview</span>
+                <span className="opacity-50">ARCHIVE_C0</span>
+              </p>
+            </div>
             <div className="space-y-4">
               <div className="aspect-[4/3] bg-[var(--bg-surface)] rounded-xl border border-[var(--border-color)] overflow-hidden shadow-lg p-2">
                 <ZoomableImage 
@@ -352,9 +365,45 @@ const StoqoLogisticsCaseStudy = ({ caseData, project, t }) => {
         </div>
       </DispatchLog>
 
-      {/* ═══════ OUTCOMES ═══════ */}
+      {/* ═══════ USER & DESIGN FEEDBACK ═══════ */}
       <DispatchLog>
-        <TrackingNode nodeId="07" title="Validation & Impact" icon={BarChart2} status="COMPLETED" />
+        <TrackingNode nodeId="07" title="Usability Testing" icon={Search} status="QC_IN_PROGRESS" />
+        
+        <div className="pl-16 md:pl-20 space-y-16">
+          <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-4xl">
+            Following the completion of the high-fidelity design phase, I implemented a comprehensive feedback gathering process. This involved conducting detailed usability testing sessions over a three-day period to collect immediate user reactions and insights. The testing sessions were structured to evaluate both the functionality and intuitiveness of the new delivery tracking interface. Additionally, I presented the design concepts during our Weekly Design Review Session, where team members provided valuable critique and suggestions for further refinement.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="aspect-video bg-[var(--bg-surface)] rounded-2xl border border-[var(--border-color)] overflow-hidden shadow-xl p-2 relative group">
+              <ZoomableImage 
+                src={`${assetPath}/usability-testing.png`} 
+                alt="Usability Testing Session" 
+                className="w-full h-full object-cover rounded-xl bg-black/5 dark:bg-white/5"
+              />
+              <div className="absolute top-4 left-4 flex items-center gap-2 pointer-events-none">
+                <span className="w-2 h-2 bg-[var(--brand)] rounded-full animate-pulse" />
+                <span className="font-mono text-[10px] font-bold text-[var(--bg-void)] bg-[var(--brand)] px-2 py-0.5 rounded uppercase tracking-wider">FIELD TESTING</span>
+              </div>
+            </div>
+            <div className="aspect-video bg-[var(--bg-surface)] rounded-2xl border border-[var(--border-color)] overflow-hidden shadow-xl p-2 relative group">
+              <ZoomableImage 
+                src={`${assetPath}/usability-testing-1.png`} 
+                alt="Usability Testing Session Feed" 
+                className="w-full h-full object-cover rounded-xl bg-black/5 dark:bg-white/5"
+              />
+              <div className="absolute top-4 left-4 flex items-center gap-2 pointer-events-none">
+                <span className="w-2 h-2 bg-[var(--brand)] rounded-full animate-pulse" />
+                <span className="font-mono text-[10px] font-bold text-[var(--bg-void)] bg-[var(--brand)] px-2 py-0.5 rounded uppercase tracking-wider">USER OBSERVATION</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </DispatchLog>
+
+      {/* ═══════ OUTCOMES ═══════ */}
+      <DispatchLog className="bg-[var(--bg-card)] border-t border-[var(--border-color)]">
+        <TrackingNode nodeId="08" title="Validation & Impact" icon={BarChart2} status="COMPLETED" />
         
         <div className="pl-16 md:pl-20">
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-4xl mb-12">
