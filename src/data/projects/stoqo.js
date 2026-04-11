@@ -88,7 +88,7 @@ export const stoqo = {
   projects: [
     {
       id: "stoqo-logistics",
-      title: "Transforming Logistics Delivery",
+      title: "Transforming Delivery for Small F&B Businesses",
       tag: "Logistics",
       type: "Service Design",
       role: "Product Designer",
@@ -97,38 +97,38 @@ export const stoqo = {
       previewImage: "/case-studies/delivery-methods/delivery-status-cover.png",
       iconName: "Truck",
       details: {
-        problem: "Waking up at 3 AM just to stare at an empty road.",
-        system: "Peace-of-Mind Tracking.",
-        outcome: "They finally slept in.",
+        problem: "Owners returning to 4-AM wet market runs due to late deliveries.",
+        system: "Real-Time Tracking & Push Notifications.",
+        outcome: "Restored predictability and reduced anxiety.",
       },
       details_id: {
-        problem: "Bangun jam 3 pagi cuma buat melototin jalan kosong.",
-        system: "Pelacakan Penenang Hati.",
-        outcome: "Akhirnya mereka bisa tidur.",
+        problem: "Pemilik warung terpaksa ke pasar jam 4 pagi karena pengiriman telat.",
+        system: "Pelacakan Real-Time & Notifikasi Push.",
+        outcome: "Mengembalikan prediktabilitas operasional.",
       },
-      title_id: "Transformasi Pengiriman Logistik",
+      title_id: "Transformasi Pengiriman untuk Pegiat F&B Kategori Kecil",
       tag_id: "Logistik",
       caseStudy: {
         locked: true,
         summaries: {
           eli5: {
             label: "👶 ELI5",
-            title: "Where's My Truck?",
-            text: "Waiting for a truck in the dark is scary. I made an app that tells you exactly where the truck is, so you can stop worrying and go to sleep.",
+            title: "Delivery Confidence",
+            text: "Business owners were losing sleep because deliveries were late. We built a tracking system and alerts so they always know when their goods will arrive.",
           },
           recruiter: {
             label: "👔 Recruiter",
-            title: "Service Reliability",
-            text: "Solved a critical anxiety point by implementing real-time logistics tracking. Reduced support tickets significantly and increased customer reliance.",
+            title: "Customer-Centric Logistics",
+            text: "Addressed increasing delivery-related complaints by leading research and designing a comprehensive delivery status tracking system with real-time push notifications.",
           },
           technical: {
             label: "🤖 System",
-            title: "Telemetry & Push",
-            text: "Designed a real-time tracking interface. Replaced anxiety with visibility using live status updates.",
+            title: "Intelligent Integration",
+            text: "Unified disparate dispatcher and customer applications to create seamless information flow, enabling real-time ETAs and push notification frameworks.",
           },
         },
         snapshot: {
-          tagline: "Solving the 'Where is my truck?' anxiety loop.",
+          tagline: "A Customer-Centric Solution for chaotic last-mile logistics.",
           heroImage: "airy:network",
         },
         context: {
@@ -138,7 +138,7 @@ export const stoqo = {
           team: "Ops & Engineering",
         },
         challenge:
-          "I discovered a harsh reality: our users were waking up at 4 AM not to work, but to wait. Late deliveries weren't just an inconvenience; they were an existential threat. My challenge was to break this cycle of anxiety without having the budget to buy 100 new trucks.",
+          "Our Product Management team identified a concerning trend: increasing frequency of delivery-related complaints. Late deliveries forced customers to return to their early morning market visits, disrupting their schedules. My challenge was to discover why this was happening and architect a customer-centric solution.",
         process: [
           {
             title: "Methodology",
