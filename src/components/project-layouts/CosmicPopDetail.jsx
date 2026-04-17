@@ -61,7 +61,7 @@ const CosmicPopDetail = ({
             {project.links.demo && project.links.demo !== "#" && (
               <a
                 href={project.links.demo}
-                className="flex items-center gap-2 bg-[var(--accent-sky)] text-[var(--bg-void)] px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:scale-105 hover:shadow-[0_0_30px_rgba(0,194,255,0.4)] transition-all"
+                className="flex items-center gap-2 bg-[var(--accent-sky)] text-[#0A0A0C] px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:scale-105 hover:shadow-[0_0_30px_rgba(0,194,255,0.4)] transition-all"
               >
                 <Play size={16} fill="currentColor" /> {t("project_layouts.play_demo")}
               </a>
@@ -95,7 +95,7 @@ const CosmicPopDetail = ({
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest transition-all ${
                     activeTab === tab.id
-                      ? "bg-gradient-to-r from-[var(--accent-sky)] to-[var(--accent-purple)] text-white shadow-lg"
+                      ? "bg-gradient-to-r from-[var(--accent-sky)] to-[var(--accent-purple)] text-white dark:text-white text-shadow-sm shadow-lg"
                       : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]"
                   }`}
                 >
@@ -167,7 +167,7 @@ const CosmicPopDetail = ({
                           {t("project_layouts.lesson_learned")}
                         </span>
                       </div>
-                      <p className="text-3xl lg:text-5xl font-black italic text-transparent bg-clip-text bg-gradient-to-br from-white to-[var(--accent-sky)] leading-tight">
+                      <p className="text-3xl lg:text-5xl font-black italic text-transparent bg-clip-text bg-gradient-to-br from-[var(--text-primary)] to-[var(--accent-sky)] leading-tight">
                         "{activeLearnings}"
                       </p>
                     </div>
@@ -196,7 +196,7 @@ const CosmicPopDetail = ({
                       }`}
                     >
                       <div className="flex items-center gap-4">
-                        <div className={`w-8 h-8 rounded-full flex justify-center items-center font-bold text-xs ${isActive ? 'bg-[var(--accent-sky)] text-white shadow-[0_0_15px_rgba(0,194,255,0.4)]' : 'bg-[var(--bg-card)]'}`}>
+                        <div className={`w-8 h-8 rounded-full flex justify-center items-center font-bold text-xs ${isActive ? 'bg-[var(--accent-sky)] text-[#0A0A0C] shadow-[0_0_15px_rgba(0,194,255,0.4)]' : 'bg-[var(--bg-card)]'}`}>
                           {idx + 1}
                         </div>
                         <span className={`font-bold ${isActive ? 'text-[var(--text-primary)]' : ''}`}>{step.title}</span>
@@ -235,10 +235,10 @@ const CosmicPopDetail = ({
                     )}
                     <div className="p-10 md:p-14 relative z-10">
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[var(--accent-sky)] to-[var(--accent-purple)] text-white flex items-center justify-center font-black text-xl shadow-[0_0_20px_rgba(139,92,246,0.4)]">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[var(--accent-sky)] to-[var(--accent-purple)] text-[#0A0A0C] flex items-center justify-center font-black text-xl shadow-[0_0_20px_rgba(139,92,246,0.4)]">
                           {activePhase + 1}
                         </div>
-                        <h3 className="text-3xl md:text-4xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-white to-[var(--accent-sky)] leading-none">
+                        <h3 className="text-3xl md:text-4xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-primary)] to-[var(--accent-sky)] leading-none">
                           {activeProcess[activePhase].title}
                         </h3>
                       </div>
