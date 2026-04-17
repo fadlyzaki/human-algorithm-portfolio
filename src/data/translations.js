@@ -445,7 +445,7 @@ export const translations = {
         "productivity-illusion": "Productivity Research: Decoding the friction between engagement and learning.",
         "interactive-workbook": "Interactive Workbook: Exploring the mechanics of the bilingual learning loop.",
         "year-in-review": "Year in Review: Auditing a privacy-first engine for achievement reflection.",
-        "dolphi": "Dolphi: Examining habit meta-tracking for the resilient self.",
+        "muezza": "Muezza: Examining the operational substrate of spiritual growth through the Advisor Hub and Bifurcated Souq mechanics.",
         // Unprovoked Thoughts
         "design-as-language": "Design is a Language: Exploring why the best designers focus on grammar over vocabulary.",
         "dissolving-screens": "Dissolving Screens: Reflecting on the future where computation fades into the background.",
@@ -515,7 +515,7 @@ export const translations = {
           "productivity-illusion": "Deconstructing Focus: Analyzing the gap between metric engagement and actual learning.",
           "interactive-workbook": "Loop Analysis: Examining how gamification affects bilingual knowledge retention.",
           "year-in-review": "Data Audit: Reviewing the logic of achievement logging without compromising privacy.",
-          "dolphi": "Behavioral Core: Analyzing the meta-tracker's resilience mechanics and mascot reactivity.",
+          "muezza": "Spiritual Rituals: Examining the operational substrate of daily Quranic habits, Advisor Hub, and mascot evolution.",
           // Unprovoked Thoughts
           "design-as-language": "Linguistic Analysis: Deconstructing the grammar of interfaces rather than superficial aesthetics.",
           "dissolving-screens": "Future State Review: Analyzing the latency of ubiquitous computing and screen dissolution.",
@@ -985,7 +985,7 @@ export const translations = {
         "productivity-illusion": "Riset Produktivitas: Mendekode friksi antara keterlibatan dan pembelajaran.",
         "interactive-workbook": "Buku Kerja Interaktif: Mengeksplorasi mekanik siklus pembelajaran bilingual.",
         "year-in-review": "Year in Review: Mengaudit mesin refleksi pencapaian yang mengutamakan privasi.",
-        "dolphi": "Dolphi: Menelaah meta-tracking kebiasaan untuk diri yang tangguh.",
+        "muezza": "Muezza: Menelaah substrat operasional pertumbuhan spiritual melalui mekanisme Advisor Hub dan Bifurcated Souq.",
         // Unprovoked Thoughts
         "design-as-language": "Desain Adalah Bahasa: Mengeksplorasi mengapa desainer terbaik fokus pada tata bahasa alih-alih kosakata.",
         "dissolving-screens": "Meleburnya Layar: Merefleksikan masa depan di mana komputasi menyatu dengan latar belakang.",
@@ -1055,7 +1055,7 @@ export const translations = {
           "productivity-illusion": "Dekonstruksi Fokus: Menganalisis celah antara keterlibatan metrik dan pembelajaran nyata.",
           "interactive-workbook": "Analisis Siklus: Membedah bagaimana gamifikasi memengaruhi retensi pengetahuan bilingual.",
           "year-in-review": "Audit Data: Meninjau logika pencatatan pencapaian tanpa mengorbankan privasi.",
-          "dolphi": "Inti Perilaku: Menganalisis mekanik resiliensi meta-tracker dan reaktivitas maskot.",
+          "muezza": "Ritual Spiritual: Menelaah substrat operasional kebiasaan Qurani harian, Advisor Hub, dan evolusi maskot.",
           // Unprovoked Thoughts
           "design-as-language": "Analisis Linguistik: Mendekonstruksi tata bahasa antarmuka, bukan sekadar estetika superfisial.",
           "dissolving-screens": "Tinjauan State Ke Depan: Menganalisis latensi komputasi ubiquit dan peleburan layar.",

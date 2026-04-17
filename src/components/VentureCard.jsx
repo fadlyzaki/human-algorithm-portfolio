@@ -10,6 +10,7 @@ import {
   Layers,
   Sparkles,
   TestTube,
+  Cat,
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import ProjectCard from "./ProjectCard";
@@ -92,7 +93,7 @@ const VentureCard = ({ project, isIndonesian, onClick }) => {
   switch (project.id) {
     case "human-algorithm":
       return <SystemCoreCard {...commonProps} isDark={isDark} />;
-    case "dolphi":
+    case "muezza":
       return <CosmicPopCard {...commonProps} isDark={isDark} />;
     case "productivity-illusion":
       return <BrutalistCard {...commonProps} isDark={isDark} />;
@@ -194,7 +195,7 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, isIndonesian
   </motion.div>
 );
 
-// 2. THE COSMIC POP (Dolphi)
+// 2. THE COSMIC POP (Muezza)
 const CosmicPopCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
     ref={ref}
@@ -221,7 +222,11 @@ const CosmicPopCard = ({ project, title, desc, onClick, isHovered, ref, onMouseE
 
         <div className="relative z-10">
           <div className={`w-16 h-16 mb-6 rounded-2xl backdrop-blur-xl flex items-center justify-center transition-all ${isHovered ? 'bg-[var(--accent-sky)]/20 border-[var(--accent-sky)]/40' : 'bg-white/5 border-white/10 group-hover:bg-[var(--accent-sky)]/20 group-hover:border-[var(--accent-sky)]/40'}`}>
-            <Activity size={32} className="text-[var(--accent-sky)]" />
+            {project.iconName === "Cat" ? (
+              <Cat size={32} className="text-[var(--accent-sky)]" />
+            ) : (
+              <Activity size={32} className="text-[var(--accent-sky)]" />
+            )}
           </div>
           <h3 className="text-3xl font-serif italic mb-4 text-white">{title}</h3>
           <p className="text-blue-100/60 font-light text-sm mb-6 leading-relaxed line-clamp-5">

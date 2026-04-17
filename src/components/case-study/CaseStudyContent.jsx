@@ -50,6 +50,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
             ? project.details_id?.problem || project.details.problem
             : project.details.problem)
         }
+        image={project.previewImage}
       />
 
       {/* AMBIENT MOOD BACKGROUND */}

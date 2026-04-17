@@ -85,12 +85,12 @@ const SummarizerAI = lazyWithRetry(
 
 const PROJECT_LAYOUT_MAP = {
   "human-algorithm": SystemCoreDetail,
-  "dolphi": CosmicPopDetail,
   "productivity-illusion": BrutalistDetail,
   "year-in-review": BentoDetail,
   "interactive-workbook": BlueprintDetail,
   "competitor-summarizer": AgenticDetail,
   "learning-progress-architect": LearningArchitectDetail,
+  "muezza": CosmicPopDetail,
 };
 
 const INTERACTION_MAP = {
@@ -269,7 +269,7 @@ const SideProjectDetail = () => {
       <SEO
         title={activeTitle}
         description={activeTldr}
-        // image={project.coverImage} // If available
+        image={project.ogImage || (project.coverImage && !project.coverImage.startsWith('airy:') ? project.coverImage : undefined)}
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",

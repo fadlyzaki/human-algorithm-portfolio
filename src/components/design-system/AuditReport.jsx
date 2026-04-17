@@ -86,7 +86,7 @@ const AUDIT_DATA = {
     { token: "--accent-amber", light: "#f59e0b", dark: "–", usage: "Warnings" },
     { token: "--accent-green", light: "#10b981", dark: "–", usage: "Success states" },
     { token: "--accent-purple", light: "#8b5cf6", dark: "–", usage: "Code syntax" },
-    { token: "--accent-sky", light: "#00C2FF", dark: "–", usage: "Dolphi / CosmicPop" },
+    { token: "--accent-sky", light: "#00C2FF", dark: "–", usage: "Muezza / CosmicPop" },
     { token: "--accent-indigo", light: "#1A1A2E", dark: "–", usage: "Deep backgrounds" },
     { token: "--accent-teal", light: "#1AA8B4", dark: "–", usage: "Accent highlights" },
     { token: "--font-weight-dynamic", light: "400", dark: "400", usage: "Breath-synced typography" },
