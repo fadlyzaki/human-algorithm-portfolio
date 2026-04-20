@@ -83,7 +83,7 @@ const ProcessStep = ({ number, title, items }) => (
   </div>
 );
 
-const DesignSystemCaseStudy = ({ caseData, t }) => {
+const DesignSystemCaseStudy = ({ caseData }) => {
   const [activeTokenTab, setActiveTokenTab] = useState("color");
 
   const tokenTabs = [

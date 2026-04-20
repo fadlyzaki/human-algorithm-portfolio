@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Trophy, Target, Users, Zap, Eye, Shield, Music,
@@ -175,7 +175,7 @@ const RankBadge = ({ rank, tier, level, color, delay = 0 }) => (
 );
 
 
-const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
+const StoqoSalesCaseStudy = ({ caseData, project }) => {
   const designProcess = caseData.designProcess || caseData.process || [];
   const insights = caseData.insights || [];
   const solution = caseData.solution || [];

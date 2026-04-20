@@ -90,7 +90,7 @@ const WaypointCard = ({ title, desc, delay = 0, warning = false }) => (
   </motion.div>
 );
 
-const StoqoLogisticsCaseStudy = ({ caseData, project, t, language }) => {
+const StoqoLogisticsCaseStudy = ({ project, language }) => {
   const assetPath = "/case-studies/stoqo-logistics";
   const isId = language === "id";
 

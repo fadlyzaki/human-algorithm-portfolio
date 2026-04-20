@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Code2, Check, Globe, RefreshCw, Box, Layers } from "lucide-react";
 
-export default function SummarizerAI({ color = "var(--accent-blue, #3b82f6)" }) {
+export default function SummarizerAI() {
   const [step, setStep] = useState(0);
 
   const URL = "https://example.com/competitor";

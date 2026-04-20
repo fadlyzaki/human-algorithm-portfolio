@@ -8,6 +8,7 @@ const BentoDetail = ({
   project,
   activeChallenge,
   activeProcess,
+  activeInsights,
   activeMetrics,
   activeLearnings,
   InteractionComponent,

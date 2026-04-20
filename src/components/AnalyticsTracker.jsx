@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ReactGA from "react-ga4";
 
-// Initialize Google Analytics with your Measurement ID
-// TODO: Replace 'G-XXXXXXXXXX' with your actual Measurement ID
+// Initialize Google Analytics with Measurement ID from environment
 const MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
 ReactGA.initialize(MEASUREMENT_ID);

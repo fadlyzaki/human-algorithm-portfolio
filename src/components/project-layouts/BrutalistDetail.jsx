@@ -72,7 +72,7 @@ const BrutalistDetail = ({
               { id: "challenge", label: t("project_layouts.the_problem") || "The Problem" },
               { id: "insights", label: "Core Insights" },
               { id: "learnings", label: t("project_layouts.lesson_learned") || "Post Mortem" },
-            ].map((tab, idx) => (
+            ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}

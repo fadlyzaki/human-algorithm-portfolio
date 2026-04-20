@@ -26,13 +26,12 @@ const AgenticDetail = ({
   InteractionComponent,
   activeTitle,
   activeTldr,
-  activeSnapshot,
-  t,
+
 }) => {
   const containerRef = useRef(null);
   const [activeTab, setActiveTab] = useState("challenge");
   const [activePhase, setActivePhase] = useState(0);
-  const accentColor = "var(--accent-purple, #8b5cf6)";
+
 
   return (
     <div
