@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useRecruiterMode } from "../context/RecruiterModeContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import { MessageSquare } from "lucide-react";
@@ -63,7 +63,7 @@ const VirtualAssistant = () => {
   };
 
   // Helper to get time-based greeting
-  const getTimeGreeting = () => {
+  const getTimeGreeting = useCallback(() => {
     const hour = new Date().getHours();
     let timeKey = "late_night";
     if (hour >= 5 && hour < 12) timeKey = "morning";
@@ -76,7 +76,7 @@ const VirtualAssistant = () => {
       return variants[randomIndex];
     }
     return variants; // Fallback if not an array
-  };
+  }, [t]);
 
   const showInteractiveMenu = () => {
     clearAllTimers();
@@ -118,7 +118,7 @@ const VirtualAssistant = () => {
     }, manualClick ? 10000 : 8000);
   };
 
-  const getRouteMessage = (path, isManual = false) => {
+  const getRouteMessage = useCallback((path, isManual = false) => {
     const pov = isRecruiterMode ? "" : "terminal_pov.";
 
     // Simple helper to fetch translation with fallback to base key if pov key doesn't exist
@@ -183,7 +183,7 @@ const VirtualAssistant = () => {
       return `[ECHO.Z]: ${msg}`;
     }
     return msg;
-  };
+  }, [isRecruiterMode, getTimeGreeting, t]);
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -264,7 +264,7 @@ const VirtualAssistant = () => {
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname, isRecruiterMode, t, isSleeping]);
+  }, [location.pathname, isRecruiterMode, t, isSleeping, getRouteMessage]);
 
   // Determine if we should hide on 404/catch-all
   // Valid top-level paths and prefixes

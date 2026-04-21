@@ -1,12 +1,13 @@
 import React, { useState, Suspense } from "react";
-import { useParams } from "react-router-dom";
-import { ShieldAlert, ArrowLeft, Activity } from "lucide-react";
+import { useParams, Link } from "react-router-dom";
+import { ShieldAlert, ArrowLeft, Activity, FileText } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
 import Navbar from "../components/Navbar";
 import NavigationMenu from "../components/NavigationMenu";
 import useProjectData from "../hooks/useProjectData";
 import LockScreen from "../components/auth/LockScreen";
+import { isProjectLocked, isProjectBypassed } from "../utils/projectMappers";
 import ChaosMatrixBackground from "../components/auth/ChaosMatrixBackground";
 import SEO from "../components/SEO";
 
@@ -19,11 +20,26 @@ const ProtectedCaseStudy = () => {
   const { id } = useParams();
   const { t } = useLanguage();
   const [isLocked, setIsLocked] = useState(true);
+  const [isInitialized, setIsInitialized] = useState(false);
   const [, setIsMenuOpen] = useState(false); // Added for Navbar
   const [authPhase, setAuthPhase] = useState("chaos");
 
   // Use Centralized Data Hook
   const { project, parentCluster, loading, error } = useProjectData(id);
+
+  // Sync lock state once project data is loaded
+  React.useEffect(() => {
+    if (project && !isInitialized) {
+      const locked = isProjectLocked(project);
+      const bypassed = isProjectBypassed(project);
+      const finalLockedState = locked && !bypassed;
+      setIsLocked(finalLockedState);
+      if (!finalLockedState) {
+        setAuthPhase("unlocked");
+      }
+      setIsInitialized(true);
+    }
+  }, [project, isInitialized]);
 
   // --- LOADING PROTOTYPE ---
   if (loading) {
@@ -83,8 +99,10 @@ const ProtectedCaseStudy = () => {
   // --- RENDER ---
   return (
     <>
-      {/* Dynamic Background matching authentication state */}
-      <ChaosMatrixBackground phase={authPhase} />
+      <SEO title={project.title} />
+
+      {/* Only show Chaos Matrix during auth/lock phase */}
+      {isLocked && <ChaosMatrixBackground phase={authPhase} />}
 
       {isLocked ? (
         <LockScreen

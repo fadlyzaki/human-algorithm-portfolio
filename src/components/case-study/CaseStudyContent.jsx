@@ -65,7 +65,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
       <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-[var(--bg-void)]/80 backdrop-blur-md border-b border-[var(--border-color)] transition-all duration-500">
         <BackButton
           to={`/work/${parentCluster.id}`}
-          label="Close"
+          label={t("nav.close") || "Close"}
           className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
         />
 
@@ -126,7 +126,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                 {t("protected.architect_debrief") || "// Architect's Debrief"}
               </h4>
               <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
-                "{caseData.learnings || caseData.memo || "Confidential"}"
+                "{caseData.learnings || caseData.memo || t("protected.classified_arch") || "Confidential"}"
               </p>
               <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
             </section>
@@ -135,7 +135,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
           <>
             <HeroSection project={project} caseData={caseData} isId={isId} t={t} />
             
-            <ContextStrip project={project} caseData={caseData} />
+            <ContextStrip project={project} caseData={caseData} isId={isId} t={t} />
 
             <ProcessFramework caseData={caseData} t={t} />
 
@@ -165,7 +165,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                 {t("protected.architect_debrief") || "// Architect's Debrief"}
               </h4>
               <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
-                "{caseData.learnings || caseData.memo || "Confidential"}"
+                "{caseData.learnings || caseData.memo || t("protected.classified_arch") || "Confidential"}"
               </p>
               <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
             </section>

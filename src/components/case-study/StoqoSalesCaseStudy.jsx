@@ -175,7 +175,7 @@ const RankBadge = ({ rank, tier, level, color, delay = 0 }) => (
 );
 
 
-const StoqoSalesCaseStudy = ({ caseData, project }) => {
+const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
   const designProcess = caseData.designProcess || caseData.process || [];
   const insights = caseData.insights || [];
   const solution = caseData.solution || [];
@@ -207,7 +207,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
               <div className="flex items-center gap-2 px-3 py-1.5 border border-[var(--brand)]/30 rounded-full bg-[var(--brand)]/5">
                 <Crosshair size={12} style={{ color: "var(--brand)" }} />
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em]" style={{ color: "var(--brand)" }}>
-                  {project.tag || "Gamification"}
+                  {t("case_study.st_sales_tag_gamification")}
                 </span>
               </div>
               <span className="font-mono text-[10px] text-[var(--text-secondary)] tracking-[0.15em] uppercase">
@@ -226,11 +226,11 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
             {/* Ops metadata grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4">
               {[
-                { icon: Users, label: "Client", value: caseData.context?.client || "Sales Force" },
-                { icon: Target, label: "Role", value: caseData.context?.role || "Product Designer" },
-                { icon: Zap, label: "Timeline", value: caseData.context?.timeline || "3 Months" },
-                { icon: Swords, label: "Team", value: caseData.context?.team || "Sales Ops" },
-              ].map((item, i) => (
+                { icon: Users, label: t("case_study.context_client"), value: caseData.context?.client || t("case_study.st_sales_context_client") },
+                { icon: Target, label: t("case_study.context_role"), value: caseData.context?.role || t("case_study.st_sales_context_role") },
+                { icon: Zap, label: t("case_study.context_timeline"), value: caseData.context?.timeline || t("case_study.st_sales_context_timeline") },
+                { icon: Swords, label: t("case_study.context_team"), value: caseData.context?.team || t("case_study.st_sales_context_team") },
+               ].map((item, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 15 }}
@@ -252,26 +252,26 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
       <div className="border-t border-[var(--border-color)]" />
 
       {/* ═══════ SITUATION REPORT (Challenge) ═══════ */}
-      <EvidenceLog logId="SIT_REP" title="Situation Report" classification="PRIORITY:_HIGH">
+      <EvidenceLog logId="SIT_REP" title={t("case_study.st_sales_sit_rep_title")} classification={t("case_study.st_sales_class_priority_high")}>
         <p className="text-[var(--text-secondary)] text-base md:text-lg leading-relaxed max-w-3xl mb-10">
           {caseData.challenge}
         </p>
         <div className="grid md:grid-cols-3 gap-4">
-          <IntelCard icon={Skull} title="Agent Attrition" desc="Sales agents leaving faster than we could hire — not because of salary, but because of confusion." severity="critical" />
-          <IntelCard icon={Eye} title="KPI Blindspot" desc="Agents didn't understand how they were being measured. No clarity meant no trust." severity="warning" />
-          <IntelCard icon={AlertTriangle} title="Data Distrust" desc="When data reliability is questioned, motivation collapses. 'My app says X, your dashboard says Y.'" severity="critical" />
+          <IntelCard icon={Skull} title={t("case_study.st_sales_attrition_title")} desc={t("case_study.st_sales_attrition_desc")} severity="critical" />
+          <IntelCard icon={Eye} title={t("case_study.st_sales_blindspot_title")} desc={t("case_study.st_sales_blindspot_desc")} severity="warning" />
+          <IntelCard icon={AlertTriangle} title={t("case_study.st_sales_distrust_title")} desc={t("case_study.st_sales_distrust_desc")} severity="critical" />
         </div>
       </EvidenceLog>
 
       {/* ═══════ FIELD INTELLIGENCE (Research) ═══════ */}
       {researchStep && (
-        <EvidenceLog logId="FIELD_INTEL" title="Field Intelligence" classification="RAW_DATA" dark>
+        <EvidenceLog logId="FIELD_INTEL" title={t("case_study.st_sales_field_intel_title")} classification={t("case_study.st_sales_class_raw_data")} dark>
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <FieldReport
-                text="TL doesn't understand definition of the KPI. If the leaders are confused, the troops are lost."
-                source="Raw Data Interview — Field Activator TL"
-                classification="EVIDENCE_LOG"
+                text={t("case_study.st_sales_field_report_quote")}
+                source={t("case_study.st_sales_field_report_source")}
+                classification={t("case_study.st_sales_field_report_class")}
               />
               <p className="text-[var(--text-secondary)] text-base leading-relaxed mt-8">
                 {researchStep.desc}
@@ -298,7 +298,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
 
       {/* ═══════ CORE FINDING (Trust Equation) ═══════ */}
       {insightStep && (
-        <EvidenceLog logId="CORE_FINDING" title="The Trust Equation" classification="SYNTHESIS">
+        <EvidenceLog logId="CORE_FINDING" title={t("case_study.st_sales_trust_eq_title")} classification={t("case_study.st_sales_class_synthesis")}>
           <div className="grid md:grid-cols-5 gap-8 items-start">
             {/* Equation Visual — styled like a system diagnostic */}
             <div className="md:col-span-2">
@@ -309,7 +309,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
 
                 <div className="relative space-y-4 text-center py-4">
                   <div className="font-mono text-3xl md:text-4xl font-bold text-[var(--accent-red)] tracking-tight">
-                    No Trust
+                    {t("case_study.st_sales_trust_no_trust")}
                   </div>
                   <div className="flex items-center justify-center gap-3">
                     <div className="h-px flex-1 bg-[var(--border-color)]" />
@@ -317,7 +317,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
                     <div className="h-px flex-1 bg-[var(--border-color)]" />
                   </div>
                   <div className="font-mono text-3xl md:text-4xl font-bold text-[var(--text-primary)] tracking-tight">
-                    No Action
+                    {t("case_study.st_sales_trust_no_action")}
                   </div>
                 </div>
 
@@ -325,7 +325,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
                   <div className="flex items-center justify-center gap-2">
                     <HeartPulse size={12} className="text-[var(--accent-red)] animate-pulse" />
                     <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--text-secondary)] opacity-60">
-                      Core Research Axiom
+                      {t("case_study.st_sales_trust_axiom")}
                     </span>
                   </div>
                 </div>
@@ -357,7 +357,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
 
       {/* ═══════ DESIGN HYPOTHESIS 01 (Chewable Info) ═══════ */}
       {designSteps[0] && (
-        <EvidenceLog logId="DESIGN_HYP_01" title="Designing Chewable Information" classification="DESIGN_STRATEGY">
+        <EvidenceLog logId="DESIGN_HYP_01" title={t("case_study.st_sales_chewable_title")} classification={t("case_study.st_sales_class_design_strategy")}>
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-base md:text-lg text-[var(--text-secondary)] leading-relaxed mb-8">
@@ -374,8 +374,8 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
                 >
                   <Skull size={16} className="text-[var(--accent-red)] opacity-60 shrink-0" />
                   <div>
-                    <p className="font-mono text-[9px] text-[var(--accent-red)] uppercase tracking-[0.2em] mb-0.5">Before</p>
-                    <p className="text-sm text-[var(--text-primary)]">Complex Monthly Dashboards</p>
+                    <p className="font-mono text-[9px] text-[var(--accent-red)] uppercase tracking-[0.2em] mb-0.5">{t("case_study.st_sales_before_title")}</p>
+                    <p className="text-sm text-[var(--text-primary)]">{t("case_study.st_sales_before_desc")}</p>
                   </div>
                 </motion.div>
 
@@ -392,8 +392,8 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
                 >
                   <Crosshair size={16} className="text-[var(--accent-green)] opacity-60 shrink-0" />
                   <div>
-                    <p className="font-mono text-[9px] text-[var(--accent-green)] uppercase tracking-[0.2em] mb-0.5">After</p>
-                    <p className="text-sm text-[var(--text-primary)]">Daily "Chewable" Goals</p>
+                    <p className="font-mono text-[9px] text-[var(--accent-green)] uppercase tracking-[0.2em] mb-0.5">{t("case_study.st_sales_after_title")}</p>
+                    <p className="text-sm text-[var(--text-primary)]">{t("case_study.st_sales_after_desc")}</p>
                   </div>
                 </motion.div>
               </div>
@@ -416,7 +416,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
 
       {/* ═══════ DESIGN HYPOTHESIS 02 (Gamification / Rank System) ═══════ */}
       {designSteps[1] && (
-        <EvidenceLog logId="DESIGN_HYP_02" title="Motivation Beyond Money" classification="BEHAVIORAL_DESIGN" dark>
+        <EvidenceLog logId="DESIGN_HYP_02" title={t("case_study.st_sales_motivation_title")} classification={t("case_study.st_sales_class_behavioral_design")} dark>
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-base md:text-lg text-[var(--text-secondary)] leading-relaxed mb-8">
@@ -425,9 +425,9 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
 
               {/* Rank Badges — military-themed tier system */}
               <div className="space-y-3">
-                <RankBadge rank="★" tier="General" level="Elite Performer" color="var(--accent-amber)" delay={0} />
-                <RankBadge rank="II" tier="Kapten" level="Advanced Agent" color="var(--brand)" delay={0.1} />
-                <RankBadge rank="I" tier="Sersan" level="Standard Operative" color="var(--text-secondary)" delay={0.2} />
+                <RankBadge rank="★" tier={t("case_study.st_sales_rank_tier_general")} level={t("case_study.st_sales_rank_level_elite")} color="var(--accent-amber)" delay={0} />
+                <RankBadge rank="II" tier={t("case_study.st_sales_rank_tier_captain")} level={t("case_study.st_sales_rank_level_advanced")} color="var(--brand)" delay={0.1} />
+                <RankBadge rank="I" tier={t("case_study.st_sales_rank_tier_sergeant")} level={t("case_study.st_sales_rank_level_standard")} color="var(--text-secondary)" delay={0.2} />
               </div>
             </div>
 
@@ -447,7 +447,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
       )}
 
       {/* ═══════ BLUEPRINT & EXPLORATION (Requested Additions) ═══════ */}
-      <EvidenceLog logId="SYS_ARCH" title="Blueprint & Exploration" classification="DESIGN_ARTIFACTS" className="blueprint-grid bg-[var(--bg-card)]">
+      <EvidenceLog logId="SYS_ARCH" title={t("case_study.st_sales_blueprint_title")} classification={t("case_study.st_sales_class_artifacts")} className="blueprint-grid bg-[var(--bg-card)]">
         <div className="space-y-16">
           
           {/* Interaction Flow & User Journey */}
@@ -457,15 +457,15 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
                 <Target size={12} className="text-[var(--brand)]" />
               </div>
               <h3 className="font-mono text-sm uppercase tracking-[0.1em] text-[var(--text-primary)]">
-                Interaction Flow & User Journey
+                {t("case_study.st_sales_blueprint_journey")}
               </h3>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="p-8 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-lg relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-4 opacity-10 font-mono text-6xl font-black">01</div>
-                <h4 className="font-medium text-lg text-[var(--text-primary)] mb-2 group-hover:text-[var(--brand)] transition-colors">Micro-commitments</h4>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">Mapping the exact friction points from login to the "Siap Komandan!" daily target acceptance.</p>
+                <h4 className="font-medium text-lg text-[var(--text-primary)] mb-2 group-hover:text-[var(--brand)] transition-colors">{t("case_study.st_sales_blueprint_micro")}</h4>
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">{t("case_study.st_sales_blueprint_micro_desc")}</p>
                 <div className="h-[200px] w-full border border-[var(--border-color)] border-dashed rounded-lg flex items-center justify-center opacity-60 bg-black/5 dark:bg-white/5">
                   <AiryDiagram type="flow" />
                 </div>
@@ -473,8 +473,8 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
               
               <div className="p-8 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-lg relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-4 opacity-10 font-mono text-6xl font-black">02</div>
-                <h4 className="font-medium text-lg text-[var(--text-primary)] mb-2 group-hover:text-[var(--brand)] transition-colors">Cognitive Load Mapping</h4>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">Journey map tracking the emotional variance of field agents during a typical 12-hour shift.</p>
+                <h4 className="font-medium text-lg text-[var(--text-primary)] mb-2 group-hover:text-[var(--brand)] transition-colors">{t("case_study.st_sales_blueprint_load")}</h4>
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">{t("case_study.st_sales_blueprint_load_desc")}</p>
                 <div className="h-[200px] w-full border border-[var(--border-color)] border-dashed rounded-lg flex items-center justify-center opacity-60 bg-black/5 dark:bg-white/5">
                   <AiryDiagram type="chart" />
                 </div>
@@ -489,7 +489,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
                 <Layers size={12} className="text-[var(--brand)]" />
               </div>
               <h3 className="font-mono text-sm uppercase tracking-[0.1em] text-[var(--text-primary)]">
-                Wireframes & Design Exploration
+                {t("case_study.st_sales_blueprint_wireframes")}
               </h3>
             </div>
             
@@ -502,16 +502,16 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
                   <div className="aspect-[3/4] md:aspect-auto md:h-[600px] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl mb-4 overflow-hidden relative group">
                     <ZoomableImage 
                       src="/case-studies/stoqo-sales/wireframe.jpg" 
-                      alt="Early Wireframes and Information Architecture" 
+                      alt={t("case_study.st_sales_blueprint_alt_wireframe")} 
                       className="w-full h-full object-cover md:object-contain bg-black/5 dark:bg-white/5"
                     />
                     <div className="absolute bottom-4 left-4 flex items-center gap-2 pointer-events-none">
                       <span className="w-2 h-2 bg-[var(--accent-red)] rounded-full animate-pulse" />
-                      <span className="font-mono text-[10px] md:text-xs font-bold text-[var(--accent-red)] bg-white/80 dark:bg-black/80 px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">LO-FI WIREFRAMES</span>
+                      <span className="font-mono text-[10px] md:text-xs font-bold text-[var(--accent-red)] bg-white/80 dark:bg-black/80 px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">{t("case_study.st_sales_blueprint_lofi")}</span>
                     </div>
                   </div>
-                  <h5 className="font-mono text-sm uppercase tracking-wider text-[var(--text-primary)]">Structural Constraints</h5>
-                  <p className="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Early low-fidelity layouts tracing out the minimum required data for a field agent to feel secure about their targets before we applied high-fidelity UI elements.</p>
+                  <h5 className="font-mono text-sm uppercase tracking-wider text-[var(--text-primary)]">{t("case_study.st_sales_blueprint_structural")}</h5>
+                  <p className="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">{t("case_study.st_sales_blueprint_structural_desc")}</p>
                 </div>
 
                 {/* Design Exploration */}
@@ -519,16 +519,16 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
                   <div className="aspect-[3/4] md:aspect-auto md:h-[600px] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl mb-4 overflow-hidden relative group">
                     <ZoomableImage 
                       src="/case-studies/stoqo-sales/exploration.jpg" 
-                      alt="High-Fidelity Design Explorations" 
+                      alt={t("case_study.st_sales_blueprint_alt_exploration")}
                       className="w-full h-full object-cover md:object-contain bg-black/5 dark:bg-white/5"
                     />
                     <div className="absolute bottom-4 left-4 flex items-center gap-2 pointer-events-none">
                       <span className="w-2 h-2 bg-[var(--accent-green)] rounded-full animate-pulse" />
-                      <span className="font-mono text-[10px] md:text-xs font-bold text-[var(--accent-green)] bg-white/80 dark:bg-black/80 px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">HI-FI EXPLORATIONS</span>
+                      <span className="font-mono text-[10px] md:text-xs font-bold text-[var(--accent-green)] bg-white/80 dark:bg-black/80 px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">{t("case_study.st_sales_blueprint_hifi")}</span>
                     </div>
                   </div>
-                  <h5 className="font-mono text-sm uppercase tracking-wider text-[var(--text-primary)]">Visual Language Evolution</h5>
-                  <p className="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Iterating through the cognitive load of high-fidelity screens. The goal was maintaining 'Chewable' information states across complex dashboard drill-downs.</p>
+                  <h5 className="font-mono text-sm uppercase tracking-wider text-[var(--text-primary)]">{t("case_study.st_sales_blueprint_visual")}</h5>
+                  <p className="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">{t("case_study.st_sales_blueprint_visual_desc")}</p>
                 </div>
               </div>
               
@@ -545,7 +545,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
 
       {/* ═══════ DEPLOYMENT BRIEF (Ship / Offline-First) ═══════ */}
       {shipStep && (
-        <EvidenceLog logId="DEPLOY_BRIEF" title="Offline-First Rollout" classification="EDUCATION_&_ADOPTION">
+        <EvidenceLog logId="DEPLOY_BRIEF" title={t("case_study.st_sales_deployment_title")} classification={t("case_study.st_sales_class_education")}>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <p className="text-base md:text-lg text-[var(--text-secondary)] leading-relaxed mb-8">
@@ -554,9 +554,9 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
-                  { icon: Megaphone, title: "Video Animasi", desc: "Animated guides for every FA", color: "var(--accent-blue)" },
-                  { icon: Layers, title: "Infographics", desc: "Standardized visual playbooks", color: "var(--accent-purple)" },
-                  { icon: Wifi, title: "Admin Day", desc: "Offline data sync ritual", color: "var(--accent-green)" },
+                  { icon: Megaphone, title: t("case_study.st_sales_deploy_video"), desc: t("case_study.st_sales_deploy_video_desc"), color: "var(--accent-blue)" },
+                  { icon: Layers, title: t("case_study.st_sales_deploy_info"), desc: t("case_study.st_sales_deploy_info_desc"), color: "var(--accent-purple)" },
+                  { icon: Wifi, title: t("case_study.st_sales_deploy_admin"), desc: t("case_study.st_sales_deploy_admin_desc"), color: "var(--accent-green)" },
                 ].map((item, i) => (
                   <motion.div
                     key={i}
@@ -595,12 +595,12 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
 
       {/* ═══════ FIELD NOTES (Key Insights) ═══════ */}
       {insights.length > 0 && (
-        <EvidenceLog logId="FIELD_NOTES" title="Field Notes" classification="POST_DISCOVERY" dark>
+        <EvidenceLog logId="FIELD_NOTES" title={t("case_study.st_sales_field_notes_title")} classification={t("case_study.st_sales_class_post_discovery")} dark>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {insights.map((insight, i) => (
               <IntelCard
                 key={i}
-                icon={i === 0 ? Shield : Music}
+                icon={insight.icon === "shield" || i === 0 ? Shield : Music}
                 title={insight.title}
                 desc={insight.desc}
                 severity={i === 0 ? "success" : "default"}
@@ -611,7 +611,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
       )}
 
       {/* ═══════ THE PRODUCT (Solution — Prototype) ═══════ */}
-      <EvidenceLog logId="SOLUTION_DEMO" title="The Product" classification="INTERACTIVE_PROTOTYPE">
+      <EvidenceLog logId="SOLUTION_DEMO" title={t("case_study.st_sales_product_title")} classification={t("case_study.st_sales_class_interactive_proto")}>
         {/* Interactive Prototype */}
         {prototypes.length > 0 && (
           <div className="mb-16">
@@ -629,7 +629,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
                   <div className="flex items-center justify-center gap-2 mb-4">
                     <div className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse" />
                     <span className="font-mono text-[10px] text-[var(--accent-green)] uppercase tracking-[0.2em]">
-                      Recreated 2018 Prototype
+                      {t("case_study.st_sales_proto_label")}
                     </span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-light mb-3 text-[var(--text-primary)]">{sol.title}</h3>
@@ -663,7 +663,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
                   <div className="flex items-center gap-2 mb-2">
                     <span className="w-5 h-[1px] bg-[var(--brand)] opacity-50" />
                     <span className="font-mono text-[9px] text-[var(--brand)] uppercase tracking-[0.2em] opacity-60">
-                      Exhibit_{String.fromCharCode(65 + i)}
+                      {t("case_study.st_sales_exhibit_label")}{String.fromCharCode(65 + i)}
                     </span>
                   </div>
                   <h3 className="text-lg font-medium mb-2 group-hover:text-[var(--brand)] transition-colors text-[var(--text-primary)]">
@@ -681,7 +681,7 @@ const StoqoSalesCaseStudy = ({ caseData, project }) => {
 
       {/* ═══════ IMPACT (KPI Ticker) ═══════ */}
       {metrics.length > 0 && (
-        <EvidenceLog logId="IMPACT_REPORT" title="Impact" classification="MEASURABLE_OUTCOMES">
+        <EvidenceLog logId="IMPACT_REPORT" title={t("case_study.st_sales_impact_title")} classification={t("case_study.st_sales_class_measurable_outcomes")}>
           <KPITicker metrics={metrics} />
         </EvidenceLog>
       )}

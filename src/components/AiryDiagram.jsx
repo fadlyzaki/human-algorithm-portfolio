@@ -18,6 +18,8 @@ const DIAGRAM_REGISTRY = {
   layers: Diagrams.LayersDiagram,
   map: Diagrams.MapDiagram,
   face: Diagrams.FaceDiagram,
+  network: Diagrams.MapDiagram,
+  matrix: Diagrams.HierarchyDiagram,
   default: Diagrams.DefaultDiagram,
 };
 

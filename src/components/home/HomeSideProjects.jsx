@@ -29,7 +29,7 @@ const HomeSideProjects = ({ t, isId }) => {
     <section id="side-projects" className="mb-24 scroll-mt-24">
       <ScrollReveal>
         <SectionTitle
-          number="2"
+          number="3"
           title={t("home.section_side_projects")}
           link="/side-projects"
           linkText={t("home.view_experiments")}

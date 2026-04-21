@@ -17,6 +17,7 @@ const HomeSideProjects = lazyWithRetry(
   () => import("../components/home/HomeSideProjects"),
 );
 const HomeAbout = lazyWithRetry(() => import("../components/home/HomeAbout"));
+import HomeFeaturedWork from "../components/home/HomeFeaturedWork";
 const FaqSection = lazyWithRetry(() => import("../components/FaqSection"));
 const ChaosCanvas = lazyWithRetry(() => import("../components/ChaosCanvas"));
 
@@ -156,6 +157,9 @@ const Home = () => {
                 startTyping={!showIntro}
               />
 
+              {/* NEW: FEATURED 3D SECTION (Local/Preview) */}
+              <HomeFeaturedWork />
+
               {/* SECTION 1: WORK */}
               <HomeWorkSection t={t} />
 
@@ -166,12 +170,14 @@ const Home = () => {
                 <HomeSideProjects t={t} isId={isId} />
               </React.Suspense>
 
-              {/* SECTION 3: ABOUT ME (LAZY) */}
-              <React.Suspense
-                fallback={<SystemSectionLoader />}
-              >
-                <HomeAbout t={t} />
-              </React.Suspense>
+              {/* SECTION 3: ABOUT ME (Hiddin in localhost as per request) */}
+              {!import.meta.env.DEV && (
+                <React.Suspense
+                  fallback={<SystemSectionLoader />}
+                >
+                  <HomeAbout t={t} />
+                </React.Suspense>
+              )}
 
               {/* SECTION 4: FAQs (LAZY) */}
               <React.Suspense

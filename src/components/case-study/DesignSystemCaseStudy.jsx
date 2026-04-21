@@ -83,13 +83,13 @@ const ProcessStep = ({ number, title, items }) => (
   </div>
 );
 
-const DesignSystemCaseStudy = ({ caseData }) => {
+const DesignSystemCaseStudy = ({ caseData, t }) => {
   const [activeTokenTab, setActiveTokenTab] = useState("color");
 
   const tokenTabs = [
-    { id: "color", label: "Color", icon: Palette },
-    { id: "type", label: "Typography", icon: Type },
-    { id: "spacing", label: "Spacing", icon: Grid3X3 },
+    { id: "color", label: t("case_study.ds_tokens_tab_color"), icon: Palette },
+    { id: "type", label: t("case_study.ds_tokens_tab_type"), icon: Type },
+    { id: "spacing", label: t("case_study.ds_tokens_tab_spacing"), icon: Grid3X3 },
   ];
 
   return (
@@ -100,26 +100,26 @@ const DesignSystemCaseStudy = ({ caseData }) => {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <div className="px-3 py-1 rounded-full bg-[var(--brand)]/10 border border-[var(--brand)]/20 font-mono text-[10px] uppercase tracking-widest" style={{ color: "var(--brand)" }}>
-                Design System
+                {t("case_study.ds_tag")}
               </div>
               <span className="font-mono text-[10px] text-[var(--text-secondary)] tracking-widest">2021</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-light tracking-tight text-[var(--text-primary)] leading-[1.1]">
-              GudangAda<br />
-              <span className="text-[var(--text-secondary)]">Design System</span>
+              {t("case_study.ds_title_main")}<br />
+              <span className="text-[var(--text-secondary)]">{t("case_study.ds_title_sub")}</span>
             </h1>
 
             <p className="text-lg md:text-xl text-[var(--text-secondary)] font-light leading-relaxed max-w-2xl">
-              Building a scalable, cross-platform design language for Indonesia's largest B2B FMCG marketplace.
+              {t("case_study.ds_tagline")}
             </p>
 
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
-              <StatCard icon={Palette} label="Brand Colors" value="14 → 1" />
-              <StatCard icon={Box} label="Components" value="40+" />
-              <StatCard icon={Monitor} label="Platforms" value="3" />
-              <StatCard icon={Zap} label="Eng. Velocity" value="+35%" />
+              <StatCard icon={Palette} label={t("case_study.ds_stat_brand_colors")} value="14 → 1" />
+              <StatCard icon={Box} label={t("case_study.ds_stat_components")} value="40+" />
+              <StatCard icon={Monitor} label={t("case_study.ds_stat_platforms")} value="3" />
+              <StatCard icon={Zap} label={t("case_study.ds_stat_velocity")} value="+35%" />
             </div>
           </div>
         </ScrollReveal>
@@ -128,23 +128,20 @@ const DesignSystemCaseStudy = ({ caseData }) => {
       <div className="border-t border-[var(--border-color)]" />
 
       {/* ═══════ 01. OVERVIEW ═══════ */}
-      <Section number={1} title="Overview">
+      <Section number={1} title={t("case_study.ds_sec_overview")}>
         <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-3xl">
-          The GudangAda Design System (GADA DS) was developed to address inconsistencies in UI,
-          inefficiencies in development workflows, and lack of shared design language across teams.
-          The system standardized design practices while accelerating product development across
-          Web, Native Android, and internal tools.
+          {t("case_study.ds_overview_desc")}
         </p>
       </Section>
 
       {/* ═══════ 02. PROBLEM ═══════ */}
-      <Section number={2} title="Problem Statement">
+      <Section number={2} title={t("case_study.ds_sec_problem")}>
         <div className="grid md:grid-cols-2 gap-4">
           {[
-            { icon: Palette, text: "UI inconsistencies existed across products — 14 different hex codes for 'Brand Blue'" },
-            { icon: Layers, text: "Designers relied on manual duplication with no shared component library" },
-            { icon: GitBranch, text: "Engineers reused fragmented code with no single source of truth" },
-            { icon: MessageSquare, text: "Terminology lacked standardization — e.g., snackbar vs toast vs alert" },
+            { icon: Palette, text: t("case_study.ds_prob_inconsistency") },
+            { icon: Layers, text: t("case_study.ds_prob_manual") },
+            { icon: GitBranch, text: t("case_study.ds_prob_fragmented") },
+            { icon: MessageSquare, text: t("case_study.ds_prob_terminology") },
           ].map((item, i) => (
             <div key={i} className="flex gap-4 p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-red-500/50 transition-colors group">
               <div className="w-10 h-10 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-red-500/50 transition-colors shrink-0">
@@ -157,13 +154,13 @@ const DesignSystemCaseStudy = ({ caseData }) => {
       </Section>
 
       {/* ═══════ 03. OBJECTIVES ═══════ */}
-      <Section number={3} title="Objectives">
+      <Section number={3} title={t("case_study.ds_sec_objectives")}>
         <div className="grid md:grid-cols-2 gap-4">
           {[
-            { icon: Target, title: "Unified Language", desc: "Establish a single design language across all platforms and products" },
-            { icon: Zap, title: "Efficiency", desc: "Improve design-to-development handoff speed and eliminate redundancy" },
-            { icon: Layers, title: "Scalability", desc: "Enable rapid scaling across Web, Android, and internal tools" },
-            { icon: Users, title: "Shared Vocabulary", desc: "Create a common terminology between design and engineering teams" },
+            { icon: Target, title: t("case_study.ds_obj_unified_title"), desc: t("case_study.ds_obj_unified_desc") },
+            { icon: Zap, title: t("case_study.ds_obj_efficiency_title"), desc: t("case_study.ds_obj_efficiency_desc") },
+            { icon: Layers, title: t("case_study.ds_obj_scalability_title"), desc: t("case_study.ds_obj_scalability_desc") },
+            { icon: Users, title: t("case_study.ds_obj_vocabulary_title"), desc: t("case_study.ds_obj_vocabulary_desc") },
           ].map((item, i) => (
             <ComponentCard key={i} icon={item.icon} title={item.title} desc={item.desc} />
           ))}
@@ -173,10 +170,9 @@ const DesignSystemCaseStudy = ({ caseData }) => {
       <div className="border-t border-[var(--border-color)]" />
 
       {/* ═══════ 04. DESIGN TOKENS ═══════ */}
-      <Section number={4} title="Design Tokens">
+      <Section number={4} title={t("case_study.ds_sec_tokens")}>
         <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-10 max-w-2xl">
-          The foundational layer of the system — semantic color scales, a modular typographic hierarchy,
-          and a rigid spatial grid that eliminated guesswork across all platforms.
+          {t("case_study.ds_tokens_desc")}
         </p>
 
         {/* Token Tab Switcher */}
@@ -206,10 +202,10 @@ const DesignSystemCaseStudy = ({ caseData }) => {
               exit={{ opacity: 0 }}
               className="grid md:grid-cols-2 gap-8"
             >
-              <TokenSwatch name="Primary / Brand" colors={["#00ADB5", "#00BCD4", "#B2EBF2", "#E0F7FA"]} />
-              <TokenSwatch name="Neutral" colors={["#1A1A1A", "#4A4A4A", "#9E9E9E", "#E0E0E0", "#F5F5F5"]} />
-              <TokenSwatch name="System Feedback" colors={["#4CAF50", "#FF9800", "#F44336"]} />
-              <TokenSwatch name="Surface / Background" colors={["#FFFFFF", "#FAFAFA", "#F0F0F0", "#E8E8E8"]} />
+              <TokenSwatch name={t("case_study.ds_tokens_swatch_primary")} colors={["#00ADB5", "#00BCD4", "#B2EBF2", "#E0F7FA"]} />
+              <TokenSwatch name={t("case_study.ds_tokens_swatch_neutral")} colors={["#1A1A1A", "#4A4A4A", "#9E9E9E", "#E0E0E0", "#F5F5F5"]} />
+              <TokenSwatch name={t("case_study.ds_tokens_swatch_feedback")} colors={["#4CAF50", "#FF9800", "#F44336"]} />
+              <TokenSwatch name={t("case_study.ds_tokens_swatch_surface")} colors={["#FFFFFF", "#FAFAFA", "#F0F0F0", "#E8E8E8"]} />
             </motion.div>
           )}
           {activeTokenTab === "type" && (
@@ -221,12 +217,12 @@ const DesignSystemCaseStudy = ({ caseData }) => {
               className="space-y-6"
             >
               {[
-                { label: "H1 / Display", size: "text-4xl", weight: "font-bold", spec: "32px / Bold" },
-                { label: "H2 / Title", size: "text-2xl", weight: "font-semibold", spec: "24px / Semibold" },
-                { label: "H3 / Subtitle", size: "text-xl", weight: "font-medium", spec: "20px / Medium" },
-                { label: "Body / Default", size: "text-base", weight: "font-normal", spec: "15px / Regular" },
-                { label: "Caption", size: "text-sm", weight: "font-normal", spec: "13px / Regular" },
-                { label: "Overline", size: "text-xs", weight: "font-medium", spec: "11px / Medium / Uppercase" },
+                { label: t("case_study.ds_tokens_type_h1"), size: "text-4xl", weight: "font-bold", spec: "32px / Bold" },
+                { label: t("case_study.ds_tokens_type_h2"), size: "text-2xl", weight: "font-semibold", spec: "24px / Semibold" },
+                { label: t("case_study.ds_tokens_type_h3"), size: "text-xl", weight: "font-medium", spec: "20px / Medium" },
+                { label: t("case_study.ds_tokens_type_body"), size: "text-base", weight: "font-normal", spec: "15px / Regular" },
+                { label: t("case_study.ds_tokens_type_caption"), size: "text-sm", weight: "font-normal", spec: "13px / Regular" },
+                { label: t("case_study.ds_tokens_type_overline"), size: "text-xs", weight: "font-medium", spec: "11px / Medium / Uppercase" },
               ].map((t, i) => (
                 <div key={i} className="flex items-baseline justify-between border-b border-[var(--border-color)] pb-4">
                   <span className={`${t.size} ${t.weight} text-[var(--text-primary)]`}>{t.label}</span>
@@ -244,7 +240,7 @@ const DesignSystemCaseStudy = ({ caseData }) => {
               className="space-y-4"
             >
               <p className="text-sm text-[var(--text-secondary)] mb-6">
-                Strict 4pt / 8pt spatial system. All padding, margins, and gaps snap to this scale.
+                {t("case_study.ds_tokens_spacing_desc")}
               </p>
               {[2, 4, 8, 12, 16, 24, 32, 48].map((px) => (
                 <div key={px} className="flex items-center gap-4">
@@ -263,27 +259,26 @@ const DesignSystemCaseStudy = ({ caseData }) => {
       <div className="border-t border-[var(--border-color)]" />
 
       {/* ═══════ 05. COMPONENT ARCHITECTURE ═══════ */}
-      <Section number={5} title="Component Architecture">
+      <Section number={5} title={t("case_study.ds_sec_architecture")}>
         <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-10 max-w-2xl">
-          Atomic design methodology. Components categorized into four functional groups
-          for maximum reusability and predictability.
+          {t("case_study.ds_arch_desc")}
         </p>
         <div className="grid md:grid-cols-2 gap-4">
-          <ComponentCard icon={ToggleLeft} title="Inputs" desc="Buttons (FAB → Primary → Outline → Text), text fields with validation states, dropdowns, file uploads, and form controls." />
-          <ComponentCard icon={Grid3X3} title="Navigation" desc="Bottom navigation bars, tab structures, breadcrumbs — aligned with Material Design while preserving GudangAda brand identity." />
-          <ComponentCard icon={MessageSquare} title="Feedback" desc="Banners (persistent), Snackbars (temporary), and Dialogs (modal) — standardized terminology and usage guidelines." />
-          <ComponentCard icon={Layers} title="Data Display" desc="Tables, cards, lists, and status indicators designed for data-heavy B2B inventory and ordering interfaces." />
+          <ComponentCard icon={ToggleLeft} title={t("case_study.ds_arch_inputs_title")} desc={t("case_study.ds_arch_inputs_desc")} />
+          <ComponentCard icon={Grid3X3} title={t("case_study.ds_arch_nav_title")} desc={t("case_study.ds_arch_nav_desc")} />
+          <ComponentCard icon={MessageSquare} title={t("case_study.ds_arch_feedback_title")} desc={t("case_study.ds_arch_feedback_desc")} />
+          <ComponentCard icon={Layers} title={t("case_study.ds_arch_display_title")} desc={t("case_study.ds_arch_display_desc")} />
         </div>
       </Section>
 
       {/* ═══════ 06. LAYOUT SYSTEM ═══════ */}
-      <Section number={6} title="Layout System">
+      <Section number={6} title={t("case_study.ds_sec_layout")}>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="p-8 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl">
             <Monitor size={24} className="text-[var(--brand)] mb-4 opacity-60" />
-            <h4 className="font-medium text-[var(--text-primary)] mb-2">Desktop — 12 Columns</h4>
+            <h4 className="font-medium text-[var(--text-primary)] mb-2">{t("case_study.ds_layout_desktop_title")}</h4>
             <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-6">
-              Standard responsive grid for web dashboards and internal tools.
+              {t("case_study.ds_layout_desktop_desc")}
             </p>
             <div className="flex gap-1">
               {Array.from({ length: 12 }).map((_, i) => (
@@ -293,9 +288,9 @@ const DesignSystemCaseStudy = ({ caseData }) => {
           </div>
           <div className="p-8 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl">
             <Smartphone size={24} className="text-[var(--brand)] mb-4 opacity-60" />
-            <h4 className="font-medium text-[var(--text-primary)] mb-2">Mobile — 4 Columns</h4>
+            <h4 className="font-medium text-[var(--text-primary)] mb-2">{t("case_study.ds_layout_mobile_title")}</h4>
             <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-6">
-              Optimized for the primary Android user base with 48dp minimum tap targets.
+              {t("case_study.ds_layout_mobile_desc")}
             </p>
             <div className="flex gap-2">
               {Array.from({ length: 4 }).map((_, i) => (
@@ -309,38 +304,22 @@ const DesignSystemCaseStudy = ({ caseData }) => {
       <div className="border-t border-[var(--border-color)]" />
 
       {/* ═══════ 07. PROCESS ═══════ */}
-      <Section number={7} title="Process & Governance">
+      <Section number={7} title={t("case_study.ds_sec_process")}>
         <div className="max-w-xl">
-          <ProcessStep number="1" title="Research & Audit" items={[
-            "Comprehensive UI audit across all products",
-            "Color, typography, and component inconsistency cataloging",
-            "Developer and designer pain point interviews",
-          ]} />
-          <ProcessStep number="2" title="Token Architecture" items={[
-            "Semantic color system with brand, feedback, and surface roles",
-            "Modular type scale (base 15px) for warehouse-floor legibility",
-            "4pt/8pt spatial grid eliminating padding guesswork",
-          ]} />
-          <ProcessStep number="3" title="Component Build" items={[
-            "Atomic Design methodology (atoms → molecules → organisms)",
-            "Component ownership model (PIC) for accountability",
-            "States documented: Default, Hover, Pressed, Disabled",
-          ]} />
-          <ProcessStep number="4" title="Governance & Handoff" items={[
-            "Weekly design reviews with engineering leads",
-            "Figma ↔ Code mapping via Storybook",
-            "Bi-weekly governance council for deprecation management",
-          ]} />
+          <ProcessStep number="1" title={t("case_study.ds_proc_step1_title")} items={t("case_study.ds_proc_step1_items", { returnObjects: true })} />
+          <ProcessStep number="2" title={t("case_study.ds_proc_step2_title")} items={t("case_study.ds_proc_step2_items", { returnObjects: true })} />
+          <ProcessStep number="3" title={t("case_study.ds_proc_step3_title")} items={t("case_study.ds_proc_step3_items", { returnObjects: true })} />
+          <ProcessStep number="4" title={t("case_study.ds_proc_step4_title")} items={t("case_study.ds_proc_step4_items", { returnObjects: true })} />
         </div>
       </Section>
 
       {/* ═══════ 08. CHALLENGES ═══════ */}
-      <Section number={8} title="Challenges">
+      <Section number={8} title={t("case_study.ds_sec_challenges")}>
         <div className="grid md:grid-cols-3 gap-4">
           {[
-            { icon: AlertTriangle, title: "No Initial SSOT", desc: "Siloed teams had no single source of truth. Components were duplicated across Figma files with no versioning." },
-            { icon: MessageSquare, title: "Naming Inconsistency", desc: "Teams used different names for the same components — snackbar vs toast vs notification — creating communication gaps." },
-            { icon: GitBranch, title: "Partial Eng. Integration", desc: "Initial engineering adoption was uneven. Some squads adopted tokens immediately, others continued with hardcoded values." },
+            { icon: AlertTriangle, title: t("case_study.ds_chall_ssot_title"), desc: t("case_study.ds_chall_ssot_desc") },
+            { icon: MessageSquare, title: t("case_study.ds_chall_naming_title"), desc: t("case_study.ds_chall_naming_desc") },
+            { icon: GitBranch, title: t("case_study.ds_chall_integ_title"), desc: t("case_study.ds_chall_integ_desc") },
           ].map((item, i) => (
             <div key={i} className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-amber-500/50 transition-colors group">
               <div className="w-10 h-10 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center mb-4 group-hover:border-amber-500/50 transition-colors shrink-0">
@@ -356,32 +335,29 @@ const DesignSystemCaseStudy = ({ caseData }) => {
       <div className="border-t border-[var(--border-color)]" />
 
       {/* ═══════ 09. IMPACT ═══════ */}
-      <Section number={9} title="Impact">
+      <Section number={9} title={t("case_study.ds_sec_impact")}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <StatCard icon={Zap} label="Design Redundancy" value="Reduced" />
-          <StatCard icon={Users} label="Onboarding Speed" value="Faster" />
-          <StatCard icon={CheckCircle2} label="UI Consistency" value="Unified" />
-          <StatCard icon={GitBranch} label="Design ↔ Eng" value="Synced" />
+          <StatCard icon={Zap} label={t("case_study.ds_impact_redundancy")} value="Reduced" />
+          <StatCard icon={Users} label={t("case_study.ds_impact_onboarding")} value="Faster" />
+          <StatCard icon={CheckCircle2} label={t("case_study.ds_impact_consistency")} value="Unified" />
+          <StatCard icon={GitBranch} label={t("case_study.ds_impact_sync")} value="Synced" />
         </div>
 
         <div className="p-8 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl">
           <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-            The rollout transitioned GudangAda from reactive design to a proactive design culture.
-            When the business mandated a new Logistics vertical, the team prototyped, tested, and
-            shipped the MVP in <strong className="text-[var(--text-primary)]">weeks — not months</strong> — relying
-            entirely on the established component library.
+            {t("case_study.ds_impact_summary")}
           </p>
         </div>
       </Section>
 
       {/* ═══════ 10. LEARNINGS ═══════ */}
-      <Section number={10} title="Learnings">
+      <Section number={10} title={t("case_study.ds_sec_learnings")}>
         <div className="grid md:grid-cols-2 gap-4">
           {[
-            { icon: BookOpen, title: "Strong Governance Required", desc: "A design system is a product, not a project. 30% is building; 70% is evangelizing and managing breaking changes." },
-            { icon: Palette, title: "Token Standardization is Critical", desc: "Without strict token discipline, visual debt re-accumulates within months. Tokens are the immune system." },
-            { icon: Lightbulb, title: "Documentation = Components", desc: "An undocumented component is a liability. Documentation is as important as the component itself." },
-            { icon: Users, title: "Cross-Functional Alignment", desc: "Design system success depends on designer-engineer symbiosis. Neither can build it alone." },
+            { icon: BookOpen, title: t("case_study.ds_learn_gov_title"), desc: t("case_study.ds_learn_gov_desc") },
+            { icon: Palette, title: t("case_study.ds_learn_tokens_title"), desc: t("case_study.ds_learn_tokens_desc") },
+            { icon: Lightbulb, title: t("case_study.ds_learn_doc_title"), desc: t("case_study.ds_learn_doc_desc") },
+            { icon: Users, title: t("case_study.ds_learn_align_title"), desc: t("case_study.ds_learn_align_desc") },
           ].map((item, i) => (
             <ComponentCard key={i} icon={item.icon} title={item.title} desc={item.desc} />
           ))}
@@ -392,9 +368,9 @@ const DesignSystemCaseStudy = ({ caseData }) => {
 
       {/* ═══════ 11. PROTOTYPE VIEWER ═══════ */}
       {caseData?.prototypeUrl && (
-        <Section number={11} title="Interactive Documentation">
+        <Section number={11} title={t("case_study.ds_sec_proto")}>
           <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-8 max-w-2xl">
-            Explore the fully-built design system prototype. Built with Vite, Radix UI, and Tailwind.
+            {t("case_study.ds_proto_desc")}
           </p>
 
           <div className="relative rounded-xl overflow-hidden border border-[var(--border-color)] shadow-[0_20px_50px_rgba(0,0,0,0.2)] bg-[var(--bg-card)]">
@@ -437,12 +413,10 @@ const DesignSystemCaseStudy = ({ caseData }) => {
       <section className="max-w-3xl mx-auto px-6 py-20 md:py-32 text-center">
         <ScrollReveal>
           <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-8 block">
-            12 — Reflection
+            12 — {t("case_study.ds_sec_reflection")}
           </span>
           <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)] italic">
-            "The GudangAda Design System represents a transition from ad-hoc design practices toward a structured,
-            scalable system. While not fully mature, it establishes a strong foundation for future growth
-            and cross-platform consistency."
+            "{t("case_study.ds_reflection_quote")}"
           </p>
           <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto" />
         </ScrollReveal>

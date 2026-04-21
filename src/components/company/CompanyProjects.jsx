@@ -1,14 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ArrowUpRight, Lock, FileText } from "lucide-react";
+import { ArrowUpRight, Lock, BookOpen, FileText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "../ScrollReveal";
 import ProjectCard from "../ProjectCard";
 import IconMapper from "../ui/IconMapper";
+import CloneCard from "../case-study/CloneCard";
+import { mapProjectToStudy, isProjectLocked, isProjectWip } from "../../utils/projectMappers";
 
 const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
   const [isManualHover, setIsManualHover] = useState(false);
   const [isAutoHover, setIsAutoHover] = useState(false);
+  const isWip = isProjectWip(project);
   const innerRef = useRef(null);
   const containerRef = useRef(null);
   const [innerHeight, setInnerHeight] = useState(0);
@@ -62,7 +65,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
   const outcome = isId
     ? project.details_id?.outcome || project.details.outcome
     : project.details.outcome;
-  const isWip = !["stoqo-logistics", "stoqo-sales", "design-system-gudangada"].includes(project.id);
+
 
   return (
     <div
@@ -136,7 +139,9 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
 
             {/* CTA */}
             <div className="flex items-center gap-2 pt-3 border-t border-dashed border-[var(--border-color)]">
-              <Lock size={10} style={{ color: brandColor }} />
+              {isProjectLocked(project) && (
+                <Lock size={10} style={{ color: brandColor }} />
+              )}
               <span
                 className="font-mono text-[10px] uppercase tracking-[0.15em]"
                 style={{ color: brandColor }}
@@ -259,6 +264,24 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
 const CompanyProjects = ({ cluster, t, isId }) => {
   const navigate = useNavigate();
   const brandColor = cluster.brandColor || "var(--accent-blue)";
+
+  // LOCAL-ONLY: Replace standard folders with 3D Flip Cards for testing
+  if (import.meta.env.DEV) {
+    return (
+      <div className="flex flex-wrap gap-[50px] justify-center lg:justify-start pt-8 pb-12">
+        {cluster.projects.map((project, idx) => {
+          const study = mapProjectToStudy(project, cluster, isId);
+          return (
+            <ScrollReveal key={idx} delay={idx * 100}>
+              <div className="scale-95 sm:scale-100 origin-center">
+                <CloneCard study={study} isId={isId} />
+              </div>
+            </ScrollReveal>
+          );
+        })}
+      </div>
+    );
+  }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">

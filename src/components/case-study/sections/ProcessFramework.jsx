@@ -47,7 +47,7 @@ const ProcessFramework = ({ caseData, t }) => {
                       <div
                         className={`font-mono text-[10px] uppercase tracking-widest ${globalStep.color} font-bold mb-1`}
                       >
-                        PHASE_{globalStep.id} // {globalStep.phase}
+                        {t("protected.phase_label") || "PHASE_"}{globalStep.id} // {globalStep.phase}
                       </div>
                       <div className="text-sm text-[var(--text-secondary)]">
                         {globalStep.objective}
@@ -62,7 +62,7 @@ const ProcessFramework = ({ caseData, t }) => {
                       className="text-[var(--accent-red)]"
                     />
                     <span className="font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-wider">
-                      RISK: {globalStep.risk.substring(0, 30)}...
+                      {t("protected.risk_label") || "RISK"}: {globalStep.risk.substring(0, 30)}...
                     </span>
                   </div>
                 </div>
@@ -107,7 +107,7 @@ const ProcessFramework = ({ caseData, t }) => {
                       <div className="absolute bottom-4 right-4 bg-[var(--bg-void)]/90 backdrop-blur border border-[var(--border-color)] px-3 py-1 rounded-full flex items-center gap-2 shadow-lg">
                         <ScanEye size={12} className={globalStep.color} />
                         <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-primary)]">
-                          Evidence_Log_0{i + 1}
+                          {t("protected.evidence") || "EVIDENCE"}_LOG_0{i + 1}
                         </span>
                       </div>
                     </div>
@@ -117,7 +117,7 @@ const ProcessFramework = ({ caseData, t }) => {
                   <div className="lg:w-1/3 bg-[var(--bg-card)]/30">
                     <div className="p-6 md:p-8 border-b border-[var(--border-color)]">
                       <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-2">
-                        <globalStep.icon size={12} /> Input Vectors
+                        <globalStep.icon size={12} /> {t("protected.input_vectors") || "Input Vectors"}
                       </div>
                       <ul className="space-y-3">
                         {globalStep.inputs.slice(0, 3).map((input, idx) => (
@@ -134,7 +134,7 @@ const ProcessFramework = ({ caseData, t }) => {
 
                     <div className="p-6 md:p-8">
                       <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-2">
-                        <Rocket size={12} /> System Outputs
+                        <Rocket size={12} /> {t("protected.system_outputs") || "System Outputs"}
                       </div>
                       <ul className="space-y-3">
                         {globalStep.outputs
@@ -203,7 +203,6 @@ const ProcessFramework = ({ caseData, t }) => {
                           <Activity size={48} />
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
                     </div>
 
                     <div className="mt-2 flex justify-between items-center px-2">
@@ -211,7 +210,7 @@ const ProcessFramework = ({ caseData, t }) => {
                         {t("protected.evidence") || "EVIDENCE"} #{i + 1}
                       </span>
                       <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] opacity-50">
-                        CONFIDENTIAL
+                        {t("protected.restricted_file") || "CONFIDENTIAL"}
                       </span>
                     </div>
                   </div>

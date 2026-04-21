@@ -1,8 +1,11 @@
 import React from "react";
 import { AlertTriangle, Activity, ScanEye } from "lucide-react";
 import ProjectCard from "../../ProjectCard";
+import { isProjectWip } from "../../../utils/projectMappers";
 
 const HeroSection = ({ project, caseData, isId, t }) => {
+  const isWip = isProjectWip(project);
+
   return (
     <section className="flex flex-col items-center relative overflow-hidden px-6 text-center pt-24 md:pt-32 pb-20">
       {/* Technical Illustration Background */}
@@ -21,7 +24,7 @@ const HeroSection = ({ project, caseData, isId, t }) => {
       {/* Content Wrapper */}
       <div className="relative z-10 w-full flex flex-col items-center">
         {/* WIP Label for incomplete projects */}
-        {!["stoqo-logistics", "stoqo-sales", "design-system-gudangada"].includes(project.id) && (
+        {isWip && (
           <div className="mb-6 flex items-center justify-center">
             <div className="bg-amber-500/10 border border-amber-500/50 text-amber-600 dark:text-amber-400 px-4 py-2 rounded-full flex items-center gap-2 backdrop-blur-sm">
               <AlertTriangle size={14} />
@@ -35,7 +38,7 @@ const HeroSection = ({ project, caseData, isId, t }) => {
         {/* Cinematic Title */}
         <div className="mb-4">
           <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[var(--brand)] border-b border-[var(--brand)] pb-1 sm:pb-2 inline-block">
-            {caseData.snapshot?.tagline || "Confidential Project"}
+            {caseData.snapshot?.tagline || t("protected.classified_arch") || "Confidential Project"}
           </span>
         </div>
 
@@ -44,7 +47,7 @@ const HeroSection = ({ project, caseData, isId, t }) => {
         </h1>
 
         <p className="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl mx-auto font-light leading-relaxed mb-16">
-          {caseData.challenge || project.details.problem}
+          {caseData.challenge || (isId ? project.details_id?.problem : project.details?.problem) || ""}
         </p>
 
         {/* Hero Visual Hook */}

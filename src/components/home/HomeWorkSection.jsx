@@ -9,7 +9,7 @@ const HomeWorkSection = ({ t }) => {
   return (
     <section id="work" className="mb-24 scroll-mt-24 relative">
       <ScrollReveal>
-        <SectionTitle number="1" title={t("home.section_work")} />
+        <SectionTitle number="2" title={t("home.section_work")} />
         <div className="max-w-2xl mb-12 mt-[-1rem] text-[var(--text-secondary)] font-mono text-[11px] md:text-xs leading-relaxed border-l-2 border-[var(--accent-amber)] pl-4">
           <p>
             {t("home.work_subtitle_1")}

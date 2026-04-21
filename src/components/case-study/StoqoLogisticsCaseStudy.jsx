@@ -90,88 +90,8 @@ const WaypointCard = ({ title, desc, delay = 0, warning = false }) => (
   </motion.div>
 );
 
-const StoqoLogisticsCaseStudy = ({ project, language }) => {
+const StoqoLogisticsCaseStudy = ({ project, t }) => {
   const assetPath = "/case-studies/stoqo-logistics";
-  const isId = language === "id";
-
-  const content = {
-    tag: isId ? "Pengalaman End-To-End" : "End-To-End Experience",
-    title: isId ? "Transformasi Pengiriman untuk Pegiat F&B" : "Transforming Delivery for Small F&B Businesses",
-    subtitle: isId ? "Solusi Berpusat pada Pelanggan." : "A Customer-Centric Solution.",
-    manifestData: isId ? "Data Manifes" : "Manifest Data",
-    company: isId ? "Perusahaan" : "Company",
-    role: isId ? "Peran" : "Role",
-    coreFocus: isId ? "Fokus Utama" : "Core Focus",
-    focusValue: isId ? "Operasi Pengiriman, Pengalaman Pelanggan, Pelacakan Rantai Pasok" : "Delivery Operations, Customer Experience, Supply Chain Tracking",
-    
-    // Overview
-    overviewTitle: isId ? "Ringkasan" : "Overview",
-    overviewP1: isId ? "Bayangkan Anda menjalankan bisnis makanan 24 jam yang sibuk di pusat kota. Setiap pagi, ketika banyak orang masih tertidur, Anda menembus jalanan sepi dengan motor untuk mencapai pasar subuh antara jam 4-6 pagi." : "Imagine you're running a bustling 24-hour food business in the heart of the city. Every single morning, while most people are still sleeping, you navigate through the quiet streets on your motorcycle to reach the wet market between 4-6 am.",
-    overviewP2: isId ? "Hujan atau cerah, perjalanan harian ini adalah rutinitas yang tak bisa dihindari - memilih bahan segar dengan teliti. Proses yang memakan waktu ini telah menjadi ritual harian Anda." : "Rain or shine, this daily journey is an unavoidable part of your routine - carefully selecting fresh ingredients and essential stocks that will keep your business running smoothly throughout the day. This time-consuming process has become your daily ritual, though not necessarily by choice.",
-    overviewP3: isId ? "Saat salesman STOQO datang, Anda mencobanya dengan harapan bebas dari rutinitas pagi. Awalnya semua lancar. Namun optimisme Anda diuji saat pengiriman mulai terlambat, memaksa Anda kembali ke pasar pagi dan merusak jadwal." : "When a salesman introduces you to STOQO, you try it, hoping it might finally free you from those early morning runs. Initially, everything is smooth. However, your optimism is suddenly challenged when you begin experiencing late deliveries, forcing you to return to your old routine of early morning market visits, disrupting your carefully planned schedule.",
-    overviewP4: isId ? "Narasi ini mewakili pengalaman nyata dari pelanggan setia STOQO, dan menjadi katalis untuk studi kasus komprehensif ini." : "This compelling narrative represents an actual experience from one of STOQO's valued customers, and it became the catalyst for this comprehensive case study.",
-
-    // Context
-    contextTitle: isId ? "Konteks" : "Context",
-    contextP1: isId ? "STOQO beroperasi dengan sistem jalur logistik ganda." : "STOQO operates a sophisticated dual-delivery system tailored to different product categories.",
-    freshGoods: isId ? "Barang Segar" : "Fresh Goods",
-    freshGoodsDesc: isId ? "Sayur dan bahan mentah, dikirim saat subuh hingga jam 11 siang untuk menjamin kesegaran." : "Perishable items like vegetables and fresh produce, delivered during the crucial early morning window from dawn until 11 am to ensure maximum freshness.",
-    dryGoods: isId ? "Barang Kering" : "Dry Goods",
-    dryGoodsDesc: isId ? "Kebutuhan \"Sembako\" dijadwalkan siang (jam 2 - 4 sore)." : "Essential household items \"Sembako\" (rice, bottled water) scheduled for afternoon delivery between 2 pm and 4 pm.",
-    contextP2: isId ? "Untuk efisiensi pesanan esok hari, STOQO memotong pesanan di jam 7 malam." : "To maintain operational efficiency and ensure next-day delivery service, STOQO implements a strict cut-off time of 7 pm for all orders.",
-
-    // Ground Truth
-    groundTruthTitle: isId ? "Kenyataan Lapangan" : "Ground Truth",
-    researchP1: isId ? "Tim PM kami menemukan keluhan pengiriman yang menumpuk. Keterlambatan memaksa pengguna kembali ke pasar. Kami butuh insight yang dalam tentang rutinitas operasional mereka." : "Our Product Management team identified an increasing frequency of delivery-related complaints. Despite ongoing efforts to address operational inefficiencies, we needed deeper insights into how delivery challenges were affecting customers' daily operations.",
-    quote: isId ? "\"Biasanya nyampe jam 4 atau jam 5, mas. Kemaren nyampe jam 8. Saya jadi terpaksa ke pasar buat beli barang lagi\" — Warteg F (Customer)" : "\"Biasanya nyampe jam 4 atau jam 5, mas. Kemaren nyampe jam 8. Saya jadi terpaksa ke pasar buat beli barang lagi\" — Warteg F (Customer)",
-    
-    labelInterview: isId ? "Wawancara Pengguna" : "User Interview",
-    labelSynthesis: isId ? "Sintesis Riset" : "Research Synthesis",
-    labelWorkshop: isId ? "Workshop Ideasi" : "Ideation Workshop",
-
-    // Analysis
-    analysisTitle: isId ? "Analisis" : "Analysis",
-    analysisP1: isId ? "Melalui wawancara kontekstual, kami menemukan empat titik masalah yang terus berulang:" : "Through our detailed analysis and contextual interviews, we identified four significant and recurring pain points that consistently emerged in our users' delivery experiences:",
-    
-    prematureArrival: isId ? "Kedatangan Terlalu Cepat" : "Premature Arrival",
-    prematureArrivalDesc: isId ? "Kurir datang terlalu awal, merusak siklus persiapan harian sebelum warung dibuka." : "Drivers arriving ahead of schedule, causing disruption to customers' preparation routines and daily operations.",
-    
-    arrivalUncertainty: isId ? "Ketidakpastian Waktu Tiba" : "Arrival Uncertainty",
-    arrivalUncertaintyDesc: isId ? "Pengguna cemas karena tak tahu jam berapa pasokan logistik akan tiba." : "Customers experiencing uncertainty regarding the anticipated arrival time of their goods, leading to difficulties in planning their business activities.",
-
-    commsBlackout: isId ? "Putus Komunikasi" : "Communication Blackout",
-    commsBlackoutDesc: isId ? "Tidak adanya transparansi informasi jika kurir nyasar atau terjadi kendala keterlambatan." : "Customers requiring more transparent communication about potential delivery delays to better manage their inventory and operations.",
-
-    blindspot: isId ? "Titik Buta Real-time" : "Real-time Blindspot",
-    blindspotDesc: isId ? "Pelanggan kurang awas akan kapan kurir mendekati tujuan yang menyebabkan kegagalan logistik." : "Customers lacking real-time awareness of driver arrival times, resulting in missed deliveries and operational inefficiencies.",
-
-    // Ideation
-    ideationTitle: isId ? "Ideasi" : "Ideation",
-    ideationP1: isId ? "Untuk menfasilitasi ideasi, kami menjalankan kolaborasi dan menyusun pertanyaan 'How Might We'." : "To facilitate the ideation process, I organized an intensive collaborative workshop. We carefully crafted \"How Might We\" (HMW) Questions that directly corresponded to the key insights we uncovered.",
-    hmwLabel: isId ? "Pertanyaan Kunci HMW" : "Core HMW Question",
-    hmwQuote: isId ? "\"Bagaimana kita mengamankan kecemasan pengguna dari risiko ketidakpastian jalur distribusi logistik?\"" : "\"How might we manage user anxiety due to risk exposure from uncertain delivery time?\"",
-
-    // Design System
-    designTitle: isId ? "Sistem Desain" : "Design System",
-    designP1: isId ? "Setelah perundingan intensif, kami memilih pelacakan truk pengiriman dengan sistem pemberitahuan dorong real-time." : "After thorough deliberation and voting, we selected a comprehensive delivery status tracking system with real-time in-app push notifications as our primary solution.",
-    feature1Title: isId ? "Pelacakan Status Komprehensif" : "Comprehensive Delivery Status Tracking",
-    feature1Desc: isId ? "Status pengiriman yang menenangkan pikiran sejak transaksi berhasil hingga serah-terima lapangan." : "A detailed status system that informs customers at every delivery stage, from order confirmation to final delivery. This includes status indicators, estimated preparation times, and delivery progress updates.",
-    feature2Title: isId ? "Integrasi Sistem Cerdas" : "Intelligent System Integration",
-    feature2Desc: isId ? "Menyatukan aplikasi kurir (dispatcher) dan pelanggan sehingga terhubung penuh tanpa celah informasi." : "Previously, STOQO operated separate systems for drivers and customers. We unified these systems to create seamless information flow.",
-    featLi1: isId ? "Penghitungan ETA Real-time" : "Real-time ETA calculations",
-    featLi2: isId ? "Kerangka Notifikasi Otomatis" : "Push notification system framework",
-    featLi3: isId ? "Jaring cadangan SMS dan WhatsApp" : "SMS and WhatsApp fail-safes",
-
-    // Usability Testing
-    testingTitle: isId ? "Pengujian Usabilitas" : "Usability Testing",
-    testingP1: isId ? "Menyusul purwarupa (prototype), saya mengatur siklus umpan balik. Diadakan tiga hari penuh observasi lapangan dengan pengguna. Pengujian difokuskan pada pemahaman tata letak fungsionalitas peta baru. Semua insight direkapitulasi secara komprehensif bersama tim pengembang." : "Following the completion of the high-fidelity design phase, I implemented a comprehensive feedback gathering process. This involved conducting detailed usability testing sessions over a three-day period to collect immediate user reactions and insights. The testing sessions were structured to evaluate both the functionality and intuitiveness of the new delivery tracking interface. Additionally, I presented the design concepts during our Weekly Design Review Session, where team members provided valuable critique and suggestions for further refinement.",
-
-    // Outcomes
-    outcomesTitle: isId ? "Dampak & Validasi" : "Validation & Impact",
-    outcomesP1: isId ? "Pembelajaran yang paling berharga datang dari proses sintesis mental model ke dalam eksekusi layar. Proses memetakan perilaku komplikasi logistik telah membangun ketangguhan analisis sistematis." : "The most significant learning experience emerged from the intricate process of analyzing and synthesizing the research data. As my first major user research undertaking... the process of mapping complex user behaviors helped develop my analytical capabilities and strengthened my approach to user-centered design methodology.",
-    impactHeader: isId ? "Dampak Kuantitatif Nyata" : "Substantial Measurable Impact",
-    impactDesc: isId ? "Pelanggan mendapati pergeseran radikal tentang jam distribusi. Visibilitas antarmuka mendorong penurunan angka kompelein pada layanan support pelanggan hingga ke titik esensial, membangun transparansi operasional terpusat." : "Customers experienced significantly improved visibility into their delivery timing, enabling them to plan their operations more effectively and reduce uncertainty in their daily workflows. This enhancement in service transparency manifested tangibly in our metrics, with a notable decrease in delivery-related inquiries to our Customer Service team, indicating that customers felt more informed and confident about their deliveries."
-  };
 
   return (
     <LogisticsThemeWrapper>
@@ -184,7 +104,7 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
                 <div className="px-3 py-1 bg-[var(--brand)]/10 border border-[var(--brand)]/30 rounded-full flex items-center gap-2">
                   <Truck size={12} style={{ color: "var(--brand)" }} />
                   <span className="font-mono text-[10px] uppercase tracking-[0.2em]" style={{ color: "var(--brand)" }}>
-                    {content.tag}
+                    {t("case_study.st_logistics_tag")}
                   </span>
                 </div>
                 <span className="font-mono text-[10px] text-[var(--text-secondary)] tracking-[0.1em]">
@@ -192,30 +112,30 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
                 </span>
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.1] mb-6">
-                {content.title}
+                {t("case_study.st_logistics_title")}
               </h1>
               <p className="text-xl md:text-2xl text-[var(--text-secondary)] font-light leading-relaxed">
-                {content.subtitle}
+                {t("case_study.st_logistics_subtitle")}
               </p>
             </div>
             
             {/* Quick Metrics / Manifest container */}
             <div className="bg-[var(--bg-surface)] p-6 md:p-8 rounded-2xl border border-[var(--border-color)]">
               <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--text-secondary)] mb-6 border-b border-[var(--border-color)] pb-3">
-                {content.manifestData}
+                {t("case_study.st_logistics_manifest")}
               </h4>
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <p className="text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-1">{content.company}</p>
+                  <p className="text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-1">{t("case_study.st_logistics_context_client")}</p>
                   <p className="font-medium text-[var(--text-primary)]">STOQO</p>
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-1">{content.role}</p>
+                  <p className="text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-1">{t("case_study.st_logistics_context_role")}</p>
                   <p className="font-medium text-[var(--text-primary)]">Product Designer</p>
                 </div>
                 <div className="col-span-2">
-                  <p className="text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-1">{content.coreFocus}</p>
-                  <p className="font-medium text-[var(--text-primary)]">{content.focusValue}</p>
+                  <p className="text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-1">{t("case_study.st_logistics_context_focus")}</p>
+                  <p className="font-medium text-[var(--text-primary)]">{t("case_study.st_logistics_focus_val")}</p>
                 </div>
               </div>
             </div>
@@ -225,20 +145,20 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
 
       {/* ═══════ OVERVIEW ═══════ */}
       <DispatchLog>
-        <TrackingNode nodeId="01" title={content.overviewTitle} icon={Package} status="DISPATCH_INITIATED" />
+        <TrackingNode nodeId="01" title={t("case_study.st_logistics_sec_overview")} icon={Package} status="DISPATCH_INITIATED" />
         <div className="grid md:grid-cols-2 gap-12 items-start pl-16 md:pl-20">
           <div className="space-y-6 md:col-span-2 max-w-4xl">
             <h3 className="text-2xl font-serif text-[var(--text-primary)] italic leading-relaxed border-l-4 border-[var(--brand)] pl-4">
-              {content.overviewP1}
+              {t("case_study.st_logistics_overview_p1")}
             </h3>
             <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
-              {content.overviewP2}
+              {t("case_study.st_logistics_overview_p2")}
             </p>
             <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
-              {content.overviewP3}
+              {t("case_study.st_logistics_overview_p3")}
             </p>
             <p className="text-[var(--text-secondary)] text-lg leading-relaxed font-medium mt-4">
-              {content.overviewP4}
+              {t("case_study.st_logistics_overview_p4")}
             </p>
           </div>
         </div>
@@ -246,38 +166,38 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
 
       {/* ═══════ CONTEXT ═══════ */}
       <DispatchLog className="bg-[var(--bg-card)] border-y border-[var(--border-color)]">
-        <TrackingNode nodeId="02" title={content.contextTitle} icon={Clock} status="OPERATIONAL_MAPPING" />
+        <TrackingNode nodeId="02" title={t("case_study.st_logistics_sec_context")} icon={Clock} status="OPERATIONAL_MAPPING" />
         <div className="pl-16 md:pl-20 space-y-8 max-w-4xl">
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
-            {content.contextP1}
+            {t("case_study.st_logistics_context_p1")}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             <WaypointCard 
-              title={content.freshGoods} 
-              desc={content.freshGoodsDesc} 
+              title={t("case_study.st_logistics_fresh_title")} 
+              desc={t("case_study.st_logistics_fresh_desc")} 
             />
             <WaypointCard 
-              title={content.dryGoods} 
-              desc={content.dryGoodsDesc}
+              title={t("case_study.st_logistics_dry_title")} 
+              desc={t("case_study.st_logistics_dry_desc")}
               delay={0.1}
             />
           </div>
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
-            {content.contextP2}
+            {t("case_study.st_logistics_context_p2")}
           </p>
         </div>
       </DispatchLog>
 
       {/* ═══════ RESEARCH & FIELD WORK ═══════ */}
       <DispatchLog>
-        <TrackingNode nodeId="03" title={content.groundTruthTitle} icon={Search} status="FIELD_SYNTHESIS" />
+        <TrackingNode nodeId="03" title={t("case_study.st_logistics_sec_ground")} icon={Search} status="FIELD_SYNTHESIS" />
         
         <div className="pl-16 md:pl-20 space-y-16">
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-4xl">
-            {content.researchP1}
+            {t("case_study.st_logistics_ground_p1")}
           </p>
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-4xl italic border-l-4 border-[var(--brand)] pl-4">
-            {content.quote}
+            {t("case_study.st_logistics_ground_quote")}
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -290,7 +210,7 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
                 />
               </div>
               <p className="font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] flex items-center justify-between">
-                <span>{content.labelInterview}</span>
+                <span>{t("case_study.st_logistics_label_interview")}</span>
                 <span className="opacity-50">ARCHIVE_C0</span>
               </p>
             </div>
@@ -303,7 +223,7 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
                 />
               </div>
               <p className="font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] flex items-center justify-between">
-                <span>{content.labelSynthesis}</span>
+                <span>{t("case_study.st_logistics_label_synthesis")}</span>
                 <span className="opacity-50">ARCHIVE_C1</span>
               </p>
             </div>
@@ -316,7 +236,7 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
                 />
               </div>
               <p className="font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] flex items-center justify-between">
-                <span>{content.labelWorkshop}</span>
+                <span>{t("case_study.st_logistics_label_workshop")}</span>
                 <span className="opacity-50">ARCHIVE_C2</span>
               </p>
             </div>
@@ -327,30 +247,30 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
 
       {/* ═══════ ANALYSIS ═══════ */}
       <DispatchLog className="bg-[var(--bg-card)] border-y border-[var(--border-color)]">
-        <TrackingNode nodeId="04" title={content.analysisTitle} icon={HeartPulse} status="DATA_DIAGNOSTICS" />
+        <TrackingNode nodeId="04" title={t("case_study.st_logistics_sec_analysis")} icon={HeartPulse} status="DATA_DIAGNOSTICS" />
         <div className="pl-16 md:pl-20 space-y-8 max-w-4xl">
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-8">
-            {content.analysisP1}
+            {t("case_study.st_logistics_analysis_p1")}
           </p>
           <div className="grid gap-4">
             <WaypointCard 
-              title={content.prematureArrival} 
-              desc={content.prematureArrivalDesc} 
+              title={t("case_study.st_logistics_pain_early_title")} 
+              desc={t("case_study.st_logistics_pain_early_desc")} 
               warning
             />
             <WaypointCard 
-              title={content.arrivalUncertainty} 
-              desc={content.arrivalUncertaintyDesc} 
+              title={t("case_study.st_logistics_pain_uncertain_title")} 
+              desc={t("case_study.st_logistics_pain_uncertain_desc")} 
               warning
             />
             <WaypointCard 
-              title={content.commsBlackout} 
-              desc={content.commsBlackoutDesc} 
+              title={t("case_study.st_logistics_pain_blackout_title")} 
+              desc={t("case_study.st_logistics_pain_blackout_desc")} 
               warning
             />
             <WaypointCard 
-              title={content.blindspot} 
-              desc={content.blindspotDesc} 
+              title={t("case_study.st_logistics_pain_blindspot_title")} 
+              desc={t("case_study.st_logistics_pain_blindspot_desc")} 
               warning
             />
           </div>
@@ -359,20 +279,20 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
 
       {/* ═══════ IDEATION ═══════ */}
       <DispatchLog>
-        <TrackingNode nodeId="05" title={content.ideationTitle} icon={Lightbulb} status="SOLUTION_MAPPING" />
+        <TrackingNode nodeId="05" title={t("case_study.st_logistics_sec_ideation")} icon={Lightbulb} status="SOLUTION_MAPPING" />
         
         <div className="pl-16 md:pl-20 space-y-12">
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-4xl">
-            {content.ideationP1}
+            {t("case_study.st_logistics_ideation_p1")}
           </p>
           
           <div className="bg-[var(--bg-surface)] p-8 rounded-2xl border-l-4 border-[var(--brand)] max-w-4xl">
             <h4 className="text-xl font-bold mb-4 flex items-center gap-3 text-[var(--text-primary)]">
               <Zap size={20} className="text-[var(--brand)]" />
-              {content.hmwLabel}
+              {t("case_study.st_logistics_hmw_label")}
             </h4>
             <p className="text-xl md:text-2xl font-serif italic text-[var(--accent-amber)] leading-relaxed">
-              {content.hmwQuote}
+              {t("case_study.st_logistics_hmw_quote")}
             </p>
           </div>
 
@@ -388,18 +308,18 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
 
       {/* ═══════ SOLUTION & DESIGN ═══════ */}
       <DispatchLog className="bg-[var(--bg-card)] border-t border-[var(--border-color)]">
-        <TrackingNode nodeId="06" title={content.designTitle} icon={Layers} status="ASSEMBLY" />
+        <TrackingNode nodeId="06" title={t("case_study.st_logistics_sec_design")} icon={Layers} status="ASSEMBLY" />
         
         <div className="pl-16 md:pl-20 space-y-16">
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-4xl">
-            {content.designP1}
+            {t("case_study.st_logistics_design_p1")}
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             <div className="flex flex-col gap-6">
-              <h3 className="text-2xl font-bold text-[var(--text-primary)]">{content.feature1Title}</h3>
+              <h3 className="text-2xl font-bold text-[var(--text-primary)]">{t("case_study.st_logistics_feat_track_title")}</h3>
               <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
-                {content.feature1Desc}
+                {t("case_study.st_logistics_feat_track_desc")}
               </p>
             </div>
             <div className="bg-[var(--bg-surface)] p-8 rounded-[2rem] border border-[var(--border-color)] shadow-2xl flex justify-center items-center">
@@ -422,19 +342,19 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
                 />
             </div>
             <div className="flex flex-col gap-6 md:order-2 order-1">
-              <h3 className="text-2xl font-bold text-[var(--text-primary)]">{content.feature2Title}</h3>
+              <h3 className="text-2xl font-bold text-[var(--text-primary)]">{t("case_study.st_logistics_feat_integ_title")}</h3>
               <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
-                {content.feature2Desc}
+                {t("case_study.st_logistics_feat_integ_desc")}
               </p>
              <ul className="space-y-4 mt-4 font-mono text-sm pl-2">
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 size={16} className="text-[var(--brand)]" /> {content.featLi1}
+                  <CheckCircle2 size={16} className="text-[var(--brand)]" /> {t("case_study.st_logistics_feat_eta")}
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 size={16} className="text-[var(--brand)]" /> {content.featLi2}
+                  <CheckCircle2 size={16} className="text-[var(--brand)]" /> {t("case_study.st_logistics_feat_push")}
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 size={16} className="text-[var(--brand)]" /> {content.featLi3}
+                  <CheckCircle2 size={16} className="text-[var(--brand)]" /> {t("case_study.st_logistics_feat_fail")}
                 </li>
               </ul>
             </div>
@@ -444,11 +364,11 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
 
       {/* ═══════ USER & DESIGN FEEDBACK ═══════ */}
       <DispatchLog>
-        <TrackingNode nodeId="07" title={content.testingTitle} icon={Search} status="QC_IN_PROGRESS" />
+        <TrackingNode nodeId="07" title={t("case_study.st_logistics_sec_testing")} icon={Search} status="QC_IN_PROGRESS" />
         
         <div className="pl-16 md:pl-20 space-y-16">
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-4xl">
-            {content.testingP1}
+            {t("case_study.st_logistics_testing_p1")}
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -480,18 +400,18 @@ const StoqoLogisticsCaseStudy = ({ project, language }) => {
 
       {/* ═══════ OUTCOMES ═══════ */}
       <DispatchLog className="bg-[var(--bg-card)] border-t border-[var(--border-color)]">
-        <TrackingNode nodeId="08" title={content.outcomesTitle} icon={BarChart2} status="COMPLETED" />
+        <TrackingNode nodeId="08" title={t("case_study.st_logistics_sec_impact")} icon={BarChart2} status="COMPLETED" />
         
         <div className="pl-16 md:pl-20">
           <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-4xl mb-12">
-            {content.outcomesP1}
+            {t("case_study.st_logistics_impact_p1")}
           </p>
 
           <div className="p-8 md:p-12 bg-gradient-to-br from-[var(--brand)] to-[var(--bg-surface)] border border-[var(--border-color)] rounded-3xl shadow-xl relative overflow-hidden">
             <div className="relative z-10 text-center max-w-3xl mx-auto">
-              <h3 className="text-3xl font-bold text-[var(--text-primary)] mb-6">{content.impactHeader}</h3>
+              <h3 className="text-3xl font-bold text-[var(--text-primary)] mb-6">{t("case_study.st_logistics_impact_header")}</h3>
               <p className="text-lg md:text-xl font-medium leading-relaxed text-[var(--text-secondary)]">
-                {content.impactDesc}
+                {t("case_study.st_logistics_impact_desc")}
               </p>
             </div>
           </div>
