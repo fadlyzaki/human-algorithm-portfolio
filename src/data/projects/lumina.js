@@ -281,6 +281,38 @@ export const lumina = {
             text: "Rekruter bekerja dalam kelompok (Async), sedangkan kandidat mengharapkan respon cepat (Sync). Tantangannya adalah menjembatani dua model mental ini tanpa memaksa perubahan perilaku.",
           },
         },
+        aiHypotheses: [
+          {
+            tech: "Agen LLM & Analisis Sentimen",
+            title: "Bot Negosiasi Otomatis",
+            desc: "Daripada rekruter mengetik balasan manual, Agen AI akan menyusun respon berdasarkan sentimen dan ketersediaan kandidat. Bisa atur jadwal wawancara otomatis sinkron dengan kalender.",
+            impact: "Respon Nyaris Instan",
+          },
+          {
+            tech: "Voice AI & Speech-to-Text",
+            title: "Screening Berbasis Suara",
+            desc: "Kandidat menjawab pertanyaan seleksi lewat rekaman suara. AI mentranskrip, menganalisis nada dan kepercayaan diri, dan men-generate skor ringkasan kandidat untuk rekruter.",
+            impact: "Proses Screening Jauh Lebih Cepat",
+          },
+          {
+            tech: "Analitik Prediktif & ML",
+            title: "Prediktor Kecocokan Kandidat",
+            desc: "Model ML dilatih dari data historis kandidat untuk memprediksi mana yang kemungkinan besar menerima tawaran dan bertahan lama, membantu rekruter memprioritaskan prospek berkualitas.",
+            impact: "Tingkat Penerimaan Tinggi",
+          },
+          {
+            tech: "Agen Suara-ke-Aksi",
+            title: "Wawancara Sambil Lalu",
+            desc: "Kandidat bisa menjawab pertanyaan seleksi via voice note saat di perjalanan. AI mentranskrip, merangkum kompetensi utama, dan mengupdate kecocokan profil mereka.",
+            impact: "Pengalaman Kandidat Terbaik",
+          },
+          {
+            tech: "Large Reasoning Models (LRM)",
+            title: "Bot Auditor Bias",
+            desc: "AI pengamat tak terlihat yang mendeteksi potensi bias tak disadari dalam pesan rekruter atau deskripsi pekerjaan sebelum dikirim, lalu menyarankan kata yang lebih inklusif.",
+            impact: "Perekrutan Lebih Beragam",
+          },
+        ],
       },
     },
     {
