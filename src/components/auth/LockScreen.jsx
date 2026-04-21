@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+
 import {
   ShieldAlert,
   ArrowLeft,
@@ -228,13 +228,22 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
               <p className="text-[10px] text-[var(--text-secondary)] opacity-50 mb-2">
                 {t("protected.unauthorized") || "// UNAUTHORIZED PERSONNEL"}
               </p>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[var(--accent-red)] border-b border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-black transition-all pb-1"
-              >
-                {t("protected.request_access") || "Request Access Key"}{" "}
-                <ArrowRight size={12} />
-              </Link>
+              {(() => {
+                const projectTitle = isId ? project.title_id || project.title : project.title;
+                const subject = t("protected.email_subject").replace("{title}", projectTitle);
+                const body = t("protected.email_body").replace("{title}", projectTitle);
+                const mailtoUrl = `mailto:fadly.uzzaki@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                return (
+                  <a
+                    href={mailtoUrl}
+                    className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[var(--accent-red)] border-b border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-black transition-all pb-1"
+                  >
+                    {t("protected.request_access") || "Request Access Key"}{" "}
+                    <ArrowRight size={12} />
+                  </a>
+                );
+              })()}
             </div>
           </div>
         ) : (

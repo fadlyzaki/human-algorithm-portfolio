@@ -33,3 +33,6 @@ docs/
 .vercel
 .env*.local
 unused_report.txt
+
+# Mock Pages & Playgrounds
+src/pages/CompanyMockStoqo.jsx

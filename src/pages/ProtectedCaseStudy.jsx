@@ -59,8 +59,22 @@ const ProtectedCaseStudy = () => {
             {t("protected.file_not_exist") ||
               `The requested case file "${id}" does not exist or has been redacted from the archives.`}
           </p>
-          {/* The original Link component was removed as per instruction to replace inline navigation */}
-          {/* If a navigation back to home is still desired in the error state, it should be re-added or handled by Navbar */}
+          {/* Request Access Button (Safety Net for 404/Missing Files) */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href={`mailto:fadly.uzzaki@gmail.com?subject=Request%20Access%3A%20${id}&body=Hello%20Fadly%2C%0A%0AI%20would%20like%20to%20request%20an%20access%20key%20for%20the%20project%20"${id}".%0A%0AThank%20you!`}
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-red-400 hover:text-red-300 border border-red-900/50 px-6 py-3 hover:bg-red-950/30 transition-all font-mono"
+            >
+              <FileText size={14} /> {t("protected.request_access") || "Request Access Key"}
+            </a>
+            
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-all font-mono"
+            >
+              <ArrowLeft size={14} /> {t("project_layouts.return_base") || "Return to Base"}
+            </Link>
+          </div>
         </div>
       </div>
     );

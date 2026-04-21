@@ -149,12 +149,21 @@ const SideProjectDetail = () => {
             <span className="text-white">"{id}"</span>
             {t("project_layouts.not_retrieved").split('"{id}"')[1]}
           </p>
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-red-400 hover:text-red-300 border border-red-900/50 px-6 py-3 hover:bg-red-950/30 transition-all"
-          >
-            <ArrowLeft size={14} /> {t("project_layouts.return_base")}
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6">
+            <a
+              href={`mailto:fadly.uzzaki@gmail.com?subject=Request%20Access%3A%20${id}&body=Hello%20Fadly%2C%0A%0AI%20would%20like%20to%20request%20an%20access%20key%20for%20the%20project%20"${id}".%0A%0AThank%20you!`}
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-red-400 hover:text-red-300 border border-red-900/50 px-6 py-3 hover:bg-red-950/30 transition-all font-mono"
+            >
+              <FileText size={14} /> {t("protected.request_access") || "Request Access Key"}
+            </a>
+            
+            <Link
+              to="/side-projects"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-all font-mono"
+            >
+              <ArrowLeft size={14} /> {t("project_layouts.return_base")}
+            </Link>
+          </div>
         </div>
       </div>
     );
