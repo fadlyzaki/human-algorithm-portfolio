@@ -20,7 +20,7 @@ const UnprovokedThoughtDetail = lazyWithRetry(() => import("./pages/UnprovokedTh
 const NotFound = lazyWithRetry(() => import("./pages/NotFound"));
 const DesignSystem = lazyWithRetry(() => import("./pages/DesignSystem"));
 const Sketches = lazyWithRetry(() => import("./pages/Sketches"));
-const CompanyMockStoqo = lazyWithRetry(() => import("./pages/CompanyMockStoqo"));
+
 
 import { LanguageProvider } from "./context/LanguageContext";
 import { RecruiterModeProvider } from "./context/RecruiterModeContext";
@@ -68,7 +68,7 @@ function App() {
               {/* Index Pages */}
               <Route path="/side-projects" element={<SideProjectsIndex />} />
               <Route path="/work/:id" element={<CompanyDetail />} />
-              <Route path="/mock-stoqo" element={<CompanyMockStoqo />} />
+
 
               {/* Case Studies (Dynamic ID for future scaling) */}
               <Route path="/case-study/:id" element={<ProtectedCaseStudy />} />
