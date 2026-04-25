@@ -58,7 +58,7 @@ const INTERESTS = [
     emoji: "📷",
     label: "Photography",
     val: "City, beach & life",
-    url: "https://unsplash.com/@fadlyzaki",
+    url: "https://unsplash.com/@midnite_ideas7",
     color: "var(--accent-sky)",
   },
   {

@@ -43,7 +43,7 @@ const HomeFeaturedWork = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {featuredStudies.map((cs, idx) => (
           <ScrollReveal key={cs.id} delay={idx * 150}>
-            <div className="flex items-center justify-center py-12">
+            <div className="flex items-center justify-center py-4 sm:py-12">
               <div className="scale-90 sm:scale-100 origin-center relative z-10">
                 <CloneCard study={cs} isId={isId} />
               </div>

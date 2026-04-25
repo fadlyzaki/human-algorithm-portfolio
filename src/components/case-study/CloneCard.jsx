@@ -16,12 +16,15 @@ function CloneCard({ study, isId }) {
 
 
   return (
-    <div className="relative w-[292px] h-[376px] [perspective:1500px]">
-      <motion.div
-        className="w-full h-full relative cursor-pointer [transform-style:preserve-3d]"
-        initial="initial"
-        whileHover="hover"
-      >
+    <Link to={study.route} className="block w-fit mx-auto focus:outline-none rounded-[8px] touch-manipulation group">
+      <div className="relative w-[292px] h-[376px] [perspective:1500px]">
+        <motion.div
+          className="w-full h-full relative cursor-pointer [transform-style:preserve-3d]"
+          initial="initial"
+          whileHover="hover"
+          whileFocus="hover"
+          whileTap="hover"
+        >
         {/* CLICK TO READ TAG */}
         <motion.div 
           className="absolute rounded-[8px] flex items-center justify-end z-[3]"
@@ -115,11 +118,10 @@ function CloneCard({ study, isId }) {
               <div>{repeatedText}</div>
            </motion.div>
         </div>
-        <Link to={study.route} className="absolute inset-0 z-[10]">
-          <span className="sr-only">View {study.tag} Case Study</span>
-        </Link>
+        <span className="sr-only">View {study.tag} Case Study</span>
       </motion.div>
     </div>
+    </Link>
   );
 }
 
