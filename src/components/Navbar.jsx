@@ -92,7 +92,7 @@ const Navbar = ({
             {title ? (
               <BackButton
                 to={backPath}
-                label="Back"
+                label={t("case_study.case_study_back") || "Back"}
               />
             ) : (
               <div className="flex items-center gap-6">

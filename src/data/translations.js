@@ -257,6 +257,7 @@ export const translations = {
       online: "ONLINE",
     },
     protected: {
+      back: "Abort Transmission",
       access_denied: "Access Denied",
       return_base: "Return to Base",
       file_not_exist:
@@ -1038,6 +1039,7 @@ export const translations = {
       online: "ONLINE",
     },
     protected: {
+      back: "Batalkan Transmisi",
       access_denied: "Akses Ditolak",
       return_base: "Kembali ke Markas",
       file_not_exist:

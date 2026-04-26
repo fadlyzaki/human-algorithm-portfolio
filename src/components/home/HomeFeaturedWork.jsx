@@ -28,13 +28,13 @@ const HomeFeaturedWork = () => {
       <ScrollReveal>
         <SectionTitle 
           number="1" 
-          title={isId ? "Studi Kasus Pilihan" : "Featured Case Studies"} 
+          title={isId ? "Studi Kasus Pilihan" : "Curated Case Studies"} 
         />
         <div className="max-w-2xl mb-12 mt-[-1rem] text-[var(--text-secondary)] font-mono text-[11px] md:text-xs leading-relaxed border-l-2 border-[var(--accent-blue)] pl-4">
           <p>
             {isId
-              ? "Satu proyek dari setiap perusahaan, dipilih acak untuk menunjukkan keberagaman solusi sistem dan kejelasan visual melalui interaksi 3D."
-              : "One project from each company, randomly selected to showcase systemic solution diversity and visual clarity via high-fidelity 3D interactions."}
+              ? "Menyederhanakan kompleksitas operasional. Pilihan dinamis studi kasus yang menonjolkan arsitektur sistemik, solusi masalah bisnis kritis, dan eksekusi visual tingkat tinggi."
+              : "Operational complexity, simplified. A dynamic selection of case studies showcasing systemic architecture, business-critical problem solving, and high-fidelity visual execution."}
           </p>
         </div>
       </ScrollReveal>

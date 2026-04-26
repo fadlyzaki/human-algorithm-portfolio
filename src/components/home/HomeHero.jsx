@@ -189,30 +189,6 @@ const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
           </div>
         </div>
 
-        <ScrollReveal delay={500}>
-          <div className="hidden md:flex flex-nowrap items-center gap-3 mt-8 overflow-x-visible">
-            <StickyNote
-              text={t("home.sticky_note")}
-              className="text-[var(--accent-blue)] min-w-[200px]"
-              rotate="lg:-rotate-1"
-            />
-            <StickyNote
-              text={t("home.sticky_note_2")}
-              className="text-[var(--accent-amber)] min-w-[200px]"
-              rotate="lg:rotate-1"
-            />
-            <StickyNote
-              text={t("home.sticky_note_3")}
-              className="text-[var(--accent-green)] min-w-[200px]"
-              rotate="lg:-rotate-1"
-            />
-            <StickyNote
-              text={t("home.sticky_note_4")}
-              className="text-[var(--accent-purple)] min-w-[200px]"
-              rotate="lg:rotate-1"
-            />
-          </div>
-        </ScrollReveal>
       </section>
     </>
   );
