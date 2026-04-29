@@ -164,6 +164,7 @@ const LearningArchitectDetail = ({
   activeInsights,
   activeMetrics,
   activeLearnings,
+  activeSolution,
   // InteractionComponent — not used in this layout (no live preview panel)
   // activeSnapshot — hero uses AiryDiagram directly
   // t, isIndonesian — EN/ID resolution done upstream by SideProjectDetail
@@ -355,6 +356,38 @@ const LearningArchitectDetail = ({
           </div>
         </div>
       </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          CORE USER JOURNEYS (from activeSolution)
+      ───────────────────────────────────────────────────────────── */}
+      {activeSolution && activeSolution.length > 0 && (
+        <section className="px-6 md:px-16 py-24 bg-[var(--bg-void)] border-t border-[var(--border-color)]">
+          <div className="max-w-[1400px] mx-auto">
+            <div className="mb-12">
+              <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
+                <span className="w-8 h-px bg-[var(--border-color)]" />
+                Workflow Architecture
+              </div>
+              <h2 className="text-3xl md:text-4xl font-serif italic text-[var(--text-primary)] mb-6">
+                {activeSolution[0].title}
+              </h2>
+              <p className="text-xl md:text-2xl font-light text-[var(--text-secondary)] max-w-4xl leading-relaxed">
+                {activeSolution[0].desc}
+              </p>
+            </div>
+            
+            <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)] overflow-hidden p-2">
+              {activeSolution[0].image && (
+                <img 
+                  src={activeSolution[0].image} 
+                  alt={activeSolution[0].title} 
+                  className="w-full h-auto rounded-xl border border-[var(--border-color)]/50"
+                />
+              )}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ─────────────────────────────────────────────────────────────
           THE 7-STEP LEARNING LOOP — Interactive
