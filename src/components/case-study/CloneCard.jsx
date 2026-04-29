@@ -45,7 +45,7 @@ function CloneCard({ study, isId }) {
         >
           <div className="absolute right-[-21px] top-[21%] flex items-center justify-center" style={{ transform: 'translateY(-50%) rotate(-90deg)' }}>
             <span className="text-[var(--text-muted)] text-[12px] font-mono font-semibold tracking-wider whitespace-nowrap uppercase">
-              {isId ? "INSPEKSI SISTEM" : "INSPECT SYSTEM"}
+              {isId ? "BONGKAR PROSESNYA" : "DECODE MY PROCESS"}
             </span>
           </div>
         </motion.div>
@@ -98,17 +98,7 @@ function CloneCard({ study, isId }) {
                    </span>
                 ))}
              </div>
-             {/* Quantitative Success Metrics (Unlocked Only) */}
-             {!study.locked && study.metrics && study.metrics.length > 0 && (
-               <div className="flex gap-4 mt-auto mb-2 border-t border-black/10 pt-3">
-                 {study.metrics.map((m, idx) => (
-                   <div key={idx} className="flex flex-col">
-                     <span className="text-[18px] font-bold" style={{ color: study.titleFragments[0]?.color }}>{m.value}</span>
-                     <span className="text-[9px] font-mono uppercase tracking-wider opacity-70" style={{ color: study.titleFragments[study.titleFragments.length-1]?.color }}>{m.label}</span>
-                   </div>
-                 ))}
-               </div>
-             )}
+
           </div>
 
           {/* Bottom-Left Brand Area */}
