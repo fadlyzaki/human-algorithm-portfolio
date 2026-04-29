@@ -37,7 +37,7 @@ export const translations = {
       role_sub: "Systems Thinker",
       intro_title: "FADLY UZZAKI.",
       intro_desc:
-        "I design where software logic meets human intuition. My current focus is about resilient workflows that tame complexity and free up mental bandwidth when it matters most.",
+        "Product Designer specializing in B2B SaaS and complex operational systems. I transform chaotic business requirements into scalable, high-converting workflows that drive measurable ROI and reduce cognitive load.",
       cta_work: "View Case Studies",
       cta_cv: "CV",
       sticky_note: "Antidote to digital fatigue.",
@@ -821,7 +821,7 @@ export const translations = {
       role_sub: "Systems Thinker",
       intro_title: "FADLY UZZAKI.",
       intro_desc:
-        "Saya mendesain di pertemuan logika perangkat lunak dan intuisi manusia. Fokus saya saat ini adalah tentang alur kerja tangguh yang menjinakkan kompleksitas dan membebaskan ruang mental saat paling dibutuhkan.",
+        "Desainer Produk yang berfokus pada B2B SaaS dan sistem operasional kompleks. Saya mengubah kebutuhan bisnis yang rumit menjadi alur kerja skalabel yang mendorong ROI terukur dan mengurangi beban kognitif.",
       cta_work: "Lihat Studi Kasus",
       cta_cv: "Lihat CV",
       sticky_note: "Penawar kelelahan digital.",

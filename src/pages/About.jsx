@@ -62,6 +62,7 @@ import RuntimeLogTimeline from "../components/about/RuntimeLogTimeline";
 import CertificationsGrid from "../components/about/CertificationsGrid";
 import AchievementsGrid from "../components/about/AchievementsGrid";
 import MaintenanceGrid from "../components/about/MaintenanceGrid";
+import StickyNote from "../components/StickyNote";
 
 /* --- THEME CONFIGURATION ---
    Consistent with Human By Design System v2.0
@@ -137,6 +138,16 @@ const AboutPage = () => {
 
         {/* --- CONTENT --- */}
         <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-[100dvh] bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-2xl overflow-x-hidden transition-colors duration-500">
+          
+          {/* Static Sticky Notes Section */}
+          <section className="px-4 md:px-0 mb-12 mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+              <StickyNote text={t("home.sticky_note")} color="text-[var(--accent-blue)]" className="!mt-0 w-full" rotate="rotate-[-2deg]" />
+              <StickyNote text={t("home.sticky_note_2")} color="text-[var(--accent-amber)]" className="!mt-0 w-full" rotate="rotate-[3deg]" />
+              <StickyNote text={t("home.sticky_note_3")} color="text-[var(--accent-green)]" className="!mt-0 w-full" rotate="rotate-[-1deg]" />
+              <StickyNote text={t("home.sticky_note_4")} color="text-[var(--accent-purple)]" className="!mt-0 w-full" rotate="rotate-[2deg]" />
+            </div>
+          </section>
 
           {/* PROFILE HERO - INTERACTIVE */}
           <section className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-12 mb-24 fade-in items-start">

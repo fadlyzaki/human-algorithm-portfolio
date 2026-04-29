@@ -18,7 +18,6 @@ const HomeSideProjects = lazyWithRetry(
 );
 const HomeAbout = lazyWithRetry(() => import("../components/home/HomeAbout"));
 import HomeFeaturedWork from "../components/home/HomeFeaturedWork";
-import RandomStickyNotes from "../components/home/RandomStickyNotes";
 const FaqSection = lazyWithRetry(() => import("../components/FaqSection"));
 const ChaosCanvas = lazyWithRetry(() => import("../components/ChaosCanvas"));
 
@@ -150,8 +149,6 @@ const Home = () => {
 
           {/* Main Container */}
           <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-[100dvh] bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
-            {/* Random Sticky Notes Background Layer */}
-            {!showIntro && <RandomStickyNotes t={t} />}
 
             <div className="fade-in text-left">
               {/* HERO & TICKER */}
