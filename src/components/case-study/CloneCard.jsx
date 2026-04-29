@@ -5,6 +5,7 @@ import { Lock, BookOpen } from "lucide-react";
 
 
 import AiryDiagram from "../AiryDiagram";
+import ProjectCard from "../ProjectCard";
 
 /**
  * High-fidelity 3D Flip Card component.
@@ -44,7 +45,7 @@ function CloneCard({ study, isId }) {
         >
           <div className="absolute right-[-21px] top-[21%] flex items-center justify-center" style={{ transform: 'translateY(-50%) rotate(-90deg)' }}>
             <span className="text-[var(--text-muted)] text-[12px] font-mono font-semibold tracking-wider whitespace-nowrap uppercase">
-              {isId ? "KLIK UNTUK BACA" : "CLICK TO READ"}
+              {isId ? "INSPEKSI SISTEM" : "INSPECT SYSTEM"}
             </span>
           </div>
         </motion.div>
@@ -61,14 +62,18 @@ function CloneCard({ study, isId }) {
         >
           {/* Floating Stickers */}
           {study.stickers.map((sticker, i) => (
-            <div key={i} className={`absolute flex items-center justify-center p-3 bg-white shadow-xl pointer-events-none rounded-[14px] ${sticker.className}`}>
-              {sticker.src && sticker.src.startsWith("airy:") ? (
-                <div className="w-full h-full overflow-hidden flex items-center justify-center">
-                  <AiryDiagram type={sticker.src.split(":")[1]} className="scale-125" />
+            <div key={i} className={`absolute flex items-center justify-center p-2 bg-white shadow-xl pointer-events-none rounded-[14px] ${sticker.className}`}>
+              <div className="w-full h-full relative border border-black/5 dark:border-white/5 rounded-xl overflow-hidden bg-white dark:bg-neutral-900 pointer-events-none">
+                <div className="absolute inset-0">
+                  <ProjectCard 
+                    id={study.id} 
+                    type={study.type || "Web"} 
+                    image={sticker.src} 
+                    expanded={true} 
+                    backgroundOnly={true} 
+                  />
                 </div>
-              ) : (
-                <img src={sticker.src} alt={sticker.alt} className="w-full h-auto object-contain drop-shadow-sm" />
-              )}
+              </div>
             </div>
           ))}
 
