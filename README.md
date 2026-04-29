@@ -1,4 +1,4 @@
-# The Human Algorithm: System Architecture v5.0
+# The Human Algorithm: System Architecture v6.0
 
 > **Engineering Philosophy:** *"Software is a physical constraint applied to human behavior. We do not just build interfaces; we engineer resilient systems where algorithmic enforcement meets human intuition - with zero frame drops and zero cognitive friction. Human by Design."*
 
@@ -7,7 +7,7 @@ Welcome to the source matrix of **[fadlyzaki-design.vercel.app](https://fadlyzak
 This repository is heavily system-driven and highly optimized. It is not a static portfolio; it is an *Interactive Architecture* and the definitive proof of work for Fadly Uzzaki, Product Designer specializing in Trust Engineering. Designed for the scrutiny of Product and Engineering leadership, this system proves the capacity to organize chaotic business logic, tame systemic B2B complexity, and output deeply resilient, accessible workflows with measurable impact.
 
 [![Status](https://img.shields.io/badge/SYSTEM-NOMINAL-green?style=flat-square&logo=react)](https://fadlyzaki-design.vercel.app/)
-[![Build](https://img.shields.io/badge/VERSION-5.0.0-blue?style=flat-square&logo=vercel)](https://vercel.com)
+[![Build](https://img.shields.io/badge/VERSION-6.0.0-blue?style=flat-square&logo=vercel)](https://vercel.com)
 [![Web Vitals](https://img.shields.io/badge/LIGHTHOUSE-100-orange?style=flat-square&logo=lighthouse)](https://pagespeed.web.dev/)
 
 ---
@@ -33,8 +33,8 @@ A robust system is measured by its fault tolerance, Developer Experience (DevX),
 ### 1. Generative Identity Modules (`DraggablePhoto.jsx`)
 Polymorphic generative "ID Card" engine yielding 7 distinct design architectures (Industrial, Cyberpunk, Glassmorphism, Swiss, Retro, Neo-Brutalism, Holographic). All variants bound to bilingual context API via `LanguageContext`.
 
-### 2. Polymorphic Project Card System (`VentureCard.jsx`)
-5 distinct card archetypes (SystemCore, CosmicPop, Brutalist, Bento, Blueprint) with `BlindsReveal` 3D CSS slat overlay. Mobile parity via `IntersectionObserver` auto-toggling every 4 seconds. `ExperimentCard` shares this same mobile auto-cycle.
+### 2. Polymorphic Project Card System (`VentureCard.jsx` & `CloneCard.jsx`)
+5 distinct card archetypes (SystemCore, CosmicPop, Brutalist, Bento, Blueprint) with `BlindsReveal` 3D CSS slat overlay and global 3D card layout integration. Cards leverage dynamic "DECODE MY PROCESS" CTAs while eschewing quantitative metrics for pure visual clarity. Mobile parity via `IntersectionObserver` auto-toggling every 4 seconds. `ExperimentCard` shares this same mobile auto-cycle.
 
 ### 3. 6-Archetype Project Layout Engine (`project-layouts/`)
 Each side project renders through a unique layout: `SystemCoreDetail`, `CosmicPopDetail`, `BrutalistDetail`, `BentoDetail`, `BlueprintDetail`, `PrototypeDetail`. Transparent root containers allow `ChaosCanvas` particle fields to render behind content. Targeted glassmorphism panels ensure text readability.
@@ -107,6 +107,12 @@ All VentureCard archetypes inherit a biological "breathing" idle animation (`y: 
 
 ### 25. The Benchmarking Engine (`SummarizerAI.jsx`)
 Real-world application of Google ADK (Agent Development Kit) and Model Context Protocol (MCP). An AI-powered interaction simulating the process of converting unstructured public landing pages into structured product-design benchmarking JSON.
+
+### 26. Strategic Job Application Infrastructure (`CoverLetterModal.jsx`)
+A robust "APAC Career Pipeline" interface providing deeply tailored, role-specific cover letter overlays (`CoverLetterModal`) and real-time job tracking synchronization via the Fadly Job Tracker.
+
+### 27. Agency Pivot Engine (`StoryViewer.jsx`)
+An immersive, social-media-style narrative interface to showcase professional trajectories and side projects using a recognizable, highly tactile "Story" paradigm.
 
 ## 📂 System Topography
 The architecture follows a strict decoupled multi-layer pattern:

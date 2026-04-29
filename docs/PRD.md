@@ -4,7 +4,7 @@
 **Product Name:** Human Algorithm (Portfolio Platform)
 **Product Owner:** Fadly Uzzaki (Senior Product Designer · Trust Engineering)
 **Target Domain:** B2B System Design & High-Converting Talent Acquisition Assets
-**Version:** 9.0 — *The Human by Design Update*
+**Version:** 9.1 — *The Career Pipeline Update*
 
 ### The North Star
 The "Human Algorithm" is not a standard digital portfolio—it is an *Interactive Manifesto* and our primary acquisition wedge. We build a high-performance, narrative-driven platform that physically deploys our core thesis: "Designing where software logic meets human intuition. Human by Design."
@@ -154,7 +154,7 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 
 ### 6.22 Automated Opportunity Analysis & Strategy
 *   **Documentation**: `docs/job_hunting.md`, `docs/job-analysis/`
-*   **Capability**: Systematic ingestion and Agentic generation of >30 strategic job fit analyses, ranked natively within the portfolio docs to auto-generate a targeted B2B/Enterprise application campaign.
+*   **Capability**: Systematic ingestion and Agentic generation of >30 strategic job fit analyses, ranked natively within the portfolio docs to auto-generate a targeted B2B/Enterprise application campaign. Integrated with a live `CoverLetterModal` and dynamic job application dashboard (Fadly Job Tracker).
 
 ### 6.23 Circadian UI Overlay (Biological Time Sync)
 *   **Component**: `CircadianOverlay.jsx`
@@ -222,6 +222,12 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **[COMPLETED]** Circadian UI Overlay (Biological Time Sync).
 *   **[COMPLETED]** Breath-Synced Variable Typography via Inter Variable Font.
 
+### Phase 3.6: Career Pipeline & Presentation Polish ✅ (Current)
+*   **[COMPLETED]** APAC Career Pipeline & Job Tracking: Integrated role-specific cover letter modals (`CoverLetterModal`) and dynamic job application infrastructure.
+*   **[COMPLETED]** Polymorphic Project Card refinement: Removed quantitative metrics for visual clarity, integrated a 3D card layout globally, and added "DECODE MY PROCESS" CTAs.
+*   **[COMPLETED]** Learning Progress Architect detail view updated with an `activeSolution` core user journey section.
+*   **[COMPLETED]** CertificationsGrid enhanced to display related project links alongside new Google Cloud Gen AI certification.
+
 ### Phase 4: Advanced Agentic Workflow & Predictive UX (Q3-Q4 2026)
 *   **[Q3 2026] Algorithmic Role Alignment (Dynamic IA)**: Edge-based intent detection via job description URL parsing.
 
@@ -233,6 +239,6 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 
 ---
 **Document Status**: *ACTIVE*
-**Last Updated**: March 2026 · v9.0
+**Last Updated**: April 2026 · v9.1
 **Product Strategy**: Fadly Uzzaki
 *Human by Design. Operating at the intersection of complex constraints and profound simplicity.*
