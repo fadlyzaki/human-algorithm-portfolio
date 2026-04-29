@@ -98,6 +98,17 @@ function CloneCard({ study, isId }) {
                    </span>
                 ))}
              </div>
+             {/* Quantitative Success Metrics (Unlocked Only) */}
+             {!study.locked && study.metrics && study.metrics.length > 0 && (
+               <div className="flex gap-4 mt-auto mb-2 border-t border-black/10 pt-3">
+                 {study.metrics.map((m, idx) => (
+                   <div key={idx} className="flex flex-col">
+                     <span className="text-[18px] font-bold" style={{ color: study.titleFragments[0]?.color }}>{m.value}</span>
+                     <span className="text-[9px] font-mono uppercase tracking-wider opacity-70" style={{ color: study.titleFragments[study.titleFragments.length-1]?.color }}>{m.label}</span>
+                   </div>
+                 ))}
+               </div>
+             )}
           </div>
 
           {/* Bottom-Left Brand Area */}

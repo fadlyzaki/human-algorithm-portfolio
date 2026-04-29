@@ -102,6 +102,16 @@ export const mapProjectToStudy = (proj, cluster, isId) => {
   }));
 
   const isLocked = isProjectLocked(proj);
+  
+  // Extract metrics for unlocked case studies
+  let metrics = [];
+  if (!isLocked) {
+    const rawMetrics = proj.caseStudy?.metrics || proj.metrics || [];
+    metrics = rawMetrics.slice(0, 2).map(m => ({
+      value: isId ? (m.value_id || m.value) : m.value,
+      label: isId ? (m.label_id || m.label) : m.label
+    }));
+  }
 
   return {
     id: proj.id,
@@ -117,11 +127,12 @@ export const mapProjectToStudy = (proj, cluster, isId) => {
     backBg,
     logoColor,
     route: proj.route || `/case-study/${proj.id}`,
+    metrics,
     stickers: [
       { 
         src: previewImage, 
         alt: "App Preview",
-        className: "w-[120px] h-auto right-[-20px] bottom-[20px] rotate-[6deg] rounded-[14px] object-cover shadow-2xl border border-white/20" 
+        className: "w-[150px] aspect-[4/3] right-[-20px] bottom-[20px] rotate-[6deg] rounded-[14px] shadow-2xl border border-white/20" 
       }
     ]
   };
