@@ -1,6 +1,7 @@
 import React from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Link as LinkIcon } from "lucide-react";
 import ScrollReveal from "../ScrollReveal";
+import { Link } from "react-router-dom";
 
 const CertificationsGrid = ({ certifications, t }) => {
   return (
@@ -54,7 +55,7 @@ const CertificationsGrid = ({ certifications, t }) => {
                   </div>
 
                   {cert.skills && (
-                    <div className="flex flex-wrap gap-1.5 mb-6">
+                    <div className="flex flex-wrap gap-1.5 mb-4">
                       {cert.skills.map((skill) => (
                         <span
                           key={skill}
@@ -62,6 +63,23 @@ const CertificationsGrid = ({ certifications, t }) => {
                         >
                           {skill}
                         </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {cert.relatedProjects && cert.relatedProjects.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 mb-6">
+                      <span className="text-[9px] font-mono text-[var(--text-card-secondary)] opacity-60 flex items-center mr-1">
+                        Applied in:
+                      </span>
+                      {cert.relatedProjects.map((proj, pIdx) => (
+                        <Link
+                          key={pIdx}
+                          to={proj.url}
+                          className="text-[9px] font-mono text-[var(--accent-blue)] py-0.5 px-2 rounded-md bg-[var(--accent-blue)]/5 border border-[var(--accent-blue)]/20 hover:bg-[var(--accent-blue)]/10 hover:border-[var(--accent-blue)]/40 transition-colors whitespace-nowrap flex items-center gap-1"
+                        >
+                          <LinkIcon size={8} /> {proj.name}
+                        </Link>
                       ))}
                     </div>
                   )}

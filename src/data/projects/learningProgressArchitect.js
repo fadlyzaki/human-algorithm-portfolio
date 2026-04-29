@@ -5,20 +5,20 @@ export const learningProgressArchitect = {
     id: "Arsitek Kemajuan Belajar",
   },
   subtitle: {
-    en: "The operational layer for self-directed learning — plan, execute, reflect, reinforce",
-    id: "Lapisan operasional untuk pembelajaran mandiri — rencanakan, laksanakan, refleksikan, perkuat",
+    en: "The default operating system for self-directed learning.",
+    id: "Sistem operasi default untuk pembelajaran mandiri.",
   },
   desc: {
-    en: "Motivated learners don't fail because they lack ambition. They fail because the operational burden of learning is too high. Learning Progress Architect solves the end-to-end problem: convert an ambiguous goal into a clear plan, turn the plan into a next action, support the learner during study, capture understanding after each effort, and bring weak topics back at the right time.",
-    id: "Pelajar yang termotivasi tidak gagal karena kurang ambisi. Mereka gagal karena beban operasional belajar terlalu tinggi. Learning Progress Architect menyelesaikan masalah dari ujung ke ujung: mengubah tujuan ambigu menjadi rencana jelas, mengubah rencana menjadi tindakan berikutnya, mendukung pelajar saat belajar, menangkap pemahaman setelah setiap usaha, dan membawa topik lemah kembali pada waktu yang tepat.",
+    en: "Learning Progress Architect sits at the intersection of a curriculum planner, an execution environment, and a spaced-repetition engine. It provides more structure than a blank notes app and exponentially more personalization than a rigid LMS. We turn a broad goal into a sequenced roadmap, guide the learner through focused study sessions, capture comprehension, and autonomously schedule reinforcement reviews—all while keeping the resulting knowledge universally portable.",
+    id: "Learning Progress Architect berada di persimpangan antara perencana kurikulum, lingkungan eksekusi, dan mesin pengulangan berjarak. Ini memberikan lebih banyak struktur daripada aplikasi catatan kosong dan personalisasi yang jauh lebih besar daripada LMS yang kaku. Kami mengubah tujuan luas menjadi peta jalan yang terurut, memandu pelajar melalui sesi belajar terfokus, menangkap pemahaman, dan menjadwalkan ulasan penguatan secara otonom—sambil menjaga agar pengetahuan yang dihasilkan tetap portabel.",
   },
   tldr: {
-    en: "A calm, opinionated AI workspace that always answers one question first: what should I do next to make real progress on this goal?",
-    id: "Ruang kerja AI yang tenang dan tegas yang selalu menjawab satu pertanyaan terlebih dahulu: apa yang harus saya lakukan selanjutnya untuk membuat kemajuan nyata pada tujuan ini?",
+    en: "A private, AI-guided execution workspace that transforms ambiguous learning aspirations into concrete, momentum-driven reality.",
+    id: "Ruang kerja eksekusi yang dipandu AI dan privat yang mengubah aspirasi belajar yang ambigu menjadi kenyataan yang konkret dan didorong oleh momentum.",
   },
   humanImpact: {
-    en: "People should spend their cognitive energy learning the subject, not maintaining the machinery around the learning. This system holds the operational shape of the study process so the learner does not have to.",
-    id: "Orang harus menghabiskan energi kognitif mereka untuk belajar materi, bukan memelihara mesin di sekitar pembelajaran. Sistem ini memegang bentuk operasional proses belajar sehingga pelajar tidak perlu melakukannya.",
+    en: "Self-directed learners don't fail because they lack ambition; they fail because the operational burden of planning, finding resources, and maintaining discipline is too high.",
+    id: "Pelajar mandiri tidak gagal karena mereka kurang ambisi; mereka gagal karena beban operasional perencanaan, pencarian sumber daya, dan mempertahankan disiplin terlalu tinggi.",
   },
   stack: [
     "React 19",
@@ -54,8 +54,8 @@ export const learningProgressArchitect = {
     client: { en: "Personal Project", id: "Proyek Pribadi" },
   },
   challenge: {
-    en: "Most tools solve only one slice of the learning problem: planners create a plan but do not drive execution; note apps capture information but do not schedule reinforcement; chatbots answer questions but do not preserve learning state; course platforms provide content but do not adapt around the learner's real constraints. No single system holds the operational shape of the full learning loop — and so the cognitive burden of maintaining it falls entirely on the learner.",
-    id: "Sebagian besar alat hanya menyelesaikan satu bagian masalah belajar: perencana membuat rencana tetapi tidak mendorong eksekusi; aplikasi catatan menangkap informasi tetapi tidak menjadwalkan penguatan; chatbot menjawab pertanyaan tetapi tidak mempertahankan status belajar; platform kursus menyediakan konten tetapi tidak beradaptasi dengan batasan nyata pelajar. Tidak ada sistem tunggal yang memegang bentuk operasional dari loop pembelajaran penuh.",
+    en: "Motivated knowledge workers constantly attempt to upskill, but the failure rate of self-taught learning is high because the friction is operational: deciding what to learn next consumes energy, jumping between tools breaks flow, passive reading creates an illusion of competence, and without resurfacing weak concepts, learners abandon their goals.",
+    id: "Pekerja berpengetahuan yang termotivasi terus berupaya meningkatkan keterampilan, tetapi tingkat kegagalan pembelajaran otodidak tinggi karena friksinya bersifat operasional: memutuskan apa yang akan dipelajari selanjutnya menghabiskan energi, melompat antar alat merusak alur kerja, membaca pasif menciptakan ilusi kompetensi, dan tanpa memunculkan kembali konsep yang lemah, pelajar meninggalkan tujuan mereka.",
   },
   // 7 process entries — one per step in the learning loop
   process: [
@@ -154,14 +154,14 @@ export const learningProgressArchitect = {
   solution: [
     {
       title: {
-        en: "The Learning Loop",
-        id: "Loop Pembelajaran",
+        en: "Core User Journeys",
+        id: "Perjalanan Pengguna Inti",
       },
       desc: {
-        en: "One continuous loop: define goal → generate roadmap → resource pairing → focused session → contextual AI help → reflection capture → adaptive review. The product holds the operational shape of the study process itself — replacing raw willpower with a reliable operational scaffold that persists across sessions.",
-        id: "Satu loop berkelanjutan: definisikan tujuan → buat peta jalan → pasangkan sumber daya → sesi fokus → bantuan AI kontekstual → tangkapan refleksi → ulasan adaptif. Produk memegang bentuk operasional dari proses belajar itu sendiri.",
+        en: "The system orchestrates three core journeys: The Cold Start (AI-generated syllabus and resource ingestion), The Focused Execution (deep work sessions with contextual AI Quick Actions), and Reflection & Reinforcement (comprehension capture and spaced review scheduling).",
+        id: "Sistem ini mengatur tiga perjalanan inti: The Cold Start (silabus yang dihasilkan AI dan konsumsi sumber daya), The Focused Execution (sesi kerja mendalam dengan Tindakan Cepat AI kontekstual), dan Reflection & Reinforcement (penangkapan pemahaman dan penjadwalan ulasan berjarak).",
       },
-      image: "airy:architecture",
+      image: "/images/[core-journey] learning-progress-architect.png",
     },
   ],
   metrics: [

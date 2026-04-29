@@ -159,6 +159,19 @@ import { Headphones } from "lucide-react";
 
 export const certifications = [
   {
+    title: "Google Cloud Gen AI APAC",
+    issuer: "Google Cloud",
+    date: "2026",
+    skills: ["Generative AI", "AI Implementation", "LLMs"],
+    id: "2026H2S04GCGENAIAPACC1-P00669",
+    icon: Award,
+    url: "/assets/2026H2S04GCGENAIAPACC1-P00669.pdf",
+    relatedProjects: [
+      { name: "Learning Progress Architect", url: "/side-project/learning-progress-architect" },
+      { name: "Competitor Summarizer", url: "/side-project/competitor-summarizer" }
+    ]
+  },
+  {
     title: "Become Product Manager",
     issuer: "Udemy",
     date: "Jul 2023",
