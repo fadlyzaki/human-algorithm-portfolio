@@ -1,28 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Factory, Store, Truck } from "lucide-react";
 
-import { Factory, Store, Truck, Package, ShoppingBag } from "lucide-react";
-
-// Supply Chain Nodes
+// Supply Chain Nodes (percentage-based positions)
 const hubs = [
-  // Source: Brand Principals / Suppliers (Left Side)
   { id: "sup1", type: "supplier", x: 15, y: 30, label: "PRINCIPAL_A" },
   { id: "sup2", type: "supplier", x: 15, y: 70, label: "PRINCIPAL_B" },
-
-  // Center: GudangAda Smart Warehouse (Center)
   { id: "hub_main", type: "hub", x: 50, y: 50, label: "SMART_WAREHOUSE" },
-
-  // Destination: SME Retailers (Right Side)
   { id: "ret1", type: "retailer", x: 85, y: 20, label: "TOKO_ALI" },
   { id: "ret2", type: "retailer", x: 85, y: 50, label: "WARUNG_BU_DE" },
   { id: "ret3", type: "retailer", x: 85, y: 80, label: "SANTOSO_CORP" },
 ];
 
 const connections = [
-  // Inbound: Suppliers -> Hub
   { from: "sup1", to: "hub_main" },
   { from: "sup2", to: "hub_main" },
-  // Outbound: Hub -> Retailers
   { from: "hub_main", to: "ret1" },
   { from: "hub_main", to: "ret2" },
   { from: "hub_main", to: "ret3" },
@@ -30,27 +22,18 @@ const connections = [
 
 const CommerceAI = ({ color = "var(--accent-teal)" }) => {
   const [pulses, setPulses] = useState([]);
-  const [demand, setDemand] = useState(50); // 0-100
+  const [demand, setDemand] = useState(50);
   const [activeNode, setActiveNode] = useState(null);
 
   useEffect(() => {
-    // Generate traffic based on "Demand" slider
-    // Logic:
-    // 1. Pick a random Supplier -> Hub
-    // 2. Then Hub -> Pick a random Retailer
-
-    const frequency = 1200 - demand * 10; // Higher demand = faster
+    const frequency = 1200 - demand * 10;
     const interval = setInterval(
       () => {
-        // Determine Flow Direction based on simple randomization for visual variety
-        const isInbound = Math.random() > 0.4; // 60% chance of outbound to fill the screen more
-
+        const isInbound = Math.random() > 0.4;
         let path;
         if (isInbound) {
-          // Supplier -> Hub
           path = connections.slice(0, 2)[Math.floor(Math.random() * 2)];
         } else {
-          // Hub -> Retailer
           path = connections.slice(2)[Math.floor(Math.random() * 3)];
         }
 
@@ -58,7 +41,7 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
         const toHub = hubs.find((h) => h.id === path.to);
 
         const newPulse = {
-          id: Date.now(),
+          id: Date.now() + Math.random(),
           x1: fromHub.x,
           y1: fromHub.y,
           x2: toHub.x,
@@ -66,7 +49,7 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
           type: isInbound ? "inbound" : "outbound",
         };
 
-        setPulses((prev) => [...prev.slice(-15), newPulse]);
+        setPulses((prev) => [...prev.slice(-12), newPulse]);
       },
       Math.max(150, frequency),
     );
@@ -74,9 +57,20 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
     return () => clearInterval(interval);
   }, [demand]);
 
+  // Node status data (deterministic per node to avoid flicker)
+  const getNodeStatus = (hub) => {
+    if (hub.type === "supplier") {
+      return { stock: demand > 50 ? "DEPLETING" : "STABLE", fill: demand > 50 ? 85 - demand * 0.4 : 72 };
+    }
+    if (hub.type === "hub") {
+      return { throughput: demand > 70 ? "CRITICAL" : "NOMINAL", queue: Math.round(demand * 0.3) };
+    }
+    return { orders: Math.round(demand * 0.5 + 10), eta: demand > 60 ? "DELAYED" : "ON_TIME" };
+  };
+
   return (
-    <div className="w-full h-full min-h-[400px] relative overflow-x-auto overflow-y-hidden custom-scrollbar bg-black/5 rounded-xl border border-white/10 backdrop-blur-sm font-mono select-none">
-      <div className="min-w-[700px] w-full h-full p-4 md:p-8 flex flex-col items-center justify-center relative">
+    <div className="w-full h-full min-h-[400px] relative overflow-hidden bg-black/5 rounded-xl border border-white/10 backdrop-blur-sm font-mono select-none">
+      <div className="w-full h-full p-4 md:p-8 flex flex-col items-center justify-center relative">
         {/* Background Grid */}
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
@@ -85,35 +79,18 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
             backgroundSize: "40px 40px",
             backgroundPosition: "center center",
           }}
-        ></div>
-
-        {/* Diagonal overlay for "Airy" feel */}
-        <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/diagonal-stripes.png')] pointer-events-none mix-blend-overlay"></div>
+        />
 
         {/* Network Visualization Container */}
-        <div className="relative w-full max-w-3xl aspect-[2/1] mb-8">
+        <div className="relative w-full max-w-3xl aspect-[2/1] mb-6">
           {/* SVG Layer for Lines & Pulses */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible">
-            <defs>
-              <marker
-                id="arrowhead"
-                markerWidth="6"
-                markerHeight="4"
-                refX="5"
-                refY="2"
-                orient="auto"
-              >
-                <polygon points="0 0, 6 2, 0 4" fill={color} fillOpacity="0.3" />
-              </marker>
-            </defs>
-
             {/* Static Connections */}
             {connections.map((c, i) => {
               const from = hubs.find((h) => h.id === c.from);
               const to = hubs.find((h) => h.id === c.to);
               return (
                 <g key={i}>
-                  {/* Base Line */}
                   <line
                     x1={`${from.x}%`}
                     y1={`${from.y}%`}
@@ -124,7 +101,6 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
                     strokeWidth="1"
                     strokeDasharray="4 4"
                   />
-                  {/* Animated flow line (subtle) */}
                   <motion.line
                     x1={`${from.x}%`}
                     y1={`${from.y}%`}
@@ -141,7 +117,7 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
               );
             })}
 
-            {/* Active Pulses (Packets) */}
+            {/* Active Pulses */}
             {pulses.map((p) => (
               <motion.circle
                 key={p.id}
@@ -161,12 +137,12 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
             ))}
           </svg>
 
-          {/* Nodes (HTML/React Layer) */}
+          {/* Nodes (HTML Layer) */}
           {hubs.map((hub) => (
             <div
               key={hub.id}
               onClick={() => setActiveNode(activeNode === hub.id ? null : hub.id)}
-              className="absolute flex flex-col items-center gap-2 group cursor-pointer z-20"
+              className="absolute flex flex-col items-center gap-1.5 group cursor-pointer z-20"
               style={{
                 left: `${hub.x}%`,
                 top: `${hub.y}%`,
@@ -175,72 +151,85 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
             >
               {/* Icon Container */}
               <div
-                className={`
-                                relative flex items-center justify-center rounded-lg border border-white/10 bg-black/40 backdrop-blur-md shadow-xl transition-all duration-500
-                                ${hub.type === "hub" ? "w-20 h-20 border-white/30" : "w-12 h-12"}
-                                ${hub.type === "hub" ? "group-hover:border-[var(--brand)]" : "group-hover:border-white/30"}
-                            `}
+                className={`relative flex items-center justify-center rounded-lg border bg-black/40 backdrop-blur-md shadow-xl transition-all duration-300
+                  ${hub.type === "hub" ? "w-16 h-16 md:w-20 md:h-20" : "w-10 h-10 md:w-12 md:h-12"}
+                  ${activeNode === hub.id ? "border-white/40 scale-110" : "border-white/10 group-hover:border-white/30"}
+                `}
                 style={
                   hub.type === "hub"
-                    ? {
-                      borderColor: `${color}60`,
-                      boxShadow: `0 0 30px ${color}20`,
-                    }
+                    ? { borderColor: activeNode === hub.id ? "white" : `color-mix(in srgb, ${color} 40%, transparent)`, boxShadow: `0 0 30px color-mix(in srgb, ${color} 15%, transparent)` }
                     : {}
                 }
               >
-                {/* Inner Glow for Hub */}
                 {hub.type === "hub" && (
-                  <div className="absolute inset-0 bg-[var(--brand)] opacity-10 animate-pulse rounded-lg"></div>
+                  <div className="absolute inset-0 rounded-lg opacity-10 animate-pulse" style={{ backgroundColor: color }} />
                 )}
-
-                {/* Icons */}
-                {hub.type === "supplier" && (
-                  <Factory size={20} className="text-white/60" />
-                )}
-                {hub.type === "hub" && (
-                  <Truck size={32} style={{ color: color }} />
-                )}
-                {hub.type === "retailer" && (
-                  <Store size={18} className="text-white/60" />
-                )}
+                {hub.type === "supplier" && <Factory size={18} className="text-white/60" />}
+                {hub.type === "hub" && <Truck size={28} style={{ color }} />}
+                {hub.type === "retailer" && <Store size={16} className="text-white/60" />}
 
                 {/* Status Dot */}
                 <div
-                  className={`absolute -top-1 -right-1 w-2 h-2 rounded-full ${demand > 20 ? "bg-green-500" : "bg-yellow-500"} border border-black`}
-                ></div>
+                  className={`absolute -top-1 -right-1 w-2 h-2 rounded-full border border-black ${demand > 20 ? "bg-green-500" : "bg-yellow-500"}`}
+                />
               </div>
 
               {/* Label */}
               <div
-                className={`
-                            px-2 py-0.5 rounded border border-white/10 bg-black/50 backdrop-blur text-[8px] font-mono tracking-widest uppercase whitespace-nowrap
-                            transition-colors duration-300 group-hover:text-white group-hover:border-[var(--brand)]
-                            ${activeNode === hub.id ? 'text-white border-[var(--brand)] bg-[var(--brand)]/20' : 'text-white/50'}
-                        `}
+                className={`px-1.5 py-0.5 rounded border bg-black/50 backdrop-blur text-[7px] md:text-[8px] font-mono tracking-widest uppercase whitespace-nowrap transition-colors duration-300
+                  ${activeNode === hub.id ? "text-white border-white/30" : "text-white/50 border-white/10 group-hover:text-white/80"}
+                `}
               >
                 {hub.label}
               </div>
 
-              {/* Interactive Status Popup */}
+              {/* Status Popup */}
               <AnimatePresence>
                 {activeNode === hub.id && (
-                   <motion.div 
-                     initial={{ opacity: 0, y: 10 }}
-                     animate={{ opacity: 1, y: 0 }}
-                     exit={{ opacity: 0, y: 5 }}
-                     className="absolute top-full mt-2 w-32 bg-black/80 backdrop-blur-md border border-white/20 rounded-lg p-2 shadow-2xl z-50 pointer-events-none"
-                   >
-                     <div className="text-[8px] font-mono text-white/50 mb-1 border-b border-white/10 pb-1">NODE_STATUS</div>
-                     <div className="flex justify-between text-[9px] font-mono mb-1">
-                       <span className="text-white/70">Load:</span>
-                       <span className={demand > 70 ? 'text-orange-400' : 'text-green-400'}>{demand > 70 ? 'HIGH' : 'NORMAL'}</span>
-                     </div>
-                     <div className="flex justify-between text-[9px] font-mono">
-                       <span className="text-white/70">Inventory:</span>
-                       <span className="text-white">{(Math.random() * 40 + 40).toFixed(0)}%</span>
-                     </div>
-                   </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 4 }}
+                    className="absolute top-full mt-1 w-28 bg-black/80 backdrop-blur-md border border-white/20 rounded-lg p-2 shadow-2xl z-50 pointer-events-none"
+                  >
+                    <div className="text-[7px] font-mono text-white/50 mb-1 border-b border-white/10 pb-1">NODE_STATUS</div>
+                    {hub.type === "supplier" && (
+                      <>
+                        <div className="flex justify-between text-[8px] font-mono mb-0.5">
+                          <span className="text-white/60">Stock:</span>
+                          <span className={getNodeStatus(hub).stock === "DEPLETING" ? "text-orange-400" : "text-green-400"}>{getNodeStatus(hub).stock}</span>
+                        </div>
+                        <div className="flex justify-between text-[8px] font-mono">
+                          <span className="text-white/60">Fill:</span>
+                          <span className="text-white">{getNodeStatus(hub).fill.toFixed(0)}%</span>
+                        </div>
+                      </>
+                    )}
+                    {hub.type === "hub" && (
+                      <>
+                        <div className="flex justify-between text-[8px] font-mono mb-0.5">
+                          <span className="text-white/60">Load:</span>
+                          <span className={getNodeStatus(hub).throughput === "CRITICAL" ? "text-red-400" : "text-green-400"}>{getNodeStatus(hub).throughput}</span>
+                        </div>
+                        <div className="flex justify-between text-[8px] font-mono">
+                          <span className="text-white/60">Queue:</span>
+                          <span className="text-white">{getNodeStatus(hub).queue}</span>
+                        </div>
+                      </>
+                    )}
+                    {hub.type === "retailer" && (
+                      <>
+                        <div className="flex justify-between text-[8px] font-mono mb-0.5">
+                          <span className="text-white/60">Orders:</span>
+                          <span className="text-white">{getNodeStatus(hub).orders}</span>
+                        </div>
+                        <div className="flex justify-between text-[8px] font-mono">
+                          <span className="text-white/60">ETA:</span>
+                          <span className={getNodeStatus(hub).eta === "DELAYED" ? "text-orange-400" : "text-green-400"}>{getNodeStatus(hub).eta}</span>
+                        </div>
+                      </>
+                    )}
+                  </motion.div>
                 )}
               </AnimatePresence>
             </div>
@@ -248,16 +237,11 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
         </div>
 
         {/* Control Panel */}
-        <div className="w-full max-w-sm bg-black/40 p-4 rounded-xl border border-white/10 backdrop-blur-md z-10 flex items-center gap-4">
-          <div className="flex flex-col gap-1 min-w-[80px]">
-            <span className="text-[9px] uppercase tracking-widest text-white/50">
-              Market Demand
-            </span>
-            <span className="text-xl font-mono text-white leading-none">
-              {demand}%
-            </span>
+        <div className="w-full max-w-sm bg-black/40 p-3 rounded-xl border border-white/10 backdrop-blur-md z-10 flex items-center gap-4">
+          <div className="flex flex-col gap-0.5 min-w-[70px]">
+            <span className="text-[9px] uppercase tracking-widest text-white/50">Demand</span>
+            <span className="text-lg font-mono text-white leading-none">{demand}%</span>
           </div>
-
           <input
             type="range"
             min="0"
@@ -268,10 +252,10 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
           />
         </div>
 
-        {/* Footer Label */}
-        <div className="absolute bottom-4 left-4 text-[9px] text-white/20 font-mono tracking-widest flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] animate-pulse"></div>
-          MODULE: SUPPLY_CHAIN_NERVOUS_SYSTEM_V4
+        {/* Footer */}
+        <div className="absolute bottom-3 left-4 text-[9px] text-white/20 font-mono tracking-widest flex items-center gap-2">
+          <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: color }} />
+          SUPPLY_CHAIN_V4 — Click nodes to inspect
         </div>
       </div>
     </div>
