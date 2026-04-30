@@ -21,23 +21,43 @@ const EfficiencyAI = ({ color = "var(--accent-orange)" }) => {
     { id: "k2", label: "KITCHEN_02", x: 85, y: 70 },
   ];
 
+  const [isAutoMode, setIsAutoMode] = useState(true);
+
   // Simulation Loop
   useEffect(() => {
+    if (!isAutoMode) return;
+
     const interval = setInterval(() => {
       setCycle((prev) => prev + 1);
 
       const newOrder = {
-        id: Date.now(),
+        id: Date.now() + Math.random(),
         supplierIdx: Math.floor(Math.random() * 3),
         kitchenIdx: Math.floor(Math.random() * 2),
-        status: "processing",
+        isRush: false,
       };
 
       setOrders((prev) => [...prev.slice(-4), newOrder]);
     }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isAutoMode]);
+
+  const injectRushOrder = (kitchenIdx) => {
+    setIsAutoMode(false);
+    
+    const newOrder = {
+        id: Date.now() + Math.random(),
+        supplierIdx: Math.floor(Math.random() * 3),
+        kitchenIdx: kitchenIdx,
+        isRush: true, // Rush orders move faster and are styled differently
+    };
+
+    setOrders((prev) => [...prev.slice(-4), newOrder]);
+
+    // Resume auto after a delay
+    setTimeout(() => setIsAutoMode(true), 5000);
+  };
 
   return (
     <div className="w-full h-full min-h-[400px] relative overflow-x-auto overflow-y-hidden custom-scrollbar bg-black/5 rounded-xl border border-white/10 backdrop-blur-sm font-mono select-none">
@@ -102,9 +122,9 @@ const EfficiencyAI = ({ color = "var(--accent-orange)" }) => {
                 return (
                   <g key={o.id}>
                     {/* Segment 1: Supplier -> Hub */}
-                    <motion.circle r="3" fill={color}>
+                    <motion.circle r={o.isRush ? "5" : "3"} fill={o.isRush ? "var(--accent-red)" : color}>
                       <animateMotion
-                        dur="0.8s"
+                        dur={o.isRush ? "0.4s" : "0.8s"}
                         begin="0s"
                         fill="freeze"
                         path={`M ${s.x}% ${s.y}% L ${hub.x}% ${hub.y}%`}
@@ -112,24 +132,24 @@ const EfficiencyAI = ({ color = "var(--accent-orange)" }) => {
                       <animate
                         attributeName="opacity"
                         values="0;1;0"
-                        dur="0.8s"
+                        dur={o.isRush ? "0.4s" : "0.8s"}
                         fill="freeze"
                       />
                     </motion.circle>
 
                     {/* Segment 2: Hub -> Kitchen (Delayed) */}
-                    <motion.circle r="3" fill="var(--bg-void)">
+                    <motion.circle r={o.isRush ? "5" : "3"} fill={o.isRush ? "var(--accent-red)" : "var(--bg-void)"} stroke={o.isRush ? "transparent" : color} strokeWidth="1">
                       <animateMotion
-                        dur="0.8s"
-                        begin="0.8s"
+                        dur={o.isRush ? "0.4s" : "0.8s"}
+                        begin={o.isRush ? "0.4s" : "0.8s"}
                         fill="freeze"
                         path={`M ${hub.x}% ${hub.y}% L ${k.x}% ${k.y}%`}
                       />
                       <animate
                         attributeName="opacity"
                         values="0;1;0"
-                        dur="0.8s"
-                        begin="0.8s"
+                        dur={o.isRush ? "0.4s" : "0.8s"}
+                        begin={o.isRush ? "0.4s" : "0.8s"}
                         fill="freeze"
                       />
                     </motion.circle>
@@ -191,15 +211,19 @@ const EfficiencyAI = ({ color = "var(--accent-orange)" }) => {
 
           {/* RIGHT: KITCHENS */}
           <div className="flex flex-col gap-12 relative z-10">
-            {kitchens.map((k) => (
-              <div key={k.id} className="group relative">
-                <div className="flex flex-row-reverse items-center gap-3 p-2 pl-4 rounded-l-full border-y border-l border-white/5 bg-black/20 backdrop-blur-sm hover:border-[var(--brand)]/30 transition-all text-right">
-                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-[var(--brand)]/10 transition-colors">
-                    <ChefHat size={18} className="text-white/80" />
+            {kitchens.map((k, i) => (
+              <div 
+                key={k.id} 
+                className="group relative cursor-pointer"
+                onClick={() => injectRushOrder(i)}
+              >
+                <div className="flex flex-row-reverse items-center gap-3 p-2 pl-4 rounded-l-full border-y border-l border-white/5 bg-black/20 backdrop-blur-sm hover:border-red-500/50 hover:bg-red-500/10 transition-all text-right">
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-red-500/20 group-hover:border-red-500/50 transition-colors">
+                    <ChefHat size={18} className="text-white/80 group-hover:text-red-400" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[9px] text-white/50 tracking-widest uppercase">
-                      DEMAND
+                    <span className="text-[9px] text-white/50 tracking-widest uppercase group-hover:text-red-400/70 transition-colors">
+                      DEMAND (Click)
                     </span>
                     <span className="text-[10px] text-white/90 font-bold">
                       {k.label}

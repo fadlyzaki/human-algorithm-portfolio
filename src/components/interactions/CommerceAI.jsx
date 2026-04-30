@@ -31,6 +31,7 @@ const connections = [
 const CommerceAI = ({ color = "var(--accent-teal)" }) => {
   const [pulses, setPulses] = useState([]);
   const [demand, setDemand] = useState(50); // 0-100
+  const [activeNode, setActiveNode] = useState(null);
 
   useEffect(() => {
     // Generate traffic based on "Demand" slider
@@ -164,7 +165,8 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
           {hubs.map((hub) => (
             <div
               key={hub.id}
-              className="absolute flex flex-col items-center gap-2 group cursor-default"
+              onClick={() => setActiveNode(activeNode === hub.id ? null : hub.id)}
+              className="absolute flex flex-col items-center gap-2 group cursor-pointer z-20"
               style={{
                 left: `${hub.x}%`,
                 top: `${hub.y}%`,
@@ -212,12 +214,35 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
               {/* Label */}
               <div
                 className={`
-                            px-2 py-0.5 rounded border border-white/10 bg-black/50 backdrop-blur text-[8px] font-mono tracking-widest text-white/50 uppercase whitespace-nowrap
-                            transition-colors duration-300 group-hover:text-white group-hover:border-white/30
+                            px-2 py-0.5 rounded border border-white/10 bg-black/50 backdrop-blur text-[8px] font-mono tracking-widest uppercase whitespace-nowrap
+                            transition-colors duration-300 group-hover:text-white group-hover:border-[var(--brand)]
+                            ${activeNode === hub.id ? 'text-white border-[var(--brand)] bg-[var(--brand)]/20' : 'text-white/50'}
                         `}
               >
                 {hub.label}
               </div>
+
+              {/* Interactive Status Popup */}
+              <AnimatePresence>
+                {activeNode === hub.id && (
+                   <motion.div 
+                     initial={{ opacity: 0, y: 10 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     exit={{ opacity: 0, y: 5 }}
+                     className="absolute top-full mt-2 w-32 bg-black/80 backdrop-blur-md border border-white/20 rounded-lg p-2 shadow-2xl z-50 pointer-events-none"
+                   >
+                     <div className="text-[8px] font-mono text-white/50 mb-1 border-b border-white/10 pb-1">NODE_STATUS</div>
+                     <div className="flex justify-between text-[9px] font-mono mb-1">
+                       <span className="text-white/70">Load:</span>
+                       <span className={demand > 70 ? 'text-orange-400' : 'text-green-400'}>{demand > 70 ? 'HIGH' : 'NORMAL'}</span>
+                     </div>
+                     <div className="flex justify-between text-[9px] font-mono">
+                       <span className="text-white/70">Inventory:</span>
+                       <span className="text-white">{(Math.random() * 40 + 40).toFixed(0)}%</span>
+                     </div>
+                   </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
