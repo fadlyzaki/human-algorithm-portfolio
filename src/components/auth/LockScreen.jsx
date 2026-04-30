@@ -82,36 +82,36 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
   if (!project || !parentCluster) return null;
 
   return (
-    <div className="min-h-[100dvh] bg-transparent text-[var(--text-primary)] font-mono flex items-center justify-center p-6 relative overflow-hidden transition-colors duration-500">
+    <div className="min-h-[100dvh] bg-transparent text-[var(--text-primary)] font-mono flex items-center justify-center px-4 py-20 sm:p-6 relative overflow-hidden overflow-y-auto transition-colors duration-500">
       <SEO
         title={`🔒 Protected: ${project.title}`}
         description="Confidential Case Study. Access Restricted."
       />
 
       {/* Home Navigation (Abort) */}
-      <div className="absolute top-6 left-6 z-20">
+      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20">
         <BackButton
           to={`/work/${parentCluster.id}`}
           label={t("protected.back") || "Run: Return_to_Base"}
-          className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)]"
+          className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] text-xs sm:text-sm"
         />
       </div>
 
-      <div className="absolute top-6 right-6 z-20 flex items-center gap-4">
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 flex items-center gap-2 sm:gap-4">
         <button
           onClick={() => setIsDark(!isDark)}
           className="text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors p-2"
           aria-label="Toggle Theme"
         >
-          {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          {isDark ? <Sun size={18} /> : <Moon size={18} />}
         </button>
         <button
           onClick={toggleLanguage}
-          className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+          className="flex items-center gap-1.5 sm:gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors p-2"
           title="Switch Language"
         >
-          <Globe size={16} />
-          <span className="font-mono text-xs uppercase tracking-widest">
+          <Globe size={14} />
+          <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest">
             {language}
           </span>
         </button>
@@ -119,16 +119,16 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
 
       <div className="max-w-md w-full relative z-10">
         {/* Header Status */}
-        <div className="flex justify-between items-center mb-8 text-xs text-[var(--accent-red)] uppercase tracking-widest border-b border-[var(--accent-red)] pb-2 opacity-80">
-          <span className="flex items-center gap-2">
-            <ShieldAlert size={14} />{" "}
+        <div className="flex justify-between items-center mb-6 sm:mb-8 text-[10px] sm:text-xs text-[var(--accent-red)] uppercase tracking-wider sm:tracking-widest border-b border-[var(--accent-red)] pb-2 opacity-80">
+          <span className="flex items-center gap-1.5 sm:gap-2">
+            <ShieldAlert size={12} className="sm:w-[14px] sm:h-[14px]" />{" "}
             {t("protected.system_locked") || "SYSTEM_LOCKED"}
           </span>
           <span>{t("protected.auth_required") || "AUTH_REQUIRED"}</span>
         </div>
 
         {!decrypting ? (
-          <div className="space-y-8 animate-in fade-in zoom-in duration-500">
+          <div className="space-y-6 sm:space-y-8 animate-in fade-in zoom-in duration-500">
             {/* --- CONTEXT SWITCHER --- */}
             {caseData.summaries ? (
               <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl overflow-hidden shadow-2xl">
@@ -138,7 +138,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
                     <button
                       key={mode}
                       onClick={() => setActiveSummary(mode)}
-                      className={`flex-1 py-3 px-1 text-[9px] sm:text-[10px] md:text-xs uppercase tracking-tight sm:tracking-widest font-mono transition-colors
+                      className={`flex-1 py-3 sm:py-3.5 px-2 sm:px-3 text-[9px] sm:text-[10px] md:text-xs uppercase tracking-tight sm:tracking-widest font-mono transition-colors min-h-[44px]
                           ${activeSummary === mode
                           ? "bg-[var(--bg-card)] text-[var(--brand)] font-bold border-b-2 border-b-[var(--brand)]"
                           : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]"
@@ -150,26 +150,26 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
                 </div>
 
                 {/* Tab Content */}
-                <div className="p-6 md:p-8 text-left">
-                  <div className="flex items-start gap-4 mb-4">
+                <div className="p-4 sm:p-6 md:p-8 text-left">
+                  <div className="flex items-start gap-3 sm:gap-4 mb-4">
                     <div
-                      className={`p-2 rounded-lg 
+                      className={`p-2 rounded-lg shrink-0
                           ${activeSummary === "eli5" ? "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400" : ""}
                           ${activeSummary === "recruiter" ? "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400" : ""}
                           ${activeSummary === "technical" ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400" : ""}
                         `}
                     >
-                      {activeSummary === "eli5" && <Sun size={20} />}
-                      {activeSummary === "recruiter" && <Activity size={20} />}
-                      {activeSummary === "technical" && <Database size={20} />}
+                      {activeSummary === "eli5" && <Sun size={18} />}
+                      {activeSummary === "recruiter" && <Activity size={18} />}
+                      {activeSummary === "technical" && <Database size={18} />}
                     </div>
                     <div>
-                      <h3 className="font-serif italic text-xl md:text-2xl mb-2 text-[var(--text-primary)]">
+                      <h3 className="font-serif italic text-lg sm:text-xl md:text-2xl mb-2 text-[var(--text-primary)]">
                         "{caseData.summaries[activeSummary].title}"
                       </h3>
                     </div>
                   </div>
-                  <p className="text-sm md:text-base text-[var(--text-secondary)] leading-relaxed pl-14 border-l-2 border-[var(--border-color)]">
+                  <p className="text-sm md:text-base text-[var(--text-secondary)] leading-relaxed pl-10 sm:pl-14 border-l-2 border-[var(--border-color)]">
                     {caseData.summaries[activeSummary].text}
                   </p>
                 </div>
@@ -177,14 +177,14 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
             ) : (
               /* Fallback for projects without summaries */
               <div className="text-center space-y-4">
-                <div className="w-20 h-20 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(239,68,68,0.2)]">
-                  <Lock size={32} className="text-[var(--text-secondary)]" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-[0_0_30px_rgba(239,68,68,0.2)]">
+                  <Lock size={28} className="text-[var(--text-secondary)] sm:w-8 sm:h-8" />
                 </div>
-                <h1 className="text-2xl font-bold tracking-tight">
+                <h1 className="text-xl sm:text-2xl font-bold tracking-tight">
                   {t("protected.restricted_file") || "RESTRICTED CASE FILE"}:{" "}
                   {project.id.toUpperCase()}
                 </h1>
-                <p className="text-[var(--text-secondary)] text-sm">
+                <p className="text-[var(--text-secondary)] text-xs sm:text-sm">
                   {t("protected.enter_credentials") ||
                     "Enter credentials to view the messy reality behind"}{" "}
                   "{isId ? project.title_id || project.title : project.title}".
@@ -192,7 +192,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
               </div>
             )}
 
-            <form id="lock-form" onSubmit={handleUnlock} className="space-y-4">
+            <form id="lock-form" onSubmit={handleUnlock} className="space-y-3 sm:space-y-4">
               <div className="relative group">
                 <div
                   className={`absolute inset-0 bg-[var(--accent-red)] blur opacity-20 transition-opacity ${error ? "opacity-50" : ""}`}
@@ -203,7 +203,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder={t("protected.enter_passkey") || "ENTER PASSKEY"}
-                  className="relative w-full bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] px-4 py-4 text-center tracking-[0.5em] focus:outline-none focus:border-[var(--accent-red)] transition-all placeholder:tracking-normal placeholder:text-[var(--text-secondary)]/50"
+                  className="relative w-full bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] px-4 py-3.5 sm:py-4 text-center text-sm sm:text-base tracking-[0.3em] sm:tracking-[0.5em] focus:outline-none focus:border-[var(--accent-red)] transition-all placeholder:tracking-normal placeholder:text-[var(--text-secondary)]/50 rounded-lg"
                   autoFocus
                 />
               </div>
@@ -217,14 +217,14 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
 
               <button
                 type="submit"
-                className="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)] py-3 hover:bg-[var(--accent-red)] hover:text-black hover:border-[var(--accent-red)] transition-all duration-200 uppercase text-xs tracking-widest flex items-center justify-center gap-2 group"
+                className="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)] py-3.5 sm:py-3 hover:bg-[var(--accent-red)] hover:text-black hover:border-[var(--accent-red)] transition-all duration-200 uppercase text-xs tracking-widest flex items-center justify-center gap-2 group rounded-lg min-h-[48px]"
               >
                 <Unlock size={14} className="group-hover:unlock" />
                 {t("protected.decrypt_file") || "Decrypt File"}
               </button>
             </form>
 
-            <div className="text-center">
+            <div className="text-center pt-2">
               <p className="text-[10px] text-[var(--text-secondary)] opacity-50 mb-2">
                 {t("protected.unauthorized") || "// UNAUTHORIZED PERSONNEL"}
               </p>
@@ -237,7 +237,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
                 return (
                   <a
                     href={mailtoUrl}
-                    className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[var(--accent-red)] border-b border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-black transition-all pb-1"
+                    className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono uppercase tracking-wider sm:tracking-widest text-[var(--accent-red)] border-b border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-black transition-all pb-1 min-h-[44px] pt-2"
                   >
                     {t("protected.request_access") || "Request Access Key"}{" "}
                     <ArrowRight size={12} />

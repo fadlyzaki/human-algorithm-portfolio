@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Lock, BookOpen } from "lucide-react";
+import { Lock } from "lucide-react";
 
 
 import AiryDiagram from "../AiryDiagram";

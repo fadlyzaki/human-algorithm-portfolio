@@ -99,8 +99,11 @@ const DesignSystemCaseStudy = ({ caseData, t }) => {
         <ScrollReveal>
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="px-3 py-1 rounded-full bg-[var(--brand)]/10 border border-[var(--brand)]/20 font-mono text-[10px] uppercase tracking-widest" style={{ color: "var(--brand)" }}>
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-[var(--bg-card)] border border-[var(--brand)]/40 rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.08)] backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-[var(--brand)] animate-pulse shrink-0" />
+                <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.15em] font-semibold" style={{ color: "var(--brand)" }}>
                 {t("case_study.ds_tag")}
+                </span>
               </div>
               <span className="font-mono text-[10px] text-[var(--text-secondary)] tracking-widest">2021</span>
             </div>

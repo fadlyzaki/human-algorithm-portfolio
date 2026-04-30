@@ -204,9 +204,10 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
           <div className="space-y-8">
             {/* Status bar */}
             <div className="flex items-center gap-3 flex-wrap">
-              <div className="flex items-center gap-2 px-3 py-1.5 border border-[var(--brand)]/30 rounded-full bg-[var(--brand)]/5">
-                <Crosshair size={12} style={{ color: "var(--brand)" }} />
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em]" style={{ color: "var(--brand)" }}>
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-[var(--bg-card)] border border-[var(--brand)]/40 rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.08)] backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-[var(--brand)] animate-pulse shrink-0" />
+                <Crosshair size={13} style={{ color: "var(--brand)" }} className="opacity-80" />
+                <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.15em] font-semibold" style={{ color: "var(--brand)" }}>
                   {t("case_study.st_sales_tag_gamification")}
                 </span>
               </div>
