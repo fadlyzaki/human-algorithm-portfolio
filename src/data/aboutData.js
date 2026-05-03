@@ -159,6 +159,14 @@ import { Headphones } from "lucide-react";
 
 export const certifications = [
   {
+    title: "Google AI Skills Profile",
+    issuer: "Google Cloud Skills",
+    date: "2025",
+    skills: ["Gen AI Agents", "Prompt Engineering", "MLOps"],
+    icon: Shield,
+    url: "https://www.skills.google/public_profiles/6371c15a-0b67-46ff-87a7-e31e2ec6670c",
+  },
+  {
     title: "Google Cloud Gen AI APAC",
     issuer: "Google Cloud",
     date: "2026",
