@@ -146,7 +146,7 @@ const PrototypeDetail = ({
           {/* LEFT COLUMN: Scrolling Content */}
           <div className="lg:col-span-8 space-y-32">
             {/* The Problem Space */}
-            <section className="bg-[var(--bg-card)]/80 backdrop-blur-2xl p-8 md:p-12 border border-[var(--border-color)] rounded-[3rem] shadow-sm">
+            <section className="bg-[var(--bg-card)] p-8 md:p-12 border border-[var(--border-color)] rounded-[3rem] shadow-sm">
               <div className="flex items-center gap-4 mb-8">
                 <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-secondary)]">
                   <TestTube size={24} />
@@ -162,7 +162,7 @@ const PrototypeDetail = ({
 
             {/* Development Process / Experiments */}
             {activeProcess && (
-              <section className="bg-[var(--bg-card)]/80 backdrop-blur-2xl p-8 md:p-12 border border-[var(--border-color)] rounded-[3rem] shadow-sm">
+              <section className="bg-[var(--bg-card)] p-8 md:p-12 border border-[var(--border-color)] rounded-[3rem] shadow-sm">
                 <div className="flex items-center gap-4 mb-12">
                   <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-secondary)]">
                     <Cpu size={24} />
