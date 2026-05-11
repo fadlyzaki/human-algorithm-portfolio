@@ -48,10 +48,10 @@ export const learningProgressArchitect = {
     heroImage: "airy:network",
   },
   context: {
-    role: { en: "Co-Creator & Engineer", id: "Ko-Kreator & Insinyur" },
+    role: { en: "Team Leader & Engineer", id: "Ketua Tim & Insinyur" },
     timeline: { en: "April 2026", id: "April 2026" },
-    team: { en: "2-person team", id: "Tim 2 orang" },
-    client: { en: "Personal Project", id: "Proyek Pribadi" },
+    team: { en: "The Autodidact Project (2-person team)", id: "The Autodidact Project (Tim 2 orang)" },
+    client: { en: "Google Cloud Hackathon", id: "Hackathon Google Cloud" },
   },
   challenge: {
     en: "Motivated knowledge workers constantly attempt to upskill, but the failure rate of self-taught learning is high because the friction is operational: deciding what to learn next consumes energy, jumping between tools breaks flow, passive reading creates an illusion of competence, and without resurfacing weak concepts, learners abandon their goals.",
@@ -165,11 +165,11 @@ export const learningProgressArchitect = {
     },
   ],
   metrics: [
+    { label: { en: "Achievement", id: "Pencapaian" }, value: "Top 10 in APAC (from 3,147)" },
     { label: { en: "Architecture", id: "Arsitektur" }, value: "Web → ADK → MCP" },
     { label: { en: "Deployment", id: "Deployment" }, value: "Cloud Run" },
     { label: { en: "AI Model", id: "Model AI" }, value: "Gemini" },
     { label: { en: "Stage", id: "Tahap" }, value: "MVP → v1" },
-    { label: { en: "Team", id: "Tim" }, value: "2 Engineers" },
   ],
   learnings: {
     en: "The product already has the right shape: plan, execute, reflect, reinforce. The next step is not adding breadth — it is making the existing loop more coherent, trustworthy, and decisive. The most important design lesson: an AI-powered learning product must still build trust when the AI is unavailable. Designing for graceful degradation forced every feature to justify its existence independent of model quality.",

@@ -235,6 +235,14 @@ export const certifications = [
 
 export const achievements = [
   {
+    title: "Top 10 out of 3,147 Projects: Google Cloud Gen AI Academy Hackathon APAC",
+    issuer: "Google Cloud",
+    date: "2026",
+    skills: ["Generative AI", "Hackathon", "Product Architecture"],
+    icon: Award,
+    url: "/side-project/learning-progress-architect",
+  },
+  {
     title: "Top 25 Finalist: Espriex Business Model ASEAN",
     issuer: "Univ. Brawijaya / Harvard / Stanford",
     date: "Mar 2017",

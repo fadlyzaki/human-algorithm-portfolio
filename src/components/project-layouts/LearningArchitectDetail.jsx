@@ -25,6 +25,7 @@ import {
   Plus,
 } from "lucide-react";
 import AiryDiagram from "../AiryDiagram";
+import ZoomableImage from "../ZoomableImage";
 
 // ─── DATA CONSTANTS ──────────────────────────────────────────────────────────
 
@@ -378,11 +379,22 @@ const LearningArchitectDetail = ({
             
             <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)] overflow-hidden p-2">
               {activeSolution[0].image && (
-                <img 
-                  src={activeSolution[0].image} 
-                  alt={activeSolution[0].title} 
-                  className="w-full h-auto rounded-xl border border-[var(--border-color)]/50"
-                />
+                <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl border border-[var(--border-color)]/50 group">
+                  <ZoomableImage 
+                    src={activeSolution[0].image} 
+                    alt={activeSolution[0].title} 
+                    className="w-full h-auto"
+                    containerClassName="w-full h-full"
+                  />
+                  {/* Fading bottom edge to imply there is more */}
+                  <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[var(--bg-surface)] to-transparent pointer-events-none" />
+                  
+                  {/* Expand badge */}
+                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-[var(--bg-void)]/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-[var(--border-color)] text-[var(--text-primary)] shadow-xl transition-transform duration-300 group-hover:-translate-y-1 pointer-events-none">
+                    <Plus size={16} className="text-emerald-400" />
+                    <span className="text-xs font-mono uppercase tracking-widest font-bold">Expand Journey Map</span>
+                  </div>
+                </div>
               )}
             </div>
           </div>
