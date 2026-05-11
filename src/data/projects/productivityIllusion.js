@@ -14,7 +14,7 @@ export const productivityIllusion = {
     id: "Studi riset metode campuran yang mengungkap bahwa pelajar bahasa tergamifikasi secara sistematis melebih-lebihkan keterlibatan mereka. Pengguna melaporkan aktivitas tinggi (Mean 3.44) sementara data log bercerita berbeda — mengekspos kesenjangan niat-perilaku kritis yang menuntut pergeseran dari desain berfokus engagement ke desain produk berbasis perilaku.",
   },
   stack: ["Python (Colab)", "Behavioral Analytics", "SDT Framework", "Mixed-Method Research"],
-  links: { demo: "#", repo: "#" },
+  links: { demo: "https://doi.org/10.29303/jppipa.v12i2.14036", repo: "#" },
   iconName: "Activity",
   featured: true,
   type: { en: "Product Design Research", id: "Riset Desain Produk" },
@@ -38,8 +38,8 @@ export const productivityIllusion = {
     {
       title: { en: "Research Architecture", id: "Arsitektur Riset" },
       desc: {
-        en: "Employed a mixed-method quantitative framework using a split-design model. An experimental one-group pretest–posttest design measured vocabulary acquisition. Behavioral analytics extracted objective usage data from Duolingo logs. Motivation was assessed using instruments grounded in Self-Determination Theory (SDT). This triangulation enabled comparison between perceived engagement (self-report), psychological motivation (survey), and actual behavior (log analytics).",
-        id: "Menggunakan kerangka kuantitatif metode campuran dengan model desain terpisah. Desain eksperimental satu kelompok pretest-posttest mengukur akuisisi kosakata. Analitik perilaku mengekstrak data penggunaan objektif dari log Duolingo. Motivasi dinilai menggunakan instrumen berbasis Self-Determination Theory (SDT). Triangulasi ini memungkinkan perbandingan antara persepsi engagement, motivasi psikologis, dan perilaku aktual.",
+        en: "Employed a mixed-method quantitative framework using a split-design model. An experimental one-group pretest–posttest design measured vocabulary acquisition. Behavioral analytics extracted objective usage data from a custom interactive workbook (https://buku-kerja-interaktif.web.app/) and Duolingo For Schools, processed via Google Colab. Motivation was assessed using instruments grounded in Self-Determination Theory (SDT). This triangulation enabled comparison between perceived engagement (self-report), psychological motivation (survey), and actual behavior (log analytics).",
+        id: "Menggunakan kerangka kuantitatif metode campuran dengan model desain terpisah. Desain eksperimental satu kelompok pretest-posttest mengukur akuisisi kosakata. Analitik perilaku mengekstrak data penggunaan objektif dari buku kerja interaktif (https://buku-kerja-interaktif.web.app/) dan Duolingo For Schools, diproses menggunakan Google Colab. Motivasi dinilai menggunakan instrumen berbasis Self-Determination Theory (SDT). Triangulasi ini memungkinkan perbandingan antara persepsi engagement, motivasi psikologis, dan perilaku aktual.",
       },
       image: "airy:cycle",
     },
@@ -153,8 +153,8 @@ export const productivityIllusion = {
       type: "ship",
       title: { en: "Data-Driven Reality Check", id: "Pemeriksaan Realitas Berbasis Data" },
       desc: {
-        en: "Using Python & Z-Scores to normalize XP against actual test performance revealed the truth: engagement does not equal mastery. Behavioral data was extracted from Duolingo logs, cross-referenced with SDT motivation surveys, and compared against self-reported perception — exposing the intention–behavior gap at every layer.",
-        id: "Menggunakan Python & Z-Score untuk menormalisasi XP terhadap kinerja tes aktual mengungkap kebenaran: engagement tidak sama dengan penguasaan.",
+        en: "Using Python & Z-Scores to normalize XP against actual test performance revealed the truth: engagement does not equal mastery. Behavioral data was extracted from an interactive workbook (https://buku-kerja-interaktif.web.app/) and Duolingo For Schools, processed via Google Colab, cross-referenced with SDT motivation surveys, and compared against self-reported perception — exposing the intention–behavior gap at every layer.",
+        id: "Menggunakan Python di Google Colab & Z-Score untuk menormalisasi XP terhadap kinerja tes aktual. Data perilaku diekstrak dari buku kerja interaktif (https://buku-kerja-interaktif.web.app/) dan Duolingo For Schools, mengungkap kebenaran: engagement tidak sama dengan penguasaan.",
       },
       image: "airy:funnel",
     },
