@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState as useReactState } from "react";
 import SystemLoader from "../components/SystemLoader";
 import { Link, useNavigate } from "react-router-dom";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
@@ -10,6 +10,7 @@ import {
   Moon,
   Globe,
   ScanEye,
+  ChevronDown,
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import NavigationMenu from "../components/NavigationMenu";
@@ -127,6 +128,8 @@ const SideProjectsIndex = () => {
   const { isDark } = useTheme();
   const { isIndonesian, t } = useLanguage();
   const navigate = useNavigate();
+  const [experimentsOpen, setExperimentsOpen] = useReactState(false);
+  const experimentsGridRef = useRef(null);
 
   // Interaction Refs
   const canvasRef = useRef(null);
@@ -322,31 +325,60 @@ const SideProjectsIndex = () => {
           </div>
         )}
 
-        {/* EXPERIMENTS Section */}
+        {/* EXPERIMENTS Section — collapsed by default */}
         {EXPERIMENTS.length > 0 && (
           <div className="mb-12">
-            <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-12 flex items-center gap-4">
-              <span className="w-8 h-[1px] bg-[var(--border-color)]"></span>
-              <span>
-                Experiments & Explorations
-                <span className="block text-[10px] text-[var(--text-secondary)] normal-case mt-1 max-w-md">
-                  Thinking, building, and attempts to solve problems.
+            <button
+              onClick={() => setExperimentsOpen((prev) => !prev)}
+              className="w-full text-left group cursor-pointer mb-8 focus:outline-none"
+              aria-expanded={experimentsOpen}
+              aria-controls="experiments-grid"
+            >
+              <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-[var(--border-color)]"></span>
+                <span>
+                  Experiments & Explorations
+                  <span className="block text-[10px] text-[var(--text-secondary)] normal-case mt-1 max-w-md">
+                    Thinking, building, and attempts to solve problems.
+                  </span>
                 </span>
-              </span>
-              <span className="flex-1 h-[1px] bg-[var(--border-color)]"></span>
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000">
-              {EXPERIMENTS.map((project, idx) => (
-                <ExperimentCard
-                  key={project.id}
-                  project={project}
-                  idx={idx}
-                  cardsRef={cardsRef}
-                  sideProjectsLength={SIDE_PROJECTS.length}
-                  isIndonesian={isIndonesian}
-                  navigate={navigate}
-                />
-              ))}
+                <span className="flex-1 h-[1px] bg-[var(--border-color)]"></span>
+                <span className="flex items-center gap-2 shrink-0">
+                  <span className="text-[10px] font-mono text-[var(--text-secondary)] opacity-60 hidden sm:inline">
+                    {experimentsOpen ? 'COLLAPSE' : `${EXPERIMENTS.length} ENTRIES`}
+                  </span>
+                  <ChevronDown
+                    size={16}
+                    className={`text-[var(--text-secondary)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      experimentsOpen ? 'rotate-180' : 'rotate-0'
+                    }`}
+                  />
+                </span>
+              </h2>
+            </button>
+
+            <div
+              id="experiments-grid"
+              ref={experimentsGridRef}
+              className="overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style={{
+                maxHeight: experimentsOpen ? `${(experimentsGridRef.current?.scrollHeight || 9999)}px` : '0px',
+                opacity: experimentsOpen ? 1 : 0,
+              }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000 pt-4">
+                {EXPERIMENTS.map((project, idx) => (
+                  <ExperimentCard
+                    key={project.id}
+                    project={project}
+                    idx={idx}
+                    cardsRef={cardsRef}
+                    sideProjectsLength={SIDE_PROJECTS.length}
+                    isIndonesian={isIndonesian}
+                    navigate={navigate}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         )}
