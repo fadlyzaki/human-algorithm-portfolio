@@ -37,7 +37,7 @@ describe('App Component', () => {
         <App />
       </ThemeProvider>
     );
-    // The Suspense fallback should be visible immediately because pages are lazy-loaded
-    expect(screen.getByText(/Initializing System/i)).toBeInTheDocument();
+    // The lightweight Suspense fallback should be visible immediately because pages are lazy-loaded
+    expect(screen.getByTestId('page-loader')).toBeInTheDocument();
   });
 });

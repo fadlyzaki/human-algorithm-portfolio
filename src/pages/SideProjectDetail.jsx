@@ -1,49 +1,43 @@
 import React, { useState, Suspense } from "react";
-import SystemLoader, { SystemSectionLoader } from "../components/SystemLoader";
+import { SystemSectionLoader } from "../components/SystemLoader";
 import { useParams, Link } from "react-router-dom";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
-import {
-  Sun,
-  Moon,
-  ArrowUpRight,
-  Code,
-  Cpu,
-  Link as LinkIcon,
-  AlertTriangle,
-  Terminal,
-  Share2,
-  Box,
-  ArrowLeft,
-  Monitor,
-  Layers,
-  FileText,
-  Globe,
-  ScanEye,
-} from "lucide-react";
+import { AlertTriangle, ArrowLeft, FileText } from "lucide-react";
 import Navbar from "../components/Navbar";
-import NavigationMenu from "../components/NavigationMenu";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
-import BackButton from "../components/BackButton";
 import useProjectData from "../hooks/useProjectData";
 import SEO from "../components/SEO";
-import ProjectCard from "../components/ProjectCard";
-import ZoomableImage from "../components/ZoomableImage";
-import AiryDiagram from "../components/AiryDiagram";
-import SkeletonLine from "../components/ui/SkeletonLine";
 import Footer from "../components/Footer";
+import { useAfterFirstPaint } from "../hooks/useAfterFirstPaint";
 
 const ChaosCanvas = lazyWithRetry(() => import("../components/ChaosCanvas"));
 
-// Import New Layout Architectures
-import SystemCoreDetail from "../components/project-layouts/SystemCoreDetail";
-import CosmicPopDetail from "../components/project-layouts/CosmicPopDetail";
-import BrutalistDetail from "../components/project-layouts/BrutalistDetail";
-import BentoDetail from "../components/project-layouts/BentoDetail";
-import BlueprintDetail from "../components/project-layouts/BlueprintDetail";
-import PrototypeDetail from "../components/project-layouts/PrototypeDetail";
-import AgenticDetail from "../components/project-layouts/AgenticDetail";
-import LearningArchitectDetail from "../components/project-layouts/LearningArchitectDetail";
+// Import New Layout Architectures lazily so one side project does not boot every layout.
+const SystemCoreDetail = lazyWithRetry(
+  () => import("../components/project-layouts/SystemCoreDetail"),
+);
+const CosmicPopDetail = lazyWithRetry(
+  () => import("../components/project-layouts/CosmicPopDetail"),
+);
+const BrutalistDetail = lazyWithRetry(
+  () => import("../components/project-layouts/BrutalistDetail"),
+);
+const BentoDetail = lazyWithRetry(
+  () => import("../components/project-layouts/BentoDetail"),
+);
+const BlueprintDetail = lazyWithRetry(
+  () => import("../components/project-layouts/BlueprintDetail"),
+);
+const PrototypeDetail = lazyWithRetry(
+  () => import("../components/project-layouts/PrototypeDetail"),
+);
+const AgenticDetail = lazyWithRetry(
+  () => import("../components/project-layouts/AgenticDetail"),
+);
+const LearningArchitectDetail = lazyWithRetry(
+  () => import("../components/project-layouts/LearningArchitectDetail"),
+);
 
 // Lazy Load Interaction Components with Retry Logic
 const WorkforceAI = lazyWithRetry(
@@ -115,6 +109,7 @@ const SideProjectDetail = () => {
 
   const [showLivePreview, setShowLivePreview] = useState(true);
   const [, setIsMenuOpen] = useState(false); // Added for Navbar
+  const enhanceAfterPaint = useAfterFirstPaint();
 
   if (loading) {
     return (
@@ -295,9 +290,11 @@ const SideProjectDetail = () => {
       />
 
       {/* --- 0. AMBIENCE --- */}
-      <React.Suspense fallback={<SystemLoader />}>
-        <ChaosCanvas />
-      </React.Suspense>
+      {enhanceAfterPaint && (
+        <React.Suspense fallback={null}>
+          <ChaosCanvas />
+        </React.Suspense>
+      )}
       {/* Vignette */}
       <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
@@ -339,11 +336,19 @@ const SideProjectDetail = () => {
           };
 
           if (type === "prototype") {
-            return <PrototypeDetail {...commonProps} />;
+            return (
+              <Suspense fallback={<SystemSectionLoader height="h-[50vh]" />}>
+                <PrototypeDetail {...commonProps} />
+              </Suspense>
+            );
           }
 
           const SelectedLayout = PROJECT_LAYOUT_MAP[project.id] || BentoDetail;
-          return <SelectedLayout {...commonProps} />;
+          return (
+            <Suspense fallback={<SystemSectionLoader height="h-[50vh]" />}>
+              <SelectedLayout {...commonProps} />
+            </Suspense>
+          );
         })()}
       </main>
 

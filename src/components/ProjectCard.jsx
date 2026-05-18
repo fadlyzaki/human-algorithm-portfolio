@@ -1,35 +1,42 @@
-import React, { useMemo } from "react";
-import * as Cards from "./cards";
+import React, { Suspense, useMemo } from "react";
+import { lazyWithRetry } from "../utils/lazyWithRetry";
+import DefaultCard from "./cards/DefaultCard";
 
 const CARD_REGISTRY = {
-  "human-algorithm": Cards.HumanAlgorithmCard,
-  workforce: Cards.WorkforceCard,
-  commerce: Cards.CommerceCard,
-  efficiency: Cards.EfficiencyCard,
-  "interactive-workbook": Cards.InteractiveWorkbookCard,
-  "year-in-review": Cards.YearInReviewCard,
-  "price-lock": Cards.PriceLockCard,
-  "project-kinship": Cards.ProjectKinshipCard,
-  "stoqo-logistics": Cards.ProjectKinshipCard, // Reusing Kinship card as per original logic
-  "filter-me": Cards.FilterMeCard,
-  "workforce-chat": Cards.WorkforceChatCard,
-  "direct-apply": Cards.WorkforceChatCard, // Reusing WorkforceChat card
-  "ats-dashboard": Cards.AtsDashboardCard,
-  "app-navigation": Cards.AppNavigationCard,
-  "marketplace-checkout": Cards.MarketplaceCheckoutCard,
-  "brand-official-store": Cards.BrandOfficialStoreCard,
-  "promo-engine": Cards.PromoEngineCard,
-  "design-system-gudangada": Cards.DesignSystemCard,
-  "stoqo-sales": Cards.StoqoSalesCard,
-  "stoqo-sales-incentive": Cards.StoqoSalesIncentiveCard,
-  "stoqo-sales-kpi": Cards.StoqoSalesKpiCard,
-  "stoqo-live-app": Cards.StoqoLiveAppCard,
-  "stoqo-logistics-live": Cards.StoqoLogisticsLiveCard,
-  "stoqo-picker-app": Cards.StoqoPickerAppCard,
-  "stoqo-checker-app": Cards.StoqoCheckerAppCard,
-  "stoqo-sales-context": Cards.StoqoSalesContextCard,
-  "paper-to-paperless": Cards.PaperToPaperlessCard,
+  "human-algorithm": lazyWithRetry(() => import("./cards/HumanAlgorithmCard")),
+  workforce: lazyWithRetry(() => import("./cards/WorkforceCard")),
+  commerce: lazyWithRetry(() => import("./cards/CommerceCard")),
+  efficiency: lazyWithRetry(() => import("./cards/EfficiencyCard")),
+  "interactive-workbook": lazyWithRetry(() => import("./cards/InteractiveWorkbookCard")),
+  "year-in-review": lazyWithRetry(() => import("./cards/YearInReviewCard")),
+  "price-lock": lazyWithRetry(() => import("./cards/PriceLockCard")),
+  "project-kinship": lazyWithRetry(() => import("./cards/ProjectKinshipCard")),
+  "stoqo-logistics": lazyWithRetry(() => import("./cards/ProjectKinshipCard")), // Reusing Kinship card as per original logic
+  "filter-me": lazyWithRetry(() => import("./cards/FilterMeCard")),
+  "workforce-chat": lazyWithRetry(() => import("./cards/WorkforceChatCard")),
+  "direct-apply": lazyWithRetry(() => import("./cards/WorkforceChatCard")), // Reusing WorkforceChat card
+  "ats-dashboard": lazyWithRetry(() => import("./cards/AtsDashboardCard")),
+  "app-navigation": lazyWithRetry(() => import("./cards/AppNavigationCard")),
+  "marketplace-checkout": lazyWithRetry(() => import("./cards/MarketplaceCheckoutCard")),
+  "brand-official-store": lazyWithRetry(() => import("./cards/BrandOfficialStoreCard")),
+  "promo-engine": lazyWithRetry(() => import("./cards/PromoEngineCard")),
+  "design-system-gudangada": lazyWithRetry(() => import("./cards/DesignSystemCard")),
+  "stoqo-sales": lazyWithRetry(() => import("./cards/StoqoSalesCard")),
+  "stoqo-sales-incentive": lazyWithRetry(() => import("./cards/StoqoSalesIncentiveCard")),
+  "stoqo-sales-kpi": lazyWithRetry(() => import("./cards/StoqoSalesKpiCard")),
+  "stoqo-live-app": lazyWithRetry(() => import("./cards/StoqoLiveAppCard")),
+  "stoqo-logistics-live": lazyWithRetry(() => import("./cards/StoqoLogisticsLiveCard")),
+  "stoqo-picker-app": lazyWithRetry(() => import("./cards/StoqoPickerAppCard")),
+  "stoqo-checker-app": lazyWithRetry(() => import("./cards/StoqoCheckerAppCard")),
+  "stoqo-sales-context": lazyWithRetry(() => import("./cards/StoqoSalesContextCard")),
+  "paper-to-paperless": lazyWithRetry(() => import("./cards/PaperToPaperlessCard")),
 };
+
+const ProjectCardFallback = ({ backgroundOnly }) => (
+  <div
+    className={`w-full h-full bg-[var(--bg-card)] border border-[var(--border-color)] ${backgroundOnly ? "opacity-20" : ""}`}
+  />
+);
 
 const ProjectCard = ({
   type = "Web",
@@ -43,11 +50,11 @@ const ProjectCard = ({
     if (id && CARD_REGISTRY[id]) {
       return CARD_REGISTRY[id];
     }
-    return Cards.DefaultCard;
+    return DefaultCard;
   }, [id]);
 
   // If it's the DefaultCard, it needs distinct props handling to support the fallback image/AiryDiagram logic
-  if (CardComponent === Cards.DefaultCard) {
+  if (CardComponent === DefaultCard) {
     return (
       <CardComponent
         type={type}
@@ -60,11 +67,13 @@ const ProjectCard = ({
   }
 
   return (
-    <CardComponent
-      expanded={expanded}
-      showChrome={showChrome}
-      backgroundOnly={backgroundOnly}
-    />
+    <Suspense fallback={<ProjectCardFallback backgroundOnly={backgroundOnly} />}>
+      <CardComponent
+        expanded={expanded}
+        showChrome={showChrome}
+        backgroundOnly={backgroundOnly}
+      />
+    </Suspense>
   );
 };
 

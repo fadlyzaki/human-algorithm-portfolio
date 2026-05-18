@@ -1,5 +1,6 @@
-import { useMemo } from "react";
-import { PORTFOLIO, EXPERIMENTS } from "../data/portfolioData";
+import { useEffect, useState } from "react";
+
+const loadPortfolioData = () => import("../data/portfolioData");
 
 /**
  * Hook to retrieve project data from any of the data sources.
@@ -7,91 +8,130 @@ import { PORTFOLIO, EXPERIMENTS } from "../data/portfolioData";
  * @returns {object} - { project, parentCluster, loading, error, type }
  */
 export const useProjectData = (id) => {
-  const data = useMemo(() => {
-    if (!id) return { loading: true };
+  const [data, setData] = useState(() => ({
+    project: null,
+    parentCluster: null,
+    loading: Boolean(id),
+  }));
 
-    // Handle case study view via /case-study/:id pattern
-    // which maps to standard projects but with different layout focus
-    const projectId = id;
+  useEffect(() => {
+    if (!id) {
+      queueMicrotask(() => {
+        setData({ project: null, parentCluster: null, loading: true });
+      });
+      return undefined;
+    }
 
-    // Note: Project data retrieval must be fast and reliable.
-    // We're iterating over nested arrays to flatten the structure,
-    // which could be optimized in the future if the catalog grows significantly.
-    let foundProject = null;
-    let foundParent = null;
+    let cancelled = false;
 
-    for (const cat of PORTFOLIO.categories) {
-      for (const item of cat.items) {
-        if (item.id === projectId) {
-          foundProject = item;
-          foundParent = item; // self-parent for direct items
-          break;
-        }
+    queueMicrotask(() => {
+      if (cancelled) return;
+      setData((current) => ({
+        ...current,
+        error: undefined,
+        loading: true,
+      }));
+    });
 
-        // Handle work cluster projects
-        if (item.projects) {
-          for (const subProject of item.projects) {
-            if (subProject.id === projectId) {
-              foundProject = subProject;
-              foundParent = item;
-              break;
+    loadPortfolioData().then(({ PORTFOLIO, EXPERIMENTS }) => {
+      if (cancelled) return;
+
+      // Handle case study view via /case-study/:id pattern
+      // which maps to standard projects but with different layout focus
+      const projectId = id;
+
+      // Note: Project data retrieval must be fast and reliable.
+      // We're iterating over nested arrays to flatten the structure,
+      // which could be optimized in the future if the catalog grows significantly.
+      let foundProject = null;
+      let foundParent = null;
+
+      for (const cat of PORTFOLIO.categories) {
+        for (const item of cat.items) {
+          if (item.id === projectId) {
+            foundProject = item;
+            foundParent = item; // self-parent for direct items
+            break;
+          }
+
+          // Handle work cluster projects
+          if (item.projects) {
+            for (const subProject of item.projects) {
+              if (subProject.id === projectId) {
+                foundProject = subProject;
+                foundParent = item;
+                break;
+              }
+            }
+          }
+
+          // Handle nested structures like gridItems
+          if (!foundProject && item.gridItems) {
+            for (const gridItem of item.gridItems) {
+              if (gridItem.id === projectId) {
+                foundProject = gridItem;
+                foundParent = item;
+                break;
+              }
+            }
+          }
+
+          // Handle subItems (e.g., nested side-project items)
+          if (!foundProject && item.subItems) {
+            for (const subItem of item.subItems) {
+              if (subItem.id === projectId) {
+                foundProject = subItem;
+                foundParent = item;
+                break;
+              }
             }
           }
         }
+        if (foundProject) break;
+      }
 
-        // Handle nested structures like gridItems
-        if (!foundProject && item.gridItems) {
-          for (const gridItem of item.gridItems) {
-            if (gridItem.id === projectId) {
-              foundProject = gridItem;
-              foundParent = item;
-              break;
-            }
-          }
-        }
+      let isPrototype = false;
 
-        // Handle subItems (e.g., nested side-project items)
-        if (!foundProject && item.subItems) {
-          for (const subItem of item.subItems) {
-            if (subItem.id === projectId) {
-              foundProject = subItem;
-              foundParent = item;
-              break;
-            }
+      // Also search EXPERIMENTS (Prototypes)
+      if (!foundProject) {
+        for (const note of EXPERIMENTS) {
+          if (note.id === projectId) {
+            foundProject = note;
+            foundParent = note; // self-parent for direct items
+            isPrototype = true;
+            break;
           }
         }
       }
-      if (foundProject) break;
-    }
 
-    let isPrototype = false;
-
-    // Also search EXPERIMENTS (Prototypes)
-    if (!foundProject) {
-      for (const note of EXPERIMENTS) {
-        if (note.id === projectId) {
-          foundProject = note;
-          foundParent = note; // self-parent for direct items
-          isPrototype = true;
-          break;
-        }
+      if (foundProject) {
+        setData({
+          project: foundProject,
+          parentCluster: foundParent,
+          loading: false,
+          type: isPrototype ? "prototype" : undefined,
+        });
+        return;
       }
-    }
 
-    if (foundProject) {
-      return {
-        project: foundProject,
-        parentCluster: foundParent,
+      setData({
+        project: null,
+        parentCluster: null,
+        error: "Project not found",
         loading: false,
-        type: isPrototype ? "prototype" : undefined
-      };
-    }
+      });
+    }).catch((error) => {
+      if (cancelled) return;
+      setData({
+        project: null,
+        parentCluster: null,
+        error: error.message || "Project data failed to load",
+        loading: false,
+      });
+    });
 
-    return {
-      project: null,
-      parentCluster: null,
-      error: "Project not found",
-      loading: false,
+    return () => {
+      cancelled = true;
     };
   }, [id]);
 

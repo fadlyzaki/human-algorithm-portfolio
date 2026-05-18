@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ArrowUpRight, Lock, BookOpen, FileText } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "../ScrollReveal";
 import ProjectCard from "../ProjectCard";
@@ -261,7 +260,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
   );
 };
 
-const CompanyProjects = ({ cluster, t, isId }) => {
+const CompanyProjects = ({ cluster, isId }) => {
   return (
     <div className="flex flex-wrap gap-[50px] justify-center lg:justify-start pt-8 pb-12">
       {cluster.projects.map((project, idx) => {

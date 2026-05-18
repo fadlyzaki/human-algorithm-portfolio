@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Sun, Moon, Globe, FileText } from "lucide-react";
+import { lazyWithRetry } from "../../utils/lazyWithRetry";
 import { useLanguage } from "../../context/LanguageContext";
 import { useTheme } from "../../context/ThemeContext";
 import BackButton from "../BackButton";
@@ -14,9 +15,16 @@ import KeyInsights from "./sections/KeyInsights";
 import SolutionSection from "./sections/SolutionSection";
 import PrototypeViewer from "./sections/PrototypeViewer";
 import ImpactMetrics from "./sections/ImpactMetrics";
-import DesignSystemCaseStudy from "./DesignSystemCaseStudy";
-import StoqoSalesCaseStudy from "./StoqoSalesCaseStudy";
-import StoqoLogisticsCaseStudy from "./StoqoLogisticsCaseStudy";
+
+const DesignSystemCaseStudy = lazyWithRetry(() => import("./DesignSystemCaseStudy"));
+const StoqoSalesCaseStudy = lazyWithRetry(() => import("./StoqoSalesCaseStudy"));
+const StoqoLogisticsCaseStudy = lazyWithRetry(() => import("./StoqoLogisticsCaseStudy"));
+
+const CaseStudyLayoutFallback = () => (
+  <div className="min-h-[60vh] flex items-center justify-center font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+    Loading_Case_File...
+  </div>
+);
 
 const CaseStudyContent = ({ project, parentCluster }) => {
   const { t, language, toggleLanguage } = useLanguage();
@@ -101,11 +109,15 @@ const CaseStudyContent = ({ project, parentCluster }) => {
       <main className="relative z-10 w-full pb-32">
         {/* Design System gets its own custom layout, decoupled from ProcessFramework */}
         {project.id === "design-system-gudangada" ? (
-          <DesignSystemCaseStudy caseData={caseData} t={t} />
+          <Suspense fallback={<CaseStudyLayoutFallback />}>
+            <DesignSystemCaseStudy caseData={caseData} t={t} />
+          </Suspense>
         ) : project.id === "stoqo-logistics" ? (
-          <StoqoLogisticsCaseStudy caseData={caseData} project={project} t={t} language={language} />
+          <Suspense fallback={<CaseStudyLayoutFallback />}>
+            <StoqoLogisticsCaseStudy caseData={caseData} project={project} t={t} language={language} />
+          </Suspense>
         ) : project.id === "stoqo-sales" ? (
-          <>
+          <Suspense fallback={<CaseStudyLayoutFallback />}>
             <StoqoSalesCaseStudy caseData={caseData} project={project} t={t} />
 
             {/* AI BRAINSTORM */}
@@ -130,7 +142,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
               </p>
               <div className="mt-12 w-24 h-1 bg-[var(--brand)] mx-auto"></div>
             </section>
-          </>
+          </Suspense>
         ) : (
           <>
             <HeroSection project={project} caseData={caseData} isId={isId} t={t} />

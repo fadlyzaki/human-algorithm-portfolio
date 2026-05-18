@@ -1,37 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import StickyNote from "../StickyNote";
 
 const RandomStickyNotes = ({ t }) => {
-  const [notes, setNotes] = useState([]);
-
-  useEffect(() => {
-    const stickyData = [
-      { text: t("home.sticky_note"), color: "text-[var(--accent-blue)]" },
-      { text: t("home.sticky_note_2"), color: "text-[var(--accent-amber)]" },
-      { text: t("home.sticky_note_3"), color: "text-[var(--accent-green)]" },
-      { text: t("home.sticky_note_4"), color: "text-[var(--accent-purple)]" },
-    ];
-
-    // Generate random positions on mount
-    const positionedNotes = stickyData.map((note, i) => {
-      // Divide the page into vertical zones to prevent all notes from clustering at the top
-      const zoneHeight = 100 / stickyData.length;
+  const [positions] = useState(() =>
+    Array.from({ length: 4 }, (_, i) => {
+      const zoneHeight = 100 / 4;
       const zoneStart = i * zoneHeight;
-      
-      return {
-        ...note,
-        id: i,
-        // Randomly place within the zone (Y axis) and across the width (X axis)
-        // We use a bit of padding to keep them away from the very edges
-        top: `${zoneStart + Math.random() * (zoneHeight - 10) + 5}%`,
-        left: `${Math.random() * 70 + 5}%`, 
-        rotate: Math.random() * 20 - 10, // -10 to 10 degrees
-      };
-    });
 
-    setNotes(positionedNotes);
-  }, [t]);
+      return {
+        top: `${zoneStart + Math.random() * (zoneHeight - 10) + 5}%`,
+        left: `${Math.random() * 70 + 5}%`,
+        rotate: Math.random() * 20 - 10,
+      };
+    }),
+  );
+
+  const notes = [
+    { text: t("home.sticky_note"), color: "text-[var(--accent-blue)]" },
+    { text: t("home.sticky_note_2"), color: "text-[var(--accent-amber)]" },
+    { text: t("home.sticky_note_3"), color: "text-[var(--accent-green)]" },
+    { text: t("home.sticky_note_4"), color: "text-[var(--accent-purple)]" },
+  ].map((note, i) => ({ ...note, ...positions[i], id: i }));
 
   if (notes.length === 0) return null;
 

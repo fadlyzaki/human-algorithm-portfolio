@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
+import OptimizedImage from "./OptimizedImage";
 
 /**
  * ZoomableImage - Wraps an image with click-to-zoom modal functionality
@@ -59,10 +60,11 @@ const ZoomableImage = ({
         className={`relative cursor-zoom-in group w-full h-full ${containerClassName}`}
         onClick={handleClick}
       >
-        <img loading="lazy" decoding="async"
+        <OptimizedImage
           src={src}
           alt={alt}
           className={className}
+          sizes="(min-width: 1024px) 45vw, 100vw"
           onError={() => setHasError(true)}
         />
         {/* Zoom indicator on hover */}

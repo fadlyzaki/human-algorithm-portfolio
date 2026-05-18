@@ -1,14 +1,30 @@
 import React, {
   createContext,
+  useEffect,
   useContext,
   useState,
   useMemo,
   useCallback,
 } from "react";
-import { translations } from "../data/translations";
+import en from "../data/translations.en";
 import { STORAGE_KEYS } from "../config/constants";
 
 const LanguageContext = createContext();
+const languageLoaders = {
+  en: () => Promise.resolve(en),
+  id: () => import("../data/translations.id").then((module) => module.default),
+};
+
+const resolveTranslation = (bundle, key) => {
+  const keys = key.split(".");
+  let value = bundle;
+
+  for (const k of keys) {
+    value = value?.[k];
+  }
+
+  return value;
+};
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useLanguage = () => useContext(LanguageContext);
@@ -18,6 +34,21 @@ export const LanguageProvider = ({ children }) => {
     const savedLang = localStorage.getItem(STORAGE_KEYS.LANGUAGE);
     return savedLang || "en";
   });
+  const [bundles, setBundles] = useState({ en });
+
+  useEffect(() => {
+    if (bundles[language]) return;
+
+    let cancelled = false;
+    languageLoaders[language]?.().then((bundle) => {
+      if (cancelled) return;
+      setBundles((current) => ({ ...current, [language]: bundle }));
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [bundles, language]);
 
   const toggleLanguage = useCallback(() => {
     // Brief fade for smooth content transition
@@ -25,33 +56,33 @@ export const LanguageProvider = ({ children }) => {
     const newLang = language === "en" ? "id" : "en";
     setLanguage(newLang);
     localStorage.setItem(STORAGE_KEYS.LANGUAGE, newLang);
+
+    if (!bundles[newLang]) {
+      languageLoaders[newLang]?.().then((bundle) => {
+        setBundles((current) => ({ ...current, [newLang]: bundle }));
+      });
+    }
+
     setTimeout(() => {
       document.documentElement.classList.remove("lang-switching");
     }, 150);
-  }, [language]);
+  }, [bundles, language]);
 
   const isIndonesian = language === "id";
 
   // Translation Helper
   const t = useCallback(
-    (key) => {
-      const keys = key.split(".");
-      let value = translations[language];
-      for (const k of keys) {
-        value = value?.[k];
-      }
+    (key, fallback) => {
+      let value = resolveTranslation(bundles[language], key);
 
       // Fallback to English if missing
       if (!value && language !== "en") {
-        value = translations["en"];
-        for (const k of keys) {
-          value = value?.[k];
-        }
+        value = resolveTranslation(bundles.en, key);
       }
 
-      return value || key;
+      return value || fallback || key;
     },
-    [language],
+    [bundles, language],
   );
 
   const value = useMemo(

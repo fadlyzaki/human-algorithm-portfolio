@@ -362,7 +362,7 @@ const SideProjectsIndex = () => {
               ref={experimentsGridRef}
               className="overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
               style={{
-                maxHeight: experimentsOpen ? `${(experimentsGridRef.current?.scrollHeight || 9999)}px` : '0px',
+                maxHeight: experimentsOpen ? '5000px' : '0px',
                 opacity: experimentsOpen ? 1 : 0,
               }}
             >

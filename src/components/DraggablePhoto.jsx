@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { User } from "lucide-react";
 import PixelImage from "./PixelImage";
+import OptimizedImage from "./OptimizedImage";
 import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
 
@@ -133,11 +134,10 @@ const DraggablePhoto = () => {
             ) : (
               /* Generic Card Back / Alt Image */
               <div className="w-full h-full border border-[var(--border-color)] overflow-hidden relative select-none rounded-xl bg-black group-inner shadow-2xl">
-                <img loading="lazy" decoding="async"
+                <OptimizedImage
                   src={currentItem.src}
                   alt={currentItem.alt}
-                  fetchPriority="high"
-                  loading="eager"
+                  sizes="280px"
                   className="w-full h-full object-cover opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10"></div>

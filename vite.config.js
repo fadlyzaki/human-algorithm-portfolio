@@ -23,10 +23,25 @@ export default defineConfig({
     assetsInlineLimit: 4096, // Inline assets smaller than 4KB
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          animations: ['framer-motion'],
-          icons: ['lucide-react']
+        manualChunks(id) {
+          if (id.includes('node_modules/framer-motion')) {
+            return 'animations'
+          }
+          if (id.includes('node_modules/lucide-react')) {
+            return 'icons'
+          }
+          if (
+            id.includes('node_modules/react') ||
+            id.includes('node_modules/react-dom') ||
+            id.includes('node_modules/react-router') ||
+            id.includes('node_modules/scheduler') ||
+            id.includes('node_modules/react-helmet-async') ||
+            id.includes('node_modules/react-fast-compare') ||
+            id.includes('node_modules/invariant') ||
+            id.includes('node_modules/shallowequal')
+          ) {
+            return 'vendor'
+          }
         }
       }
     }

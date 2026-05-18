@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "./Container";
 import AiryDiagram from "../AiryDiagram";
+import OptimizedImage from "../OptimizedImage";
 
 const DefaultCard = ({ type, expanded, image, showChrome, backgroundOnly }) => (
   <Container
@@ -14,7 +15,7 @@ const DefaultCard = ({ type, expanded, image, showChrome, backgroundOnly }) => (
         <AiryDiagram type={image.split(":")[1]} />
       </div>
     ) : image ? (
-      <img loading="lazy" decoding="async" src={image} alt={type} className="w-full h-full object-cover" />
+      <OptimizedImage src={image} alt={type} className="w-full h-full object-cover" />
     ) : (
       <div className="w-full h-full flex items-center justify-center">
         <AiryDiagram type="default" />

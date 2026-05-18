@@ -15,8 +15,7 @@ const CompanyHero = ({
     <header className="min-h-[100dvh] flex flex-col pt-24 md:pt-32 px-6 lg:px-12 relative overflow-hidden border-b border-[var(--border-color)]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center flex-grow mb-12">
         {/* Text Content */}
-        <ScrollReveal>
-          <div className="relative z-20">
+        <div className="relative z-20">
             {/* Company Logo Space */}
             <div className="mb-6 h-12 flex items-center">
               {cluster.logo ? (
@@ -48,8 +47,7 @@ const CompanyHero = ({
             <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-xl font-light leading-relaxed border-l-2 border-[var(--border-color)] pl-6">
               {isId ? cluster.hook_id || cluster.hook : cluster.hook}
             </p>
-          </div>
-        </ScrollReveal>
+        </div>
 
         {/* Interactive AI Visualization */}
         <ScrollReveal delay={200} className="w-full h-[500px] relative">

@@ -192,7 +192,7 @@ const WorkBento = ({ cluster, priority = false }) => {
                 <motion.img
                   src={cluster.heroImage}
                   alt={title}
-                  fetchpriority={priority ? "high" : "auto"}
+                  fetchPriority={priority ? "high" : "auto"}
                   loading={priority ? "eager" : "lazy"}
                   className="w-full h-auto object-top"
                   style={{ transformOrigin: "top" }}

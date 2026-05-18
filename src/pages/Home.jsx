@@ -25,9 +25,13 @@ import BackgroundTexture from "../components/BackgroundTexture";
 import useScrollDirection from "../hooks/useScrollDirection";
 import { useLanguage } from "../context/LanguageContext";
 import { useRecruiterMode } from "../context/RecruiterModeContext";
-import ChaosToMatrixIntro from "../components/welcome/ChaosToMatrixIntro";
 import { LayoutGroup, AnimatePresence } from "framer-motion";
 import PageShell from "../components/PageShell";
+import { useAfterFirstPaint } from "../hooks/useAfterFirstPaint";
+
+const ChaosToMatrixIntro = lazyWithRetry(
+  () => import("../components/welcome/ChaosToMatrixIntro"),
+);
 
 const Home = () => {
   /* --- STATE & HOOKS --- */
@@ -41,14 +45,12 @@ const Home = () => {
       localStorage.removeItem(STORAGE_KEYS.INTRO_SEEN);
       return true;
     }
-    // Automatically skip intro for recruiter mode
-    if (params.get("recruiter") === "true") {
-      return false;
-    }
-    // Only show intro once for first-time visitors (persists across tabs/restarts)
-    return localStorage.getItem(STORAGE_KEYS.INTRO_SEEN) !== "true";
+
+    // Fast default: never block first content paint with the cinematic intro.
+    return false;
   });
   const showNav = useScrollDirection(false);
+  const enhanceAfterPaint = useAfterFirstPaint();
 
   const location = useLocation();
   const { isRecruiterMode } = useRecruiterMode();
@@ -90,12 +92,14 @@ const Home = () => {
       >
         <AnimatePresence>
           {showIntro && (
-            <ChaosToMatrixIntro
-              onComplete={() => {
-                localStorage.setItem(STORAGE_KEYS.INTRO_SEEN, "true");
-                setShowIntro(false);
-              }}
-            />
+            <React.Suspense fallback={null}>
+              <ChaosToMatrixIntro
+                onComplete={() => {
+                  localStorage.setItem(STORAGE_KEYS.INTRO_SEEN, "true");
+                  setShowIntro(false);
+                }}
+              />
+            </React.Suspense>
           )}
         </AnimatePresence>
 
@@ -139,9 +143,11 @@ const Home = () => {
         />
 
         {/* ATMOSPHERE & CHAOS */}
-        <React.Suspense fallback={<SystemLoader />}>
-          <ChaosCanvas />
-        </React.Suspense>
+        {enhanceAfterPaint && (
+          <React.Suspense fallback={null}>
+            <ChaosCanvas />
+          </React.Suspense>
+        )}
 
         <PageShell navbarProps={{ showNavOverride: showNav }}>
           {/* Progress Bar */}

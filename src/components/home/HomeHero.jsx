@@ -23,6 +23,10 @@ const LINE_GAP = 0.3;
 const TypewriterText = ({ text, delay = 0, start = true }) => {
   if (!text) return null;
 
+  if (start) {
+    return <span>{text}</span>;
+  }
+
   // LCP Optimization: Render as a single text node instead of mapping 100+ DOM nodes
   return (
     <motion.span

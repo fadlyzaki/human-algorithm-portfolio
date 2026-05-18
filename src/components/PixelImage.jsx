@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import OptimizedImage from "./OptimizedImage";
 
 const PIXEL_RESOLUTION = 24; // Pixels wide for the pixel art look
 
-const PixelImage = ({ src, alt, className = "" }) => {
+const PixelImage = ({ src, alt, className = "", priority = false }) => {
   const [pixelSrc, setPixelSrc] = useState(null);
 
   useEffect(() => {
@@ -23,12 +24,12 @@ const PixelImage = ({ src, alt, className = "" }) => {
   return (
     <div className={`relative w-full h-full ${className}`}>
       {/* Normal photo  -  always rendered underneath */}
-      <img decoding="async"
+      <OptimizedImage
         src={src}
         alt={alt}
         className="w-full h-full object-cover"
-        fetchPriority="high"
-        loading="eager"
+        priority={priority}
+        sizes="280px"
       />
       {/* Pixel art overlay  -  covers normal, fades out on group hover */}
       {pixelSrc && (

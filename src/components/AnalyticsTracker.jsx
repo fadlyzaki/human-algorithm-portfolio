@@ -5,12 +5,16 @@ import ReactGA from "react-ga4";
 // Initialize Google Analytics with Measurement ID from environment
 const MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
-ReactGA.initialize(MEASUREMENT_ID);
+if (MEASUREMENT_ID) {
+  ReactGA.initialize(MEASUREMENT_ID);
+}
 
 const AnalyticsTracker = () => {
   const location = useLocation();
 
   useEffect(() => {
+    if (!MEASUREMENT_ID) return;
+
     // Send page view event on route change
     ReactGA.send({
       hitType: "pageview",

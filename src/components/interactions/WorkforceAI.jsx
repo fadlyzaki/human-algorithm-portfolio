@@ -25,6 +25,10 @@ const WorkforceAI = ({ color = "var(--accent-teal)" }) => {
   const [matches, setMatches] = useState([]);
   const [activeCandidate, setActiveCandidate] = useState(null);
   const [isAutoScanning, setIsAutoScanning] = useState(true);
+  const matchIdRef = useRef(0);
+  const autoCandidateRef = useRef(0);
+  const autoJobRef = useRef(1);
+  const scoreRef = useRef(0);
 
   // Measure container + node positions for pixel-perfect SVG
   const measure = useCallback(() => {
@@ -58,18 +62,7 @@ const WorkforceAI = ({ color = "var(--accent-teal)" }) => {
     };
   }, [measure]);
 
-  // Auto scanning
-  useEffect(() => {
-    if (!isAutoScanning) return;
-    const interval = setInterval(() => {
-      const cIdx = Math.floor(Math.random() * CANDIDATES.length);
-      const jIdx = Math.floor(Math.random() * JOBS.length);
-      triggerMatch(cIdx, jIdx, true);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, [isAutoScanning]);
-
-  const triggerMatch = (cIdx, jIdx, isAuto = false) => {
+  const triggerMatch = useCallback((cIdx, jIdx, isAuto = false) => {
     if (!isAuto) {
       setIsAutoScanning(false);
       setActiveCandidate(cIdx);
@@ -79,15 +72,32 @@ const WorkforceAI = ({ color = "var(--accent-teal)" }) => {
       }, 2000);
     }
 
+    const nextScore = 85 + (scoreRef.current % 15);
+    scoreRef.current += 1;
+
     const newMatch = {
-      id: Date.now() + Math.random(),
+      id: matchIdRef.current,
       cIdx,
       jIdx,
-      score: Math.floor(Math.random() * 15) + 85,
+      score: nextScore,
       isManual: !isAuto,
     };
+    matchIdRef.current += 1;
     setMatches((prev) => [...prev.slice(-2), newMatch]);
-  };
+  }, []);
+
+  // Auto scanning
+  useEffect(() => {
+    if (!isAutoScanning) return;
+    const interval = setInterval(() => {
+      const cIdx = autoCandidateRef.current % CANDIDATES.length;
+      const jIdx = autoJobRef.current % JOBS.length;
+      autoCandidateRef.current += 1;
+      autoJobRef.current += 2;
+      triggerMatch(cIdx, jIdx, true);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [isAutoScanning, triggerMatch]);
 
   const handleManualMatch = (cIdx) => {
     const jIdx = CANDIDATES[cIdx].matchIdx;

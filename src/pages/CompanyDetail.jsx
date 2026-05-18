@@ -1,6 +1,5 @@
 import React, { Suspense, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
-import { ScanEye, Sun, Moon, Globe } from "lucide-react";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
 
 import { useLanguage } from "../context/LanguageContext";
@@ -9,7 +8,7 @@ import NavigationMenu from "../components/NavigationMenu";
 import useProjectData from "../hooks/useProjectData";
 import SEO from "../components/SEO";
 import Footer from "../components/Footer";
-import BackButton from "../components/BackButton";
+import { useAfterFirstPaint } from "../hooks/useAfterFirstPaint";
 
 // Sub-components
 import CompanyHero from "../components/company/CompanyHero";
@@ -17,7 +16,6 @@ import CompanyStats from "../components/company/CompanyStats";
 import CompanySidebar from "../components/company/CompanySidebar";
 import CompanyProjects from "../components/company/CompanyProjects";
 import CompanyCulture from "../components/company/CompanyCulture";
-import SystemLoader from "../components/SystemLoader";
 
 const ChaosCanvas = lazyWithRetry(() => import("../components/ChaosCanvas"));
 
@@ -37,6 +35,7 @@ const CompanyDetail = () => {
   const { id } = useParams();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const enhanceAfterPaint = useAfterFirstPaint();
 
   const { project: cluster, loading } = useProjectData(id);
 
@@ -89,9 +88,11 @@ const CompanyDetail = () => {
       />
 
       {/* --- 0. AMBIENCE --- */}
-      <Suspense fallback={<SystemLoader />}>
-        <ChaosCanvas />
-      </Suspense>
+      {enhanceAfterPaint && (
+        <Suspense fallback={null}>
+          <ChaosCanvas />
+        </Suspense>
+      )}
       {/* Vignette */}
       <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 

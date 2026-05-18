@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChefHat, Clock, Leaf, Zap } from "lucide-react";
 
@@ -20,22 +20,40 @@ const EfficiencyAI = ({ color = "var(--accent-orange)" }) => {
   const [orders, setOrders] = useState([]);
   const [isAutoMode, setIsAutoMode] = useState(true);
   const [rushFlash, setRushFlash] = useState(null);
+  const orderIdRef = useRef(0);
+  const supplierCursorRef = useRef(0);
+  const kitchenCursorRef = useRef(0);
+
+  const createOrder = useCallback((kitchenIdx, isRush = false) => {
+    const supplierIdx = supplierCursorRef.current % suppliers.length;
+    supplierCursorRef.current += 1;
+
+    const resolvedKitchenIdx =
+      kitchenIdx ?? kitchenCursorRef.current % kitchens.length;
+    if (kitchenIdx === undefined) {
+      kitchenCursorRef.current += 1;
+    }
+
+    const order = {
+      id: orderIdRef.current,
+      supplierIdx,
+      kitchenIdx: resolvedKitchenIdx,
+      isRush,
+    };
+    orderIdRef.current += 1;
+
+    return order;
+  }, []);
 
   // Auto simulation
   useEffect(() => {
     if (!isAutoMode) return;
     const interval = setInterval(() => {
       setCycle((prev) => prev + 1);
-      const newOrder = {
-        id: Date.now() + Math.random(),
-        supplierIdx: Math.floor(Math.random() * 3),
-        kitchenIdx: Math.floor(Math.random() * 2),
-        isRush: false,
-      };
-      setOrders((prev) => [...prev.slice(-4), newOrder]);
+      setOrders((prev) => [...prev.slice(-4), createOrder()]);
     }, 2000);
     return () => clearInterval(interval);
-  }, [isAutoMode]);
+  }, [createOrder, isAutoMode]);
 
   // Cycle counter always ticks
   useEffect(() => {
@@ -48,13 +66,7 @@ const EfficiencyAI = ({ color = "var(--accent-orange)" }) => {
     setRushFlash(kitchenIdx);
     setTimeout(() => setRushFlash(null), 600);
 
-    const newOrder = {
-      id: Date.now() + Math.random(),
-      supplierIdx: Math.floor(Math.random() * 3),
-      kitchenIdx,
-      isRush: true,
-    };
-    setOrders((prev) => [...prev.slice(-4), newOrder]);
+    setOrders((prev) => [...prev.slice(-4), createOrder(kitchenIdx, true)]);
     setTimeout(() => setIsAutoMode(true), 4000);
   };
 

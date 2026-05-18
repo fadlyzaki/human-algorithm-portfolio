@@ -26,34 +26,23 @@ import { LanguageProvider } from "./context/LanguageContext";
 import { RecruiterModeProvider } from "./context/RecruiterModeContext";
 import ScrollToTop from "./components/ScrollToTop";
 
-import AnalyticsTracker from "./components/AnalyticsTracker";
-import VirtualAssistant from "./components/VirtualAssistant";
-import CustomCursor from "./components/CustomCursor";
-import CircadianOverlay from "./components/CircadianOverlay";
-import { useVariableTypography } from "./hooks/useVariableTypography";
-
-import SystemLoader from "./components/SystemLoader";
-
-// Thin wrapper to consume the typography hook at top-level
-const VariableTypographyController = () => {
-  useVariableTypography();
-  return null;
-};
+import ProgressiveExperience from "./components/ProgressiveExperience";
 
 // Loading Fallback Component
-const PageLoader = () => <SystemLoader />;
+const PageLoader = () => (
+  <div
+    data-testid="page-loader"
+    className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)]"
+  />
+);
 
 function App() {
   return (
     <LanguageProvider>
       <RecruiterModeProvider>
         <Router>
-        <AnalyticsTracker />
         <ScrollToTop />
-        <VirtualAssistant />
-        <CustomCursor />
-        <CircadianOverlay />
-        <VariableTypographyController />
+        <ProgressiveExperience />
         <ErrorBoundary>
           <Suspense fallback={<PageLoader />}>
             <Routes>
