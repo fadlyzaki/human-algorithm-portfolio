@@ -1,40 +1,50 @@
-import React, { useState, useCallback } from "react";
-import { motion } from "framer-motion";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { Helmet } from "react-helmet-async";
 import Navbar from "../components/Navbar";
 import SEO from "../components/SEO";
 import NavigationMenu from "../components/NavigationMenu";
 import ScrollProgressBar from "../components/ScrollProgressBar";
-import { useTheme } from "../context/ThemeContext";
 
-import { useLanguage } from "../context/LanguageContext";
+export const SOCIABLEKIT_HIGHLIGHTS_EMBED_ID = "25684322";
+export const SOCIABLEKIT_HIGHLIGHTS_SCRIPT_ID =
+  "sociablekit-instagram-story-highlights-script";
+export const SOCIABLEKIT_HIGHLIGHTS_SCRIPT_SRC =
+  "https://widgets.sociablekit.com/instagram-story-highlights/widget.js";
 
-import sketchesData from "../data/sketches.json";
-import Flipbook from "../components/sketches/Flipbook";
+const loadSociableKitHighlights = () => {
+  if (typeof document === "undefined") return;
 
-const allDigital = [...sketchesData]
-  .filter((s) => s.medium === "digital")
-  .reverse();
-const allPencil = [...sketchesData]
-  .filter((s) => s.medium === "pencil")
-  .reverse();
+  if (document.getElementById(SOCIABLEKIT_HIGHLIGHTS_SCRIPT_ID)) return;
+
+  const script = document.createElement("script");
+  script.id = SOCIABLEKIT_HIGHLIGHTS_SCRIPT_ID;
+  script.src = SOCIABLEKIT_HIGHLIGHTS_SCRIPT_SRC;
+  script.defer = true;
+  script.async = true;
+  document.body.appendChild(script);
+};
+
+export const SociableKitInstagramHighlights = () => {
+  useEffect(() => {
+    loadSociableKitHighlights();
+  }, []);
+
+  return (
+    <div
+      className="sk-ww-instagram-story-highlights"
+      data-embed-id={SOCIABLEKIT_HIGHLIGHTS_EMBED_ID}
+      data-testid="sociablekit-instagram-story-highlights"
+      aria-label="Instagram story highlights archive"
+    />
+  );
+};
 
 const Sketches = () => {
-  const { isDark } = useTheme();
-
-  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeMedium, setActiveMedium] = useState("pencil");
 
   const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
   const handleCloseMenu = useCallback(() => setIsMenuOpen(false), []);
-
-  const nodes = React.useMemo(
-    () => (activeMedium === "digital" ? allDigital : allPencil),
-    [activeMedium],
-  );
-  const isDigital = activeMedium === "digital";
 
   return (
     <div
@@ -44,13 +54,13 @@ const Sketches = () => {
         <title>Sketches | Fadly Zaki</title>
         <meta
           name="description"
-          content="An archive of systematic digital designs and raw pencil sketches."
+          content="A lightweight visual archive of sketches and creative exploration."
         />
       </Helmet>
 
       <SEO
         title="Sketches & Visual Archive"
-        description="Digital and pencil sketches by Fadly Uzzaki  -  a raw visual archive of design thinking, ideation, and creative exploration."
+        description="Sketches by Fadly Uzzaki  -  a lightweight visual archive of design thinking, ideation, and creative exploration."
         type="website"
       />
 
@@ -77,44 +87,18 @@ const Sketches = () => {
         <NavigationMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />
       </div>
 
-      <main className="relative z-10 flex-1 w-full flex flex-col items-center justify-center pt-20 pb-10">
-        <div className="w-full flex justify-center mb-6">
-          {/* Toggle controls */}
-          <div
-            className={`flex items-center gap-2 md:gap-4 backdrop-blur-md p-1.5 rounded-full border shadow-2xl ${isDark ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"}`}
-          >
-            <button
-              onClick={() => setActiveMedium("pencil")}
-              className={`relative px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-mono uppercase tracking-widest transition-colors ${!isDigital ? "text-zinc-900" : isDark ? "text-zinc-400 hover:text-white" : "text-zinc-500 hover:text-black"}`}
-            >
-              {!isDigital && (
-                <motion.div
-                  layoutId="node-pill"
-                  className="absolute inset-0 bg-white shadow-sm rounded-full"
-                  style={{ zIndex: -1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
-              {t("sketches.pencil") || "GRAPHITE"}
-            </button>
-            <button
-              onClick={() => setActiveMedium("digital")}
-              className={`relative px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-mono uppercase tracking-widest transition-colors ${isDigital ? (isDark ? "text-white" : "text-blue-900") : isDark ? "text-zinc-400 hover:text-white" : "text-zinc-500 hover:text-black"}`}
-            >
-              {isDigital && (
-                <motion.div
-                  layoutId="node-pill"
-                  className="absolute inset-0 bg-blue-600/20 border border-blue-500/30 rounded-full"
-                  style={{ zIndex: -1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
-              {t("sketches.digital") || "DIGITAL"}
-            </button>
+      <main className="relative z-10 flex-1 w-full pt-24 pb-20">
+        <section
+          className="mx-auto flex min-h-[70dvh] w-full max-w-6xl flex-col justify-center px-4 sm:px-6 lg:px-8"
+          aria-labelledby="sketches-archive-title"
+        >
+          <h2 id="sketches-archive-title" className="sr-only">
+            Sketches visual archive
+          </h2>
+          <div className="w-full overflow-hidden rounded border border-[var(--border-color)] bg-[var(--bg-surface)]/40 p-2 shadow-2xl backdrop-blur-sm sm:p-4">
+            <SociableKitInstagramHighlights />
           </div>
-        </div>
-
-        <Flipbook pages={nodes} initialPage={0} />
+        </section>
       </main>
     </div>
   );
