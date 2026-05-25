@@ -16,20 +16,22 @@ import { humanAlgorithm } from '../src/data/projects/humanAlgorithm.js';
 import { yearInReview } from '../src/data/projects/yearInReview.js';
 import { interactiveWorkbook } from '../src/data/projects/interactiveWorkbook.js';
 import { productivityIllusion } from '../src/data/projects/productivityIllusion.js';
+import { competitorSummarizer } from '../src/data/projects/competitorSummarizer.js';
+import { learningProgressArchitect } from '../src/data/projects/learningProgressArchitect.js';
 
 const SITE_URL = 'https://fadlyzaki-design.vercel.app';
 const DEFAULT_OG = {
-    title: 'Fadlyzaki Portfolio',
-    description: "Product Designer · Systems Thinker. I don't chase chaos—I contain it.",
+    title: 'Fadly Uzzaki Portfolio',
+    description: 'Current portfolio and resume: B2B SaaS, workforce tech, logistics, AI learning systems, and unlocked public case studies.',
     color: '#10b981',
-    emoji: '🧢'
+    eyebrow: 'CURRENT PORTFOLIO'
 };
 
 // --- Static Pages (curated OG descriptions) ---
 const STATIC_ROUTES = {
     '/': {
-        title: 'Fadlyzaki Portfolio',
-        description: "Product Designer · Systems Thinker. Building resilient tools for people who need them to just work.",
+        title: 'Fadly Uzzaki — Product Designer & Design Engineer',
+        description: 'Current portfolio: B2B SaaS, workforce tech, logistics, AI learning systems, and public case studies backed by a recruiter-ready CV.',
         color: '#10b981'
     },
     '/about': {
@@ -43,8 +45,8 @@ const STATIC_ROUTES = {
         color: '#3B82F6'
     },
     '/cv': {
-        title: 'System Manifest',
-        description: "A living document of skills, experience, and design philosophy.",
+        title: 'Resume / CV — Fadly Uzzaki',
+        description: 'Recruiter-ready resume backed by live portfolio evidence, public case studies, and a downloadable May 2026 PDF.',
         color: '#F59E0B'
     },
     '/design-system': {
@@ -112,6 +114,8 @@ for (const company of COMPANIES) {
 // Build SIDE_PROJECT_ROUTES from NOTES + standalone side-project data
 const SIDE_PROJECT_SOURCES = [
     ...EXPERIMENTS,
+    learningProgressArchitect,
+    competitorSummarizer,
     humanAlgorithm,
     yearInReview,
     interactiveWorkbook,

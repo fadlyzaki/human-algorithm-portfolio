@@ -114,7 +114,7 @@ const Home = () => {
               name: "Fadly Uzzaki",
               alternateName: ["Fadlyzaki", "Jaki"],
               url: "https://fadlyzaki-design.vercel.app",
-              image: "https://fadlyzaki-design.vercel.app/og-square.png",
+              image: "https://fadlyzaki-design.vercel.app/api/og?page=%2F",
               sameAs: [
                 "https://www.linkedin.com/in/fadlyzaki/",
                 "https://github.com/fadlyzaki",

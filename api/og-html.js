@@ -31,6 +31,7 @@ export default async function handler(req) {
     <meta property="og:image" content="${ogImageUrl}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="${escapeHtml(fullTitle)} preview" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -38,6 +39,7 @@ export default async function handler(req) {
     <meta name="twitter:title" content="${escapeHtml(fullTitle)}" />
     <meta name="twitter:description" content="${escapeHtml(meta.description)}" />
     <meta name="twitter:image" content="${ogImageUrl}" />
+    <meta name="twitter:image:alt" content="${escapeHtml(fullTitle)} preview" />
 
     <!-- Redirect real users to the SPA -->
     <meta http-equiv="refresh" content="0;url=${canonicalUrl}" />

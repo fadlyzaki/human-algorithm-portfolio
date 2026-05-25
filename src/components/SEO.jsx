@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 const SEO = ({
   title,
   description,
-  image = "/og-square.png",
+  image = null,
   type = "website",
   schema = null,
   noindex = false,
@@ -20,7 +20,12 @@ const SEO = ({
   const defaultDesc =
     "Product Designer & Systems Thinker specializing in B2B SaaS, EdTech, and human-centered design. Building resilient tools for people who need them to just work.";
   const metaDesc = description || defaultDesc;
-  const metaImage = image.startsWith("http") ? image : `${siteUrl}${image}`;
+  const defaultImage = `${siteUrl}/api/og?page=${encodeURIComponent(pathname)}`;
+  const metaImage = image
+    ? image.startsWith("http")
+      ? image
+      : `${siteUrl}${image}`
+    : defaultImage;
 
   // Structured Data (JSON-LD)
   const structuredData = schema || {
@@ -51,6 +56,9 @@ const SEO = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDesc} />
       <meta property="og:image" content={metaImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={`${fullTitle} preview`} />
       <meta property="og:locale" content="en_US" />
       <meta property="og:locale:alternate" content="id_ID" />
       <meta property="og:site_name" content="Fadly Uzzaki  -  Product Designer" />
@@ -61,6 +69,7 @@ const SEO = ({
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={metaDesc} />
       <meta property="twitter:image" content={metaImage} />
+      <meta property="twitter:image:alt" content={`${fullTitle} preview`} />
 
       {/* Hreflang Alternates for bilingual content */}
       <link rel="alternate" hrefLang="en" href={canonicalUrl} />

@@ -23,7 +23,6 @@ const DesignSystem = () => {
       <SEO
         title="Design System  -  Human Algorithm"
         description="Live design system and component library powering Fadly Uzzaki's Human Algorithm portfolio. Explore tokens, components, and interaction patterns."
-        image="/og-square.png"
       />
 
       {/* Background Atmosphere */}
