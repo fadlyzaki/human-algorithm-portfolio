@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
 import { WORK_CLUSTERS } from "../../data/portfolioData";
 import { useLanguage } from "../../context/LanguageContext";
-import { mapProjectToStudy } from "../../utils/projectMappers";
+import { getUnlockedFeaturedStudies } from "../../utils/featuredCaseStudies";
 import CloneCard from "../case-study/CloneCard";
 import ScrollReveal from "../ScrollReveal";
 import SectionTitle from "../SectionTitle";
@@ -10,18 +10,9 @@ const HomeFeaturedWork = () => {
   const { language } = useLanguage();
   const isId = language === "id";
 
-  // Pick 1 random project indices per company once on mount
-  const [selectedProjectIndices] = useState(() => 
-    WORK_CLUSTERS.map(cluster => Math.floor(Math.random() * cluster.projects.length))
-  );
-
-  // Map those stable indices to translated studies whenever language changes
   const featuredStudies = useMemo(() => {
-    return WORK_CLUSTERS.map((cluster, i) => {
-      const proj = cluster.projects[selectedProjectIndices[i]];
-      return mapProjectToStudy(proj, cluster, isId);
-    });
-  }, [isId, selectedProjectIndices]);
+    return getUnlockedFeaturedStudies(WORK_CLUSTERS, isId);
+  }, [isId]);
 
   return (
     <section id="featured-work" className="mb-24 scroll-mt-24 relative">
