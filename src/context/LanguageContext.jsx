@@ -5,6 +5,7 @@ import React, {
   useState,
   useMemo,
   useCallback,
+  useRef,
 } from "react";
 import en from "../data/translations.en";
 import { STORAGE_KEYS } from "../config/constants";
@@ -30,6 +31,7 @@ const resolveTranslation = (bundle, key) => {
 export const useLanguage = () => useContext(LanguageContext);
 
 export const LanguageProvider = ({ children }) => {
+  const languageTransitionTimeoutRef = useRef(null);
   const [language, setLanguage] = useState(() => {
     const savedLang = localStorage.getItem(STORAGE_KEYS.LANGUAGE);
     return savedLang || "en";
@@ -52,7 +54,10 @@ export const LanguageProvider = ({ children }) => {
 
   const toggleLanguage = useCallback(() => {
     // Brief fade for smooth content transition
-    document.documentElement.classList.add("lang-switching");
+    if (typeof document !== "undefined") {
+      document.documentElement.classList.add("lang-switching");
+    }
+
     const newLang = language === "en" ? "id" : "en";
     setLanguage(newLang);
     localStorage.setItem(STORAGE_KEYS.LANGUAGE, newLang);
@@ -63,10 +68,29 @@ export const LanguageProvider = ({ children }) => {
       });
     }
 
-    setTimeout(() => {
-      document.documentElement.classList.remove("lang-switching");
+    if (languageTransitionTimeoutRef.current) {
+      clearTimeout(languageTransitionTimeoutRef.current);
+    }
+
+    languageTransitionTimeoutRef.current = setTimeout(() => {
+      if (typeof document !== "undefined") {
+        document.documentElement.classList.remove("lang-switching");
+      }
+      languageTransitionTimeoutRef.current = null;
     }, 150);
   }, [bundles, language]);
+
+  useEffect(() => {
+    return () => {
+      if (languageTransitionTimeoutRef.current) {
+        clearTimeout(languageTransitionTimeoutRef.current);
+      }
+
+      if (typeof document !== "undefined") {
+        document.documentElement.classList.remove("lang-switching");
+      }
+    };
+  }, []);
 
   const isIndonesian = language === "id";
 

@@ -106,7 +106,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
         </div>
       </nav>
 
-      <main className="relative z-10 w-full pb-32">
+      <main className="relative z-10 w-full">
         {/* Design System gets its own custom layout, decoupled from ProcessFramework */}
         {project.id === "design-system-gudangada" ? (
           <Suspense fallback={<CaseStudyLayoutFallback />}>

@@ -418,7 +418,6 @@ const StoqoLogisticsCaseStudy = ({ project, t }) => {
           </div>
         </div>
       </DispatchLog>
-      <div className="pb-20" />
     </LogisticsThemeWrapper>
   );
 };
