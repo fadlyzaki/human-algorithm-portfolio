@@ -12,7 +12,7 @@ const SCENES = {
   WALK: "walk",       // Row 1 (index 0)
 };
 
-const VirtualAssistant = () => {
+const VirtualAssistant = ({ initialOpen = false }) => {
   const { isRecruiterMode } = useRecruiterMode();
   const { t } = useLanguage();
   const { isDark } = useTheme();
@@ -39,6 +39,7 @@ const VirtualAssistant = () => {
   const hideTimerRef = useRef(null);
   const walkTimerRef = useRef(null);
   const thinkTimerRef = useRef(null);
+  const didInitialOpenRef = useRef(false);
 
   // Clear all pending animation/hide timers
   const clearAllTimers = () => {
@@ -100,6 +101,14 @@ const VirtualAssistant = () => {
       handleDismiss();
     }, 15000);
   };
+
+  useEffect(() => {
+    if (!initialOpen || didInitialOpenRef.current || isSleeping) return;
+    didInitialOpenRef.current = true;
+    showInteractiveMenu();
+  // Run once after the user explicitly activates the lazy assistant.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialOpen, isSleeping]);
 
   // handleTLDR and handleChatSubmit deprecated in v9.1
   // LLM-powered features (Ask Echo.Z, Give TL;DR) removed to improve TTI performance
@@ -203,69 +212,13 @@ const VirtualAssistant = () => {
     setCurrentScene(SCENES.IDLE);
   };
 
-  // Determine message and animation based on route or interactions
   useEffect(() => {
-    if (isSleeping) return;
-
-    const path = location.pathname;
-    const newMsg = getRouteMessage(path);
-
-    // Only trigger the "vocal/walk" animation sequence if the path changed
-    // If only the language changed, just update the message immediately
-    const prevPath = localStorage.getItem("assistant_last_path");
-    
-    // Check if we've already walked this session
-    const hasWalked = sessionStorage.getItem("assistant_has_walked");
-
-    if (prevPath !== path) {
-      clearAllTimers(); // Clear any existing sequences
-
-      setShowMessage(false);
-      setMenuOptions(null);
-      localStorage.setItem("assistant_last_path", path);
-
-      // Only walk if it's the first route change in this session
-      if (!hasWalked) {
-        setCurrentScene(SCENES.WALK);
-        sessionStorage.setItem("assistant_has_walked", "true");
-        
-        walkTimerRef.current = setTimeout(() => {
-          setCurrentScene(SCENES.THINKING);
-          thinkTimerRef.current = setTimeout(() => {
-            if (newMsg) {
-              setMessage(newMsg);
-              setShowMessage(true);
-              
-              hideTimerRef.current = setTimeout(() => {
-                setShowMessage(false);
-              }, 10000);
-            }
-            setCurrentScene(SCENES.IDLE);
-          }, 2000);
-        }, 1500);
-      } else {
-        // If already walked, just show the message with a brief thinking animation
-        setCurrentScene(SCENES.THINKING);
-        thinkTimerRef.current = setTimeout(() => {
-          if (newMsg) {
-            setMessage(newMsg);
-            setShowMessage(true);
-            
-            hideTimerRef.current = setTimeout(() => {
-              setShowMessage(false);
-            }, 8000);
-          }
-          setCurrentScene(SCENES.IDLE);
-        }, 800); // Shorter thinking time without walking
-      }
-    } else {
-      // Language flip: just update the message text if currently visible
-      if (showMessage && !menuOptions) {
-        setMessage(newMsg);
-      }
+    if (isSleeping || !showMessage || menuOptions) return;
+    const nextMessage = getRouteMessage(location.pathname);
+    if (nextMessage) {
+      setMessage(nextMessage);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname, isRecruiterMode, t, isSleeping, getRouteMessage]);
+  }, [location.pathname, isRecruiterMode, t, isSleeping, getRouteMessage, showMessage, menuOptions]);
 
   // Determine if we should hide on 404/catch-all
   // Valid top-level paths and prefixes

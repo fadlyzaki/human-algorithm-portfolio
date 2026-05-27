@@ -1,59 +1,36 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { Suspense } from "react";
 
 import { Link } from "react-router-dom";
+import { lazyWithRetry } from "../../utils/lazyWithRetry";
 
 import {
   ArrowRight,
-  FileText,
   MapPin,
   BookOpen,
   Headphones,
   Activity,
   PenLine,
 } from "lucide-react";
-import DraggablePhoto from "../DraggablePhoto";
-import ScrollReveal from "../ScrollReveal";
-import StickyNote from "../StickyNote";
-import RichText from "../RichText";
 
-const CHAR_SPEED = 0.015;
-const LINE_GAP = 0.3;
+const DraggablePhoto = lazyWithRetry(() => import("../DraggablePhoto"));
 
-const TypewriterText = ({ text, delay = 0, start = true }) => {
+const canLoadDesktopCard = () => {
+  if (typeof window === "undefined" || !("matchMedia" in window)) return false;
+  return window.matchMedia("(min-width: 768px)").matches;
+};
+
+const TypewriterText = ({ text }) => {
   if (!text) return null;
 
-  if (start) {
-    return <span>{text}</span>;
-  }
-
-  // LCP Optimization: Render as a single text node instead of mapping 100+ DOM nodes
-  return (
-    <motion.span
-      initial={{ opacity: 0, y: 8 }}
-      animate={start ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-      transition={{ duration: 0.4, delay: delay, ease: "easeOut" }}
-    >
-      {text}
-    </motion.span>
-  );
+  return <span>{text}</span>;
 };
 
-const getDelay = (lines) => {
-  let total = 0.1; // Initial rapid paint delay
-  return lines.map(() => {
-    const d = total;
-    total += 0.15; // Fast block stagger instead of character length
-    return d;
-  });
-};
-
-const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
+const HomeHero = ({ t, renderIdCard = true }) => {
   const roleLine = `${t("home.role")} ·`;
   const roleSubLine = t("home.role_sub");
   const titleLine = t("home.intro_title");
   const descLine = t("home.intro_desc");
-  const delays = getDelay([roleLine, roleSubLine, titleLine, descLine]);
+  const shouldLoadDesktopCard = renderIdCard && canLoadDesktopCard();
 
   return (
     <>
@@ -63,31 +40,23 @@ const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
             <h1 className="font-mono text-3xl sm:text-4xl md:text-6xl uppercase leading-tight tracking-tight mb-8 text-[var(--text-primary)]">
               <TypewriterText
                 text={roleLine}
-                delay={delays[0]}
-                start={startTyping}
               />
               <br />
               <span className="text-[var(--text-secondary)] font-serif italic lowercase tracking-normal">
                 <TypewriterText
                   text={roleSubLine}
-                  delay={delays[1]}
-                  start={startTyping}
                 />
               </span>
             </h1>
             <h2 className="text-xl md:text-2xl font-mono text-[var(--text-primary)] mb-8 pb-4 inline-block border-b-2 border-[var(--accent-amber)]">
               <TypewriterText
                 text={titleLine}
-                delay={delays[2]}
-                start={startTyping}
               />
             </h2>
             <div className="text-[var(--text-secondary)] text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
               <p className="inline-block">
                 <TypewriterText
                   text={descLine}
-                  delay={delays[3]}
-                  start={startTyping}
                 />
               </p>
               <div className="mt-4 font-mono text-[10px] uppercase tracking-widest opacity-30 flex items-center gap-2">
@@ -114,10 +83,10 @@ const HomeHero = ({ t, renderIdCard = true, startTyping = true }) => {
           </div>
 
           <div className="hidden md:block relative min-h-[400px]">
-            {renderIdCard && (
-              <motion.div layoutId="hero-id-card" layout className="w-full">
+            {shouldLoadDesktopCard && (
+              <Suspense fallback={<div className="w-full aspect-[3/4.2]" />}>
                 <DraggablePhoto />
-              </motion.div>
+              </Suspense>
             )}
             <div className="space-y-4 font-mono text-xs text-[var(--text-secondary)] mt-4"></div>
           </div>

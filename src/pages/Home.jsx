@@ -1,31 +1,30 @@
 import React, { useState, useEffect } from "react";
-import SystemLoader, { SystemSectionLoader } from "../components/SystemLoader";
 import { STORAGE_KEYS } from "../config/constants";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
-import { useLocation, Link } from "react-router-dom";
-import { Sun, Moon, Grid, ArrowUp, ScanEye } from "lucide-react";
-import Footer from "../components/Footer";
+import { useLocation } from "react-router-dom";
 import SEO from "../components/SEO";
 import ProgressBar from "../components/ProgressBar";
-import NavigationMenu from "../components/NavigationMenu";
-import Navbar from "../components/Navbar";
+import DeferredSection from "../components/DeferredSection";
 
 // Sub-components (Aggressively Lazy-Loaded for Mobile RES fix)
 import HomeHero from "../components/home/HomeHero";
-import HomeWorkSection from "../components/home/HomeWorkSection";
+const HomeFeaturedWork = lazyWithRetry(
+  () => import("../components/home/HomeFeaturedWork"),
+);
+const HomeWorkSection = lazyWithRetry(
+  () => import("../components/home/HomeWorkSection"),
+);
 const HomeSideProjects = lazyWithRetry(
   () => import("../components/home/HomeSideProjects"),
 );
 const HomeAbout = lazyWithRetry(() => import("../components/home/HomeAbout"));
-import HomeFeaturedWork from "../components/home/HomeFeaturedWork";
 const FaqSection = lazyWithRetry(() => import("../components/FaqSection"));
 const ChaosCanvas = lazyWithRetry(() => import("../components/ChaosCanvas"));
+const Footer = lazyWithRetry(() => import("../components/Footer"));
 
-import BackgroundTexture from "../components/BackgroundTexture";
 import useScrollDirection from "../hooks/useScrollDirection";
 import { useLanguage } from "../context/LanguageContext";
 import { useRecruiterMode } from "../context/RecruiterModeContext";
-import { LayoutGroup, AnimatePresence } from "framer-motion";
 import PageShell from "../components/PageShell";
 import { useAfterFirstPaint } from "../hooks/useAfterFirstPaint";
 
@@ -33,10 +32,14 @@ const ChaosToMatrixIntro = lazyWithRetry(
   () => import("../components/welcome/ChaosToMatrixIntro"),
 );
 
-const Home = () => {
-  /* --- STATE & HOOKS --- */
-  /* --- STATE & HOOKS --- */
+const SectionFallback = ({ className = "h-64" }) => (
+  <div
+    className={`${className} rounded-lg border border-dashed border-[var(--border-color)]/40 bg-[var(--bg-surface)]/20`}
+    aria-hidden="true"
+  />
+);
 
+const Home = () => {
   const { t, language } = useLanguage();
   const [showIntro, setShowIntro] = useState(() => {
     // Check URL override for testing/debugging
@@ -54,18 +57,42 @@ const Home = () => {
 
   const location = useLocation();
   const { isRecruiterMode } = useRecruiterMode();
+  const canUseMotionMedia =
+    typeof window !== "undefined" && "matchMedia" in window;
+  const enableAtmosphere =
+    enhanceAfterPaint &&
+    canUseMotionMedia &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Handle Hash Scrolling on Mount
   useEffect(() => {
-    if (location.hash && !showIntro) {
-      // Use requestAnimationFrame to ensure DOM is painted before scrolling
-      requestAnimationFrame(() => {
+    if (!location.hash || showIntro) return undefined;
+
+    let attempts = 0;
+    let timeoutId;
+    let frameId;
+
+    const scrollToHash = () => {
+      frameId = requestAnimationFrame(() => {
         const element = document.querySelector(location.hash);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+
+        attempts += 1;
+        if (attempts < 20) {
+          timeoutId = window.setTimeout(scrollToHash, 100);
         }
       });
-    }
+    };
+
+    scrollToHash();
+
+    return () => {
+      window.clearTimeout(timeoutId);
+      cancelAnimationFrame(frameId);
+    };
   }, [location.hash, showIntro]);
 
   // Lock body scroll when intro is showing
@@ -86,22 +113,20 @@ const Home = () => {
   const shouldRenderHeroIdCard = !showIntro;
 
   return (
-    <LayoutGroup>
+    <>
       <div
         className={`min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-white overflow-x-hidden transition-colors duration-500 ${isRecruiterMode ? "recruiter-mode" : ""}`}
       >
-        <AnimatePresence>
-          {showIntro && (
-            <React.Suspense fallback={null}>
-              <ChaosToMatrixIntro
-                onComplete={() => {
-                  localStorage.setItem(STORAGE_KEYS.INTRO_SEEN, "true");
-                  setShowIntro(false);
-                }}
-              />
-            </React.Suspense>
-          )}
-        </AnimatePresence>
+        {showIntro && (
+          <React.Suspense fallback={null}>
+            <ChaosToMatrixIntro
+              onComplete={() => {
+                localStorage.setItem(STORAGE_KEYS.INTRO_SEEN, "true");
+                setShowIntro(false);
+              }}
+            />
+          </React.Suspense>
+        )}
 
         <SEO
           title="Fadly Uzzaki  -  Product Designer"
@@ -143,7 +168,7 @@ const Home = () => {
         />
 
         {/* ATMOSPHERE & CHAOS */}
-        {enhanceAfterPaint && (
+        {enableAtmosphere && (
           <React.Suspense fallback={null}>
             <ChaosCanvas />
           </React.Suspense>
@@ -161,47 +186,76 @@ const Home = () => {
               <HomeHero
                 t={t}
                 renderIdCard={shouldRenderHeroIdCard}
-                startTyping={!showIntro}
               />
 
-              {/* NEW: FEATURED 3D SECTION (Local/Preview) */}
-              <HomeFeaturedWork />
-
-              {/* SECTION 1: WORK */}
-              <HomeWorkSection t={t} />
-
-              {/* SECTION 2: SIDE PROJECTS (LAZY) */}
-              <React.Suspense
-                fallback={<SystemSectionLoader />}
+              <DeferredSection
+                deferUntilScroll
+                force={location.hash === "#featured-work"}
+                minHeight="min-h-[720px]"
               >
-                <HomeSideProjects t={t} isId={isId} />
-              </React.Suspense>
-
-              {/* SECTION 3: ABOUT ME (Hiddin in localhost as per request) */}
-              {!import.meta.env.DEV && (
-                <React.Suspense
-                  fallback={<SystemSectionLoader />}
-                >
-                  <HomeAbout t={t} />
+                <React.Suspense fallback={<SectionFallback />}>
+                  <HomeFeaturedWork />
                 </React.Suspense>
+              </DeferredSection>
+
+              <DeferredSection
+                deferUntilScroll
+                force={location.hash === "#work"}
+                minHeight="min-h-[720px]"
+              >
+                <React.Suspense fallback={<SectionFallback />}>
+                  <HomeWorkSection t={t} />
+                </React.Suspense>
+              </DeferredSection>
+
+              <DeferredSection
+                deferUntilScroll
+                force={location.hash === "#side-projects"}
+                minHeight="min-h-[540px]"
+              >
+                <React.Suspense fallback={<SectionFallback />}>
+                  <HomeSideProjects t={t} isId={isId} />
+                </React.Suspense>
+              </DeferredSection>
+
+              {!import.meta.env.DEV && (
+                <DeferredSection
+                  deferUntilScroll
+                  force={location.hash === "#about"}
+                  minHeight="min-h-[760px]"
+                >
+                  <React.Suspense fallback={<SectionFallback />}>
+                    <HomeAbout t={t} />
+                  </React.Suspense>
+                </DeferredSection>
               )}
 
-              {/* SECTION 4: FAQs (LAZY) */}
-              <React.Suspense
-                fallback={<SystemSectionLoader height="h-48" />}
+              <DeferredSection
+                deferUntilScroll
+                force={location.hash === "#faqs"}
+                minHeight="min-h-[280px]"
               >
-                <FaqSection />
-              </React.Suspense>
+                <React.Suspense fallback={<SectionFallback className="h-48" />}>
+                  <FaqSection />
+                </React.Suspense>
+              </DeferredSection>
             </div>
 
-            {/* FOOTER */}
-            <section className="mb-0">
-              <Footer />
-            </section>
+            <DeferredSection
+              deferUntilScroll
+              minHeight="min-h-[220px]"
+              rootMargin="1000px 0px"
+            >
+              <React.Suspense fallback={<SectionFallback className="h-48" />}>
+                <section className="mb-0">
+                  <Footer />
+                </section>
+              </React.Suspense>
+            </DeferredSection>
           </main>
         </PageShell>
       </div>
-    </LayoutGroup>
+    </>
   );
 };
 

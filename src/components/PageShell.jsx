@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Navbar from "./Navbar";
-import NavigationMenu from "./NavigationMenu";
 import { useTheme } from "../context/ThemeContext";
+import { lazyWithRetry } from "../utils/lazyWithRetry";
+
+const NavigationMenu = lazyWithRetry(() => import("./NavigationMenu"));
 
 /**
  * PageShell  -  Shared layout wrapper
@@ -34,10 +36,14 @@ const PageShell = ({ children, navbarProps = {}, showTexture = true }) => {
 
             {/* Global Navigation */}
             <Navbar onOpenMenu={() => setIsMenuOpen(true)} {...navbarProps} />
-            <NavigationMenu
-                isOpen={isMenuOpen}
-                onClose={() => setIsMenuOpen(false)}
-            />
+            {isMenuOpen && (
+                <Suspense fallback={null}>
+                    <NavigationMenu
+                        isOpen={isMenuOpen}
+                        onClose={() => setIsMenuOpen(false)}
+                    />
+                </Suspense>
+            )}
 
             {/* Page Content */}
             {children}

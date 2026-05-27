@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 
 import { Link } from "react-router-dom";
 import {
@@ -18,35 +17,16 @@ import LiveClock from "./LiveClock";
 import BackButton from "./BackButton";
 import useScrollDirection from "../hooks/useScrollDirection";
 
-// Shared layoutId ensures the underline "glides" between active items
 const HoverNavLink = ({ to, label }) => {
-  const [isHovered, setIsHovered] = useState(false);
   return (
-    <div
-      className="relative flex items-center justify-center p-0.5"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="group relative flex items-center justify-center p-0.5">
       <Link
         to={to}
-        className={`relative z-10 px-4 py-1.5 font-mono text-[11px] sm:text-xs uppercase tracking-widest transition-colors duration-300 rounded-full block ${isHovered ? 'text-[var(--bg-void)] font-bold' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
+        className="relative z-10 block rounded-full px-4 py-1.5 font-mono text-[11px] uppercase tracking-widest text-[var(--text-secondary)] transition-colors duration-300 group-hover:font-bold group-hover:text-[var(--bg-void)] sm:text-xs"
       >
         <span className="relative z-10 block whitespace-nowrap">{label}</span>
       </Link>
-      {isHovered && (
-        <motion.div
-          layoutId="navbar-pill-bg"
-          className="absolute inset-0 bg-[var(--text-primary)] rounded-full shadow-md"
-          initial={{ rotate: -5 }}
-          animate={{ rotate: 0 }}
-          exit={{ rotate: 5 }}
-          transition={{
-            type: "spring",
-            stiffness: 450,
-            damping: 35,
-          }}
-        />
-      )}
+      <div className="absolute inset-0 rotate-[-4deg] rounded-full bg-[var(--text-primary)] opacity-0 shadow-md transition-all duration-200 group-hover:rotate-0 group-hover:opacity-100" />
     </div>
   );
 };
@@ -80,11 +60,8 @@ const Navbar = ({
       </nav>
 
       {/* DESKTOP TOP BAR */}
-      <motion.div
-        initial={false}
-        animate={{ y: showNav ? 0 : "-100%" }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed top-0 left-0 w-full z-50"
+      <div
+        className={`fixed top-0 left-0 z-50 w-full transition-transform duration-300 ease-out ${showNav ? "translate-y-0" : "-translate-y-full"}`}
       >
         <div className="bg-[var(--bg-surface)]/80 backdrop-blur-md border-b border-[var(--border-color)] px-4 sm:px-6 py-2 sm:py-3 flex justify-between items-center">
           {/* LEFT: IDENTITY or BACK BUTTON */}
@@ -105,15 +82,9 @@ const Navbar = ({
                 >
                   {/* Logo / Glitch Text */}
                   <span className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors flex items-center gap-2">
-                    <motion.span
-                      whileHover={{ 
-                        rotate: 360,
-                        transition: { duration: 0.8, ease: "easeInOut" }
-                      }}
-                      className="inline-block"
-                    >
+                    <span className="inline-block transition-transform duration-700 group-hover:rotate-[360deg]">
                       🧢
-                    </motion.span>
+                    </span>
                     Fadlyzaki
                   </span>
                 </Link>
@@ -222,7 +193,7 @@ const Navbar = ({
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* MOBILE CONTROL DECK (Floating Bottom) */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 md:hidden animate-in slide-in-from-bottom-10 fade-in duration-700">
