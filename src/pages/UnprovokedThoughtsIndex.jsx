@@ -18,21 +18,22 @@ import { useLanguage } from '../context/LanguageContext';
 const ChaosCanvas = lazy(() => import('../components/ChaosCanvas'));
 
 const UnprovokedThoughtsIndex = () => {
-    const { language } = useLanguage();
+    const { t, language } = useLanguage();
     const thoughts = getAllUnprovokedThoughts(language);
+    const dateLocale = language === 'id' ? 'id-ID' : 'en-US';
 
     return (
         <div className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500">
             <SEO
-                title="Unprovoked Thoughts  -  Fadly Uzzaki"
-                description="Design essays, reflections, and opinions by Fadly Uzzaki on product design, technology, and the intersection of human experience and systems thinking."
+                title={t("thoughts.seo_title")}
+                description={t("thoughts.seo_desc")}
                 image={`https://fadlyzaki-design.vercel.app/api/og?page=${encodeURIComponent('/thoughts')}`}
                 type="website"
                 schema={{
                     '@context': 'https://schema.org',
                     '@type': 'CollectionPage',
-                    name: 'Unprovoked Thoughts',
-                    description: 'Essays, reflections, and unsolicited opinions on design, technology, and the spaces between.',
+                    name: t("thoughts.schema_name"),
+                    description: t("thoughts.schema_desc"),
                     url: 'https://fadlyzaki-design.vercel.app/thoughts',
                     author: {
                         '@type': 'Person',
@@ -46,7 +47,7 @@ const UnprovokedThoughtsIndex = () => {
                 <ChaosCanvas />
             </Suspense>
 
-            <PageShell navbarProps={{ title: "Unprovoked Thoughts", backPath: "/" }}>
+            <PageShell navbarProps={{ title: t("thoughts.nav_title"), backPath: "/" }}>
                 <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-[100dvh] bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
                     <div>
                     {/* Editorial Header */}
@@ -54,18 +55,17 @@ const UnprovokedThoughtsIndex = () => {
                         <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)]">
                             <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-amber)] animate-pulse" />
                             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
-                                Text-Based Transmissions
+                                {t("thoughts.badge")}
                             </span>
                         </div>
 
                         <h1 className="text-5xl md:text-7xl font-serif italic mb-6 tracking-tighter leading-[0.9]">
-                            Unprovoked{' '}
-                            <span className="text-[var(--text-secondary)]">Thoughts</span>
+                            {t("thoughts.heading_primary")}{' '}
+                            <span className="text-[var(--text-secondary)]">{t("thoughts.heading_secondary")}</span>
                         </h1>
 
                         <p className="text-lg md:text-xl text-[var(--text-secondary)] font-light leading-relaxed max-w-2xl mx-auto">
-                            Essays, reflections, and unsolicited opinions on design, technology,
-                            and the spaces between.
+                            {t("thoughts.intro")}
                         </p>
                     </header>
 
@@ -75,7 +75,7 @@ const UnprovokedThoughtsIndex = () => {
                             const { frontmatter, slug } = thought;
 
                             return (
-                                <MagneticTooltip key={slug} text="READ PROTOCOL" className="block border-b border-[var(--border-color)] last:border-0">
+                                <MagneticTooltip key={slug} text={t("thoughts.read_protocol")} className="block border-b border-[var(--border-color)] last:border-0">
                                     <Link
                                         to={`/thoughts/${slug}`}
                                         className="group block py-12 hover:bg-[var(--bg-surface)]/40 transition-all duration-500 -mx-4 px-4 sm:-mx-8 sm:px-8"
@@ -105,7 +105,7 @@ const UnprovokedThoughtsIndex = () => {
                                                         <div className="flex items-center gap-1.5">
                                                             <Calendar size={12} className="opacity-60" />
                                                             <span>
-                                                                {new Date(frontmatter.date).toLocaleDateString('en-US', {
+                                                                {new Date(frontmatter.date).toLocaleDateString(dateLocale, {
                                                                     year: 'numeric',
                                                                     month: 'short',
                                                                     day: 'numeric',
@@ -149,7 +149,7 @@ const UnprovokedThoughtsIndex = () => {
                     {thoughts.length === 0 && (
                         <div className="text-center py-20">
                             <p className="font-mono text-sm text-[var(--text-secondary)] uppercase tracking-wider">
-                  // No thoughts transmitted yet
+                              {t("thoughts.empty")}
                             </p>
                         </div>
                     )}

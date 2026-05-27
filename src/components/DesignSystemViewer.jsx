@@ -13,6 +13,7 @@ import {
   HeartPulse,
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import { SYSTEM_CONFIG } from "../config/constants";
 
 // Extracted section components
@@ -31,20 +32,21 @@ import {
 
 const DesignSystemViewer = () => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
   const [isXRayMode, setIsXRayMode] = useState(false);
   const [activeSection, setActiveSection] = useState("chromatics");
 
   const sectors = [
-    { id: "chromatics", label: "01 // CHROMATICS", icon: Hash },
-    { id: "typography", label: "02 // TYPOGRAPHY", icon: Type },
-    { id: "components", label: "03 // MODULES", icon: Grid3X3 },
-    { id: "layout", label: "04 // GRID & MOTION", icon: MoveRight },
-    { id: "brand", label: "05 // IDENTITY", icon: Fingerprint },
-    { id: "strategy", label: "06 // STRATEGY", icon: Target },
-    { id: "ux", label: "07 // PRINCIPLES", icon: Scale },
-    { id: "governance", label: "08 // GOVERNANCE", icon: Lock },
-    { id: "audit", label: "09 // AUDIT", icon: ClipboardList },
-    { id: "biological", label: "10 // BIOLOGICAL", icon: HeartPulse },
+    { id: "chromatics", label: t("design_system.sector_chromatics"), icon: Hash },
+    { id: "typography", label: t("design_system.sector_typography"), icon: Type },
+    { id: "components", label: t("design_system.sector_components"), icon: Grid3X3 },
+    { id: "layout", label: t("design_system.sector_layout"), icon: MoveRight },
+    { id: "brand", label: t("design_system.sector_brand"), icon: Fingerprint },
+    { id: "strategy", label: t("design_system.sector_strategy"), icon: Target },
+    { id: "ux", label: t("design_system.sector_ux"), icon: Scale },
+    { id: "governance", label: t("design_system.sector_governance"), icon: Lock },
+    { id: "audit", label: t("design_system.sector_audit"), icon: ClipboardList },
+    { id: "biological", label: t("design_system.sector_biological"), icon: HeartPulse },
   ];
 
   const scrollToSection = (id) => {
@@ -67,16 +69,16 @@ const DesignSystemViewer = () => {
   };
 
   const SECTION_HEADERS = {
-    chromatics: { icon: Hash, label: "[01] Chromatics_Architecture" },
-    typography: { icon: Type, label: "[02] Typographic_Protocols" },
-    components: { icon: Grid3X3, label: "[03] Module_Forge" },
-    layout: { icon: MoveRight, label: "[04] Grid_&_Motion_Physics" },
-    brand: { icon: Fingerprint, label: "[05] Persona_Identity" },
-    strategy: { icon: Target, label: "[06] Strategic_Manifesto" },
-    ux: { icon: Scale, label: "[07] Interaction_Axioms" },
-    governance: { icon: Lock, label: "[08] System_Governance" },
-    audit: { icon: ClipboardList, label: "[09] Token_Audit_Report" },
-    biological: { icon: HeartPulse, label: "[10] Biological_Layer" },
+    chromatics: { icon: Hash, label: t("design_system.header_chromatics") },
+    typography: { icon: Type, label: t("design_system.header_typography") },
+    components: { icon: Grid3X3, label: t("design_system.header_components") },
+    layout: { icon: MoveRight, label: t("design_system.header_layout") },
+    brand: { icon: Fingerprint, label: t("design_system.header_brand") },
+    strategy: { icon: Target, label: t("design_system.header_strategy") },
+    ux: { icon: Scale, label: t("design_system.header_ux") },
+    governance: { icon: Lock, label: t("design_system.header_governance") },
+    audit: { icon: ClipboardList, label: t("design_system.header_audit") },
+    biological: { icon: HeartPulse, label: t("design_system.header_biological") },
   };
 
   const ActiveComponent = SECTION_COMPONENTS[activeSection];
@@ -116,7 +118,7 @@ const DesignSystemViewer = () => {
                     size={12}
                     className={`transition-colors ${activeSection === sector.id ? "text-[var(--accent)]" : "text-[var(--text-secondary)] group-hover:text-[var(--accent)]"}`}
                   />
-                  {sector.label.split(" // ")[1]}
+                  {sector.label}
                 </button>
               ))}
             </div>
@@ -127,7 +129,7 @@ const DesignSystemViewer = () => {
                 className={`w-full flex items-center justify-center gap-2 px-4 py-4 md:py-3 font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
               >
                 <Eye size={12} className={isXRayMode ? "animate-pulse" : ""} />
-                {isXRayMode ? "X-Ray Active" : "Enable X-Ray"}
+                {isXRayMode ? t("design_system.xray_active") : t("design_system.xray_enable")}
               </button>
             </div>
           </div>
@@ -145,7 +147,7 @@ const DesignSystemViewer = () => {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] backdrop-blur-md">
                 <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-green)] animate-pulse" />
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
-                  System_Diagnostic_Mode_active
+                  {t("design_system.diagnostic_mode")}
                 </span>
               </div>
               <div>
@@ -155,17 +157,17 @@ const DesignSystemViewer = () => {
                 </h1>
                 <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest max-w-xl space-y-3">
                   <p>
-                    &gt; Executing visual language protocols{" "}
+                    &gt; {t("design_system.executing_protocols")}{" "}
                     {SYSTEM_CONFIG.VERSION}
                   </p>
-                  <p>&gt; Target: Human_Cognition_Optimization</p>
+                  <p>&gt; {t("design_system.target")}</p>
                   <p>
-                    &gt; Status:{" "}
+                    &gt; {t("design_system.status")}:{" "}
                     <span className="text-[var(--accent-green)]">
                       {SYSTEM_CONFIG.STATUS}
                     </span>
                   </p>
-                  <p>&gt; Architect: Systems Thinker</p>
+                  <p>&gt; {t("design_system.architect")}</p>
                 </div>
               </div>
             </div>
@@ -196,14 +198,14 @@ const DesignSystemViewer = () => {
           <footer className="border-t border-[var(--border-color)] p-6 flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest bg-[var(--bg-surface)]">
             <div className="flex gap-8">
               <span>
-                Mem: {SYSTEM_CONFIG.MEM_USAGE} // Threads:{" "}
+                {t("design_system.mem")}: {SYSTEM_CONFIG.MEM_USAGE} // {t("design_system.threads")}:{" "}
                 {SYSTEM_CONFIG.THREADS}
               </span>
-              <span>Uptime: {SYSTEM_CONFIG.UPTIME}</span>
+              <span>{t("design_system.uptime")}: {SYSTEM_CONFIG.UPTIME}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-green)]" />
-              <span>System {SYSTEM_CONFIG.STATUS}</span>
+              <span>{t("design_system.system")} {SYSTEM_CONFIG.STATUS}</span>
             </div>
           </footer>
         </main>

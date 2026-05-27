@@ -207,7 +207,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                     }}
                     className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gray-900 hover:bg-black dark:bg-white dark:hover:bg-gray-200 text-white dark:text-black px-6 py-3 rounded-sm uppercase font-mono text-xs tracking-wider font-bold transition-colors"
                   >
-                    <span>Close Letter</span>
+                    <span>{t("cover_letter.close")}</span>
                     <ArrowRight size={14} />
                   </button>
                 </div>

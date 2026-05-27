@@ -1,5 +1,6 @@
 import React, { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
+import { useLanguage } from "../context/LanguageContext";
 
 const VirtualAssistant = lazyWithRetry(() => import("./VirtualAssistant"));
 
@@ -28,12 +29,12 @@ const cancelIdle = (id) => {
   window.clearTimeout(id);
 };
 
-const LauncherButton = ({ onActivate, onWarm, busy = false, disabled = false }) => (
+const LauncherButton = ({ label, onActivate, onWarm, busy = false, disabled = false }) => (
   <button
     type="button"
-    aria-label="Open Echo.Z assistant"
+    aria-label={label}
     aria-busy={busy}
-    title="Open Echo.Z assistant"
+    title={label}
     disabled={disabled}
     onClick={onActivate}
     onFocus={onWarm}
@@ -47,6 +48,7 @@ const LauncherButton = ({ onActivate, onWarm, busy = false, disabled = false }) 
 );
 
 const AssistantLauncher = () => {
+  const { t } = useLanguage();
   const [isActive, setIsActive] = useState(false);
   const [isWarming, setIsWarming] = useState(false);
   const warmStartedRef = useRef(false);
@@ -82,6 +84,7 @@ const AssistantLauncher = () => {
       <Suspense
         fallback={
           <LauncherButton
+            label={t("virtual_assistant.open")}
             onActivate={() => {}}
             onWarm={() => {}}
             busy
@@ -101,6 +104,7 @@ const AssistantLauncher = () => {
         setIsActive(true);
       }}
       onWarm={warmAssistant}
+      label={t("virtual_assistant.open")}
       busy={isWarming}
     />
   );

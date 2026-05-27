@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Home, ArrowLeft, ArrowRight, ArrowUp } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import SEO from "../components/SEO";
 
 // --- GAME CONSTANTS ---
@@ -36,6 +37,7 @@ const makePlatforms = (vw, groundY) => {
 
 const NotFound = () => {
   useTheme();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const frameRef = useRef(null);
   const keysRef = useRef({});
@@ -240,7 +242,7 @@ const NotFound = () => {
 
   return (
     <div className="min-h-[100dvh] font-mono select-none overflow-hidden relative bg-[var(--bg-void)]" style={{ touchAction: "none" }}>
-      <SEO title="404  -  Lost in the System" description="Page not found. But you found a game." noindex>
+      <SEO title={t("not_found.seo_title")} description={t("not_found.seo_desc")} noindex>
         <meta name="robots" content="noindex, nofollow" />
       </SEO>
 
@@ -279,11 +281,11 @@ const NotFound = () => {
         <div>
           <div className="flex items-center gap-2 text-[var(--accent-error)] mb-1">
             <span className="w-2 h-2 rounded-full bg-[var(--accent-error)] animate-pulse" />
-            <span className="text-[10px] uppercase tracking-[0.3em]">SYSTEM_ERROR</span>
+            <span className="text-[10px] uppercase tracking-[0.3em]">{t("not_found.system_error")}</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tighter text-[var(--text-primary)]">KERNEL_PANIC</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tighter text-[var(--text-primary)]">{t("not_found.kernel_panic")}</h1>
           <p className="text-[10px] sm:text-xs text-[var(--text-secondary)] mt-0.5 font-mono max-w-[200px] sm:max-w-none">
-            Page lost in the system. Find the portal to escape.
+            {t("not_found.hint")}
           </p>
         </div>
 
@@ -294,7 +296,7 @@ const NotFound = () => {
           </div>
           {/* Score */}
           <div className="flex items-center gap-2 bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-1.5 rounded-lg">
-            <span className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wider">Items</span>
+            <span className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wider">{t("not_found.items")}</span>
             <span className="text-sm font-black text-[var(--accent-error)]">{collected.size}</span>
             <span className="text-[10px] text-[var(--text-secondary)]">/ 3</span>
           </div>
@@ -342,7 +344,7 @@ const NotFound = () => {
             <Home size={24} className="text-emerald-400" />
           </div>
           <p className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] text-emerald-400 whitespace-nowrap font-mono uppercase tracking-[0.2em]">
-            HOME_PORT
+            {t("not_found.home_port")}
           </p>
         </div>
       </div>
@@ -370,9 +372,9 @@ const NotFound = () => {
       {portalReached && (
         <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/70 animate-in fade-in duration-700">
           <div className="text-center space-y-3">
-            <p className="text-emerald-400 font-mono text-2xl sm:text-3xl font-bold tracking-tight">SYSTEM_RESTORED</p>
-            <p className="text-[var(--text-secondary)] text-sm">Time: {formatTime(timer)} · Items: {collected.size}/3</p>
-            <p className="text-[var(--text-secondary)] text-xs animate-pulse">Redirecting to home port...</p>
+            <p className="text-emerald-400 font-mono text-2xl sm:text-3xl font-bold tracking-tight">{t("not_found.system_restored")}</p>
+            <p className="text-[var(--text-secondary)] text-sm">{t("not_found.time")}: {formatTime(timer)} · {t("not_found.items")}: {collected.size}/3</p>
+            <p className="text-[var(--text-secondary)] text-xs animate-pulse">{t("not_found.redirecting")}</p>
           </div>
         </div>
       )}
@@ -382,15 +384,15 @@ const NotFound = () => {
         <div className="hidden sm:flex items-center gap-2 bg-[var(--bg-card)]/90 backdrop-blur border border-[var(--border-color)] px-4 py-2.5 rounded-xl text-xs text-[var(--text-secondary)]">
           <span className="px-2 py-1 bg-[var(--bg-void)] border border-[var(--border-color)] rounded text-[var(--text-primary)] font-bold text-sm">←</span>
           <span className="px-2 py-1 bg-[var(--bg-void)] border border-[var(--border-color)] rounded text-[var(--text-primary)] font-bold text-sm">→</span>
-          <span>Move</span>
+          <span>{t("not_found.move")}</span>
           <span className="mx-1 opacity-20">·</span>
           <span className="px-2 py-1 bg-[var(--bg-void)] border border-[var(--border-color)] rounded text-[var(--text-primary)] font-bold text-sm">↑</span>
-          <span>Jump</span>
+          <span>{t("not_found.jump")}</span>
           <span className="mx-1 opacity-20">·</span>
-          <span>Collect</span>
+          <span>{t("not_found.collect")}</span>
           <span className="text-[var(--accent-error)] font-bold">4 0 4</span>
           <span className="mx-1 opacity-20">·</span>
-          <span>Reach</span>
+          <span>{t("not_found.reach")}</span>
           <Home size={12} className="text-emerald-400" />
         </div>
       </div>
@@ -433,9 +435,9 @@ const NotFound = () => {
       {/* ─── TERMINAL LOG ─── */}
       <div className="hidden sm:block absolute bottom-6 left-6 z-30">
         <div className="font-mono text-[10px] text-[var(--text-secondary)] opacity-40 space-y-0.5">
-          <p>&gt; CRITICAL_ERROR: 404_PAGE_NOT_FOUND</p>
-          <p>&gt; RECOVERY_MODE: INTERACTIVE</p>
-          <p className="text-emerald-400/70">&gt; Collect items and reach HOME_PORT to reboot_</p>
+          <p>{t("not_found.terminal_error")}</p>
+          <p>{t("not_found.terminal_recovery")}</p>
+          <p className="text-emerald-400/70">{t("not_found.terminal_hint")}</p>
         </div>
       </div>
     </div>

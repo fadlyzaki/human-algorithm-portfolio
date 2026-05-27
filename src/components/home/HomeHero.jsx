@@ -61,7 +61,7 @@ const HomeHero = ({ t, renderIdCard = true }) => {
               </p>
               <div className="mt-4 font-mono text-[10px] uppercase tracking-widest opacity-30 flex items-center gap-2">
                 <div className="w-1 h-1 rounded-full bg-[var(--accent-blue)] animate-pulse" />
-                AI-Human Hybrid Environment // Kernel 2026.03
+                {t("home.status_kernel")}
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -77,7 +77,7 @@ const HomeHero = ({ t, renderIdCard = true }) => {
                 aria-label="Contact Fadly Uzzaki / Let's Connect"
                 className="px-8 py-4 border border-[var(--border-tag)] text-[var(--accent-blue)] font-mono text-sm font-bold uppercase tracking-wide hover:border-[var(--accent-blue)] hover:bg-[var(--accent-blue)]/10 transition-all flex items-center justify-center gap-3 rounded-lg"
               >
-                Let's Connect
+                {t("home.cta_contact")}
               </Link>
             </div>
           </div>

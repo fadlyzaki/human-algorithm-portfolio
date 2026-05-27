@@ -51,10 +51,10 @@ const Navbar = ({
       {/* STATIC GHOST NAVIGATION FOR SCRAPERS/SEO */}
       <nav aria-label="Static Navigation" className="sr-only">
         <ul>
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/">{t("nav.home") || "Home"}</Link></li>
           <li><Link to="/about">{t("nav.about") || "About"}</Link></li>
           <li><Link to="/#work">{t("nav.work") || "Work"}</Link></li>
-          <li><Link to="/#side-projects">Side Projects</Link></li>
+          <li><Link to="/#side-projects">{t("nav.side_projects") || "Side Projects"}</Link></li>
           <li><Link to="/contact">{t("nav.contact") || "Contact"}</Link></li>
         </ul>
       </nav>
@@ -95,7 +95,7 @@ const Navbar = ({
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </div>
                   <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
-                    Open to Work
+                    {t("nav.open_to_work")}
                   </span>
                 </div>
               </div>
@@ -112,7 +112,7 @@ const Navbar = ({
               <nav className="hidden md:flex items-center gap-1">
                 <HoverNavLink to="/about" label={t("nav.about")} />
                 <HoverNavLink to="/#work" label={t("nav.work")} />
-                <HoverNavLink to="/#side-projects" label="Projects" />
+                <HoverNavLink to="/#side-projects" label={t("nav.side_projects")} />
                 <HoverNavLink to="/contact" label={t("nav.contact")} />
               </nav>
             )}
@@ -156,7 +156,7 @@ const Navbar = ({
               >
                 <FileText size={14} />
                 <span className="font-mono text-[10px] uppercase tracking-wider">
-                  Resume
+                  {t("nav.resume")}
                 </span>
               </Link>
 
@@ -167,18 +167,18 @@ const Navbar = ({
                     ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30" 
                     : "bg-[var(--bg-void)] text-[var(--text-secondary)] border-[var(--border-color)] hover:text-[var(--accent-blue)]"
                 }`}
-                title={isRecruiterMode ? "Switch to Immersive View" : "Prioritize Outcomes & Scannability"}
+                title={isRecruiterMode ? t("nav.standard_view") : t("nav.recruiter_view")}
               >
                 <ScanEye size={14} className={isRecruiterMode ? "animate-pulse" : ""} />
                 <span className="font-mono text-[10px] uppercase tracking-wider">
-                  {isRecruiterMode ? "Standard View" : "Recruiter View"}
+                  {isRecruiterMode ? t("nav.standard_view") : t("nav.recruiter_view")}
                 </span>
               </button>
 
               <button
                 onClick={() => setIsDark(!isDark)}
                 className="p-1.5 sm:p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-amber)] hover:bg-[var(--text-secondary)]/10 transition-colors"
-                aria-label="Toggle Theme"
+                aria-label={t("nav.toggle_theme")}
               >
                 {isDark ? <Sun size={16} /> : <Moon size={16} />}
               </button>
@@ -186,7 +186,7 @@ const Navbar = ({
               <button
                 onClick={toggleLanguage}
                 className="px-1.5 py-1 sm:px-2 sm:py-1 font-mono text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 rounded transition-colors text-[10px] sm:text-xs uppercase tracking-widest"
-                title="Switch Language"
+                title={t("nav.switch_language")}
               >
                 {language}
               </button>
@@ -203,7 +203,7 @@ const Navbar = ({
             to="/#work"
             className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors px-2 py-1"
           >
-            Work
+            {t("nav.work")}
           </Link>
 
           <div className="w-px h-5 bg-[var(--border-color)]"></div>
@@ -212,7 +212,7 @@ const Navbar = ({
           <button
             onClick={onOpenMenu}
             className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors p-3 min-w-[44px] min-h-[44px] flex items-center justify-center -my-2"
-            aria-label="Open Menu"
+            aria-label={t("nav.open_menu")}
           >
             <Grid size={18} />
           </button>
@@ -224,7 +224,7 @@ const Navbar = ({
             to="/contact"
             className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors px-2 py-1"
           >
-            Contact
+            {t("nav.contact")}
           </Link>
         </div>
       </div>

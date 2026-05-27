@@ -22,6 +22,7 @@ import SEO from "../components/SEO";
 import Navbar from "../components/Navbar";
 import NavigationMenu from "../components/NavigationMenu";
 import { blogPosts } from "../data/blogPosts";
+import { useLanguage } from "../context/LanguageContext";
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Digital Editorial"
@@ -30,6 +31,7 @@ import { blogPosts } from "../data/blogPosts";
 
 const BlogPost = () => {
   const { isDark } = useTheme();
+  const { t, isIndonesian } = useLanguage();
   const [scrolled, setScrolled] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { id } = useParams();
@@ -39,6 +41,14 @@ const BlogPost = () => {
 
   // Default to the mock post if ID not found
   const post = blogPosts[id] || blogPosts["future-of-ai"];
+  const localizedPost = {
+    ...post,
+    title: isIndonesian && post.title_id ? post.title_id : post.title,
+    subtitle: isIndonesian && post.subtitle_id ? post.subtitle_id : post.subtitle,
+    readTime: isIndonesian && post.readTime_id ? post.readTime_id : post.readTime,
+    tags: isIndonesian && post.tags_id ? post.tags_id : post.tags,
+    content: isIndonesian && post.content_id ? post.content_id : post.content,
+  };
 
   // --- SCROLL LISTENER ---
   useEffect(() => {
@@ -65,14 +75,14 @@ const BlogPost = () => {
       className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-500 font-sans selection:bg-[var(--accent-color)] selection:text-white"
     >
       <SEO
-        title={post.title}
-        description={post.subtitle}
+        title={localizedPost.title}
+        description={localizedPost.subtitle}
         type="article"
         schema={{
           "@context": "https://schema.org",
           "@type": "BlogPosting",
-          headline: post.title,
-          description: post.subtitle,
+          headline: localizedPost.title,
+          description: localizedPost.subtitle,
           author: {
             "@type": "Person",
             name: "Fadly Uzzaki",
@@ -92,7 +102,7 @@ const BlogPost = () => {
       {/* --- NAVIGATION SYSTEM --- */}
       <Navbar
         onOpenMenu={() => setIsMenuOpen(true)}
-        title="Editorial"
+        title={t("blog.editorial")}
         backPath="/"
       />
 
@@ -105,7 +115,7 @@ const BlogPost = () => {
         {/* Header */}
         <header className="mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="flex gap-3 mb-6">
-            {post.tags.map((tag) => (
+            {localizedPost.tags.map((tag) => (
               <span
                 key={tag}
                 className="font-mono text-[10px] uppercase tracking-widest border border-[var(--border-color)] px-2 py-1 rounded text-[var(--text-secondary)]"
@@ -116,11 +126,11 @@ const BlogPost = () => {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-serif font-bold leading-tight mb-8 text-balance">
-            {post.title}
+            {localizedPost.title}
           </h1>
 
           <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light mb-8 border-l-4 border-[var(--accent-color)] pl-6">
-            {post.subtitle}
+            {localizedPost.subtitle}
           </p>
 
           <div className="flex items-center gap-6 text-sm text-[var(--text-secondary)] font-mono border-y border-[var(--border-color)] py-4">
@@ -130,7 +140,7 @@ const BlogPost = () => {
             </div>
             <div className="flex items-center gap-2">
               <Clock size={14} />
-              <span>{post.readTime}</span>
+              <span>{localizedPost.readTime}</span>
             </div>
             <div className="flex items-center gap-2">
               <User size={14} />
@@ -141,7 +151,7 @@ const BlogPost = () => {
 
         {/* Content Body */}
         <article className="prose prose-lg md:prose-xl max-w-none">
-          {post.content.map((block, i) => {
+          {localizedPost.content.map((block, i) => {
             const RenderMap = {
               paragraph: () => (
                 <p
@@ -198,7 +208,7 @@ const BlogPost = () => {
         <div className="mt-20 pt-12 border-t border-[var(--border-color)] flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <h3 className="font-mono text-sm uppercase text-[var(--text-secondary)] mb-1">
-              Written By
+              {t("blog.written_by")}
             </h3>
             <div className="font-bold text-lg">Fadly Uzzaki 🧢</div>
           </div>
@@ -208,7 +218,7 @@ const BlogPost = () => {
               size={14}
               className="group-hover:rotate-12 transition-transform"
             />
-            <span>Share Protocol</span>
+            <span>{t("blog.share_protocol")}</span>
           </button>
         </div>
 
@@ -217,10 +227,10 @@ const BlogPost = () => {
           className="block mt-12 p-8 bg-[var(--bg-paper)] border border-[var(--border-color)] hover:border-[var(--accent-color)] group transition-colors text-center"
         >
           <h4 className="font-mono text-xs text-[var(--text-secondary)] uppercase mb-2">
-            Next Artifact
+            {t("blog.next_artifact")}
           </h4>
           <div className="text-xl font-bold flex items-center justify-center gap-2">
-            Explore System Manifest{" "}
+            {t("blog.explore_manifest")}{" "}
             <ChevronRight
               size={20}
               className="group-hover:translate-x-1 transition-transform"
@@ -230,7 +240,7 @@ const BlogPost = () => {
 
         <footer className="mt-24 text-center">
           <p className="font-mono text-xs text-[var(--text-secondary)] uppercase opacity-50">
-            // End of File · Fadly Uzzaki 🧢 © 2025
+            {t("blog.end_of_file")} · Fadly Uzzaki 🧢 © 2025
           </p>
         </footer>
       </main>

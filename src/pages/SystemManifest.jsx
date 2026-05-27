@@ -19,6 +19,7 @@ import CoverLetterModal from "../components/CoverLetterModal";
 import Navbar from "../components/Navbar";
 import NavigationMenu from "../components/NavigationMenu";
 import { RESUME_PDF_PATH, resumeData } from "../data/resumeData";
+import { useLanguage } from "../context/LanguageContext";
 
 const contactMailto =
   "mailto:fadly.uzzaki@gmail.com?subject=Product%20Design%20Opportunity%20-%20Fadly%20Uzzaki";
@@ -48,14 +49,14 @@ const ActionLink = ({ href, icon: Icon, children, download, target = "_blank" })
   </a>
 );
 
-const PrintButton = () => (
+const PrintButton = ({ label }) => (
   <button
     type="button"
     onClick={() => window.print()}
     className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-card)] px-4 py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--text-primary)] transition-colors hover:border-[var(--accent-blue)] hover:text-[var(--accent-blue)]"
   >
     <Printer size={15} />
-    <span>Print</span>
+    <span>{label}</span>
   </button>
 );
 
@@ -90,6 +91,7 @@ const ChipList = ({ items }) => (
 );
 
 const SystemManifest = () => {
+  const { t } = useLanguage();
   const [showCoverLetter, setShowCoverLetter] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -113,15 +115,15 @@ const SystemManifest = () => {
   return (
     <div className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-black selection:text-white print:bg-white print:text-black">
       <SEO
-        title="Resume / CV"
-        description="Fadly Uzzaki's recruiter-ready Product Designer resume and CV, sourced from the May 8, 2026 PDF."
+        title={t("manifest.seo_title")}
+        description={t("manifest.seo_desc")}
         schema={schema}
       />
 
       <div className="print:hidden">
         <Navbar
           onOpenMenu={() => setIsMenuOpen(true)}
-          title="Resume / CV"
+          title={t("manifest.nav_title")}
           backPath="/"
           onViewCoverLetter={() => setShowCoverLetter(true)}
           onPrint={() => window.print()}
@@ -140,7 +142,7 @@ const SystemManifest = () => {
               <div>
                 <div className="mb-3 inline-flex items-center gap-2 rounded-md border border-[var(--border-color)] px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--text-secondary)] print:hidden">
                   <FileText size={13} />
-                  <span>PDF source: {resumeData.updated}</span>
+                  <span>{t("manifest.pdf_source")}: {resumeData.updated}</span>
                 </div>
                 <h1 className="font-mono text-4xl font-black uppercase tracking-normal sm:text-5xl print:text-3xl">
                   {resumeData.name}
@@ -185,15 +187,15 @@ const SystemManifest = () => {
           <section className="my-6 rounded-lg border border-[var(--border-color)] bg-[var(--bg-void)] p-4 print:hidden">
             <div className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--text-secondary)]">
               <Sparkles size={14} />
-              <span>Recruiter Pack</span>
+              <span>{t("manifest.recruiter_pack")}</span>
             </div>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               <ActionLink href={RESUME_PDF_PATH} icon={Download} download>
-                Download PDF
+                {t("manifest.download_pdf")}
               </ActionLink>
-              <PrintButton />
+              <PrintButton label={t("manifest.print_short")} />
               <ActionLink href={contactMailto} icon={Mail} target="_self">
-                Email
+                {t("manifest.email")}
               </ActionLink>
               <ActionLink href={getProfileLink("LinkedIn")} icon={Linkedin}>
                 LinkedIn
@@ -202,13 +204,13 @@ const SystemManifest = () => {
                 GitHub
               </ActionLink>
               <ActionLink href={getProfileLink("Portfolio")} icon={Globe}>
-                Portfolio
+                {t("manifest.portfolio")}
               </ActionLink>
             </div>
           </section>
 
           <section className="my-8 print:my-5">
-            <SectionHeading icon={Sparkles}>Professional Summary</SectionHeading>
+            <SectionHeading icon={Sparkles}>{t("manifest.summary_title")}</SectionHeading>
             <p className="text-sm leading-relaxed text-[var(--text-secondary)] print:text-black print:leading-snug">
               {resumeData.summary}
             </p>
@@ -216,7 +218,7 @@ const SystemManifest = () => {
 
           <section className="my-8 print:my-5">
             <SectionHeading icon={ExternalLink}>
-              Portfolio Evidence Matrix
+              {t("manifest.portfolio_evidence")}
             </SectionHeading>
             <div className="grid gap-4 md:grid-cols-2 print:block">
               {resumeData.portfolioEvidence.map((item) => (
@@ -252,7 +254,7 @@ const SystemManifest = () => {
 
           <section className="my-8 print:my-5">
             <SectionHeading icon={BriefcaseBusiness}>
-              Professional Experience
+              {t("manifest.exp_title")}
             </SectionHeading>
             <div className="space-y-8 print:space-y-5">
               {resumeData.experience.map((job) => (
@@ -276,7 +278,7 @@ const SystemManifest = () => {
 
           <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] print:block">
             <section className="print:my-5">
-              <SectionHeading icon={FileText}>Public Case Studies</SectionHeading>
+              <SectionHeading icon={FileText}>{t("manifest.public_case_studies")}</SectionHeading>
               <div className="space-y-4 print:space-y-2">
                 {resumeData.caseStudies.map((study) => (
                   <a
@@ -299,19 +301,19 @@ const SystemManifest = () => {
 
             <aside className="space-y-8 print:space-y-5">
               <section>
-                <SectionHeading icon={Sparkles}>Core Product Design Skills</SectionHeading>
+                <SectionHeading icon={Sparkles}>{t("manifest.core_product_design_skills")}</SectionHeading>
                 <ChipList items={resumeData.coreSkills} />
               </section>
 
               <section>
-                <SectionHeading icon={FileText}>Tools And Technical Skills</SectionHeading>
+                <SectionHeading icon={FileText}>{t("manifest.tools_technical_skills")}</SectionHeading>
                 <ChipList items={resumeData.tools} />
               </section>
             </aside>
           </div>
 
           <section className="my-8 print:my-5">
-            <SectionHeading icon={Globe}>Side Projects And Experiments</SectionHeading>
+            <SectionHeading icon={Globe}>{t("manifest.side_projects_experiments")}</SectionHeading>
             <div className="grid gap-4 md:grid-cols-2 print:block">
               {resumeData.sideProjects.map((project) => (
                 <div
@@ -326,13 +328,13 @@ const SystemManifest = () => {
               ))}
             </div>
             <p className="mt-4 text-sm text-[var(--text-secondary)] print:text-black">
-              Additional concepts: {resumeData.additionalConcepts}
+              {t("manifest.additional_concepts")}: {resumeData.additionalConcepts}
             </p>
           </section>
 
           <div className="grid gap-8 lg:grid-cols-2 print:block">
             <section className="print:my-5">
-              <SectionHeading icon={BookOpen}>Education</SectionHeading>
+              <SectionHeading icon={BookOpen}>{t("manifest.edu_title")}</SectionHeading>
               <div className="space-y-4 print:space-y-2">
                 {resumeData.education.map((item) => (
                   <div key={item.school} className="print:break-inside-avoid">
@@ -349,20 +351,20 @@ const SystemManifest = () => {
             </section>
 
             <section className="print:my-5">
-              <SectionHeading icon={Sparkles}>Achievements</SectionHeading>
+              <SectionHeading icon={Sparkles}>{t("manifest.achievements")}</SectionHeading>
               <BulletList items={resumeData.achievements} />
             </section>
           </div>
 
           <section className="my-8 print:my-5">
             <SectionHeading icon={FileText}>
-              Certifications And Credentials
+              {t("manifest.certifications_credentials")}
             </SectionHeading>
             <BulletList items={resumeData.certifications} />
           </section>
 
           <section className="mt-8 print:mt-5">
-            <SectionHeading icon={Sparkles}>Keywords</SectionHeading>
+            <SectionHeading icon={Sparkles}>{t("manifest.keywords")}</SectionHeading>
             <p className="text-sm leading-relaxed text-[var(--text-secondary)] print:text-black print:leading-snug">
               {resumeData.keywords.join(", ")}.
             </p>

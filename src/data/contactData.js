@@ -20,6 +20,7 @@ export const contactInfo = {
 
 export const socialMatrix = [
   {
+    id: "core",
     category: "CORE_UPLINK (Professional)",
     items: [
       {
@@ -43,6 +44,7 @@ export const socialMatrix = [
     ],
   },
   {
+    id: "broadcast",
     category: "BROADCAST_LAYER (Social)",
     items: [
       {
@@ -66,6 +68,7 @@ export const socialMatrix = [
     ],
   },
   {
+    id: "writing",
     category: "DATA_LOGS (Writing)",
     items: [
       {
@@ -83,6 +86,7 @@ export const socialMatrix = [
     ],
   },
   {
+    id: "physical",
     category: "TELEMETRY (Physical)",
     items: [
       {

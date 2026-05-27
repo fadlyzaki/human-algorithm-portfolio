@@ -265,8 +265,8 @@ const SideProjectsIndex = () => {
       className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 relative"
     >
       <SEO
-        title="Side Projects & Experiments"
-        description="Browse Fadly Uzzaki's side projects, experiments, and prototypes  -  from The Human Algorithm (AI-built portfolio) to interactive workbooks and design research tools."
+        title={t("project_archive.seo_title")}
+        description={t("project_archive.seo_desc")}
       />
 
       {/* Background Atmosphere */}
@@ -274,7 +274,7 @@ const SideProjectsIndex = () => {
         <ChaosCanvas />
       </React.Suspense>
 
-      <PageShell navbarProps={{ title: "Project Archives", backPath: "/" }}>
+      <PageShell navbarProps={{ title: t("project_archive.nav_title"), backPath: "/" }}>
 
       <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-[100dvh] bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl" ref={containerRef}>
         <header className="mb-32 relative min-h-[50vh] flex flex-col justify-center text-center md:text-left">
@@ -287,15 +287,15 @@ const SideProjectsIndex = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] backdrop-blur-md">
               <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)] animate-pulse"></div>
               <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
-                Venture Portfolio 2024-2026
+                {t("project_archive.badge")}
               </span>
             </div>
             <h1 className="text-5xl md:text-8xl font-serif italic mb-8 tracking-tighter leading-[0.9]">
-              Ship. Measure. <br />
-              <span className="text-[var(--text-secondary)]">Repeat.</span>
+              {t("project_archive.headline_1")} <br />
+              <span className="text-[var(--text-secondary)]">{t("project_archive.headline_2")}</span>
             </h1>
             <p className="text-xl md:text-2xl text-[var(--text-secondary)] font-light leading-relaxed max-w-2xl">
-              A showcase of independent products, from 0 to 1.{" "}
+              {t("project_archive.intro")}{" "}
               <br className="hidden md:block" />
               <span className="opacity-80 text-lg">
                 {t("project_archive.subtitle")}
@@ -308,7 +308,7 @@ const SideProjectsIndex = () => {
           <div className="mb-32">
             <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-12 flex items-center gap-4">
               <span className="w-8 h-[1px] bg-[var(--border-color)]"></span>
-              Launched Ventures
+              {t("project_archive.launched")}
               <span className="flex-1 h-[1px] bg-[var(--border-color)]"></span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 perspective-1000 auto-rows-auto">
@@ -337,15 +337,15 @@ const SideProjectsIndex = () => {
               <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-4">
                 <span className="w-8 h-[1px] bg-[var(--border-color)]"></span>
                 <span>
-                  Experiments & Explorations
+                  {t("project_archive.experiments")}
                   <span className="block text-[10px] text-[var(--text-secondary)] normal-case mt-1 max-w-md">
-                    Thinking, building, and attempts to solve problems.
+                    {t("project_archive.experiments_desc")}
                   </span>
                 </span>
                 <span className="flex-1 h-[1px] bg-[var(--border-color)]"></span>
                 <span className="flex items-center gap-2 shrink-0">
                   <span className="text-[10px] font-mono text-[var(--text-secondary)] opacity-60 hidden sm:inline">
-                    {experimentsOpen ? 'COLLAPSE' : `${EXPERIMENTS.length} ENTRIES`}
+                    {experimentsOpen ? t("project_archive.collapse") : `${EXPERIMENTS.length} ${t("project_archive.entries")}`}
                   </span>
                   <ChevronDown
                     size={16}

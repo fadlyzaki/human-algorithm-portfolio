@@ -59,7 +59,7 @@ const ContactPage = () => {
     if (name === "email") {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (value && !emailRegex.test(value)) {
-        setEmailError("INVALID_EMAIL_PROTOCOL");
+        setEmailError(t("contact.invalid_email"));
       } else {
         setEmailError("");
       }
@@ -89,11 +89,24 @@ const ContactPage = () => {
     }
   };
 
+  const payloadStatus =
+    formStatus === "idle"
+      ? t("contact.ready_transmission")
+      : t(`contact.payload_${formStatus}`, formStatus.toUpperCase());
+  const completedFields = Object.values(formData).filter((value) => value.length > 0).length;
+  const connectionStatus =
+    completedFields === 3 ? t("contact.stable_uplink") : t("contact.initializing");
+  const handshakeSteps = [
+    { label: t("contact.sync_values"), condition: formData.name.length > 0 },
+    { label: t("contact.align_goals"), condition: formData.email.length > 0 },
+    { label: t("contact.establish_conn"), condition: formData.message.length > 0 },
+  ];
+
   return (
     <div className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-mono selection:bg-[var(--text-primary)] selection:text-[var(--bg-void)] transition-colors duration-500 flex flex-col items-center justify-center p-6 relative overflow-hidden">
       <SEO
-        title="Contact Fadly Uzzaki"
-        description="Get in touch with Fadly Uzzaki (Fadlyzaki) for product design collaborations, freelance inquiries, or design consulting. Product Designer specializing in B2B SaaS and EdTech."
+        title={t("contact.seo_title")}
+        description={t("contact.seo_desc")}
       />
 
       {/* GENERATIVE AI BACKGROUND */}
@@ -113,7 +126,7 @@ const ContactPage = () => {
         }}
       ></div>
 
-      <Navbar onOpenMenu={handleOpenMenu} title="Communication" backPath="/" />
+      <Navbar onOpenMenu={handleOpenMenu} title={t("contact.nav_title")} backPath="/" />
       <NavigationMenu
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
@@ -174,7 +187,7 @@ const ContactPage = () => {
               {socialMatrix.map((section, idx) => (
                 <div key={idx} className="space-y-3">
                   <h4 className="font-mono text-[10px] text-[var(--accent-blue)] opacity-70 uppercase">
-                    {section.category}
+                    {t(`contact.social_${section.id}`, section.category)}
                   </h4>
                   <div className="grid gap-2">
                     {section.items.map((item, i) => (
@@ -306,7 +319,7 @@ const ContactPage = () => {
             <div className="flex items-center gap-2 mb-4 text-[var(--text-secondary)]">
               <Terminal size={14} />
               <span className="text-[10px] font-mono tracking-widest uppercase">
-                Payload_Preview
+                {t("contact.payload_preview")}
               </span>
             </div>
 
@@ -325,27 +338,33 @@ const ContactPage = () => {
                   </span>
                 </div>
                 <div className="flex items-baseline gap-4">
-                  <span className="w-20 opacity-40 uppercase shrink-0 font-bold">[SOURCE]</span>
+                  <span className="w-20 opacity-40 uppercase shrink-0 font-bold">
+                    [{t("contact.source")}]
+                  </span>
                   <span className={formData.name ? "text-[var(--text-primary)]" : "text-red-500/50 italic"}>
-                    {formData.name || "AWAITING_INPUT"}
+                    {formData.name || t("contact.awaiting_input")}
                   </span>
                 </div>
                 <div className="flex items-baseline gap-4">
                   <span className="w-20 opacity-40 uppercase shrink-0 font-bold">[UPLINK]</span>
                   <span className={formData.email ? "text-[var(--text-primary)]" : "text-red-500/50 italic"}>
-                    {formData.email || "NO_PROTOCOL_ESTABLISHED"}
+                    {formData.email || t("contact.no_protocol")}
                   </span>
                 </div>
                 <div className="flex items-baseline gap-4">
-                  <span className="w-20 opacity-40 uppercase shrink-0 font-bold">[SIZE]</span>
+                  <span className="w-20 opacity-40 uppercase shrink-0 font-bold">
+                    [{t("contact.size")}]
+                  </span>
                   <span className="text-[var(--accent-amber)] font-bold">
-                    {formData.message.length.toString().padStart(3, '0')} BYTES
+                    {formData.message.length.toString().padStart(3, '0')} {t("contact.bytes")}
                   </span>
                 </div>
                 <div className="flex items-baseline gap-4">
-                  <span className="w-20 opacity-40 uppercase shrink-0 font-bold">[STATUS]</span>
+                  <span className="w-20 opacity-40 uppercase shrink-0 font-bold">
+                    [{t("contact.status")}]
+                  </span>
                   <span className="text-[var(--accent-blue)]">
-                    {formStatus === 'idle' ? 'READY_FOR_TRANSMISSION' : formStatus.toUpperCase()}
+                    {payloadStatus}
                   </span>
                 </div>
               </div>
@@ -355,7 +374,9 @@ const ContactPage = () => {
             <div className="mt-8 relative h-12 bg-[var(--bg-void)] border border-[var(--border-color)]/30 rounded-lg overflow-hidden flex items-center justify-between px-6">
               <div className="flex items-center gap-2 relative z-10">
                 <div className="w-2 h-2 rounded-full bg-[var(--accent-blue)]" />
-                <span className="text-[8px] font-mono text-[var(--accent-blue)] font-bold">USER_NODE</span>
+                <span className="text-[8px] font-mono text-[var(--accent-blue)] font-bold">
+                  {t("contact.user_node")}
+                </span>
               </div>
               <div className="absolute inset-x-20 top-1/2 -translate-y-1/2 h-px bg-[var(--border-color)]/20" />
               <AnimatePresence>
@@ -377,7 +398,9 @@ const ContactPage = () => {
                 )}
               </AnimatePresence>
               <div className="flex items-center gap-2 relative z-10">
-                <span className="text-[8px] font-mono text-[var(--accent-green)] font-bold">SYSTEM_CORE</span>
+                <span className="text-[8px] font-mono text-[var(--accent-green)] font-bold">
+                  {t("contact.system_core")}
+                </span>
                 <div className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse" />
               </div>
             </div>
@@ -387,19 +410,13 @@ const ContactPage = () => {
               <div className="flex justify-between items-center text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
                 <div className="flex items-center gap-2">
                   <Activity size={10} className="animate-pulse" />
-                  <span>Human_Connection_Sync</span>
+                  <span>{t("contact.human_connection_sync")}</span>
                 </div>
-                <span>
-                  {Object.values(formData).filter(v => v.length > 0).length === 3 ? "STABLE_UPLINK" : "INITIALIZING"}
-                </span>
+                <span>{connectionStatus}</span>
               </div>
 
               <div className="grid grid-cols-3 gap-2">
-                {[
-                  { label: "SYNC_VALUES", condition: formData.name.length > 0 },
-                  { label: "ALIGN_GOALS", condition: formData.email.length > 0 },
-                  { label: "ESTABLISH_CONN", condition: formData.message.length > 0 }
-                ].map((step, idx) => (
+                {handshakeSteps.map((step, idx) => (
                   <div 
                     key={idx}
                     className={`flex flex-col items-center justify-center p-2 border transition-all duration-500 ${

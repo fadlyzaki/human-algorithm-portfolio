@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import SEO from "../components/SEO";
 import NavigationMenu from "../components/NavigationMenu";
 import ScrollProgressBar from "../components/ScrollProgressBar";
+import { useLanguage } from "../context/LanguageContext";
 
 export const SOCIABLEKIT_HIGHLIGHTS_EMBED_ID = "25684322";
 export const SOCIABLEKIT_HIGHLIGHTS_SCRIPT_ID =
@@ -26,6 +27,11 @@ const loadSociableKitHighlights = () => {
 };
 
 export const SociableKitInstagramHighlights = () => {
+  const languageContext = useLanguage();
+  const archiveLabel =
+    languageContext?.t?.("sketches.archive_label") ||
+    "Instagram story highlights archive";
+
   useEffect(() => {
     loadSociableKitHighlights();
   }, []);
@@ -35,12 +41,13 @@ export const SociableKitInstagramHighlights = () => {
       className="sk-ww-instagram-story-highlights"
       data-embed-id={SOCIABLEKIT_HIGHLIGHTS_EMBED_ID}
       data-testid="sociablekit-instagram-story-highlights"
-      aria-label="Instagram story highlights archive"
+      aria-label={archiveLabel}
     />
   );
 };
 
 const Sketches = () => {
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
@@ -51,16 +58,16 @@ const Sketches = () => {
       className={`min-h-[100dvh] flex flex-col bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-zinc-800 selection:text-white transition-colors duration-700 overflow-hidden relative`}
     >
       <Helmet>
-        <title>Sketches | Fadly Zaki</title>
+        <title>{t("sketches.helmet_title")}</title>
         <meta
           name="description"
-          content="A lightweight visual archive of sketches and creative exploration."
+          content={t("sketches.seo_desc")}
         />
       </Helmet>
 
       <SEO
-        title="Sketches & Visual Archive"
-        description="Sketches by Fadly Uzzaki  -  a lightweight visual archive of design thinking, ideation, and creative exploration."
+        title={t("sketches.seo_title")}
+        description={t("sketches.seo_desc")}
         type="website"
       />
 
@@ -83,7 +90,7 @@ const Sketches = () => {
 
       {/* --- NAVIGATION SYSTEM --- */}
       <div className="relative z-50">
-        <Navbar onOpenMenu={handleOpenMenu} title="SKETCHES" backPath="/" />
+        <Navbar onOpenMenu={handleOpenMenu} title={t("sketches.nav_title")} backPath="/" />
         <NavigationMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />
       </div>
 
@@ -93,7 +100,7 @@ const Sketches = () => {
           aria-labelledby="sketches-archive-title"
         >
           <h2 id="sketches-archive-title" className="sr-only">
-            Sketches visual archive
+            {t("sketches.archive_sr_title")}
           </h2>
           <div className="w-full overflow-hidden rounded border border-[var(--border-color)] bg-[var(--bg-surface)]/40 p-2 shadow-2xl backdrop-blur-sm sm:p-4">
             <SociableKitInstagramHighlights />

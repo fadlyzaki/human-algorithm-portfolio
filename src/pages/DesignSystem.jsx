@@ -3,12 +3,14 @@ import SystemLoader from "../components/SystemLoader";
 import DesignSystemViewer from "../components/DesignSystemViewer";
 import SEO from "../components/SEO";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import PageShell from "../components/PageShell";
 import Footer from "../components/Footer";
 const ChaosCanvas = lazy(() => import("../components/ChaosCanvas"));
 
 const DesignSystem = () => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   // Only page-specific accent override needed  -  core tokens come from index.css
   const themeStyles = {
@@ -21,8 +23,8 @@ const DesignSystem = () => {
       className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-sans transition-colors duration-500 selection:bg-[var(--accent)] selection:text-white"
     >
       <SEO
-        title="Design System  -  Human Algorithm"
-        description="Live design system and component library powering Fadly Uzzaki's Human Algorithm portfolio. Explore tokens, components, and interaction patterns."
+        title={t("design_system.seo_title")}
+        description={t("design_system.seo_desc")}
       />
 
       {/* Background Atmosphere */}
@@ -30,7 +32,7 @@ const DesignSystem = () => {
         <ChaosCanvas />
       </Suspense>
 
-      <PageShell navbarProps={{ backPath: "/side-project/human-algorithm", title: "design_kernel.sys" }}>
+      <PageShell navbarProps={{ backPath: "/side-project/human-algorithm", title: t("design_system.nav_title") }}>
         <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-[100dvh] bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
           <DesignSystemViewer />
           <section className="mb-0">

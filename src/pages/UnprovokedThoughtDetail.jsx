@@ -27,6 +27,7 @@ const UnprovokedThoughtDetail = () => {
     const { slug } = useParams();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(0);
+    const dateLocale = language === 'id' ? 'id-ID' : 'en-US';
 
     // Resolve thought by slug and language
     const thought = getThoughtBySlug(slug, language);
@@ -77,15 +78,15 @@ const UnprovokedThoughtDetail = () => {
                 <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
                 <div className="text-center">
                     <span className="text-6xl mb-6 block">💭</span>
-                    <h1 className="text-3xl font-serif font-bold mb-4">Thought Not Found</h1>
+                    <h1 className="text-3xl font-serif font-bold mb-4">{t("thoughts.not_found_title")}</h1>
                     <p className="text-[var(--text-secondary)] mb-8 font-mono text-sm">
-                        This thought hasn't been provoked yet.
+                        {t("thoughts.not_found_desc")}
                     </p>
                     <Link
                         to="/thoughts"
                         className="font-mono text-xs uppercase tracking-widest text-[var(--accent-amber)] hover:text-[var(--text-primary)] transition-colors border-b border-[var(--accent-amber)] pb-1"
                     >
-                        ← Back to all thoughts
+                        ← {t("thoughts.back_all")}
                     </Link>
                 </div>
             </div>
@@ -147,7 +148,7 @@ const UnprovokedThoughtDetail = () => {
             {/* Navigation */}
             <Navbar
                 onOpenMenu={() => setIsMenuOpen(true)}
-                title="Unprovoked Thoughts"
+                title={t("thoughts.nav_title")}
                 backPath="/thoughts"
             />
             <NavigationMenu
@@ -190,7 +191,7 @@ const UnprovokedThoughtDetail = () => {
                             <div className="flex items-center gap-2">
                                 <Calendar size={14} />
                                 <span>
-                                    {new Date(frontmatter.date).toLocaleDateString('en-US', {
+                                    {new Date(frontmatter.date).toLocaleDateString(dateLocale, {
                                         year: 'numeric',
                                         month: 'short',
                                         day: 'numeric',
@@ -222,7 +223,7 @@ const UnprovokedThoughtDetail = () => {
                 <div className="mt-20 pt-12 border-t border-[var(--border-color)] flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="text-center md:text-left">
                         <h3 className="font-mono text-sm uppercase text-[var(--text-secondary)] mb-1">
-                            Written By
+                            {t("thoughts.written_by")}
                         </h3>
                         <div className="font-bold text-lg">Fadly Uzzaki 🧢</div>
                     </div>
@@ -235,7 +236,7 @@ const UnprovokedThoughtDetail = () => {
                             size={18}
                             className="group-hover:rotate-12 transition-transform"
                         />
-                        <span>Share Protocol</span>
+                        <span>{t("thoughts.share_protocol")}</span>
                     </button>
                 </div>
 
@@ -247,7 +248,7 @@ const UnprovokedThoughtDetail = () => {
                     >
                         <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[var(--accent-amber)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <h4 className="font-mono text-[10px] text-[var(--accent-amber)] font-bold uppercase tracking-[0.2em] mb-3">
-                            Next_Transmission
+                            {t("thoughts.next_transmission")}
                         </h4>
                         <div className="text-xl md:text-2xl font-bold flex flex-col sm:flex-row items-center justify-center gap-4 font-serif text-[var(--text-primary)]">
                             <span className="text-4xl sm:text-2xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">{nextThought.frontmatter.emoji}</span>

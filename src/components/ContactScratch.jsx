@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Copy, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 /**
  * Premium Contact Scratch Component
@@ -9,6 +10,8 @@ import { motion, AnimatePresence } from "framer-motion";
  * in favor of synchronous stroke interpolation.
  */
 const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
+  const languageContext = useLanguage();
+  const t = languageContext?.t;
   const canvasRef = useRef(null);
   const [isScratched, setIsScratched] = useState(false);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -16,6 +19,8 @@ const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
   const lastPos = useRef(null);
 
   const canvasConfig = { width: 300, height: 50 };
+  const scratchRevealLabel =
+    t?.("contact.scratch_reveal") || "[ SCRATCH TO REVEAL ]";
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -61,8 +66,8 @@ const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.letterSpacing = "2px";
-    ctx.fillText("[ SCRATCH TO REVEAL ]", canvas.width / 2, canvas.height / 2);
-  }, [isScratched]);
+    ctx.fillText(scratchRevealLabel, canvas.width / 2, canvas.height / 2);
+  }, [isScratched, scratchRevealLabel]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(email);
@@ -179,7 +184,7 @@ const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
           <button
             onClick={handleCopy}
             className="relative z-10 p-1.5 hover:bg-white/10 dark:hover:bg-zinc-800 rounded transition-colors"
-            title="Copy to clipboard"
+            title={t?.("contact.copy_email") || "Copy to clipboard"}
           >
             {copied ? (
               <Check size={14} className="text-[var(--brand)]" />
@@ -222,7 +227,9 @@ const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
-          {isScratched ? "Connection secure." : "Decrypt payload manually..."}
+          {isScratched
+            ? t?.("contact.connection_secure") || "Connection secure."
+            : t?.("contact.decrypt_payload") || "Decrypt payload manually..."}
         </motion.span>
       </motion.div>
     </div>

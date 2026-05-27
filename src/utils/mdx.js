@@ -17,24 +17,25 @@ const rawThoughts = import.meta.glob(
     { query: '?raw', import: 'default', eager: true }
 );
 
-function calculateReadTime(raw) {
-    if (!raw) return '1 min read';
+function calculateReadTime(raw, lang = 'en') {
+    const suffix = lang === 'id' ? 'menit baca' : 'min read';
+    if (!raw) return `1 ${suffix}`;
 
     // Handle Vites import.meta.glob behavior which might return a module object
     const text = typeof raw === 'string' ? raw : raw.default || '';
-    if (typeof text !== 'string') return '1 min read';
+    if (typeof text !== 'string') return `1 ${suffix}`;
 
     // Remove YAML frontmatter before counting words
     const cleanContent = text.replace(/---[\s\S]*?---/, '').trim();
     const words = cleanContent.split(/\s+/).length;
     const minutes = Math.max(1, Math.ceil(words / 200));
-    return `${minutes} min read`;
+    return `${minutes} ${suffix}`;
 }
 
 /**
  * Parse a single module entry into a structured thought object
  */
-function parseThought(path, module) {
+function parseThought(path, module, lang = 'en') {
     const slug = path
         .replace('../../content/unprovoked-thoughts/', '')
         .replace('.mdx', '');
@@ -45,7 +46,7 @@ function parseThought(path, module) {
 
     // Calculate dynamic read time from raw file content
     const rawText = rawThoughts[path] || '';
-    const dynamicReadTime = calculateReadTime(rawText);
+    const dynamicReadTime = calculateReadTime(rawText, lang);
 
     return {
         slug,
@@ -67,7 +68,7 @@ function parseThought(path, module) {
  */
 export function getAllUnprovokedThoughts(lang = 'en') {
     const thoughts = Object.entries(thoughtModules).map(([path, module]) =>
-        parseThought(path, module)
+        parseThought(path, module, lang)
     );
 
     // Filter out language-specific files that aren't the current language

@@ -123,8 +123,8 @@ const AboutPage = () => {
       className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-blue)] selection:text-[some] transition-colors duration-500 overflow-x-hidden"
     >
       <SEO
-        title="About Fadly Uzzaki"
-        description="Learn about Fadly Uzzaki (Fadlyzaki)  -  Product Designer with expertise in B2B SaaS, EdTech, and human-centered systems design. Career timeline, certifications, and design philosophy."
+        title={t("about.seo_title")}
+        description={t("about.seo_desc")}
       />
 
       {/* 1. TEXTURE & LIGHTING */}
@@ -132,7 +132,7 @@ const AboutPage = () => {
         <ChaosCanvas intensity={chaosStrength} />
       </Suspense>
 
-      <PageShell navbarProps={{ title: "About System", backPath: "/" }}>
+      <PageShell navbarProps={{ title: t("about.nav_title"), backPath: "/" }}>
         {/* Progress Bar (Isolated Component) */}
         <ScrollProgressBar />
 
@@ -227,7 +227,7 @@ const AboutPage = () => {
                 <div className={`mt-4 transition-opacity duration-300 ${chaosStrength > 50 ? 'opacity-100' : 'opacity-0'}`}>
                   <p className="font-mono text-[10px] text-[var(--accent-green)] uppercase tracking-widest flex items-center gap-2">
                     <Shield size={12} />
-                    WARNING: High Chaos. ENFJ-A (Assertive) Protocol engaged. Performance stable.
+                    {t("about.chaos_warning")}
                   </p>
                 </div>
               </div>
@@ -251,19 +251,16 @@ const AboutPage = () => {
             <ScrollReveal>
               <div className="flex items-baseline gap-4 mb-8">
                 <span className="font-mono text-sm text-[var(--accent-blue)] opacity-60 uppercase tracking-widest">
-                // BACKGROUND_TASKS
+                  {t("about.background_tasks")}
                 </span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
                   <h2 className="text-2xl font-mono text-[var(--text-primary)] uppercase tracking-tight mb-4">
-                    {" "}
-                    Creative Subroutines
+                    {t("about.creative_subroutines")}
                   </h2>
                   <p className="text-[var(--text-secondary)] font-light leading-relaxed mb-6">
-                    These non-essential processes run in the background to prevent
-                    system overheating. Click on a process to view the raw output
-                    log (Instagram).
+                    {t("about.creative_subroutines_desc")}
                   </p>
                 </div>
                 <div>
