@@ -92,7 +92,7 @@ export const lumina = {
       role: "Product Designer",
       timeline: "3 Months",
       route: "/case-study/workforce-chat",
-      previewImage: "/workforce_hero.png",
+      previewImage: "/work/lumina-hero.png",
       iconName: "MessageSquare",
       details: {
         problem: "Candidates felt ignored by a silent, cold system.",
@@ -324,7 +324,7 @@ export const lumina = {
       role: "Product Designer",
       timeline: "4 Months",
       route: "/case-study/ats-dashboard",
-      previewImage: "/workforce_hero.png",
+      previewImage: "/work/lumina-hero.png",
       iconName: "Users",
       details: {
         problem: "HR lost the human story in the spreadsheet grid.",
@@ -598,7 +598,7 @@ export const lumina = {
       role: "Product Designer",
       timeline: "2 Months",
       route: "/case-study/direct-apply",
-      previewImage: "/workforce_hero.png",
+      previewImage: "/work/lumina-hero.png",
       iconName: "MessageCircle",
       details: {
         problem: "Asking a driver for a CV creates panic, not data.",
@@ -870,7 +870,7 @@ export const lumina = {
       role: "Product Designer",
       timeline: "Ongoing",
       route: "/case-study/app-navigation",
-      previewImage: "/workforce_hero.png",
+      previewImage: "/work/lumina-hero.png",
       iconName: "Layout",
       details: {
         problem: "Getting lost in filters when you need a job today.",

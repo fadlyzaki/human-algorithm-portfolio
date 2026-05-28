@@ -1,4 +1,6 @@
 import puppeteer from "puppeteer";
+import ogHandler from "../api/og.js";
+import { resolveOGMeta } from "../api/_ogRoutes.js";
 
 const BASE_URL = process.env.STRESS_BASE_URL || "http://127.0.0.1:4173/";
 const IDLE_WAIT_MS = Number(process.env.STRESS_IDLE_WAIT_MS || 2500);
@@ -27,9 +29,37 @@ const INITIAL_MOBILE_BLOCKLIST = [
   /ChaosCanvas/i,
 ];
 
+const CRITICAL_PROJECT_ROUTES = [
+  "/case-study/stoqo-logistics",
+  "/case-study/stoqo-sales",
+  "/case-study/design-system-gudangada",
+  "/side-project/learning-progress-architect",
+  "/side-project/muezza",
+  "/side-project/competitor-summarizer",
+  "/side-project/human-algorithm",
+];
+
+const PROJECT_OG_ROUTES = [
+  "/case-study/stoqo-logistics",
+  "/case-study/stoqo-sales",
+  "/case-study/design-system-gudangada",
+  "/side-project/learning-progress-architect",
+  "/side-project/muezza",
+  "/side-project/competitor-summarizer",
+  "/side-project/human-algorithm",
+];
+
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const scenarioUrl = (path = "/") => new URL(path, BASE_URL).toString();
+
+const isLocalUrl = (url) => {
+  try {
+    return new URL(url).origin === new URL(BASE_URL).origin;
+  } catch {
+    return false;
+  }
+};
 
 const assetName = (url) => {
   try {
@@ -125,6 +155,34 @@ const assertLongTaskBudget = (state) => {
   );
 };
 
+const assertImagesHealthy = async (page) => {
+  const brokenImages = await page.evaluate(() => {
+    return Array.from(document.images)
+      .filter((image) => image.currentSrc && image.complete && image.naturalWidth === 0)
+      .map((image) => image.currentSrc || image.src || image.alt || "unknown image");
+  });
+
+  assert(
+    brokenImages.length === 0,
+    `Broken rendered images detected:\n${brokenImages.join("\n")}`,
+  );
+};
+
+const renderOgPreview = async (route) => {
+  const request = new Request(`https://local.test/api/og?page=${encodeURIComponent(route)}`);
+  const response = await ogHandler(request);
+  const body = Buffer.from(await response.arrayBuffer());
+
+  assert(response.status === 200, `OG ${route} returned status ${response.status}`);
+  assert(body.length > 30000, `OG ${route} rendered suspiciously small output: ${body.length} bytes`);
+
+  return {
+    route,
+    bytes: body.length,
+    contentType: response.headers.get("content-type"),
+  };
+};
+
 const createPage = async (browser) => {
   const page = await browser.newPage();
   const errors = [];
@@ -137,6 +195,16 @@ const createPage = async (browser) => {
   page.on("console", (message) => {
     if (message.type() === "error") {
       errors.push(message.text());
+    }
+  });
+  page.on("requestfailed", (request) => {
+    if (isLocalUrl(request.url())) {
+      errors.push(`Request failed: ${request.url()} - ${request.failure()?.errorText || "unknown"}`);
+    }
+  });
+  page.on("response", (response) => {
+    if (isLocalUrl(response.url()) && response.status() >= 400) {
+      errors.push(`HTTP ${response.status()}: ${response.url()}`);
     }
   });
 
@@ -288,6 +356,60 @@ const scenarios = [
       return {
         unlockedAssets,
         assistantAssets,
+      };
+    },
+  },
+  {
+    name: "project detail routes survive repeated navigation",
+    run: async (page, errors) => {
+      const visited = [];
+
+      for (let cycle = 0; cycle < 2; cycle += 1) {
+        for (const path of CRITICAL_PROJECT_ROUTES) {
+          await page.goto(scenarioUrl(path), {
+            waitUntil: "networkidle2",
+            timeout: 30000,
+          });
+          await page.waitForSelector("main", { timeout: 10000 });
+          await delay(900);
+          await assertImagesHealthy(page);
+
+          const state = await collectPageState(page);
+          const pageText = await page.evaluate(() => document.body.innerText);
+          assert(state.mainRendered, `${path} did not render main content`);
+          assert(!/Data Corrupted|could not be retrieved/i.test(pageText), `${path} rendered missing-project state`);
+          visited.push(path);
+        }
+      }
+
+      assertNoRuntimeErrors(errors);
+
+      return {
+        visits: visited.length,
+        uniqueRoutes: unique(visited).length,
+      };
+    },
+  },
+  {
+    name: "project OG cards render uniquely",
+    run: async (_page, errors) => {
+      const metas = PROJECT_OG_ROUTES.map((route) => resolveOGMeta(route));
+      const signatures = metas.map((meta) => meta.signature);
+      const colors = metas.map((meta) => meta.color);
+      const rendered = [];
+
+      assert(new Set(signatures).size === PROJECT_OG_ROUTES.length, "Project OG signatures are not unique");
+      assert(colors.every((color) => /^#[0-9a-f]{6}$/i.test(color)), "Project OG colors must be concrete hex values");
+
+      for (const route of PROJECT_OG_ROUTES) {
+        rendered.push(await renderOgPreview(route));
+      }
+
+      assertNoRuntimeErrors(errors);
+
+      return {
+        rendered,
+        signatures,
       };
     },
   },

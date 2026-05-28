@@ -8,6 +8,7 @@ import { interactiveWorkbook } from "./projects/interactiveWorkbook";
 import { yearInReview } from "./projects/yearInReview";
 import { competitorSummarizer } from "./projects/competitorSummarizer";
 import { learningProgressArchitect } from "./projects/learningProgressArchitect";
+import { muezza } from "./projects/muezza";
 // Import Work Clusters
 import { lumina } from "./projects/lumina";
 import { gudangAda } from "./projects/gudangAda";
@@ -19,6 +20,7 @@ import { stoqo } from "./projects/stoqo";
 
 export const SIDE_PROJECTS = [
   learningProgressArchitect, // April 2026
+  muezza, // April 2026
   competitorSummarizer, // March 2026
   humanAlgorithm, // Feb 2026
   productivityIllusion, // 2025-2026

@@ -2,7 +2,9 @@ export const EXPERIMENTS = [
   {
     id: "agency-pivot",
     title: 'The "Agency" Pivot',
+    title_id: 'Pivot "Agency"',
     subtitle: "Redesigning Algorithms",
+    subtitle_id: "Merancang Ulang Algoritma",
     desc: "Treating users like pilots, not dopamine junkies.",
     tldr: "Giving the steering wheel back to your own attention span.",
     tldr_id: "Mengembalikan kemudi setir kepada atensi Anda sendiri.",
@@ -434,7 +436,9 @@ export const EXPERIMENTS = [
   {
     id: "flood-alert",
     title: "Flood Alert",
+    title_id: "Peringatan Banjir",
     subtitle: "Civic Resilience System",
+    subtitle_id: "Sistem Ketahanan Warga",
     desc: "Real-time crowdsourced flood evacuation for Jakarta.",
     desc_id: "Evakuasi banjir berbasis komunitas real-time untuk Jakarta.",
     tldr: "Zero-blindspot geospatial alerting during critical flood events.",

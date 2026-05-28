@@ -32,7 +32,6 @@ const AUDIT_DATA = {
     { file: "src/constants/stoqoTheme.js", count: 11, severity: "warn", note: "Brand-specific theme" },
     { file: "src/components/auth/ChaosMatrixBackground.jsx", count: 10, severity: "warn", note: "Animated backdrop" },
     { file: "src/components/ChaosCanvas.jsx", count: 7, severity: "warn", note: "Canvas RGB (required)" },
-    { file: "src/components/sketches/Flipbook.jsx", count: 6, severity: "warn", note: "Gallery engine" },
   ],
   categories: [
     { name: "Colors (hex)", count: 0, icon: Hash, domain: "Core system" },

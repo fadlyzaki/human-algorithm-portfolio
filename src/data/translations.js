@@ -12,7 +12,6 @@ export const translations = {
       index: "Index",
       archives: "Archives",
       process: "Process",
-      sketches: "Sketches",
       design_system: "Design System",
       close: "Close",
       // Tooltips
@@ -110,8 +109,6 @@ export const translations = {
       section_knowledge_upgrades: "Knowledge Upgrades",
       section_cert_module: "CERTIFICATION_MODULE",
       show_credential: "Show Credential",
-      sketches_desc: "Before the pixels, there were pencils.",
-      sketches_count: "90+ pieces",
       thoughts_desc: "Essays, reflections & unprovoked opinions.",
       read_btn: "Read",
 
@@ -235,6 +232,7 @@ export const translations = {
       fix: "The Solution",
       teams: "Squads",
       wip: "WORK IN PROGRESS",
+      classified: "Classified",
       system_view: "System_View",
       human_narrative: "Human_Narrative",
       loading_simulation: "LOADING_SIMULATION...",
@@ -597,16 +595,6 @@ export const translations = {
       status_ready: "Ready to Build",
       cta_proceed: "Proceed to System Directory",
     },
-    sketches: {
-      title: "Exhibition",
-      pencil: "Graphite",
-      digital: "Digital",
-      drag_to_explore: "Scroll to explore hallway",
-      scroll_to_zoom: "SCROLL TO ZOOM",
-      nodes_found: "NODES FOUND",
-      digital_disclaimer:
-        "I am currently not sketching digitally since last year because my Apple Pencil is broken.",
-    },
     project_detail: {
       scroll_down: "Scroll down",
     },
@@ -697,7 +685,6 @@ export const translations = {
         "efficiency": "STOQO: Designing for operational resilience in the chaotic heart of F&B logistics.",
         // Route-specific contexts
         "design-system": "System DNA: Reviewing the immutable tokens that define this interface.",
-        "sketches": "Visual Scratchpad: Exploring early-stage visual logic and pencil prototypes.",
         "contact": "Handshake Protocol: Ready to initialize a direct sync with the architect.",
         "system-manifest": "Technical Blueprint: An ATS-optimized manifest of my professional output.",
         "unprovoked-thoughts": "Neural Echoes: Processing essays, reflections, and philosophical logs."
@@ -751,7 +738,6 @@ export const translations = {
         msg_case_study: "Meticulously deconstructing legacy workflows. Analyzing the logic of impact.",
         context: {
           "design-system": "System DNA: Analyzing the core tokens that define this digital reality.",
-          "sketches": "Raw Input: Accessing unoptimized visual thoughts and pencil-first logic.",
           "contact": "Handshake Protocol: Initializing a direct handshake with the system architect.",
           "human-algorithm": "Observation: The system is examining its own creation. Meta-context detected.",
           "productivity-illusion": "Deconstructing Focus: Analyzing the gap between metric engagement and actual learning.",
@@ -796,7 +782,6 @@ export const translations = {
       index: "Indeks",
       archives: "Arsip",
       process: "Proses",
-      sketches: "Sketsa",
       design_system: "Design System",
       close: "Tutup",
       // Tooltips
@@ -893,8 +878,6 @@ export const translations = {
       section_knowledge_upgrades: "Peningkatan Pengetahuan",
       section_cert_module: "MODUL_SERTIFIKASI",
       show_credential: "Lihat Kredensial",
-      sketches_desc: "Sebelum piksel, ada pensil.",
-      sketches_count: "90+ karya",
       thoughts_desc: "Esai, refleksi & opini jujur.",
       read_btn: "Baca",
 
@@ -1017,6 +1000,7 @@ export const translations = {
       fix: "Solusi",
       teams: "Skuad",
       wip: "DALAM PENGERJAAN",
+      classified: "Terbatas",
       system_view: "Tampilan_Sistem",
       human_narrative: "Narasi_Manusia",
       loading_simulation: "MEMUAT_SIMULASI...",
@@ -1149,16 +1133,6 @@ export const translations = {
       status_ready: "Siap Membangun",
       cta_proceed: "Lanjut ke Direktori Sistem",
     },
-    sketches: {
-      title: "Pameran",
-      digital: "Digital",
-      pencil: "Grafit",
-      drag_to_explore: "Gulir untuk eksplorasi",
-      scroll_to_zoom: "GULIR UNTUK ZOOM",
-      nodes_found: "KARYA DITEMUKAN",
-      digital_disclaimer:
-        "Saya sedang tidak melakukan sketsa digital sejak tahun lalu karena Apple Pencil saya rusak.",
-    },
     project_detail: {
       scroll_down: "Scroll ke bawah",
     },
@@ -1249,7 +1223,6 @@ export const translations = {
         "efficiency": "STOQO: Mendesain untuk resiliensi operasional di jantung logistik F&B yang dinamis.",
         // Konteks spesifik rute
         "design-system": "DNA Sistem: Meninjau token desain yang mendefinisikan antarmuka ini.",
-        "sketches": "Sketsa Visual: Mengeksplorasi logika visual tahap awal dan purwarupa pensil.",
         "contact": "Protokol Jabat Tangan: Siap untuk memulai sinkronisasi langsung dengan sang arsitek.",
         "system-manifest": "Cetak Biru Teknis: Manifes profesional yang dioptimalkan untuk sistem ATS.",
         "unprovoked-thoughts": "Gema Neural: Memproses esai, refleksi, dan log filosofis."
@@ -1303,7 +1276,6 @@ export const translations = {
         msg_case_study: "Mendekonstruksi alur kerja utama dengan teliti. Menganalisis logika dampak.",
         context: {
           "design-system": "DNA Sistem: Menganalisis token inti yang mendefinisikan realitas digital ini.",
-          "sketches": "Input Pentah: Mengakses pemikiran visual tidak teroptimasi dan logika berbasis pensil.",
           "contact": "Protokol Jabat Tangan: Menginisialisasi tautan langsung dengan sang arsitek sistem.",
           "human-algorithm": "Observasi: Sistem sedang meninjau ciptaannya sendiri. Mendeteksi meta-konteks.",
           "productivity-illusion": "Dekonstruksi Fokus: Menganalisis celah antara keterlibatan metrik dan pembelajaran nyata.",

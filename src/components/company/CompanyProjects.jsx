@@ -7,6 +7,25 @@ import IconMapper from "../ui/IconMapper";
 import CloneCard from "../case-study/CloneCard";
 import { mapProjectToStudy, isProjectLocked, isProjectWip } from "../../utils/projectMappers";
 
+const CASE_TYPE_ID = {
+  "Service Design": "Desain Layanan",
+  "Mobile App": "Aplikasi Mobile",
+  "Concept": "Konsep",
+  "Web Dashboard": "Dasbor Web",
+  "Mobile Feature": "Fitur Mobile",
+  "App Architecture": "Arsitektur Aplikasi",
+  "Web Platform": "Platform Web",
+  "System Feature": "Fitur Sistem",
+  "Dashboard": "Dasbor",
+  "Design System": "Design System",
+};
+
+const resolveLocalizedText = (value, isId) => {
+  if (!value) return "";
+  if (typeof value === "object") return isId ? value.id || value.en : value.en;
+  return isId ? CASE_TYPE_ID[value] || value : value;
+};
+
 const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
   const [isManualHover, setIsManualHover] = useState(false);
   const [isAutoHover, setIsAutoHover] = useState(false);
@@ -64,6 +83,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
   const outcome = isId
     ? project.details_id?.outcome || project.details.outcome
     : project.details.outcome;
+  const projectType = resolveLocalizedText(project.type, isId);
 
 
   return (
@@ -200,12 +220,12 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
                     className="w-1 h-1 rounded-full animate-pulse"
                     style={{ backgroundColor: brandColor }}
                   />
-                  {project.type}
+                  {projectType}
                 </span>
               </div>
               <div className="rotate-[-5deg] select-none border border-red-500/25 dark:border-red-400/20 px-2 py-0.5 rounded-[3px]">
                 <span className="font-mono text-[7px] font-black uppercase tracking-[0.3em] text-red-500/40 dark:text-red-400/30">
-                  Classified
+                  {t("company.classified")}
                 </span>
               </div>
             </div>
@@ -214,7 +234,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
             <div className="flex-grow rounded-xl overflow-hidden border border-black/5 dark:border-white/5 bg-white dark:bg-neutral-900 relative">
               <div className="absolute inset-0">
                 <ProjectCard
-                  type={project.type}
+                  type={projectType}
                   id={project.id}
                   expanded={true}
                 />

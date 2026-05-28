@@ -39,7 +39,7 @@ export const muezza = {
   type: { en: "Responsive PWA", id: "PWA Responsif" },
   date: { en: "April 2026", id: "April 2026" },
   coverImage: "airy:network",
-  ogImage: "/muezza-og.png",
+  ogImage: "/og-image.png",
   snapshot: {
     tagline: {
       en: "Grounded Quranic Habits",

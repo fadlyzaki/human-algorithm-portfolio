@@ -10,7 +10,6 @@ import {
   Flame,
   BookOpen,
   PenLine,
-  Palette,
   Terminal,
   X,
 } from "lucide-react";
@@ -453,10 +452,10 @@ const HomeAbout = ({ t }) => {
           </TerminalWindowCard>
         </DraggableBento>
 
-        {/* 6. SKETCHES & THOUGHTS TEASERS (Span 3 cols split into 2) */}
+        {/* 6. THOUGHTS TEASER */}
         <DraggableBento id="links" activeId={activeId} setActiveId={setActiveId} constraintsRef={constraintsRef} className="md:col-span-3">
           <TerminalWindowCard
-            lsOutput="archives/ sketches/ thoughts/"
+            lsOutput="archives/ thoughts/"
             terminalCommand="ls -la /archives/"
             executeLabel="[ Mount Directory ]"
             accentColorClass="text-[var(--text-secondary)]"
@@ -465,35 +464,7 @@ const HomeAbout = ({ t }) => {
             hoverBorderClass="hover:border-[var(--text-secondary)]"
             defaultExpanded={isRecruiterMode}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full relative z-10 pt-4 pb-2">
-              <Link
-                to="/sketches"
-                className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-amber)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-amber)] transition-colors shrink-0">
-                      <Palette
-                        size={20}
-                        className="text-[var(--accent-amber)] opacity-60 group-hover:opacity-100 transition-opacity"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
-                        {t("nav.sketches")}
-                      </h4>
-                      <p className="text-[var(--text-primary)] text-sm font-light">
-                        {t("about.sketches_desc")}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
-                    {t("about.sketches_count")}
-                  </div>
-                </div>
-              </Link>
-
+            <div className="grid grid-cols-1 gap-6 w-full relative z-10 pt-4 pb-2">
               <Link
                 to="/thoughts"
                 className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"

@@ -95,7 +95,7 @@ export const stoqo = {
       role: "Product Designer",
       timeline: "2 Months",
       route: "/case-study/stoqo-logistics",
-      previewImage: "/case-studies/delivery-methods/delivery-status-cover.png",
+      previewImage: "/case-studies/stoqo-logistics/delivery-experience-1.png",
       iconName: "Truck",
       details: {
         problem: "Owners returning to 4-AM wet market runs due to late deliveries.",

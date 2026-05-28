@@ -160,8 +160,6 @@ const VirtualAssistant = ({ initialOpen = false }) => {
         return getMsg("msg_side_projects");
       } else if (path === "/design-system") {
         return getMsg("context.design-system");
-      } else if (path === "/sketches") {
-        return getMsg("context.sketches");
       } else if (path === "/contact") {
         return getMsg("context.contact");
       } else if (path === "/cv" || path === "/system-manifest") {
@@ -222,7 +220,7 @@ const VirtualAssistant = ({ initialOpen = false }) => {
 
   // Determine if we should hide on 404/catch-all
   // Valid top-level paths and prefixes
-  const validPaths = ["/", "/about", "/side-projects", "/thoughts", "/design-system", "/sketches", "/contact", "/cv", "/system-manifest"];
+  const validPaths = ["/", "/about", "/side-projects", "/thoughts", "/design-system", "/contact", "/cv", "/system-manifest"];
   const validPrefixes = ["/case-study/", "/side-project/", "/work/", "/blog/", "/thoughts/"];
   
   const is404 = !validPaths.includes(location.pathname) && 

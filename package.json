@@ -8,6 +8,8 @@
     "build": "npm --prefix 'prototype-source/gudangada' install && npm --prefix 'prototype-source/gudangada' run build && rm -rf public/prototype-gada && cp -r 'prototype-source/gudangada/dist' public/prototype-gada && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "assets:protect": "node scripts/protect-assets.mjs && node scripts/generate-optimized-images.mjs",
+    "assets:audit": "node scripts/audit-protected-assets.mjs",
     "stress:res": "node scripts/res-stress-gate.mjs",
     "test": "vitest run",
     "test:watch": "vitest"

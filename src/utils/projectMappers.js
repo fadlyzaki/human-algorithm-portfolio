@@ -35,7 +35,7 @@ export const mapProjectToStudy = (proj, cluster, isId) => {
   let previewImage = proj.previewImage;
 
   // List of generic images we want to replace with Diagrams if possible
-  const genericImages = ["/workforce_hero.png", "/efficiency_hero.png", "/commerce_hero.png"];
+  const genericImages = ["/work/lumina-hero.png", "/efficiency_hero.png", "/commerce_hero.png"];
 
   // 1. Identify potential airy diagrams from various metadata fields
   const snapshotHero = proj.snapshot?.heroImage || proj.caseStudy?.snapshot?.heroImage;

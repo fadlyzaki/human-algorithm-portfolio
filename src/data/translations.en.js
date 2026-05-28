@@ -11,7 +11,6 @@ export const en = {
     "index": "Index",
     "archives": "Archives",
     "process": "Process",
-    "sketches": "Sketches",
     "design_system": "Design System",
     "close": "Close",
     "open_to_work": "Open to Work",
@@ -111,8 +110,6 @@ export const en = {
     "section_knowledge_upgrades": "Knowledge Upgrades",
     "section_cert_module": "CERTIFICATION_MODULE",
     "show_credential": "Show Credential",
-    "sketches_desc": "Before the pixels, there were pencils.",
-    "sketches_count": "90+ pieces",
     "thoughts_desc": "Essays, reflections & unprovoked opinions.",
     "read_btn": "Read",
     "log_1_title": "University of Indonesia + Internships",
@@ -359,6 +356,7 @@ export const en = {
     "fix": "The Solution",
     "teams": "Squads",
     "wip": "WORK IN PROGRESS",
+    "classified": "Classified",
     "system_view": "System_View",
     "human_narrative": "Human_Narrative",
     "loading_simulation": "LOADING_SIMULATION...",
@@ -765,21 +763,6 @@ export const en = {
     "close": "Close Letter",
     "cta_proceed": "Proceed to System Directory"
   },
-  "sketches": {
-    "title": "Exhibition",
-    "seo_title": "Sketches & Visual Archive",
-    "seo_desc": "Sketches by Fadly Uzzaki - a lightweight visual archive of design thinking, ideation, and creative exploration.",
-    "helmet_title": "Sketches | Fadly Zaki",
-    "nav_title": "SKETCHES",
-    "archive_label": "Instagram story highlights archive",
-    "archive_sr_title": "Sketches visual archive",
-    "pencil": "Graphite",
-    "digital": "Digital",
-    "drag_to_explore": "Scroll to explore hallway",
-    "scroll_to_zoom": "SCROLL TO ZOOM",
-    "nodes_found": "NODES FOUND",
-    "digital_disclaimer": "I am currently not sketching digitally since last year because my Apple Pencil is broken."
-  },
   "project_detail": {
     "scroll_down": "Scroll down"
   },
@@ -917,7 +900,6 @@ export const en = {
       "commerce": "GudangAda: Systematizing trust across $100B of fragmented B2B supply chains.",
       "efficiency": "STOQO: Designing for operational resilience in the chaotic heart of F&B logistics.",
       "design-system": "System DNA: Reviewing the immutable tokens that define this interface.",
-      "sketches": "Visual Scratchpad: Exploring early-stage visual logic and pencil prototypes.",
       "contact": "Handshake Protocol: Ready to initialize a direct sync with the architect.",
       "system-manifest": "Technical Blueprint: An ATS-optimized manifest of my professional output.",
       "unprovoked-thoughts": "Neural Echoes: Processing essays, reflections, and philosophical logs."
@@ -971,7 +953,6 @@ export const en = {
       "msg_case_study": "Meticulously deconstructing legacy workflows. Analyzing the logic of impact.",
       "context": {
         "design-system": "System DNA: Analyzing the core tokens that define this digital reality.",
-        "sketches": "Raw Input: Accessing unoptimized visual thoughts and pencil-first logic.",
         "contact": "Handshake Protocol: Initializing a direct handshake with the system architect.",
         "human-algorithm": "Observation: The system is examining its own creation. Meta-context detected.",
         "productivity-illusion": "Deconstructing Focus: Analyzing the gap between metric engagement and actual learning.",

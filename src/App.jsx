@@ -19,7 +19,6 @@ const UnprovokedThoughtsIndex = lazyWithRetry(() => import("./pages/UnprovokedTh
 const UnprovokedThoughtDetail = lazyWithRetry(() => import("./pages/UnprovokedThoughtDetail"));
 const NotFound = lazyWithRetry(() => import("./pages/NotFound"));
 const DesignSystem = lazyWithRetry(() => import("./pages/DesignSystem"));
-const Sketches = lazyWithRetry(() => import("./pages/Sketches"));
 
 
 import { LanguageProvider } from "./context/LanguageContext";
@@ -52,7 +51,6 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/cv" element={<SystemManifest />} />
               <Route path="/design-system" element={<DesignSystem />} />
-              <Route path="/sketches" element={<Sketches />} />
 
               {/* Index Pages */}
               <Route path="/side-projects" element={<SideProjectsIndex />} />

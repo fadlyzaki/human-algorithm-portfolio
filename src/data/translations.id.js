@@ -11,7 +11,6 @@ export const id = {
     "index": "Indeks",
     "archives": "Arsip",
     "process": "Proses",
-    "sketches": "Sketsa",
     "design_system": "Design System",
     "close": "Tutup",
     "open_to_work": "Terbuka untuk Kerja",
@@ -111,8 +110,6 @@ export const id = {
     "section_knowledge_upgrades": "Peningkatan Pengetahuan",
     "section_cert_module": "MODUL_SERTIFIKASI",
     "show_credential": "Lihat Kredensial",
-    "sketches_desc": "Sebelum piksel, ada pensil.",
-    "sketches_count": "90+ karya",
     "thoughts_desc": "Esai, refleksi & opini jujur.",
     "read_btn": "Baca",
     "log_1_title": "Universitas Indonesia + Magang",
@@ -359,6 +356,7 @@ export const id = {
     "fix": "Solusi",
     "teams": "Skuad",
     "wip": "DALAM PENGERJAAN",
+    "classified": "Terbatas",
     "system_view": "Tampilan_Sistem",
     "human_narrative": "Narasi_Manusia",
     "loading_simulation": "MEMUAT_SIMULASI...",
@@ -484,21 +482,6 @@ export const id = {
     "status_ready": "Siap Membangun",
     "close": "Tutup Surat",
     "cta_proceed": "Lanjut ke Direktori Sistem"
-  },
-  "sketches": {
-    "title": "Pameran",
-    "seo_title": "Sketsa & Arsip Visual",
-    "seo_desc": "Sketsa Fadly Uzzaki - arsip visual ringan tentang proses berpikir desain, ideasi, dan eksplorasi kreatif.",
-    "helmet_title": "Sketsa | Fadly Zaki",
-    "nav_title": "SKETSA",
-    "archive_label": "Arsip sorotan Instagram",
-    "archive_sr_title": "Arsip visual sketsa",
-    "digital": "Digital",
-    "pencil": "Grafit",
-    "drag_to_explore": "Gulir untuk eksplorasi",
-    "scroll_to_zoom": "GULIR UNTUK ZOOM",
-    "nodes_found": "KARYA DITEMUKAN",
-    "digital_disclaimer": "Saya sedang tidak melakukan sketsa digital sejak tahun lalu karena Apple Pencil saya rusak."
   },
   "project_detail": {
     "scroll_down": "Scroll ke bawah"
@@ -637,7 +620,6 @@ export const id = {
       "commerce": "GudangAda: Mensistematiskan kepercayaan di tengah rantai pasok B2B senilai $100M.",
       "efficiency": "STOQO: Mendesain untuk resiliensi operasional di jantung logistik F&B yang dinamis.",
       "design-system": "DNA Sistem: Meninjau token desain yang mendefinisikan antarmuka ini.",
-      "sketches": "Sketsa Visual: Mengeksplorasi logika visual tahap awal dan purwarupa pensil.",
       "contact": "Protokol Jabat Tangan: Siap untuk memulai sinkronisasi langsung dengan sang arsitek.",
       "system-manifest": "Cetak Biru Teknis: Manifes profesional yang dioptimalkan untuk sistem ATS.",
       "unprovoked-thoughts": "Gema Neural: Memproses esai, refleksi, dan log filosofis."
@@ -691,7 +673,6 @@ export const id = {
       "msg_case_study": "Mendekonstruksi alur kerja utama dengan teliti. Menganalisis logika dampak.",
       "context": {
         "design-system": "DNA Sistem: Menganalisis token inti yang mendefinisikan realitas digital ini.",
-        "sketches": "Input Pentah: Mengakses pemikiran visual tidak teroptimasi dan logika berbasis pensil.",
         "contact": "Protokol Jabat Tangan: Menginisialisasi tautan langsung dengan sang arsitek sistem.",
         "human-algorithm": "Observasi: Sistem sedang meninjau ciptaannya sendiri. Mendeteksi meta-konteks.",
         "productivity-illusion": "Dekonstruksi Fokus: Menganalisis celah antara keterlibatan metrik dan pembelajaran nyata.",

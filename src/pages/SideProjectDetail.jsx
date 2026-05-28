@@ -274,7 +274,6 @@ const SideProjectDetail = () => {
       <SEO
         title={activeTitle}
         description={activeTldr}
-        image={project.ogImage || (project.coverImage && !project.coverImage.startsWith('airy:') ? project.coverImage : undefined)}
         schema={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",

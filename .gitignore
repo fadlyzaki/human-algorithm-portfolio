@@ -34,5 +34,9 @@ docs/
 .env*.local
 unused_report.txt
 
+# Local-only source assets used to regenerate portfolio-safe public derivatives
+asset-sources/originals/
+asset-sources/protection-report.json
+
 # Mock Pages & Playgrounds
 src/pages/CompanyMockStoqo.jsx

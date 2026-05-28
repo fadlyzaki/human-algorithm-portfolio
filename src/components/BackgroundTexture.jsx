@@ -4,7 +4,7 @@ import React from "react";
  * BackgroundTexture  -  Reusable SVG noise overlay
  *
  * Replaces duplicated noise texture blocks across pages
- * (Home, About, CompanyDetail, NotFound, Sketches, etc.)
+ * (Home, About, CompanyDetail, NotFound, etc.)
  *
  * @param {string} position  - CSS position: "fixed" | "absolute" (default: "fixed")
  * @param {number} opacity   - Opacity value (default: 0.05)

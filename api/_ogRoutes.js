@@ -18,13 +18,69 @@ import { interactiveWorkbook } from '../src/data/projects/interactiveWorkbook.js
 import { productivityIllusion } from '../src/data/projects/productivityIllusion.js';
 import { competitorSummarizer } from '../src/data/projects/competitorSummarizer.js';
 import { learningProgressArchitect } from '../src/data/projects/learningProgressArchitect.js';
+import { muezza } from '../src/data/projects/muezza.js';
 
 const SITE_URL = 'https://fadlyzaki-design.vercel.app';
 const DEFAULT_OG = {
     title: 'Fadly Uzzaki Portfolio',
     description: 'Current portfolio and resume: B2B SaaS, workforce tech, logistics, AI learning systems, and unlocked public case studies.',
     color: '#10b981',
+    kind: 'portfolio',
     eyebrow: 'CURRENT PORTFOLIO'
+};
+
+const TOKEN_COLORS = {
+    'var(--accent-red)': '#ef4444',
+    'var(--accent-blue)': '#3b82f6',
+    'var(--accent-amber)': '#f59e0b',
+    'var(--accent-green)': '#10b981',
+    'var(--accent-purple)': '#8b5cf6',
+    'var(--accent-sky)': '#00C2FF',
+    'var(--accent-pink)': '#EC4899',
+    'var(--accent-orange)': '#f97316',
+    'var(--accent-teal)': '#1AA8B4',
+};
+
+const FALLBACK_COLORS = [
+    '#10b981',
+    '#8b5cf6',
+    '#f97316',
+    '#3b82f6',
+    '#EC4899',
+    '#00C2FF',
+    '#f59e0b',
+];
+
+const PUBLIC_CASE_STUDY_IDS = new Set([
+    'stoqo-logistics',
+    'stoqo-sales',
+    'design-system-gudangada',
+]);
+
+const normalizeText = (value) => {
+    if (!value) return '';
+    const text = typeof value === 'object' ? value.en || value.id || '' : value;
+    return String(text).replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+};
+
+const colorFor = (seed, preferredColor) => {
+    if (preferredColor && TOKEN_COLORS[preferredColor]) return TOKEN_COLORS[preferredColor];
+    if (preferredColor && /^#[0-9a-f]{3,8}$/i.test(preferredColor)) return preferredColor;
+
+    const source = seed || DEFAULT_OG.title;
+    let total = 0;
+    for (let i = 0; i < source.length; i += 1) total += source.charCodeAt(i);
+    return FALLBACK_COLORS[total % FALLBACK_COLORS.length];
+};
+
+const compactList = (items) => items.map(normalizeText).filter(Boolean).slice(0, 4);
+
+const metricCardsFor = (...metricSources) => {
+    const metrics = metricSources.flat().filter(Boolean);
+    return metrics.slice(0, 3).map((metric) => ({
+        label: normalizeText(metric.label),
+        value: normalizeText(metric.value),
+    })).filter((metric) => metric.label && metric.value);
 };
 
 // --- Static Pages (curated OG descriptions) ---
@@ -32,42 +88,58 @@ const STATIC_ROUTES = {
     '/': {
         title: 'Fadly Uzzaki — Product Designer & Design Engineer',
         description: 'Current portfolio: B2B SaaS, workforce tech, logistics, AI learning systems, and public case studies backed by a recruiter-ready CV.',
-        color: '#10b981'
+        color: '#10b981',
+        kind: 'portfolio',
+        eyebrow: 'CURRENT PORTFOLIO',
+        chips: ['B2B SaaS', 'AI learning systems', 'Public case studies'],
     },
     '/about': {
         title: 'About — Fadly Uzzaki',
         description: "The person behind the system. A decade of designing for humans in chaos.",
-        color: '#8B5CF6'
+        color: '#8B5CF6',
+        kind: 'profile',
+        eyebrow: 'ABOUT',
+        chips: ['Product design', 'Systems thinking', 'Cognitive load'],
     },
     '/contact': {
         title: 'Get In Touch',
         description: "Let's talk about design, systems, or your next big thing.",
-        color: '#3B82F6'
+        color: '#3B82F6',
+        kind: 'contact',
+        eyebrow: 'CONTACT',
+        chips: ['Jakarta', 'Remote-ready', 'Collaboration'],
     },
     '/cv': {
         title: 'Resume / CV — Fadly Uzzaki',
         description: 'Recruiter-ready resume backed by live portfolio evidence, public case studies, and a downloadable May 2026 PDF.',
-        color: '#F59E0B'
+        color: '#F59E0B',
+        kind: 'resume',
+        eyebrow: 'RESUME / CV',
+        chips: ['ATS-ready', 'May 2026 PDF', 'Portfolio evidence'],
     },
     '/design-system': {
         title: 'Design System',
         description: "The atomic building blocks behind the Fadlyzaki Portfolio.",
-        color: '#06B6D4'
-    },
-    '/sketches': {
-        title: 'Sketches',
-        description: "Interactive experiments and creative explorations.",
-        color: '#F97316'
+        color: '#06B6D4',
+        kind: 'system',
+        eyebrow: 'SYSTEM DNA',
+        chips: ['Tokens', 'Components', 'Interaction rules'],
     },
     '/side-projects': {
         title: 'Side Projects',
         description: "Experiments, concepts, and passion projects outside the 9-to-5.",
-        color: '#8B5CF6'
+        color: '#8B5CF6',
+        kind: 'side-project-index',
+        eyebrow: 'SIDE PROJECTS',
+        chips: ['AI labs', 'Research tools', 'Weekend builds'],
     },
     '/thoughts': {
         title: 'Unprovoked Thoughts',
         description: "Essays, reflections, and unsolicited opinions on design, technology, and the spaces between.",
-        color: '#F59E0B'
+        color: '#F59E0B',
+        kind: 'writing',
+        eyebrow: 'THOUGHTS',
+        chips: ['Essays', 'Design philosophy', 'Technology'],
     }
 };
 
@@ -94,6 +166,14 @@ for (const company of COMPANIES) {
         title: `${COMPANY_NAMES[company.id] || company.id} — ${company.title}`,
         description: company.hook || company.miniDesc || DEFAULT_OG.description,
         color: COMPANY_COLORS[company.id] || DEFAULT_OG.color,
+        kind: 'work-cluster',
+        eyebrow: 'WORK CLUSTER',
+        chips: compactList([
+            COMPANY_NAMES[company.id],
+            company.subtitle,
+            company.companyFocus?.items?.[0],
+            company.companyFocus?.items?.[1],
+        ]),
     };
 }
 
@@ -102,11 +182,27 @@ const CASE_STUDY_ROUTES = {};
 for (const company of COMPANIES) {
     if (!company.projects) continue;
     for (const project of company.projects) {
+        const isPublic = PUBLIC_CASE_STUDY_IDS.has(project.id);
         CASE_STUDY_ROUTES[project.id] = {
-            title: project.title,
-            description: project.caseStudy?.snapshot?.tagline || project.desc || '',
+            title: normalizeText(project.title),
+            description: normalizeText(
+                project.caseStudy?.snapshot?.tagline ||
+                project.details?.problem ||
+                project.desc ||
+                DEFAULT_OG.description,
+            ),
             color: COMPANY_COLORS[company.id] || DEFAULT_OG.color,
             company: COMPANY_NAMES[company.id] || company.id,
+            kind: 'case-study',
+            eyebrow: isPublic ? 'PUBLIC CASE STUDY' : 'PROTECTED CASE FILE',
+            chips: compactList([
+                COMPANY_NAMES[company.id],
+                project.tag,
+                project.type,
+                project.timeline,
+            ]),
+            metrics: metricCardsFor(project.caseStudy?.metrics, project.metrics),
+            signature: project.id,
         };
     }
 }
@@ -120,6 +216,7 @@ const SIDE_PROJECT_SOURCES = [
     yearInReview,
     interactiveWorkbook,
     productivityIllusion,
+    muezza,
 ];
 
 const SIDE_PROJECT_ROUTES = {};
@@ -127,14 +224,24 @@ for (const sp of SIDE_PROJECT_SOURCES) {
     const id = sp.id;
     if (!id) continue;
     // Handle titles that may be objects { en, id } or plain strings
-    const titleStr = typeof sp.title === 'object' ? (sp.title.en || sp.title.id) : sp.title;
+    const titleStr = normalizeText(sp.title);
     const descStr = sp.tldr || sp.desc || sp.hook ||
         (typeof sp.miniDesc === 'string' ? sp.miniDesc : '') ||
         DEFAULT_OG.description;
     SIDE_PROJECT_ROUTES[id] = {
         title: titleStr,
-        description: typeof descStr === 'object' ? (descStr.en || '') : descStr,
-        color: sp.brandColor || DEFAULT_OG.color,
+        description: normalizeText(descStr),
+        color: colorFor(id, sp.brandColor),
+        kind: 'side-project',
+        eyebrow: 'SIDE PROJECT',
+        chips: compactList([
+            sp.type,
+            sp.date,
+            sp.context?.client,
+            sp.context?.event,
+        ]),
+        metrics: metricCardsFor(sp.metrics),
+        signature: id,
     };
 }
 
@@ -165,6 +272,11 @@ export function resolveOGMeta(pathname) {
                 title: `${meta.title} — ${meta.company}`,
                 description: meta.description,
                 color: meta.color,
+                kind: meta.kind,
+                eyebrow: meta.eyebrow,
+                chips: meta.chips,
+                metrics: meta.metrics,
+                signature: meta.signature,
                 path
             };
         }
@@ -180,6 +292,9 @@ export function resolveOGMeta(pathname) {
             title: segments[1].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
             description: 'A design note by Fadly Uzzaki.',
             color: '#8B5CF6',
+            kind: 'writing',
+            eyebrow: 'BLOG',
+            chips: ['Design note', 'Fadly Uzzaki'],
             path
         };
     }
@@ -189,6 +304,9 @@ export function resolveOGMeta(pathname) {
             title: segments[1].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
             description: 'An unprovoked thought by Fadly Uzzaki — essays on design, technology, and the spaces between.',
             color: '#F59E0B',
+            kind: 'writing',
+            eyebrow: 'THOUGHT',
+            chips: ['Essay', 'Design', 'Technology'],
             path
         };
     }
