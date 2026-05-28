@@ -168,7 +168,8 @@ const LearningArchitectDetail = ({
   activeSolution,
   // InteractionComponent — not used in this layout (no live preview panel)
   // activeSnapshot — hero uses AiryDiagram directly
-  // t, isIndonesian — EN/ID resolution done upstream by SideProjectDetail
+  t,
+  isIndonesian,
   activeTitle,
   activeTldr,
 }) => {
@@ -176,6 +177,66 @@ const LearningArchitectDetail = ({
   const [activeTab, setActiveTab] = useState("challenge");
 
   const accentEmerald = "var(--accent-emerald, #10b981)";
+  const loopPhases = isIndonesian
+    ? [
+        { icon: Target, label: "Tentukan Tujuan", sublabel: "Tujuan · Level · Ritme · Gaya", color: "var(--accent-emerald, #10b981)" },
+        { icon: GitBranch, label: "Buat Peta Jalan", sublabel: "Rencana awal terstruktur AI", color: "var(--accent-blue, #3b82f6)" },
+        { icon: BookOpen, label: "Pasangkan Sumber", sublabel: "Tugas + tautan materi", color: "var(--accent-purple, #8b5cf6)" },
+        { icon: Clock, label: "Sesi Fokus", sublabel: "Timer · Tugas · Tujuan", color: "var(--accent-orange, #f97316)" },
+        { icon: Zap, label: "Aksi Cepat", sublabel: "jelaskan · contoh · analogi", color: "var(--accent-yellow, #eab308)" },
+        { icon: Brain, label: "Refleksi", sublabel: "Hambatan · Kepercayaan diri · Catatan", color: "var(--accent-pink, #ec4899)" },
+        { icon: RotateCcw, label: "Ulasan Adaptif", sublabel: "Penjadwalan pengulangan berjarak", color: "var(--accent-teal, #14b8a6)" },
+      ]
+    : LOOP_PHASES;
+  const archLayers = isIndonesian
+    ? [
+        { label: "Frontend React", detail: "React 19 · Router 7 · Vite", icon: Layers },
+        { label: "Runtime Express", detail: "Node · TypeScript · Auth", icon: Terminal },
+        { label: "Layanan Python ADK", detail: "Perencanaan workflow · pelatih belajar", icon: Brain },
+        { label: "Lapisan Tool MCP", detail: "Operasi workspace · pencarian konteks", icon: Cpu },
+        { label: "SQLite / AlloyDB", detail: "Persistensi · siap migrasi", icon: Database },
+      ]
+    : ARCH_LAYERS;
+  const jtbd = isIndonesian
+    ? [
+        { core: true, job: "Saat saya ingin mempelajari hal kompleks secara mandiri", outcome: "bantu ubah tujuan itu menjadi rencana realistis dan menjaga momentum tanpa terus memutuskan ulang langkah berikutnya.", icon: Compass, color: "emerald-400" },
+        { job: "Saat saya duduk untuk belajar", outcome: "tampilkan tugas berikutnya yang paling berdampak dengan segera.", icon: Zap, color: "blue-400" },
+        { job: "Saat saya buntu", outcome: "bantu saya memahami konsep dalam konteks tugas yang sedang dikerjakan.", icon: Target, color: "orange-400" },
+        { job: "Saat saya menyelesaikan sesi", outcome: "tangkap apa yang sudah saya pahami dan bagian yang masih lemah.", icon: Database, color: "purple-400" },
+        { job: "Saat saya berisiko lupa sesuatu", outcome: "munculkan kembali pada waktu yang tepat.", icon: Brain, color: "pink-400" },
+        { job: "Saat momentum saya turun", outcome: "ingatkan progres dengan cara yang bisa ditindaklanjuti, bukan hanya informatif.", icon: TrendingUp, color: "amber-400" },
+      ]
+    : JTBD;
+  const principles = isIndonesian
+    ? [
+        { icon: Compass, name: "Aksi Berikutnya Dulu", desc: "Setiap permukaan utama membuat tindakan terbaik berikutnya jelas sebelum informasi pendukung muncul." },
+        { icon: Brain, name: "AI di Dalam Workflow", desc: "AI memperkuat perencanaan, pemahaman, dan penguatan di dalam alur produk yang terbatas. Ia tidak menggantikan struktur produk." },
+        { icon: Shield, name: "Kepercayaan Lewat Kejelasan Status", desc: "Jika sesuatu tersimpan, dijadwalkan, selesai, atau masih draft, UI membuatnya eksplisit." },
+        { icon: Lightbulb, name: "Opinionated by Default", desc: "Produk mengambil default cerdas atas nama pelajar sejauh mungkin, mengurangi beban perencanaan." },
+        { icon: Activity, name: "Degradasi Anggun", desc: "Alur belajar inti tetap berjalan bahkan ketika kualitas AI menurun atau provider terbatas." },
+      ]
+    : PRINCIPLES;
+  const releasePhases = isIndonesian
+    ? [
+        { phase: "Fase 1", title: "Kepercayaan dan Penyelesaian Loop", status: "Berjalan", statusColor: "#10b981", items: ["Formalkan semantik tujuan aktif", "Buat workflow creation transaksional", "Simpan atau hapus catatan dalam sesi", "Buat alur penyelesaian ulasan yang nyata", "Perjelas status simpan dan hasil pasca-aksi"] },
+        { phase: "Fase 2", title: "UX Keputusan dan Navigasi", status: "Direncanakan", statusColor: "#3b82f6", items: ["Perkuat hierarki aksi terbaik berikutnya", "Tambahkan navigasi mobile yang kuat", "Kurangi kompetisi visual di halaman kunci", "Dashboard sebagai permukaan kontrol operasional"] },
+        { phase: "Fase 3", title: "Kecerdasan dan Kedalaman", status: "Masa Depan", statusColor: "#8b5cf6", items: ["Perdalam roadmap di luar struktur awal", "Perkuat kualitas referensi dan grounding retrieval", "Perbaiki adaptasi berdasarkan kepercayaan diri dan riwayat", "AlloyDB AI untuk memory dan retrieval enrichment"] },
+      ]
+    : RELEASE_PHASES;
+  const degradationRows = isIndonesian
+    ? [
+        { trigger: "ADK tidak tersedia", fallback: "Perilaku legacy in-process" },
+        { trigger: "Kuota Gemini terbatas", fallback: "Konten deterministik sadar konteks" },
+        { trigger: "Aksi cepat berulang", fallback: "Output cache digunakan kembali" },
+      ]
+    : [
+        { trigger: "ADK unavailable", fallback: "Legacy in-process behavior" },
+        { trigger: "Gemini quota constrained", fallback: "Deterministic context-aware content" },
+        { trigger: "Repeated quick-actions", fallback: "Cached outputs reused" },
+      ];
+  const surfaces = isIndonesian
+    ? ["Landing", "Login / Daftar", "Onboarding", "Dashboard", "Roadmap", "Sesi", "Pemahaman", "Ulasan", "Progres", "Refleksi", "Tujuan"]
+    : ["Landing", "Login / Signup", "Onboarding", "Dashboard", "Roadmap", "Session", "Comprehension", "Reviews", "Progress", "Reflections", "Goals"];
 
   return (
     <div className="text-[var(--text-primary)] font-sans min-h-[100dvh] pb-32 selection:bg-emerald-500/30">
@@ -224,7 +285,7 @@ const LearningArchitectDetail = ({
           >
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">
-              Self-Directed Learning OS · April 2026
+              {t("project_layouts.learning_os_badge")}
             </span>
           </motion.div>
 
@@ -253,10 +314,10 @@ const LearningArchitectDetail = ({
             className="flex flex-wrap gap-6 text-sm font-mono text-emerald-300/60"
           >
             {[
-              { label: "Role", value: activeContext.role },
-              { label: "Team", value: activeContext.team },
-              { label: "Timeline", value: activeContext.timeline },
-              { label: "Stack", value: "React + Express + ADK + MCP" },
+              { label: t("project_layouts.learning_role"), value: activeContext.role },
+              { label: t("project_layouts.learning_team"), value: activeContext.team },
+              { label: t("project_layouts.learning_timeline"), value: activeContext.timeline },
+              { label: t("project_layouts.learning_stack"), value: "React + Express + ADK + MCP" },
             ].map(({ label, value }) => (
               <div key={label} className="flex flex-col gap-1">
                 <span className="text-[9px] uppercase tracking-widest opacity-50">{label}</span>
@@ -274,11 +335,11 @@ const LearningArchitectDetail = ({
         <div className="max-w-[1400px] mx-auto">
           <blockquote className="max-w-4xl">
             <p className="text-2xl md:text-3xl font-serif italic text-[var(--text-primary)] leading-relaxed mb-6">
-              "Learning breaks down not because people lack ambition, but because the system around the ambition is unstable."
+              "{t("project_layouts.learning_quote")}"
             </p>
             <footer className="font-mono text-[11px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
-              Product Philosophy
+              {t("project_layouts.product_philosophy")}
             </footer>
           </blockquote>
         </div>
@@ -292,15 +353,15 @@ const LearningArchitectDetail = ({
           <div className="mb-12">
             <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
-              Jobs To Be Done
+              {t("project_layouts.jtbd_label")}
             </div>
             <h2 className="text-3xl md:text-4xl font-serif italic text-[var(--text-primary)] max-w-2xl">
-              Six moments where the system has to show up
+              {t("project_layouts.jtbd_title")}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {JTBD.map((item, i) => {
+            {jtbd.map((item, i) => {
               const Icon = item.icon;
               return (
                 <motion.div
@@ -340,7 +401,7 @@ const LearningArchitectDetail = ({
                       <div className="mb-4">
                         <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-sm">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                          Core Architecture Job
+                          {t("project_layouts.core_architecture_job")}
                         </span>
                       </div>
                     )}
@@ -367,7 +428,7 @@ const LearningArchitectDetail = ({
             <div className="mb-12">
               <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
                 <span className="w-8 h-px bg-[var(--border-color)]" />
-                Workflow Architecture
+                {t("project_layouts.workflow_architecture")}
               </div>
               <h2 className="text-3xl md:text-4xl font-serif italic text-[var(--text-primary)] mb-6">
                 {activeSolution[0].title}
@@ -392,7 +453,7 @@ const LearningArchitectDetail = ({
                   {/* Expand badge */}
                   <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-[var(--bg-void)]/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-[var(--border-color)] text-[var(--text-primary)] shadow-xl transition-transform duration-300 group-hover:-translate-y-1 pointer-events-none">
                     <Plus size={16} className="text-emerald-400" />
-                    <span className="text-xs font-mono uppercase tracking-widest font-bold">Expand Journey Map</span>
+                    <span className="text-xs font-mono uppercase tracking-widest font-bold">{t("project_layouts.expand_journey_map")}</span>
                   </div>
                 </div>
               )}
@@ -409,17 +470,17 @@ const LearningArchitectDetail = ({
           <div className="mb-12">
             <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
-              The Learning Loop
+              {t("project_layouts.learning_loop")}
             </div>
             <h2 className="text-3xl md:text-4xl font-serif italic text-[var(--text-primary)]">
-              One continuous loop, not isolated features
+              {t("project_layouts.learning_loop_title")}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Phase Selector */}
             <div className="space-y-2">
-              {LOOP_PHASES.map((phase, idx) => {
+              {loopPhases.map((phase, idx) => {
                 const Icon = phase.icon;
                 const isActive = activePhase === idx;
                 return (
@@ -472,28 +533,28 @@ const LearningArchitectDetail = ({
                 >
                   <div
                     className="h-1 w-full"
-                    style={{ background: `linear-gradient(90deg, ${LOOP_PHASES[activePhase].color}, transparent)` }}
+                    style={{ background: `linear-gradient(90deg, ${loopPhases[activePhase].color}, transparent)` }}
                   />
                   <div className="p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <div
                         className="w-12 h-12 rounded-xl flex items-center justify-center"
                         style={{
-                          background: `${LOOP_PHASES[activePhase].color}15`,
-                          border: `1px solid ${LOOP_PHASES[activePhase].color}30`,
+                          background: `${loopPhases[activePhase].color}15`,
+                          border: `1px solid ${loopPhases[activePhase].color}30`,
                         }}
                       >
-                        {React.createElement(LOOP_PHASES[activePhase].icon, {
+                        {React.createElement(loopPhases[activePhase].icon, {
                           size: 22,
-                          style: { color: LOOP_PHASES[activePhase].color },
+                          style: { color: loopPhases[activePhase].color },
                         })}
                       </div>
                       <div>
                         <div className="font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest">
-                          Step {String(activePhase + 1).padStart(2, "0")} / 07
+                          {t("project_layouts.step")} {String(activePhase + 1).padStart(2, "0")} / 07
                         </div>
                         <div className="text-xl font-semibold text-[var(--text-primary)]">
-                          {LOOP_PHASES[activePhase].label}
+                          {loopPhases[activePhase].label}
                         </div>
                       </div>
                     </div>
@@ -509,7 +570,7 @@ const LearningArchitectDetail = ({
                       </>
                     ) : (
                       <p className="text-[var(--text-secondary)] leading-relaxed text-sm">
-                        {LOOP_PHASES[activePhase].sublabel}
+                        {loopPhases[activePhase].sublabel}
                       </p>
                     )}
 
@@ -524,7 +585,7 @@ const LearningArchitectDetail = ({
 
               {/* Progress dots */}
               <div className="flex justify-center gap-1.5 mt-4">
-                {LOOP_PHASES.map((_, i) => (
+                {loopPhases.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setActivePhase(i)}
@@ -549,10 +610,10 @@ const LearningArchitectDetail = ({
           {/* Tab navigation */}
           <div className="flex flex-wrap gap-1 mb-12 border-b border-[var(--border-color)]">
             {[
-              { id: "challenge",  label: "The Problem" },
-              { id: "insights",   label: "Key Insights" },
-              { id: "principles", label: "Principles" },
-              { id: "learnings",  label: "Post Mortem" },
+              { id: "challenge",  label: t("project_layouts.the_problem") },
+              { id: "insights",   label: t("project_layouts.key_insights") },
+              { id: "principles", label: t("project_layouts.principles") },
+              { id: "learnings",  label: t("project_layouts.post_mortem") },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -616,7 +677,7 @@ const LearningArchitectDetail = ({
                 exit={{ opacity: 0 }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
               >
-                {PRINCIPLES.map((p, i) => {
+                {principles.map((p, i) => {
                   const Icon = p.icon;
                   return (
                     <motion.div
@@ -652,7 +713,7 @@ const LearningArchitectDetail = ({
               >
                 <div className="p-10 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)]">
                   <div className="font-mono text-[10px] uppercase tracking-widest text-emerald-400 mb-6">
-                    // Post Mortem
+                    // {t("project_layouts.post_mortem")}
                   </div>
                   <p className="font-serif italic text-xl text-[var(--text-secondary)] leading-relaxed">
                     "{activeLearnings}"
@@ -673,19 +734,19 @@ const LearningArchitectDetail = ({
           <div className="mb-12">
             <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
-              System Topology
+              {t("project_layouts.system_topology")}
             </div>
             <h2 className="text-3xl md:text-4xl font-serif italic text-[var(--text-primary)]">
-              Three-service orchestration layer
+              {t("project_layouts.system_topology_title")}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Layer diagram */}
             <div className="space-y-3">
-              {ARCH_LAYERS.map((layer, idx) => {
+              {archLayers.map((layer, idx) => {
                 const Icon = layer.icon;
-                const isBottom = idx === ARCH_LAYERS.length - 1;
+                const isBottom = idx === archLayers.length - 1;
                 return (
                   <div key={idx} className="relative">
                     <motion.div
@@ -722,14 +783,26 @@ const LearningArchitectDetail = ({
                 <div className="px-6 py-4 border-b border-[var(--border-color)] flex items-center gap-2">
                   <Terminal size={12} className="text-emerald-400" />
                   <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
-                    Stable Public Contract
+                    {t("project_layouts.stable_public_contract")}
                   </span>
                 </div>
                 <div className="p-6 font-mono text-sm space-y-3">
                   {[
-                    { method: "POST", path: "/api/agent/workflow",              note: "roadmap generation" },
-                    { method: "POST", path: "/api/tasks/:taskId/quick-action",  note: "in-session AI" },
-                    { method: "GET",  path: "/api/data",                        note: "workspace payload" },
+                    {
+                      method: "POST",
+                      path: "/api/agent/workflow",
+                      note: isIndonesian ? "pembuatan peta jalan" : "roadmap generation",
+                    },
+                    {
+                      method: "POST",
+                      path: "/api/tasks/:taskId/quick-action",
+                      note: isIndonesian ? "AI dalam sesi" : "in-session AI",
+                    },
+                    {
+                      method: "GET",
+                      path: "/api/data",
+                      note: isIndonesian ? "payload workspace" : "workspace payload",
+                    },
                   ].map(({ method, path, note }) => (
                     <div key={path} className="flex items-start gap-3">
                       <span className={`text-[10px] px-2 py-0.5 rounded font-bold shrink-0 ${
@@ -752,15 +825,11 @@ const LearningArchitectDetail = ({
                 <div className="px-6 py-4 border-b border-[var(--border-color)] flex items-center gap-2">
                   <Activity size={12} className="text-emerald-400" />
                   <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
-                    Graceful Degradation
+                    {t("project_layouts.graceful_degradation")}
                   </span>
                 </div>
                 <div className="p-6 space-y-3">
-                  {[
-                    { trigger: "ADK unavailable",          fallback: "Legacy in-process behavior" },
-                    { trigger: "Gemini quota constrained", fallback: "Deterministic context-aware content" },
-                    { trigger: "Repeated quick-actions",   fallback: "Cached outputs reused" },
-                  ].map((row, i) => (
+                  {degradationRows.map((row, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <CheckCircle2 size={14} className="text-emerald-400 shrink-0 mt-0.5" />
                       <div>
@@ -785,15 +854,15 @@ const LearningArchitectDetail = ({
           <div className="mb-12">
             <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
-              Release Plan
+              {t("project_layouts.release_plan")}
             </div>
             <h2 className="text-3xl md:text-4xl font-serif italic text-[var(--text-primary)]">
-              What the next iteration looks like
+              {t("project_layouts.release_plan_title")}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {RELEASE_PHASES.map((phase, i) => (
+            {releasePhases.map((phase, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 16 }}
@@ -868,18 +937,15 @@ const LearningArchitectDetail = ({
           <div className="mb-12">
             <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
-              Product Surfaces
+              {t("project_layouts.product_surfaces")}
             </div>
             <h2 className="text-3xl md:text-4xl font-serif italic text-[var(--text-primary)]">
-              Shaped like a guided workspace, not a feature buffet
+              {t("project_layouts.product_surfaces_title")}
             </h2>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            {[
-              "Landing", "Login / Signup", "Onboarding", "Dashboard", "Roadmap",
-              "Session", "Comprehension", "Reviews", "Progress", "Reflections", "Goals",
-            ].map((surface, i) => (
+            {surfaces.map((surface, i) => (
               <motion.div
                 key={surface}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -909,10 +975,10 @@ const LearningArchitectDetail = ({
           <div className="max-w-3xl">
             <div className="text-[10px] font-mono uppercase tracking-widest text-emerald-400/60 mb-6 flex items-center gap-3">
               <span className="w-8 h-px bg-emerald-500/30" />
-              System Intent
+              {t("project_layouts.system_intent")}
             </div>
             <p className="text-3xl md:text-4xl font-serif italic text-white leading-tight mb-10">
-              People should spend their cognitive energy learning the subject, not maintaining the machinery around the learning.
+              {t("project_layouts.system_intent_quote")}
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -923,7 +989,7 @@ const LearningArchitectDetail = ({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-medium text-sm transition-all"
                 >
-                  Live Demo <ExternalLink size={14} />
+                  {t("project_layouts.live_demo")} <ExternalLink size={14} />
                 </a>
               )}
               {project.links?.repo && (
@@ -933,17 +999,17 @@ const LearningArchitectDetail = ({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-emerald-500/30 hover:border-emerald-400 text-emerald-300 hover:text-white font-medium text-sm transition-all"
                 >
-                  Source <ArrowRight size={14} />
+                  {t("project_layouts.source")} <ArrowRight size={14} />
                 </a>
               )}
             </div>
 
             <div className="mt-12 pt-8 border-t border-emerald-500/20">
               <p className="font-mono text-[11px] text-emerald-400/50 uppercase tracking-widest">
-                Engineered by Fadly Uzzaki and Vedo Alfarizi
+                {t("project_layouts.engineered_by")}
               </p>
               <p className="font-serif italic text-emerald-300/40 text-sm mt-1">
-                Learning is human. The system should behave accordingly.
+                {t("project_layouts.learning_is_human")}
               </p>
             </div>
           </div>

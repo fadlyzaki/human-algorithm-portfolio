@@ -68,10 +68,10 @@ const BrutalistDetail = ({
         <section className="mb-32 max-w-7xl mx-auto space-y-12">
           {/* TAB BUTTONS - Brutalist Style */}
           <div className="flex flex-wrap border-4 border-[var(--text-primary)] w-full font-black uppercase text-xl">
-            {[
-              { id: "challenge", label: t("project_layouts.the_problem") || "The Problem" },
-              { id: "insights", label: "Core Insights" },
-              { id: "learnings", label: t("project_layouts.lesson_learned") || "Post Mortem" },
+              {[
+                { id: "challenge", label: t("project_layouts.the_problem") || "The Problem" },
+              { id: "insights", label: t("project_layouts.core_insights") },
+                { id: "learnings", label: t("project_layouts.lesson_learned") || "Post Mortem" },
             ].map((tab) => (
               <button
                 key={tab.id}

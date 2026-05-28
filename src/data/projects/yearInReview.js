@@ -1,6 +1,6 @@
 export const yearInReview = {
   id: "year-in-review",
-  title: { en: "Year in Review", id: "Year in Review" },
+  title: { en: "Year in Review", id: "Kilasan Tahunan" },
   subtitle: {
     en: "Privacy-First wrapped generator",
     id: "Generator wrapped berbasis privasi",

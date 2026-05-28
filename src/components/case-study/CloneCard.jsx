@@ -13,6 +13,10 @@ import ProjectCard from "../ProjectCard";
  */
 function CloneCard({ study, isId }) {
   const repeatedText = Array(30).fill(study.fullText).join(" ");
+  const logoAlt = isId ? "Logo brand" : "Brand Logo";
+  const srLabel = isId
+    ? `Lihat studi kasus ${study.tag}`
+    : `View ${study.tag} Case Study`;
   // We re-check the original mock project or the study object
 
 
@@ -104,7 +108,7 @@ function CloneCard({ study, isId }) {
           {/* Bottom-Left Brand Area */}
           <div className="flex items-center relative z-10 mt-auto pt-4">
             {study.logo && (
-               <img src={study.logo} alt="Brand Logo" className="h-7 w-auto object-contain drop-shadow-sm" />
+               <img src={study.logo} alt={logoAlt} className="h-7 w-auto object-contain drop-shadow-sm" />
             )}
           </div>
         </motion.div>
@@ -124,7 +128,7 @@ function CloneCard({ study, isId }) {
               <div>{repeatedText}</div>
            </motion.div>
         </div>
-        <span className="sr-only">View {study.tag} Case Study</span>
+        <span className="sr-only">{srLabel}</span>
       </motion.div>
     </div>
     </Link>

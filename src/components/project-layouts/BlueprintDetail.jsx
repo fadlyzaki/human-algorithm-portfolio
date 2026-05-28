@@ -106,7 +106,7 @@ const BlueprintDetail = ({
               <div className="flex border-b-2 border-blue-900/20 dark:border-blue-300/20 mb-8 overflow-x-auto hide-scrollbar">
                 {[
                   { id: "challenge", label: t("project_layouts.problem_space") || "Problem Space" },
-                  { id: "insights", label: "Planned Features" },
+                  { id: "insights", label: t("project_layouts.planned_features") },
                   { id: "learnings", label: t("project_layouts.lesson_learned") || "Post Mortem" },
                 ].map((tab) => (
                   <button

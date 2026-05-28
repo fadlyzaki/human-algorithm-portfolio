@@ -24,8 +24,7 @@ const MOTION_CONFIG = {
   IDLE_BENTO: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
 };
 
-const VentureCard = ({ project, onClick }) => {
-  const isIndonesian = false; // Mock for now or use context if needed, but defining to satisfy prop-types/logic
+const VentureCard = ({ project, onClick, isIndonesian = false }) => {
   const { isDark } = useTheme();
   const [isManualHover, setIsManualHover] = useState(false);
   const [isAutoHover, setIsAutoHover] = useState(false);
@@ -502,10 +501,10 @@ const AgenticCard = ({ project, title, desc, onClick, isHovered, isIndonesian, r
 
 // 7. THE LEARNING ARCHITECT (Learning Progress Architect)
 const LOOP_STEPS = [
-  { label: "Goal", color: "#10b981" },
-  { label: "Roadmap", color: "#3b82f6" },
-  { label: "Session", color: "#8b5cf6" },
-  { label: "Review", color: "#14b8a6" },
+  { label: "Goal", label_id: "Tujuan", color: "#10b981" },
+  { label: "Roadmap", label_id: "Peta Jalan", color: "#3b82f6" },
+  { label: "Session", label_id: "Sesi", color: "#8b5cf6" },
+  { label: "Review", label_id: "Ulasan", color: "#14b8a6" },
 ];
 
 const LearningArchitectCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => (
@@ -568,7 +567,7 @@ const LearningArchitectCard = ({ project, title, desc, onClick, isHovered, isInd
                 }}
               >
                 <div className="w-1 h-1 rounded-full" style={{ background: step.color }} />
-                {step.label}
+                {isIndonesian ? step.label_id : step.label}
               </motion.div>
               {i < LOOP_STEPS.length - 1 && (
                 <div className="w-3 h-px bg-[var(--border-color)]" />

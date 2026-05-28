@@ -26,6 +26,11 @@ export const isProjectBypassed = (proj) => {
 };
 
 export const mapProjectToStudy = (proj, cluster, isId) => {
+  const localize = (value) => {
+    if (!value || typeof value !== "object") return value;
+    return isId ? value.id || value.en : value.en;
+  };
+
   // Generate an image specifically for the app preview sticker
   let previewImage = proj.previewImage;
 
@@ -73,9 +78,9 @@ export const mapProjectToStudy = (proj, cluster, isId) => {
   const tagText = isId 
     ? (proj.tag_id || proj.tag) 
     : proj.tag;
-  const titleText = isId 
-    ? (proj.title_id || proj.title) 
-    : proj.title;
+  const titleText = isId
+    ? (proj.title_id || localize(proj.title))
+    : localize(proj.title) || proj.title;
 
   // Generate fragments for the front side headline
   const mainHeadline = problemText || challengeText || titleText || "";
@@ -101,6 +106,7 @@ export const mapProjectToStudy = (proj, cluster, isId) => {
     color: idx < 2 ? highlightColor : baseTextColor
   }));
 
+  const localizedType = localize(proj.type) || proj.type;
   const isLocked = isProjectLocked(proj);
   
   // Extract metrics for unlocked case studies
@@ -117,7 +123,7 @@ export const mapProjectToStudy = (proj, cluster, isId) => {
     id: proj.id,
     titleFragments,
     fullText: mainHeadline + " ",
-    tag: tagText || proj.type?.split(',')[0] || (isId ? "STUDI KASUS" : "CASE STUDY"),
+    tag: tagText || localizedType?.split(",")[0] || (isId ? "STUDI KASUS" : "CASE STUDY"),
     logo: cluster?.logo,
     company: cluster?.company || "Project",
     locked: isLocked,
@@ -127,6 +133,7 @@ export const mapProjectToStudy = (proj, cluster, isId) => {
     backBg,
     logoColor,
     route: proj.route || `/case-study/${proj.id}`,
+    type: localizedType,
     metrics,
     stickers: [
       { 

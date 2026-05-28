@@ -1,6 +1,6 @@
 export const productivityIllusion = {
   id: "productivity-illusion",
-  title: { en: "The Productivity Illusion", id: "The Productivity Illusion" },
+  title: { en: "The Productivity Illusion", id: "Ilusi Produktivitas" },
   subtitle: {
     en: "Bridging the Intention–Behavior Gap",
     id: "Menjembatani Kesenjangan Niat–Perilaku",

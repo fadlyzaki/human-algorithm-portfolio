@@ -125,7 +125,7 @@ const SystemCoreDetail = ({
                 to="/design-system"
                 className="flex items-center gap-2 border border-emerald-500/30 bg-[var(--bg-void)] px-4 py-2 text-emerald-400 hover:bg-emerald-500/10 transition-colors uppercase tracking-widest"
               >
-                <Cpu size={14} /> System UI Data
+                <Cpu size={14} /> {t("project_layouts.system_ui_data")}
               </Link>
             </div>
 
@@ -154,9 +154,11 @@ const SystemCoreDetail = ({
                 <>
                   <div className="hidden md:block w-px h-6 bg-[var(--border-color)]"></div>
                   <div className="flex flex-col">
-                    <span className="opacity-50 mb-1 text-purple-400">Human_Impact</span>
-                    <span className="text-[var(--text-primary)] max-w-xs truncate" title={typeof project.humanImpact === 'object' ? project.humanImpact.en : project.humanImpact}>
-                      {typeof project.humanImpact === 'object' ? project.humanImpact.en : project.humanImpact}
+                    <span className="opacity-50 mb-1 text-purple-400">
+                      {t("project_layouts.human_impact")}
+                    </span>
+                    <span className="text-[var(--text-primary)] max-w-xs truncate" title={project.humanImpact}>
+                      {project.humanImpact}
                     </span>
                   </div>
                 </>
@@ -339,7 +341,7 @@ const SystemCoreDetail = ({
             <div className="bg-blue-900/10 border border-blue-500/20 p-8 rounded-sm animate-pulse-slow">
               <div className="flex items-center justify-between mb-8 border-b border-blue-500/20 pb-4">
                 <h3 className="font-mono text-xs text-blue-400 uppercase tracking-widest">
-                  Interactive_Console
+                  {t("project_layouts.interactive_console")}
                 </h3>
                 <div className="flex gap-2">
                   <span className="w-2 h-2 rounded-full bg-red-500"></span>
@@ -366,7 +368,7 @@ const SystemCoreDetail = ({
           {activeMetrics && (
             <div className="border-t border-[var(--border-color)] pt-16">
               <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-8">
-                Telemetry_Output
+                {t("project_layouts.telemetry_output")}
               </h4>
               <div className="space-y-6">
                 {activeMetrics.map((m, i) => (

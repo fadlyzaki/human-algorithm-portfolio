@@ -1,6 +1,7 @@
 export const lumina = {
   id: "workforce",
   title: "THE WORKFORCE ECOSYSTEM",
+  title_id: "EKOSISTEM TENAGA KERJA",
   company: "Lumina",
   logo: "/logos/lumina-logo.png", // Lumina Logo
   subtitle: "Humanizing Ops",

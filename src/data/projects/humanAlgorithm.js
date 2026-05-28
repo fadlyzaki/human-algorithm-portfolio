@@ -26,7 +26,7 @@ export const humanAlgorithm = {
   date: { en: "Feb – March 2026", id: "Feb – Mar 2026" },
   coverImage: "airy:architecture",
   snapshot: {
-    tagline: { en: "System Architecture v9.0", id: "System Architecture v9.0" },
+    tagline: { en: "System Architecture v9.0", id: "Arsitektur Sistem v9.0" },
     heroImage: "airy:architecture",
   },
   context: {

@@ -26,6 +26,7 @@ const AgenticDetail = ({
   InteractionComponent,
   activeTitle,
   activeTldr,
+  t,
 
 }) => {
   const containerRef = useRef(null);
@@ -74,7 +75,7 @@ const AgenticDetail = ({
             <div className="w-full lg:w-64 shrink-0 border-r border-[var(--border-color)] bg-[var(--bg-surface)] overflow-y-auto">
               {/* Explorer Header */}
               <div className="p-4 border-b border-[var(--border-color)] text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
-                <ListTree size={12} /> EXPLORER
+                <ListTree size={12} /> {t("project_layouts.explorer")}
               </div>
               
               <div className="p-4 font-mono text-xs">
@@ -84,15 +85,15 @@ const AgenticDetail = ({
                    </div>
                    <div className="pl-4 space-y-3 border-l border-[var(--border-color)] ml-1">
                      <div>
-                       <div className="text-[var(--text-secondary)] opacity-60 uppercase text-[9px] tracking-wider mb-1">Type</div>
+                       <div className="text-[var(--text-secondary)] opacity-60 uppercase text-[9px] tracking-wider mb-1">{t("project_layouts.type")}</div>
                        <div className="text-[var(--accent-purple)]">{project.type}</div>
                      </div>
                      <div>
-                       <div className="text-[var(--text-secondary)] opacity-60 uppercase text-[9px] tracking-wider mb-1">Role</div>
+                       <div className="text-[var(--text-secondary)] opacity-60 uppercase text-[9px] tracking-wider mb-1">{t("project_layouts.role")}</div>
                        <div className="text-[var(--accent-purple)]">{activeContext.role}</div>
                      </div>
                      <div>
-                       <div className="text-[var(--text-secondary)] opacity-60 uppercase text-[9px] tracking-wider mb-1">Timeline</div>
+                       <div className="text-[var(--text-secondary)] opacity-60 uppercase text-[9px] tracking-wider mb-1">{t("project_layouts.timeline")}</div>
                        <div className="text-[var(--accent-purple)]">{activeContext.timeline}</div>
                      </div>
                      {activeContext.event && (
@@ -281,7 +282,7 @@ const AgenticDetail = ({
                             >
                                <div className="font-mono text-[9px] uppercase text-[var(--text-secondary)] mb-6 border-b border-[var(--border-color)] pb-2 flex justify-between">
                                   <span>Step_{String(activePhase + 1).padStart(2, "0")}.exe</span>
-                                  <span className="text-[var(--accent-purple)]">STATUS: RUNNING</span>
+                                  <span className="text-[var(--accent-purple)]">{t("project_layouts.status_running")}</span>
                                </div>
                                <h3 className="text-xl font-bold mb-4 font-mono text-[var(--text-primary)]">
                                   {activeProcess[activePhase].title}
@@ -318,7 +319,7 @@ const AgenticDetail = ({
               <div className="w-full lg:w-96 shrink-0 border-l border-[var(--border-color)] flex flex-col bg-[var(--bg-void)]">
                 {/* Terminal Header */}
                 <div className="p-4 border-b border-[var(--border-color)] text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 shrink-0">
-                  <Terminal size={12} /> RUNTIME_ENVIRONMENT
+                  <Terminal size={12} /> {t("project_layouts.runtime_environment")}
                 </div>
 
                 <div className="flex-1 p-4 lg:p-6 overflow-y-auto">
@@ -327,7 +328,7 @@ const AgenticDetail = ({
                          $ pnpm run start:agent --watch
                       </div>
                       <div className="text-[10px] font-mono text-[var(--text-secondary)] opacity-60">
-                         Starting live interaction environment...
+                         {t("project_layouts.starting_live_environment")}
                       </div>
                    </div>
 
@@ -351,17 +352,17 @@ const AgenticDetail = ({
             <div className="flex gap-4">
                {project.links?.pitch_deck && (
                  <a href={project.links.pitch_deck} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 flex items-center gap-1.5 px-3 py-0.5 bg-yellow-500/10 text-yellow-500 rounded border border-yellow-500/20">
-                   Pitch Deck <Presentation size={10} />
+                   {t("project_layouts.pitch_deck")} <Presentation size={10} />
                  </a>
                )}
                {project.links?.demo && (
                  <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 flex items-center gap-1.5 px-3 py-0.5 bg-emerald-500/10 text-emerald-500 rounded border border-emerald-500/20">
-                   Live Prototype <ExternalLink size={10} />
+                   {t("project_layouts.live_prototype")} <ExternalLink size={10} />
                  </a>
                )}
                {project.links?.repo && (
                  <a href={project.links.repo} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 flex items-center gap-1">
-                   Source <ArrowRight size={10} />
+                   {t("project_layouts.source")} <ArrowRight size={10} />
                  </a>
                )}
             </div>

@@ -154,7 +154,7 @@ const HomeSideProjects = ({ t, isId }) => {
               <div
                 className={`inline-flex items-center gap-2 text-[var(--accent-blue)] font-mono text-sm tracking-wider uppercase ${hoveredIndex === 3 ? "underline" : ""}`}
               >
-                Explore Archive{" "}
+                {t("home.open_archive")}{" "}
                 <ArrowRight
                   size={16}
                   className={`transition-transform duration-300 ${hoveredIndex === 3 ? "translate-x-1" : ""}`}

@@ -261,6 +261,7 @@ const SideProjectDetail = () => {
     ...project,
     type: resolveText(project.type),
     date: resolveText(project.date),
+    humanImpact: resolveText(project.humanImpact),
   };
   // Interaction Mapping
   const InteractionComponent = INTERACTION_MAP[project.id] || null;

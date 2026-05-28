@@ -82,7 +82,7 @@ const BentoDetail = ({
            <div className="flex gap-4 mb-8 overflow-x-auto hide-scrollbar pb-2">
              {[
                { id: "challenge", label: t("project_layouts.the_problem") || "The Narrative" },
-               { id: "insights", label: "Core Insights" },
+               { id: "insights", label: t("project_layouts.core_insights") },
                { id: "learnings", label: t("project_layouts.lesson_learned") || "Post Mortem" },
              ].map((tab) => (
                <button

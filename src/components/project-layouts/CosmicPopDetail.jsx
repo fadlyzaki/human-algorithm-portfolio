@@ -87,8 +87,8 @@ const CosmicPopDetail = ({
             <div className="flex bg-[var(--bg-card)] backdrop-blur-xl border border-[var(--border-color)] rounded-full p-2 gap-2 mb-12 shadow-[0_0_30px_rgba(139,92,246,0.1)]">
               {[
                 { id: "challenge", label: t("project_layouts.the_problem") || "The Challenge" },
-                { id: "insights", label: "Insights" },
-                { id: "learnings", label: "Learnings" },
+                { id: "insights", label: t("project_layouts.insights") },
+                { id: "learnings", label: t("project_layouts.learnings") },
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -281,7 +281,7 @@ const CosmicPopDetail = ({
           {activeMetrics && (
             <div className="bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-card)] rounded-[3rem] p-12 md:p-16 border border-[var(--border-color)] text-center shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                <h4 className="text-sm font-bold uppercase tracking-widest text-[var(--accent-sky)] mb-12">
-                 Mission Telemetry
+                 {t("project_layouts.mission_telemetry")}
                </h4>
                <div className="flex flex-wrap justify-center gap-x-16 gap-y-12">
                   {activeMetrics.map((m, i) => (

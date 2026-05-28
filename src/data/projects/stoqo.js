@@ -1,6 +1,7 @@
 export const stoqo = {
   id: "efficiency",
   title: "OPERATIONAL EFFICIENCY",
+  title_id: "EFISIENSI OPERASIONAL",
   company: "STOQO",
   logo: "/stoqo-logo.png",
   subtitle: "Digitizing Habits",

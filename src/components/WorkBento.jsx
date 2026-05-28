@@ -55,6 +55,8 @@ const WorkBento = ({ cluster, priority = false }) => {
 
   // Extract data
   const title = isId ? cluster.title_id || cluster.title : cluster.title;
+  const viewLabel = isId ? "Lihat" : "View";
+  const featuredLabel = isId ? "Pilihan" : "Featured";
   const role =
     cluster.stats?.find((s) => s.label === "Role")?.value ||
     cluster.projects[0]?.role ||
@@ -96,7 +98,7 @@ const WorkBento = ({ cluster, priority = false }) => {
       {/* Hover Action (Floating - Top Right) */}
       <div className={`absolute top-6 right-6 z-20 transition-all duration-300 transform ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
         <div className="bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
-          View <ArrowUpRight size={12} />
+          {viewLabel} <ArrowUpRight size={12} />
         </div>
       </div>
 
@@ -134,7 +136,7 @@ const WorkBento = ({ cluster, priority = false }) => {
                 borderColor: isHovered ? "rgba(255, 255, 255, 0.3)" : "rgba(var(--accent-blue-rgb), 0.3)",
               }}
             >
-              Featured
+              {featuredLabel}
             </motion.span>
           )}
           {/* Role (Top) */}

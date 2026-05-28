@@ -1,9 +1,11 @@
 export const gudangAda = {
   id: "commerce",
   title: "THE COMMERCE ENGINE",
+  title_id: "MESIN KOMERSIAL",
   company: "GudangAda",
   logo: "/gudangada-logo.png", // Placeholder for company logo
   subtitle: "Managing Scale",
+  subtitle_id: "Mengelola Skala",
   companyFocus: {
     title: "Unique Context",
     icon: "TrendingUp",
