@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { TerminalWindowCard } from "../home/HomeAbout";
 import {
   Terminal,
@@ -20,6 +21,43 @@ import UIDiagram from "../diagrams/UIDiagram";
 import NeuralEcho from "../NeuralEcho";
 import ContactScratch from "../ContactScratch";
 import BlindsReveal from "../BlindsReveal";
+
+const MiniDynamicDeliverable = ({ words }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [words.length]);
+
+  const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), "");
+
+  return (
+    <span
+      onClick={() => setIndex((prev) => (prev + 1) % words.length)}
+      className="inline-grid cursor-pointer text-[var(--accent)] font-serif italic font-bold justify-items-start pb-0 text-sm select-none"
+      title="Click to cycle"
+    >
+      <span className="col-start-1 row-start-1 invisible select-none pointer-events-none whitespace-nowrap underline decoration-dotted underline-offset-4 decoration-1 pr-1">
+        {longestWord}
+      </span>
+      <AnimatePresence initial={false}>
+        <motion.span
+          key={words[index]}
+          initial={{ y: 15, opacity: 0, filter: "blur(4px)" }}
+          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          exit={{ y: -15, opacity: 0, filter: "blur(4px)" }}
+          transition={{ type: "spring", stiffness: 350, damping: 25 }}
+          className="col-start-1 row-start-1 inline-block whitespace-nowrap underline decoration-dotted underline-offset-4 decoration-1 pr-1"
+        >
+          {words[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+};
 
 
 const ComponentForge = ({ isXRayMode }) => {
@@ -375,6 +413,73 @@ const ComponentForge = ({ isXRayMode }) => {
                      <p className="text-xs text-[var(--text-secondary)] text-center max-w-xs">The TerminalWindowCard safely isolates state to maintain draggable physics constraints across the grid layout.</p>
                   </div>
                </TerminalWindowCard>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* SECTION 4: INTERACTIVE SANDBOX INTEGRATIONS (v9.2) */}
+      <div className="border-t border-[var(--border-color)] pt-12 space-y-8">
+        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] flex items-center gap-2 mb-4">
+          <Layers size={14} className="text-[var(--accent)]" /> Interactive Sandbox Integrations (v9.2)
+        </h3>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Ticker spec */}
+          <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6 rounded-lg flex flex-col justify-between h-full">
+            <div>
+              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2 mb-4">
+                Dynamic Deliverable Ticker
+              </h4>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
+                An auto-cycling typography system that guarantees zero cumulative layout shift (CLS) by utilizing an invisible grid spacer sized dynamically to the longest string in the dataset.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="p-4 bg-[var(--bg-void)] border border-[var(--border-color)] rounded flex items-center justify-center gap-2">
+                <span className="text-[10px] text-[var(--text-secondary)] uppercase font-mono">Deliverables:</span>
+                <MiniDynamicDeliverable words={["Scalable Apps", "Responsive UIs", "Design Systems", "Clean Architecture"]} />
+              </div>
+              <span className="block font-mono text-[8px] uppercase text-[var(--text-secondary)] opacity-50">Cycle period: 2.5s // Clickable</span>
+            </div>
+          </div>
+
+          {/* 404 game spec */}
+          <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6 rounded-lg flex flex-col justify-between h-full">
+            <div>
+              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2 mb-4">
+                404 Retro Survival Game
+              </h4>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
+                A browser-native platformer utilizing CSS transformation layers and custom key-event listener loop routines. Renders active player physics without canvas overhead.
+              </p>
+            </div>
+            <div className="space-y-2 font-mono text-[9px] bg-[var(--bg-void)] border border-[var(--border-color)] p-4 rounded text-[var(--text-primary)]">
+              <span className="text-[var(--accent-red)] uppercase font-bold block mb-1">&gt; Physics Constant Map</span>
+              <span>GRAVITY = 0.55</span><br/>
+              <span>JUMP_FORCE = -13</span><br/>
+              <span>MAX_SPEED_X = 5px/frame</span><br/>
+              <span>FRICTION = 0.85</span><br/>
+              <span>COLLISION_LAYER = Platform Y + 16px</span>
+            </div>
+          </div>
+
+          {/* Sketches widget spec */}
+          <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6 rounded-lg flex flex-col justify-between h-full">
+            <div>
+              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2 mb-4">
+                Sketches Social Highlight Embed
+              </h4>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
+                Embeds character sketching concepts via SociableKit Instagram highlights. Employs hardware-accelerated dynamic shimmer skeletons to handle iframe fetch latency.
+              </p>
+            </div>
+            <div className="space-y-2 font-mono text-[9px] bg-[var(--bg-void)] border border-[var(--border-color)] p-4 rounded text-[var(--text-primary)]">
+              <span className="text-[var(--accent-blue)] uppercase font-bold block mb-1">&gt; Integration Details</span>
+              <span>Widget ID: 25684322</span><br/>
+              <span>Asset: Instagram Highlights</span><br/>
+              <span>Skeleton State: sketchesSkeleton</span><br/>
+              <span>Layout Ref: Home Bento Cell 4</span>
             </div>
           </div>
         </div>

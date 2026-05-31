@@ -202,6 +202,53 @@ const GovernanceLab = ({ isXRayMode }) => (
       </div>
     </div>
 
+    {/* RECRUITER CONTEXT MODES (FAST PATH) */}
+    <div className={`p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-6 relative overflow-hidden rounded-sm ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : ""}`}>
+      {isXRayMode && (
+        <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">
+          GovernanceLab.jsx // RecruiterModesSection
+        </span>
+      )}
+      <div className="flex justify-between items-center border-b border-[var(--border-color)] pb-4">
+        <h4 className="font-mono text-sm font-bold uppercase tracking-widest text-[var(--accent)] flex items-center gap-2">
+          <Activity size={16} className="text-[var(--accent)]" /> Recruiter Context Modes (Fast-Path Optimization)
+        </h4>
+        <span className="font-mono text-[9px] uppercase px-2 py-0.5 border border-[var(--accent)]/30 rounded bg-[var(--accent)]/10 text-[var(--accent)]">
+          v9.2 Active
+        </span>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8 text-xs leading-relaxed text-[var(--text-secondary)]">
+        <div className="space-y-4">
+          <p>
+            To address the high-velocity requirements of hiring managers and technical recruiters, the portfolio implements a global context-driven <strong>Recruiter Mode</strong>. This mode can be toggled via the navigation controls (Terminal vs Document mode) or by appending <code>?recruiter=true</code> in the URL query string.
+          </p>
+          <h5 className="font-bold text-[var(--text-primary)] font-mono uppercase tracking-wider text-[10px]">&gt; Key Functionalities:</h5>
+          <ul className="list-disc pl-4 space-y-2 font-mono text-[10px]">
+            <li><strong>Global CSS Hook:</strong> Applies a <code>.recruiter-mode</code> class to <code>document.body</code>.</li>
+            <li><strong>Bypass Transitions:</strong> Immediately forces all standard animation/transition timers to <code>0.01ms</code>.</li>
+            <li><strong>Reduce Interaction Costs:</strong> Strips processor-heavy floating canvas grids, custom cursor spring physics, and large card rotations, reducing Interaction to Next Paint (INP) to sub-15ms.</li>
+            <li><strong>Persistence:</strong> Saved in <code>localStorage</code> to maintain consistency across route transitions.</li>
+          </ul>
+        </div>
+
+        <div className="space-y-4">
+          <h5 className="font-bold text-[var(--text-primary)] font-mono uppercase tracking-wider text-[10px]">&gt; CSS Transition Override Spec:</h5>
+          <pre className="p-4 bg-[var(--bg-void)] border border-[var(--border-color)] rounded font-mono text-[9px] text-[var(--text-primary)] overflow-x-auto">
+{`.recruiter-mode *:not(.virtual-assistant-override) {
+  transition-duration: 0.01ms !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+}`}
+          </pre>
+          <p className="text-[10px] italic">
+            Note: This configuration works in tandem with the system-wide <code>@media (prefers-reduced-motion: reduce)</code> query to ensure complete accessibility compliance.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div className="border border-[var(--border-color)] bg-[var(--bg-surface)] p-8 text-center space-y-4">
       <h4 className="text-sm font-bold text-[var(--text-primary)]">
         Design System Roadmap
