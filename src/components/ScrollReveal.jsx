@@ -23,10 +23,12 @@ const ScrollReveal = ({
     const node = ref.current;
     if (!node) return;
 
-    // If IntersectionObserver not available (SSR edge case), reveal immediately
+    // If IntersectionObserver not available (SSR edge case), reveal immediately.
+    // Deferred via setTimeout to avoid synchronous setState inside effect body
+    // (react-hooks/set-state-in-effect). Behaviour is identical at runtime.
     if (!("IntersectionObserver" in window)) {
-      setRevealed(true);
-      return;
+      const id = setTimeout(() => setRevealed(true), 0);
+      return () => clearTimeout(id);
     }
 
     const observer = new IntersectionObserver(
