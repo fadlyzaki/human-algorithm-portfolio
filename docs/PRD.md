@@ -207,9 +207,9 @@ graph TD
 *   **Component**: `ChaosToMatrixIntro.jsx` + `TerminalIntro.jsx`
 *   **Capability**: Interactive metaphor for "taming systemic complexity" with strict semantic Kill-Switches.
 
-### 6.9 The Analog Bridge: 3D Physical Rendering
-*   **Component**: `Flipbook.jsx` engine on `/sketches`.
-*   **Capability**: GPU-accelerated 3D CSS flipbook with dynamic Z-index memory management.
+### 6.9 The Visual Archive: SociableKit Embed (`Sketches.jsx`)
+*   **Route**: `/sketches`
+*   **Capability**: The original Flipbook engine was replaced with a lightweight `<iframe>` embed (SociableKit Instagram Story Highlights widget). A CSS shimmer skeleton loading state prevents perceived broken-embed during iframe initialization (`min(85dvh, 1000px)` responsive height). Intent copy explicitly frames the page as a personal creative outlet — *"cartoons, characters, and doodles from outside the product world"* — to avoid the page being evaluated against professional case study standards. A Sketches entry card (Pencil icon, sky-blue accent) was added to the `HomeAbout` bento grid alongside the Thoughts card, making the page discoverable from the homepage for the first time.
 
 ### 6.10 The Intelligence Engine: The Companion Protocol
 *   **Component**: `VirtualAssistant.jsx`
@@ -221,7 +221,7 @@ graph TD
 
 ### 6.12 The Component Blueprint: Design System Verification
 *   **Route**: `/design-system`
-*   **Capability**: Live, explorable Design System Viewer with `ComponentForge` (NeuralEcho, ContactScratch, BlindsReveal demos), `LayoutLab` (Framer-Fidelity Cursor Physics), and `BrandIdentity` persona cards. X-Ray mode for structural inspection.
+*   **Capability**: Live, explorable Design System Viewer with `ComponentForge` (NeuralEcho, ContactScratch, BlindsReveal demos), `LayoutLab` (Framer-Fidelity Cursor Physics, 4-token spatial spec grid fully populated), and `BrandIdentity` persona cards. X-Ray mode consolidated exclusively in the sidebar — no duplicate in-section toggle. `ChromaticsGrid` now renders real static hex values (e.g. `#FAF9F6 / #0A0A0C`) instead of CSS variable strings. AuditReport tables (`Hotspot_Files`, `Token_Recommendations`) wrapped in `overflow-x-auto` with `min-w-[560px]` for mobile safety.
 
 ### 6.13 The Chaos Matrix: GPU Particle Background System
 *   **Component**: `ChaosCanvas.jsx` with `React.lazy()` deferred loading.
@@ -329,11 +329,21 @@ graph TD
 *   **[COMPLETED]** Circadian UI Overlay (Biological Time Sync).
 *   **[COMPLETED]** Breath-Synced Variable Typography via Inter Variable Font.
 
-### Phase 3.6: Career Pipeline & Presentation Polish ✅ (Current)
+### Phase 3.6: Career Pipeline & Presentation Polish ✅
 *   **[COMPLETED]** APAC Career Pipeline & Job Tracking: Integrated role-specific cover letter modals (`CoverLetterModal`) and dynamic job application infrastructure.
 *   **[COMPLETED]** Polymorphic Project Card refinement: Removed quantitative metrics for visual clarity, integrated a 3D card layout globally, and added "DECODE MY PROCESS" CTAs.
 *   **[COMPLETED]** Learning Progress Architect detail view updated with an `activeSolution` core user journey section.
 *   **[COMPLETED]** CertificationsGrid enhanced to display related project links alongside new Google Cloud Gen AI certification.
+
+### Phase 3.7: Performance Recovery & UX Polish ✅ (v9.2 · June 2026)
+*   **[COMPLETED]** `ScrollReveal.jsx` migrated from Framer Motion `useInView` to native `IntersectionObserver` — eliminated JS scheduler pressure, recovering Real Experience Score from 34 to 90+.
+*   **[COMPLETED]** `Sketches.jsx` overhauled: Flipbook engine deprecated, replaced with SociableKit iframe embed. Shimmer skeleton loading state added. Intent copy corrected to "cartoons, characters & doodles from outside the product world" (EN + ID).
+*   **[COMPLETED]** Homepage Sketches discoverability: Entry card added to `HomeAbout` bento grid (alongside Thoughts card) with sky-blue Pencil icon accent and `sm:grid-cols-2` layout.
+*   **[COMPLETED]** `LockScreen.jsx` UX: Removed intrusive mobile `autoFocus`; added `lock-input-pulse` glow animation as an affordance invite.
+*   **[COMPLETED]** `HomeAbout.jsx`: Added hover drag affordance (`⠿` grip icon) and left-border accent to primary bio card for visual hierarchy.
+*   **[COMPLETED]** Hybrid Design System Bridge: `clsx` + `tailwind-merge` installed; `cn()` utility created; shadcn CSS variable bridge injected into `index.css`. Enables selective shadcn primitive adoption without migrating the bespoke Circadian UI glassmorphic identity.
+*   **[COMPLETED]** Design System `/design-system` polish: Real hex values in ChromaticsGrid; duplicate X-Ray toggle removed; AuditReport tables made mobile-scrollable; LayoutLab spec grid completed with 4 tokens.
+*   **[COMPLETED]** Translation file hygiene: `translations.en.js` and `translations.id.js` are now the canonical source files. Missing `sketches.intent_text`, `sketches.loading_text`, and corrected `about.sketches_desc` added to both.
 
 ### Phase 4: Advanced Agentic Workflow & Predictive UX (Q3-Q4 2026)
 *   **[Q3 2026] Algorithmic Role Alignment (Dynamic IA)**: Edge-based intent detection via job description URL parsing.

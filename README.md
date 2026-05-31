@@ -7,7 +7,7 @@ Welcome to the source matrix of **[fadlyzaki-design.vercel.app](https://fadlyzak
 This repository is heavily system-driven and highly optimized. It is not a static portfolio; it is an *Interactive Architecture* and the definitive proof of work for Fadly Uzzaki, Product Designer specializing in Trust Engineering. Designed for the scrutiny of Product and Engineering leadership, this system proves the capacity to organize chaotic business logic, tame systemic B2B complexity, and output deeply resilient, accessible workflows with measurable impact.
 
 [![Status](https://img.shields.io/badge/SYSTEM-NOMINAL-green?style=flat-square&logo=react)](https://fadlyzaki-design.vercel.app/)
-[![Build](https://img.shields.io/badge/VERSION-6.0.0-blue?style=flat-square&logo=vercel)](https://vercel.com)
+[![Build](https://img.shields.io/badge/VERSION-9.2.0-blue?style=flat-square&logo=vercel)](https://vercel.com)
 [![Web Vitals](https://img.shields.io/badge/LIGHTHOUSE-100-orange?style=flat-square&logo=lighthouse)](https://pagespeed.web.dev/)
 
 ---
@@ -51,8 +51,8 @@ State-machine-driven typewriter effects (5ms intervals) and "thinking" suspense 
 ### 7. Recruiter Mode (`RecruiterModeContext`)
 Global context toggle switchable between "Terminal Mode" and "Document Mode." Universally strips animation delays, physics transitions, and typewriter blocks for hyper-scannable evaluation. Also bypasses the interactive Terminal GUI in the About section's OS Desktop, instantly rendering readable glassmorphic content. Toggled via Navbar and NavigationMenu.
 
-### 8. Physical DOM Virtualization (`Flipbook.jsx`)
-Experimental 3D CSS rendering engine on `/sketches`. Dynamically unmounts occluded pages within the Z-index stack. Stable 60fps on entry-level mobile silicon.
+### 8. Physical DOM Virtualization → Sociable Kit Embed (`Sketches.jsx`)
+The `/sketches` page was previously powered by a 3D CSS Flipbook engine (`Flipbook.jsx`). This was replaced with a lightweight `<iframe>` embed from SociableKit (Instagram Story Highlights widget), which eliminates the DOM virtualization overhead entirely. A CSS shimmer skeleton loading state (`lock-input-pulse` animation class) prevents perceived broken-embed during iframe load. Intent copy updated to communicate the personal creative nature of the page: *"Where the pixels take a break — cartoons, characters, and doodles from outside the product world."*
 
 ### 9. Automated ATS Extraction (`SystemManifest.jsx`)
 `/cv` route with aggressive `@media print` CSS. Monochromatic, single-column, highly semantic document guaranteeing 100% parse fidelity across Workday, Greenhouse, and Lever.
@@ -79,10 +79,10 @@ Persistent pixel-art sprite companion providing passive, context-aware route com
 Cinematic boot protocol with chaotic terminal sequence resolving into structured UI. Pre-loads React chunks in background. `[ Skip to Content ]` kill-switch for instant bypass.
 
 ### 16. ScrollReveal Animation System (`ScrollReveal.jsx`)
-Framer Motion `useInView`-based entrance animations with configurable directional spring physics (up/down/left/right). Applied globally across page sections.
+Native `IntersectionObserver`-based entrance animations replacing the previous Framer Motion `useInView` dependency. The migration eliminated Framer's JS scheduler from all scroll-critical paths, recovering Real Experience Score from 34 to 90+. Configurable directional animation (up/down/left/right) with configurable delay offset. A `setTimeout(0)` defers `setState` out of the synchronous observer callback to avoid React batching lint violations.
 
 ### 17. The Component Blueprint (`/design-system`)
-Live Design System Viewer with `ComponentForge` (NeuralEcho, ContactScratch, BlindsReveal demos), `LayoutLab` (Cursor Physics), `BrandIdentity` (Persona Cards), and `UXPrinciples`. X-Ray structural inspection mode.
+Live Design System Viewer with `ComponentForge` (NeuralEcho, ContactScratch, BlindsReveal demos), `LayoutLab` (Cursor Physics, 4-token spatial spec grid), `BrandIdentity` (Persona Cards), and `UXPrinciples`. X-Ray structural inspection mode lives exclusively in the sidebar (no duplicate toggle). `ChromaticsGrid` now shows real hex values (e.g. `#FAF9F6 / #0A0A0C`) rather than CSS variable references. AuditReport tables are horizontally scrollable on mobile via `overflow-x-auto`.
 
 ### 18. 404 Survival Game (`NotFound.jsx`)
 Interactive pixel-art survival game with item collection, score tracking, and ambient theme matching. Virtual Assistant hidden to not interfere with gameplay.
@@ -113,6 +113,12 @@ A robust "APAC Career Pipeline" interface providing deeply tailored, role-specif
 
 ### 27. Agency Pivot Engine (`StoryViewer.jsx`)
 An immersive, social-media-style narrative interface to showcase professional trajectories and side projects using a recognizable, highly tactile "Story" paradigm.
+
+### 28. Hybrid Design System Bridge (`src/lib/utils.js` + `src/index.css`)
+A progressive enhancement layer bridging the bespoke Circadian UI token system with shadcn/ui component primitives. `clsx` + `tailwind-merge` are combined into a `cn()` utility (`src/utils/cn.js`). A CSS variable bridge in `index.css` maps shadcn's `--primary`, `--muted`, `--border` etc. to the existing `--text-primary`, `--bg-surface`, `--border-color` tokens. This enables selective adoption of shadcn headless primitives (Tooltip, Dialog, Popover) without migrating the full bespoke glassmorphic identity system.
+
+### 29. LockScreen UX Polish (`LockScreen.jsx`)
+Removed `autoFocus` on the password input to prevent intrusive virtual keyboard popup on mobile. Added a `lock-input-pulse` animation class that creates a subtle glow-pulse invite effect, replacing the dead-silent input state that previously gave no affordance signal.
 
 ## 📂 System Topography
 The architecture follows a strict decoupled multi-layer pattern:
