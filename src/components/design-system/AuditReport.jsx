@@ -208,46 +208,48 @@ const AuditReport = ({ isXRayMode }) => (
       <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
         <ClipboardList size={14} /> Hotspot_Files
       </h3>
-      <div className="border border-[var(--border-color)] bg-[var(--bg-card)] overflow-hidden">
-        {/* Table Header */}
-        <div className="grid grid-cols-12 gap-2 px-4 py-3 bg-[var(--bg-surface)] border-b border-[var(--border-color)] font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
-          <div className="col-span-1">#</div>
-          <div className="col-span-7">File</div>
-          <div className="col-span-2 text-center">Severity</div>
-          <div className="col-span-2 text-right">Count</div>
-        </div>
-        {/* Table Rows */}
-        {AUDIT_DATA.topFiles.map((item, idx) => (
-          <div
-            key={idx}
-            className={`grid grid-cols-12 gap-2 px-4 py-3 font-mono text-xs items-center transition-colors hover:bg-[var(--bg-surface)] ${idx < AUDIT_DATA.topFiles.length - 1 ? "border-b border-[var(--border-color)]" : ""}`}
-          >
-            <div className="col-span-1 text-[var(--text-secondary)] opacity-40">
-              {String(idx + 1).padStart(2, "0")}
-            </div>
-            <div className="col-span-7 text-[var(--text-primary)] truncate">
-              {item.file}
-            </div>
-            <div className="col-span-2 text-center">
-              <span
-                className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[9px] uppercase tracking-wider ${item.severity === "error"
-                  ? "bg-[var(--accent-red)]/10 text-[var(--accent-red)] border border-[var(--accent-red)]/20"
-                  : "bg-[var(--accent-amber)]/10 text-[var(--accent-amber)] border border-[var(--accent-amber)]/20"
-                  }`}
-              >
-                {item.severity === "error" ? (
-                  <AlertTriangle size={8} />
-                ) : (
-                  <Eye size={8} />
-                )}
-                {item.severity}
-              </span>
-            </div>
-            <div className="col-span-2 text-right font-bold text-[var(--text-primary)]">
-              {item.count}
-            </div>
+      <div className="overflow-x-auto">
+        <div className="border border-[var(--border-color)] bg-[var(--bg-card)] overflow-hidden min-w-[560px]">
+          {/* Table Header */}
+          <div className="grid grid-cols-12 gap-2 px-4 py-3 bg-[var(--bg-surface)] border-b border-[var(--border-color)] font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
+            <div className="col-span-1">#</div>
+            <div className="col-span-7">File</div>
+            <div className="col-span-2 text-center">Severity</div>
+            <div className="col-span-2 text-right">Count</div>
           </div>
-        ))}
+          {/* Table Rows */}
+          {AUDIT_DATA.topFiles.map((item, idx) => (
+            <div
+              key={idx}
+              className={`grid grid-cols-12 gap-2 px-4 py-3 font-mono text-xs items-center transition-colors hover:bg-[var(--bg-surface)] ${idx < AUDIT_DATA.topFiles.length - 1 ? "border-b border-[var(--border-color)]" : ""}`}
+            >
+              <div className="col-span-1 text-[var(--text-secondary)] opacity-40">
+                {String(idx + 1).padStart(2, "0")}
+              </div>
+              <div className="col-span-7 text-[var(--text-primary)] truncate">
+                {item.file}
+              </div>
+              <div className="col-span-2 text-center">
+                <span
+                  className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[9px] uppercase tracking-wider ${item.severity === "error"
+                    ? "bg-[var(--accent-red)]/10 text-[var(--accent-red)] border border-[var(--accent-red)]/20"
+                    : "bg-[var(--accent-amber)]/10 text-[var(--accent-amber)] border border-[var(--accent-amber)]/20"
+                    }`}
+                >
+                  {item.severity === "error" ? (
+                    <AlertTriangle size={8} />
+                  ) : (
+                    <Eye size={8} />
+                  )}
+                  {item.severity}
+                </span>
+              </div>
+              <div className="col-span-2 text-right font-bold text-[var(--text-primary)]">
+                {item.count}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest text-center flex items-center justify-center gap-2">
         <ShieldCheck size={10} />
@@ -261,34 +263,36 @@ const AuditReport = ({ isXRayMode }) => (
       <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent-green)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
         <CheckCircle2 size={14} /> Token_Recommendations
       </h3>
-      <div className="border border-[var(--border-color)] bg-[var(--bg-card)] overflow-hidden">
-        {/* Table Header */}
-        <div className="grid grid-cols-12 gap-2 px-4 py-3 bg-[var(--bg-surface)] border-b border-[var(--border-color)] font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
-          <div className="col-span-3">Hardcoded Value</div>
-          <div className="col-span-3">Replace With</div>
-          <div className="col-span-5">Recommendation</div>
-          <div className="col-span-1 text-right">Files</div>
-        </div>
-        {/* Table Rows */}
-        {AUDIT_DATA.recommendations.map((item, idx) => (
-          <div
-            key={idx}
-            className={`grid grid-cols-12 gap-2 px-4 py-3 font-mono text-xs items-start transition-colors hover:bg-[var(--bg-surface)] ${idx < AUDIT_DATA.recommendations.length - 1 ? "border-b border-[var(--border-color)]" : ""}`}
-          >
-            <div className="col-span-3 text-[var(--accent-red)] font-bold">
-              {item.value}
-            </div>
-            <div className="col-span-3 text-[var(--accent-green)] font-bold">
-              {item.token}
-            </div>
-            <div className="col-span-5 text-[var(--text-secondary)] leading-relaxed">
-              {item.rec}
-            </div>
-            <div className="col-span-1 text-right text-[var(--text-primary)] font-bold">
-              {item.files}
-            </div>
+      <div className="overflow-x-auto">
+        <div className="border border-[var(--border-color)] bg-[var(--bg-card)] overflow-hidden min-w-[560px]">
+          {/* Table Header */}
+          <div className="grid grid-cols-12 gap-2 px-4 py-3 bg-[var(--bg-surface)] border-b border-[var(--border-color)] font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
+            <div className="col-span-3">Hardcoded Value</div>
+            <div className="col-span-3">Replace With</div>
+            <div className="col-span-5">Recommendation</div>
+            <div className="col-span-1 text-right">Files</div>
           </div>
-        ))}
+          {/* Table Rows */}
+          {AUDIT_DATA.recommendations.map((item, idx) => (
+            <div
+              key={idx}
+              className={`grid grid-cols-12 gap-2 px-4 py-3 font-mono text-xs items-start transition-colors hover:bg-[var(--bg-surface)] ${idx < AUDIT_DATA.recommendations.length - 1 ? "border-b border-[var(--border-color)]" : ""}`}
+            >
+              <div className="col-span-3 text-[var(--accent-red)] font-bold">
+                {item.value}
+              </div>
+              <div className="col-span-3 text-[var(--accent-green)] font-bold">
+                {item.token}
+              </div>
+              <div className="col-span-5 text-[var(--text-secondary)] leading-relaxed">
+                {item.rec}
+              </div>
+              <div className="col-span-1 text-right text-[var(--text-primary)] font-bold">
+                {item.files}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
 

@@ -47,10 +47,10 @@ const ChromaticsGrid = ({ isXRayMode }) => (
       </span>
     )}
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
-      <ColorCard name="VOID" token="--bg-void" hex="var(--bg-surface)" />
-      <ColorCard name="SURFACE" token="--bg-surface" hex="var(--bg-surface)" />
-      <ColorCard name="TEXT_PRI" token="--text-primary" hex="var(--text-primary)" />
-      <ColorCard name="TEXT_SEC" token="--text-secondary" hex="var(--text-secondary)" />
+      <ColorCard name="VOID" token="--bg-void" hex="#FAF9F6 / #0A0A0C" />
+      <ColorCard name="SURFACE" token="--bg-surface" hex="#FFFFFF / #1F1F1F" />
+      <ColorCard name="TEXT_PRI" token="--text-primary" hex="#18181B / #F4F4F5" />
+      <ColorCard name="TEXT_SEC" token="--text-secondary" hex="#52525B / #A1A1AA" />
     </div>
 
     <div className="space-y-4">
@@ -63,10 +63,10 @@ const ChromaticsGrid = ({ isXRayMode }) => (
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <ColorCard name="SYS_BLUE" token="--accent-blue" hex="var(--accent-blue)" />
-        <ColorCard name="SYS_GREEN" token="--accent-green" hex="var(--accent-green)" />
-        <ColorCard name="SYS_AMBER" token="--accent-amber" hex="var(--accent-amber)" />
-        <ColorCard name="SYS_RED" token="--accent-red" hex="var(--accent-red)" />
+        <ColorCard name="SYS_BLUE" token="--accent-blue" hex="#3b82f6" />
+        <ColorCard name="SYS_GREEN" token="--accent-green" hex="#10b981" />
+        <ColorCard name="SYS_AMBER" token="--accent-amber" hex="#f59e0b" />
+        <ColorCard name="SYS_RED" token="--accent-red" hex="#ef4444" />
       </div>
     </div>
   </div>

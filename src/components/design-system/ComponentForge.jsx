@@ -22,28 +22,20 @@ import ContactScratch from "../ContactScratch";
 import BlindsReveal from "../BlindsReveal";
 
 
-const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
+const ComponentForge = ({ isXRayMode }) => {
 
   return (
     <div className="space-y-16 animate-in slide-in-from-right-4 duration-500">
-      {/* X-RAY TOGGLE CONTROLS FOR THIS SECTION */}
+      {/* SECTION LABEL */}
       <div className="flex justify-between items-end border-b border-[var(--border-color)] pb-4">
         <div>
           <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-accent)] flex items-center gap-2 mb-2">
             <Terminal size={14} /> Spec Testing Crucible
           </h3>
           <p className="text-xs text-[var(--text-secondary)]">
-            Toggle X-Ray to inspect CSS construction classes and structural
-            bounding boxes.
+            Toggle X-Ray (sidebar) to inspect CSS construction classes and structural bounding boxes.
           </p>
         </div>
-        <button
-          onClick={() => setIsXRayMode(!isXRayMode)}
-          className={`flex items-center gap-2 px-4 py-4 md:py-3 font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "bg-[var(--bg-void)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
-        >
-          <Eye size={12} className={isXRayMode ? "animate-pulse" : ""} />
-          {isXRayMode ? "X-Ray Active" : "Enable X-Ray"}
-        </button>
       </div>
 
       {/* SECTION 1: SYSTEM COMPONENTS */}
@@ -69,7 +61,7 @@ const ComponentForge = ({ isXRayMode, setIsXRayMode }) => {
                   DefaultCard.jsx // Container.jsx
                 </span>
               )}
-              <div className="h-64 relative z-10">
+              <div className="min-h-[200px] relative z-10">
                 <DefaultCard
                   type="SYSTEM_AUDIT"
                   expanded={true}

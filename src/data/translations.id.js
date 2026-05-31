@@ -113,7 +113,7 @@ export const id = {
     "section_cert_module": "MODUL_SERTIFIKASI",
     "show_credential": "Lihat Kredensial",
     "thoughts_desc": "Esai, refleksi & opini jujur.",
-    "sketches_desc": "Arsip visual, gambar & eksplorasi desain sistematis.",
+    "sketches_desc": "Kartun, karakter & coretan di luar dunia produk.",
     "sketches_count": "Arsip",
     "read_btn": "Baca",
     "log_1_title": "Universitas Indonesia + Magang",
@@ -197,7 +197,9 @@ export const id = {
     "seo_desc": "Arsip visual ringan dari sketsa dan eksplorasi kreatif.",
     "nav_title": "SKETSA",
     "archive_sr_title": "Arsip visual sketsa",
-    "archive_label": "Galeri Sketsa"
+    "archive_label": "Galeri Sketsa",
+    "intent_text": "Saat piksel butuh istirahat — kartun, karakter, dan coretan di luar dunia produk.",
+    "loading_text": "Memuat arsip visual…"
   },
   "blog": {
     "editorial": "Editorial",

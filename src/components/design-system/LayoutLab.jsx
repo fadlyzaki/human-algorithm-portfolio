@@ -77,6 +77,24 @@ const LayoutLab = ({ isXRayMode }) => (
           </div>
           <code className="text-xs text-[var(--accent)]">px-12</code>
         </div>
+        <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
+          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+            Padding
+          </span>
+          <div className="text-xl font-bold text-[var(--text-primary)]">
+            16px
+          </div>
+          <code className="text-xs text-[var(--accent)]">p-4</code>
+        </div>
+        <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
+          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+            Columns
+          </span>
+          <div className="text-xl font-bold text-[var(--text-primary)]">
+            12
+          </div>
+          <code className="text-xs text-[var(--accent)]">grid-cols-12</code>
+        </div>
       </div>
     </div>
 

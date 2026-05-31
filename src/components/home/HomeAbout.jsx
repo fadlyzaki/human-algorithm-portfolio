@@ -10,6 +10,7 @@ import {
   Flame,
   BookOpen,
   PenLine,
+  Pencil,
   Terminal,
   X,
 } from "lucide-react";
@@ -467,7 +468,7 @@ const HomeAbout = ({ t }) => {
             hoverBorderClass="hover:border-[var(--text-secondary)]"
             defaultExpanded={isRecruiterMode}
           >
-            <div className="grid grid-cols-1 gap-6 w-full relative z-10 pt-4 pb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full relative z-10 pt-4 pb-2">
               <Link
                 to="/thoughts"
                 className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
@@ -491,6 +492,35 @@ const HomeAbout = ({ t }) => {
                     </div>
                   </div>
                   <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-amber)] whitespace-nowrap self-start sm:self-auto">
+                    {t("about.read_btn")}
+                  </div>
+                </div>
+              </Link>
+
+              {/* Sketches entrypoint card */}
+              <Link
+                to="/sketches"
+                className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-sky)] transition-all duration-500 cursor-pointer flex flex-col justify-center min-h-[140px]"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--accent-sky)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 md:p-8 gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--accent-sky)] transition-colors shrink-0">
+                      <Pencil
+                        size={20}
+                        className="text-[var(--accent-sky)] opacity-60 group-hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                        {t("nav.sketches")}
+                      </h4>
+                      <p className="text-[var(--text-primary)] text-sm font-light">
+                        {t("about.sketches_desc")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono text-xs text-[var(--accent-sky)] whitespace-nowrap self-start sm:self-auto">
                     {t("about.read_btn")}
                   </div>
                 </div>

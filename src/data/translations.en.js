@@ -113,7 +113,7 @@ export const en = {
     "section_cert_module": "CERTIFICATION_MODULE",
     "show_credential": "Show Credential",
     "thoughts_desc": "Essays, reflections & unprovoked opinions.",
-    "sketches_desc": "Visual archive, drawings & systematic design explorations.",
+    "sketches_desc": "Cartoons, characters & doodles from outside the product world.",
     "sketches_count": "Archive",
     "read_btn": "Read",
     "log_1_title": "University of Indonesia + Internships",
@@ -197,7 +197,9 @@ export const en = {
     "seo_desc": "A lightweight visual archive of sketches and creative exploration.",
     "nav_title": "SKETCHES",
     "archive_sr_title": "Sketches visual archive",
-    "archive_label": "Sketches Gallery"
+    "archive_label": "Sketches Gallery",
+    "intent_text": "Where the pixels take a break — cartoons, characters, and doodles from outside the product world.",
+    "loading_text": "Loading visual archive…"
   },
   "blog": {
     "editorial": "Editorial",
