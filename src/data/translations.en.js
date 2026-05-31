@@ -30,7 +30,9 @@ export const en = {
     "ttp_linkedin": "View profile",
     "ttp_instagram": "Behind the scenes",
     "ttp_dribbble": "Visual explorations",
-    "ttp_github": "Open source & code"
+    "ttp_github": "Open source & code",
+    "sketches": "Sketches",
+    "ttp_sketches": "Visual experiments & sketches"
   },
   "system": {
     "initializing": "Initializing System",
@@ -72,7 +74,7 @@ export const en = {
     "section_notes": "UNPROVOKED THOUGHTS",
     "more_logs": "More logs incoming...",
     "status_location": "Jakarta, Indonesia",
-    "status_reading": "Reading: The Creative Act: A Way of Being by Rick Rubin",
+    "status_reading": "Reading: Next Conversation by Jefferson Fisher",
     "status_listening": "Let's get things done  -  together",
     "status_training": "Running 5K & Swimming 1K Weekly",
     "status_reflecting": "Reflecting on Life Weekly",
@@ -111,6 +113,8 @@ export const en = {
     "section_cert_module": "CERTIFICATION_MODULE",
     "show_credential": "Show Credential",
     "thoughts_desc": "Essays, reflections & unprovoked opinions.",
+    "sketches_desc": "Visual archive, drawings & systematic design explorations.",
+    "sketches_count": "Archive",
     "read_btn": "Read",
     "log_1_title": "University of Indonesia + Internships",
     "log_1_desc": "Initialization phase. From teaching Interaction Design to managing agile products at GDP Labs and researching Fintech UX at Tokopedia. This was the hybridizing of CS logic and Design thinking.",
@@ -186,6 +190,14 @@ export const en = {
     "written_by": "Written By",
     "share_protocol": "Share Protocol",
     "next_transmission": "Next_Transmission"
+  },
+  "sketches": {
+    "helmet_title": "Sketches | Fadly Zaki",
+    "seo_title": "Sketches & Visual Archive",
+    "seo_desc": "A lightweight visual archive of sketches and creative exploration.",
+    "nav_title": "SKETCHES",
+    "archive_sr_title": "Sketches visual archive",
+    "archive_label": "Sketches Gallery"
   },
   "blog": {
     "editorial": "Editorial",
@@ -902,7 +914,8 @@ export const en = {
       "design-system": "System DNA: Reviewing the immutable tokens that define this interface.",
       "contact": "Handshake Protocol: Ready to initialize a direct sync with the architect.",
       "system-manifest": "Technical Blueprint: An ATS-optimized manifest of my professional output.",
-      "unprovoked-thoughts": "Neural Echoes: Processing essays, reflections, and philosophical logs."
+      "unprovoked-thoughts": "Neural Echoes: Processing essays, reflections, and philosophical logs.",
+      "sketches": "Visual Archive: Exploring systematic design and story highlights."
     },
     "tips": [
       "Tip: Check the 'Recruiter Mode' toggle. It reconfigures the UI to prioritize impact metrics.",
@@ -975,7 +988,8 @@ export const en = {
         "efficiency": "Deconstructing F&B logistics entropy. Examining the mechanics of just-in-time resilience.",
         "lumina": "Analyzing the blue-collar recruitment machine. Accessing deep-field logs and reputation system logic.",
         "gudang-ada": "Auditing $100B B2B supply chain layers. Reviewing high-volume transaction fail-safes.",
-        "stoqo": "Deconstructing F&B logistics entropy. Examining the mechanics of just-in-time resilience."
+        "stoqo": "Deconstructing F&B logistics entropy. Examining the mechanics of just-in-time resilience.",
+        "sketches": "Visual Archive: Restoring raw design drafts and layout highlights."
       }
     },
     "sleeping": "Zzz..."

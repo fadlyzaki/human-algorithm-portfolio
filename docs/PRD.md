@@ -42,8 +42,86 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 
 ## 5. Product Architecture & Information Architecture (IA)
 
+Below is the global Information Architecture (IA) map of the platform showing all dynamic routes and case-study intersections:
+
+```mermaid
+graph TD
+    %% Colors & Styling
+    classDef main fill:#0c4a6e,stroke:#38bdf8,stroke-width:2px,color:#fff;
+    classDef page fill:#18181b,stroke:#52525b,stroke-width:1px,color:#e4e4e7;
+    classDef detail fill:#27272a,stroke:#3f3f46,stroke-width:1px,color:#d4d4d8;
+
+    %% Nodes
+    Root["/ (Homepage & Bento Portal)"]:::main
+    
+    %% Main Routes
+    About["/about (About Hub & Background Logs)"]:::page
+    Work["/work/:id (Company details & indexes)"]:::page
+    SideProjects["/side-projects (Side projects playground)"]:::page
+    Thoughts["/thoughts (Unprovoked Thoughts index)"]:::page
+    Manifest["/cv (ATS Manifest - Printable)"]:::page
+    DesignSystem["/design-system (Component Forge)"]:::page
+    Sketches["/sketches (Lightweight visual archive)"]:::page
+    Contact["/contact (Handshake terminal sync)"]:::page
+    
+    %% Sub-routes / details
+    ProtectedCase["/case-study/:id (Protected strategic study)"]:::detail
+    SideProjectDetail["/side-project/:id (Polymorphic details)"]:::detail
+    ThoughtDetail["/thoughts/:slug (MDX individual essays)"]:::detail
+    
+    %% Connections
+    Root --> About
+    Root --> Work
+    Root --> SideProjects
+    Root --> Thoughts
+    Root --> Manifest
+    Root --> DesignSystem
+    Root --> Sketches
+    Root --> Contact
+    
+    Work --> ProtectedCase
+    SideProjects --> SideProjectDetail
+    Thoughts --> ThoughtDetail
+```
+
 ### 5.1 Homepage Conversion Funnel
 "Priority-First" narrative flow designed to hook, validate, and convert:
+
+```mermaid
+graph TD
+    classDef l0 fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#fff;
+    classDef l1 fill:#1e1b4b,stroke:#818cf8,stroke-width:1px,color:#fff;
+    classDef l2 fill:#311042,stroke:#d946ef,stroke-width:1px,color:#fff;
+    classDef l3 fill:#062f4f,stroke:#22d3ee,stroke-width:1px,color:#fff;
+    classDef l4 fill:#14532d,stroke:#4ade80,stroke-width:1px,color:#fff;
+    classDef comp fill:#18181b,stroke:#52525b,stroke-width:1px,color:#a1a1aa;
+
+    %% Narrative Levels
+    L0["Level 0: Identity Engine (Hero Area)"]:::l0
+    L1["Level 1: Work Bento (Case Study Funnel)"]:::l1
+    L2["Level 2: Venture Grid (R&D / Sandbox)"]:::l2
+    L3["Level 3: OS Desktop (Empathy Engine)"]:::l3
+    L4["Level 4: Thoughts Preview (Thought Leadership)"]:::l4
+
+    %% Level 0 comps
+    L0 -->|"CustomCursor.jsx"| DraggableCard["DraggablePhoto.jsx"]:::comp
+    
+    %% Level 1 comps
+    L1 -->|"WorkBento.jsx"| WorkGrid["Active Case Studies"]:::comp
+
+    %% Level 2 comps
+    L2 -->|"VentureCard.jsx"| SandboxCards["Polymorphic Venture Grid"]:::comp
+
+    %% Level 3 comps
+    L3 --> OSDesk["OSDesktop Bento Grid"]:::comp
+    OSDesk --> Term["TerminalWindowCard.jsx"]:::comp
+    OSDesk --> Echo["NeuralEcho.jsx"]:::comp
+    OSDesk --> Scratch["ContactScratch.jsx"]:::comp
+
+    %% Level 4 comps
+    L4 --> ThoughtsList["MDX Feed Preview"]:::comp
+```
+
 1. **Level 0 (Hero Anchor)**: Immediate Identity validation featuring a draggable, generative interactive ID card with `CustomCursor` spring physics.
 2. **Level 1 (Work - The Revenue Generator)**: Enterprise excellence via `WorkBento` component cards with Framer Motion pan animations and brand color hover reveals.
 3. **Level 2 (Experiments & Explorations - The R&D Lab)**: High-creativity experiments via polymorphic `VentureCard` system with 5 distinct card archetypes and `BlindsReveal` overlay interaction.
@@ -60,6 +138,35 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **Print Stylesheet (v2.5)**: Comprehensive `@media print` CSS engine for absolute ATS/HRD readability.
 
 ### 5.4 Technical Product Foundations
+
+Below is the platform's multi-layered system and kinetic rendering topology:
+
+```mermaid
+graph TD
+    subgraph Client ["Client State & Interceptors"]
+        LangCtx["LanguageContext.jsx (Bilingual Switcher)"]
+        RecCtx["RecruiterModeContext.jsx (Bypass/Toggle)"]
+        Scroll pacing Hook["useScrollPacing.js"]
+        Breathing Hook["useVariableTypography.js"]
+    end
+    
+    subgraph Kinetic ["Kinetic Render Pipeline"]
+        PageShell["PageShell.jsx (Circadian UI & Ambient Shading)"]
+        ChaosCanvas["ChaosCanvas.jsx (Hardware-accelerated WebGL)"]
+    end
+    
+    subgraph Engine ["Core Processing & AI Services"]
+        EchoZ["Echo.Z Assistant (Context-aware VirtualAssistant.jsx)"]
+        SummarizerAI["SummarizerAI.jsx (Competitor Landing MCP Scraper)"]
+    end
+    
+    %% Wiring
+    Scroll pacing Hook -->|"Velocity Matrix"| ChaosCanvas
+    Breathing Hook -->|"Breath Oscillation"| PageShell
+    RecCtx -->|"Strips Physics/Noise"| PageShell
+    LangCtx -->|"Translates State"| EchoZ
+```
+
 *   **Render Engine**: Vite-powered React engine with aggressive lazy loading (`React.lazy()`).
 *   **Dynamic OpenGraph (v3.5)**: Vercel Edge Middleware serves dynamically generated, route-specific 1200×630 branded preview images.
 *   **Security & Sanitization**: Strict sandboxing with sanitized `RichText` rendering component.
@@ -237,8 +344,25 @@ Every pixel must serve a conversion goal. Our three highly specific user archety
 *   **[Q2 2027]** Distributed Portfolio Clustering (WebRTC The Swarm).
 *   **[Q3 2027]** Zero-Knowledge Proof (ZKP) Credentials.
 
+## 9. Career Pipeline Optimization (Hiring Matrix for PM, Design Engineer, & Product Designer)
+
+To maximize conversion across top-tier tech roles, the platform aligns its assets against the specific scrutiny of Product Managers, Design Engineers, and Product Designers.
+
+### 9.1 Role-Specific Evidence Matrix
+
+| Target Role | Scrutiny Profile | Critical Evidence Injected | Portfolio Proof Points |
+| :--- | :--- | :--- | :--- |
+| **Product Manager (PM)** | Focuses on ROI, user conversion, system metrics, and scaling impact under constraints. | - Documented conversion funnels (Workday/ATS)<br>- Checkout failure mitigations ($100B scale)<br>- Business outcome summaries | - `commerce` case study (checkout trust engines)<br>- Recruiter Mode toggle (frictionless ATS fastpath)<br>- Metric dashboards (Lumina & STOQO) |
+| **Design Engineer** | Demands high-fidelity animations, clean code structure, stack performance, and system tokens. | - Spring physics interactions (`Framer Motion`)<br>- Breath-synced variable font rendering (`requestAnimationFrame`)<br>- Zero Layout Shift components | - `design-system` page showing ComponentForge<br>- `useVariableTypography.js` & custom hooks<br>- Circadian UI overlay implementation |
+| **Product Designer** | Evaluates accessibility (a11y), cognitive load reduction, user research translation, and IA. | - High-stress warehouse observation logs<br>- ELI5 vs Recruiters summaries<br>- 100% semantic HTML with aria-labels | - `paper-to-paperless` case study (Confidence Score UI)<br>- Virtual Assistant `Echo.Z` interactive context<br>- `LockScreen.jsx` localized decryption |
+
+### 9.2 Key UX/UI Optimizations for Hiring
+1. **Scannability & Speed**: The global `RecruiterMode` toggle satisfies the 30-second audit constraint.
+2. **Dynamic Adaptation**: High-fidelity details (like spring physics, particle canvas, variable typography) showcase technical stack mastery to Engineering managers, while fading gracefully to clean semantic layouts for accessibility readers.
+3. **Double-Language Accessibility**: Zero-reload translation toggles allow regional hiring managers in both international markets and local organizations to evaluate case studies in their native context without cognitive friction.
+
 ---
 **Document Status**: *ACTIVE*
-**Last Updated**: April 2026 · v9.1
+**Last Updated**: June 2026 · v9.2
 **Product Strategy**: Fadly Uzzaki
 *Human by Design. Operating at the intersection of complex constraints and profound simplicity.*

@@ -18,7 +18,8 @@ const CaseStudyContent = lazyWithRetry(
 
 const ProtectedCaseStudy = () => {
   const { id } = useParams();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isId = language === "id";
   const [isLocked, setIsLocked] = useState(true);
   const [isInitialized, setIsInitialized] = useState(false);
   const [, setIsMenuOpen] = useState(false); // Added for Navbar
@@ -99,7 +100,7 @@ const ProtectedCaseStudy = () => {
   // --- RENDER ---
   return (
     <>
-      <SEO title={project.title} />
+      <SEO title={isId ? project.title_id || project.title : project.title} />
 
       {/* Only show Chaos Matrix during auth/lock phase */}
       {isLocked && <ChaosMatrixBackground phase={authPhase} />}
@@ -127,7 +128,7 @@ const ProtectedCaseStudy = () => {
           {/* --- NAVIGATION SYSTEM --- */}
           <Navbar
             onOpenMenu={() => setIsMenuOpen(true)}
-            title="Restricted Access"
+            title={isId ? "Akses Terbatas" : "Restricted Access"}
             backPath={`/work/${parentCluster?.id || ""}`}
           />
 

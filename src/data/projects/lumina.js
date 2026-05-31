@@ -1032,6 +1032,75 @@ export const lumina = {
           },
         ],
       },
+      caseStudy_id: {
+        locked: true,
+        summaries: {
+          eli5: {
+            label: "👶 ELI5",
+            title: "Tidak Tersesat Lagi",
+            text: "Aplikasi ini awalnya seperti labirin. Saya merobohkan dinding-dindingnya agar Anda bisa menemukan pekerjaan hanya dalam dua klik. Saya membuat semuanya menggunakan gambar daripada kata-kata yang membingungkan.",
+          },
+          recruiter: {
+            label: "👔 Recruiter",
+            title: "Redesain Navigasi",
+            text: "Mendesain ulang navigasi inti berdasarkan riset card-sorting. Meratakan hierarki dari 4 tingkat menjadi 2, meningkatkan retensi Hari-1 secara signifikan.",
+          },
+          technical: {
+            label: "🤖 Sistem",
+            title: "Shallow Routing",
+            text: "Mendesain ulang struktur navigasi menjadi dangkal dan berbasis ikon. Menghapus nesting yang dalam untuk menyelaraskan dengan mental model 'visual-first' dari basis pengguna.",
+          },
+        },
+        snapshot: {
+          tagline: "Membantu pengguna menemukan jalan mereka tanpa peta.",
+          heroImage: "airy:ecosystem",
+        },
+        context: {
+          client: "Produk Inti",
+          role: "Mendesain Ulang Navigasi",
+          timeline: "Berjalan",
+          team: "Pengalaman Inti",
+        },
+        challenge:
+          "Analitik kami menunjukkan pengguna terjebak dalam pohon navigasi yang dalam dan meninggalkan aplikasi. Kami telah merancang struktur kategori secara berlebihan, berasumsi pengguna tahu persis apa yang mereka inginkan. Ternyata tidak.",
+        process: [
+          {
+            title: "Card Sorting",
+            desc: "Saya mengadakan latihan card-sorting dengan pengguna nyata. Mental model mereka datar, bukan hierarkis.",
+            image: "airy:hierarchy",
+          },
+          {
+            title: "Pilihan Sulit",
+            desc: "Saya harus meyakinkan PM untuk menghapus fitur 'Pencarian Lanjutan' favorit mereka. Kesederhanaan membutuhkan pengorbanan.",
+            image: "airy:funnel",
+          },
+        ],
+        insights: [
+          {
+            title: "Visual vs Teks",
+            desc: "Pengguna kami adalah pembelajar visual. Mereka mengabaikan label teks tetapi langsung mengklik ikon. Saya mengalihkan desain menjadi berbasis ikon.",
+          },
+        ],
+        solution: [
+          {
+            title: "Hierarki Datar",
+            desc: "Saya meratakan kedalaman navigasi dari 4 level menjadi 2. Setiap pekerjaan sekarang dapat dijangkau dalam 2 tap.",
+            image: "airy:layers",
+          },
+          {
+            title: "Tag Visual",
+            desc: "Saya merancang set ikon yang berbeda untuk setiap kategori pekerjaan, bertindak sebagai jangkar visual untuk scanning cepat.",
+            image: "airy:ecosystem",
+          },
+        ],
+        metrics: [
+          { label: "Retensi D1", value: "Retensi Meningkat" },
+          { label: "Kesuksesan Cari", value: "Tingkat Sukses Tinggi" },
+          { label: "Bounce Rate", value: "Drop-off Berkurang" },
+        ],
+        learnings:
+          "Navigasi bukan hanya tentang struktur; ini tentang kepercayaan diri. Jika pengguna merasa tersesat selama 1 detik, mereka akan pergi. Saya belajar menganggap setiap klik sangat berharga.",
+      },
     },
   ],
 };

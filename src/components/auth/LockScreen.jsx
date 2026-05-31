@@ -84,8 +84,8 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
   return (
     <div className="min-h-[100dvh] bg-transparent text-[var(--text-primary)] font-mono flex items-center justify-center px-4 py-20 sm:p-6 relative overflow-hidden overflow-y-auto transition-colors duration-500">
       <SEO
-        title={`🔒 Protected: ${project.title}`}
-        description="Confidential Case Study. Access Restricted."
+        title={isId ? `🔒 Terproteksi: ${project.title_id || project.title}` : `🔒 Protected: ${project.title}`}
+        description={isId ? "Studi Kasus Rahasia. Akses Terbatas." : "Confidential Case Study. Access Restricted."}
       />
 
       {/* Home Navigation (Abort) */}

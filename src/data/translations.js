@@ -26,6 +26,8 @@ export const translations = {
       ttp_instagram: "Behind the scenes",
       ttp_dribbble: "Visual explorations",
       ttp_github: "Open source & code",
+      sketches: "Sketches",
+      ttp_sketches: "Visual experiments & sketches",
     },
     system: {
       initializing: "Initializing System",
@@ -73,7 +75,7 @@ export const translations = {
       section_notes: "UNPROVOKED THOUGHTS",
       more_logs: "More logs incoming...",
       status_location: "Jakarta, Indonesia",
-      status_reading: "Reading: The Creative Act: A Way of Being by Rick Rubin",
+      status_reading: "Reading: Next Conversation by Jefferson Fisher",
       status_listening: "Let's get things done  -  together",
       status_training: "Running 5K & Swimming 1K Weekly",
       status_reflecting: "Reflecting on Life Weekly",
@@ -110,6 +112,8 @@ export const translations = {
       section_cert_module: "CERTIFICATION_MODULE",
       show_credential: "Show Credential",
       thoughts_desc: "Essays, reflections & unprovoked opinions.",
+      sketches_desc: "Visual archive, drawings & systematic design explorations.",
+      sketches_count: "Archive",
       read_btn: "Read",
 
       // Runtime Log Data
@@ -687,7 +691,8 @@ export const translations = {
         "design-system": "System DNA: Reviewing the immutable tokens that define this interface.",
         "contact": "Handshake Protocol: Ready to initialize a direct sync with the architect.",
         "system-manifest": "Technical Blueprint: An ATS-optimized manifest of my professional output.",
-        "unprovoked-thoughts": "Neural Echoes: Processing essays, reflections, and philosophical logs."
+        "unprovoked-thoughts": "Neural Echoes: Processing essays, reflections, and philosophical logs.",
+        "sketches": "Visual Archive: Exploring systematic design and story highlights."
       },
       tips: [
         "Tip: Check the 'Recruiter Mode' toggle. It reconfigures the UI to prioritize impact metrics.",
@@ -763,10 +768,19 @@ export const translations = {
           "efficiency": "Deconstructing F&B logistics entropy. Examining the mechanics of just-in-time resilience.",
           "lumina": "Analyzing the blue-collar recruitment machine. Accessing deep-field logs and reputation system logic.",
           "gudang-ada": "Auditing $100B B2B supply chain layers. Reviewing high-volume transaction fail-safes.",
-          "stoqo": "Deconstructing F&B logistics entropy. Examining the mechanics of just-in-time resilience."
+          "stoqo": "Deconstructing F&B logistics entropy. Examining the mechanics of just-in-time resilience.",
+          "sketches": "Visual Archive: Restoring raw design drafts and layout highlights."
         }
       },
       sleeping: "Zzz..."
+    },
+    sketches: {
+      helmet_title: "Sketches | Fadly Zaki",
+      seo_title: "Sketches & Visual Archive",
+      seo_desc: "A lightweight visual archive of sketches and creative exploration.",
+      nav_title: "SKETCHES",
+      archive_sr_title: "Sketches visual archive",
+      archive_label: "Sketches Gallery",
     },
   },
   id: {
@@ -796,6 +810,8 @@ export const translations = {
       ttp_instagram: "Di balik layar",
       ttp_dribbble: "Eksplorasi visual",
       ttp_github: "Open source & kode",
+      sketches: "Sketsa",
+      ttp_sketches: "Eksplorasi & sketsa visual",
     },
     system: {
       initializing: "Memulai Sistem",
@@ -842,7 +858,7 @@ export const translations = {
       section_notes: "UNPROVOKED THOUGHTS",
       more_logs: "Menunggu log baru...",
       status_location: "Jakarta, Indonesia",
-      status_reading: "Membaca: The Creative Act: A Way of Being - Rick Rubin",
+      status_reading: "Membaca: Next Conversation oleh Jefferson Fisher",
       status_listening: "Mari menyelesaikan masalah  -  bersama",
       status_training: "Lari 5K & Renang 1K / Minggu",
       status_reflecting: "Refleksi Mingguan",
@@ -879,6 +895,8 @@ export const translations = {
       section_cert_module: "MODUL_SERTIFIKASI",
       show_credential: "Lihat Kredensial",
       thoughts_desc: "Esai, refleksi & opini jujur.",
+      sketches_desc: "Arsip visual, gambar & eksplorasi desain sistematis.",
+      sketches_count: "Arsip",
       read_btn: "Baca",
 
       // Runtime Log Data (ID) - Professional Tone
@@ -1225,7 +1243,8 @@ export const translations = {
         "design-system": "DNA Sistem: Meninjau token desain yang mendefinisikan antarmuka ini.",
         "contact": "Protokol Jabat Tangan: Siap untuk memulai sinkronisasi langsung dengan sang arsitek.",
         "system-manifest": "Cetak Biru Teknis: Manifes profesional yang dioptimalkan untuk sistem ATS.",
-        "unprovoked-thoughts": "Gema Neural: Memproses esai, refleksi, dan log filosofis."
+        "unprovoked-thoughts": "Gema Neural: Memproses esai, refleksi, dan log filosofis.",
+        "sketches": "Arsip Visual: Menjelajahi desain sistematis dan sorotan cerita."
       },
       tips: [
         "Tips: Coba toggle 'Recruiter Mode'. Antarmuka akan mengatur ulang prioritas pada metrik dampak.",
@@ -1301,7 +1320,8 @@ export const translations = {
           "efficiency": "Mendekonstruksi entropi logistik F&B. Menelaah mekanik resiliensi pengiriman just-in-time.",
           "lumina": "Menganalisis mesin rekrutmen pekerja kerah biru. Mengakses log lapangan dan logika sistem reputasi.",
           "gudang-ada": "Mengaudit lapisan rantai pasokan B2B senilai $100M. Meninjau pengaman transaksi volume tinggi.",
-          "stoqo": "Mendekonstruksi entropi logistik F&B. Menelaah mekanik resiliensi pengiriman just-in-time."
+          "stoqo": "Mendekonstruksi entropi logistik F&B. Menelaah mekanik resiliensi pengiriman just-in-time.",
+          "sketches": "Arsip Visual: Memulihkan draf desain mentah dan sorotan tata letak."
         }
       },
       sleeping: "Zzz..."
@@ -1535,6 +1555,14 @@ export const translations = {
       st_logistics_impact_p1: "Pembelajaran paling signifikan muncul dari proses rumit menganalisis dan menyintesis data riset. Sebagai riset pengguna besar pertama saya... proses memetakan perilaku pengguna membantu kemampuan analitis saya.",
       st_logistics_impact_header: "Dampak Terukur yang Signifikan",
       st_logistics_impact_desc: "Pelanggan mendapati visibilitas waktu pengiriman yang jauh lebih baik, memungkinkan operasional yang lebih efektif. Hal ini tercermin dari penurunan signifikan pertanyaan terkait pengiriman ke tim CS.",
+    },
+    sketches: {
+      helmet_title: "Sketsa | Fadly Zaki",
+      seo_title: "Sketsa & Arsip Visual",
+      seo_desc: "Arsip visual ringan dari sketsa dan eksplorasi kreatif.",
+      nav_title: "SKETSA",
+      archive_sr_title: "Arsip visual sketsa",
+      archive_label: "Galeri Sketsa",
     },
   },
 };

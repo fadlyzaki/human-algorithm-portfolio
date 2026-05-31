@@ -30,7 +30,9 @@ export const id = {
     "ttp_linkedin": "Lihat profil",
     "ttp_instagram": "Di balik layar",
     "ttp_dribbble": "Eksplorasi visual",
-    "ttp_github": "Open source & kode"
+    "ttp_github": "Open source & kode",
+    "sketches": "Sketsa",
+    "ttp_sketches": "Eksplorasi & sketsa visual"
   },
   "system": {
     "initializing": "Memulai Sistem",
@@ -72,7 +74,7 @@ export const id = {
     "section_notes": "PIKIRAN TAK TERDUGA",
     "more_logs": "Menunggu log baru...",
     "status_location": "Jakarta, Indonesia",
-    "status_reading": "Membaca: The Creative Act: A Way of Being - Rick Rubin",
+    "status_reading": "Membaca: Next Conversation oleh Jefferson Fisher",
     "status_listening": "Mari menyelesaikan masalah  -  bersama",
     "status_training": "Lari 5K & Renang 1K / Minggu",
     "status_reflecting": "Refleksi Mingguan",
@@ -111,6 +113,8 @@ export const id = {
     "section_cert_module": "MODUL_SERTIFIKASI",
     "show_credential": "Lihat Kredensial",
     "thoughts_desc": "Esai, refleksi & opini jujur.",
+    "sketches_desc": "Arsip visual, gambar & eksplorasi desain sistematis.",
+    "sketches_count": "Arsip",
     "read_btn": "Baca",
     "log_1_title": "Universitas Indonesia + Magang",
     "log_1_desc": "Fase inisialisasi. Dari Asisten Dosen Desain Interaksi hingga mengelola produk agile di GDP Labs dan riset UX Fintech di Tokopedia. Hibridasi logika Computer Science dan Design Thinking.",
@@ -186,6 +190,14 @@ export const id = {
     "written_by": "Ditulis Oleh",
     "share_protocol": "Bagikan",
     "next_transmission": "Transmisi_Berikutnya"
+  },
+  "sketches": {
+    "helmet_title": "Sketsa | Fadly Zaki",
+    "seo_title": "Sketsa & Arsip Visual",
+    "seo_desc": "Arsip visual ringan dari sketsa dan eksplorasi kreatif.",
+    "nav_title": "SKETSA",
+    "archive_sr_title": "Arsip visual sketsa",
+    "archive_label": "Galeri Sketsa"
   },
   "blog": {
     "editorial": "Editorial",
@@ -622,7 +634,8 @@ export const id = {
       "design-system": "DNA Sistem: Meninjau token desain yang mendefinisikan antarmuka ini.",
       "contact": "Protokol Jabat Tangan: Siap untuk memulai sinkronisasi langsung dengan sang arsitek.",
       "system-manifest": "Cetak Biru Teknis: Manifes profesional yang dioptimalkan untuk sistem ATS.",
-      "unprovoked-thoughts": "Gema Neural: Memproses esai, refleksi, dan log filosofis."
+      "unprovoked-thoughts": "Gema Neural: Memproses esai, refleksi, dan log filosofis.",
+      "sketches": "Arsip Visual: Menjelajahi desain sistematis dan sorotan cerita."
     },
     "tips": [
       "Tips: Coba toggle 'Recruiter Mode'. Antarmuka akan mengatur ulang prioritas pada metrik dampak.",
@@ -695,7 +708,8 @@ export const id = {
         "efficiency": "Mendekonstruksi entropi logistik F&B. Menelaah mekanik resiliensi pengiriman just-in-time.",
         "lumina": "Menganalisis mesin rekrutmen pekerja kerah biru. Mengakses log lapangan dan logika sistem reputasi.",
         "gudang-ada": "Mengaudit lapisan rantai pasokan B2B senilai $100M. Meninjau pengaman transaksi volume tinggi.",
-        "stoqo": "Mendekonstruksi entropi logistik F&B. Menelaah mekanik resiliensi pengiriman just-in-time."
+        "stoqo": "Mendekonstruksi entropi logistik F&B. Menelaah mekanik resiliensi pengiriman just-in-time.",
+        "sketches": "Arsip Visual: Memulihkan draf desain mentah dan sorotan tata letak."
       }
     },
     "sleeping": "Zzz..."

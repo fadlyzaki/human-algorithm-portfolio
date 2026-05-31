@@ -829,6 +829,73 @@ export const stoqo = {
           },
         ],
       },
+      caseStudy_id: {
+        locked: true,
+        summaries: {
+          eli5: {
+            label: "👶 ELI5",
+            title: "Tidak Ada Lagi Kertas",
+            text: "Kantor saya tenggelam dalam kertas. Saya membuat aplikasi di mana Anda mengambil foto tanda terima, dan komputer membacanya secara otomatis. Tidak ada lagi mengetik manual!",
+          },
+          recruiter: {
+            label: "👔 Recruiter",
+            title: "Digitalisasi Operasional",
+            text: "Merancang solusi OCR seluler untuk mendigitalisasi alur kerja fisik. Mengurangi entri data manual sebesar 90% dan membuat arsip digital yang dapat dicari.",
+          },
+          technical: {
+            label: "🤖 Sistem",
+            title: "OCR & Kepercayaan",
+            text: "Menerapkan alur kerja camera-first menggunakan OCR. Merancang UI 'Skor Kepercayaan' untuk menangani pemindaian yang tidak sempurna, memungkinkan verifikasi human-in-the-loop.",
+          },
+        },
+        snapshot: {
+          tagline: "Menyingkirkan lemari arsip, satu pemindaian setiap waktu.",
+          heroImage: "airy:layers",
+        },
+        context: {
+          client: "Internal Ops",
+          role: "Product Designer",
+          timeline: "1 Bulan",
+          team: "Proyek Solo",
+        },
+        challenge:
+          "Kantor kami tenggelam dalam kertas. Faktur, surat jalan, bon. Dokumen hilang, kena tumpahan kopi, dan datanya 'gelap' (tidak bisa diolah).",
+        process: [
+          {
+            title: "Observasi",
+            desc: "Saya perhatikan tim admin menghabiskan 4 jam sehari cuma buat ketik ulang data dari kertas ke komputer.",
+            image: "airy:cycle",
+          },
+          {
+            title: "Ideasi",
+            desc: "Gimana kalau kamera jadi keyboard-nya? Saya mock-up alur OCR yang otomatis ngisi formulir.",
+            image: "airy:flow",
+          },
+        ],
+        insights: [
+          {
+            title: "Percaya Mesin",
+            desc: "User awalnya skeptis dengan akurasi OCR. Saya mendesain UI 'Skor Kepercayaan' (Confidence Score) untuk menyoroti kolom dengan tingkat kepercayaan rendah bagi verifikasi manusia.",
+          },
+        ],
+        solution: [
+          {
+            title: "Prototipe Live Picker",
+            desc: "Menggantikan alur kerja kertas dengan aplikasi pemilih seluler. Rasakan langsung alur pemindaian, pemilihan, dan validasi.",
+          },
+          {
+            title: "QA Human-in-the-Loop",
+            desc: "Aplikasi khusus bagi pemeriksa untuk memverifikasi item yang dikemas terhadap manifest. Mengurangi keluhan barang salah sebesar 80%.",
+          },
+        ],
+        metrics: [
+          { label: "Reduksi Kertas", value: "Menghilangkan Berkas Kertas" },
+          { label: "Kecepatan Cari", value: "Pencarian Instan" },
+          { label: "Penghematan Biaya", value: "Sangat Signifikan" },
+        ],
+        learnings:
+          "Masa depan tidak bisa dihindari, tetapi membutuhkan jembatan. UI 'Skor Kepercayaan' adalah jembatan yang memungkinkan pengguna memercayai kecerdasan AI.",
+      },
     },
   ],
 };
