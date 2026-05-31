@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import ProjectCard from "./ProjectCard";
 
@@ -76,7 +75,7 @@ const WorkBento = ({ cluster, priority = false }) => {
   }
 
   return (
-    <motion.div
+    <div
       ref={containerRef}
       id={`work-bento-${cluster.id}`}
       onClick={() => navigate(`/work/${cluster.id}`)}
@@ -84,15 +83,14 @@ const WorkBento = ({ cluster, priority = false }) => {
       onMouseLeave={() => setIsManualHover(false)}
       className="group relative flex flex-col h-[480px] border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-gray-50 dark:bg-neutral-900"
     >
-      {/* Brand Color Overlay (Animated) */}
-      <motion.div 
+      {/* Brand Color Overlay — CSS opacity transition, compositor thread only */}
+      <div
         className="absolute inset-0 z-0 pointer-events-none"
-        initial={false}
-        animate={{ 
+        style={{
           backgroundColor: cluster.brandColor || "transparent",
-          opacity: isHovered ? 1 : 0
+          opacity: isHovered ? 1 : 0,
+          transition: "opacity 0.4s ease",
         }}
-        transition={{ duration: 0.4 }}
       />
 
       {/* Hover Action (Floating - Top Right) */}
@@ -114,11 +112,12 @@ const WorkBento = ({ cluster, priority = false }) => {
                 className={`w-full h-full object-contain drop-shadow-sm transition-transform duration-500 ${isHovered ? "scale-110" : ""}`}
               />
             ) : (
-              <motion.div
+              <div
                 className="w-16 h-16 sm:w-20 sm:h-20 rounded-full"
-                animate={{ 
+                style={{
                   backgroundColor: isHovered ? "var(--bg-surface)" : cluster.brandColor,
-                  color: isHovered ? cluster.brandColor : "var(--bg-surface)"
+                  color: isHovered ? cluster.brandColor : "var(--bg-surface)",
+                  transition: "background-color 0.3s ease, color 0.3s ease",
                 }}
               />
             )}
@@ -126,48 +125,61 @@ const WorkBento = ({ cluster, priority = false }) => {
         </div>
 
         {/* Right Side: Role + Period (Right Aligned on desktop, Left on mobile) */}
-        <div className="flex flex-col items-start sm:items-end text-left sm:text-right transition-colors duration-300 sm:max-w-[140px]">
+        <div className="flex flex-col items-start sm:items-end text-left sm:text-right sm:max-w-[140px]">
           {/* Featured Tag */}
           {cluster.featured && (
-            <motion.span
+            <span
               className="font-mono text-[9px] uppercase tracking-[0.2em] mb-1.5 px-1.5 py-0.5 rounded border"
-              animate={{
+              style={{
                 color: isHovered ? "rgba(255, 255, 255, 0.9)" : "var(--accent-blue)",
                 borderColor: isHovered ? "rgba(255, 255, 255, 0.3)" : "rgba(var(--accent-blue-rgb), 0.3)",
+                transition: "color 0.3s ease, border-color 0.3s ease",
               }}
             >
               {featuredLabel}
-            </motion.span>
+            </span>
           )}
           {/* Role (Top) */}
-          <motion.p
+          <p
             className="text-sm font-bold leading-tight line-clamp-2"
-            animate={{ color: isHovered ? "var(--bg-surface)" : "var(--text-primary)" }}
+            style={{
+              color: isHovered ? "var(--bg-surface)" : "var(--text-primary)",
+              transition: "color 0.3s ease",
+            }}
           >
             {role}
-          </motion.p>
+          </p>
           {/* Period (Bottom) */}
-          <motion.p
+          <p
             className="text-xs font-medium mt-1"
-            animate={{ color: isHovered ? "rgba(255, 255, 255, 0.8)" : "var(--text-secondary)" }}
+            style={{
+              color: isHovered ? "rgba(255, 255, 255, 0.8)" : "var(--text-secondary)",
+              transition: "color 0.3s ease",
+            }}
           >
             {yearDisplay}
-          </motion.p>
+          </p>
         </div>
       </div>
 
       {/* 2. VISUAL (Bottom / Fill) */}
       <div className="relative flex-grow w-full overflow-hidden flex items-end justify-center px-8 pb-0 mt-4 z-10">
-        {/* Gradient Background to blend bottom if needed */}
-        <motion.div
+        {/* Gradient overlay — two static divs, CSS opacity transition */}
+        <div
           className="absolute inset-x-0 bottom-0 h-32 pointer-events-none z-10"
-          animate={{
-            background: isHovered
-              ? `linear-gradient(to top, ${cluster.brandColor}, transparent)`
-              : `linear-gradient(to top, var(--bg-void), transparent)`,
-            opacity: isHovered ? 1 : 0.5
+          style={{
+            background: `linear-gradient(to top, var(--bg-void), transparent)`,
+            opacity: isHovered ? 0 : 0.5,
+            transition: "opacity 0.4s ease",
           }}
-          transition={{ duration: 0.4 }}
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-32 pointer-events-none z-10"
+          style={{
+            background: `linear-gradient(to top, ${cluster.brandColor || "transparent"}, transparent)`,
+            opacity: isHovered ? 1 : 0,
+            transition: "opacity 0.4s ease",
+          }}
         />
 
         {/* Device / Visual Frame */}
@@ -191,27 +203,27 @@ const WorkBento = ({ cluster, priority = false }) => {
                 {!imgLoaded && (
                   <div className="absolute inset-0 bg-gray-200 dark:bg-neutral-700 animate-pulse" />
                 )}
-                <motion.img
+                {/*
+                  CSS-driven scroll pan: identical 4s linear on hover, 0.8s ease-out on leave.
+                  Runs on compositor thread (transform + will-change), zero JS animation cost.
+                */}
+                <img
                   src={cluster.heroImage}
                   alt={title}
                   fetchPriority={priority ? "high" : "auto"}
                   loading={priority ? "eager" : "lazy"}
                   className="w-full h-auto object-top"
-                  style={{ transformOrigin: "top" }}
+                  style={{
+                    transformOrigin: "top",
+                    opacity: imgLoaded ? 1 : 0,
+                    transform: isHovered ? "translateY(calc(-100% + 280px))" : "translateY(0%)",
+                    transition: isHovered
+                      ? "transform 4s linear, opacity 0.3s ease"
+                      : "transform 0.8s ease-out, opacity 0.3s ease",
+                    willChange: "transform",
+                  }}
                   onLoad={() => setImgLoaded(true)}
                   onError={() => setImgError(true)}
-                  initial={{ opacity: 0, y: "0%" }}
-                  animate={{ 
-                    opacity: imgLoaded ? 1 : 0, 
-                    y: isHovered ? "calc(-100% + 280px)" : "0%" 
-                  }}
-                  transition={{
-                    y: {
-                       duration: isHovered ? 4 : 0.8,
-                       ease: isHovered ? "linear" : "easeOut"
-                    },
-                    opacity: { duration: 0.3 }
-                  }}
                 />
                 {/* Gloss/Reflection */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none mix-blend-overlay"></div>
@@ -232,7 +244,7 @@ const WorkBento = ({ cluster, priority = false }) => {
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

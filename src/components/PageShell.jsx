@@ -2,6 +2,7 @@ import React, { Suspense, useState } from "react";
 import Navbar from "./Navbar";
 import { useTheme } from "../context/ThemeContext";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
+import { useAfterFirstPaint } from "../hooks/useAfterFirstPaint";
 
 const NavigationMenu = lazyWithRetry(() => import("./NavigationMenu"));
 
@@ -12,11 +13,13 @@ const NavigationMenu = lazyWithRetry(() => import("./NavigationMenu"));
 const PageShell = ({ children, navbarProps = {}, showTexture = true }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { isDark } = useTheme();
+    // Defer background texture until after hero paint — zero impact on LCP/FCP
+    const afterPaint = useAfterFirstPaint();
 
     return (
         <>
-            {/* Background Texture Overlay */}
-            {showTexture && (
+            {/* Background Texture Overlay — deferred to avoid compositor work during initial paint */}
+            {showTexture && afterPaint && (
                 <div
                     className="fixed inset-0 z-0 pointer-events-none transition-opacity duration-500"
                     style={{

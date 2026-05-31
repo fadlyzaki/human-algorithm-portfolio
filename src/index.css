@@ -493,6 +493,21 @@ html {
   scroll-behavior: auto !important;
 }
 
+/* --- PREFERS REDUCED MOTION: System-level accessibility override ---
+   Stops ALL animations for users who have "Reduce Motion" enabled in their OS.
+   This is a field data win — many devices fail INP due to ambient animations running
+   in the background (marquee, ping, airy-float) during user interactions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* --- VIRTUAL ASSISTANT SPRITE ANIMATIONS --- */
 @keyframes spriteSlide {
   to { transform: translateX(-100%); }
