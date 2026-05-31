@@ -209,7 +209,7 @@ export const TerminalWindowCard = ({
       className={`relative overflow-hidden group h-full w-full flex flex-col transition-colors duration-300 ${
         isExpanded
           ? "bg-[var(--bg-surface)] backdrop-blur-2xl border border-[var(--border-color)] shadow-2xl rounded-3xl p-6 md:p-8"
-          : `bg-[var(--bg-void)] border border-[var(--border-color)] rounded-2xl p-6 md:p-8 cursor-pointer ${hoverBorderClass}`
+          : `bg-[var(--bg-void)] border border-[var(--border-color)] ${accentBorderClass} rounded-2xl p-6 md:p-8 cursor-pointer ${hoverBorderClass} border-l-[3px]`
       }`}
       onClick={() => {
         if (!isExpanded) setIsExpanded(true);
@@ -297,9 +297,12 @@ const DraggableBento = ({ id, activeId, setActiveId, constraintsRef, className, 
       onPointerDown={() => setActiveId(id)}
       whileDrag={{ scale: 1.02, cursor: "grabbing" }}
       dragElastic={0.1}
-      className={`${className} cursor-grab relative`}
+      className={`${className} cursor-grab relative draggable-bento`}
       style={{ zIndex: isActive ? 50 : 1 }}
+      title="Drag to rearrange"
     >
+      {/* Grip affordance indicator — visible on hover only */}
+      <span className="drag-grip-hint" aria-hidden="true">⠿</span>
       {children}
     </motion.div>
   );

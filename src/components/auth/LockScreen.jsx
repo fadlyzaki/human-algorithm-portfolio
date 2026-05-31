@@ -203,8 +203,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder={t("protected.enter_passkey") || "ENTER PASSKEY"}
-                  className="relative w-full bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] px-4 py-3.5 sm:py-4 text-center text-sm sm:text-base tracking-[0.3em] sm:tracking-[0.5em] focus:outline-none focus:border-[var(--accent-red)] transition-all placeholder:tracking-normal placeholder:text-[var(--text-secondary)]/50 rounded-lg"
-                  autoFocus
+                  className="relative w-full bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] px-4 py-3.5 sm:py-4 text-center text-sm sm:text-base tracking-[0.3em] sm:tracking-[0.5em] focus:outline-none focus:border-[var(--accent-red)] transition-all placeholder:tracking-normal placeholder:text-[var(--text-secondary)]/50 rounded-lg lock-input-pulse"
                 />
               </div>
 

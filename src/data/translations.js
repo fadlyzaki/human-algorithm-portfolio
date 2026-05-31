@@ -781,6 +781,8 @@ export const translations = {
       nav_title: "SKETCHES",
       archive_sr_title: "Sketches visual archive",
       archive_label: "Sketches Gallery",
+      intent_text: "Visual thinking made public — sketches, experiments, and ideas that didn't make it to production. Yet.",
+      loading_text: "Loading visual archive…",
     },
   },
   id: {
@@ -1563,6 +1565,8 @@ export const translations = {
       nav_title: "SKETSA",
       archive_sr_title: "Arsip visual sketsa",
       archive_label: "Galeri Sketsa",
+      intent_text: "Pemikiran visual yang dipublikasikan — sketsa, eksperimen, dan ide yang belum sempat diproduksi. Belum.",
+      loading_text: "Memuat arsip visual…",
     },
   },
 };
