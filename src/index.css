@@ -620,3 +620,9 @@ html {
 .draggable-bento:hover .drag-grip-hint {
   opacity: 0.35;
 }
+
+/* Custom visual utilities */
+.text-stroke {
+  -webkit-text-stroke: 1px var(--border-color);
+  color: transparent !important;
+}
