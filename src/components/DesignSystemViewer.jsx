@@ -112,7 +112,7 @@ const DesignSystemViewer = () => {
                 <button
                   key={sector.id}
                   onClick={() => scrollToSection(sector.id)}
-                  className={`w-full group flex items-center gap-3 px-4 py-3 text-[10px] font-mono font-bold uppercase tracking-widest transition-all text-left border-l-2 ${activeSection === sector.id ? "border-[var(--accent)] text-[var(--accent)] bg-[var(--accent)]/10" : "border-transparent text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"}`}
+                  className={`w-full group flex items-center gap-3 px-4 py-4 min-h-[48px] text-[10px] font-mono font-bold uppercase tracking-widest transition-all text-left border-l-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)]/50 focus-visible:bg-[var(--accent)]/5 ${activeSection === sector.id ? "border-[var(--accent)] text-[var(--accent)] bg-[var(--accent)]/10" : "border-transparent text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"}`}
                 >
                   <sector.icon
                     size={12}
@@ -126,7 +126,7 @@ const DesignSystemViewer = () => {
             <div className="pt-8 pb-4 border-t border-[var(--border-color)]">
               <button
                 onClick={() => setIsXRayMode(!isXRayMode)}
-                className={`w-full flex items-center justify-center gap-2 px-4 py-4 md:py-3 font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
+                className={`w-full flex items-center justify-center gap-2 px-4 py-4 min-h-[48px] font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)]/50 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
               >
                 <Eye size={12} className={isXRayMode ? "animate-pulse" : ""} />
                 {isXRayMode ? t("design_system.xray_active") : t("design_system.xray_enable")}

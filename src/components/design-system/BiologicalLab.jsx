@@ -3,7 +3,7 @@ import { Clock, Users, Activity, ExternalLink } from "lucide-react";
 /**
  * BiologicalLab — Design System section documenting Human by Design subsystems
  */
-const BiologicalLab = () => {
+const BiologicalLab = ({ isXRayMode }) => {
 
   const systems = [
     {
@@ -62,7 +62,14 @@ const BiologicalLab = () => {
   ];
 
   return (
-    <div className="space-y-12">
+    <div
+      className={`space-y-12 animate-in fade-in duration-500 relative ${isXRayMode ? "p-4 border border-dashed border-[var(--accent)]/50 bg-[var(--accent)]/5" : ""}`}
+    >
+      {isXRayMode && (
+        <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--accent)]">
+          BiologicalLab.jsx // Bio_Metrics
+        </span>
+      )}
       <p className="text-[var(--text-secondary)] text-sm leading-relaxed max-w-2xl">
         The Biological Layer introduces systems that respond to human physiology
         and behavior. These subsystems operate beneath conscious perception,
@@ -72,8 +79,13 @@ const BiologicalLab = () => {
       {systems.map((system) => (
         <div
           key={system.id}
-          className="border border-[var(--border-color)] rounded-lg overflow-hidden"
+          className={`border border-[var(--border-color)] rounded-lg overflow-hidden relative ${isXRayMode ? "border-dashed border-[var(--accent)]/30" : ""}`}
         >
+          {isXRayMode && (
+            <span className="absolute top-2 right-2 z-20 font-mono text-[8px] text-[var(--text-secondary)]">
+              Component // {system.component}
+            </span>
+          )}
           {/* Header */}
           <div className="p-6 border-b border-[var(--border-color)] bg-[var(--bg-surface)]">
             <div className="flex items-center justify-between mb-2">
