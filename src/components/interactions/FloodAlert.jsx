@@ -202,7 +202,7 @@ const FloodAlert = () => {
                       <Navigation className="w-4 h-4" />
                       EVAKUASI SEKARANG
                     </span>
-                    <span className="text-[8px] opacity-70 tracking-widest">
+                    <span className="text-[8px] opacity-70 tracking-wider">
                       CARI JALAN PALING AMAN
                     </span>
                   </>

@@ -28,7 +28,7 @@ const ContextStrip = ({ project, caseData, isId, t }) => {
           },
         ].map((item, i) => (
           <div key={i} className="flex flex-col">
-            <span className="font-mono text-[9px] md:text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-1 md:mb-2 opacity-70">
+            <span className="font-mono text-[9px] md:text-[10px] text-[var(--text-secondary)] uppercase tracking-wider mb-1 md:mb-2 opacity-70">
               {item.label}
             </span>
             <span className="font-medium text-base md:text-lg font-serif leading-tight">

@@ -21,14 +21,14 @@ const GovernanceLab = ({ isXRayMode }) => (
             Col 1 // TelemetryDashboard
           </span>
         )}
-        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+        <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--accent)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
           <Activity size={14} /> System Telemetry & Health
         </h3>
 
         <div className="grid grid-cols-2 gap-4">
           {/* Adoption Metric */}
           <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6 flex flex-col justify-between">
-            <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">
+            <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] mb-4">
               Adoption Rate
             </span>
             <div>
@@ -43,7 +43,7 @@ const GovernanceLab = ({ isXRayMode }) => (
 
           {/* Accessibility Metric */}
           <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6 flex flex-col justify-between">
-            <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">
+            <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] mb-4">
               A11y Violations
             </span>
             <div>
@@ -67,14 +67,14 @@ const GovernanceLab = ({ isXRayMode }) => (
                 {SYSTEM_CONFIG.VERSION} ({SYSTEM_CONFIG.CODENAME})
               </p>
             </div>
-            <div className="px-3 py-1 bg-[var(--accent-green)]/10 text-[var(--accent-green)] border border-[var(--accent-green)]/20 font-mono text-[10px] uppercase tracking-widest rounded-full">
+            <div className="px-3 py-1 bg-[var(--accent-green)]/10 text-[var(--accent-green)] border border-[var(--accent-green)]/20 font-mono text-[10px] uppercase tracking-wider rounded-full">
               Stable
             </div>
           </div>
 
           {/* Budget progress */}
           <div className="space-y-2 pt-4 border-t border-[var(--border-color)]">
-            <div className="flex justify-between font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+            <div className="flex justify-between font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
               <span>CSS Bundle Budget (15kb target)</span>
               <span className="text-[var(--accent)]">11.2kb</span>
             </div>
@@ -87,7 +87,7 @@ const GovernanceLab = ({ isXRayMode }) => (
 
           <div className="pt-4 border-t border-[var(--border-color)] flex gap-4">
             <div className="flex-1">
-              <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-1">
+              <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-wider mb-1">
                 Maintainer
               </span>
               <div className="flex items-center gap-2">
@@ -98,7 +98,7 @@ const GovernanceLab = ({ isXRayMode }) => (
               </div>
             </div>
             <div className="flex-1">
-              <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-1">
+              <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-wider mb-1">
                 Last Deploy
               </span>
               <div className="text-xs font-bold text-[var(--text-primary)]">
@@ -111,7 +111,7 @@ const GovernanceLab = ({ isXRayMode }) => (
 
       {/* RFC PIPELINE */}
       <div className="space-y-6">
-        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+        <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
           <Lock size={14} /> Component Graduation Pipeline (RFC)
         </h3>
 
@@ -210,7 +210,7 @@ const GovernanceLab = ({ isXRayMode }) => (
         </span>
       )}
       <div className="flex justify-between items-center border-b border-[var(--border-color)] pb-4">
-        <h4 className="font-mono text-sm font-bold uppercase tracking-widest text-[var(--accent)] flex items-center gap-2">
+        <h4 className="font-mono text-sm font-bold uppercase tracking-wider text-[var(--accent)] flex items-center gap-2">
           <Activity size={16} className="text-[var(--accent)]" /> Recruiter Context Modes (Fast-Path Optimization)
         </h4>
         <span className="font-mono text-[9px] uppercase px-2 py-0.5 border border-[var(--accent)]/30 rounded bg-[var(--accent)]/10 text-[var(--accent)]">
@@ -253,7 +253,7 @@ const GovernanceLab = ({ isXRayMode }) => (
       <h4 className="text-sm font-bold text-[var(--text-primary)]">
         Design System Roadmap
       </h4>
-      <div className="flex flex-wrap justify-center gap-4 md:gap-12 font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+      <div className="flex flex-wrap justify-center gap-4 md:gap-12 font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
         <span className="text-[var(--text-primary)]">
           Q1: Modules (Complete)
         </span>

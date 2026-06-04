@@ -7,7 +7,7 @@ const CompanySidebar = ({ cluster, t, isId, id }) => {
     <aside className="hidden lg:block h-full">
       <div className="sticky top-32 space-y-12">
         <div>
-          <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-2">
+          <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-4 flex items-center gap-2">
             <Activity size={14} /> {t("company.context_title")}
           </h3>
           <p className="text-[var(--text-primary)] text-sm leading-relaxed opacity-80">
@@ -62,7 +62,7 @@ const CompanySidebar = ({ cluster, t, isId, id }) => {
         {/* Designer's Log / Motivation */}
         <div className="relative p-6 pt-10 border border-[var(--border-color)] rounded-lg bg-[var(--bg-card)] overflow-hidden group">
           <div className="absolute top-0 left-0 right-0 h-1 bg-[var(--brand)] opacity-50 group-hover:h-full group-hover:opacity-[0.03] transition-all duration-500"></div>
-          <div className="absolute top-3 left-4 font-mono text-[8px] uppercase tracking-[0.2em] text-[var(--text-secondary)] flex items-center gap-2">
+          <div className="absolute top-3 left-4 font-mono text-[8px] uppercase tracking-[0.12em] text-[var(--text-secondary)] flex items-center gap-2">
             <Scan size={10} className="text-[var(--brand)]" />{" "}
             {t("company.designer_log")} // {id}
           </div>
@@ -116,7 +116,7 @@ const CompanySidebar = ({ cluster, t, isId, id }) => {
               size={18}
               className="text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors"
             />
-            <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors">
+            <span className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--brand)] transition-colors">
               {t("company.company_page")}
             </span>
             <ArrowUpRight

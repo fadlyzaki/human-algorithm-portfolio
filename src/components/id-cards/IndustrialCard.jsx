@@ -19,7 +19,7 @@ const IndustrialCard = ({ t, isDark, currentItem }) => (
       {/* Header */}
       <div className={`h-24 relative flex items-center justify-between px-4 pt-4 border-b-2 border-[var(--accent)] ${isDark ? "bg-white" : "bg-black"}`}>
         <div className="flex flex-col">
-          <span className="text-[var(--accent)] font-mono text-[10px] font-bold tracking-[0.2em]">
+          <span className="text-[var(--accent)] font-mono text-[10px] font-bold tracking-[0.12em]">
             {t("id_card.access_level") || "ROOT_ACCESS"}
           </span>
           <span className={`font-sans text-xs font-bold tracking-wide mt-1 ${isDark ? "text-black" : "text-white"}`}>
@@ -47,7 +47,7 @@ const IndustrialCard = ({ t, isDark, currentItem }) => (
             <h2 className={`text-xl font-bold leading-none uppercase tracking-tight whitespace-nowrap ${isDark ? "text-black" : "text-white"}`}>
               UZZAKI, FADLY 🧢
             </h2>
-            <span className={`text-[10px] font-mono uppercase tracking-widest mt-1 ${isDark ? "text-gray-600" : "text-gray-400"}`}>
+            <span className={`text-[10px] font-mono uppercase tracking-wider mt-1 ${isDark ? "text-gray-600" : "text-gray-400"}`}>
               {t("id_card.role") || "Product Designer // Systems Thinker"}
             </span>
           </div>

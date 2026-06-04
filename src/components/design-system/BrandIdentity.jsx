@@ -22,7 +22,7 @@ const PersonaCard = ({ role, icon: Icon, color, desc, quote }) => (
         {role}
       </h4>
       <div
-        className="w-2 h-2 rounded-full animate-pulse"
+        className="w-2 h-2 rounded-full"
         style={{ backgroundColor: color }}
       ></div>
     </div>
@@ -92,7 +92,7 @@ const BrandIdentity = ({ isXRayMode }) => {
               Col 1 // PersonaCards
             </span>
           )}
-          <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+          <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
             <Fingerprint size={14} /> Persona Architecture
           </h3>
           <div className="space-y-4">
@@ -128,7 +128,7 @@ const BrandIdentity = ({ isXRayMode }) => {
               Col 2 // VisualIdentity
             </span>
           )}
-          <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+          <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
             <UserCheck size={14} /> Visual Identity
           </h3>
           <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-card)] space-y-6 relative overflow-hidden flex flex-col h-full">
@@ -137,14 +137,14 @@ const BrandIdentity = ({ isXRayMode }) => {
             </div>
 
             <div>
-              <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
+              <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)]">
                 Identity Logomark
               </span>
               <div className="text-3xl mt-1 font-bold text-[var(--text-primary)]">🧢 Fadlyzaki</div>
             </div>
 
             <div className="space-y-3 flex-grow flex flex-col">
-              <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] block">
+              <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] block">
                 Interactive Polymorphic Card
               </span>
               
@@ -154,7 +154,7 @@ const BrandIdentity = ({ isXRayMode }) => {
                   <button
                     key={v}
                     onClick={() => setVariant(v)}
-                    className={`px-2.5 py-1 font-mono text-[8px] uppercase tracking-widest border transition-all rounded-sm focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)]/50 ${
+                    className={`px-2.5 py-1 font-mono text-[8px] uppercase tracking-wider border transition-all rounded-sm focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)]/50 ${
                       variant === v
                         ? "bg-[var(--accent)]/15 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_8px_rgba(var(--accent-rgb),0.1)] font-bold"
                         : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"

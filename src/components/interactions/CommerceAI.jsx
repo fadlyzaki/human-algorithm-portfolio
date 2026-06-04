@@ -176,7 +176,7 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
 
               {/* Label */}
               <div
-                className={`px-1.5 py-0.5 rounded border bg-black/50 backdrop-blur text-[7px] md:text-[8px] font-mono tracking-widest uppercase whitespace-nowrap transition-colors duration-300
+                className={`px-1.5 py-0.5 rounded border bg-black/50 backdrop-blur text-[7px] md:text-[8px] font-mono tracking-wider uppercase whitespace-nowrap transition-colors duration-300
                   ${activeNode === hub.id ? "text-white border-white/30" : "text-white/50 border-white/10 group-hover:text-white/80"}
                 `}
               >
@@ -239,7 +239,7 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
         {/* Control Panel */}
         <div className="w-full max-w-sm bg-black/40 p-3 rounded-xl border border-white/10 backdrop-blur-md z-10 flex items-center gap-4">
           <div className="flex flex-col gap-0.5 min-w-[70px]">
-            <span className="text-[9px] uppercase tracking-widest text-white/50">Demand</span>
+            <span className="text-[9px] uppercase tracking-wider text-white/50">Demand</span>
             <span className="text-lg font-mono text-white leading-none">{demand}%</span>
           </div>
           <input
@@ -253,7 +253,7 @@ const CommerceAI = ({ color = "var(--accent-teal)" }) => {
         </div>
 
         {/* Footer */}
-        <div className="absolute bottom-3 left-4 text-[9px] text-white/20 font-mono tracking-widest flex items-center gap-2">
+        <div className="absolute bottom-3 left-4 text-[9px] text-white/20 font-mono tracking-wider flex items-center gap-2">
           <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: color }} />
           SUPPLY_CHAIN_V4 — Click nodes to inspect
         </div>

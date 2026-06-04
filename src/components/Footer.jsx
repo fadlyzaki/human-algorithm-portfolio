@@ -178,7 +178,7 @@ const DoNotPressButton = () => {
   return (
     <button
       onClick={triggerChaos}
-      className={`text-[9px] font-mono uppercase tracking-widest px-2 py-1 rounded transition-colors ${
+      className={`text-[9px] font-mono uppercase tracking-wider px-2 py-1 rounded transition-colors ${
         chaosCount > 0
           ? "bg-red-500/10 text-red-500 border border-red-500/30"
           : "text-[var(--text-secondary)] border border-[var(--text-secondary)]/30 hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/30"
@@ -231,7 +231,7 @@ const Footer = ({ hideHeadline = false }) => {
         <div className={`max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 mb-24 ${!hideHeadline ? 'border-t border-[var(--text-secondary)]/20 pt-12' : ''}`}>
           {/* COL 1: SITEMAP */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-2">
               {t("footer.index")}
             </h4>
             <FooterTooltipLink to="/" icon={Home} tooltip={t("nav.ttp_start")}>
@@ -279,7 +279,7 @@ const Footer = ({ hideHeadline = false }) => {
 
           {/* COL 2: SOCIALS */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-2">
               {t("footer.connect")}
             </h4>
             <FooterTooltipLink
@@ -318,7 +318,7 @@ const Footer = ({ hideHeadline = false }) => {
 
           {/* COL 3: CONTEXT */}
           <div className="hidden md:flex flex-col gap-4">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-2">
               {t("footer.location")}
             </h4>
             <span className="text-[var(--text-secondary)] text-sm">
@@ -331,7 +331,7 @@ const Footer = ({ hideHeadline = false }) => {
 
           {/* COL 4: META */}
           <div className="hidden md:flex flex-col gap-4">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-2">
               {t("footer.colophon")}
             </h4>
             <span className="text-[var(--text-secondary)] text-sm leading-relaxed whitespace-pre-line">
@@ -347,7 +347,7 @@ const Footer = ({ hideHeadline = false }) => {
             className="group flex flex-col items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-300"
           >
             <div className="w-px h-12 bg-[var(--text-secondary)]/30 group-hover:bg-[var(--text-primary)] transition-colors duration-300"></div>
-            <span className="font-mono text-[10px] uppercase tracking-widest">
+            <span className="font-mono text-[10px] uppercase tracking-wider">
               {t("footer.return") || "Return to Surface"}
             </span>
           </button>
@@ -361,11 +361,6 @@ const Footer = ({ hideHeadline = false }) => {
           </div>
           <div className="mt-4 md:mt-0 flex items-center gap-4 flex-wrap justify-end">
             <DoNotPressButton />
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-pulse" />
-              Neural-Enhanced Environment
-            </div>
-            <div className="opacity-30">|</div>
             <div className="flex items-center gap-2">
               Human-Algorithm <Heart size={10} className="fill-current text-red-500" />{" "}
               {SYSTEM_CONFIG.VERSION}

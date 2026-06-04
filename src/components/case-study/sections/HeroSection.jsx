@@ -28,7 +28,7 @@ const HeroSection = ({ project, caseData, isId, t }) => {
           <div className="mb-6 flex items-center justify-center">
             <div className="bg-amber-500/10 border border-amber-500/50 text-amber-600 dark:text-amber-400 px-4 py-2 rounded-full flex items-center gap-2 backdrop-blur-sm">
               <AlertTriangle size={14} />
-              <span className="font-mono text-[10px] uppercase tracking-widest">
+              <span className="font-mono text-[10px] uppercase tracking-wider">
                 {t("protected.wip_label") || "Work in Progress"}
               </span>
             </div>
@@ -37,7 +37,7 @@ const HeroSection = ({ project, caseData, isId, t }) => {
 
         {/* Cinematic Title */}
         <div className="mb-4">
-          <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[var(--brand)] border-b border-[var(--brand)] pb-1 sm:pb-2 inline-block">
+          <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.12em] text-[var(--brand)] border-b border-[var(--brand)] pb-1 sm:pb-2 inline-block">
             {caseData.snapshot?.tagline || t("protected.classified_arch") || "Confidential Project"}
           </span>
         </div>

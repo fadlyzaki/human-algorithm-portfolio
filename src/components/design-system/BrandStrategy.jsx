@@ -12,7 +12,7 @@ const BrandStrategy = ({ isXRayMode }) => {
 
       <div className="flex items-center gap-3 mb-6 border-b border-[var(--border-color)] pb-4 relative z-10">
         <div className="w-1.5 h-1.5 bg-[var(--border-color)] group-hover:bg-[var(--accent)] transition-colors rounded-sm" />
-        <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
+        <h4 className="font-mono text-xs uppercase tracking-wider text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
           {title}
         </h4>
       </div>
@@ -51,7 +51,7 @@ const BrandStrategy = ({ isXRayMode }) => {
             Section // Header
           </span>
         )}
-        <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.3em] text-[var(--text-secondary)]">
+        <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.12em] text-[var(--text-secondary)]">
           System Architect Profile
         </span>
         <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-[var(--text-primary)]">
@@ -71,7 +71,7 @@ const BrandStrategy = ({ isXRayMode }) => {
         )}
 
         <div className="flex items-end justify-between border-b border-[var(--border-color)] pb-4 mb-8">
-          <h3 className="text-lg font-bold tracking-widest text-[var(--text-primary)] flex items-center gap-3 uppercase font-mono">
+          <h3 className="text-lg font-bold tracking-wider text-[var(--text-primary)] flex items-center gap-3 uppercase font-mono">
             <Terminal size={18} className="text-[var(--accent)]" />
             Foundation Constants
           </h3>
@@ -128,7 +128,7 @@ const BrandStrategy = ({ isXRayMode }) => {
         )}
 
         <div className="flex items-end justify-between border-b border-[var(--border-color)] pb-4 mb-8">
-          <h3 className="text-lg font-bold tracking-widest text-[var(--text-primary)] flex items-center gap-3 uppercase font-mono">
+          <h3 className="text-lg font-bold tracking-wider text-[var(--text-primary)] flex items-center gap-3 uppercase font-mono">
             <Activity size={18} className="text-[var(--accent-amber)]" />
             Execution Vectors
           </h3>

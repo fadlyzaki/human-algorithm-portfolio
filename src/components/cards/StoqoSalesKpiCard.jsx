@@ -33,7 +33,7 @@ const StoqoSalesKpiCard = ({ expanded, showChrome }) => (
 
       {/* The Filter Mechanism */}
       <div className="w-full max-w-[200px] h-px bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-50 my-2"></div>
-      <div className="text-[8px] font-mono text-[var(--brand)] uppercase tracking-[0.2em] animate-pulse">
+      <div className="text-[8px] font-mono text-[var(--brand)] uppercase tracking-[0.12em] animate-pulse">
         ATTENTION_SIEVE_ACTIVE
       </div>
     </div>

@@ -55,7 +55,7 @@ const StoqoSalesCard = ({ expanded, showChrome }) => (
 
         {/* Core "Commitment" Button */}
         <div className="w-20 h-20 bg-[var(--brand)]/10 backdrop-blur-md rounded-full border border-[var(--brand)] flex items-center justify-center shadow-[0_0_30px_var(--brand)_inset] relative group-hover:scale-105 transition-transform duration-500">
-          <div className="w-2 h-2 bg-[var(--brand)] rounded-full animate-pulse shadow-[0_0_10px_var(--brand)]"></div>
+          <div className="w-2 h-2 bg-[var(--brand)] rounded-full"></div>
 
           {/* Crosshairs */}
           <div className="absolute top-0 bottom-0 w-px bg-[var(--brand)]/50"></div>
@@ -63,11 +63,11 @@ const StoqoSalesCard = ({ expanded, showChrome }) => (
         </div>
 
         {/* Floating Labels */}
-        <div className="absolute -top-6 bg-white dark:bg-black px-2 py-0.5 border border-[var(--brand)]/30 rounded text-[8px] font-mono text-[var(--brand)] uppercase tracking-widest">
+        <div className="absolute -top-6 bg-white dark:bg-black px-2 py-0.5 border border-[var(--brand)]/30 rounded text-[8px] font-mono text-[var(--brand)] uppercase tracking-wider">
           MISSION_LOCK
         </div>
         <div className="absolute -bottom-6 flex gap-4">
-          <div className="px-2 py-0.5 bg-[var(--brand)] text-white rounded text-[6px] font-mono tracking-widest shadow-lg">
+          <div className="px-2 py-0.5 bg-[var(--brand)] text-white rounded text-[6px] font-mono tracking-wider shadow-lg">
             KPI_DETECTED
           </div>
         </div>

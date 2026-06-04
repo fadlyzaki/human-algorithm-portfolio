@@ -54,7 +54,7 @@ const NavigationMenu = ({ isOpen, onClose }) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="font-mono text-[10px] md:text-xs text-[var(--accent-amber)] uppercase tracking-widest mb-6 md:mb-8"
+          className="font-mono text-[10px] md:text-xs text-[var(--accent-amber)] uppercase tracking-wider mb-6 md:mb-8"
         >
           {t("nav.system_directory")}
         </motion.div>
@@ -101,7 +101,7 @@ const NavigationMenu = ({ isOpen, onClose }) => {
               toggleLanguage();
               onClose();
             }}
-            className="flex items-center justify-center gap-2 font-mono text-base md:text-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] uppercase tracking-widest mt-2 md:mt-4 transition-colors"
+            className="flex items-center justify-center gap-2 font-mono text-base md:text-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] uppercase tracking-wider mt-2 md:mt-4 transition-colors"
           >
             <Globe size={18} className="md:w-5 md:h-5" />
             <span>{language === "en" ? "Bahasa Indonesia" : "English"}</span>
@@ -117,7 +117,7 @@ const NavigationMenu = ({ isOpen, onClose }) => {
               toggleRecruiterMode();
               onClose();
             }}
-            className={`flex items-center justify-center gap-2 font-mono text-base md:text-xl uppercase tracking-widest mt-1 md:mt-2 transition-colors ${
+            className={`flex items-center justify-center gap-2 font-mono text-base md:text-xl uppercase tracking-wider mt-1 md:mt-2 transition-colors ${
               isRecruiterMode ? "text-emerald-500" : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
             }`}
           >

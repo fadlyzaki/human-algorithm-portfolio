@@ -166,7 +166,7 @@ const EfficiencyAI = ({ color = "var(--accent-orange)" }) => {
                     <Leaf size={12} style={{ color, opacity: 0.8 }} />
                   </div>
                   <div className="flex flex-col min-w-0">
-                    <span className="text-[8px] text-white/50 tracking-widest uppercase">SUPPLY</span>
+                    <span className="text-[8px] text-white/50 tracking-wider uppercase">SUPPLY</span>
                     <span className="text-[9px] text-white/90 font-bold truncate">{s.label}</span>
                   </div>
                 </div>
@@ -182,7 +182,7 @@ const EfficiencyAI = ({ color = "var(--accent-orange)" }) => {
               <div className="absolute inset-0 rounded-full opacity-20 animate-ping" style={{ borderWidth: 1, borderStyle: "solid", borderColor: color }} />
               <div className="flex flex-col items-center gap-0.5">
                 <Clock size={20} style={{ color }} />
-                <span className="text-[7px] font-mono tracking-widest" style={{ color }}>JIT_SYNC</span>
+                <span className="text-[7px] font-mono tracking-wider" style={{ color }}>JIT_SYNC</span>
                 <span className="text-[11px] font-bold text-white">
                   00:{String(cycle % 60).padStart(2, "0")}
                 </span>
@@ -216,7 +216,7 @@ const EfficiencyAI = ({ color = "var(--accent-orange)" }) => {
                     <ChefHat size={14} className={`transition-colors ${rushFlash === i ? "text-red-400" : "text-white/80 group-hover:text-red-400"}`} />
                   </div>
                   <div className="flex flex-col min-w-0">
-                    <span className={`text-[8px] tracking-widest uppercase transition-colors ${rushFlash === i ? "text-red-400/70" : "text-white/50 group-hover:text-red-400/60"}`}>
+                    <span className={`text-[8px] tracking-wider uppercase transition-colors ${rushFlash === i ? "text-red-400/70" : "text-white/50 group-hover:text-red-400/60"}`}>
                       DEMAND
                     </span>
                     <span className="text-[9px] text-white/90 font-bold truncate">{k.label}</span>
@@ -232,7 +232,7 @@ const EfficiencyAI = ({ color = "var(--accent-orange)" }) => {
         </div>
 
         {/* Footer */}
-        <div className="absolute bottom-3 left-4 text-[9px] text-gray-500 font-mono tracking-widest flex items-center gap-3">
+        <div className="absolute bottom-3 left-4 text-[9px] text-gray-500 font-mono tracking-wider flex items-center gap-3">
           <div className="flex items-center gap-1">
             <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: color }} />
             JIT_LOGISTICS — Click kitchens to inject rush orders

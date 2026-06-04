@@ -59,7 +59,7 @@ const MDXComponents = {
     // --- BLOCKQUOTE ---
     blockquote: (props) => (
         <blockquote
-            className="my-14 pl-8 md:pl-10 italic border-l-4 border-[var(--accent-amber)] text-xl md:text-2xl text-[var(--text-primary)]/90 font-serif leading-relaxed bg-[var(--bg-surface)] py-8 pr-8 rounded-r-2xl shadow-xl shadow-black/5 relative overflow-hidden group"
+            className="my-14 pl-8 md:pl-10 italic border-l-2 border-[var(--accent-amber)] text-xl md:text-2xl text-[var(--text-primary)]/90 font-serif leading-relaxed bg-[var(--bg-surface)] py-8 pr-8 rounded-r-2xl shadow-xl shadow-black/5 relative overflow-hidden group"
             {...props}
         >
             <Quote className="text-[var(--accent-amber)]/10 w-24 h-24 absolute -bottom-4 -right-4 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700" />
@@ -81,7 +81,7 @@ const MDXComponents = {
                         <div className="w-3 h-3 rounded-full bg-amber-500" />
                         <div className="w-3 h-3 rounded-full bg-green-500" />
                     </div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.12em] font-bold text-gray-400">
                         {lang}
                     </div>
                 </div>

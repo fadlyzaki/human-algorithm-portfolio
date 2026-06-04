@@ -43,12 +43,12 @@ const TrackingNode = ({ nodeId, title, status = "IN_TRANSIT", icon: Icon = Packa
     </div>
     <div className="pt-2">
       <div className="flex items-center gap-3 mb-2">
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--brand)] opacity-80">
+        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--brand)] opacity-80">
           NODE_{nodeId}
         </span>
         <span className="text-[var(--border-color)]">|</span>
         <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--text-secondary)] opacity-50 flex items-center gap-1">
-          <Activity size={10} className="animate-pulse text-[var(--accent-amber)]" /> STATUS: {status}
+          <Activity size={10} className="text-[var(--accent-amber)]" /> STATUS: {status}
         </span>
       </div>
       <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)]">
@@ -102,9 +102,9 @@ const StoqoLogisticsCaseStudy = ({ project, t }) => {
             <div>
               <div className="flex items-center gap-3 mb-8">
                 <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-[var(--bg-card)] border border-[var(--brand)]/40 rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.08)] backdrop-blur-sm">
-                  <span className="w-2 h-2 rounded-full bg-[var(--brand)] animate-pulse shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-[var(--brand)] shrink-0" />
                   <Truck size={13} style={{ color: "var(--brand)" }} className="opacity-80" />
-                  <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.15em] font-semibold" style={{ color: "var(--brand)" }}>
+                  <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.12em] font-semibold" style={{ color: "var(--brand)" }}>
                     {t("case_study.st_logistics_tag")}
                   </span>
                 </div>
@@ -122,7 +122,7 @@ const StoqoLogisticsCaseStudy = ({ project, t }) => {
             
             {/* Quick Metrics / Manifest container */}
             <div className="bg-[var(--bg-surface)] p-6 md:p-8 rounded-2xl border border-[var(--border-color)]">
-              <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--text-secondary)] mb-6 border-b border-[var(--border-color)] pb-3">
+              <h4 className="font-mono text-xs uppercase tracking-[0.12em] text-[var(--text-secondary)] mb-6 border-b border-[var(--border-color)] pb-3">
                 {t("case_study.st_logistics_manifest")}
               </h4>
               <div className="grid grid-cols-2 gap-6">
@@ -210,7 +210,7 @@ const StoqoLogisticsCaseStudy = ({ project, t }) => {
                   className="w-full h-full object-cover rounded-lg bg-black/5 dark:bg-white/5"
                 />
               </div>
-              <p className="font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] flex items-center justify-between">
+              <p className="font-mono text-sm uppercase tracking-wider text-[var(--text-secondary)] flex items-center justify-between">
                 <span>{t("case_study.st_logistics_label_interview")}</span>
                 <span className="opacity-50">ARCHIVE_C0</span>
               </p>
@@ -223,7 +223,7 @@ const StoqoLogisticsCaseStudy = ({ project, t }) => {
                   className="w-full h-full object-cover rounded-lg bg-black/5 dark:bg-white/5"
                 />
               </div>
-              <p className="font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] flex items-center justify-between">
+              <p className="font-mono text-sm uppercase tracking-wider text-[var(--text-secondary)] flex items-center justify-between">
                 <span>{t("case_study.st_logistics_label_synthesis")}</span>
                 <span className="opacity-50">ARCHIVE_C1</span>
               </p>
@@ -236,7 +236,7 @@ const StoqoLogisticsCaseStudy = ({ project, t }) => {
                   className="w-full h-full object-cover rounded-lg bg-black/5 dark:bg-white/5"
                 />
               </div>
-              <p className="font-mono text-sm uppercase tracking-widest text-[var(--text-secondary)] flex items-center justify-between">
+              <p className="font-mono text-sm uppercase tracking-wider text-[var(--text-secondary)] flex items-center justify-between">
                 <span>{t("case_study.st_logistics_label_workshop")}</span>
                 <span className="opacity-50">ARCHIVE_C2</span>
               </p>
@@ -380,7 +380,7 @@ const StoqoLogisticsCaseStudy = ({ project, t }) => {
                 className="w-full h-full object-cover rounded-xl bg-black/5 dark:bg-white/5"
               />
               <div className="absolute top-4 left-4 flex items-center gap-2 pointer-events-none">
-                <span className="w-2 h-2 bg-[var(--brand)] rounded-full animate-pulse" />
+                <span className="w-2 h-2 bg-[var(--brand)] rounded-full" />
                 <span className="font-mono text-[10px] font-bold text-[var(--bg-void)] bg-[var(--brand)] px-2 py-0.5 rounded uppercase tracking-wider">FIELD TESTING</span>
               </div>
             </div>
@@ -391,7 +391,7 @@ const StoqoLogisticsCaseStudy = ({ project, t }) => {
                 className="w-full h-full object-cover rounded-xl bg-black/5 dark:bg-white/5"
               />
               <div className="absolute top-4 left-4 flex items-center gap-2 pointer-events-none">
-                <span className="w-2 h-2 bg-[var(--brand)] rounded-full animate-pulse" />
+                <span className="w-2 h-2 bg-[var(--brand)] rounded-full" />
                 <span className="font-mono text-[10px] font-bold text-[var(--bg-void)] bg-[var(--brand)] px-2 py-0.5 rounded uppercase tracking-wider">USER OBSERVATION</span>
               </div>
             </div>
@@ -408,7 +408,7 @@ const StoqoLogisticsCaseStudy = ({ project, t }) => {
             {t("case_study.st_logistics_impact_p1")}
           </p>
 
-          <div className="p-8 md:p-12 bg-gradient-to-br from-[var(--brand)] to-[var(--bg-surface)] border border-[var(--border-color)] rounded-3xl shadow-xl relative overflow-hidden">
+          <div className="p-8 md:p-12 bg-gradient-to-br from-[var(--brand)] to-[var(--bg-surface)] border border-[var(--border-color)] rounded-2xl shadow-xl relative overflow-hidden">
             <div className="relative z-10 text-center max-w-3xl mx-auto">
               <h3 className="text-3xl font-bold text-[var(--text-primary)] mb-6">{t("case_study.st_logistics_impact_header")}</h3>
               <p className="text-lg md:text-xl font-medium leading-relaxed text-[var(--text-secondary)]">

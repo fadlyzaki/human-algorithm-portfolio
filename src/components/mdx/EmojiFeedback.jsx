@@ -56,8 +56,8 @@ const EmojiFeedback = () => {
             {/* Section Header */}
             <div className="text-center mb-12 relative z-10">
                 <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)]/50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-amber)] animate-pulse" />
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--accent-amber)] font-bold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-amber)]" />
+                    <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-[var(--accent-amber)] font-bold">
                         Feedback_Protocol :: v6.0
                     </span>
                 </div>
@@ -135,7 +135,7 @@ const EmojiFeedback = () => {
                         className="text-center mt-12 relative z-10"
                     >
                         <div className="inline-block px-6 py-2 bg-[var(--accent-green)]/10 border border-[var(--accent-green)]/30 rounded-full">
-                            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent-green)] font-bold">
+                            <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--accent-green)] font-bold">
                                 // Transmission_Success. Signal_Locked.
                             </p>
                         </div>

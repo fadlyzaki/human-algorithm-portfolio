@@ -78,7 +78,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                   <h4 className="font-serif italic text-2xl sm:text-3xl text-gray-900 dark:text-white">
                     Fadly Uzzaki,
                   </h4>
-                  <p className="text-xs sm:text-sm font-mono text-gray-500 mt-2 uppercase tracking-widest flex items-center gap-2">
+                  <p className="text-xs sm:text-sm font-mono text-gray-500 mt-2 uppercase tracking-wider flex items-center gap-2">
                     <FileText size={14} className="text-emerald-600" />
                     {t("cover_letter.title")}
                   </p>
@@ -93,7 +93,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] font-mono uppercase tracking-widest text-emerald-600/70 dark:text-emerald-400/70 animate-pulse"
+                    className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] font-mono uppercase tracking-wider text-emerald-600/70 dark:text-emerald-400/70 animate-pulse"
                   >
                     [ Click to unseal ]
                   </motion.div>
@@ -181,7 +181,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                 <div className="p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                   <div className="flex items-center gap-6 font-mono text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                     <div>
-                      <div className="uppercase tracking-widest text-[10px] mb-1 opacity-70">
+                      <div className="uppercase tracking-wider text-[10px] mb-1 opacity-70">
                         {t("cover_letter.authorized_by")}
                       </div>
                       <div className="font-bold text-gray-900 dark:text-white">
@@ -190,7 +190,7 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                     </div>
                     <div className="h-8 w-px bg-gray-300 dark:bg-gray-700"></div>
                     <div>
-                      <div className="uppercase tracking-widest text-[10px] mb-1 opacity-70">
+                      <div className="uppercase tracking-wider text-[10px] mb-1 opacity-70">
                         {t("cover_letter.status_label")}
                       </div>
                       <div className="text-emerald-600 dark:text-emerald-400">

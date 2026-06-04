@@ -59,7 +59,7 @@ const PrototypeDetail = ({
         {/* 1. HERO SECTION */}
         <header className="mb-24 flex flex-col md:flex-row gap-12 items-end pt-12 border-b border-[var(--border-color)] pb-16">
           <div className="flex-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] backdrop-blur-md text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] backdrop-blur-md text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-8">
               <Sparkles size={12} style={{ color: accentColor }} />
               {t("project_layouts.experimental_prototype")}
             </div>
@@ -109,14 +109,14 @@ const PrototypeDetail = ({
         {/* 2. THE TESTING GROUND (Prototype/Interaction) */}
         {(project.prototypeLink || InteractionComponent) && (
           <section className="mb-32 relative">
-            <div className="absolute -inset-4 bg-gradient-to-b from-[var(--bg-card)] to-transparent rounded-[2.5rem] -z-10 blur-xl opacity-50"></div>
-            <div className="rounded-[2rem] border border-[var(--border-color)] overflow-hidden bg-[var(--bg-card)] shadow-lg relative">
+            <div className="absolute -inset-4 bg-gradient-to-b from-[var(--bg-card)] to-transparent rounded-2xl -z-10 blur-xl opacity-50"></div>
+            <div className="rounded-2xl border border-[var(--border-color)] overflow-hidden bg-[var(--bg-card)] shadow-lg relative">
               {/* Decorative Top Bar */}
               <div className="h-12 border-b border-[var(--border-color)] flex items-center px-6 gap-2 bg-[var(--bg-surface)]">
                 <div className="w-3 h-3 rounded-full bg-[var(--text-secondary)] opacity-30"></div>
                 <div className="w-3 h-3 rounded-full bg-[var(--text-secondary)] opacity-30"></div>
                 <div className="w-3 h-3 rounded-full bg-[var(--text-secondary)] opacity-30"></div>
-                <div className="ml-4 text-xs font-mono text-[var(--text-secondary)] lowercase tracking-widest">
+                <div className="ml-4 text-xs font-mono text-[var(--text-secondary)] lowercase tracking-wider">
                   {project.id}.test_env
                 </div>
               </div>
@@ -146,7 +146,7 @@ const PrototypeDetail = ({
           {/* LEFT COLUMN: Scrolling Content */}
           <div className="lg:col-span-8 space-y-32">
             {/* The Problem Space */}
-            <section className="bg-[var(--bg-card)] p-8 md:p-12 border border-[var(--border-color)] rounded-[3rem] shadow-sm">
+            <section className="bg-[var(--bg-card)] p-8 md:p-12 border border-[var(--border-color)] rounded-2xl shadow-sm">
               <div className="flex items-center gap-4 mb-8">
                 <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-secondary)]">
                   <TestTube size={24} />
@@ -162,7 +162,7 @@ const PrototypeDetail = ({
 
             {/* Development Process / Experiments */}
             {activeProcess && (
-              <section className="bg-[var(--bg-card)] p-8 md:p-12 border border-[var(--border-color)] rounded-[3rem] shadow-sm">
+              <section className="bg-[var(--bg-card)] p-8 md:p-12 border border-[var(--border-color)] rounded-2xl shadow-sm">
                 <div className="flex items-center gap-4 mb-12">
                   <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-secondary)]">
                     <Cpu size={24} />
@@ -218,7 +218,7 @@ const PrototypeDetail = ({
           {/* RIGHT COLUMN: Sticky Sidebar for Specs & Learnings */}
           <aside className="lg:col-span-4 lg:sticky lg:top-32 space-y-8">
             {(activeMetrics || activeInsights || activeLearnings) && (
-              <div className="rounded-3xl border border-[var(--border-color)] bg-[var(--bg-card)] p-8 shadow-sm overflow-hidden relative">
+              <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] p-8 shadow-sm overflow-hidden relative">
                 {/* Subtle decorative glow in card */}
                 <div
                   className="absolute top-0 right-0 w-32 h-32 opacity-20 blur-[50px] rounded-full"
@@ -228,7 +228,7 @@ const PrototypeDetail = ({
                 {activeMetrics && activeMetrics.length > 0 && (
                   <div className="mb-10 relative z-10">
                     <h4
-                      className="text-xs uppercase tracking-widest flex items-center gap-2 mb-6"
+                      className="text-xs uppercase tracking-wider flex items-center gap-2 mb-6"
                       style={{ color: accentColor }}
                     >
                       <TrendingUp size={14} /> {t("project_layouts.signals")}
@@ -251,7 +251,7 @@ const PrototypeDetail = ({
                 {activeInsights && activeInsights.length > 0 && (
                   <div className="mb-10 relative z-10 border-t border-[var(--border-color)] pt-8">
                     <h4
-                      className="text-xs uppercase tracking-widest flex items-center gap-2 mb-6"
+                      className="text-xs uppercase tracking-wider flex items-center gap-2 mb-6"
                       style={{ color: accentColor }}
                     >
                       <Compass size={14} /> {t("project_layouts.trajectory")}
@@ -274,7 +274,7 @@ const PrototypeDetail = ({
                 {activeLearnings && (
                   <div className="relative z-10 border-t border-[var(--border-color)] pt-8 mt-10">
                     <h4
-                      className="text-xs uppercase tracking-widest flex items-center gap-2 mb-6"
+                      className="text-xs uppercase tracking-wider flex items-center gap-2 mb-6"
                       style={{ color: accentColor }}
                     >
                       <Lightbulb size={14} /> {t("project_layouts.lesson_learned")}

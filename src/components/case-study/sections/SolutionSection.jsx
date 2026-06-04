@@ -11,7 +11,7 @@ const SolutionSection = ({ caseData, t }) => {
         <h2 className="text-3xl md:text-4xl font-serif italic">
           {t("protected.solution_title") || "The Solution"}
         </h2>
-        <span className="font-mono text-[10px] md:text-xs text-[var(--text-secondary)] uppercase tracking-widest">
+        <span className="font-mono text-[10px] md:text-xs text-[var(--text-secondary)] uppercase tracking-wider">
           {t("protected.solution_subtitle") || "Interface Design"}
         </span>
       </div>
@@ -39,7 +39,7 @@ const SolutionSection = ({ caseData, t }) => {
                         </div>
                       </div>
                       <div className="mt-8 text-center px-4 max-w-[320px]">
-                        <div className="font-mono text-xs text-[var(--brand)] mb-2 uppercase tracking-widest font-bold">
+                        <div className="font-mono text-xs text-[var(--brand)] mb-2 uppercase tracking-wider font-bold">
                           {t("protected.live_prototype") ||
                             "Interactive Prototype"}
                         </div>
@@ -72,7 +72,7 @@ const SolutionSection = ({ caseData, t }) => {
                       </div>
                     </div>
                     <div className="mt-10 text-center max-w-2xl mx-auto px-4">
-                      <div className="font-mono text-xs text-[var(--brand)] mb-4 uppercase tracking-widest font-bold">
+                      <div className="font-mono text-xs text-[var(--brand)] mb-4 uppercase tracking-wider font-bold">
                         {t("protected.live_prototype") ||
                           "Interactive Prototype"}
                       </div>
@@ -116,7 +116,7 @@ const SolutionSection = ({ caseData, t }) => {
                         )}
                       </div>
                       <div>
-                        <div className="font-mono text-xs text-[var(--text-secondary)] mb-3 uppercase tracking-widest flex items-center gap-2">
+                        <div className="font-mono text-xs text-[var(--text-secondary)] mb-3 uppercase tracking-wider flex items-center gap-2">
                           <span className="w-6 h-[1px] bg-[var(--text-secondary)] opacity-50"></span>
                           {t("protected.exhibit") || "Exhibit"}{" "}
                           {String.fromCharCode(65 + i)}

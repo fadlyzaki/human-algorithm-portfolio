@@ -28,7 +28,7 @@ const CommerceCard = ({ expanded, showChrome, backgroundOnly }) => (
           <div className="w-10 h-10 border border-white/30 rounded flex items-center justify-center bg-white/5 backdrop-blur">
             <div className="w-4 h-4 bg-white/40 rounded-sm"></div>
           </div>
-          <span className="text-[8px] font-mono text-white/50 tracking-widest">
+          <span className="text-[8px] font-mono text-white/50 tracking-wider">
             BRAND
           </span>
         </div>
@@ -41,7 +41,7 @@ const CommerceCard = ({ expanded, showChrome, backgroundOnly }) => (
           <div className="w-14 h-14 border border-white/50 rounded-full flex items-center justify-center bg-white/10 shadow-[0_0_30px_rgba(var(--bg-surface-rgb), 0.1)]">
             <Truck size={20} className="text-white" />
           </div>
-          <span className="text-[8px] font-mono text-white tracking-widest">
+          <span className="text-[8px] font-mono text-white tracking-wider">
             MARKETPLACE
           </span>
         </div>
@@ -54,7 +54,7 @@ const CommerceCard = ({ expanded, showChrome, backgroundOnly }) => (
           <div className="w-10 h-10 border border-white/30 rounded flex items-center justify-center bg-white/5 backdrop-blur">
             <div className="w-4 h-4 bg-white/40 rounded-full"></div>
           </div>
-          <span className="text-[8px] font-mono text-white/50 tracking-widest">
+          <span className="text-[8px] font-mono text-white/50 tracking-wider">
             SME
           </span>
         </div>

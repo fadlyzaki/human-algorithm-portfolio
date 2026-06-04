@@ -60,7 +60,7 @@ const BlueprintDetail = ({
             </div>
 
             {/* Title Block Specs */}
-            <div className="border border-[var(--border-color)] p-4 text-[10px] uppercase tracking-widest grid grid-cols-2 gap-4 w-full md:w-auto shrink-0 bg-[var(--bg-void)]">
+            <div className="border border-[var(--border-color)] p-4 text-[10px] uppercase tracking-wider grid grid-cols-2 gap-4 w-full md:w-auto shrink-0 bg-[var(--bg-void)]">
               <div>
                 <span className="text-blue-500/60 block mb-1">
                   {t("project_layouts.project_type")}
@@ -82,7 +82,7 @@ const BlueprintDetail = ({
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-6 text-xs text-blue-800 dark:text-blue-200 uppercase font-bold tracking-widest">
+          <div className="flex flex-wrap items-center gap-6 text-xs text-blue-800 dark:text-blue-200 uppercase font-bold tracking-wider">
             {project.links.demo && project.links.demo !== "#" && (
               <a
                 href={project.links.demo}
@@ -112,7 +112,7 @@ const BlueprintDetail = ({
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`px-8 py-4 font-mono text-[10px] uppercase tracking-[0.2em] transition-all flex items-center gap-3 shrink-0 ${
+                    className={`px-8 py-4 font-mono text-[10px] uppercase tracking-[0.12em] transition-all flex items-center gap-3 shrink-0 ${
                       activeTab === tab.id
                         ? "bg-blue-600 text-white shadow-inner"
                         : "text-blue-500 hover:bg-blue-50 hover:dark:bg-blue-950/30"
@@ -124,7 +124,7 @@ const BlueprintDetail = ({
               </div>
 
               <div className="bg-[var(--bg-surface)]/95 backdrop-blur-xl border-2 border-blue-900/20 dark:border-blue-300/20 shadow-sm relative min-h-[300px]">
-                 <div className="absolute top-2 right-2 text-[8px] uppercase tracking-widest text-blue-500">SCHEMATIC_VIEW.dwg</div>
+                 <div className="absolute top-2 right-2 text-[8px] uppercase tracking-wider text-blue-500">SCHEMATIC_VIEW.dwg</div>
                  <AnimatePresence mode="wait">
                     {activeTab === "challenge" && (
                       <motion.div
@@ -179,7 +179,7 @@ const BlueprintDetail = ({
             {/* Interactive Assembly Slider */}
             {activeProcess && (
               <section className="mb-24">
-                <div className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-8 flex items-center gap-3">
+                <div className="text-[10px] text-blue-500 uppercase tracking-[0.12em] mb-8 flex items-center gap-3">
                   <GitMerge size={12} /> {t("project_layouts.assembly_instructions")}
                 </div>
                 
@@ -195,7 +195,7 @@ const BlueprintDetail = ({
                             className={`w-full text-left relative flex items-center gap-4 group transition-all`}
                           >
                             <div className={`absolute -left-[35px] w-4 h-4 rounded-full border-2 bg-[var(--bg-card)] transition-colors ${isActive ? "border-blue-600 border-[6px]" : "border-blue-400/50 group-hover:border-blue-600"}`}></div>
-                            <span className={`font-mono text-[10px] tracking-widest ${isActive ? "text-blue-600 font-bold" : "text-[var(--text-secondary)]"}`}>SEC_0{idx+1}</span>
+                            <span className={`font-mono text-[10px] tracking-wider ${isActive ? "text-blue-600 font-bold" : "text-[var(--text-secondary)]"}`}>SEC_0{idx+1}</span>
                             <span className={`truncate font-bold font-sans ${isActive ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]"}`}>{step.title}</span>
                           </button>
                         );
@@ -221,7 +221,7 @@ const BlueprintDetail = ({
 
                          {activeProcess[activePhase].image && (
                            <div className="border border-blue-900/20 dark:border-blue-300/20 bg-blue-50/50 dark:bg-blue-950/30 p-4 relative h-64 md:h-[400px]">
-                             <div className="absolute top-2 left-2 text-[8px] uppercase tracking-widest text-blue-500">
+                             <div className="absolute top-2 left-2 text-[8px] uppercase tracking-wider text-blue-500">
                                FIG_{activePhase + 1}.dwg
                              </div>
                              {activeProcess[activePhase].image.startsWith("airy:") ? (
@@ -271,7 +271,7 @@ const BlueprintDetail = ({
           <aside className="lg:col-span-4 space-y-12 shrink-0">
             {activeMetrics && (
               <div className="border border-[var(--border-color)] p-8 bg-[var(--bg-card)] backdrop-blur-sm sticky top-32 shadow-sm">
-                <h4 className="text-[10px] text-blue-500 uppercase tracking-[0.2em] mb-8 pb-4 border-b border-[var(--border-color)]">
+                <h4 className="text-[10px] text-blue-500 uppercase tracking-[0.12em] mb-8 pb-4 border-b border-[var(--border-color)]">
                   {t("project_layouts.specification_data")}
                 </h4>
 

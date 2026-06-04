@@ -12,7 +12,7 @@ const PrototypeViewer = ({ caseData, t }) => {
       <ScrollReveal className="relative z-10 w-full max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-xl">
-            <div className="flex items-center gap-3 mb-4 opacity-50 font-mono text-xs uppercase tracking-widest">
+            <div className="flex items-center gap-3 mb-4 opacity-50 font-mono text-xs uppercase tracking-wider">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--brand)] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--brand)]"></span>
@@ -31,7 +31,7 @@ const PrototypeViewer = ({ caseData, t }) => {
             href={caseData.prototypeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-none items-center gap-2 px-6 py-3 border border-[var(--border-color)] hover:border-[var(--brand)] text-[var(--text-secondary)] hover:text-[var(--brand)] font-mono text-xs uppercase tracking-widest transition-all rounded-lg bg-[var(--bg-card)] shadow-lg"
+            className="group flex flex-none items-center gap-2 px-6 py-3 border border-[var(--border-color)] hover:border-[var(--brand)] text-[var(--text-secondary)] hover:text-[var(--brand)] font-mono text-xs uppercase tracking-wider transition-all rounded-lg bg-[var(--bg-card)] shadow-lg"
           >
             <ExternalLink size={14} className="group-hover:scale-110 transition-transform" />
             Launch Fullscreen

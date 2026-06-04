@@ -92,7 +92,7 @@ const BiologicalLab = ({ isXRayMode }) => {
               <h3 className="text-lg font-bold text-[var(--text-primary)]">
                 {system.name}
               </h3>
-              <span className="font-mono text-[9px] px-2 py-1 border border-[var(--border-color)] rounded text-[var(--text-secondary)] uppercase tracking-widest">
+              <span className="font-mono text-[9px] px-2 py-1 border border-[var(--border-color)] rounded text-[var(--text-secondary)] uppercase tracking-wider">
                 {system.component}
               </span>
             </div>
@@ -106,7 +106,7 @@ const BiologicalLab = ({ isXRayMode }) => {
             <div className="p-6">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-left font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+                  <tr className="text-left font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
                     <th className="pb-3 pr-4">Time</th>
                     <th className="pb-3 pr-4">Phase</th>
                     <th className="pb-3 pr-4">Color</th>
@@ -147,7 +147,7 @@ const BiologicalLab = ({ isXRayMode }) => {
                     key={key}
                     className="flex flex-col gap-1 p-3 border border-[var(--border-color)] rounded bg-[var(--bg-card)]"
                   >
-                    <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--accent)]">
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--accent)]">
                       {key.replace(/([A-Z])/g, " $1").trim()}
                     </span>
                     <span className="text-sm text-[var(--text-primary)]">

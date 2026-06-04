@@ -41,7 +41,7 @@ const LauncherButton = ({ label, onActivate, onWarm, busy = false, disabled = fa
     onPointerEnter={onWarm}
     className="fixed bottom-4 right-4 z-[100] h-12 w-12 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)]/95 text-[var(--text-primary)] shadow-[0_8px_30px_rgba(0,0,0,0.16)] backdrop-blur-sm transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[var(--accent-blue)] disabled:cursor-wait disabled:opacity-70"
   >
-    <span className="flex h-full w-full items-center justify-center font-mono text-[10px] font-black tracking-[0.2em] text-[var(--accent-blue)]">
+    <span className="flex h-full w-full items-center justify-center font-mono text-[10px] font-black tracking-[0.12em] text-[var(--accent-blue)]">
       E.Z
     </span>
   </button>

@@ -111,7 +111,7 @@ const AuditReport = ({ isXRayMode }) => (
     {/* AUDIT SUMMARY DASHBOARD */}
     <div className="space-y-6 relative z-10">
       <div className="flex items-end justify-between border-b border-[var(--border-color)] pb-4">
-        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] flex items-center gap-2">
+        <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--accent)] flex items-center gap-2">
           <Activity size={14} /> System_Token_Compliance
         </h3>
         <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase">
@@ -125,7 +125,7 @@ const AuditReport = ({ isXRayMode }) => (
           <div className="absolute top-0 right-0 p-4 opacity-[0.05]">
             <FileWarning size={60} />
           </div>
-          <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] mb-3 block">
+          <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] mb-3 block">
             Errors
           </span>
           <div className="text-4xl font-bold text-[var(--accent-red)]">
@@ -139,7 +139,7 @@ const AuditReport = ({ isXRayMode }) => (
           <div className="absolute top-0 right-0 p-4 opacity-[0.05]">
             <AlertTriangle size={60} />
           </div>
-          <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] mb-3 block">
+          <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] mb-3 block">
             Warnings
           </span>
           <div className="text-4xl font-bold text-[var(--accent-amber)]">
@@ -150,7 +150,7 @@ const AuditReport = ({ isXRayMode }) => (
           </div>
         </div>
         <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6">
-          <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] mb-3 block">
+          <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] mb-3 block">
             Files Scanned
           </span>
           <div className="text-4xl font-bold text-[var(--text-primary)]">
@@ -161,7 +161,7 @@ const AuditReport = ({ isXRayMode }) => (
           </div>
         </div>
         <div className="border border-[var(--accent-green)]/30 bg-[var(--bg-card)] p-6">
-          <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] mb-3 block">
+          <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] mb-3 block">
             Token Refs
           </span>
           <div className="text-4xl font-bold text-[var(--accent-green)]">
@@ -176,7 +176,7 @@ const AuditReport = ({ isXRayMode }) => (
 
     {/* CATEGORY BREAKDOWN */}
     <div className="space-y-6 relative z-10">
-      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+      <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
         <Hash size={14} /> Violation_Categories
       </h3>
       <div className="space-y-3">
@@ -205,13 +205,13 @@ const AuditReport = ({ isXRayMode }) => (
 
     {/* TOP FILES TABLE */}
     <div className="space-y-6 relative z-10">
-      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+      <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
         <ClipboardList size={14} /> Hotspot_Files
       </h3>
       <div className="overflow-x-auto">
         <div className="border border-[var(--border-color)] bg-[var(--bg-card)] overflow-hidden min-w-[560px]">
           {/* Table Header */}
-          <div className="grid grid-cols-12 gap-2 px-4 py-3 bg-[var(--bg-surface)] border-b border-[var(--border-color)] font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
+          <div className="grid grid-cols-12 gap-2 px-4 py-3 bg-[var(--bg-surface)] border-b border-[var(--border-color)] font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)]">
             <div className="col-span-1">#</div>
             <div className="col-span-7">File</div>
             <div className="col-span-2 text-center">Severity</div>
@@ -251,7 +251,7 @@ const AuditReport = ({ isXRayMode }) => (
           ))}
         </div>
       </div>
-      <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest text-center flex items-center justify-center gap-2">
+      <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-wider text-center flex items-center justify-center gap-2">
         <ShieldCheck size={10} />
         Excluded: {AUDIT_DATA.excluded.join(", ")}  -  not part of portfolio
         design system
@@ -260,13 +260,13 @@ const AuditReport = ({ isXRayMode }) => (
 
     {/* RECOMMENDATIONS */}
     <div className="space-y-6 relative z-10">
-      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent-green)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+      <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--accent-green)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
         <CheckCircle2 size={14} /> Token_Recommendations
       </h3>
       <div className="overflow-x-auto">
         <div className="border border-[var(--border-color)] bg-[var(--bg-card)] overflow-hidden min-w-[560px]">
           {/* Table Header */}
-          <div className="grid grid-cols-12 gap-2 px-4 py-3 bg-[var(--bg-surface)] border-b border-[var(--border-color)] font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
+          <div className="grid grid-cols-12 gap-2 px-4 py-3 bg-[var(--bg-surface)] border-b border-[var(--border-color)] font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)]">
             <div className="col-span-3">Hardcoded Value</div>
             <div className="col-span-3">Replace With</div>
             <div className="col-span-5">Recommendation</div>
@@ -298,7 +298,7 @@ const AuditReport = ({ isXRayMode }) => (
 
     {/* TOKEN COVERAGE */}
     <div className="space-y-6 relative z-10">
-      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+      <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
         <ShieldCheck size={14} /> Token_Coverage_Matrix
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -307,7 +307,7 @@ const AuditReport = ({ isXRayMode }) => (
             key={key}
             className="border border-[var(--border-color)] bg-[var(--bg-card)] p-4 space-y-3 group hover:border-[var(--accent)] transition-colors"
           >
-            <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] block">
+            <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] block">
               {key}
             </span>
             <div className="flex items-end gap-1">
@@ -336,11 +336,11 @@ const AuditReport = ({ isXRayMode }) => (
 
     {/* TOKEN REFERENCE TABLE */}
     <div className="space-y-6 relative z-10">
-      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+      <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--accent)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
         <Terminal size={14} /> Token_Reference
       </h3>
       <div className="border border-[var(--border-color)] bg-[var(--bg-card)] overflow-hidden">
-        <div className="grid grid-cols-12 gap-2 px-4 py-3 bg-[var(--bg-surface)] border-b border-[var(--border-color)] font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
+        <div className="grid grid-cols-12 gap-2 px-4 py-3 bg-[var(--bg-surface)] border-b border-[var(--border-color)] font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)]">
           <div className="col-span-3">Token</div>
           <div className="col-span-2 text-center">Light</div>
           <div className="col-span-2 text-center">Dark</div>
@@ -378,7 +378,7 @@ const AuditReport = ({ isXRayMode }) => (
     </div>
     {/* BIOLOGICAL CONFIG AUDIT */}
     <div className="space-y-6 relative z-10">
-      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent-green)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+      <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--accent-green)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
         <ShieldCheck size={14} /> Biological_Config_Audit
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -387,7 +387,7 @@ const AuditReport = ({ isXRayMode }) => (
             key={key}
             className="border border-[var(--accent-green)]/20 bg-[var(--bg-card)] p-4 space-y-2"
           >
-            <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] block">
+            <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] block">
               {key}
             </span>
             <div className="font-mono text-xs text-[var(--accent)] font-bold">
@@ -406,7 +406,7 @@ const AuditReport = ({ isXRayMode }) => (
 
     {/* RUN COMMAND */}
     <div className="border border-[var(--border-color)] bg-[var(--bg-surface)] p-6 space-y-3">
-      <div className="flex items-center gap-2 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
+      <div className="flex items-center gap-2 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-wider">
         <Terminal size={12} /> Audit_CLI
       </div>
       <div className="font-mono text-sm text-[var(--text-primary)] bg-[var(--bg-void)] border border-[var(--border-color)] p-4">

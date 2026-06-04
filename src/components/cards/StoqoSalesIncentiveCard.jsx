@@ -34,7 +34,7 @@ const StoqoSalesIncentiveCard = ({ expanded, showChrome }) => (
         </div>
 
         {/* Label */}
-        <div className="absolute bottom-8 px-3 py-1 bg-white dark:bg-black border border-[var(--brand)]/30 rounded text-[8px] font-mono text-[var(--brand)] uppercase tracking-widest shadow-lg translate-y-8">
+        <div className="absolute bottom-8 px-3 py-1 bg-white dark:bg-black border border-[var(--brand)]/30 rounded text-[8px] font-mono text-[var(--brand)] uppercase tracking-wider shadow-lg translate-y-8">
           COMMITMENT_VERIFIED
         </div>
       </div>

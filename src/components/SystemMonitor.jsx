@@ -37,7 +37,7 @@ const SystemMonitor = ({ skills }) => {
             size={14}
             className="animate-pulse text-[var(--accent-green)]"
           />
-          <span className="uppercase tracking-widest">
+          <span className="uppercase tracking-wider">
             System Monitor // Skills
           </span>
         </div>

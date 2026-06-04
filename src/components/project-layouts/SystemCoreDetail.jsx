@@ -82,7 +82,7 @@ const SystemCoreDetail = ({
           <div className="max-w-[1072px] mx-auto relative z-30 space-y-8 backdrop-blur-sm p-8 border border-[var(--border-color)] bg-[var(--bg-surface)] opacity-95">
             <div className={`inline-flex items-center gap-3 px-4 py-2 border bg-[var(--bg-void)] ${isRecruiterMode ? "border-[var(--border-color)]" : "border-blue-500/30"}`}>
               <Cpu size={14} className={`text-blue-400 ${!isRecruiterMode && "animate-pulse"}`} />
-              <span className="font-mono text-[10px] uppercase tracking-widest text-blue-400 text-shadow-glow">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-blue-400 text-shadow-glow">
                 {activeSnapshot.tagline} // {t("project_layouts.system_protocol")}
               </span>
             </div>
@@ -106,7 +106,7 @@ const SystemCoreDetail = ({
                   href={project.links.demo}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 hover:bg-blue-500 transition-colors uppercase tracking-widest"
+                  className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 hover:bg-blue-500 transition-colors uppercase tracking-wider"
                 >
                   {t("project_layouts.execute_demo")} <ArrowUpRight size={14} />
                 </a>
@@ -116,14 +116,14 @@ const SystemCoreDetail = ({
                   href={project.links.repo}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 border border-blue-500/30 bg-[var(--bg-void)] px-4 py-2 text-blue-400 hover:bg-blue-500/10 transition-colors uppercase tracking-widest"
+                  className="flex items-center gap-2 border border-blue-500/30 bg-[var(--bg-void)] px-4 py-2 text-blue-400 hover:bg-blue-500/10 transition-colors uppercase tracking-wider"
                 >
                   <Code size={14} /> {t("project_layouts.source_code")}
                 </a>
               )}
               <Link
                 to="/design-system"
-                className="flex items-center gap-2 border border-emerald-500/30 bg-[var(--bg-void)] px-4 py-2 text-emerald-400 hover:bg-emerald-500/10 transition-colors uppercase tracking-widest"
+                className="flex items-center gap-2 border border-emerald-500/30 bg-[var(--bg-void)] px-4 py-2 text-emerald-400 hover:bg-emerald-500/10 transition-colors uppercase tracking-wider"
               >
                 <Cpu size={14} /> {t("project_layouts.system_ui_data")}
               </Link>
@@ -181,7 +181,7 @@ const SystemCoreDetail = ({
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-6 py-4 font-mono text-xs tracking-widest transition-colors flex items-center gap-3 shrink-0 ${
+                  className={`px-6 py-4 font-mono text-xs tracking-wider transition-colors flex items-center gap-3 shrink-0 ${
                     activeTab === tab.id
                       ? "bg-[var(--bg-card)] text-blue-400 border-t-2 border-t-blue-500 shadow-[inset_0_20px_20px_-20px_rgba(59,130,246,0.1)]"
                       : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-void)] border-t-2 border-t-transparent"
@@ -205,7 +205,7 @@ const SystemCoreDetail = ({
                     <div className="absolute top-0 left-0 w-full h-1 bg-red-500/50"></div>
                     <div className="flex items-center gap-4">
                       <Terminal size={16} className="text-red-400" />
-                      <span className="font-mono text-xs uppercase tracking-widest text-red-400">
+                      <span className="font-mono text-xs uppercase tracking-wider text-red-400">
                         {t("project_layouts.the_challenge") || "KERNEL_PANIC"}
                       </span>
                     </div>
@@ -266,7 +266,7 @@ const SystemCoreDetail = ({
             <div className="space-y-12 bg-[var(--bg-surface)]/80 backdrop-blur-xl border border-[var(--border-color)] shadow-xl relative mt-24">
               <div className="p-8 border-b border-[var(--border-color)] flex items-center gap-4">
                 <Layers size={16} className="text-blue-400" />
-                <span className="font-mono text-xs uppercase tracking-widest text-blue-400">
+                <span className="font-mono text-xs uppercase tracking-wider text-blue-400">
                   {t("project_layouts.execution_flow")}
                 </span>
               </div>
@@ -280,7 +280,7 @@ const SystemCoreDetail = ({
                        <button
                          key={idx}
                          onClick={() => setActivePhase(idx)}
-                         className={`text-left px-8 py-5 border-b border-[var(--border-color)] font-mono text-xs tracking-widest flex items-center justify-between group transition-colors ${
+                         className={`text-left px-8 py-5 border-b border-[var(--border-color)] font-mono text-xs tracking-wider flex items-center justify-between group transition-colors ${
                            isActive 
                              ? "bg-blue-500/10 text-blue-400 shadow-[inset_3px_0_0_#3b82f6]" 
                              : "text-[var(--text-secondary)] hover:bg-[var(--bg-void)] hover:text-[var(--text-primary)]"
@@ -340,7 +340,7 @@ const SystemCoreDetail = ({
           {(project.prototypeLink || InteractionComponent) && (
             <div className="bg-blue-900/10 border border-blue-500/20 p-8 rounded-sm animate-pulse-slow">
               <div className="flex items-center justify-between mb-8 border-b border-blue-500/20 pb-4">
-                <h3 className="font-mono text-xs text-blue-400 uppercase tracking-widest">
+                <h3 className="font-mono text-xs text-blue-400 uppercase tracking-wider">
                   {t("project_layouts.interactive_console")}
                 </h3>
                 <div className="flex gap-2">
@@ -367,7 +367,7 @@ const SystemCoreDetail = ({
           {/* Metrics Footer */}
           {activeMetrics && (
             <div className="border-t border-[var(--border-color)] pt-16">
-              <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-8">
+              <h4 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-8">
                 {t("project_layouts.telemetry_output")}
               </h4>
               <div className="space-y-6">

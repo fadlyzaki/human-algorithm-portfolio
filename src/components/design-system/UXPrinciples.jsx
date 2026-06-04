@@ -68,7 +68,7 @@ const UXPrinciples = ({ isXRayMode }) => (
             Placeholder
           </span>
         )}
-        <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+        <span className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)]">
           Fetching deeper axioms...
         </span>
       </div>

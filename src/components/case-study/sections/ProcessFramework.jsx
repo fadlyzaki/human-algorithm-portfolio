@@ -13,7 +13,7 @@ const ProcessFramework = ({ caseData, t }) => {
           <h2 className="text-3xl md:text-4xl font-serif italic">
             {t("protected.process_title") || "The Process"}
           </h2>
-          <span className="font-mono text-[10px] md:text-xs text-[var(--text-secondary)] uppercase tracking-widest">
+          <span className="font-mono text-[10px] md:text-xs text-[var(--text-secondary)] uppercase tracking-wider">
             {t("protected.process_subtitle") || "Evolution of Thought"}
           </span>
         </div>
@@ -45,7 +45,7 @@ const ProcessFramework = ({ caseData, t }) => {
                     </div>
                     <div>
                       <div
-                        className={`font-mono text-[10px] uppercase tracking-widest ${globalStep.color} font-bold mb-1`}
+                        className={`font-mono text-[10px] uppercase tracking-wider ${globalStep.color} font-bold mb-1`}
                       >
                         {t("protected.phase_label") || "PHASE_"}{globalStep.id} // {globalStep.phase}
                       </div>
@@ -106,7 +106,7 @@ const ProcessFramework = ({ caseData, t }) => {
                       {/* Evidence Tag */}
                       <div className="absolute bottom-4 right-4 bg-[var(--bg-void)]/90 backdrop-blur border border-[var(--border-color)] px-3 py-1 rounded-full flex items-center gap-2 shadow-lg">
                         <ScanEye size={12} className={globalStep.color} />
-                        <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-primary)]">
+                        <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-primary)]">
                           {t("protected.evidence") || "EVIDENCE"}_LOG_0{i + 1}
                         </span>
                       </div>
@@ -116,7 +116,7 @@ const ProcessFramework = ({ caseData, t }) => {
                   {/* RIGHT COL: SYSTEM SPECS (Global Framework) */}
                   <div className="lg:w-1/3 bg-[var(--bg-card)]/30">
                     <div className="p-6 md:p-8 border-b border-[var(--border-color)]">
-                      <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-2">
+                      <div className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-4 flex items-center gap-2">
                         <globalStep.icon size={12} /> {t("protected.input_vectors") || "Input Vectors"}
                       </div>
                       <ul className="space-y-3">
@@ -133,7 +133,7 @@ const ProcessFramework = ({ caseData, t }) => {
                     </div>
 
                     <div className="p-6 md:p-8">
-                      <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-2">
+                      <div className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-4 flex items-center gap-2">
                         <Rocket size={12} /> {t("protected.system_outputs") || "System Outputs"}
                       </div>
                       <ul className="space-y-3">
@@ -170,7 +170,7 @@ const ProcessFramework = ({ caseData, t }) => {
           <h2 className="text-4xl font-serif italic">
             {t("protected.process_title") || "The Process"}
           </h2>
-          <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
+          <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-wider">
             {t("protected.process_subtitle") || "Evolution of Thought"}
           </span>
         </div>
@@ -206,10 +206,10 @@ const ProcessFramework = ({ caseData, t }) => {
                     </div>
 
                     <div className="mt-2 flex justify-between items-center px-2">
-                      <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)]">
                         {t("protected.evidence") || "EVIDENCE"} #{i + 1}
                       </span>
-                      <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] opacity-50">
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] opacity-50">
                         {t("protected.restricted_file") || "CONFIDENTIAL"}
                       </span>
                     </div>

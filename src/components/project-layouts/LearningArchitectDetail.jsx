@@ -270,7 +270,7 @@ const LearningArchitectDetail = ({
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 + i * 0.15 }}
-              className="px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-900/30 backdrop-blur-md text-emerald-300 font-mono text-[9px] uppercase tracking-widest"
+              className="px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-900/30 backdrop-blur-md text-emerald-300 font-mono text-[9px] uppercase tracking-wider"
             >
               {badge}
             </motion.div>
@@ -283,8 +283,8 @@ const LearningArchitectDetail = ({
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-3 py-1.5 mb-8 rounded-full border border-emerald-500/30 bg-emerald-900/30 backdrop-blur-md"
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="font-mono text-[10px] uppercase tracking-widest text-emerald-400">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-400">
               {t("project_layouts.learning_os_badge")}
             </span>
           </motion.div>
@@ -320,7 +320,7 @@ const LearningArchitectDetail = ({
               { label: t("project_layouts.learning_stack"), value: "React + Express + ADK + MCP" },
             ].map(({ label, value }) => (
               <div key={label} className="flex flex-col gap-1">
-                <span className="text-[9px] uppercase tracking-widest opacity-50">{label}</span>
+                <span className="text-[9px] uppercase tracking-wider opacity-50">{label}</span>
                 <span className="text-white/80 text-xs">{value}</span>
               </div>
             ))}
@@ -337,7 +337,7 @@ const LearningArchitectDetail = ({
             <p className="text-2xl md:text-3xl font-serif italic text-[var(--text-primary)] leading-relaxed mb-6">
               "{t("project_layouts.learning_quote")}"
             </p>
-            <footer className="font-mono text-[11px] uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-3">
+            <footer className="font-mono text-[11px] uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
               {t("project_layouts.product_philosophy")}
             </footer>
@@ -351,7 +351,7 @@ const LearningArchitectDetail = ({
       <section className="px-6 md:px-16 py-24 bg-[var(--bg-void)]">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-12">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
+            <div className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-4 flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
               {t("project_layouts.jtbd_label")}
             </div>
@@ -390,7 +390,7 @@ const LearningArchitectDetail = ({
                     >
                       <Icon size={22} strokeWidth={1.5} />
                     </div>
-                    <span className="font-mono text-[10px] font-bold text-[var(--text-secondary)] opacity-50 tracking-widest">
+                    <span className="font-mono text-[10px] font-bold text-[var(--text-secondary)] opacity-50 tracking-wider">
                       0{i + 1}
                     </span>
                   </div>
@@ -399,8 +399,8 @@ const LearningArchitectDetail = ({
                   <div className="flex-1 relative z-10 flex flex-col">
                     {item.core && (
                       <div className="mb-4">
-                        <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-sm">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-sm">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                           {t("project_layouts.core_architecture_job")}
                         </span>
                       </div>
@@ -426,7 +426,7 @@ const LearningArchitectDetail = ({
         <section className="px-6 md:px-16 py-24 bg-[var(--bg-void)] border-t border-[var(--border-color)]">
           <div className="max-w-[1400px] mx-auto">
             <div className="mb-12">
-              <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
+              <div className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-4 flex items-center gap-3">
                 <span className="w-8 h-px bg-[var(--border-color)]" />
                 {t("project_layouts.workflow_architecture")}
               </div>
@@ -453,7 +453,7 @@ const LearningArchitectDetail = ({
                   {/* Expand badge */}
                   <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-[var(--bg-void)]/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-[var(--border-color)] text-[var(--text-primary)] shadow-xl transition-transform duration-300 group-hover:-translate-y-1 pointer-events-none">
                     <Plus size={16} className="text-emerald-400" />
-                    <span className="text-xs font-mono uppercase tracking-widest font-bold">{t("project_layouts.expand_journey_map")}</span>
+                    <span className="text-xs font-mono uppercase tracking-wider font-bold">{t("project_layouts.expand_journey_map")}</span>
                   </div>
                 </div>
               )}
@@ -468,7 +468,7 @@ const LearningArchitectDetail = ({
       <section className="px-6 md:px-16 py-24 bg-[var(--bg-surface)] border-t border-[var(--border-color)]">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-12">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
+            <div className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-4 flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
               {t("project_layouts.learning_loop")}
             </div>
@@ -550,7 +550,7 @@ const LearningArchitectDetail = ({
                         })}
                       </div>
                       <div>
-                        <div className="font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest">
+                        <div className="font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-wider">
                           {t("project_layouts.step")} {String(activePhase + 1).padStart(2, "0")} / 07
                         </div>
                         <div className="text-xl font-semibold text-[var(--text-primary)]">
@@ -618,7 +618,7 @@ const LearningArchitectDetail = ({
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 font-mono text-[11px] uppercase tracking-widest transition-all border-b-2 -mb-px ${
+                className={`px-6 py-3 font-mono text-[11px] uppercase tracking-wider transition-all border-b-2 -mb-px ${
                   activeTab === tab.id
                     ? "border-emerald-500 text-[var(--text-primary)]"
                     : "border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
@@ -691,7 +691,7 @@ const LearningArchitectDetail = ({
                         <div className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center group-hover:bg-emerald-500/15 transition-colors">
                           <Icon size={16} className="text-emerald-400" />
                         </div>
-                        <div className="font-mono text-[9px] text-emerald-500/60 uppercase tracking-widest">
+                        <div className="font-mono text-[9px] text-emerald-500/60 uppercase tracking-wider">
                           P{String(i + 1).padStart(2, "0")}
                         </div>
                       </div>
@@ -712,7 +712,7 @@ const LearningArchitectDetail = ({
                 className="max-w-4xl"
               >
                 <div className="p-10 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)]">
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-emerald-400 mb-6">
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-emerald-400 mb-6">
                     // {t("project_layouts.post_mortem")}
                   </div>
                   <p className="font-serif italic text-xl text-[var(--text-secondary)] leading-relaxed">
@@ -732,7 +732,7 @@ const LearningArchitectDetail = ({
       <section className="px-6 md:px-16 py-24 bg-[var(--bg-surface)] border-t border-[var(--border-color)]">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-12">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
+            <div className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-4 flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
               {t("project_layouts.system_topology")}
             </div>
@@ -782,7 +782,7 @@ const LearningArchitectDetail = ({
               <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden">
                 <div className="px-6 py-4 border-b border-[var(--border-color)] flex items-center gap-2">
                   <Terminal size={12} className="text-emerald-400" />
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
                     {t("project_layouts.stable_public_contract")}
                   </span>
                 </div>
@@ -824,7 +824,7 @@ const LearningArchitectDetail = ({
               <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden">
                 <div className="px-6 py-4 border-b border-[var(--border-color)] flex items-center gap-2">
                   <Activity size={12} className="text-emerald-400" />
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
                     {t("project_layouts.graceful_degradation")}
                   </span>
                 </div>
@@ -852,7 +852,7 @@ const LearningArchitectDetail = ({
       <section className="px-6 md:px-16 py-24 bg-[var(--bg-void)] border-t border-[var(--border-color)]">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-12">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
+            <div className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-4 flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
               {t("project_layouts.release_plan")}
             </div>
@@ -874,11 +874,11 @@ const LearningArchitectDetail = ({
                 <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${phase.statusColor}, transparent)` }} />
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)]">
                       {phase.phase}
                     </span>
                     <span
-                      className="font-mono text-[8px] uppercase tracking-widest px-2 py-0.5 rounded-full border"
+                      className="font-mono text-[8px] uppercase tracking-wider px-2 py-0.5 rounded-full border"
                       style={{
                         color: phase.statusColor,
                         borderColor: phase.statusColor + "40",
@@ -919,7 +919,7 @@ const LearningArchitectDetail = ({
                   <div className="text-xl font-bold text-[var(--text-primary)] mb-2 font-mono">
                     {metric.value}
                   </div>
-                  <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] opacity-60">
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] opacity-60">
                     {metric.label}
                   </div>
                 </div>
@@ -935,7 +935,7 @@ const LearningArchitectDetail = ({
       <section className="px-6 md:px-16 py-24 bg-[var(--bg-void)] border-t border-[var(--border-color)]">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-12">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-4 flex items-center gap-3">
+            <div className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-4 flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--border-color)]" />
               {t("project_layouts.product_surfaces")}
             </div>
@@ -973,7 +973,7 @@ const LearningArchitectDetail = ({
         </div>
         <div className="relative z-10 max-w-[1400px] mx-auto">
           <div className="max-w-3xl">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-emerald-400/60 mb-6 flex items-center gap-3">
+            <div className="text-[10px] font-mono uppercase tracking-wider text-emerald-400/60 mb-6 flex items-center gap-3">
               <span className="w-8 h-px bg-emerald-500/30" />
               {t("project_layouts.system_intent")}
             </div>
@@ -1005,7 +1005,7 @@ const LearningArchitectDetail = ({
             </div>
 
             <div className="mt-12 pt-8 border-t border-emerald-500/20">
-              <p className="font-mono text-[11px] text-emerald-400/50 uppercase tracking-widest">
+              <p className="font-mono text-[11px] text-emerald-400/50 uppercase tracking-wider">
                 {t("project_layouts.engineered_by")}
               </p>
               <p className="font-serif italic text-emerald-300/40 text-sm mt-1">

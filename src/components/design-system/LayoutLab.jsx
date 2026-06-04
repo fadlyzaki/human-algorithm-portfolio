@@ -23,7 +23,7 @@ const LayoutLab = ({ isXRayMode }) => (
           Section // GridSystem
         </span>
       )}
-      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+      <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
         <Grid3X3 size={14} /> Spatial Architecture (12-Col)
       </h3>
 
@@ -60,7 +60,7 @@ const LayoutLab = ({ isXRayMode }) => (
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
-          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-wider mb-2">
             Gutters
           </span>
           <div className="text-xl font-bold text-[var(--text-primary)]">
@@ -69,7 +69,7 @@ const LayoutLab = ({ isXRayMode }) => (
           <code className="text-xs text-[var(--accent)]">gap-6</code>
         </div>
         <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
-          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-wider mb-2">
             Margins
           </span>
           <div className="text-xl font-bold text-[var(--text-primary)]">
@@ -78,7 +78,7 @@ const LayoutLab = ({ isXRayMode }) => (
           <code className="text-xs text-[var(--accent)]">px-12</code>
         </div>
         <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
-          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-wider mb-2">
             Padding
           </span>
           <div className="text-xl font-bold text-[var(--text-primary)]">
@@ -87,7 +87,7 @@ const LayoutLab = ({ isXRayMode }) => (
           <code className="text-xs text-[var(--accent)]">p-4</code>
         </div>
         <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-card)]">
-          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+          <span className="block font-mono text-[9px] text-[var(--text-secondary)] uppercase tracking-wider mb-2">
             Columns
           </span>
           <div className="text-xl font-bold text-[var(--text-primary)]">
@@ -107,7 +107,7 @@ const LayoutLab = ({ isXRayMode }) => (
           Section // MotionCurves
         </span>
       )}
-      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+      <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
         <Activity size={14} /> Kinetic Architecture & Physics
       </h3>
 
@@ -175,7 +175,7 @@ const LayoutLab = ({ isXRayMode }) => (
     <div
       className={`space-y-6 relative z-10 ${isXRayMode ? "p-4 border border-dashed border-[var(--text-secondary)]/50" : ""}`}
     >
-      <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+      <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
         <Activity size={14} /> Global_Kinetic_Navigation
       </h3>
 

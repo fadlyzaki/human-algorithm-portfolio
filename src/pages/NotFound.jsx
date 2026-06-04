@@ -271,7 +271,7 @@ const NotFound = () => {
       {/* ─── PLATFORMS ─── */}
       {platforms.map((p, i) => (
         <div key={i} className="absolute z-10" style={{ left: p.x, top: p.y, width: p.w }}>
-          <div className="h-[3px] bg-[var(--accent-amber)] opacity-70 rounded-full shadow-[0_0_10px_rgba(245,158,11,0.3)]" />
+          <div className="h-[3px] bg-[var(--accent-amber)] opacity-70 rounded-full" />
           <div className="h-2 opacity-20 border-x border-dashed border-[var(--accent-amber)]" />
         </div>
       ))}
@@ -280,8 +280,8 @@ const NotFound = () => {
       <div className="absolute top-5 left-5 right-5 z-30 flex justify-between items-start">
         <div>
           <div className="flex items-center gap-2 text-[var(--accent-error)] mb-1">
-            <span className="w-2 h-2 rounded-full bg-[var(--accent-error)] animate-pulse" />
-            <span className="text-[10px] uppercase tracking-[0.3em]">{t("not_found.system_error")}</span>
+            <span className="w-2 h-2 rounded-full bg-[var(--accent-error)]" />
+            <span className="text-[10px] uppercase tracking-[0.12em]">{t("not_found.system_error")}</span>
           </div>
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tighter text-[var(--text-primary)]">{t("not_found.kernel_panic")}</h1>
           <p className="text-[10px] sm:text-xs text-[var(--text-secondary)] mt-0.5 font-mono max-w-[200px] sm:max-w-none">
@@ -340,10 +340,10 @@ const NotFound = () => {
         <div className="relative">
           <div className="absolute -inset-4 rounded-full bg-emerald-500/20 animate-ping" />
           <div className="absolute -inset-2 rounded-full bg-emerald-500/10 animate-pulse" />
-          <div className="w-16 h-16 rounded-full border-2 border-emerald-400 bg-emerald-500/10 flex items-center justify-center shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+          <div className="w-16 h-16 rounded-full border-2 border-emerald-400 bg-emerald-500/10 flex items-center justify-center">
             <Home size={24} className="text-emerald-400" />
           </div>
-          <p className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] text-emerald-400 whitespace-nowrap font-mono uppercase tracking-[0.2em]">
+          <p className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] text-emerald-400 whitespace-nowrap font-mono uppercase tracking-[0.12em]">
             {t("not_found.home_port")}
           </p>
         </div>

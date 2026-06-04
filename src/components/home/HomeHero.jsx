@@ -59,10 +59,7 @@ const HomeHero = ({ t, renderIdCard = true }) => {
                   text={descLine}
                 />
               </p>
-              <div className="mt-4 font-mono text-[10px] uppercase tracking-widest opacity-30 flex items-center gap-2">
-                <div className="w-1 h-1 rounded-full bg-[var(--accent-blue)] animate-pulse" />
-                {t("home.status_kernel")}
-              </div>
+
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -101,15 +98,9 @@ const HomeHero = ({ t, renderIdCard = true }) => {
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className="flex items-center gap-12 text-xs font-mono text-[var(--text-secondary)] uppercase tracking-widest px-6"
+                className="flex items-center gap-12 text-xs font-mono text-[var(--text-secondary)] uppercase tracking-wider px-6"
               >
-                <span className="flex items-center gap-2 text-[var(--accent-blue)] font-bold">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-blue)] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-blue)]"></span>
-                  </span>
-                  [NEURAL_ENGINE]: OPTIMIZING
-                </span>
+
                 <span className="flex items-center gap-3">
                   <MapPin size={14} className="text-[var(--accent-red)]" />
                   {t("home.status_location")}
@@ -136,25 +127,22 @@ const HomeHero = ({ t, renderIdCard = true }) => {
                   href="https://www.strava.com/athletes/129304799"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:text-orange-500 transition-colors cursor-pointer"
+                  className="flex items-center gap-3 hover:text-[var(--accent-amber)] transition-colors cursor-pointer"
                 >
-                  <Activity size={14} className="text-orange-500" />
+                  <Activity size={14} className="text-[var(--accent-amber)]" />
                   {t("home.status_training")}
                 </a>
                 <a
                   href="https://substack.com/@fadlyzaki?"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:text-purple-400 transition-colors cursor-pointer"
+                  className="flex items-center gap-3 hover:text-[var(--accent-purple)] transition-colors cursor-pointer"
                 >
-                  <PenLine size={14} className="text-purple-400" />
+                  <PenLine size={14} className="text-[var(--accent-purple)]" />
                   {t("home.status_reflecting")}
                 </a>
                 <span className="flex items-center gap-2 text-[var(--accent-green)]">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
-                  </span>
+                  <span className="inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
                   {t("home.status_collab")}
                 </span>
               </div>

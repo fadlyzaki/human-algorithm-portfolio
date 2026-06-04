@@ -53,8 +53,8 @@ const UnprovokedThoughtsIndex = () => {
                     {/* Editorial Header */}
                     <header className="mb-20 text-center">
                         <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)]">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-amber)] animate-pulse" />
-                            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-amber)]" />
+                            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--text-secondary)]">
                                 {t("thoughts.badge")}
                             </span>
                         </div>
@@ -82,7 +82,7 @@ const UnprovokedThoughtsIndex = () => {
                                     >
                                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                                             {/* Emoji */}
-                                            <div className="text-4xl opacity-50 group-hover:opacity-100 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500 shrink-0 bg-[var(--bg-card)] p-3 rounded-2xl border border-[var(--border-color)] group-hover:border-[var(--accent-amber)]/50 group-hover:shadow-[0_0_20px_var(--accent-amber)] group-hover:shadow-amber-500/20">
+                                            <div className="text-4xl opacity-50 group-hover:opacity-100 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500 shrink-0 bg-[var(--bg-card)] p-3 rounded-2xl border border-[var(--border-color)] group-hover:border-[var(--accent-amber)]/50">
 
                                                 {frontmatter.emoji}
                                             </div>

@@ -11,7 +11,7 @@ const ImpactMetrics = ({ caseData, t }) => {
         <h2 className="text-4xl font-serif italic">
           {t("protected.impact_title") || "Impact & Outcomes"}
         </h2>
-        <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
+        <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-wider">
           {t("protected.impact_subtitle") || "Measurable Results"}
         </span>
       </div>
@@ -26,7 +26,7 @@ const ImpactMetrics = ({ caseData, t }) => {
               <div className="text-3xl md:text-5xl font-mono font-bold tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--brand)] transition-colors mb-4 break-words max-w-full leading-tight">
                 {m.value}
               </div>
-              <div className="text-xs md:text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] opacity-70">
+              <div className="text-xs md:text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] opacity-70">
                 {m.label}
               </div>
             </div>

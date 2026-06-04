@@ -17,7 +17,7 @@ const PriceLockCard = ({ expanded, showChrome }) => (
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
               <Shield size={16} className="text-[var(--brand)]" />
-              <span className="font-mono text-[9px] tracking-widest text-slate-400">
+              <span className="font-mono text-[9px] tracking-wider text-slate-400">
                 SECURE_AUTH
               </span>
             </div>

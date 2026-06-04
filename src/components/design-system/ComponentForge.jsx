@@ -67,7 +67,7 @@ const ComponentForge = ({ isXRayMode }) => {
       {/* SECTION LABEL */}
       <div className="flex justify-between items-end border-b border-[var(--border-color)] pb-4">
         <div>
-          <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-accent)] flex items-center gap-2 mb-2">
+          <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-accent)] flex items-center gap-2 mb-2">
             <Terminal size={14} /> Spec Testing Crucible
           </h3>
           <p className="text-xs text-[var(--text-secondary)]">
@@ -78,14 +78,14 @@ const ComponentForge = ({ isXRayMode }) => {
 
       {/* SECTION 1: SYSTEM COMPONENTS */}
       <div className="flex justify-between items-end border-b border-[var(--border-color)] pb-4">
-        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+        <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2">
           <Layers size={14} /> Production_Ready_Modules
         </h3>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 mt-8">
         <div className="space-y-6">
-          <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+          <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
             <Box size={14} /> Containers
           </h3>
 
@@ -132,7 +132,7 @@ const ComponentForge = ({ isXRayMode }) => {
         </div>
 
         <div className="space-y-6">
-          <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+          <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
             <Activity size={14} /> Data_Visualization
           </h3>
 
@@ -164,7 +164,7 @@ const ComponentForge = ({ isXRayMode }) => {
               )}
               <div className="space-y-6 relative z-10 p-6 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg">
                 <div className="space-y-3">
-                  <div className="flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
+                  <div className="flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-wider">
                     <span className="flex items-center gap-2"><Cpu size={12} className="text-[var(--accent)]" /> System Load</span>
                     <span className="text-[var(--accent)] font-bold">84%</span>
                   </div>
@@ -175,7 +175,7 @@ const ComponentForge = ({ isXRayMode }) => {
                   </div>
                 </div>
                 <div className="space-y-3">
-                  <div className="flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">
+                  <div className="flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-wider">
                     <span className="flex items-center gap-2"><Zap size={12} className="text-[var(--accent-blue)]" /> Network Flux</span>
                     <span className="text-[var(--accent-blue)] font-bold">62%</span>
                   </div>
@@ -191,7 +191,7 @@ const ComponentForge = ({ isXRayMode }) => {
 
         {/* Missing Bento Grid Component restored */}
         <div className="col-span-1 md:col-span-2 space-y-6 mt-8">
-          <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+          <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
             <Grid3X3 size={14} /> Bento_Grid_Pattern
           </h3>
           <div
@@ -208,7 +208,7 @@ const ComponentForge = ({ isXRayMode }) => {
                 <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                   <Activity size={80} />
                 </div>
-                <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent)] mb-4">
+                <h4 className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--accent)] mb-4">
                   Core Module
                 </h4>
                 <h3 className="text-2xl font-bold tracking-tight mb-2">
@@ -227,7 +227,7 @@ const ComponentForge = ({ isXRayMode }) => {
                   className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors"
                 />
                 <div className="mt-8">
-                  <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                  <h4 className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-1">
                     Status
                   </h4>
                   <p className="font-bold text-lg">Secure Auth</p>
@@ -240,7 +240,7 @@ const ComponentForge = ({ isXRayMode }) => {
 
       {/* SECTION 2: ATOMIC ELEMENTS */}
       <div className="space-y-6">
-        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
+        <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-2 border-b border-[var(--border-color)] pb-4">
           <Box size={14} /> Core_Input_Atoms
         </h3>
 
@@ -256,15 +256,15 @@ const ComponentForge = ({ isXRayMode }) => {
             <div className="space-y-8 relative z-10">
               {/* Button Variants */}
               <div className="space-y-4">
-                <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
+                <label className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)]">
                   Primary_Directives
                 </label>
                 <div className="flex flex-wrap gap-4">
-                  <button className="group relative inline-flex items-center gap-2 px-6 py-3 bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent)] text-[var(--text-primary)] transition-all font-mono text-xs uppercase tracking-widest shadow-sm hover:shadow-[0_0_15px_-5px_var(--accent)]">
+                  <button className="group relative inline-flex items-center gap-2 px-6 py-3 bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent)] text-[var(--text-primary)] transition-all font-mono text-xs uppercase tracking-wider shadow-sm hover:shadow-[0_0_15px_-5px_var(--accent)]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] group-hover:animate-pulse"></span>
                     Primary Action
                   </button>
-                  <button className="group relative inline-flex items-center gap-2 px-6 py-3 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-all font-mono text-xs uppercase tracking-widest bg-transparent">
+                  <button className="group relative inline-flex items-center gap-2 px-6 py-3 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-all font-mono text-xs uppercase tracking-wider bg-transparent">
                     Secondary
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity font-mono text-[10px]">&gt;</span>
                   </button>
@@ -273,7 +273,7 @@ const ComponentForge = ({ isXRayMode }) => {
 
               {/* Terminal Input */}
               <div className="space-y-4">
-                <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
+                <label className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)]">
                   Terminal_Input
                 </label>
                 <div className="relative group">
@@ -285,7 +285,7 @@ const ComponentForge = ({ isXRayMode }) => {
                     placeholder="Awaiting command_ sequence..."
                     className="w-full bg-[var(--bg-void)] border border-[var(--border-color)] p-4 pl-12 font-mono text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]/20 transition-all placeholder:text-[var(--text-secondary)]/40 rounded-sm"
                   />
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[9px] uppercase tracking-widest text-[var(--text-secondary)] font-mono opacity-0 group-focus-within:opacity-100 transition-opacity">
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[9px] uppercase tracking-wider text-[var(--text-secondary)] font-mono opacity-0 group-focus-within:opacity-100 transition-opacity">
                     [ENTER] TO SUBMIT
                   </div>
                 </div>
@@ -304,14 +304,14 @@ const ComponentForge = ({ isXRayMode }) => {
             <div className="space-y-8 relative z-10">
               {/* Status Badges */}
               <div className="space-y-4">
-                <label className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)]">
+                <label className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)]">
                   System_States
                 </label>
                 <div className="flex flex-wrap gap-3">
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-green)]/10 text-[var(--accent-green)] border border-[var(--accent-green)]/20 font-mono text-[10px] uppercase tracking-widest">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-green)]/10 text-[var(--accent-green)] border border-[var(--accent-green)]/20 font-mono text-[10px] uppercase tracking-wider">
                     <ShieldCheck size={10} /> Operational
                   </span>
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-red)]/10 text-[var(--accent-red)] border border-[var(--accent-red)]/20 font-mono text-[10px] uppercase tracking-widest">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--accent-red)]/10 text-[var(--accent-red)] border border-[var(--accent-red)]/20 font-mono text-[10px] uppercase tracking-wider">
                     <AlertTriangle size={10} /> Critical
                   </span>
                 </div>
@@ -323,7 +323,7 @@ const ComponentForge = ({ isXRayMode }) => {
 
       {/* SECTION 3: HIGH-FIDELITY INTERACTIONS (NEW) */}
       <div className="border-t border-[var(--border-color)] pt-12 space-y-6">
-        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] flex items-center gap-2 mb-8">
+        <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--accent)] flex items-center gap-2 mb-8">
           <Zap size={14} /> High-Fidelity_Interactions
         </h3>
 
@@ -335,7 +335,7 @@ const ComponentForge = ({ isXRayMode }) => {
                 NeuralEcho.jsx // Interaction
               </span>
             )}
-            <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">
+            <h4 className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-4">
               Semantic Core // NeuralEcho
             </h4>
             <div className="relative z-10 max-w-2xl">
@@ -351,7 +351,7 @@ const ComponentForge = ({ isXRayMode }) => {
                   ContactScratch.jsx // Filter Interaction
                 </span>
               )}
-              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">
+              <h4 className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-4">
                 Hardware Accelerated Scratch // ContactScratch
               </h4>
               <div className="relative z-10 h-64 border border-[var(--border-color)] overflow-hidden rounded-xl">
@@ -374,13 +374,13 @@ const ComponentForge = ({ isXRayMode }) => {
                   BlindsReveal.jsx // Motion Interaction
                 </span>
               )}
-              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">
+              <h4 className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-4">
                 Slat Physics // BlindsReveal
               </h4>
               <div className="relative z-10 h-64 border border-[var(--border-color)] overflow-hidden rounded-xl group cursor-pointer bg-[var(--bg-card)]">
                  <BlindsReveal isOpen={true} slats={8} color="rgba(0,0,0,0.8)" staggerDelay={0.04}>
                     <div className="w-full h-full flex items-center justify-center">
-                       <span className="font-mono text-[10px] tracking-widest uppercase opacity-50">Hover parent to trigger</span>
+                       <span className="font-mono text-[10px] tracking-wider uppercase opacity-50">Hover parent to trigger</span>
                     </div>
                  </BlindsReveal>
               </div>
@@ -394,7 +394,7 @@ const ComponentForge = ({ isXRayMode }) => {
                 TerminalWindowCard.jsx // OS Desktop Card
               </span>
             )}
-            <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] mb-4">
+            <h4 className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-4">
               Interactive OS Desktop // TerminalWindowCard
             </h4>
             <div className="relative z-10 h-80 border border-[var(--border-color)] overflow-hidden rounded-xl bg-[var(--bg-card)] p-4">
@@ -409,7 +409,7 @@ const ComponentForge = ({ isXRayMode }) => {
                >
                   <div className="w-full h-full flex flex-col items-center justify-center text-[var(--text-primary)] relative z-10 p-6 text-center">
                      <Terminal size={48} className="text-[var(--accent)] mb-4 opacity-50" />
-                     <h3 className="font-mono text-sm uppercase tracking-widest text-[var(--accent)] mb-2">Payload Executed</h3>
+                     <h3 className="font-mono text-sm uppercase tracking-wider text-[var(--accent)] mb-2">Payload Executed</h3>
                      <p className="text-xs text-[var(--text-secondary)] text-center max-w-xs">The TerminalWindowCard safely isolates state to maintain draggable physics constraints across the grid layout.</p>
                   </div>
                </TerminalWindowCard>
@@ -420,7 +420,7 @@ const ComponentForge = ({ isXRayMode }) => {
 
       {/* SECTION 4: INTERACTIVE SANDBOX INTEGRATIONS (v9.2) */}
       <div className="border-t border-[var(--border-color)] pt-12 space-y-8">
-        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] flex items-center gap-2 mb-4">
+        <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--accent)] flex items-center gap-2 mb-4">
           <Layers size={14} className="text-[var(--accent)]" /> Interactive Sandbox Integrations (v9.2)
         </h3>
 
@@ -428,7 +428,7 @@ const ComponentForge = ({ isXRayMode }) => {
           {/* Ticker spec */}
           <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6 rounded-lg flex flex-col justify-between h-full">
             <div>
-              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2 mb-4">
+              <h4 className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2 mb-4">
                 Dynamic Deliverable Ticker
               </h4>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
@@ -447,7 +447,7 @@ const ComponentForge = ({ isXRayMode }) => {
           {/* 404 game spec */}
           <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6 rounded-lg flex flex-col justify-between h-full">
             <div>
-              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2 mb-4">
+              <h4 className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2 mb-4">
                 404 Retro Survival Game
               </h4>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
@@ -467,7 +467,7 @@ const ComponentForge = ({ isXRayMode }) => {
           {/* Sketches widget spec */}
           <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-6 rounded-lg flex flex-col justify-between h-full">
             <div>
-              <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2 mb-4">
+              <h4 className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2 mb-4">
                 Sketches Social Highlight Embed
               </h4>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
@@ -487,13 +487,13 @@ const ComponentForge = ({ isXRayMode }) => {
 
       {/* COMPANION PROTOTYPES */}
       <div className="border-t border-[var(--border-color)] pt-12">
-        <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--accent-blue)] flex items-center gap-2 mb-8">
+        <h3 className="font-mono text-xs uppercase tracking-wider text-[var(--accent-blue)] flex items-center gap-2 mb-8">
           <Cpu size={14} /> Agentic_Companion_Protocols
         </h3>
 
         <div className="grid md:grid-cols-2 gap-12 mt-8">
           <div className="space-y-6">
-            <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2">
+            <h4 className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2">
               Sprite_Matrix // 1x8 Horizontal Sheet
             </h4>
             <div className="bg-[var(--bg-void)] p-8 border border-[var(--border-color)] flex items-center justify-center overflow-hidden">
@@ -511,13 +511,13 @@ const ComponentForge = ({ isXRayMode }) => {
           </div>
 
           <div className="space-y-6">
-            <h4 className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2">
+            <h4 className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2">
               Gemini_Agentic_Logic // Edge Protocols
             </h4>
             <div className="bg-[var(--bg-card)] p-6 border border-[var(--border-color)] space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[var(--accent-blue)] animate-pulse" />
-                <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--accent-blue)]">Live LLM Connection Active</span>
+                <div className="w-2 h-2 rounded-full bg-[var(--accent-blue)]" />
+                <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--accent-blue)]">Live LLM Connection Active</span>
               </div>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                 The agent intercepts chat and TL;DR commands, injecting the portfolio context directly into a secure <span className="text-[var(--text-primary)] font-mono">/api/echoz-chat</span> Serverless Edge Function powered by Gemini 1.5 Flash.

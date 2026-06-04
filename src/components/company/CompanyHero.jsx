@@ -35,7 +35,7 @@ const CompanyHero = ({
 
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-8 bg-[var(--brand)]"></div>
-              <span className="text-[var(--brand)] font-mono text-xs uppercase tracking-[0.2em]">
+              <span className="text-[var(--brand)] font-mono text-xs uppercase tracking-[0.12em]">
                 {cluster.company}  -  {cluster.title}
               </span>
             </div>
@@ -62,7 +62,7 @@ const CompanyHero = ({
             <div className="absolute top-4 right-4 z-40">
               <button
                 onClick={() => setShowNarrative(!showNarrative)}
-                className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 font-mono text-[10px] uppercase tracking-widest ${showNarrative ? "bg-[var(--brand)] text-white border-[var(--brand)]" : "bg-black/50 text-white/70 border-white/20 hover:border-white/40"}`}
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 font-mono text-[10px] uppercase tracking-wider ${showNarrative ? "bg-[var(--brand)] text-white border-[var(--brand)]" : "bg-black/50 text-white/70 border-white/20 hover:border-white/40"}`}
               >
                 {showNarrative ? <Cpu size={12} /> : <Scan size={12} />}
                 {showNarrative
@@ -89,7 +89,7 @@ const CompanyHero = ({
                   <div className="max-w-md bg-black/40 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-3xl">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-8 h-px bg-[var(--brand)]"></div>
-                      <span className="font-mono text-[10px] text-[var(--brand)] uppercase tracking-[0.3em]">
+                      <span className="font-mono text-[10px] text-[var(--brand)] uppercase tracking-[0.12em]">
                         {t("company.motivation")}
                       </span>
                     </div>
@@ -100,7 +100,7 @@ const CompanyHero = ({
                         : cluster.motivation}
                       "
                     </p>
-                    <div className="flex items-center gap-4 text-[10px] font-mono text-white/40 uppercase tracking-widest">
+                    <div className="flex items-center gap-4 text-[10px] font-mono text-white/40 uppercase tracking-wider">
                       <span>{t("company.log_source")}</span>
                       <span>{t("company.status_declassified")}</span>
                     </div>

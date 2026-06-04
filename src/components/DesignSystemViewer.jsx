@@ -112,7 +112,7 @@ const DesignSystemViewer = () => {
                 <button
                   key={sector.id}
                   onClick={() => scrollToSection(sector.id)}
-                  className={`w-full group flex items-center gap-3 px-4 py-4 min-h-[48px] text-[10px] font-mono font-bold uppercase tracking-widest transition-all text-left border-l-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)]/50 focus-visible:bg-[var(--accent)]/5 ${activeSection === sector.id ? "border-[var(--accent)] text-[var(--accent)] bg-[var(--accent)]/10" : "border-transparent text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"}`}
+                  className={`w-full group flex items-center gap-3 px-4 py-4 min-h-[48px] text-[10px] font-mono font-bold uppercase tracking-wider transition-all text-left border-l-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)]/50 focus-visible:bg-[var(--accent)]/5 ${activeSection === sector.id ? "border-[var(--accent)] text-[var(--accent)] bg-[var(--accent)]/10" : "border-transparent text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"}`}
                 >
                   <sector.icon
                     size={12}
@@ -126,7 +126,7 @@ const DesignSystemViewer = () => {
             <div className="pt-8 pb-4 border-t border-[var(--border-color)]">
               <button
                 onClick={() => setIsXRayMode(!isXRayMode)}
-                className={`w-full flex items-center justify-center gap-2 px-4 py-4 min-h-[48px] font-mono text-[9px] uppercase tracking-widest border transition-all duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)]/50 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
+                className={`w-full flex items-center justify-center gap-2 px-4 py-4 min-h-[48px] font-mono text-[9px] uppercase tracking-wider border transition-all duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)]/50 ${isXRayMode ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] shadow-[0_0_15px_-5px_var(--accent)]" : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"}`}
               >
                 <Eye size={12} className={isXRayMode ? "animate-pulse" : ""} />
                 {isXRayMode ? t("design_system.xray_active") : t("design_system.xray_enable")}
@@ -145,8 +145,8 @@ const DesignSystemViewer = () => {
 
             <div className="space-y-6 relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] backdrop-blur-md">
-                <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-green)] animate-pulse" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+                <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-green)]" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--text-secondary)]">
                   {t("design_system.diagnostic_mode")}
                 </span>
               </div>
@@ -155,7 +155,7 @@ const DesignSystemViewer = () => {
                   DESIGN_KERNEL
                   <span className="text-[var(--accent)]">.SYS</span>
                 </h1>
-                <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest max-w-xl space-y-3">
+                <div className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-wider max-w-xl space-y-3">
                   <p>
                     &gt; {t("design_system.executing_protocols")}{" "}
                     {SYSTEM_CONFIG.VERSION}
@@ -179,7 +179,7 @@ const DesignSystemViewer = () => {
                 id={activeSection}
                 className="animate-in fade-in slide-in-from-bottom-4 duration-500"
               >
-                <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-8 flex items-center gap-3">
+                <h2 className="font-mono text-xs uppercase tracking-[0.12em] text-[var(--accent)] mb-8 flex items-center gap-3">
                   {HeaderIcon && <HeaderIcon size={14} />} {activeHeader.label}
                 </h2>
                 {activeSection === "components" ? (
@@ -195,7 +195,7 @@ const DesignSystemViewer = () => {
           </div>
 
           {/* Footer Data Line */}
-          <footer className="border-t border-[var(--border-color)] p-6 flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest bg-[var(--bg-surface)]">
+          <footer className="border-t border-[var(--border-color)] p-6 flex justify-between items-center font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-wider bg-[var(--bg-surface)]">
             <div className="flex gap-8">
               <span>
                 {t("design_system.mem")}: {SYSTEM_CONFIG.MEM_USAGE} // {t("design_system.threads")}:{" "}

@@ -111,7 +111,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
           title="Switch Language"
         >
           <Globe size={14} />
-          <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest">
+          <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider">
             {language}
           </span>
         </button>
@@ -119,7 +119,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
 
       <div className="max-w-md w-full relative z-10">
         {/* Header Status */}
-        <div className="flex justify-between items-center mb-6 sm:mb-8 text-[10px] sm:text-xs text-[var(--accent-red)] uppercase tracking-wider sm:tracking-widest border-b border-[var(--accent-red)] pb-2 opacity-80">
+        <div className="flex justify-between items-center mb-6 sm:mb-8 text-[10px] sm:text-xs text-[var(--accent-red)] uppercase tracking-wider sm:tracking-wider border-b border-[var(--accent-red)] pb-2 opacity-80">
           <span className="flex items-center gap-1.5 sm:gap-2">
             <ShieldAlert size={12} className="sm:w-[14px] sm:h-[14px]" />{" "}
             {t("protected.system_locked") || "SYSTEM_LOCKED"}
@@ -138,7 +138,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
                     <button
                       key={mode}
                       onClick={() => setActiveSummary(mode)}
-                      className={`flex-1 py-3 sm:py-3.5 px-2 sm:px-3 text-[9px] sm:text-[10px] md:text-xs uppercase tracking-tight sm:tracking-widest font-mono transition-colors min-h-[44px]
+                      className={`flex-1 py-3 sm:py-3.5 px-2 sm:px-3 text-[9px] sm:text-[10px] md:text-xs uppercase tracking-tight sm:tracking-wider font-mono transition-colors min-h-[44px]
                           ${activeSummary === mode
                           ? "bg-[var(--bg-card)] text-[var(--brand)] font-bold border-b-2 border-b-[var(--brand)]"
                           : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]"
@@ -203,7 +203,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder={t("protected.enter_passkey") || "ENTER PASSKEY"}
-                  className="relative w-full bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] px-4 py-3.5 sm:py-4 text-center text-sm sm:text-base tracking-[0.3em] sm:tracking-[0.5em] focus:outline-none focus:border-[var(--accent-red)] transition-all placeholder:tracking-normal placeholder:text-[var(--text-secondary)]/50 rounded-lg lock-input-pulse"
+                  className="relative w-full bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] px-4 py-3.5 sm:py-4 text-center text-sm sm:text-base tracking-[0.12em] sm:tracking-[0.5em] focus:outline-none focus:border-[var(--accent-red)] transition-all placeholder:tracking-normal placeholder:text-[var(--text-secondary)]/50 rounded-lg lock-input-pulse"
                 />
               </div>
 
@@ -216,7 +216,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
 
               <button
                 type="submit"
-                className="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)] py-3.5 sm:py-3 hover:bg-[var(--accent-red)] hover:text-black hover:border-[var(--accent-red)] transition-all duration-200 uppercase text-xs tracking-widest flex items-center justify-center gap-2 group rounded-lg min-h-[48px]"
+                className="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)] py-3.5 sm:py-3 hover:bg-[var(--accent-red)] hover:text-black hover:border-[var(--accent-red)] transition-all duration-200 uppercase text-xs tracking-wider flex items-center justify-center gap-2 group rounded-lg min-h-[48px]"
               >
                 <Unlock size={14} className="group-hover:unlock" />
                 {t("protected.decrypt_file") || "Decrypt File"}
@@ -236,7 +236,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
                 return (
                   <a
                     href={mailtoUrl}
-                    className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono uppercase tracking-wider sm:tracking-widest text-[var(--accent-red)] border-b border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-black transition-all pb-1 min-h-[44px] pt-2"
+                    className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono uppercase tracking-wider sm:tracking-wider text-[var(--accent-red)] border-b border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-black transition-all pb-1 min-h-[44px] pt-2"
                   >
                     {t("protected.request_access") || "Request Access Key"}{" "}
                     <ArrowRight size={12} />

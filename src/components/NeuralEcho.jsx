@@ -91,7 +91,7 @@ const NeuralEcho = () => {
                 <motion.span
                   animate={{ opacity: [1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity }}
-                  className="inline-block w-2 h-5 bg-[var(--accent-blue)] ml-2 align-middle shadow-[0_0_12px_var(--accent-blue)]"
+                  className="inline-block w-2 h-5 bg-[var(--accent-blue)] ml-2 align-middle"
                 />
               )}
             </div>
@@ -104,7 +104,7 @@ const NeuralEcho = () => {
         <button
           onClick={handleRefresh}
           disabled={isTyping}
-          className={`flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] transition-all px-5 py-2.5 rounded-xl border
+          className={`flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.12em] transition-all px-5 py-2.5 rounded-xl border
                         ${isTyping
               ? "opacity-20 cursor-not-allowed border-transparent"
               : "text-[var(--text-card-secondary)] hover:text-[var(--accent-blue)] bg-[var(--bg-void)]/10 border-[var(--border-color)]/20 hover:border-[var(--accent-blue)]/50 hover:bg-[var(--accent-blue)]/5 hover:shadow-lg hover:shadow-[var(--accent-blue)]/5"
@@ -124,9 +124,9 @@ const NeuralEcho = () => {
         <div className="flex items-center gap-6 group-hover:opacity-100 transition-opacity duration-700">
           <div className="flex items-center gap-2.5">
             <div
-              className={`h-1.5 w-1.5 rounded-full ${isTyping ? "bg-[var(--accent-blue)] animate-pulse" : "bg-[var(--accent-green)] shadow-[0_0_8px_var(--accent-green)]"}`}
+              className={`h-1.5 w-1.5 rounded-full ${isTyping ? "bg-[var(--accent-blue)] animate-pulse" : "bg-[var(--accent-green)]"}`}
             ></div>
-            <span className="font-mono text-[9px] tracking-[0.15em] font-bold uppercase text-[var(--text-card-secondary)]">
+            <span className="font-mono text-[9px] tracking-[0.12em] font-bold uppercase text-[var(--text-card-secondary)]">
               System_Ready
             </span>
           </div>

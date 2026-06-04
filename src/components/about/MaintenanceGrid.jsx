@@ -30,7 +30,7 @@ const MaintenanceGrid = ({ streaks, t }) => {
               <div className="font-mono text-sm text-[var(--text-card)] font-bold mb-1">
                 {habit.label}
               </div>
-              <div className="font-mono text-[10px] text-[var(--text-card-secondary)] uppercase tracking-widest mb-3 opacity-60">
+              <div className="font-mono text-[10px] text-[var(--text-card-secondary)] uppercase tracking-wider mb-3 opacity-60">
                 {habit.frequency}
               </div>
               <div className="font-serif italic text-xs text-[var(--text-card-secondary)] border-t border-[var(--border-color)]/20 pt-3 mt-2 opacity-60 group-hover:opacity-100 transition-opacity">

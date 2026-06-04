@@ -285,8 +285,8 @@ const SideProjectsIndex = () => {
 
           <div className="relative z-10 max-w-4xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] backdrop-blur-md">
-              <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)] animate-pulse"></div>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+              <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)]"></div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
                 {t("project_archive.badge")}
               </span>
             </div>
@@ -306,7 +306,7 @@ const SideProjectsIndex = () => {
 
         {SIDE_PROJECTS.length > 0 && (
           <div className="mb-32">
-            <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] mb-12 flex items-center gap-4">
+            <h2 className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-12 flex items-center gap-4">
               <span className="w-8 h-[1px] bg-[var(--border-color)]"></span>
               {t("project_archive.launched")}
               <span className="flex-1 h-[1px] bg-[var(--border-color)]"></span>
@@ -334,7 +334,7 @@ const SideProjectsIndex = () => {
               aria-expanded={experimentsOpen}
               aria-controls="experiments-grid"
             >
-              <h2 className="text-sm font-mono uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-4">
+              <h2 className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] flex items-center gap-4">
                 <span className="w-8 h-[1px] bg-[var(--border-color)]"></span>
                 <span>
                   {t("project_archive.experiments")}

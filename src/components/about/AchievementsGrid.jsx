@@ -33,7 +33,7 @@ const AchievementsGrid = ({ achievements, t }) => {
                 <div className="flex flex-col h-full">
                   <div className="mb-4">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span className="font-mono text-[9px] px-2 py-0.5 bg-[var(--accent-amber)]/10 text-[var(--accent-amber)] rounded-full font-bold uppercase tracking-widest border border-[var(--accent-amber)]/20">
+                      <span className="font-mono text-[9px] px-2 py-0.5 bg-[var(--accent-amber)]/10 text-[var(--accent-amber)] rounded-full font-bold uppercase tracking-wider border border-[var(--accent-amber)]/20">
                         {award.issuer}
                       </span>
                       <span className="font-mono text-[10px] text-[var(--text-card-secondary)] opacity-60">
@@ -63,7 +63,7 @@ const AchievementsGrid = ({ achievements, t }) => {
                       href={award.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2.5 md:py-2 bg-[var(--bg-void)]/20 border border-[var(--border-color)] hover:border-[var(--accent-amber)] hover:bg-[var(--accent-amber)]/10 text-[var(--accent-amber)] rounded-lg transition-all font-mono text-[11px] md:text-[10px] uppercase tracking-widest font-bold"
+                      className="w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2.5 md:py-2 bg-[var(--bg-void)]/20 border border-[var(--border-color)] hover:border-[var(--accent-amber)] hover:bg-[var(--accent-amber)]/10 text-[var(--accent-amber)] rounded-lg transition-all font-mono text-[11px] md:text-[10px] uppercase tracking-wider font-bold"
                     >
                       {t("about.show_credential")}
                       <ArrowUpRight size={12} />

@@ -18,7 +18,7 @@ const HomeBlogSection = () => {
                 Writing
               </h2>
               <div className="h-2 w-24 bg-[var(--accent-amber)]/50 absolute -bottom-2 left-0"></div>
-              <p className="font-mono text-sm text-[var(--text-secondary)] uppercase tracking-widest mt-6 max-w-md">
+              <p className="font-mono text-sm text-[var(--text-secondary)] uppercase tracking-wider mt-6 max-w-md">
                 // ENGINEERING_THOUGHTS // DESIGN_PHILOSOPHY
               </p>
             </div>
@@ -27,7 +27,7 @@ const HomeBlogSection = () => {
               href="https://fadlyzaki.substack.com"
               target="_blank"
               rel="noreferrer"
-              className="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-[var(--accent-amber)] transition-colors group"
+              className="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-wider hover:text-[var(--accent-amber)] transition-colors group"
             >
               <span>View All Posts</span>
               <ArrowUpRight
@@ -54,7 +54,7 @@ const HomeBlogSection = () => {
 
                   <div>
                     <div className="flex items-center justify-between mb-6">
-                      <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
+                      <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-wider">
                         {post.pubDate}
                       </span>
                       <PenTool
@@ -72,7 +72,7 @@ const HomeBlogSection = () => {
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors mt-auto">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors mt-auto">
                     <span>Read Article</span>
                     <ArrowUpRight size={12} />
                   </div>
@@ -88,7 +88,7 @@ const HomeBlogSection = () => {
             href="https://fadlyzaki.substack.com"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest border border-[var(--border-color)] px-6 py-3 rounded-full hover:bg-[var(--bg-surface)] hover:text-[var(--accent-amber)] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider border border-[var(--border-color)] px-6 py-3 rounded-full hover:bg-[var(--bg-surface)] hover:text-[var(--accent-amber)] transition-colors"
           >
             <span>View All Posts</span>
             <ArrowUpRight size={16} />

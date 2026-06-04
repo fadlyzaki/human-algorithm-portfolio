@@ -174,7 +174,7 @@ const AIBrainstorm = ({ hypotheses, t }) => {
                       <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center">
                         <Sparkles size={16} className="text-black" />
                       </div>
-                      <span className="font-mono text-xs text-emerald-400 uppercase tracking-widest">
+                      <span className="font-mono text-xs text-emerald-400 uppercase tracking-wider">
                         {t("protected.proposed_solution") ||
                           "Proposed Solution"}
                       </span>

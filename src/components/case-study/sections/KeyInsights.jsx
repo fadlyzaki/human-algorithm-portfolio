@@ -21,7 +21,7 @@ const KeyInsights = ({ caseData, t }) => {
               key={i}
               className="border-l-2 border-[var(--brand)] pl-8 py-2"
             >
-              <h3 className="font-bold uppercase tracking-widest text-xs mb-3 text-[var(--brand)]">
+              <h3 className="font-bold uppercase tracking-wider text-xs mb-3 text-[var(--brand)]">
                 {insight.title}
               </h3>
               <p className="text-lg text-[var(--text-primary)] leading-relaxed">

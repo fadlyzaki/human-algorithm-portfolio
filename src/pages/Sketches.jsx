@@ -58,7 +58,7 @@ const Sketches = () => {
           </h2>
 
           {/* Intent copy — orients the recruiter before the widget loads */}
-          <p className="mb-6 max-w-xl font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] opacity-70">
+          <p className="mb-6 max-w-xl font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] opacity-70">
             {intentText}
           </p>
 
@@ -84,7 +84,7 @@ const Sketches = () => {
                     animation: "sketchesSkeleton 1.6s ease-in-out infinite",
                   }}
                 />
-                <p className="absolute bottom-4 left-0 right-0 text-center font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)] opacity-50">
+                <p className="absolute bottom-4 left-0 right-0 text-center font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] opacity-50">
                   {loadingText}
                 </p>
               </div>

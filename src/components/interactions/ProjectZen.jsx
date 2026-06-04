@@ -187,7 +187,7 @@ export default function NetflixContextUI() {
         </div>
 
         <div className="relative z-20 max-w-2xl">
-          <span className="flex items-center gap-2 text-[var(--accent-red)] font-bold tracking-widest uppercase text-sm mb-2">
+          <span className="flex items-center gap-2 text-[var(--accent-red)] font-bold tracking-wider uppercase text-sm mb-2">
             <div className="w-1 h-4 bg-[var(--accent-red)]"></div> Project Zen
           </span>
           <h2 className="text-4xl md:text-6xl font-black mb-4 leading-none">
@@ -210,7 +210,7 @@ export default function NetflixContextUI() {
 
       {/* --- THE SOLUTION: CONTEXT FILTER BAR (PRD 5.1) --- */}
       <main className="px-4 md:px-12 -mt-8 relative z-30">
-        <div className="mb-2 flex items-center gap-2 text-gray-400 text-sm font-semibold uppercase tracking-widest">
+        <div className="mb-2 flex items-center gap-2 text-gray-400 text-sm font-semibold uppercase tracking-wider">
           <span>What's the vibe?</span>
           {isCalmMode && (
             <span className="text-xs normal-case bg-green-900/50 text-green-400 px-2 py-0.5 rounded border border-green-800 flex items-center gap-1">

@@ -94,7 +94,7 @@ const InterestSelector = ({ t }) => {
 
   return (
     <div className="p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl hover:border-[var(--text-primary)] transition-colors overflow-hidden">
-      <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-widest mb-5 flex items-center gap-2">
+      <h4 className="font-mono text-[var(--text-secondary)] text-xs uppercase tracking-wider mb-5 flex items-center gap-2">
         <Activity size={14} className="text-[var(--text-secondary)]" />{" "}
         {t("home.personal_interests")}
       </h4>
@@ -163,7 +163,7 @@ const InterestSelector = ({ t }) => {
                 className={`overflow-hidden transition-all duration-300 ease-in-out flex flex-col items-center justify-start ${hovered === i ? "max-h-12 opacity-100 mt-2" : "max-h-0 opacity-0 mt-0"}`}
               >
                 <span
-                  className="text-[10px] font-mono uppercase tracking-widest leading-tight text-center pointer-events-none w-max max-w-[120px]"
+                  className="text-[10px] font-mono uppercase tracking-wider leading-tight text-center pointer-events-none w-max max-w-[120px]"
                   style={{ color: item.color }}
                 >
                   {item.val}
@@ -245,7 +245,7 @@ export const TerminalWindowCard = ({
             <p>
               <span className="text-emerald-500">root@human-algorithm</span>:<span className="text-blue-400">~/system</span>$ {terminalCommand}
               <br />
-              <span className={`inline-block mt-6 px-4 py-2 rounded border animate-pulse text-xs uppercase tracking-widest font-bold ${accentBgClass} ${accentColorClass} ${accentBorderClass}`}>
+              <span className={`inline-block mt-6 px-4 py-2 rounded border animate-pulse text-xs uppercase tracking-wider font-bold ${accentBgClass} ${accentColorClass} ${accentBorderClass}`}>
                 {executeLabel}
               </span>
             </p>
@@ -380,7 +380,7 @@ const HomeAbout = ({ t }) => {
             
             <div className="flex flex-col justify-between h-full relative z-10">
               <div>
-                <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                <h4 className="font-mono text-[var(--accent-amber)] text-xs uppercase tracking-wider mb-4 flex items-center gap-2">
                   <Heart size={14} className="text-[var(--accent-amber)]" />{" "}
                   {t("home.philosophy_title")}
                 </h4>
@@ -392,7 +392,7 @@ const HomeAbout = ({ t }) => {
               </div>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors self-start"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors self-start"
               >
                 {t("home.read_philosophy")} <ArrowRight size={14} />
               </Link>
@@ -418,7 +418,7 @@ const HomeAbout = ({ t }) => {
 
             <div className="flex flex-col justify-between h-full relative z-10">
               <div>
-                <h4 className="font-mono text-[#a855f7] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                <h4 className="font-mono text-[#a855f7] text-xs uppercase tracking-wider mb-4 flex items-center gap-2">
                   <Cpu size={14} className="text-[#a855f7]" />
                   {t("home.current_focus")}
                 </h4>
@@ -430,7 +430,7 @@ const HomeAbout = ({ t }) => {
               </div>
               <Link
                 to="/side-project/productivity-illusion"
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] hover:text-[#a855f7] transition-colors self-start"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] hover:text-[#a855f7] transition-colors self-start"
               >
                 {t("home.read_thesis") || "Read Thesis Findings"} <ArrowRight size={14} />
               </Link>
@@ -483,7 +483,7 @@ const HomeAbout = ({ t }) => {
                       />
                     </div>
                     <div>
-                      <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                      <h4 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-1">
                         {t("nav.notes")}
                       </h4>
                       <p className="text-[var(--text-primary)] text-sm font-light">
@@ -512,7 +512,7 @@ const HomeAbout = ({ t }) => {
                       />
                     </div>
                     <div>
-                      <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                      <h4 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-1">
                         {t("nav.sketches")}
                       </h4>
                       <p className="text-[var(--text-primary)] text-sm font-light">

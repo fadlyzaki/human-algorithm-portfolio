@@ -36,14 +36,14 @@ const EvidenceLog = ({ logId, title, classification, children, className = "", d
           <div className="mb-8 md:mb-12">
             {/* Log header — monospace terminal style */}
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-2 h-2 rounded-full bg-[var(--brand)] animate-pulse" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--brand)] opacity-70">
+              <div className="w-2 h-2 rounded-full bg-[var(--brand)]" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--brand)] opacity-70">
                 {logId || "LOG_ENTRY"}
               </span>
               {classification && (
                 <>
                   <span className="text-[var(--border-color)]">|</span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--text-secondary)] opacity-50">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--text-secondary)] opacity-50">
                     {classification}
                   </span>
                 </>
@@ -102,7 +102,7 @@ const FieldReport = ({ text, source, classification = "CLASSIFIED" }) => (
     <div className="pl-8 md:pl-10">
       <div className="flex items-center gap-2 mb-3">
         <Terminal size={12} className="text-[var(--brand)] opacity-60" />
-        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--brand)] opacity-50">
+        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-[var(--brand)] opacity-50">
           {classification}
         </span>
       </div>
@@ -110,7 +110,7 @@ const FieldReport = ({ text, source, classification = "CLASSIFIED" }) => (
         "{text}"
       </blockquote>
       {source && (
-        <cite className="block mt-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--text-secondary)] not-italic opacity-60">
+        <cite className="block mt-3 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--text-secondary)] not-italic opacity-60">
           — {source}
         </cite>
       )}
@@ -137,7 +137,7 @@ const KPITicker = ({ metrics }) => (
               {m.value}
             </span>
           </div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-secondary)] opacity-60">
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--text-secondary)] opacity-60">
             {m.label}
           </span>
         </motion.div>
@@ -168,7 +168,7 @@ const RankBadge = ({ rank, tier, level, color, delay = 0 }) => (
     </div>
     <div className="flex-1">
       <p className="font-medium text-[var(--text-primary)] text-sm">{tier}</p>
-      <p className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-[0.15em]">{level}</p>
+      <p className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-[0.12em]">{level}</p>
     </div>
     <Flag size={16} className="text-[var(--text-secondary)] opacity-0 group-hover:opacity-40 transition-opacity" />
   </motion.div>
@@ -205,13 +205,13 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
             {/* Status bar */}
             <div className="flex items-center gap-3 flex-wrap">
               <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-[var(--bg-card)] border border-[var(--brand)]/40 rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.08)] backdrop-blur-sm">
-                <span className="w-2 h-2 rounded-full bg-[var(--brand)] animate-pulse shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-[var(--brand)] shrink-0" />
                 <Crosshair size={13} style={{ color: "var(--brand)" }} className="opacity-80" />
-                <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.15em] font-semibold" style={{ color: "var(--brand)" }}>
+                <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.12em] font-semibold" style={{ color: "var(--brand)" }}>
                   {t("case_study.st_sales_tag_gamification")}
                 </span>
               </div>
-              <span className="font-mono text-[10px] text-[var(--text-secondary)] tracking-[0.15em] uppercase">
+              <span className="font-mono text-[10px] text-[var(--text-secondary)] tracking-[0.12em] uppercase">
                 {caseData.context?.timeline || project.timeline}
               </span>
             </div>
@@ -242,7 +242,7 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
                 >
                   <item.icon size={16} className="mb-3 opacity-30 group-hover:opacity-70 transition-opacity" style={{ color: "var(--brand)" }} />
                   <p className="text-base md:text-lg font-light text-[var(--text-primary)] mb-0.5 leading-snug">{item.value}</p>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--text-secondary)] opacity-60">{item.label}</p>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-[var(--text-secondary)] opacity-60">{item.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -324,8 +324,8 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
 
                 <div className="mt-8 pt-4 border-t border-[var(--border-color)]">
                   <div className="flex items-center justify-center gap-2">
-                    <HeartPulse size={12} className="text-[var(--accent-red)] animate-pulse" />
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--text-secondary)] opacity-60">
+                    <HeartPulse size={12} className="text-[var(--accent-red)]" />
+                    <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-[var(--text-secondary)] opacity-60">
                       {t("case_study.st_sales_trust_axiom")}
                     </span>
                   </div>
@@ -375,7 +375,7 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
                 >
                   <Skull size={16} className="text-[var(--accent-red)] opacity-60 shrink-0" />
                   <div>
-                    <p className="font-mono text-[9px] text-[var(--accent-red)] uppercase tracking-[0.2em] mb-0.5">{t("case_study.st_sales_before_title")}</p>
+                    <p className="font-mono text-[9px] text-[var(--accent-red)] uppercase tracking-[0.12em] mb-0.5">{t("case_study.st_sales_before_title")}</p>
                     <p className="text-sm text-[var(--text-primary)]">{t("case_study.st_sales_before_desc")}</p>
                   </div>
                 </motion.div>
@@ -393,7 +393,7 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
                 >
                   <Crosshair size={16} className="text-[var(--accent-green)] opacity-60 shrink-0" />
                   <div>
-                    <p className="font-mono text-[9px] text-[var(--accent-green)] uppercase tracking-[0.2em] mb-0.5">{t("case_study.st_sales_after_title")}</p>
+                    <p className="font-mono text-[9px] text-[var(--accent-green)] uppercase tracking-[0.12em] mb-0.5">{t("case_study.st_sales_after_title")}</p>
                     <p className="text-sm text-[var(--text-primary)]">{t("case_study.st_sales_after_desc")}</p>
                   </div>
                 </motion.div>
@@ -507,7 +507,7 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
                       className="w-full h-full object-cover md:object-contain bg-black/5 dark:bg-white/5"
                     />
                     <div className="absolute bottom-4 left-4 flex items-center gap-2 pointer-events-none">
-                      <span className="w-2 h-2 bg-[var(--accent-red)] rounded-full animate-pulse" />
+                      <span className="w-2 h-2 bg-[var(--accent-red)] rounded-full" />
                       <span className="font-mono text-[10px] md:text-xs font-bold text-[var(--accent-red)] bg-white/80 dark:bg-black/80 px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">{t("case_study.st_sales_blueprint_lofi")}</span>
                     </div>
                   </div>
@@ -524,7 +524,7 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
                       className="w-full h-full object-cover md:object-contain bg-black/5 dark:bg-white/5"
                     />
                     <div className="absolute bottom-4 left-4 flex items-center gap-2 pointer-events-none">
-                      <span className="w-2 h-2 bg-[var(--accent-green)] rounded-full animate-pulse" />
+                      <span className="w-2 h-2 bg-[var(--accent-green)] rounded-full" />
                       <span className="font-mono text-[10px] md:text-xs font-bold text-[var(--accent-green)] bg-white/80 dark:bg-black/80 px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">{t("case_study.st_sales_blueprint_hifi")}</span>
                     </div>
                   </div>
@@ -628,8 +628,8 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
                 {/* Prototype label */}
                 <div className="mt-10 text-center max-w-2xl mx-auto px-4">
                   <div className="flex items-center justify-center gap-2 mb-4">
-                    <div className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse" />
-                    <span className="font-mono text-[10px] text-[var(--accent-green)] uppercase tracking-[0.2em]">
+                    <div className="w-2 h-2 rounded-full bg-[var(--accent-green)]" />
+                    <span className="font-mono text-[10px] text-[var(--accent-green)] uppercase tracking-[0.12em]">
                       {t("case_study.st_sales_proto_label")}
                     </span>
                   </div>
@@ -663,7 +663,7 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="w-5 h-[1px] bg-[var(--brand)] opacity-50" />
-                    <span className="font-mono text-[9px] text-[var(--brand)] uppercase tracking-[0.2em] opacity-60">
+                    <span className="font-mono text-[9px] text-[var(--brand)] uppercase tracking-[0.12em] opacity-60">
                       {t("case_study.st_sales_exhibit_label")}{String.fromCharCode(65 + i)}
                     </span>
                   </div>

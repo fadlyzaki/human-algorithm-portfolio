@@ -186,7 +186,7 @@ const ProfileScanner = ({
           <div className="flex justify-between items-start opacity-60 group-hover:opacity-100 transition-opacity">
             <Scan size={20} className="text-[var(--accent-blue)]" />
             <div className="flex flex-col items-end">
-              <span className="font-mono text-[9px] text-[var(--accent-blue)] uppercase tracking-widest">
+              <span className="font-mono text-[9px] text-[var(--accent-blue)] uppercase tracking-wider">
                 Target_ID: Uzzaki
               </span>
               <span className="font-mono text-[8px] text-[var(--text-secondary)]">
@@ -273,7 +273,7 @@ const ProfileScanner = ({
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-green)] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-green)]"></span>
           </span>
-          <span className="font-mono text-[10px] text-[var(--text-secondary)] font-bold tracking-widest">
+          <span className="font-mono text-[10px] text-[var(--text-secondary)] font-bold tracking-wider">
             OPEN TO WORK
           </span>
         </motion.div>

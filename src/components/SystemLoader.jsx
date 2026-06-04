@@ -45,12 +45,12 @@ export const SystemLoader = () => {
       />
 
       {/* Decorative Corner Diagnostics */}
-      <div className="absolute top-6 left-6 text-[8px] text-[var(--text-secondary)] uppercase tracking-widest hidden md:block">
+      <div className="absolute top-6 left-6 text-[8px] text-[var(--text-secondary)] uppercase tracking-wider hidden md:block">
         <p>SYS_VER: 8.1.0</p>
         <p className="animate-pulse text-[var(--accent-blue)] mt-1">Status: DECRYPTING_CHUNKS</p>
       </div>
       
-      <div className="absolute bottom-6 right-6 text-[8px] text-[var(--text-secondary)] uppercase tracking-widest text-right hidden md:block">
+      <div className="absolute bottom-6 right-6 text-[8px] text-[var(--text-secondary)] uppercase tracking-wider text-right hidden md:block">
         <p>MEM_ALLOC: 42MB / 128MB</p>
         <p>latency: &lt;15ms</p>
       </div>
@@ -88,7 +88,7 @@ export const SystemLoader = () => {
         <div className="w-full space-y-4">
           <div className="flex justify-between items-end border-b border-[var(--border-color)] pb-2">
             <motion.div 
-              className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent-blue)] flex items-center gap-2"
+              className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--accent-blue)] flex items-center gap-2"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
             >
@@ -119,7 +119,7 @@ export const SystemLoader = () => {
 
         {/* Progress Bar Loader */}
         <div className="w-full mt-8">
-            <div className="flex justify-between text-[8px] uppercase tracking-widest text-[var(--text-secondary)] mb-2">
+            <div className="flex justify-between text-[8px] uppercase tracking-wider text-[var(--text-secondary)] mb-2">
                 <span>Compiling Logic...</span>
                 <span className="text-[var(--accent-blue)] animate-pulse">Running</span>
             </div>
@@ -159,7 +159,7 @@ export const SystemSectionLoader = ({ height = "h-96" }) => {
         </motion.div>
         
         <div className="flex flex-col gap-1 items-center max-w-[200px]">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-primary)] font-bold text-center whitespace-nowrap">
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--text-primary)] font-bold text-center whitespace-nowrap">
             {t("system.initializing") || "FETCHING CONTEXT"}
           </span>
           <div className="flex gap-1 items-center">

@@ -192,7 +192,7 @@ const WorkforceAI = ({ color = "var(--accent-teal)" }) => {
       <div className="absolute inset-0 flex items-center justify-between p-4 md:p-8">
         {/* LEFT: CANDIDATES */}
         <div className="flex flex-col gap-3 relative z-20 w-[35%] max-w-[200px]">
-          <div className="text-[9px] uppercase tracking-widest text-white/40 border-b border-white/10 pb-1 flex justify-between mb-1">
+          <div className="text-[9px] uppercase tracking-wider text-white/40 border-b border-white/10 pb-1 flex justify-between mb-1">
             <span>Candidates</span>
             <span>N={CANDIDATES.length}</span>
           </div>
@@ -238,12 +238,12 @@ const WorkforceAI = ({ color = "var(--accent-teal)" }) => {
               <Zap size={14} style={{ color }} />
             </div>
           </div>
-          <span className="text-[8px] text-white/30 uppercase tracking-widest">Engine</span>
+          <span className="text-[8px] text-white/30 uppercase tracking-wider">Engine</span>
         </div>
 
         {/* RIGHT: JOBS */}
         <div className="flex flex-col gap-3 relative z-20 w-[35%] max-w-[200px]">
-          <div className="text-[9px] uppercase tracking-widest text-white/40 border-b border-white/10 pb-1 flex justify-between mb-1">
+          <div className="text-[9px] uppercase tracking-wider text-white/40 border-b border-white/10 pb-1 flex justify-between mb-1">
             <span>Open Reqs</span>
             <span>Jobs</span>
           </div>
@@ -269,7 +269,7 @@ const WorkforceAI = ({ color = "var(--accent-teal)" }) => {
 
       {/* Footer */}
       <div className="absolute bottom-3 left-4 right-4 flex justify-between items-end pointer-events-none z-30">
-        <div className="text-[9px] text-gray-500 font-mono tracking-widest flex items-center gap-3">
+        <div className="text-[9px] text-gray-500 font-mono tracking-wider flex items-center gap-3">
           <div className="flex items-center gap-1">
             <div className={`w-1.5 h-1.5 rounded-full ${isAutoScanning ? "animate-pulse" : ""}`} style={{ backgroundColor: isAutoScanning ? color : "gray" }} />
             BIPARTITE_MATCHING_V3

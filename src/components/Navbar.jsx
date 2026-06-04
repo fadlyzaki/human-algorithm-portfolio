@@ -22,7 +22,7 @@ const HoverNavLink = ({ to, label }) => {
     <div className="group relative flex items-center justify-center p-0.5">
       <Link
         to={to}
-        className="relative z-10 block rounded-full px-4 py-1.5 font-mono text-[11px] uppercase tracking-widest text-[var(--text-secondary)] transition-colors duration-300 group-hover:font-bold group-hover:text-[var(--bg-void)] sm:text-xs"
+        className="relative z-10 block rounded-full px-4 py-1.5 font-mono text-[11px] uppercase tracking-wider text-[var(--text-secondary)] transition-colors duration-300 group-hover:font-bold group-hover:text-[var(--bg-void)] sm:text-xs"
       >
         <span className="relative z-10 block whitespace-nowrap">{label}</span>
       </Link>
@@ -105,7 +105,7 @@ const Navbar = ({
           {/* CENTER: PROCESS LINKS (Home) or TITLE (Subpage) */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap hidden sm:block">
             {title ? (
-              <h1 className="font-mono text-[10px] sm:text-sm uppercase tracking-widest text-[var(--text-primary)] font-bold">
+              <h1 className="font-mono text-[10px] sm:text-sm uppercase tracking-wider text-[var(--text-primary)] font-bold">
                 {title}
               </h1>
             ) : (
@@ -185,7 +185,7 @@ const Navbar = ({
 
               <button
                 onClick={toggleLanguage}
-                className="px-1.5 py-1 sm:px-2 sm:py-1 font-mono text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 rounded transition-colors text-[10px] sm:text-xs uppercase tracking-widest"
+                className="px-1.5 py-1 sm:px-2 sm:py-1 font-mono text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 rounded transition-colors text-[10px] sm:text-xs uppercase tracking-wider"
                 title={t("nav.switch_language")}
               >
                 {language}

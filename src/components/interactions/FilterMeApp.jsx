@@ -510,7 +510,7 @@ const FilterMeApp = () => {
                 })}
               </div>
 
-              <div className="mt-4 flex justify-center gap-8 text-white text-[10px] font-bold uppercase tracking-[0.15em] opacity-80">
+              <div className="mt-4 flex justify-center gap-8 text-white text-[10px] font-bold uppercase tracking-[0.12em] opacity-80">
                 <span className="text-yellow-400 border-b border-yellow-400 pb-0.5">
                   TRY ON
                 </span>
@@ -521,7 +521,7 @@ const FilterMeApp = () => {
 
             {/* Notification Toast */}
             {notification && (
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/80 backdrop-blur text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest shadow-2xl z-50 animate-in fade-in zoom-in duration-200">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/80 backdrop-blur text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider shadow-2xl z-50 animate-in fade-in zoom-in duration-200">
                 {notification}
               </div>
             )}
@@ -547,7 +547,7 @@ const FilterMeApp = () => {
               <Sparkles size={18} />
             </div>
             <div>
-              <p className="font-bold text-gray-900 uppercase text-xs tracking-widest mb-1">
+              <p className="font-bold text-gray-900 uppercase text-xs tracking-wider mb-1">
                 Understand Phase
               </p>
               <p className="text-sm">
@@ -560,7 +560,7 @@ const FilterMeApp = () => {
               <User size={18} />
             </div>
             <div>
-              <p className="font-bold text-gray-900 uppercase text-xs tracking-widest mb-1">
+              <p className="font-bold text-gray-900 uppercase text-xs tracking-wider mb-1">
                 Sketch Phase
               </p>
               <p className="text-sm">
@@ -573,7 +573,7 @@ const FilterMeApp = () => {
               <ShoppingBag size={18} />
             </div>
             <div>
-              <p className="font-bold text-gray-900 uppercase text-xs tracking-widest mb-1">
+              <p className="font-bold text-gray-900 uppercase text-xs tracking-wider mb-1">
                 Prototype
               </p>
               <p className="text-sm">

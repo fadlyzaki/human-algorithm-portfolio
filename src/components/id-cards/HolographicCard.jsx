@@ -12,7 +12,7 @@ const HolographicCard = ({ t, isDark, currentItem }) => (
         {/* Header */}
         <div className={`h-16 flex items-center justify-between px-4 z-10 pt-2 border-b ${isDark ? "border-black/10" : "border-white/10"}`}>
           <div className="flex flex-col">
-            <span className={`font-mono text-[10px] font-black tracking-widest uppercase ${isDark ? "text-gray-900" : "text-gray-200"}`}>
+            <span className={`font-mono text-[10px] font-black tracking-wider uppercase ${isDark ? "text-gray-900" : "text-gray-200"}`}>
               {t("id_card.access_level") || "ROOT_ACCESS"}
             </span>
             <span className={`font-sans text-[10px] font-bold mt-1 uppercase ${isDark ? "text-gray-700" : "text-gray-400"}`}>
@@ -42,7 +42,7 @@ const HolographicCard = ({ t, isDark, currentItem }) => (
               <h2 className={`text-2xl font-black tracking-tighter leading-none mb-1 text-transparent bg-clip-text bg-gradient-to-br whitespace-nowrap ${isDark ? "from-gray-900 via-gray-700 to-gray-500" : "from-white dark:via-gray-300 dark:to-gray-500"}`}>
                 🧢 FADLY UZZAKI
               </h2>
-              <span className={`text-[9px] font-mono uppercase tracking-widest block font-bold ${isDark ? "text-gray-900" : "text-gray-400"}`}>
+              <span className={`text-[9px] font-mono uppercase tracking-wider block font-bold ${isDark ? "text-gray-900" : "text-gray-400"}`}>
                 {t("id_card.role") || "Product Designer"}
               </span>
             </div>

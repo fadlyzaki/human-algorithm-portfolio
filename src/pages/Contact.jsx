@@ -137,7 +137,7 @@ const ContactPage = () => {
         <div className="space-y-12">
           <div>
             <div className="flex items-center gap-2 text-[var(--accent-green)] font-mono text-xs mb-4">
-              <div className="w-2 h-2 rounded-full bg-current animate-pulse"></div>
+              <div className="w-2 h-2 rounded-full bg-current"></div>
               {t("contact.system_listening")}
             </div>
             <h1 className="text-4xl md:text-5xl font-mono uppercase leading-tight mb-6">
@@ -152,7 +152,7 @@ const ContactPage = () => {
           </div>
 
           <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-6 group hover:border-[var(--accent-blue)] transition-colors">
-            <h3 className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+            <h3 className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-wider mb-2">
               {t("contact.direct_uplink")}
             </h3>
             <ContactScratch email={contactInfo.email} />
@@ -178,7 +178,7 @@ const ContactPage = () => {
           <div className="space-y-6 relative">
             <div className="flex items-center gap-3 text-[var(--text-secondary)] border-b border-[var(--border-color)] pb-2">
               <Globe size={16} />
-              <h3 className="font-mono text-xs uppercase tracking-widest">
+              <h3 className="font-mono text-xs uppercase tracking-wider">
                 {t("contact.network_matrix")}
               </h3>
             </div>
@@ -280,7 +280,7 @@ const ContactPage = () => {
             <button
               type="submit"
               disabled={formStatus === "sending" || formStatus === "success"}
-              className={`w-full py-4 font-mono text-sm uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 ${formStatus === "success"
+              className={`w-full py-4 font-mono text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 ${formStatus === "success"
                 ? "bg-[var(--accent-green)] text-black border-transparent"
                 : formStatus === "error"
                   ? "bg-red-500 text-white"
@@ -318,7 +318,7 @@ const ContactPage = () => {
           <div className="mt-8 pt-8 border-t border-[var(--border-color)]">
             <div className="flex items-center gap-2 mb-4 text-[var(--text-secondary)]">
               <Terminal size={14} />
-              <span className="text-[10px] font-mono tracking-widest uppercase">
+              <span className="text-[10px] font-mono tracking-wider uppercase">
                 {t("contact.payload_preview")}
               </span>
             </div>
@@ -328,7 +328,7 @@ const ContactPage = () => {
               className="bg-[var(--bg-void)] border border-[var(--border-color)] p-5 rounded-sm relative font-mono text-[10px] sm:text-xs text-[var(--text-secondary)]"
             >
               <div className="absolute top-0 left-0 w-1 h-full bg-[var(--accent-blue)]"></div>
-              <div className="absolute top-0 right-0 bottom-0 w-[2px] bg-[var(--accent-blue)]/10 animate-pulse"></div>
+              <div className="absolute top-0 right-0 bottom-0 w-[2px] bg-[var(--accent-blue)]/10"></div>
 
               <div className="space-y-3">
                 <div className="flex items-baseline gap-4">
@@ -391,7 +391,7 @@ const ContactPage = () => {
                           opacity: [0, 1, 1, 0],
                         }}
                         transition={{ duration: 2, repeat: Infinity, delay: i * 0.6, ease: "linear" }}
-                        className="absolute top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[var(--accent-blue)] shadow-[0_0_8px_var(--accent-blue)] rounded-full z-0"
+                        className="absolute top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[var(--accent-blue)] rounded-full z-0"
                       />
                     ))}
                   </>
@@ -401,15 +401,15 @@ const ContactPage = () => {
                 <span className="text-[8px] font-mono text-[var(--accent-green)] font-bold">
                   {t("contact.system_core")}
                 </span>
-                <div className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-[var(--accent-green)]" />
               </div>
             </div>
 
             {/* HANDSHAKE STEPS */}
             <div className="mt-8 space-y-4">
-              <div className="flex justify-between items-center text-[10px] uppercase tracking-widest text-[var(--text-secondary)]">
+              <div className="flex justify-between items-center text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
                 <div className="flex items-center gap-2">
-                  <Activity size={10} className="animate-pulse" />
+                  <Activity size={10} />
                   <span>{t("contact.human_connection_sync")}</span>
                 </div>
                 <span>{connectionStatus}</span>

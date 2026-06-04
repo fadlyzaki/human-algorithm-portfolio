@@ -19,7 +19,7 @@ const TypographyLab = ({ isXRayMode }) => (
           Section // DisplayHero
         </span>
       )}
-      <div className="absolute top-4 right-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border border-[var(--text-secondary)] px-2 py-1 rounded flex items-center gap-2">
+      <div className="absolute top-4 right-4 font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-wider border border-[var(--text-secondary)] px-2 py-1 rounded flex items-center gap-2">
         <Type size={10} /> Sans-Serif // Inter
       </div>
 
@@ -58,7 +58,7 @@ const TypographyLab = ({ isXRayMode }) => (
         <div className="absolute top-0 right-0 p-4 opacity-[0.03]">
           <Terminal size={120} />
         </div>
-        <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border-b border-[var(--border-color)] pb-2 mb-4 flex justify-between">
+        <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-wider border-b border-[var(--border-color)] pb-2 mb-4 flex justify-between">
           <span>Monospace // JetBrains Mono</span>
           <span className="text-[var(--accent)] opacity-0 group-hover:opacity-100 transition-opacity">
             Tracking: 0em
@@ -112,7 +112,7 @@ const TypographyLab = ({ isXRayMode }) => (
             Section // Data_Viz_Specs
           </span>
         )}
-        <div className="w-full font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest border-b border-[var(--border-color)] pb-2 mb-2">
+        <div className="w-full font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-wider border-b border-[var(--border-color)] pb-2 mb-2">
           Data Visualization // Tabular Numerals
         </div>
 
@@ -120,7 +120,7 @@ const TypographyLab = ({ isXRayMode }) => (
           <div className="text-6xl font-bold tracking-tighter text-[var(--text-primary)]">
             98.4<span className="text-3xl text-[var(--accent)]">%</span>
           </div>
-          <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] block">
+          <span className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] block">
             System Efficiency Metric
           </span>
         </div>

@@ -99,7 +99,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
       {/* === FOLDER TAB === */}
       <div className="relative z-20 ml-6 inline-flex items-center">
         <motion.div
-          className="px-4 py-1.5 rounded-t-lg font-mono text-[10px] uppercase tracking-[0.15em] border border-b-0 flex items-center gap-2"
+          className="px-4 py-1.5 rounded-t-lg font-mono text-[10px] uppercase tracking-[0.12em] border border-b-0 flex items-center gap-2"
           animate={{
             backgroundColor: isHovered ? brandColor : "var(--bg-card)",
             color: isHovered ? "var(--bg-void)" : "var(--text-secondary)",
@@ -131,7 +131,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
             {/* Problem / Outcome Grid (bottom area  -  visible when cover peeks) */}
             <div className="grid grid-cols-2 gap-5 mb-4">
               <div className="space-y-2">
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] flex items-center gap-1.5 text-red-400">
+                <span className="font-mono text-[9px] uppercase tracking-[0.12em] flex items-center gap-1.5 text-red-400">
                   <span className="w-1 h-1 bg-red-400 rounded-full" />{" "}
                   {t("company.problem")}
                 </span>
@@ -141,7 +141,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
               </div>
               <div className="space-y-2">
                 <span
-                  className="font-mono text-[9px] uppercase tracking-[0.2em] flex items-center gap-1.5"
+                  className="font-mono text-[9px] uppercase tracking-[0.12em] flex items-center gap-1.5"
                   style={{ color: brandColor }}
                 >
                   <span
@@ -162,7 +162,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
                 <Lock size={10} style={{ color: brandColor }} />
               )}
               <span
-                className="font-mono text-[10px] uppercase tracking-[0.15em]"
+                className="font-mono text-[10px] uppercase tracking-[0.12em]"
                 style={{ color: brandColor }}
               >
                 {t("company.view_case")}
@@ -211,11 +211,11 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-1.5">
                 {isWip && (
-                  <span className="bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-md border border-amber-200/80 dark:border-amber-700/40 text-[8px] font-mono font-bold uppercase tracking-widest">
+                  <span className="bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-md border border-amber-200/80 dark:border-amber-700/40 text-[8px] font-mono font-bold uppercase tracking-wider">
                     {t("company.wip")}
                   </span>
                 )}
-                <span className="flex items-center gap-1 bg-white/70 dark:bg-black/40 px-2 py-0.5 rounded-md border border-black/5 dark:border-white/10 text-[8px] font-mono uppercase tracking-widest text-[var(--text-secondary)]">
+                <span className="flex items-center gap-1 bg-white/70 dark:bg-black/40 px-2 py-0.5 rounded-md border border-black/5 dark:border-white/10 text-[8px] font-mono uppercase tracking-wider text-[var(--text-secondary)]">
                   <span
                     className="w-1 h-1 rounded-full animate-pulse"
                     style={{ backgroundColor: brandColor }}
@@ -224,7 +224,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
                 </span>
               </div>
               <div className="rotate-[-5deg] select-none border border-red-500/25 dark:border-red-400/20 px-2 py-0.5 rounded-[3px]">
-                <span className="font-mono text-[7px] font-black uppercase tracking-[0.3em] text-red-500/40 dark:text-red-400/30">
+                <span className="font-mono text-[7px] font-black uppercase tracking-[0.12em] text-red-500/40 dark:text-red-400/30">
                   {t("company.classified")}
                 </span>
               </div>

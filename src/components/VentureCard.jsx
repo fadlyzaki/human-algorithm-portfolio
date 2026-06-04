@@ -118,7 +118,7 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, isIndonesian
     onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
-    className="group relative h-[450px] rounded-3xl border-2 border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
+    className="group relative h-[450px] rounded-2xl border-2 border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
     animate={isHovered ? { borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98, y: 0 } : { borderColor: "var(--border-color)", scale: 1, y: [0, -3, 0] }}
     transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_SYSTEM}
     whileHover={{ borderColor: "rgba(var(--bg-surface-rgb), 0.4)", scale: 0.98 }}
@@ -165,7 +165,7 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, isIndonesian
             <div className="p-1.5 border border-[var(--accent-blue)]/30 rounded bg-[var(--accent-blue)]/10">
               <Cpu size={14} className="text-[var(--accent-blue)]" />
             </div>
-            <span className="font-mono text-[9px] tracking-widest text-[var(--accent-blue)] uppercase">
+            <span className="font-mono text-[9px] tracking-wider text-[var(--accent-blue)] uppercase">
               {isIndonesian
                 ? "Sistem Inti // Alur Kerja Agen"
                 : "System Core // Agentic Workflow"}
@@ -203,7 +203,7 @@ const CosmicPopCard = ({ project, title, desc, onClick, isHovered, ref, onMouseE
     onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
-    className="group relative h-[450px] rounded-3xl border-2 border-transparent bg-gradient-to-br from-[var(--accent-indigo)] to-[var(--accent-indigo)] overflow-hidden cursor-pointer flex flex-col justify-end transition-colors"
+    className="group relative h-[450px] rounded-2xl border-2 border-transparent bg-gradient-to-br from-[var(--accent-indigo)] to-[var(--accent-indigo)] overflow-hidden cursor-pointer flex flex-col justify-end transition-colors"
     animate={isHovered ? { scale: 0.98, borderColor: "var(--accent-sky)", y: 0 } : { scale: 1, borderColor: "transparent", y: [0, -3, 0] }}
     transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_COSMIC}
     whileHover={{ scale: 0.98, borderColor: "var(--accent-sky)" }}
@@ -261,7 +261,7 @@ const BrutalistCard = ({ project, title, desc, onClick, isHovered, isIndonesian,
     onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
-    className="group relative h-[450px] rounded-3xl bg-[var(--border-color)] dark:bg-[var(--bg-card)] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
+    className="group relative h-[450px] rounded-2xl bg-[var(--border-color)] dark:bg-[var(--bg-card)] border-[4px] border-black dark:border-white overflow-hidden cursor-pointer"
     animate={isHovered ? { x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" } : { x: 0, y: [0, -2, 0], boxShadow: "0px 0px 0px 0px var(--accent-red)" }}
     transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_BRUTALIST}
     whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px 0px var(--accent-red)" }}
@@ -315,14 +315,14 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref
     onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
-    className="group relative h-[450px] rounded-3xl bg-[var(--bg-surface)] dark:bg-[var(--bg-void)] border border-[var(--border-color)] overflow-hidden cursor-pointer flex flex-col"
+    className="group relative h-[450px] rounded-2xl bg-[var(--bg-surface)] dark:bg-[var(--bg-void)] border border-[var(--border-color)] overflow-hidden cursor-pointer flex flex-col"
     animate={isHovered ? { scale: 1.02, y: 0 } : { scale: 1, y: [0, -3, 0] }}
     transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_BENTO}
     whileHover={{ scale: 1.02 }}
   >
     <BlindsReveal isOpen={isHovered} slats={8} color="rgb(251, 207, 232)">
       {/* Visual Top Half */}
-      <div className="h-[55%] bg-gradient-to-tr from-pink-100 to-orange-100 dark:from-pink-900/20 dark:to-orange-900/20 relative overflow-hidden">
+      <div className="h-[55%] bg-gradient-to-tr from-[var(--accent-pink)]/10 to-[var(--accent-amber)]/10 dark:from-[var(--accent-pink)]/20 dark:to-[var(--accent-amber)]/20 relative overflow-hidden">
         <div className={`absolute inset-0 transition-all duration-1000 ${isHovered ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}>
           <ProjectCard id={project.id} backgroundOnly />
         </div>
@@ -353,7 +353,7 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref
               ></div>
             ))}
           </div>
-          <span className="font-mono text-[9px] uppercase tracking-widest opacity-40">
+          <span className="font-mono text-[9px] uppercase tracking-wider opacity-40">
             {isIndonesian
               ? "Mode Bento // 1.0"
               : "Bento Mode // 1.0"}
@@ -372,7 +372,7 @@ const BlueprintCard = ({ project, title, desc, onClick, isHovered, isIndonesian,
     onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
-    className="group relative h-[450px] rounded-3xl bg-blue-50 dark:bg-[var(--bg-void)] border border-blue-200 dark:border-blue-900 overflow-hidden cursor-pointer"
+    className="group relative h-[450px] rounded-2xl bg-blue-50 dark:bg-[var(--bg-void)] border border-blue-200 dark:border-blue-900 overflow-hidden cursor-pointer"
     animate={isHovered ? { scale: 1.02, y: -4 } : { scale: 1, y: [0, -3, 0] }}
     whileHover={{ scale: 1.02, y: -4 }}
     transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_SYSTEM}
@@ -442,7 +442,7 @@ const AgenticCard = ({ project, title, desc, onClick, isHovered, isIndonesian, r
     onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
-    className="group relative h-[450px] rounded-3xl border border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
+    className="group relative h-[450px] rounded-2xl border border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
     animate={isHovered ? { borderColor: "var(--accent-purple, #8b5cf6)", scale: 0.98, y: 0 } : { borderColor: "var(--border-color)", scale: 1, y: [0, -3, 0] }}
     transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_SYSTEM}
     whileHover={{ scale: 0.98 }}
@@ -487,8 +487,8 @@ const AgenticCard = ({ project, title, desc, onClick, isHovered, isIndonesian, r
           {/* Activity Status overlaying the IDE */}
           <div className={`absolute bottom-4 right-4 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
              <div className="flex items-center gap-2 bg-[var(--accent-purple)]/10 border border-[var(--accent-purple)]/30 px-3 py-1.5 rounded backdrop-blur-md">
-                 <div className="w-2 h-2 rounded-sm bg-[var(--accent-purple)] animate-pulse"></div>
-                 <span className="font-mono text-[9px] text-[var(--accent-purple)] font-bold tracking-widest">
+                 <div className="w-2 h-2 rounded-sm bg-[var(--accent-purple)]"></div>
+                 <span className="font-mono text-[9px] text-[var(--accent-purple)] font-bold tracking-wider">
                      MCP_ROUTING_ACTIVE
                  </span>
              </div>
@@ -514,7 +514,7 @@ const LearningArchitectCard = ({ project, title, desc, onClick, isHovered, isInd
     onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
-    className="group relative h-[450px] rounded-3xl border border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
+    className="group relative h-[450px] rounded-2xl border border-[var(--border-color)] bg-[var(--bg-void)] overflow-hidden cursor-pointer flex flex-col"
     animate={isHovered ? { borderColor: "rgba(16,185,129,0.4)", scale: 0.98, y: 0 } : { borderColor: "var(--border-color)", scale: 1, y: [0, -3, 0] }}
     transition={isHovered ? MOTION_CONFIG.HOVER_SPRING : MOTION_CONFIG.IDLE_SYSTEM}
     whileHover={{ scale: 0.98 }}
@@ -545,8 +545,8 @@ const LearningArchitectCard = ({ project, title, desc, onClick, isHovered, isInd
         {/* Badge */}
         <div className="flex items-center gap-2">
           <div className="px-2 py-1 rounded-full border border-emerald-500/30 bg-emerald-900/30 flex items-center gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-400">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-400">
               {isIndonesian ? "Loop Pembelajaran" : "Learning Loop"}
             </span>
           </div>
@@ -612,8 +612,8 @@ const LearningArchitectCard = ({ project, title, desc, onClick, isHovered, isInd
         transition={{ duration: 0.2 }}
       >
         <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full backdrop-blur-md">
-          <div className="w-1.5 h-1.5 rounded-sm bg-emerald-400 animate-pulse" />
-          <span className="font-mono text-[8px] text-emerald-400 tracking-widest uppercase">ADK ACTIVE</span>
+          <div className="w-1.5 h-1.5 rounded-sm bg-emerald-400" />
+          <span className="font-mono text-[8px] text-emerald-400 tracking-wider uppercase">ADK ACTIVE</span>
         </div>
       </motion.div>
     </BlindsReveal>

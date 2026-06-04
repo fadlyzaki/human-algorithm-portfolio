@@ -7,7 +7,7 @@ const SectionTitle = ({ number, title, id, link, linkText }) => (
     <span className="font-mono text-[var(--accent-amber)] text-sm opacity-60">
       0{number}_
     </span>
-    <h2 className="font-mono text-xl tracking-tight text-[var(--text-primary)] uppercase group-hover:tracking-widest transition-all duration-300">
+    <h2 className="font-mono text-xl tracking-tight text-[var(--text-primary)] uppercase group-hover:tracking-wider transition-all duration-300">
       {title}
     </h2>
     <div className="h-px bg-gradient-to-r from-[var(--border-color)] to-transparent flex-grow ml-4"></div>

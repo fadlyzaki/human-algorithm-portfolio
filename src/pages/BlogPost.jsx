@@ -118,7 +118,7 @@ const BlogPost = () => {
             {localizedPost.tags.map((tag) => (
               <span
                 key={tag}
-                className="font-mono text-[10px] uppercase tracking-widest border border-[var(--border-color)] px-2 py-1 rounded text-[var(--text-secondary)]"
+                className="font-mono text-[10px] uppercase tracking-wider border border-[var(--border-color)] px-2 py-1 rounded text-[var(--text-secondary)]"
               >
                 {tag}
               </span>
@@ -129,7 +129,7 @@ const BlogPost = () => {
             {localizedPost.title}
           </h1>
 
-          <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light mb-8 border-l-4 border-[var(--accent-color)] pl-6">
+          <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light mb-8 border-l-2 border-[var(--accent-color)] pl-6">
             {localizedPost.subtitle}
           </p>
 
@@ -173,7 +173,7 @@ const BlogPost = () => {
               blockquote: () => (
                 <blockquote
                   key={i}
-                  className="my-10 pl-8 italic border-l-4 border-[var(--accent-color)] text-2xl text-[var(--text-primary)] font-serif bg-[var(--bg-paper)] py-6 pr-4 rounded-r-lg relative"
+                  className="my-10 pl-8 italic border-l-2 border-[var(--accent-color)] text-2xl text-[var(--text-primary)] font-serif bg-[var(--bg-paper)] py-6 pr-4 rounded-r-lg relative"
                 >
                   <QuoteIcon />"{block.text}"
                 </blockquote>
@@ -213,7 +213,7 @@ const BlogPost = () => {
             <div className="font-bold text-lg">Fadly Uzzaki 🧢</div>
           </div>
 
-          <button className="flex items-center gap-2 px-6 py-3 border border-[var(--border-color)] hover:border-[var(--accent-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] transition-colors font-mono text-xs uppercase tracking-widest group">
+          <button className="flex items-center gap-2 px-6 py-3 border border-[var(--border-color)] hover:border-[var(--accent-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] transition-colors font-mono text-xs uppercase tracking-wider group">
             <Share2
               size={14}
               className="group-hover:rotate-12 transition-transform"

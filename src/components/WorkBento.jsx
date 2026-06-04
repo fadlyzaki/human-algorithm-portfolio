@@ -81,7 +81,7 @@ const WorkBento = ({ cluster, priority = false }) => {
       onClick={() => navigate(`/work/${cluster.id}`)}
       onMouseEnter={() => setIsManualHover(true)}
       onMouseLeave={() => setIsManualHover(false)}
-      className="group relative flex flex-col h-[480px] border border-black/5 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-gray-50 dark:bg-neutral-900"
+      className="group relative flex flex-col h-[480px] border border-black/5 dark:border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-gray-50 dark:bg-neutral-900"
     >
       {/* Brand Color Overlay — CSS opacity transition, compositor thread only */}
       <div
@@ -129,7 +129,7 @@ const WorkBento = ({ cluster, priority = false }) => {
           {/* Featured Tag */}
           {cluster.featured && (
             <span
-              className="font-mono text-[9px] uppercase tracking-[0.2em] mb-1.5 px-1.5 py-0.5 rounded border"
+              className="font-mono text-[9px] uppercase tracking-[0.12em] mb-1.5 px-1.5 py-0.5 rounded border"
               style={{
                 color: isHovered ? "rgba(255, 255, 255, 0.9)" : "var(--accent-blue)",
                 borderColor: isHovered ? "rgba(255, 255, 255, 0.3)" : "rgba(var(--accent-blue-rgb), 0.3)",
@@ -189,7 +189,7 @@ const WorkBento = ({ cluster, priority = false }) => {
           {cluster.heroImage &&
             cluster.heroImage.startsWith("/") &&
             !imgError ? (
-            <div className="relative rounded-t-[28px] overflow-hidden shadow-[0_12px_50px_-12px_rgba(var(--bg-void-rgb), 0.5)] border-t-[6px] border-x-[6px] border-white/20 dark:border-white/10 bg-white dark:bg-neutral-800 aspect-[9/14] flex flex-col">
+            <div className="relative rounded-t-xl overflow-hidden shadow-[0_12px_50px_-12px_rgba(var(--bg-void-rgb), 0.5)] border-t-[6px] border-x-[6px] border-white/20 dark:border-white/10 bg-white dark:bg-neutral-800 aspect-[9/14] flex flex-col">
               {/* Device Header/Notch Area - Protects mockup headers from card rounding */}
               <div className="h-7 w-full flex items-center justify-center shrink-0 bg-white dark:bg-neutral-800 relative z-20">
                 <div className="w-16 h-4 bg-black dark:bg-neutral-900 rounded-b-xl flex items-center justify-center">
@@ -233,7 +233,7 @@ const WorkBento = ({ cluster, priority = false }) => {
               <div className="absolute inset-0 shadow-[inset_0_2px_10px_rgba(var(--bg-void-rgb), 0.1)] pointer-events-none"></div>
             </div>
           ) : (
-            <div className="w-full aspect-[4/3] bg-white dark:bg-black/20 rounded-t-2xl border-t border-x border-black/5 flex items-center justify-center relative shadow-xl">
+            <div className="w-full aspect-[4/3] bg-white dark:bg-black/20 rounded-t-xl border-t border-x border-black/5 flex items-center justify-center relative shadow-xl">
               <ProjectCard
                 id={cluster.id}
                 expanded={true}

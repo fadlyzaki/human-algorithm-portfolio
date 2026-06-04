@@ -170,7 +170,7 @@ const NexusAI = ({ color = "var(--accent-teal)" }) => {
       <div className="absolute bottom-8 left-8 flex flex-col gap-2">
         <div className="flex items-center gap-3">
           <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-[9px] font-mono uppercase tracking-[0.3em] opacity-50">
+          <span className="text-[9px] font-mono uppercase tracking-[0.12em] opacity-50">
             Experimental_Node_v0.1
           </span>
         </div>

@@ -84,7 +84,7 @@ const UnprovokedThoughtDetail = () => {
                     </p>
                     <Link
                         to="/thoughts"
-                        className="font-mono text-xs uppercase tracking-widest text-[var(--accent-amber)] hover:text-[var(--text-primary)] transition-colors border-b border-[var(--accent-amber)] pb-1"
+                        className="font-mono text-xs uppercase tracking-wider text-[var(--accent-amber)] hover:text-[var(--text-primary)] transition-colors border-b border-[var(--accent-amber)] pb-1"
                     >
                         ← {t("thoughts.back_all")}
                     </Link>
@@ -165,7 +165,7 @@ const UnprovokedThoughtDetail = () => {
                             {frontmatter.tags.map((tag) => (
                                 <span
                                     key={tag}
-                                    className="font-mono text-[10px] uppercase tracking-widest border border-[var(--border-color)] px-2 py-1 rounded text-[var(--text-secondary)]"
+                                    className="font-mono text-[10px] uppercase tracking-wider border border-[var(--border-color)] px-2 py-1 rounded text-[var(--text-secondary)]"
                                 >
                                     {tag}
                                 </span>
@@ -180,7 +180,7 @@ const UnprovokedThoughtDetail = () => {
 
                     {/* Subtitle */}
                     {frontmatter.subtitle && (
-                        <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light mb-8 border-l-4 border-[var(--accent-amber)] pl-6">
+                        <p className="text-xl text-[var(--text-secondary)] leading-relaxed font-light mb-8 border-l-2 border-[var(--accent-amber)] pl-6">
                             {frontmatter.subtitle}
                         </p>
                     )}
@@ -230,7 +230,7 @@ const UnprovokedThoughtDetail = () => {
 
                     <button
                         onClick={handleShare}
-                        className="flex items-center justify-center gap-3 px-8 py-4 bg-[var(--accent-amber)] hover:bg-[var(--accent-amber)]/90 text-black rounded-lg transition-all duration-300 font-mono text-sm uppercase tracking-widest font-bold shadow-lg shadow-[var(--accent-amber)]/20 hover:shadow-[var(--accent-amber)]/40 hover:-translate-y-1 group w-full md:w-auto"
+                        className="flex items-center justify-center gap-3 px-8 py-4 bg-[var(--accent-amber)] hover:bg-[var(--accent-amber)]/90 text-black rounded-lg transition-all duration-300 font-mono text-sm uppercase tracking-wider font-bold shadow-lg shadow-[var(--accent-amber)]/20 hover:shadow-[var(--accent-amber)]/40 hover:-translate-y-1 group w-full md:w-auto"
                     >
                         <Share2
                             size={18}
@@ -244,10 +244,10 @@ const UnprovokedThoughtDetail = () => {
                 {nextThought && nextThought.slug !== slug && (
                     <Link
                         to={`/thoughts/${nextThought.slug}`}
-                        className="block mt-20 p-10 bg-gradient-to-b from-[var(--bg-surface)]/60 to-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] rounded-3xl group transition-all duration-500 text-center shadow-lg hover:shadow-2xl hover:shadow-[var(--accent-amber)]/10 hover:-translate-y-1 relative overflow-hidden"
+                        className="block mt-20 p-10 bg-gradient-to-b from-[var(--bg-surface)]/60 to-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-amber)] rounded-2xl group transition-all duration-500 text-center shadow-lg hover:shadow-2xl hover:shadow-[var(--accent-amber)]/10 hover:-translate-y-1 relative overflow-hidden"
                     >
                         <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[var(--accent-amber)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <h4 className="font-mono text-[10px] text-[var(--accent-amber)] font-bold uppercase tracking-[0.2em] mb-3">
+                        <h4 className="font-mono text-[10px] text-[var(--accent-amber)] font-bold uppercase tracking-[0.12em] mb-3">
                             {t("thoughts.next_transmission")}
                         </h4>
                         <div className="text-xl md:text-2xl font-bold flex flex-col sm:flex-row items-center justify-center gap-4 font-serif text-[var(--text-primary)]">
@@ -266,7 +266,7 @@ const UnprovokedThoughtDetail = () => {
             {/* Minimal Index Footer */}
             <footer className="w-full pt-16 pb-8 px-6 border-t border-[var(--border-color)] mt-0">
                 <div className="max-w-3xl mx-auto">
-                    <h4 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-6">
+                    <h4 className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-6">
                         {t("footer.index")}
                     </h4>
                     <div className="flex flex-wrap gap-x-8 gap-y-3">

@@ -30,7 +30,7 @@ const getProfileLink = (label) =>
 const SectionHeading = ({ icon: Icon, children }) => (
   <div className="flex items-center gap-3 mb-4 print:mb-2">
     <Icon size={18} className="text-[var(--accent-blue)] print:hidden" />
-    <h2 className="font-mono text-sm sm:text-base uppercase tracking-[0.14em] font-bold border-b border-[var(--border-color)] w-full pb-2 print:border-black print:text-sm print:tracking-normal">
+    <h2 className="font-mono text-sm sm:text-base uppercase tracking-[0.12em] font-bold border-b border-[var(--border-color)] w-full pb-2 print:border-black print:text-sm print:tracking-normal">
       {children}
     </h2>
   </div>
@@ -140,7 +140,7 @@ const SystemManifest = () => {
           <header className="border-b-2 border-[var(--text-primary)] pb-6 print:border-black print:pb-4">
             <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
               <div>
-                <div className="mb-3 inline-flex items-center gap-2 rounded-md border border-[var(--border-color)] px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--text-secondary)] print:hidden">
+                <div className="mb-3 inline-flex items-center gap-2 rounded-md border border-[var(--border-color)] px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--text-secondary)] print:hidden">
                   <FileText size={13} />
                   <span>{t("manifest.pdf_source")}: {resumeData.updated}</span>
                 </div>
@@ -185,7 +185,7 @@ const SystemManifest = () => {
           </header>
 
           <section className="my-6 rounded-lg border border-[var(--border-color)] bg-[var(--bg-void)] p-4 print:hidden">
-            <div className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--text-secondary)]">
+            <div className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--text-secondary)]">
               <Sparkles size={14} />
               <span>{t("manifest.recruiter_pack")}</span>
             </div>

@@ -49,9 +49,9 @@ const MagneticTooltip = ({ children, text = "VIEW", className = "" }) => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.5, opacity: 0 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            className="bg-[var(--text-primary)] text-[var(--bg-void)] px-3 py-1.5 rounded-full font-mono text-[10px] whitespace-nowrap uppercase tracking-widest shadow-2xl flex items-center gap-2 border border-white/10"
+            className="bg-[var(--text-primary)] text-[var(--bg-void)] px-3 py-1.5 rounded-full font-mono text-[10px] whitespace-nowrap uppercase tracking-wider shadow-2xl flex items-center gap-2 border border-white/10"
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)] animate-pulse"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-blue)]"></div>
             {text}
           </motion.div>
         </motion.div>

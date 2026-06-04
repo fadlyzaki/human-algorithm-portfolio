@@ -327,7 +327,7 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
                       e.stopPropagation();
                       handleInteraction();
                     }}
-                    className="font-mono text-[10px] tracking-widest text-emerald-400/80 uppercase hover:text-emerald-300 transition-colors bg-emerald-900/40 px-3 py-1.5 rounded border border-emerald-500/50 hover:bg-emerald-800/60 active:bg-emerald-700/80"
+                    className="font-mono text-[10px] tracking-wider text-emerald-400/80 uppercase hover:text-emerald-300 transition-colors bg-emerald-900/40 px-3 py-1.5 rounded border border-emerald-500/50 hover:bg-emerald-800/60 active:bg-emerald-700/80"
                   >
                     [ Skip to Content ]
                   </button>
@@ -348,7 +348,7 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
                 transition={{ delay: 1, duration: 1 }}
                 className="absolute bottom-24 flex flex-col items-center gap-2"
               >
-                <span className="font-mono text-xs tracking-widest text-white/50 animate-pulse uppercase">
+                <span className="font-mono text-xs tracking-wider text-white/50 animate-pulse uppercase">
                   [ System Structured. Click to Access. ]
                 </span>
               </motion.div>

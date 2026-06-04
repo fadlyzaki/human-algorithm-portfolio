@@ -30,7 +30,7 @@ const BentoDetail = ({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:col-span-2 bg-gradient-to-br from-pink-100 to-orange-100 dark:from-pink-900/30 dark:to-orange-900/30 rounded-[2rem] p-10 md:p-16 flex flex-col justify-center relative overflow-hidden"
+            className="md:col-span-2 bg-gradient-to-br from-[var(--accent-pink)]/10 to-[var(--accent-amber)]/10 dark:from-[var(--accent-pink)]/20 dark:to-[var(--accent-amber)]/20 rounded-2xl p-10 md:p-16 flex flex-col justify-center relative overflow-hidden"
           >
             {/* Decorative Sticker */}
             <div className="absolute top-8 right-8 rotate-12 bg-white dark:bg-[var(--bg-surface)] text-black dark:text-white px-4 py-2 rounded-full shadow-lg font-mono text-xs font-bold uppercase border border-[var(--border-color)] flex items-center gap-2">
@@ -47,7 +47,7 @@ const BentoDetail = ({
 
           {/* Stats/Action Block */}
           <div className="flex flex-col gap-6">
-            <div className="flex-1 bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col justify-between">
+            <div className="flex-1 bg-[var(--bg-card)] rounded-2xl p-8 border border-[var(--border-color)] shadow-sm flex flex-col justify-between">
               <div className="font-mono text-xs uppercase text-[var(--text-secondary)] mb-4">
                 {activeSnapshot.tagline}
               </div>
@@ -63,7 +63,7 @@ const BentoDetail = ({
             {project.links.demo && project.links.demo !== "#" && (
               <a
                 href={project.links.demo}
-                className="h-32 bg-[var(--text-primary)] text-[var(--bg-void)] rounded-[2rem] p-8 hover:scale-[1.02] transition-transform flex items-center justify-between group"
+                className="h-32 bg-[var(--text-primary)] text-[var(--bg-void)] rounded-2xl p-8 hover:scale-[1.02] transition-transform flex items-center justify-between group"
               >
                 <span className="text-xl font-bold font-serif italic">
                   {t("project_layouts.open_generator")}
@@ -99,7 +99,7 @@ const BentoDetail = ({
              ))}
            </div>
            
-           <div className="bg-[var(--bg-card)] rounded-[3rem] border border-[var(--border-color)] p-8 md:p-16 min-h-[350px] flex items-center justify-center shadow-sm">
+           <div className="bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] p-8 md:p-16 min-h-[350px] flex items-center justify-center shadow-sm">
              <AnimatePresence mode="wait">
                 {activeTab === "challenge" && (
                   <motion.div
@@ -124,7 +124,7 @@ const BentoDetail = ({
                     className="w-full grid grid-cols-1 md:grid-cols-2 gap-6"
                   >
                      {activeInsights.map((insight, idx) => (
-                        <div key={idx} className="bg-[var(--bg-surface)] p-8 rounded-[2rem] border border-[var(--border-color)]">
+                        <div key={idx} className="bg-[var(--bg-surface)] p-8 rounded-2xl border border-[var(--border-color)]">
                            <div className="w-12 h-12 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-500 flex items-center justify-center mb-6">
                               <CheckCircle2 size={24} />
                            </div>
@@ -141,10 +141,10 @@ const BentoDetail = ({
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
-                    className="w-full bg-[var(--text-primary)] text-[var(--bg-void)] rounded-[2rem] p-12 md:p-16 flex flex-col justify-center relative overflow-hidden"
+                    className="w-full bg-[var(--text-primary)] text-[var(--bg-void)] rounded-2xl p-12 md:p-16 flex flex-col justify-center relative overflow-hidden"
                   >
                     <Music className="absolute -bottom-8 -right-8 w-48 h-48 opacity-10" />
-                    <div className="font-mono text-xs uppercase tracking-widest opacity-50 mb-8 border border-[var(--bg-void)] opacity-20 inline-block px-3 py-1 rounded-full w-max">
+                    <div className="font-mono text-xs uppercase tracking-wider opacity-50 mb-8 border border-[var(--bg-void)] opacity-20 inline-block px-3 py-1 rounded-full w-max">
                       {t("project_layouts.lesson_learned")}
                     </div>
                     <p className="text-2xl md:text-3xl font-serif italic leading-relaxed relative z-10 flex-1 flex items-center">
@@ -173,9 +173,9 @@ const BentoDetail = ({
                      <button
                        key={idx}
                        onClick={() => setActivePhase(idx)}
-                       className={`flex-1 min-h-[90px] text-left px-8 py-6 rounded-[2rem] border transition-all flex items-center justify-between group ${
+                       className={`flex-1 min-h-[90px] text-left px-8 py-6 rounded-2xl border transition-all flex items-center justify-between group ${
                          isActive
-                           ? "bg-gradient-to-r from-pink-100 to-orange-100 dark:from-pink-900/30 dark:to-orange-900/30 border-transparent shadow-sm"
+                           ? "bg-gradient-to-r from-[var(--accent-pink)]/10 to-[var(--accent-amber)]/10 dark:from-[var(--accent-pink)]/20 dark:to-[var(--accent-amber)]/20 border-transparent shadow-sm"
                            : "bg-[var(--bg-card)] border-[var(--border-color)] hover:shadow-md"
                        }`}
                      >
@@ -198,7 +198,7 @@ const BentoDetail = ({
                      initial={{ opacity: 0, scale: 0.95 }}
                      animate={{ opacity: 1, scale: 1 }}
                      exit={{ opacity: 0 }}
-                     className="h-full min-h-[500px] bg-[var(--bg-card)] rounded-[3rem] border border-[var(--border-color)] overflow-hidden flex flex-col"
+                     className="h-full min-h-[500px] bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] overflow-hidden flex flex-col"
                    >
                       {activeProcess[activePhase].image && (
                         <div className="h-64 md:h-[350px] bg-[var(--bg-surface)] flex items-center justify-center p-8 border-b border-[var(--border-color)] relative">
@@ -239,7 +239,7 @@ const BentoDetail = ({
               <Layout className="text-pink-400" />
               <h2 className="text-2xl font-serif italic">{t("project_layouts.live_preview")}</h2>
             </div>
-            <div className="bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] overflow-hidden p-8 hover:shadow-xl transition-shadow duration-500">
+            <div className="bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] overflow-hidden p-8 hover:shadow-xl transition-shadow duration-500">
               {project.prototypeLink ? (
                 <div className="w-full h-[600px] rounded-[1rem] overflow-hidden border border-[var(--border-color)]">
                   <iframe
@@ -263,13 +263,13 @@ const BentoDetail = ({
                 {activeMetrics.map((m, i) => (
                   <div
                     key={i}
-                    className="bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-[2rem] p-8 flex flex-col justify-center h-full w-full border border-purple-500/10 shadow-sm hover:-translate-y-2 transition-transform"
+                    className="bg-gradient-to-br from-[var(--accent-purple)]/10 to-[var(--accent-pink)]/10 dark:from-[var(--accent-purple)]/20 dark:to-[var(--accent-pink)]/20 rounded-2xl p-8 flex flex-col justify-center h-full w-full border border-purple-500/10 shadow-sm hover:-translate-y-2 transition-transform"
                   >
                     <Hash className="text-purple-400 mb-4 opacity-50" />
                     <div className="text-4xl lg:text-5xl font-bold mb-2 text-[var(--text-primary)]">
                       {m.value}
                     </div>
-                    <div className="text-sm text-[var(--text-secondary)] uppercase tracking-widest font-mono">
+                    <div className="text-sm text-[var(--text-secondary)] uppercase tracking-wider font-mono">
                       {m.label}
                     </div>
                   </div>

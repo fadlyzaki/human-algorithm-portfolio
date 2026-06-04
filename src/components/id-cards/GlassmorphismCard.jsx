@@ -39,7 +39,7 @@ const GlassmorphismCard = ({ t, isDark, currentItem }) => (
               <br />
               FADLY 🧢
             </h2>
-            <span className={`text-[9px] font-mono uppercase tracking-widest mt-2 font-bold ${isDark ? "text-black/80" : "text-white/90"}`}>
+            <span className={`text-[9px] font-mono uppercase tracking-wider mt-2 font-bold ${isDark ? "text-black/80" : "text-white/90"}`}>
               {t("id_card.role") || "Product Designer // Systems Thinker"}
             </span>
           </div>

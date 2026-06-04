@@ -21,7 +21,7 @@ const StoqoSalesCaseStudy = lazyWithRetry(() => import("./StoqoSalesCaseStudy"))
 const StoqoLogisticsCaseStudy = lazyWithRetry(() => import("./StoqoLogisticsCaseStudy"));
 
 const CaseStudyLayoutFallback = () => (
-  <div className="min-h-[60vh] flex items-center justify-center font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+  <div className="min-h-[60vh] flex items-center justify-center font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)]">
     Loading_Case_File...
   </div>
 );
@@ -76,7 +76,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
           className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
         />
 
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-2 text-[var(--brand)] font-mono text-xs tracking-widest hidden md:flex">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-2 text-[var(--brand)] font-mono text-xs tracking-wider hidden md:flex">
           <div className="w-2 h-2 rounded-full bg-current animate-pulse"></div>
           CASE_FILE_{project.id.toUpperCase()}
         </div>
@@ -97,7 +97,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
               title="Switch Language"
             >
               <Globe size={16} />
-              <span className="font-mono text-xs uppercase tracking-widest">
+              <span className="font-mono text-xs uppercase tracking-wider">
                 {language}
               </span>
             </button>
@@ -133,7 +133,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                 className="mx-auto text-[var(--text-secondary)] mb-8"
                 size={32}
               />
-              <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">
+              <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.12em]">
                 {t("protected.architect_debrief") || "// Architect's Debrief"}
               </h4>
               <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">
@@ -172,7 +172,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
                 className="mx-auto text-[var(--text-secondary)] mb-8"
                 size={32}
               />
-              <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.2em]">
+              <h4 className="font-mono text-xs uppercase mb-8 opacity-50 tracking-[0.12em]">
                 {t("protected.architect_debrief") || "// Architect's Debrief"}
               </h4>
               <p className="text-2xl md:text-3xl font-serif leading-relaxed text-[var(--text-primary)]">

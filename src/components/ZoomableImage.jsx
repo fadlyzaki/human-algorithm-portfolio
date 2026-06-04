@@ -43,7 +43,7 @@ const ZoomableImage = ({
         <div className="w-12 h-12 rounded-full bg-[var(--bg-surface)] flex items-center justify-center mb-3">
           <X size={20} className="text-[var(--text-secondary)]" />
         </div>
-        <p className="text-xs font-mono text-[var(--text-secondary)] uppercase tracking-widest text-center">
+        <p className="text-xs font-mono text-[var(--text-secondary)] uppercase tracking-wider text-center">
           Image Unavailable
         </p>
         <p className="text-[10px] text-[var(--text-secondary)] opacity-50 mt-1 font-mono">

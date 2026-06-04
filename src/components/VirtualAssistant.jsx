@@ -299,7 +299,7 @@ const VirtualAssistant = ({ initialOpen = false }) => {
         <div className={`
           absolute -bottom-2 left-1/2 -translate-x-1/2
           bg-[var(--bg-void)]/90 backdrop-blur-sm border border-[var(--border-color)] 
-          px-2 py-0.5 rounded text-[8px] sm:text-[9px] font-mono font-bold tracking-[0.2em] text-[var(--accent-blue)] 
+          px-2 py-0.5 rounded text-[8px] sm:text-[9px] font-mono font-bold tracking-[0.12em] text-[var(--accent-blue)] 
           flex items-center gap-1.5 shadow-lg whitespace-nowrap
           transition-all duration-300
           ${isSleeping ? "opacity-40 grayscale" : "opacity-100"}

@@ -14,7 +14,7 @@ const ChaosSlider = ({ value, onChange }) => {
           ) : (
             <ShieldCheck className="text-[var(--accent-green)]" size={18} />
           )}
-          <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-card)] font-bold">
+          <span className="font-mono text-xs uppercase tracking-wider text-[var(--text-card)] font-bold">
             Entropy Control
           </span>
         </div>

@@ -178,7 +178,7 @@ const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="absolute inset-0 bg-[var(--brand)]/10 pointer-events-none" />
-          <span className="font-mono text-sm tracking-widest text-white relative z-10 selection:bg-white/20 font-bold">
+          <span className="font-mono text-sm tracking-wider text-white relative z-10 selection:bg-white/20 font-bold">
             {email}
           </span>
           <button

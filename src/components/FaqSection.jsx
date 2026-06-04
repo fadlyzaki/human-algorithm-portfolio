@@ -211,7 +211,7 @@ const FaqSection = () => {
           <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl relative overflow-hidden flex flex-col">
             {/* Terminal Header */}
             <div className="flex justify-between items-center bg-[var(--border-color)]/20 px-6 py-4 border-b border-[var(--border-color)]">
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--accent-blue)]">
+              <span className="font-mono text-xs uppercase tracking-wider text-[var(--accent-blue)]">
                 SYSTEM_RESPONSE
               </span>
               <div className="flex gap-4">
@@ -244,7 +244,7 @@ const FaqSection = () => {
                   }}
                   className="flex flex-col relative"
                 >
-                  <div className="font-mono text-xs md:text-sm text-[var(--text-secondary)] mb-6 leading-relaxed uppercase tracking-widest opacity-60">
+                  <div className="font-mono text-xs md:text-sm text-[var(--text-secondary)] mb-6 leading-relaxed uppercase tracking-wider opacity-60">
                     IN: {focusedItemData.q}
                   </div>
                   <div className="text-[var(--text-primary)] text-sm md:text-lg leading-relaxed pl-6 border-l-2 border-[var(--accent-blue)]">

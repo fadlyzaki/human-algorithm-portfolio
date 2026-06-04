@@ -36,7 +36,7 @@ export default function SummarizerAI() {
               <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
             </div>
-            <div className="flex-1 text-center text-[var(--text-secondary)] opacity-50 tracking-widest text-[9px] uppercase">
+            <div className="flex-1 text-center text-[var(--text-secondary)] opacity-50 tracking-wider text-[9px] uppercase">
               MCP_CLIENT
             </div>
           </div>
@@ -65,7 +65,7 @@ export default function SummarizerAI() {
                 className="absolute flex items-center gap-4 bg-[var(--bg-void)] border border-[var(--border-color)] rounded-full px-6 py-2 shadow-[0_0_15px_rgba(59,130,246,0.2)]"
               >
                 <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
-                <span className="text-[var(--text-secondary)] tracking-widest text-[10px]">
+                <span className="text-[var(--text-secondary)] tracking-wider text-[10px]">
                   {step === 1 && "ADK_AGENT_INIT..."}
                   {step === 2 && "MCP: FETCH_DOM..."}
                   {step === 3 && "LLM: PARSE_UX..."}

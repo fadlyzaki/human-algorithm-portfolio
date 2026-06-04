@@ -28,7 +28,7 @@ const CompanyStats = ({ cluster, t }) => {
               {i > 0 && (
                 <div className="absolute left-[-1.5rem] top-1/2 -translate-y-1/2 w-px h-8 bg-[var(--border-color)] hidden md:block"></div>
               )}
-              <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-2 opacity-70">
+              <span className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-wider mb-2 opacity-70">
                 {labelMap[stat.label] || stat.label}
               </span>
               <span className="font-serif italic text-lg text-[var(--text-primary)] leading-tight">

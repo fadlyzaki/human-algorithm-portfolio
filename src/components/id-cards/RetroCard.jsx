@@ -6,7 +6,7 @@ const RetroCard = ({ t, isDark, currentItem }) => (
     <div className={`w-full h-full border-4 border-t-8 border-b-8 relative group overflow-hidden rounded-md flex flex-col p-1 ${isDark ? "bg-white border-black shadow-[8px_8px_0px_0px_rgba(var(--bg-void-rgb), 1)]" : "bg-black border-white shadow-[8px_8px_0px_0px_rgba(var(--bg-surface-rgb), 1)]"}`}>
       {/* Header */}
       <div className={`h-16 flex items-center justify-center border-b-2 border-dashed mb-2 ${isDark ? "border-black" : "border-white"}`}>
-        <span className={`font-mono text-base font-bold uppercase tracking-widest leading-none text-center ${isDark ? "text-black" : "text-white"}`}>
+        <span className={`font-mono text-base font-bold uppercase tracking-wider leading-none text-center ${isDark ? "text-black" : "text-white"}`}>
           * IDENTITY *<br />
           <span className="text-[10px] tracking-normal">
             {t("id_card.human") || "HUMAN BY DESIGN"}

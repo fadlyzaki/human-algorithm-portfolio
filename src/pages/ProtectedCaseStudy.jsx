@@ -68,7 +68,7 @@ const ProtectedCaseStudy = () => {
             size={48}
             className="mx-auto text-red-500 mb-6 animate-pulse"
           />
-          <h1 className="text-2xl font-bold text-red-500 mb-2 uppercase tracking-[0.2em]">
+          <h1 className="text-2xl font-bold text-red-500 mb-2 uppercase tracking-[0.12em]">
             {t("protected.access_denied") || "Access Denied"}
           </h1>
           <div className="h-px w-16 bg-red-800 mx-auto mb-6"></div>
@@ -80,14 +80,14 @@ const ProtectedCaseStudy = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href={`mailto:fadly.uzzaki@gmail.com?subject=Request%20Access%3A%20${id}&body=Hello%20Fadly%2C%0A%0AI%20would%20like%20to%20request%20an%20access%20key%20for%20the%20project%20"${id}".%0A%0AThank%20you!`}
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-red-400 hover:text-red-300 border border-red-900/50 px-6 py-3 hover:bg-red-950/30 transition-all font-mono"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-red-400 hover:text-red-300 border border-red-900/50 px-6 py-3 hover:bg-red-950/30 transition-all font-mono"
             >
               <FileText size={14} /> {t("protected.request_access") || "Request Access Key"}
             </a>
             
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-all font-mono"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-gray-400 hover:text-white transition-all font-mono"
             >
               <ArrowLeft size={14} /> {t("project_layouts.return_base") || "Return to Base"}
             </Link>
@@ -119,7 +119,7 @@ const ProtectedCaseStudy = () => {
         <Suspense
           fallback={
             <div className="min-h-[100dvh] bg-transparent relative z-10 flex items-center justify-center">
-              <div className="font-mono text-xs uppercase tracking-widest animate-pulse text-emerald-400">
+              <div className="font-mono text-xs uppercase tracking-wider animate-pulse text-emerald-400">
                 Loading_Case_File...
               </div>
             </div>

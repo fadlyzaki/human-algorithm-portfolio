@@ -108,7 +108,7 @@ const SignalAI = ({ color = "var(--accent-blue)", manualPing = 0 }) => {
       ))}
 
       {/* TECHNICAL DECORATIONS */}
-      <div className="absolute inset-0 flex flex-col justify-between p-12 opacity-30 font-mono text-[10px] uppercase tracking-[0.3em]">
+      <div className="absolute inset-0 flex flex-col justify-between p-12 opacity-30 font-mono text-[10px] uppercase tracking-[0.12em]">
         <div className="flex justify-between items-start">
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">

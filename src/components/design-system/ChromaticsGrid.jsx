@@ -56,7 +56,7 @@ const ChromaticsGrid = ({ isXRayMode }) => (
     <div className="space-y-4">
       <div className="flex items-center gap-2 mb-8">
         <div className="h-px bg-[var(--border-color)] flex-grow"></div>
-        <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
+        <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-wider">
           Semantic_Tokens
         </span>
         <div className="h-px bg-[var(--border-color)] flex-grow"></div>

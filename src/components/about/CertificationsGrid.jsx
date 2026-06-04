@@ -42,7 +42,7 @@ const CertificationsGrid = ({ certifications, t }) => {
                 <div className="flex flex-col h-full">
                   <div className="mb-4">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span className="font-mono text-[9px] px-2 py-0.5 bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] rounded-full font-bold uppercase tracking-widest border border-[var(--accent-blue)]/20">
+                      <span className="font-mono text-[9px] px-2 py-0.5 bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] rounded-full font-bold uppercase tracking-wider border border-[var(--accent-blue)]/20">
                         {cert.issuer}
                       </span>
                       <span className="font-mono text-[10px] text-[var(--text-card-secondary)] opacity-60">
@@ -99,7 +99,7 @@ const CertificationsGrid = ({ certifications, t }) => {
                       href={cert.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2.5 md:py-2 bg-[var(--bg-void)]/20 border border-[var(--border-color)] hover:border-[var(--accent-blue)] hover:bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] rounded-lg transition-all font-mono text-[11px] md:text-[10px] uppercase tracking-widest font-bold ${!cert.id || cert.id === "N/A" ? "md:ml-auto" : ""}`}
+                      className={`w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2.5 md:py-2 bg-[var(--bg-void)]/20 border border-[var(--border-color)] hover:border-[var(--accent-blue)] hover:bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] rounded-lg transition-all font-mono text-[11px] md:text-[10px] uppercase tracking-wider font-bold ${!cert.id || cert.id === "N/A" ? "md:ml-auto" : ""}`}
                     >
                       {t("about.show_credential")}
                       <ArrowUpRight size={12} />
