@@ -1,5 +1,5 @@
 import React from "react";
-import { Lock, Activity, UserCheck, Zap, Eye } from "lucide-react";
+import { Lock, Activity, UserCheck, Zap, Eye, Sparkles } from "lucide-react";
 
 const PrincipleCard = ({ num, title, icon: Icon, desc }) => (
   <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-card)] hover:translate-y-[-2px] transition-transform duration-300">
@@ -60,18 +60,12 @@ const UXPrinciples = ({ isXRayMode }) => (
         icon={Eye}
         desc="Designed for high-stress, low-attention environments. Minimize visual noise. Leverage progressive disclosure for complex configuration."
       />
-      <div
-        className={`border border-[var(--border-color)] bg-[var(--bg-card)] p-6 flex flex-col justify-center items-center text-center opacity-50 relative ${isXRayMode ? "border-dashed border-[var(--text-secondary)]" : ""}`}
-      >
-        {isXRayMode && (
-          <span className="absolute -top-3 left-2 z-20 bg-[var(--bg-void)] px-1 font-mono text-[8px] text-[var(--text-secondary)]">
-            Placeholder
-          </span>
-        )}
-        <span className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)]">
-          Fetching deeper axioms...
-        </span>
-      </div>
+      <PrincipleCard
+        num="06"
+        title="Anti-Slop Standards"
+        icon={Sparkles}
+        desc="Strict elimination of qualitative AI-slop: standardized border boundaries, uniform radii (rounded-2xl cards, rounded-t-xl frames), standard tracking, and zero decorative animations."
+      />
     </div>
   </div>
 );
