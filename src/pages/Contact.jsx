@@ -117,7 +117,7 @@ const ContactPage = () => {
         <Suspense fallback={null}>
           <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.4]">
             <SignalAI
-              color={isDark ? "some" : "some"}
+              color="some"
               manualPing={pingCount}
             />
           </div>

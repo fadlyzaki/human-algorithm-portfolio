@@ -95,7 +95,7 @@ const CompanyHero = ({
                 <div className="h-16 w-16 rounded-2xl border border-[var(--brand)]/30 bg-[var(--brand)]/10" />
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/50">
-                    SYSTEM_SIMULATION_STANDBY
+                    {t("company.simulation_standby")}
                   </p>
                   <button
                     type="button"

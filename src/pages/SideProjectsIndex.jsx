@@ -288,7 +288,7 @@ const SideProjectsIndex = () => {
           {enhanceExperience && (
             <React.Suspense fallback={null}>
               <div className="absolute inset-0 z-0 opacity-40 grayscale blur-[1px]">
-                <NexusAI color={isDark ? "some" : "some"} />
+                <NexusAI color="some" />
               </div>
             </React.Suspense>
           )}

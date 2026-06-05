@@ -374,6 +374,7 @@ export const en = {
     "system_view": "System_View",
     "human_narrative": "Human_Narrative",
     "loading_simulation": "LOADING_SIMULATION...",
+    "simulation_standby": "SYSTEM_SIMULATION_STANDBY",
     "motivation": "The_Motivation",
     "log_source": "LOG_SOURCE: INTERNAL_MEMO",
     "status_declassified": "STATUS: DECLASSIFIED",

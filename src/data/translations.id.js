@@ -374,6 +374,7 @@ export const id = {
     "system_view": "Tampilan_Sistem",
     "human_narrative": "Narasi_Manusia",
     "loading_simulation": "MEMUAT_SIMULASI...",
+    "simulation_standby": "SIMULASI_SIAGA",
     "motivation": "Motivasi_Utama",
     "log_source": "SUMBER_LOG: MEMO_INTERNAL",
     "status_declassified": "STATUS: TERBUKA",
