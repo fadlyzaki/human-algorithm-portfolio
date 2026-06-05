@@ -8,7 +8,7 @@ import NavigationMenu from "../components/NavigationMenu";
 import useProjectData from "../hooks/useProjectData";
 import SEO from "../components/SEO";
 import Footer from "../components/Footer";
-import { useAfterFirstPaint } from "../hooks/useAfterFirstPaint";
+import { useProgressiveEnhancement } from "../hooks/useProgressiveEnhancement";
 
 // Sub-components
 import CompanyHero from "../components/company/CompanyHero";
@@ -35,7 +35,7 @@ const CompanyDetail = () => {
   const { id } = useParams();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const enhanceAfterPaint = useAfterFirstPaint();
+  const enhanceExperience = useProgressiveEnhancement({ delay: 4000 });
 
   const { project: cluster, loading } = useProjectData(id);
 
@@ -88,7 +88,7 @@ const CompanyDetail = () => {
       />
 
       {/* --- 0. AMBIENCE --- */}
-      {enhanceAfterPaint && (
+      {enhanceExperience && (
         <Suspense fallback={null}>
           <ChaosCanvas />
         </Suspense>
@@ -116,6 +116,7 @@ const CompanyDetail = () => {
           isId={isId}
           InteractionComponent={InteractionComponent}
           brandColor={brandColor}
+          enableSimulation={enhanceExperience}
         />
 
         {/* Stats Bar */}

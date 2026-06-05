@@ -57,6 +57,7 @@ import ProfileScanner from "../components/ProfileScanner";
 import BackButton from "../components/BackButton";
 import ScrollProgressBar from "../components/ScrollProgressBar";
 import NavigationMenu from "../components/NavigationMenu"; // Assuming this is also a new component
+import { useProgressiveEnhancement } from "../hooks/useProgressiveEnhancement";
 
 import RuntimeLogTimeline from "../components/about/RuntimeLogTimeline";
 import CertificationsGrid from "../components/about/CertificationsGrid";
@@ -73,6 +74,7 @@ const AboutPage = () => {
 
   const { t } = useLanguage();
   const [chaosStrength, setChaosStrength] = useState(0);
+  const enhanceExperience = useProgressiveEnhancement({ delay: 4000 });
 
   // JSON Config State
 
@@ -128,9 +130,11 @@ const AboutPage = () => {
       />
 
       {/* 1. TEXTURE & LIGHTING */}
-      <Suspense fallback={<SystemLoader />}>
-        <ChaosCanvas intensity={chaosStrength} />
-      </Suspense>
+      {enhanceExperience && (
+        <Suspense fallback={<SystemLoader />}>
+          <ChaosCanvas intensity={chaosStrength} />
+        </Suspense>
+      )}
 
       <PageShell navbarProps={{ title: t("about.nav_title"), backPath: "/" }}>
         {/* Progress Bar (Isolated Component) */}

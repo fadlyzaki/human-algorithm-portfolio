@@ -485,10 +485,10 @@ export const id = {
   "cover_letter": {
     "title": "Surat Lamaran",
     "greeting": "Kepada Manajer Perekrutan & Rekan Tim Masa Depan,",
-    "p1": "Kita sering bicara soal \"User Experience,\" tapi jarang bicara soal <strong>\"Agensi Pengguna.\"</strong>",
+    "p1": "Kita sering bicara soal \"User Experience,\" tapi jarang bicara soal **\"Agensi Pengguna.\"**",
     "p2": "Dalam 5 tahun terakhir, saya melihat industri kita hanyut. Kita beralih dari membangun alat yang memberdayakan orang menjadi feed yang menjebak mereka. Kita mengoptimalkan \"Durasi di Situs\" alih-alih \"Waktu yang Berkualitas.\" Kita mulai memperlakukan pengguna sebagai titik data, bukan manusia.",
-    "p3": "<strong>Saya mencari tim yang ingin membalikkan arus itu.</strong>",
-    "p4": "Baik saat mendesain untuk <strong>Lumina</strong> (membantu pekerja kerah biru menemukan martabat, bukan sekadar pekerjaan) atau <strong>GudangAda</strong> (membangun kepercayaan dalam rantai pasok $100M), tujuan saya selalu sama: <strong>Mengembalikan kendali kepada pengguna.</strong>",
+    "p3": "**Saya mencari tim yang ingin membalikkan arus itu.**",
+    "p4": "Baik saat mendesain untuk **Lumina** (membantu pekerja kerah biru menemukan martabat, bukan sekadar pekerjaan) atau **GudangAda** (membangun kepercayaan dalam rantai pasok $100M), tujuan saya selalu sama: **Mengembalikan kendali kepada pengguna.**",
     "p5": "Saya tidak hanya ingin \"meningkatkan konversi.\" Saya ingin meningkatkan kepercayaan diri. Saya ingin membangun perangkat lunak yang menghargai manusia di balik layar.",
     "p6": "Jika Anda membangun sesuatu yang benar-benar memecahkan masalah - bukan sekadar loop keterlibatan - maka saya ingin membantu Anda membangunnya.",
     "authorized_by": "Diotorisasi Oleh",

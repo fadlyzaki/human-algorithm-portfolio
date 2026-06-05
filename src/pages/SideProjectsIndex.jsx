@@ -22,10 +22,11 @@ import Footer from "../components/Footer";
 import BackButton from "../components/BackButton";
 import ProjectCard from "../components/ProjectCard";
 import VentureCard from "../components/VentureCard";
-import NexusAI from "../components/interactions/NexusAI";
 import BlindsReveal from "../components/BlindsReveal";
 import PageShell from "../components/PageShell";
+import { useProgressiveEnhancement } from "../hooks/useProgressiveEnhancement";
 const ChaosCanvas = lazyWithRetry(() => import("../components/ChaosCanvas"));
+const NexusAI = lazyWithRetry(() => import("../components/interactions/NexusAI"));
 
 // Configuration
 const CONFIG = {
@@ -130,6 +131,7 @@ const SideProjectsIndex = () => {
   const navigate = useNavigate();
   const [experimentsOpen, setExperimentsOpen] = useReactState(false);
   const experimentsGridRef = useRef(null);
+  const enhanceExperience = useProgressiveEnhancement({ delay: 4000 });
 
   // Interaction Refs
   const canvasRef = useRef(null);
@@ -177,6 +179,8 @@ const SideProjectsIndex = () => {
 
   // Animation Loop
   useEffect(() => {
+    if (!enhanceExperience) return undefined;
+
     const animate = () => {
       if (!canvasRef.current) return;
 
@@ -257,7 +261,7 @@ const SideProjectsIndex = () => {
 
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current);
-  }, [isDark]); // Re-bind on theme change for colors
+  }, [enhanceExperience, isDark]); // Re-bind on theme change for colors
 
   return (
     <div
@@ -270,18 +274,24 @@ const SideProjectsIndex = () => {
       />
 
       {/* Background Atmosphere */}
-      <React.Suspense fallback={<SystemLoader />}>
-        <ChaosCanvas />
-      </React.Suspense>
+      {enhanceExperience && (
+        <React.Suspense fallback={<SystemLoader />}>
+          <ChaosCanvas />
+        </React.Suspense>
+      )}
 
       <PageShell navbarProps={{ title: t("project_archive.nav_title"), backPath: "/" }}>
 
       <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-[100dvh] bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl" ref={containerRef}>
         <header className="mb-32 relative min-h-[50vh] flex flex-col justify-center text-center md:text-left">
           {/* Background Visual */}
-          <div className="absolute inset-0 z-0 opacity-40 grayscale blur-[1px]">
-            <NexusAI color={isDark ? "some" : "some"} />
-          </div>
+          {enhanceExperience && (
+            <React.Suspense fallback={null}>
+              <div className="absolute inset-0 z-0 opacity-40 grayscale blur-[1px]">
+                <NexusAI color={isDark ? "some" : "some"} />
+              </div>
+            </React.Suspense>
+          )}
 
           <div className="relative z-10 max-w-4xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] backdrop-blur-md">

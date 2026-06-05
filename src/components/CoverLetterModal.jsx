@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import { X, ArrowRight, FileText, Stamp } from "lucide-react";
+import RichText from "./RichText";
 
 const CoverLetterModal = ({ isOpen, onClose }) => {
   const { t } = useLanguage();
@@ -127,30 +128,24 @@ const CoverLetterModal = ({ isOpen, onClose }) => {
                     <p className="font-serif italic text-xl mb-6 text-gray-900 dark:text-white">
                       {t("cover_letter.greeting")}
                     </p>
-                    <p
-                      className="mb-4"
-                      dangerouslySetInnerHTML={{ __html: t("cover_letter.p1") }}
-                    ></p>
-                    <p
-                      className="mb-4"
-                      dangerouslySetInnerHTML={{ __html: t("cover_letter.p2") }}
-                    ></p>
-                    <p
-                      className="mb-6 font-medium text-emerald-600 dark:text-emerald-400"
-                      dangerouslySetInnerHTML={{ __html: t("cover_letter.p3") }}
-                    ></p>
-                    <p
-                      className="mb-4"
-                      dangerouslySetInnerHTML={{ __html: t("cover_letter.p4") }}
-                    ></p>
-                    <p
-                      className="mb-6"
-                      dangerouslySetInnerHTML={{ __html: t("cover_letter.p5") }}
-                    ></p>
-                    <p
-                      className="mb-2 border-l-2 border-emerald-500 pl-4 py-1 italic text-gray-600 dark:text-gray-400"
-                      dangerouslySetInnerHTML={{ __html: t("cover_letter.p6") }}
-                    ></p>
+                    <p className="mb-4">
+                      <RichText text={t("cover_letter.p1")} />
+                    </p>
+                    <p className="mb-4">
+                      <RichText text={t("cover_letter.p2")} />
+                    </p>
+                    <p className="mb-6 font-medium text-emerald-600 dark:text-emerald-400">
+                      <RichText text={t("cover_letter.p3")} />
+                    </p>
+                    <p className="mb-4">
+                      <RichText text={t("cover_letter.p4")} />
+                    </p>
+                    <p className="mb-6">
+                      <RichText text={t("cover_letter.p5")} />
+                    </p>
+                    <p className="mb-2 border-l-2 border-emerald-500 pl-4 py-1 italic text-gray-600 dark:text-gray-400">
+                      <RichText text={t("cover_letter.p6")} />
+                    </p>
                   </div>
                 </div>
               </motion.div>

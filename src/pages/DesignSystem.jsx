@@ -6,11 +6,13 @@ import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import PageShell from "../components/PageShell";
 import Footer from "../components/Footer";
+import { useProgressiveEnhancement } from "../hooks/useProgressiveEnhancement";
 const ChaosCanvas = lazy(() => import("../components/ChaosCanvas"));
 
 const DesignSystem = () => {
   const { isDark } = useTheme();
   const { t } = useLanguage();
+  const enhanceExperience = useProgressiveEnhancement({ delay: 4000 });
 
   // Only page-specific accent override needed  -  core tokens come from index.css
   const themeStyles = {
@@ -28,9 +30,11 @@ const DesignSystem = () => {
       />
 
       {/* Background Atmosphere */}
-      <Suspense fallback={<SystemLoader />}>
-        <ChaosCanvas />
-      </Suspense>
+      {enhanceExperience && (
+        <Suspense fallback={<SystemLoader />}>
+          <ChaosCanvas />
+        </Suspense>
+      )}
 
       <PageShell navbarProps={{ backPath: "/side-project/human-algorithm", title: t("design_system.nav_title") }}>
         <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-[100dvh] bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">

@@ -26,7 +26,7 @@ import useScrollDirection from "../hooks/useScrollDirection";
 import { useLanguage } from "../context/LanguageContext";
 import { useRecruiterMode } from "../context/RecruiterModeContext";
 import PageShell from "../components/PageShell";
-import { useAfterFirstPaint } from "../hooks/useAfterFirstPaint";
+import { useProgressiveEnhancement } from "../hooks/useProgressiveEnhancement";
 
 const ChaosToMatrixIntro = lazyWithRetry(
   () => import("../components/welcome/ChaosToMatrixIntro"),
@@ -53,18 +53,10 @@ const Home = () => {
     return false;
   });
   const showNav = useScrollDirection(false);
-  const enhanceAfterPaint = useAfterFirstPaint();
+  const enableAtmosphere = useProgressiveEnhancement({ delay: 4000 });
 
   const location = useLocation();
   const { isRecruiterMode } = useRecruiterMode();
-  const canUseMotionMedia =
-    typeof window !== "undefined" && "matchMedia" in window;
-  const enableAtmosphere =
-    enhanceAfterPaint &&
-    canUseMotionMedia &&
-    window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   useEffect(() => {
     if (!location.hash || showIntro) return undefined;
 
@@ -189,8 +181,8 @@ const Home = () => {
               />
 
               <DeferredSection
+                id="featured-work"
                 deferUntilScroll
-                force={location.hash === "#featured-work"}
                 minHeight="min-h-[720px]"
               >
                 <React.Suspense fallback={<SectionFallback />}>
@@ -199,8 +191,8 @@ const Home = () => {
               </DeferredSection>
 
               <DeferredSection
+                id="work"
                 deferUntilScroll
-                force={location.hash === "#work"}
                 minHeight="min-h-[720px]"
               >
                 <React.Suspense fallback={<SectionFallback />}>
@@ -209,8 +201,8 @@ const Home = () => {
               </DeferredSection>
 
               <DeferredSection
+                id="side-projects"
                 deferUntilScroll
-                force={location.hash === "#side-projects"}
                 minHeight="min-h-[540px]"
               >
                 <React.Suspense fallback={<SectionFallback />}>
@@ -220,8 +212,8 @@ const Home = () => {
 
               {!import.meta.env.DEV && (
                 <DeferredSection
+                  id="about"
                   deferUntilScroll
-                  force={location.hash === "#about"}
                   minHeight="min-h-[760px]"
                 >
                   <React.Suspense fallback={<SectionFallback />}>
@@ -231,8 +223,8 @@ const Home = () => {
               )}
 
               <DeferredSection
+                id="faqs"
                 deferUntilScroll
-                force={location.hash === "#faqs"}
                 minHeight="min-h-[280px]"
               >
                 <React.Suspense fallback={<SectionFallback className="h-48" />}>

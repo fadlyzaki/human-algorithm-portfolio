@@ -15,7 +15,7 @@ const HomeFeaturedWork = () => {
   }, [isId]);
 
   return (
-    <section id="featured-work" className="mb-24 scroll-mt-24 relative">
+    <section className="mb-24 scroll-mt-24 relative">
       <ScrollReveal>
         <SectionTitle 
           number="1" 

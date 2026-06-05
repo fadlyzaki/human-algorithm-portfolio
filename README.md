@@ -7,8 +7,8 @@ Welcome to the source matrix of **[fadlyzaki-design.vercel.app](https://fadlyzak
 This repository is heavily system-driven and highly optimized. It is not a static portfolio; it is an *Interactive Architecture* and the definitive proof of work for Fadly Uzzaki, Product Designer specializing in Trust Engineering. Designed for the scrutiny of Product and Engineering leadership, this system proves the capacity to organize chaotic business logic, tame systemic B2B complexity, and output deeply resilient, accessible workflows with measurable impact.
 
 [![Status](https://img.shields.io/badge/SYSTEM-NOMINAL-green?style=flat-square&logo=react)](https://fadlyzaki-design.vercel.app/)
-[![Build](https://img.shields.io/badge/VERSION-9.3.0-blue?style=flat-square&logo=vercel)](https://vercel.com)
-[![Web Vitals](https://img.shields.io/badge/LIGHTHOUSE-100-orange?style=flat-square&logo=lighthouse)](https://pagespeed.web.dev/)
+[![Build](https://img.shields.io/badge/VERSION-v3.5.0-blue?style=flat-square&logo=vercel)](https://vercel.com)
+[![Web Vitals](https://img.shields.io/badge/RES_TARGET-90%2B-orange?style=flat-square&logo=vercel)](https://vercel.com/docs/speed-insights/metrics)
 
 ---
 
@@ -16,7 +16,7 @@ This repository is heavily system-driven and highly optimized. It is not a stati
 
 A robust system is measured by its fault tolerance, Developer Experience (DevX), and render budget. We utilize a modern, highly optimized edge-native stack tailored for O(1) velocity and 60fps tactile interfaces.
 
-* **The Engine**: **React 18 + Vite** - Blazing fast HMR, isolated module reloading, and aggressive Rollup tree-shaking. Includes a **Vitest/jsdom** CI testing baseline.
+* **The Engine**: **React 19 + Vite** - Blazing fast HMR, isolated module reloading, and aggressive Rollup tree-shaking. Includes a **Vitest/jsdom** CI testing baseline.
 * **The Physics**: **Framer Motion** - GPU-accelerated CSS transforms (`translate3d`, `scale`) and spring-based `layoutId` animations. All major interaction surfaces (Navbar, NavigationMenu, Footer, WorkBento, ScrollReveal) operate on spring physics with added **rotational character** (sliding pill transitions) for 60fps consistency.
 * **The Syntax**: **Tailwind CSS** - Utility-first styling architecture with strict design token adherence via CSS custom properties (`var(--text-primary)`, `var(--bg-void)`).
 * **The Edge**: **Vercel Edge Network** - Edge Middleware for bot-detection and dynamic OpenGraph image generation via `@vercel/og`.

@@ -5,6 +5,7 @@ import { MessageSquare } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
 import OptimizedImage from "./OptimizedImage";
+import SafeMultilineText from "./SafeMultilineText";
 
 const SCENES = {
   IDLE: "idle",       // Row 3 (index 2)
@@ -270,7 +271,9 @@ const VirtualAssistant = ({ initialOpen = false }) => {
               ))}
             </div>
           ) : (
-            <div className="leading-snug pr-2 text-xs sm:text-sm prose-sm prose-invert overflow-y-auto max-h-[250px] custom-scrollbar pointer-events-auto" dangerouslySetInnerHTML={{ __html: message.replace(/\n/g, '<br />') }} />
+            <div className="leading-snug pr-2 text-xs sm:text-sm prose-sm prose-invert overflow-y-auto max-h-[250px] custom-scrollbar pointer-events-auto">
+              <SafeMultilineText text={message} />
+            </div>
           )}
         </div>
         

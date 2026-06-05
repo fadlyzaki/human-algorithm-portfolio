@@ -765,10 +765,10 @@ export const en = {
   "cover_letter": {
     "title": "Cover Letter",
     "greeting": "To the Hiring Manager & Future Teammates,",
-    "p1": "We often talk about \"User Experience,\" but we rarely talk about <strong>\"User Agency.\"</strong>",
+    "p1": "We often talk about \"User Experience,\" but we rarely talk about **\"User Agency.\"**",
     "p2": "In the last 5 years, I’ve watched our industry drift. We went from building tools that empower people to building feeds that entrap them. We optimized for \"Time on Site\" instead of \"Time Well Spent.\" We started treating users like data points instead of people.",
-    "p3": "<strong>I’m looking for a team that wants to reverse that drift.</strong>",
-    "p4": "Whether I was designing for <strong>Lumina</strong> (helping blue-collar workers find dignity, not just jobs) or <strong>GudangAda</strong> (building trust in a $100B supply chain), my goal has always been the same: <strong>To hand the steering wheel back to the user.</strong>",
+    "p3": "**I’m looking for a team that wants to reverse that drift.**",
+    "p4": "Whether I was designing for **Lumina** (helping blue-collar workers find dignity, not just jobs) or **GudangAda** (building trust in a $100B supply chain), my goal has always been the same: **To hand the steering wheel back to the user.**",
     "p5": "I don't just want to \"increase conversion.\" I want to increase confidence. I want to build software that respects the human on the other side of the screen.",
     "p6": "If you’re building something that actually solves a problem - not just an engagement loop - then I’d love to help you build it.",
     "authorized_by": "Authorized By",

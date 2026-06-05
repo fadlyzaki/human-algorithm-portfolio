@@ -357,9 +357,8 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
         </div>
 
         {/* CSS for the blink cursor effect */}
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
+        <style>
+          {`
           .typewriter-text {
             animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
           }
@@ -371,9 +370,8 @@ const ChaosToMatrixIntro = ({ onComplete }) => {
             from, to { border-color: transparent }
             50% { border-color: var(--accent-green); }
           }
-        `,
-          }}
-        />
+        `}
+        </style>
       </motion.div>
     </AnimatePresence>
   );

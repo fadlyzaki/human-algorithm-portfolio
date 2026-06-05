@@ -1,28 +1,50 @@
-import { useScroll, useVelocity, useSpring, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 const PACING_CONFIG = {
-  SPRING_DAMPING: 50,
-  SPRING_STIFFNESS: 400,
-  VELOCITY_RANGE: [-2000, 0, 2000],
-  PACING_MULTIPLIERS: [2.0, 0.2, 2.0]
+  IDLE_PACE: 0.2,
+  MAX_PACE: 2,
+  MAX_VELOCITY: 2000,
+};
+
+export const calculatePaceFromVelocity = (velocity) => {
+  const normalizedVelocity = Math.min(
+    Math.abs(Number(velocity) || 0),
+    PACING_CONFIG.MAX_VELOCITY,
+  );
+  const progress = normalizedVelocity / PACING_CONFIG.MAX_VELOCITY;
+
+  return PACING_CONFIG.IDLE_PACE +
+    (PACING_CONFIG.MAX_PACE - PACING_CONFIG.IDLE_PACE) * progress;
 };
 
 export const useScrollPacing = () => {
-  const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  
-  // Smooth the velocity to prevent jagged jumps
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: PACING_CONFIG.SPRING_DAMPING,
-    stiffness: PACING_CONFIG.SPRING_STIFFNESS
-  });
+  const paceRef = useRef(PACING_CONFIG.IDLE_PACE);
+  const lastYRef = useRef(
+    typeof window !== "undefined" ? window.scrollY : 0,
+  );
+  const lastTimeRef = useRef(0);
 
-  // Map velocity to a pacing factor
-  // 0 velocity (idle/reading) -> 0.2 pacing (slow, calm)
-  // High velocity (scanning) -> 2.0 pacing (fast, energetic)
-  const pace = useTransform(smoothVelocity, PACING_CONFIG.VELOCITY_RANGE, PACING_CONFIG.PACING_MULTIPLIERS, {
-    clamp: true
-  });
+  useEffect(() => {
+    let frameId;
+    lastTimeRef.current = performance.now();
 
-  return pace;
+    const updatePace = () => {
+      const now = performance.now();
+      const currentY = window.scrollY;
+      const deltaMs = Math.max(now - lastTimeRef.current, 16);
+      const velocity = ((currentY - lastYRef.current) / deltaMs) * 1000;
+
+      paceRef.current = calculatePaceFromVelocity(velocity);
+      lastYRef.current = currentY;
+      lastTimeRef.current = now;
+      frameId = window.requestAnimationFrame(updatePace);
+    };
+
+    frameId = window.requestAnimationFrame(updatePace);
+    return () => window.cancelAnimationFrame(frameId);
+  }, []);
+
+  return {
+    get: () => paceRef.current,
+  };
 };

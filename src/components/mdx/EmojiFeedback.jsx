@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactGA from 'react-ga4';
 import { useLanguage } from '../../context/LanguageContext';
@@ -19,13 +19,6 @@ const EmojiFeedback = () => {
         REACTIONS.reduce((acc, r) => ({ ...acc, [r.label]: r.count }), {})
     );
 
-    // Initial load of "real" numbers (Simulated fetch or tracking initialization)
-    useEffect(() => {
-        // In a production environment, this would fetch from a database or KV store.
-        // For now, we reflect the known interaction metrics.
-        console.log('// Feedback_Protocol.Initialize: [SECURE_UPLINK_ESTABLISHED]');
-    }, []);
-
     const handleSelect = (reaction) => {
         if (hasReacted) return;
 
@@ -43,8 +36,6 @@ const EmojiFeedback = () => {
             label: `${reaction.label} (${window.location.pathname})`,
         });
 
-        // Optional: Send to custom logging endpoint if available
-        console.log(`// Signal_Transmission: [REACTION=${reaction.label}] [PATH=${window.location.pathname}]`);
     };
 
     return (

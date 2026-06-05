@@ -315,7 +315,7 @@ const HomeAbout = ({ t }) => {
   const { isRecruiterMode } = useRecruiterMode();
 
   return (
-    <section id="about" ref={constraintsRef} className="mb-24 scroll-mt-24 relative">
+    <section ref={constraintsRef} className="mb-24 scroll-mt-24 relative">
       <SectionTitle number="3" title={t("home.section_about")} />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 w-full h-full">

@@ -127,7 +127,7 @@ const FaqSection = () => {
   const focusedItemData = activeFaqs.find((item) => item.id === focusedId);
 
   return (
-    <section id="faqs" className="mb-12 scroll-mt-24">
+    <section className="mb-12 scroll-mt-24">
       <ScrollReveal>
         <SectionTitle number="4" title="FAQS" />
       </ScrollReveal>

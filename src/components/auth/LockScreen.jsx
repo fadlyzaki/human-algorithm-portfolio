@@ -18,6 +18,7 @@ import { useLanguage } from "../../context/LanguageContext";
 import { useTheme } from "../../context/ThemeContext";
 import BackButton from "../BackButton";
 import SEO from "../SEO";
+import { canUnlockWithAccessKey } from "../../utils/accessKeys";
 
 const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
   const { t, language, toggleLanguage } = useLanguage();
@@ -40,17 +41,8 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
   // --- HANDLER: UNLOCK ---
   const handleUnlock = (e) => {
     e.preventDefault();
-    // Use Vite env variables for secure client-side checks
-    const cleanPassword = password.trim().toLowerCase();
 
-    // Check against both primary and alternate env passwords with hardcoded fallbacks
-    const primaryEnvPassword = (import.meta.env.VITE_PROTECTED_PASSWORD || "desainzaki").trim().toLowerCase();
-    const altEnvPassword = (import.meta.env.VITE_PROTECTED_PASSWORD_ALT || "designbyzaki").trim().toLowerCase();
-
-    const isPrimaryMatch = primaryEnvPassword ? cleanPassword === primaryEnvPassword : false;
-    const isAltMatch = altEnvPassword ? cleanPassword === altEnvPassword : false;
-
-    if (isPrimaryMatch || isAltMatch) {
+    if (canUnlockWithAccessKey(password)) {
       if (onDecryptStart) onDecryptStart();
       setDecrypting(true);
       setError(false);

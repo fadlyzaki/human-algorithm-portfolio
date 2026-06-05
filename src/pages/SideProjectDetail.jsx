@@ -9,7 +9,7 @@ import { useLanguage } from "../context/LanguageContext";
 import useProjectData from "../hooks/useProjectData";
 import SEO from "../components/SEO";
 import Footer from "../components/Footer";
-import { useAfterFirstPaint } from "../hooks/useAfterFirstPaint";
+import { useProgressiveEnhancement } from "../hooks/useProgressiveEnhancement";
 
 const ChaosCanvas = lazyWithRetry(() => import("../components/ChaosCanvas"));
 
@@ -107,9 +107,9 @@ const SideProjectDetail = () => {
   // Use Centralized Data Hook
   const { project, loading, type } = useProjectData(id);
 
-  const [showLivePreview, setShowLivePreview] = useState(true);
+  const [showLivePreview, setShowLivePreview] = useState(false);
   const [, setIsMenuOpen] = useState(false); // Added for Navbar
-  const enhanceAfterPaint = useAfterFirstPaint();
+  const enhanceExperience = useProgressiveEnhancement({ delay: 4000 });
 
   if (loading) {
     return (
@@ -290,7 +290,7 @@ const SideProjectDetail = () => {
       />
 
       {/* --- 0. AMBIENCE --- */}
-      {enhanceAfterPaint && (
+      {enhanceExperience && (
         <React.Suspense fallback={null}>
           <ChaosCanvas />
         </React.Suspense>
@@ -317,7 +317,7 @@ const SideProjectDetail = () => {
             activeSolution,
             activeMetrics,
             activeLearnings,
-            InteractionComponent: InteractionComponent
+            InteractionComponent: (enhanceExperience || showLivePreview) && InteractionComponent
               ? () => (
                 <Suspense
                   fallback={<SystemSectionLoader height="h-64" />}

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { Suspense, lazy, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -25,9 +25,11 @@ import Navbar from "../components/Navbar";
 import NavigationMenu from "../components/NavigationMenu";
 import SEO from "../components/SEO";
 import Footer from "../components/Footer";
-import SignalAI from "../components/interactions/SignalAI";
 import NeuralDecryption from "../components/interactions/NeuralDecryption";
 import ContactScratch from "../components/ContactScratch";
+import { useProgressiveEnhancement } from "../hooks/useProgressiveEnhancement";
+
+const SignalAI = lazy(() => import("../components/interactions/SignalAI"));
 
 /* --- THEME CONFIGURATION ---
    Aesthetic: "Communication Uplink"
@@ -40,6 +42,7 @@ const ContactPage = () => {
   const [formStatus, setFormStatus] = useState("idle"); // idle, sending, success, error
   const [pingCount, setPingCount] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for Navbar menu
+  const enhanceExperience = useProgressiveEnhancement({ delay: 4000 });
 
   const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
 
@@ -110,12 +113,16 @@ const ContactPage = () => {
       />
 
       {/* GENERATIVE AI BACKGROUND */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.4]">
-        <SignalAI
-          color={isDark ? "some" : "some"}
-          manualPing={pingCount}
-        />
-      </div>
+      {enhanceExperience && (
+        <Suspense fallback={null}>
+          <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.4]">
+            <SignalAI
+              color={isDark ? "some" : "some"}
+              manualPing={pingCount}
+            />
+          </div>
+        </Suspense>
+      )}
 
       {/* STATIC BACKGROUND GRID */}
       <div

@@ -26,7 +26,7 @@ const HomeSideProjects = ({ t, isId }) => {
   }, []);
 
   return (
-    <section id="side-projects" className="mb-24 scroll-mt-24">
+    <section className="mb-24 scroll-mt-24">
       <ScrollReveal>
         <SectionTitle
           number="3"

@@ -1,6 +1,5 @@
 import React, { Suspense, useState } from "react";
 import { Cpu, Scan } from "lucide-react";
-import ScrollReveal from "../ScrollReveal";
 
 const CompanyHero = ({
   cluster,
@@ -8,8 +7,11 @@ const CompanyHero = ({
   isId,
   InteractionComponent,
   brandColor,
+  enableSimulation = false,
 }) => {
   const [showNarrative, setShowNarrative] = useState(false);
+  const [simulationRequested, setSimulationRequested] = useState(false);
+  const shouldRenderSimulation = enableSimulation || simulationRequested;
 
   return (
     <header className="min-h-[100dvh] flex flex-col pt-24 md:pt-32 px-6 lg:px-12 relative overflow-hidden border-b border-[var(--border-color)]">
@@ -19,7 +21,10 @@ const CompanyHero = ({
             {/* Company Logo Space */}
             <div className="mb-6 h-12 flex items-center">
               {cluster.logo ? (
-                <img loading="lazy" decoding="async"
+                <img
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   src={cluster.logo}
                   alt={`${cluster.company} Logo`}
                   className="h-full w-auto object-contain"
@@ -50,7 +55,7 @@ const CompanyHero = ({
         </div>
 
         {/* Interactive AI Visualization */}
-        <ScrollReveal delay={200} className="w-full h-[500px] relative">
+        <div className="w-full h-[500px] relative">
           <div className="absolute -inset-4 bg-[var(--brand)] opacity-10 blur-3xl rounded-full"></div>
           <div className="relative h-full w-full rounded-2xl overflow-hidden border border-[var(--border-color)] shadow-2xl bg-black dark:bg-white">
             <div className="absolute top-4 left-4 z-40 flex gap-2">
@@ -71,18 +76,37 @@ const CompanyHero = ({
               </button>
             </div>
 
-            <Suspense
-              fallback={
-                <div className="flex items-center justify-center h-full text-[var(--brand)] animate-pulse">
-                  {t("company.loading_simulation")}
-                </div>
-              }
-            >
-              <div
-                className={`relative h-full w-full transition-all duration-700 ${showNarrative ? "blur-xl scale-110 opacity-30 px-12" : "blur-0 scale-100 opacity-100"}`}
+            {shouldRenderSimulation ? (
+              <Suspense
+                fallback={
+                  <div className="flex items-center justify-center h-full text-[var(--brand)] animate-pulse">
+                    {t("company.loading_simulation")}
+                  </div>
+                }
               >
-                <InteractionComponent color={brandColor} />
+                <div
+                  className={`relative h-full w-full transition-all duration-700 ${showNarrative ? "blur-xl scale-110 opacity-30 px-12" : "blur-0 scale-100 opacity-100"}`}
+                >
+                  <InteractionComponent color={brandColor} />
+                </div>
+              </Suspense>
+            ) : (
+              <div className="flex h-full w-full flex-col items-center justify-center gap-5 p-8 text-center">
+                <div className="h-16 w-16 rounded-2xl border border-[var(--brand)]/30 bg-[var(--brand)]/10" />
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/50">
+                    SYSTEM_SIMULATION_STANDBY
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setSimulationRequested(true)}
+                    className="mt-4 rounded-lg border border-white/20 bg-white/10 px-4 py-2 font-mono text-[10px] uppercase tracking-wider text-white transition-colors hover:border-white/50 hover:bg-white/15"
+                  >
+                    {t("company.loading_simulation")}
+                  </button>
+                </div>
               </div>
+            )}
 
               {showNarrative && (
                 <div className="absolute inset-0 z-30 flex items-center justify-center p-8 md:p-12 animate-in fade-in zoom-in duration-500 overflow-y-auto">
@@ -107,9 +131,8 @@ const CompanyHero = ({
                   </div>
                 </div>
               )}
-            </Suspense>
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </header>
   );

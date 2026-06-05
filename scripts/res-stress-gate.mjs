@@ -4,8 +4,11 @@ import { resolveOGMeta } from "../api/_ogRoutes.js";
 
 const BASE_URL = process.env.STRESS_BASE_URL || "http://127.0.0.1:4173/";
 const IDLE_WAIT_MS = Number(process.env.STRESS_IDLE_WAIT_MS || 2500);
-const MAX_LONG_TASK_MS = Number(process.env.STRESS_MAX_LONG_TASK_MS || 1000);
-const MAX_TOTAL_LONG_TASK_MS = Number(process.env.STRESS_MAX_TOTAL_LONG_TASK_MS || 2500);
+const MAX_LONG_TASK_MS = Number(process.env.STRESS_MAX_LONG_TASK_MS || 150);
+const MAX_TOTAL_LONG_TASK_MS = Number(process.env.STRESS_MAX_TOTAL_LONG_TASK_MS || 500);
+const MAX_CLS = Number(process.env.STRESS_MAX_CLS || 0.02);
+const MAX_LCP_MS = Number(process.env.STRESS_MAX_LCP_MS || 1800);
+const MAX_INTERACTION_MS = Number(process.env.STRESS_MAX_INTERACTION_MS || 120);
 
 const MOBILE_VIEWPORT = {
   width: 390,
@@ -15,18 +18,43 @@ const MOBILE_VIEWPORT = {
   hasTouch: true,
 };
 
+const DESKTOP_VIEWPORT = {
+  width: 1280,
+  height: 900,
+  deviceScaleFactor: 1,
+  isMobile: false,
+  hasTouch: false,
+};
+
 const INITIAL_MOBILE_BLOCKLIST = [
   /VirtualAssistant/i,
   /sprite-/i,
   /DraggablePhoto/i,
-  /portfolioData/i,
   /HomeFeaturedWork/i,
   /HomeWorkSection/i,
   /HomeSideProjects/i,
   /HomeAbout/i,
-  /Footer/i,
-  /NavigationMenu/i,
   /ChaosCanvas/i,
+  /NexusAI/i,
+  /SignalAI/i,
+  /WorkforceAI/i,
+  /CommerceAI/i,
+  /EfficiencyAI/i,
+];
+
+const RECRUITER_CRITICAL_ROUTES = [
+  "/",
+  "/about",
+  "/cv",
+  "/side-projects",
+  "/work/commerce",
+  "/work/workforce",
+  "/work/efficiency",
+  "/case-study/stoqo-logistics",
+  "/case-study/stoqo-sales",
+  "/case-study/design-system-gudangada",
+  "/thoughts",
+  "/contact",
 ];
 
 const CRITICAL_PROJECT_ROUTES = [
@@ -144,15 +172,27 @@ const assertNoRuntimeErrors = (errors) => {
   assert(errors.length === 0, `Runtime errors detected:\n${errors.join("\n")}`);
 };
 
-const assertLongTaskBudget = (state) => {
+const assertLongTaskBudget = (state, label = "page") => {
+  const longTaskSummary = (state.metrics.longTasks || []).join(", ");
   assert(
     state.maxLongTask <= MAX_LONG_TASK_MS,
-    `Max long task ${state.maxLongTask}ms exceeded ${MAX_LONG_TASK_MS}ms`,
+    `${label}: max long task ${state.maxLongTask}ms exceeded ${MAX_LONG_TASK_MS}ms (tasks: ${longTaskSummary})`,
   );
   assert(
     state.totalLongTask <= MAX_TOTAL_LONG_TASK_MS,
-    `Total long tasks ${state.totalLongTask}ms exceeded ${MAX_TOTAL_LONG_TASK_MS}ms`,
+    `${label}: total long tasks ${state.totalLongTask}ms exceeded ${MAX_TOTAL_LONG_TASK_MS}ms (tasks: ${longTaskSummary})`,
   );
+};
+
+const assertVitalsBudget = (state, label = "page") => {
+  const cls = Number(state.metrics.cls || 0);
+  const lcp = Number(state.metrics.lcp || 0);
+
+  assert(cls <= MAX_CLS, `${label}: CLS ${cls.toFixed(4)} exceeded ${MAX_CLS}`);
+  if (lcp > 0) {
+    assert(lcp <= MAX_LCP_MS, `${label}: LCP ${lcp}ms exceeded ${MAX_LCP_MS}ms`);
+  }
+  assertLongTaskBudget(state, label);
 };
 
 const assertImagesHealthy = async (page) => {
@@ -220,6 +260,31 @@ const visitMobileHome = async (page, path = "/") => {
   await delay(IDLE_WAIT_MS);
 };
 
+const visitDesktopHome = async (page, path = "/") => {
+  await page.setViewport(DESKTOP_VIEWPORT);
+  await page.goto(scenarioUrl(path), {
+    waitUntil: "networkidle2",
+    timeout: 30000,
+  });
+  await page.waitForSelector("main", { timeout: 10000 });
+  await delay(IDLE_WAIT_MS);
+};
+
+const measureSelectorInteraction = async (page, selector) =>
+  page.evaluate((targetSelector) => {
+    const target = document.querySelector(targetSelector);
+    if (!target) throw new Error(`No element found for selector: ${targetSelector}`);
+
+    const startedAt = performance.now();
+    target.click();
+
+    return new Promise((resolve) => {
+      requestAnimationFrame(() => {
+        resolve(Math.round(performance.now() - startedAt));
+      });
+    });
+  }, selector);
+
 const runScenario = async (browser, name, run) => {
   const { page, errors } = await createPage(browser);
 
@@ -244,7 +309,7 @@ const scenarios = [
       assert(state.mainRendered, "Main content did not render");
       assert(flagged.length === 0, `Initial mobile loaded blocked assets: ${flagged.join(", ")}`);
       assertNoRuntimeErrors(errors);
-      assertLongTaskBudget(state);
+      assertVitalsBudget(state, "mobile home cold");
 
       return {
         blockedAssets: flagged,
@@ -257,9 +322,104 @@ const scenarios = [
     },
   },
   {
-    name: "assistant loads only after explicit tap",
+    name: "recruiter critical mobile routes stay inside RES budget",
+    run: async (page, errors) => {
+      const routeStates = [];
+
+      for (const route of RECRUITER_CRITICAL_ROUTES) {
+        await visitMobileHome(page, route);
+        await assertImagesHealthy(page);
+
+        const state = await collectPageState(page);
+        const flagged = matchingAssets(state.resourceUrls, INITIAL_MOBILE_BLOCKLIST);
+        const bodyText = await page.evaluate(() => document.body.innerText);
+
+        assert(state.mainRendered, `${route} did not render main content`);
+        assert(flagged.length === 0, `${route} loaded cold blocked assets: ${flagged.join(", ")}`);
+        assert(!/Data Corrupted|could not be retrieved/i.test(bodyText), `${route} rendered missing-project state`);
+        assertVitalsBudget(state, route);
+
+        routeStates.push({
+          route,
+          scriptCount: state.scriptCount,
+          maxLongTask: state.maxLongTask,
+          totalLongTask: state.totalLongTask,
+          lcp: state.metrics.lcp,
+          cls: Number(state.metrics.cls.toFixed(4)),
+        });
+      }
+
+      assertNoRuntimeErrors(errors);
+      return { routeStates };
+    },
+  },
+  {
+    name: "mobile nav and primary CTA interactions stay responsive",
     run: async (page, errors) => {
       await visitMobileHome(page);
+
+      const menuDuration = await measureSelectorInteraction(
+        page,
+        'button[aria-label="Open Menu"]',
+      );
+      assert(
+        menuDuration <= MAX_INTERACTION_MS,
+        `Menu interaction ${menuDuration}ms exceeded ${MAX_INTERACTION_MS}ms`,
+      );
+
+      const closeButton = await page.$('button[aria-label="Close Menu"]');
+      if (closeButton) {
+        const closeDuration = await measureSelectorInteraction(
+          page,
+          'button[aria-label="Close Menu"]',
+        );
+        assert(
+          closeDuration <= MAX_INTERACTION_MS,
+          `Menu close interaction ${closeDuration}ms exceeded ${MAX_INTERACTION_MS}ms`,
+        );
+      }
+
+      const ctaDuration = await measureSelectorInteraction(
+        page,
+        'a[aria-label="View Featured Work and Portfolio"]',
+      );
+      assert(
+        ctaDuration <= MAX_INTERACTION_MS,
+        `Primary CTA interaction ${ctaDuration}ms exceeded ${MAX_INTERACTION_MS}ms`,
+      );
+
+      assertNoRuntimeErrors(errors);
+      return { menuDuration, ctaDuration };
+    },
+  },
+  {
+    name: "assistant stays off mobile cold path",
+    run: async (page, errors) => {
+      await visitMobileHome(page);
+      const state = await collectPageState(page);
+      const assistantAssets = matchingAssets(state.resourceUrls, [
+        /VirtualAssistant/i,
+        /sprite-/i,
+      ]);
+
+      assert(assistantAssets.length === 0, `Assistant loaded on mobile cold path: ${assistantAssets.join(", ")}`);
+      assert(
+        !(await page.$('button[aria-label="Open Echo.Z assistant"]')),
+        "Assistant launcher rendered on mobile cold path",
+      );
+      assertNoRuntimeErrors(errors);
+
+      return {
+        assistantAssets,
+      };
+    },
+  },
+  {
+    name: "desktop assistant loads only after explicit tap",
+    run: async (page, errors) => {
+      await visitDesktopHome(page);
+      await delay(10000);
+
       const before = await collectPageState(page);
       const flaggedBefore = matchingAssets(before.resourceUrls, [
         /VirtualAssistant/i,

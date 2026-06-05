@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const DeferredSection = ({
   children,
+  id,
   force = false,
   deferUntilScroll = false,
   minHeight = "min-h-[360px]",
@@ -57,6 +58,7 @@ const DeferredSection = ({
 
   return (
     <div
+      id={id}
       ref={ref}
       className={`${className} ${shouldRender ? "" : minHeight}`}
       aria-busy={!shouldRender}
