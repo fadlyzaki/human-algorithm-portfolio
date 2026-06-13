@@ -49,7 +49,7 @@ const Header = ({
             <ArrowLeft size={24} />
           </button>
         )}
-        <h1 className="text-lg font-bold truncate max-w-[180px]">{title}</h1>
+        <div className="text-lg font-bold truncate max-w-[180px]">{title}</div>
       </div>
       {rightAction}
     </div>

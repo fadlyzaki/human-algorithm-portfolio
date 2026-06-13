@@ -239,7 +239,7 @@ const LearningArchitectDetail = ({
     : ["Landing", "Login / Signup", "Onboarding", "Dashboard", "Roadmap", "Session", "Comprehension", "Reviews", "Progress", "Reflections", "Goals"];
 
   return (
-    <div className="text-[var(--text-primary)] font-sans min-h-[100dvh] pb-32 selection:bg-emerald-500/30">
+    <main className="text-[var(--text-primary)] font-sans min-h-[100dvh] pb-32 selection:bg-emerald-500/30">
 
       {/* ─────────────────────────────────────────────────────────────
           HERO
@@ -589,12 +589,20 @@ const LearningArchitectDetail = ({
                   <button
                     key={i}
                     onClick={() => setActivePhase(i)}
-                    className="w-1.5 h-1.5 rounded-full transition-all"
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-all"
                     style={{
-                      background: i === activePhase ? accentEmerald : "var(--border-color)",
-                      transform: i === activePhase ? "scale(1.5)" : "scale(1)",
+                      color: i === activePhase ? accentEmerald : "var(--border-color)",
                     }}
-                  />
+                    aria-label={`Show learning loop phase ${i + 1}`}
+                  >
+                    <span
+                      className="h-1.5 w-1.5 rounded-full transition-transform"
+                      style={{
+                        background: "currentColor",
+                        transform: i === activePhase ? "scale(1.5)" : "scale(1)",
+                      }}
+                    />
+                  </button>
                 ))}
               </div>
             </div>
@@ -618,7 +626,7 @@ const LearningArchitectDetail = ({
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 font-mono text-[11px] uppercase tracking-wider transition-all border-b-2 -mb-px ${
+                className={`min-h-[44px] px-6 py-3 font-mono text-[11px] uppercase tracking-wider transition-all border-b-2 -mb-px ${
                   activeTab === tab.id
                     ? "border-emerald-500 text-[var(--text-primary)]"
                     : "border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
@@ -1016,7 +1024,7 @@ const LearningArchitectDetail = ({
         </div>
       </section>
 
-    </div>
+    </main>
   );
 };
 

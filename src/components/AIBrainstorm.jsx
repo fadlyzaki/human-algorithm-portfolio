@@ -224,7 +224,7 @@ const AIBrainstorm = ({ hypotheses, t }) => {
                     <button
                       onClick={exploreAnother}
                       disabled={isThinking}
-                      className={`group flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${
+                      className={`group flex min-h-[48px] items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${
                         isThinking
                           ? "border-emerald-500/30 bg-emerald-500/5 cursor-wait text-gray-500"
                           : "border-white/20 hover:border-emerald-400 hover:bg-emerald-500/10 text-white"

@@ -139,17 +139,17 @@ const LayoutLab = ({ isXRayMode }) => (
           </div>
         </div>
 
-        {/* Curve 2: Elastic */}
+        {/* Curve 2: Precise out */}
         <div className="space-y-4 group cursor-pointer">
           <div className="h-32 border border-[var(--border-color)] bg-[var(--bg-card)] relative overflow-hidden flex items-center justify-center">
-            <div className="w-8 h-8 bg-[var(--accent-green)] rounded shadow-lg group-hover:scale-150 transition-transform duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]"></div>
+            <div className="w-8 h-8 bg-[var(--accent-green)] rounded shadow-lg group-hover:scale-150 transition-transform duration-[600ms] ease-[var(--ease-out-expo)]"></div>
           </div>
           <div>
             <h4 className="font-bold text-sm text-[var(--text-primary)]">
-              Elastic Pop
+              Precise Out
             </h4>
             <code className="text-xs text-[var(--text-secondary)]">
-              cubic-bezier(.34,1.56,...)
+              cubic-bezier(.16,1,.3,1)
             </code>
           </div>
         </div>

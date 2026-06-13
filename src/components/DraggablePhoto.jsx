@@ -95,7 +95,7 @@ const DraggablePhoto = () => {
       <motion.div
         drag
         dragConstraints={DRAG_CONSTRAINTS}
-        dragElastic={0.15}
+        dragElastic={0}
         dragTransition={DRAG_TRANSITION}
         whileHover={HOVER_ANIMATION}
         whileTap={TAP_ANIMATION}

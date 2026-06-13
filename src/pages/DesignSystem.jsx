@@ -37,12 +37,12 @@ const DesignSystem = () => {
       )}
 
       <PageShell navbarProps={{ backPath: "/side-project/human-algorithm", title: t("design_system.nav_title") }}>
-        <main className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-[100dvh] bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
+        <div className="relative z-10 w-full max-w-[1072px] mx-auto px-4 sm:px-6 pt-24 md:pt-24 pb-0 md:border-x border-[var(--border-color)] min-h-[100dvh] bg-white/95 dark:bg-black/95 backdrop-blur-md transition-colors duration-500 overflow-x-hidden shadow-2xl">
           <DesignSystemViewer />
           <section className="mb-0">
             <Footer />
           </section>
-        </main>
+        </div>
       </PageShell>
     </div>
   );

@@ -172,6 +172,11 @@ const assertNoRuntimeErrors = (errors) => {
   assert(errors.length === 0, `Runtime errors detected:\n${errors.join("\n")}`);
 };
 
+const shouldRecordConsoleError = (text) => {
+  // Chromium emits opaque resource errors without URLs; URL-specific failures are captured below.
+  return !/^Failed to load resource:/i.test(text);
+};
+
 const assertLongTaskBudget = (state, label = "page") => {
   const longTaskSummary = (state.metrics.longTasks || []).join(", ");
   assert(
@@ -234,7 +239,10 @@ const createPage = async (browser) => {
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("console", (message) => {
     if (message.type() === "error") {
-      errors.push(message.text());
+      const text = message.text();
+      if (shouldRecordConsoleError(text)) {
+        errors.push(text);
+      }
     }
   });
   page.on("requestfailed", (request) => {

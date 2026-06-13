@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { act, render, screen } from '@testing-library/react';
+import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import ChaosToMatrixIntro from './ChaosToMatrixIntro';
 
 // Mock the ThemeContext
@@ -9,11 +9,22 @@ vi.mock('../../context/ThemeContext', () => ({
 }));
 
 describe('ChaosToMatrixIntro Component', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.clearAllTimers();
+    vi.useRealTimers();
+  });
+
   it('renders the initializing text after mounting', async () => {
     render(<ChaosToMatrixIntro />);
-    // The component delays rendering until isMounted is true via a setTimeout(0)
-    await waitFor(() => {
-      expect(screen.getByText(/> Awaiting inputs/i)).toBeInTheDocument();
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(0);
     });
+
+    expect(screen.getByText(/> Awaiting inputs/i)).toBeInTheDocument();
   });
 });

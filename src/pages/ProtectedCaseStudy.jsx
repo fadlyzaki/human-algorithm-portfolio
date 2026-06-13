@@ -1,6 +1,6 @@
 import React, { useState, Suspense } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ShieldAlert, ArrowLeft, Activity, FileText } from "lucide-react";
+import { ShieldAlert, ArrowLeft, FileText } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
 import Navbar from "../components/Navbar";
@@ -10,11 +10,16 @@ import LockScreen from "../components/auth/LockScreen";
 import { isProjectLocked, isProjectBypassed } from "../utils/projectMappers";
 import ChaosMatrixBackground from "../components/auth/ChaosMatrixBackground";
 import SEO from "../components/SEO";
+import { getCaseStudyLoadingMeta } from "../utils/caseStudyLoadingMeta";
+import CaseStudyLoadingShell from "../components/case-study/CaseStudyLoadingShell";
 
 // Lazy Load Heavy Content with Retry Logic
 const CaseStudyContent = lazyWithRetry(
   () => import("../components/case-study/CaseStudyContent"),
 );
+
+const CASE_FILE_SHELL_MS = 900;
+
 
 const ProtectedCaseStudy = () => {
   const { id } = useParams();
@@ -24,9 +29,11 @@ const ProtectedCaseStudy = () => {
   const [isInitialized, setIsInitialized] = useState(false);
   const [, setIsMenuOpen] = useState(false); // Added for Navbar
   const [authPhase, setAuthPhase] = useState("chaos");
+  const [showCaseContent, setShowCaseContent] = useState(false);
 
   // Use Centralized Data Hook
   const { project, parentCluster, loading, error } = useProjectData(id);
+  const projectId = project?.id;
 
   // Sync lock state once project data is loaded
   React.useEffect(() => {
@@ -42,12 +49,30 @@ const ProtectedCaseStudy = () => {
     }
   }, [project, isInitialized]);
 
+  React.useEffect(() => {
+    if (!isInitialized || isLocked || !projectId) {
+      setShowCaseContent(false);
+      return undefined;
+    }
+
+    setShowCaseContent(false);
+    const timer = window.setTimeout(() => setShowCaseContent(true), CASE_FILE_SHELL_MS);
+    return () => window.clearTimeout(timer);
+  }, [id, isInitialized, isLocked, projectId]);
+
   // --- LOADING PROTOTYPE ---
   if (loading) {
+    const loadingMeta = getCaseStudyLoadingMeta(id);
+
     return (
-      <div className="min-h-[100dvh] bg-black flex items-center justify-center">
-        <Activity className="animate-pulse text-gray-500" />
-      </div>
+      <>
+        <SEO title={loadingMeta.project.title} />
+        <CaseStudyLoadingShell
+          project={loadingMeta.project}
+          parentCluster={loadingMeta.parentCluster}
+          isId={isId}
+        />
+      </>
     );
   }
 
@@ -116,15 +141,7 @@ const ProtectedCaseStudy = () => {
           }}
         />
       ) : (
-        <Suspense
-          fallback={
-            <div className="min-h-[100dvh] bg-transparent relative z-10 flex items-center justify-center">
-              <div className="font-mono text-xs uppercase tracking-wider animate-pulse text-emerald-400">
-                Loading_Case_File...
-              </div>
-            </div>
-          }
-        >
+        <>
           {/* --- NAVIGATION SYSTEM --- */}
           <Navbar
             onOpenMenu={() => setIsMenuOpen(true)}
@@ -132,8 +149,26 @@ const ProtectedCaseStudy = () => {
             backPath={`/work/${parentCluster?.id || ""}`}
           />
 
-          <CaseStudyContent project={project} parentCluster={parentCluster} />
-        </Suspense>
+          {showCaseContent ? (
+            <Suspense
+              fallback={
+                <CaseStudyLoadingShell
+                  project={project}
+                  parentCluster={parentCluster}
+                  isId={isId}
+                />
+              }
+            >
+              <CaseStudyContent project={project} parentCluster={parentCluster} />
+            </Suspense>
+          ) : (
+            <CaseStudyLoadingShell
+              project={project}
+              parentCluster={parentCluster}
+              isId={isId}
+            />
+          )}
+        </>
       )}
     </>
   );

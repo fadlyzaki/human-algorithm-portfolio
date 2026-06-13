@@ -48,7 +48,7 @@ const Header = ({ title = "Order #74HB21G8Z3", showBack = true, onBack }) => {
             <ArrowLeft size={24} />
           </button>
         )}
-        <h1 className="text-lg font-bold truncate max-w-[180px]">{title}</h1>
+        <div className="text-lg font-bold truncate max-w-[180px]">{title}</div>
       </div>
       <button className="focus:outline-none flex flex-col items-center opacity-90 hover:opacity-100">
         <MessageCircle size={24} />
@@ -270,7 +270,7 @@ const OrderDetailsLayout = ({ children, onNavigate, activeScreen }) => {
     <div className="relative w-full h-full flex flex-col bg-gray-100 dark:bg-gray-900 font-sans">
       <StatusBar variant="dark" />
       <Header onBack={() => onNavigate("home")} />
-      <main className="flex-1 overflow-y-auto p-4 no-scrollbar">
+      <div className="flex-1 overflow-y-auto p-4 no-scrollbar">
         <div className="px-1 mb-4">
           <h2 className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
             Rincian Pesanan
@@ -305,7 +305,7 @@ const OrderDetailsLayout = ({ children, onNavigate, activeScreen }) => {
             </span>
           </div>
         </div>
-      </main>
+      </div>
       <div className="absolute bottom-0 w-full h-8 flex justify-center items-center bg-transparent pointer-events-none">
         <div className="w-32 h-1 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
       </div>

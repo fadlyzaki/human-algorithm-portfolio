@@ -85,7 +85,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsDark(!isDark)}
-              className="text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1"
+              className="min-h-[44px] min-w-[44px] text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors p-1"
               aria-label="Toggle Theme"
             >
               {isDark ? <Sun size={16} /> : <Moon size={16} />}
@@ -93,8 +93,9 @@ const CaseStudyContent = ({ project, parentCluster }) => {
 
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              className="flex min-h-[44px] min-w-[44px] items-center justify-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               title="Switch Language"
+              aria-label="Switch Language"
             >
               <Globe size={16} />
               <span className="font-mono text-xs uppercase tracking-wider">

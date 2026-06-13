@@ -2,6 +2,8 @@ import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { lazyWithRetry } from "./utils/lazyWithRetry";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { getCaseStudyLoadingMeta } from "./utils/caseStudyLoadingMeta";
+import CaseStudyLoadingShell from "./components/case-study/CaseStudyLoadingShell";
 
 // Lazy Import Pages with Retry Logic
 const Home = lazyWithRetry(() => import("./pages/Home"));
@@ -28,13 +30,35 @@ import ScrollToTop from "./components/ScrollToTop";
 
 import ProgressiveExperience from "./components/ProgressiveExperience";
 
+const getCaseStudyIdFromLocation = () => {
+  if (typeof window === "undefined") return null;
+  return window.location.pathname.match(/^\/case-study\/([^/]+)/)?.[1] || null;
+};
+
 // Loading Fallback Component
-const PageLoader = () => (
-  <div
-    data-testid="page-loader"
-    className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)]"
-  />
-);
+const PageLoader = () => {
+  const caseStudyId = getCaseStudyIdFromLocation();
+
+  if (caseStudyId) {
+    const { project, parentCluster } = getCaseStudyLoadingMeta(caseStudyId);
+
+    return (
+      <CaseStudyLoadingShell
+        data-testid="page-loader"
+        titleId="route-loading-title"
+        project={project}
+        parentCluster={parentCluster}
+      />
+    );
+  }
+
+  return (
+    <div
+      data-testid="page-loader"
+      className="min-h-[100dvh] bg-[var(--bg-void)] text-[var(--text-primary)]"
+    />
+  );
+};
 
 function App() {
   return (

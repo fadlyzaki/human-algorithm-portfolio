@@ -78,7 +78,7 @@ const Navbar = ({
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="flex items-center gap-3 group"
+                  className="flex min-h-[44px] items-center gap-3 group"
                 >
                   {/* Logo / Glitch Text */}
                   <span className="font-mono font-bold text-lg tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-blue)] transition-colors flex items-center gap-2">
@@ -105,9 +105,9 @@ const Navbar = ({
           {/* CENTER: PROCESS LINKS (Home) or TITLE (Subpage) */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap hidden sm:block">
             {title ? (
-              <h1 className="font-mono text-[10px] sm:text-sm uppercase tracking-wider text-[var(--text-primary)] font-bold">
+              <div className="font-mono text-[10px] sm:text-sm uppercase tracking-wider text-[var(--text-primary)] font-bold">
                 {title}
-              </h1>
+              </div>
             ) : (
               <nav className="hidden md:flex items-center gap-1">
                 <HoverNavLink to="/about" label={t("nav.about")} />
@@ -128,8 +128,9 @@ const Navbar = ({
               {onViewCoverLetter && (
                 <button
                   onClick={onViewCoverLetter}
-                  className="p-1.5 sm:p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 transition-colors"
+                  className="min-h-[44px] min-w-[44px] p-1.5 sm:p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 transition-colors"
                   title="View Cover Letter"
+                  aria-label="View Cover Letter"
                 >
                   <FileText size={16} />
                 </button>
@@ -177,7 +178,7 @@ const Navbar = ({
 
               <button
                 onClick={() => setIsDark(!isDark)}
-                className="p-1.5 sm:p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-amber)] hover:bg-[var(--text-secondary)]/10 transition-colors"
+                className="min-h-[44px] min-w-[44px] p-1.5 sm:p-2 rounded text-[var(--text-secondary)] hover:text-[var(--accent-amber)] hover:bg-[var(--text-secondary)]/10 transition-colors"
                 aria-label={t("nav.toggle_theme")}
               >
                 {isDark ? <Sun size={16} /> : <Moon size={16} />}
@@ -185,8 +186,9 @@ const Navbar = ({
 
               <button
                 onClick={toggleLanguage}
-                className="px-1.5 py-1 sm:px-2 sm:py-1 font-mono text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 rounded transition-colors text-[10px] sm:text-xs uppercase tracking-wider"
+                className="min-h-[44px] min-w-[44px] px-1.5 py-1 sm:px-2 sm:py-1 font-mono text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 rounded transition-colors text-[10px] sm:text-xs uppercase tracking-wider"
                 title={t("nav.switch_language")}
+                aria-label={t("nav.switch_language")}
               >
                 {language}
               </button>
@@ -201,7 +203,7 @@ const Navbar = ({
           {/* Quick: Work */}
           <Link
             to="/#work"
-            className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors px-2 py-1"
+            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors px-2 py-1"
           >
             {t("nav.work")}
           </Link>
@@ -222,7 +224,7 @@ const Navbar = ({
           {/* Quick: Contact */}
           <Link
             to="/contact"
-            className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors px-2 py-1"
+            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--accent-amber)] transition-colors px-2 py-1"
           >
             {t("nav.contact")}
           </Link>

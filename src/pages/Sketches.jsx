@@ -53,9 +53,9 @@ const Sketches = () => {
           className="mx-auto flex min-h-[70dvh] w-full max-w-6xl flex-col justify-center px-4 sm:px-6 lg:px-8"
           aria-labelledby="sketches-archive-title"
         >
-          <h2 id="sketches-archive-title" className="sr-only">
+          <h1 id="sketches-archive-title" className="sr-only">
             {t("sketches.archive_sr_title") || "Sketches Archive"}
-          </h2>
+          </h1>
 
           {/* Intent copy — orients the recruiter before the widget loads */}
           <p className="mb-6 max-w-xl font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] opacity-70">

@@ -18,10 +18,10 @@ const DashboardScreen = ({ onNavigate }) => {
         className="px-4 py-3 pb-6 text-white shadow-md z-10 shrink-0"
         style={{ backgroundColor: THEME.colors.primaryOrange }}
       >
-        <h1 className="text-xl font-bold tracking-wide">Performa</h1>
+        <div className="text-xl font-bold tracking-wide">Performa</div>
       </header>
 
-      <main className="flex-1 overflow-y-auto pb-24 relative no-scrollbar">
+      <div className="flex-1 overflow-y-auto pb-24 relative no-scrollbar">
         <div
           className="px-4 py-3 flex items-start space-x-3 text-sm border-b"
           style={{
@@ -284,7 +284,7 @@ const DashboardScreen = ({ onNavigate }) => {
             </div>
           </div>
         </div>
-      </main>
+      </div>
 
       <BottomNav active="performa" onNavigate={onNavigate} />
     </div>

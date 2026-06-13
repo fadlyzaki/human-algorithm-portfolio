@@ -46,14 +46,14 @@ const FooterTooltipLink = ({
   useEffect(() => () => clearTimeout(timeoutRef.current), []);
 
   const linkClass =
-    "relative text-sm hover:text-[var(--text-primary)] transition-colors duration-200 cursor-pointer";
+    "relative inline-flex min-h-[44px] items-center text-sm hover:text-[var(--text-primary)] transition-colors duration-200 cursor-pointer";
 
   const tooltipEl = (
     <span
       className={`absolute left-1/2 bottom-full mb-3 flex items-center gap-2 px-3 py-2 rounded-full whitespace-nowrap
                 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900
                 shadow-xl shadow-black/25 dark:shadow-black/10
-                transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] pointer-events-none z-50
+                transition-all duration-300 ease-[var(--ease-out-expo)] pointer-events-none z-50
                 ${show
           ? "opacity-100 -translate-x-1/2 translate-y-0 scale-100"
           : "opacity-0 -translate-x-1/2 translate-y-3 scale-90"
@@ -178,7 +178,7 @@ const DoNotPressButton = () => {
   return (
     <button
       onClick={triggerChaos}
-      className={`text-[9px] font-mono uppercase tracking-wider px-2 py-1 rounded transition-colors ${
+      className={`min-h-[44px] text-[9px] font-mono uppercase tracking-wider px-3 py-2 rounded transition-colors ${
         chaosCount > 0
           ? "bg-red-500/10 text-red-500 border border-red-500/30"
           : "text-[var(--text-secondary)] border border-[var(--text-secondary)]/30 hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/30"

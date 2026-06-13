@@ -104,7 +104,7 @@ const NeuralEcho = () => {
         <button
           onClick={handleRefresh}
           disabled={isTyping}
-          className={`flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.12em] transition-all px-5 py-2.5 rounded-xl border
+          className={`flex min-h-[44px] items-center gap-3 font-mono text-[10px] uppercase tracking-[0.12em] transition-all px-5 py-2.5 rounded-xl border
                         ${isTyping
               ? "opacity-20 cursor-not-allowed border-transparent"
               : "text-[var(--text-card-secondary)] hover:text-[var(--accent-blue)] bg-[var(--bg-void)]/10 border-[var(--border-color)]/20 hover:border-[var(--accent-blue)]/50 hover:bg-[var(--accent-blue)]/5 hover:shadow-lg hover:shadow-[var(--accent-blue)]/5"

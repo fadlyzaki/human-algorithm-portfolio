@@ -49,7 +49,7 @@ const CosmicPopDetail = ({
             </span>
           </nav>
 
-          <h1 className="text-6xl md:text-8xl font-black italic tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-[var(--text-primary)] via-[var(--text-secondary)] to-[var(--accent-sky)] max-w-4xl leading-[1.1]">
+          <h1 className="text-6xl md:text-8xl font-black italic tracking-tight text-[var(--text-primary)] max-w-4xl leading-[1.1] drop-shadow-[0_0_32px_rgba(0,194,255,0.16)]">
             {activeTitle}
           </h1>
 
@@ -167,7 +167,7 @@ const CosmicPopDetail = ({
                           {t("project_layouts.lesson_learned")}
                         </span>
                       </div>
-                      <p className="text-3xl lg:text-5xl font-black italic text-transparent bg-clip-text bg-gradient-to-br from-[var(--text-primary)] to-[var(--accent-sky)] leading-tight">
+                      <p className="text-3xl lg:text-5xl font-black italic text-[var(--text-primary)] leading-tight">
                         "{activeLearnings}"
                       </p>
                     </div>
@@ -238,7 +238,7 @@ const CosmicPopDetail = ({
                         <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[var(--accent-sky)] to-[var(--accent-purple)] text-[#0A0A0C] flex items-center justify-center font-black text-xl shadow-[0_0_20px_rgba(139,92,246,0.4)]">
                           {activePhase + 1}
                         </div>
-                        <h3 className="text-3xl md:text-4xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-primary)] to-[var(--accent-sky)] leading-none">
+                        <h3 className="text-3xl md:text-4xl font-black italic text-[var(--text-primary)] leading-none">
                           {activeProcess[activePhase].title}
                         </h3>
                       </div>
@@ -286,7 +286,7 @@ const CosmicPopDetail = ({
                <div className="flex flex-wrap justify-center gap-x-16 gap-y-12">
                   {activeMetrics.map((m, i) => (
                     <div key={i} className="flex flex-col items-center">
-                      <div className="text-5xl md:text-7xl font-black italic text-transparent bg-clip-text bg-gradient-to-br from-white to-[var(--accent-purple)] mb-4 drop-shadow-lg">
+                      <div className="text-5xl md:text-7xl font-black italic text-[var(--text-primary)] mb-4 drop-shadow-lg">
                         {m.value}
                       </div>
                       <div className="text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] px-4 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-void)]">

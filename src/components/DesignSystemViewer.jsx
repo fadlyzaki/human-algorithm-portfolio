@@ -136,7 +136,7 @@ const DesignSystemViewer = () => {
         </aside>
 
         {/* Main Content Area */}
-        <main className="flex-1 min-h-[100dvh]">
+        <main className="flex-1 min-h-[100dvh]" aria-labelledby="design-kernel-title">
           {/* Header Terminal */}
           <header className="border-b border-[var(--border-color)] p-8 md:p-12 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none">
@@ -151,7 +151,7 @@ const DesignSystemViewer = () => {
                 </span>
               </div>
               <div>
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-[var(--text-primary)] mb-8">
+                <h1 id="design-kernel-title" className="text-5xl md:text-7xl font-bold tracking-tighter text-[var(--text-primary)] mb-8">
                   DESIGN_KERNEL
                   <span className="text-[var(--accent)]">.SYS</span>
                 </h1>

@@ -10,7 +10,7 @@ import { Hash, Quote } from 'lucide-react';
 const MDXComponents = {
     // --- HEADINGS ---
     h1: (props) => (
-        <h1
+        <h2
             className="text-4xl md:text-5xl font-serif font-extrabold leading-tight mt-16 mb-8 text-[var(--text-primary)] tracking-tight"
             {...props}
         />

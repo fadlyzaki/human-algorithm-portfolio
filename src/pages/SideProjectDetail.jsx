@@ -305,7 +305,7 @@ const SideProjectDetail = () => {
         backPath="/side-projects"
       />
 
-      <main className="relative z-10">
+      <div className="relative z-10">
         {/* --- LAYOUT ORCHESTRATOR --- */}
         {(() => {
           const commonProps = {
@@ -350,7 +350,7 @@ const SideProjectDetail = () => {
             </Suspense>
           );
         })()}
-      </main>
+      </div>
 
       <Footer />
     </div>

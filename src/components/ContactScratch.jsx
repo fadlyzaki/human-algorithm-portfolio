@@ -183,8 +183,9 @@ const ContactScratch = ({ email = "fadly.uzzaki@gmail.com" }) => {
           </span>
           <button
             onClick={handleCopy}
-            className="relative z-10 p-1.5 hover:bg-white/10 dark:hover:bg-zinc-800 rounded transition-colors"
+            className="relative z-10 flex min-h-[48px] min-w-[48px] items-center justify-center p-1.5 hover:bg-white/10 dark:hover:bg-zinc-800 rounded transition-colors"
             title={t?.("contact.copy_email") || "Copy to clipboard"}
+            aria-label={t?.("contact.copy_email") || "Copy to clipboard"}
           >
             {copied ? (
               <Check size={14} className="text-[var(--brand)]" />

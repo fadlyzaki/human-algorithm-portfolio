@@ -241,7 +241,7 @@ const NotFound = () => {
   const formatTime = (s) => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
 
   return (
-    <div className="min-h-[100dvh] font-mono select-none overflow-hidden relative bg-[var(--bg-void)]" style={{ touchAction: "none" }}>
+    <main className="min-h-[100dvh] font-mono select-none overflow-hidden relative bg-[var(--bg-void)]" style={{ touchAction: "none" }}>
       <SEO title={t("not_found.seo_title")} description={t("not_found.seo_desc")} noindex>
         <meta name="robots" content="noindex, nofollow" />
       </SEO>
@@ -440,7 +440,7 @@ const NotFound = () => {
           <p className="text-emerald-400/70">{t("not_found.terminal_hint")}</p>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

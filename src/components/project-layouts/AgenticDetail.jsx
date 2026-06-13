@@ -35,7 +35,7 @@ const AgenticDetail = ({
 
 
   return (
-    <div
+    <main
       ref={containerRef}
       className="text-[var(--text-primary)] font-sans min-h-[100dvh] pt-24 pb-32 px-4 md:px-8 selection:bg-[var(--accent-purple)] selection:text-white"
     >
@@ -179,7 +179,7 @@ const AgenticDetail = ({
                         <button
                           key={tab.id}
                           onClick={() => setActiveTab(tab.id)}
-                          className={`px-4 py-2 font-mono text-xs uppercase tracking-wider transition-colors border-b-2 -mb-px shrink-0 ${
+                          className={`min-h-[44px] px-4 py-2 font-mono text-xs uppercase tracking-wider transition-colors border-b-2 -mb-px shrink-0 ${
                             activeTab === tab.id
                               ? "border-[var(--accent-purple)] text-[var(--accent-purple)]"
                               : "border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
@@ -256,7 +256,7 @@ const AgenticDetail = ({
                               <button
                                 key={idx}
                                 onClick={() => setActivePhase(idx)}
-                                className={`w-full text-left px-4 py-3 rounded border transition-all duration-200 flex items-center gap-3 font-mono text-xs group ${
+                                className={`w-full min-h-[44px] text-left px-4 py-3 rounded border transition-all duration-200 flex items-center gap-3 font-mono text-xs group ${
                                   isActive
                                     ? "border-[var(--accent-purple)] bg-[var(--accent-purple)]/10 text-[var(--accent-purple)] shadow-[inset_2px_0_0_var(--accent-purple)]"
                                     : "border-[var(--border-color)] bg-[var(--bg-void)] hover:border-[var(--accent-purple)]/30 text-[var(--text-secondary)]"
@@ -370,7 +370,7 @@ const AgenticDetail = ({
           
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

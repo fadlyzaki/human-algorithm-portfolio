@@ -15,7 +15,7 @@ const OnboardingScreen = ({ onNavigate }) => {
         className="px-4 py-3 flex items-center justify-between shadow-sm z-10 shrink-0"
         style={{ backgroundColor: THEME.colors.primaryOrange }}
       >
-        <h1 className="text-white text-lg font-bold">Performa</h1>
+        <div className="text-white text-lg font-bold">Performa</div>
       </div>
 
       {/* Background Content (Blurred) */}

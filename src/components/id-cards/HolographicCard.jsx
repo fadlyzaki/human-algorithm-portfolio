@@ -39,7 +39,7 @@ const HolographicCard = ({ t, isDark, currentItem }) => (
         <div className={`p-4 z-10 backdrop-blur-md border-t ${isDark ? "bg-white/30 border-black/10" : "bg-black/30 border-white/10"}`}>
           <div className="flex justify-between items-end mb-2">
             <div>
-              <h2 className={`text-2xl font-black tracking-tighter leading-none mb-1 text-transparent bg-clip-text bg-gradient-to-br whitespace-nowrap ${isDark ? "from-gray-900 via-gray-700 to-gray-500" : "from-white dark:via-gray-300 dark:to-gray-500"}`}>
+              <h2 className={`text-2xl font-black tracking-tighter leading-none mb-1 whitespace-nowrap ${isDark ? "text-gray-900" : "text-white"}`}>
                 🧢 FADLY UZZAKI
               </h2>
               <span className={`text-[9px] font-mono uppercase tracking-wider block font-bold ${isDark ? "text-gray-900" : "text-gray-400"}`}>

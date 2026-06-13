@@ -26,7 +26,7 @@ const OrderScreen = ({ onNavigate }) => {
           >
             <ArrowLeft size={20} />
           </button>
-          <h1 className="text-lg font-semibold">Revenue & Orders</h1>
+          <div className="text-lg font-semibold">Revenue & Orders</div>
         </div>
       </div>
 

@@ -96,18 +96,18 @@ const TaskManagementPage = ({ onNavigate }) => {
         <div className="flex justify-between items-center mt-2">
           <div className="flex flex-col">
             <span className="text-xs font-medium opacity-90">Checker</span>
-            <h1 className="text-xl font-bold">Alex Subagja</h1>
+            <div className="text-xl font-bold">Alex Subagja</div>
           </div>
           <button
             aria-label="Logout"
-            className="p-2 rounded-full hover:bg-white/20 transition-colors"
+            className="flex min-h-[48px] min-w-[48px] items-center justify-center p-2 rounded-full hover:bg-white/20 transition-colors"
           >
             <LogOut size={20} />
           </button>
         </div>
       </header>
 
-      <main className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4">
           <div className="grid grid-cols-4 divide-x divide-gray-200 dark:divide-gray-700 text-center">
             <div className="px-1">
@@ -256,7 +256,7 @@ const TaskManagementPage = ({ onNavigate }) => {
             </div>
           </div>
         </section>
-      </main>
+      </div>
       <BottomNav onNavigate={onNavigate} currentPath="/" />
     </div>
   );
@@ -272,9 +272,9 @@ const TrackingScreen = () => (
         </button>
         <div className="flex flex-col">
           <span className="text-[10px] text-gray-500 font-medium">F10R1</span>
-          <h1 className="text-sm font-bold text-gray-900 leading-none">
+          <div className="text-sm font-bold text-gray-900 leading-none">
             Warteg Jaya Bahari
-          </h1>
+          </div>
         </div>
       </div>
       <div className="flex items-center space-x-2">
@@ -398,7 +398,7 @@ const CheckingDetailPage = ({ onNavigate }) => {
           >
             <ArrowLeft size={24} />
           </button>
-          <h1 className="text-lg font-semibold tracking-wide">Checking</h1>
+          <div className="text-lg font-semibold tracking-wide">Checking</div>
         </div>
       </div>
 

@@ -24,11 +24,11 @@ const TypographyLab = ({ isXRayMode }) => (
       </div>
 
       <div className="relative">
-        <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.9]">
+        <div className="text-5xl md:text-8xl font-bold tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.9]" aria-hidden="true">
           Human
           <br />
           Algorithm<span className="text-[var(--accent)]">.</span>
-        </h1>
+        </div>
 
         {/* Spec Annotations */}
         <div className="absolute -left-6 top-0 h-full w-px bg-[var(--accent)]/30 hidden group-hover:block"></div>

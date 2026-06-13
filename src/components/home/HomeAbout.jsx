@@ -126,7 +126,7 @@ const InterestSelector = ({ t }) => {
                 onMouseLeave={() => setHovered(null)}
                 className={`inline-flex items-center gap-1.5 rounded-full text-xs font-medium
                                     px-3 py-1.5 border cursor-pointer select-none
-                                    transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+                                    transition-all duration-300 ease-[var(--ease-out-expo)]
                                     hover:scale-105
                                     ${isOn
                     ? "border-transparent shadow-sm"
@@ -297,7 +297,7 @@ const DraggableBento = ({ id, activeId, setActiveId, constraintsRef, className, 
       dragConstraints={constraintsRef}
       onPointerDown={() => setActiveId(id)}
       whileDrag={{ scale: 1.02, cursor: "grabbing" }}
-      dragElastic={0.1}
+      dragElastic={0}
       className={`${className} cursor-grab relative draggable-bento`}
       style={{ zIndex: isActive ? 50 : 1 }}
       title="Drag to rearrange"

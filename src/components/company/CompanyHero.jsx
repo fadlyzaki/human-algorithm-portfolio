@@ -67,7 +67,7 @@ const CompanyHero = ({
             <div className="absolute top-4 right-4 z-40">
               <button
                 onClick={() => setShowNarrative(!showNarrative)}
-                className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 font-mono text-[10px] uppercase tracking-wider ${showNarrative ? "bg-[var(--brand)] text-white border-[var(--brand)]" : "bg-black/50 text-white/70 border-white/20 hover:border-white/40"}`}
+                className={`flex min-h-[44px] items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 font-mono text-[10px] uppercase tracking-wider ${showNarrative ? "bg-[var(--brand)] text-white border-[var(--brand)]" : "bg-black/50 text-white/70 border-white/20 hover:border-white/40"}`}
               >
                 {showNarrative ? <Cpu size={12} /> : <Scan size={12} />}
                 {showNarrative
@@ -100,7 +100,7 @@ const CompanyHero = ({
                   <button
                     type="button"
                     onClick={() => setSimulationRequested(true)}
-                    className="mt-4 rounded-lg border border-white/20 bg-white/10 px-4 py-2 font-mono text-[10px] uppercase tracking-wider text-white transition-colors hover:border-white/50 hover:bg-white/15"
+                    className="mt-4 min-h-[44px] rounded-lg border border-white/20 bg-white/10 px-4 py-2 font-mono text-[10px] uppercase tracking-wider text-white transition-colors hover:border-white/50 hover:bg-white/15"
                   >
                     {t("company.loading_simulation")}
                   </button>

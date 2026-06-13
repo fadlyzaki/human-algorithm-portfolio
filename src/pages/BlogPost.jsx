@@ -213,7 +213,7 @@ const BlogPost = () => {
             <div className="font-bold text-lg">Fadly Uzzaki 🧢</div>
           </div>
 
-          <button className="flex items-center gap-2 px-6 py-3 border border-[var(--border-color)] hover:border-[var(--accent-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] transition-colors font-mono text-xs uppercase tracking-wider group">
+          <button className="flex min-h-[44px] items-center gap-2 px-6 py-3 border border-[var(--border-color)] hover:border-[var(--accent-color)] text-[var(--text-secondary)] hover:text-[var(--accent-color)] transition-colors font-mono text-xs uppercase tracking-wider group">
             <Share2
               size={14}
               className="group-hover:rotate-12 transition-transform"

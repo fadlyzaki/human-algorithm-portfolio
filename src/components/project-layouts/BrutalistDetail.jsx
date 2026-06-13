@@ -24,7 +24,7 @@ const BrutalistDetail = ({
 
   return (
     <div className="text-[var(--text-primary)] font-sans min-h-[100dvh] selection:bg-[var(--accent-red)] selection:text-white pb-32">
-      <main className="max-w-7xl mx-auto px-6 pt-24 font-mono">
+      <main className="max-w-7xl mx-auto px-6 pt-24 font-mono overflow-x-hidden">
         {/* 1. HERO BANNER */}
         <header className="border-4 border-[var(--text-primary)] p-8 md:p-16 relative bg-[var(--bg-card)] shadow-[16px_16px_0px_0px_var(--accent-red)] mb-32">
           <div className="absolute top-0 right-0 p-4 border-l-4 border-b-4 border-[var(--text-primary)] bg-[var(--accent-red)] text-[var(--bg-void)]">
@@ -35,7 +35,7 @@ const BrutalistDetail = ({
             {activeSnapshot.tagline} // {project.type}
           </div>
 
-          <h1 className="text-6xl md:text-9xl font-black uppercase italic leading-[0.85] tracking-tighter mb-12">
+          <h1 className="text-[clamp(2.75rem,14vw,5.5rem)] md:text-9xl font-black uppercase italic leading-[0.85] tracking-tighter mb-12 max-w-full [overflow-wrap:anywhere]">
             {activeTitle}
           </h1>
 

@@ -192,7 +192,7 @@ const BlueprintDetail = ({
                           <button
                             key={idx}
                             onClick={() => setActivePhase(idx)}
-                            className={`w-full text-left relative flex items-center gap-4 group transition-all`}
+                            className={`w-full min-h-[44px] text-left relative flex items-center gap-4 group transition-all`}
                           >
                             <div className={`absolute -left-[35px] w-4 h-4 rounded-full border-2 bg-[var(--bg-card)] transition-colors ${isActive ? "border-blue-600 border-[6px]" : "border-blue-400/50 group-hover:border-blue-600"}`}></div>
                             <span className={`font-mono text-[10px] tracking-wider ${isActive ? "text-blue-600 font-bold" : "text-[var(--text-secondary)]"}`}>SEC_0{idx+1}</span>

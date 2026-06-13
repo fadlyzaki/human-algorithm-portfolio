@@ -230,7 +230,7 @@ const UnprovokedThoughtDetail = () => {
 
                     <button
                         onClick={handleShare}
-                        className="flex items-center justify-center gap-3 px-8 py-4 bg-[var(--accent-amber)] hover:bg-[var(--accent-amber)]/90 text-black rounded-lg transition-all duration-300 font-mono text-sm uppercase tracking-wider font-bold shadow-lg shadow-[var(--accent-amber)]/20 hover:shadow-[var(--accent-amber)]/40 hover:-translate-y-1 group w-full md:w-auto"
+                        className="flex min-h-[44px] items-center justify-center gap-3 px-8 py-4 bg-[var(--accent-amber)] hover:bg-[var(--accent-amber)]/90 text-black rounded-lg transition-all duration-300 font-mono text-sm uppercase tracking-wider font-bold shadow-lg shadow-[var(--accent-amber)]/20 hover:shadow-[var(--accent-amber)]/40 hover:-translate-y-1 group w-full md:w-auto"
                     >
                         <Share2
                             size={18}

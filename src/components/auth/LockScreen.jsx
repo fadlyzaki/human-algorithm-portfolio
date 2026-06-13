@@ -73,10 +73,15 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
 
   if (!project || !parentCluster) return null;
 
+  const projectTitle = isId ? project.title_id || project.title : project.title;
+
   return (
-    <div className="min-h-[100dvh] bg-transparent text-[var(--text-primary)] font-mono flex items-center justify-center px-4 py-20 sm:p-6 relative overflow-hidden overflow-y-auto transition-colors duration-500">
+    <main
+      aria-labelledby="locked-case-title"
+      className="min-h-[100dvh] bg-transparent text-[var(--text-primary)] font-mono flex items-center justify-center px-4 py-20 sm:p-6 relative overflow-hidden overflow-y-auto transition-colors duration-500"
+    >
       <SEO
-        title={isId ? `🔒 Terproteksi: ${project.title_id || project.title}` : `🔒 Protected: ${project.title}`}
+        title={isId ? `🔒 Terproteksi: ${projectTitle}` : `🔒 Protected: ${projectTitle}`}
         description={isId ? "Studi Kasus Rahasia. Akses Terbatas." : "Confidential Case Study. Access Restricted."}
       />
 
@@ -92,15 +97,16 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
       <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 flex items-center gap-2 sm:gap-4">
         <button
           onClick={() => setIsDark(!isDark)}
-          className="text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors p-2"
+          className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded text-[var(--text-secondary)] hover:text-[var(--accent-red)] hover:bg-[var(--text-secondary)]/10 transition-colors"
           aria-label="Toggle Theme"
         >
           {isDark ? <Sun size={18} /> : <Moon size={18} />}
         </button>
         <button
           onClick={toggleLanguage}
-          className="flex items-center gap-1.5 sm:gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors p-2"
+          className="flex min-h-[44px] min-w-[44px] items-center justify-center gap-1.5 sm:gap-2 rounded px-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--text-secondary)]/10 transition-colors"
           title="Switch Language"
+          aria-label="Switch Language"
         >
           <Globe size={14} />
           <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider">
@@ -110,6 +116,10 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
       </div>
 
       <div className="max-w-md w-full relative z-10">
+        <h1 id="locked-case-title" className="sr-only">
+          {isId ? "Studi kasus terkunci" : "Locked case study"}: {projectTitle}
+        </h1>
+
         {/* Header Status */}
         <div className="flex justify-between items-center mb-6 sm:mb-8 text-[10px] sm:text-xs text-[var(--accent-red)] uppercase tracking-wider sm:tracking-wider border-b border-[var(--accent-red)] pb-2 opacity-80">
           <span className="flex items-center gap-1.5 sm:gap-2">
@@ -220,7 +230,6 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
                 {t("protected.unauthorized") || "// UNAUTHORIZED PERSONNEL"}
               </p>
               {(() => {
-                const projectTitle = isId ? project.title_id || project.title : project.title;
                 const subject = t("protected.email_subject").replace("{title}", projectTitle);
                 const body = t("protected.email_body").replace("{title}", projectTitle);
                 const mailtoUrl = `mailto:fadly.uzzaki@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -270,7 +279,7 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
           </div>
         )}
       </div>
-    </div>
+    </main>
   );
 };
 

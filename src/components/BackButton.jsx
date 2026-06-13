@@ -23,7 +23,7 @@ const BackButton = ({ to, label = "Back", className = "" }) => {
   const baseClasses = `
     inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider
     text-[var(--text-secondary)] hover:text-[var(--text-primary)] 
-    transition-colors group py-2
+    transition-colors group py-2 min-h-[44px]
     ${className}
   `;
 
