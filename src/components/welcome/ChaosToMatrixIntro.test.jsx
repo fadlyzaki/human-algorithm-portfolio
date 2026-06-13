@@ -21,8 +21,8 @@ describe('ChaosToMatrixIntro Component', () => {
   it('renders the initializing text after mounting', async () => {
     render(<ChaosToMatrixIntro />);
 
-    await act(async () => {
-      await vi.advanceTimersByTimeAsync(0);
+    act(() => {
+      vi.advanceTimersByTime(10);
     });
 
     expect(screen.getByText(/> Awaiting inputs/i)).toBeInTheDocument();

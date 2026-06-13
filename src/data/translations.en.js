@@ -32,7 +32,8 @@ export const en = {
     "ttp_dribbble": "Visual explorations",
     "ttp_github": "Open source & code",
     "sketches": "Sketches",
-    "ttp_sketches": "Visual experiments & sketches"
+    "ttp_sketches": "Visual experiments & sketches",
+    "menu": "More"
   },
   "system": {
     "initializing": "Initializing System",

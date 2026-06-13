@@ -28,6 +28,7 @@ export const translations = {
       ttp_github: "Open source & code",
       sketches: "Sketches",
       ttp_sketches: "Visual experiments & sketches",
+      menu: "More",
     },
     system: {
       initializing: "Initializing System",
@@ -815,6 +816,7 @@ export const translations = {
       ttp_github: "Open source & kode",
       sketches: "Sketsa",
       ttp_sketches: "Eksplorasi & sketsa visual",
+      menu: "Menu",
     },
     system: {
       initializing: "Memulai Sistem",

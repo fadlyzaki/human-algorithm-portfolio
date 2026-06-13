@@ -32,7 +32,8 @@ export const id = {
     "ttp_dribbble": "Eksplorasi visual",
     "ttp_github": "Open source & kode",
     "sketches": "Sketsa",
-    "ttp_sketches": "Eksplorasi & sketsa visual"
+    "ttp_sketches": "Eksplorasi & sketsa visual",
+    "menu": "Menu"
   },
   "system": {
     "initializing": "Memulai Sistem",
