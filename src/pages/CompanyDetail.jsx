@@ -3,8 +3,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
 
 import { useLanguage } from "../context/LanguageContext";
-import Navbar from "../components/Navbar";
-import NavigationMenu from "../components/NavigationMenu";
+import PageShell from "../components/PageShell";
 import useProjectData from "../hooks/useProjectData";
 import SEO from "../components/SEO";
 import Footer from "../components/Footer";
@@ -34,7 +33,6 @@ const CompanyDetail = () => {
   const { t, language } = useLanguage();
   const { id } = useParams();
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const enhanceExperience = useProgressiveEnhancement({ delay: 4000 });
 
   const { project: cluster, loading } = useProjectData(id);
@@ -96,19 +94,8 @@ const CompanyDetail = () => {
       {/* Vignette */}
       <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
-      {/* --- NAVIGATION SYSTEM --- */}
-      <Navbar
-        onOpenMenu={() => setIsMenuOpen(true)}
-        title={cluster.company}
-        backPath="/"
-      />
-
-      <NavigationMenu
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-      />
-
-      <main className="relative z-10 w-full">
+      <PageShell navbarProps={{ title: cluster.company, backPath: "/" }}>
+        <main className="relative z-10 w-full pb-20">
         {/* 1. IMMERSIVE HERO SECTION */}
         <CompanyHero
           cluster={cluster}
@@ -135,8 +122,9 @@ const CompanyDetail = () => {
 
         {/* 3. CULTURE GALLERY (Dynamic) */}
         <CompanyCulture cluster={cluster} isId={isId} />
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </PageShell>
     </div>
   );
 };

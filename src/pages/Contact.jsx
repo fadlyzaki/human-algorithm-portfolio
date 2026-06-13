@@ -21,10 +21,9 @@ import { contactInfo, socialMatrix } from "../data/contactData";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 
-import Navbar from "../components/Navbar";
-import NavigationMenu from "../components/NavigationMenu";
 import SEO from "../components/SEO";
 import Footer from "../components/Footer";
+import PageShell from "../components/PageShell";
 import NeuralDecryption from "../components/interactions/NeuralDecryption";
 import ContactScratch from "../components/ContactScratch";
 import { useProgressiveEnhancement } from "../hooks/useProgressiveEnhancement";
@@ -41,10 +40,7 @@ const ContactPage = () => {
   const { t } = useLanguage();
   const [formStatus, setFormStatus] = useState("idle"); // idle, sending, success, error
   const [pingCount, setPingCount] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for Navbar menu
   const enhanceExperience = useProgressiveEnhancement({ delay: 4000 });
-
-  const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
 
 
   const [formData, setFormData] = useState({
@@ -132,14 +128,8 @@ const ContactPage = () => {
           backgroundSize: "40px 40px",
         }}
       ></div>
-
-      <Navbar onOpenMenu={handleOpenMenu} title={t("contact.nav_title")} backPath="/" />
-      <NavigationMenu
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-      />
-
-      <main className="relative z-10 max-w-6xl mx-auto px-6 py-32 min-h-[100dvh] grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-16 items-start">
+      <PageShell navbarProps={{ title: t("contact.nav_title"), backPath: "/" }}>
+        <main className="relative z-10 max-w-6xl mx-auto px-6 py-32 min-h-[100dvh] grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-16 items-start pb-24">
         {/* LEFT COLUMN */}
         <div className="space-y-12">
           <div>
@@ -439,6 +429,7 @@ const ContactPage = () => {
         </div>
       </main>
       <Footer hideHeadline={true} />
+    </PageShell>
     </div>
   );
 };

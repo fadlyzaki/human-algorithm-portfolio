@@ -16,8 +16,7 @@ import {
 } from "lucide-react";
 import SEO from "../components/SEO";
 import CoverLetterModal from "../components/CoverLetterModal";
-import Navbar from "../components/Navbar";
-import NavigationMenu from "../components/NavigationMenu";
+import PageShell from "../components/PageShell";
 import { RESUME_PDF_PATH, resumeData } from "../data/resumeData";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -93,7 +92,6 @@ const ChipList = ({ items }) => (
 const SystemManifest = () => {
   const { t } = useLanguage();
   const [showCoverLetter, setShowCoverLetter] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const schema = {
     "@context": "https://schema.org",
@@ -120,22 +118,16 @@ const SystemManifest = () => {
         schema={schema}
       />
 
-      <div className="print:hidden">
-        <Navbar
-          onOpenMenu={() => setIsMenuOpen(true)}
-          title={t("manifest.nav_title")}
-          backPath="/"
-          onViewCoverLetter={() => setShowCoverLetter(true)}
-          onPrint={() => window.print()}
-        />
-        <NavigationMenu
-          isOpen={isMenuOpen}
-          onClose={() => setIsMenuOpen(false)}
-        />
-      </div>
-
-      <div className="h-24 md:h-32 print:hidden" />
-      <main className="relative z-10 mx-auto max-w-[960px] px-4 pb-20 print:max-w-full print:p-0">
+      <PageShell
+        navbarProps={{
+          title: t("manifest.nav_title"),
+          backPath: "/",
+          onViewCoverLetter: () => setShowCoverLetter(true),
+          onPrint: () => window.print(),
+        }}
+      >
+        <div className="h-24 md:h-32 print:hidden" />
+        <main className="relative z-10 mx-auto max-w-[960px] px-4 pb-20 print:max-w-full print:p-0 pb-24">
         <article className="rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface)] p-5 shadow-2xl sm:p-8 md:p-10 print:border-0 print:bg-white print:p-0 print:shadow-none">
           <header className="border-b-2 border-[var(--text-primary)] pb-6 print:border-black print:pb-4">
             <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
@@ -371,6 +363,7 @@ const SystemManifest = () => {
           </section>
         </article>
       </main>
+    </PageShell>
 
       <CoverLetterModal
         isOpen={showCoverLetter}

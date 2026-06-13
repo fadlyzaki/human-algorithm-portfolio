@@ -19,8 +19,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import SEO from "../components/SEO";
-import Navbar from "../components/Navbar";
-import NavigationMenu from "../components/NavigationMenu";
+import PageShell from "../components/PageShell";
 import { blogPosts } from "../data/blogPosts";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -33,7 +32,6 @@ const BlogPost = () => {
   const { isDark } = useTheme();
   const { t, isIndonesian } = useLanguage();
   const [scrolled, setScrolled] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { id } = useParams();
 
   // --- MOCK DATABASE ---
@@ -99,19 +97,8 @@ const BlogPost = () => {
         ></div>
       </div>
 
-      {/* --- NAVIGATION SYSTEM --- */}
-      <Navbar
-        onOpenMenu={() => setIsMenuOpen(true)}
-        title={t("blog.editorial")}
-        backPath="/"
-      />
-
-      <NavigationMenu
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-      />
-
-      <main className="pt-32 pb-24 max-w-3xl mx-auto px-6">
+      <PageShell navbarProps={{ title: t("blog.editorial"), backPath: "/" }}>
+        <main className="pt-32 pb-24 max-w-3xl mx-auto px-6 pb-24">
         {/* Header */}
         <header className="mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="flex gap-3 mb-6">
@@ -244,6 +231,7 @@ const BlogPost = () => {
           </p>
         </footer>
       </main>
+    </PageShell>
     </div>
   );
 };

@@ -33,7 +33,7 @@ const LiveClock = memo(() => {
     };
 
     return (
-        <div className="hidden lg:flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] border-r border-[var(--border-color)] pr-4 mr-1">
+        <div className="hidden xl:flex items-center gap-2 font-mono text-xs text-[var(--text-secondary)] border-r border-[var(--border-color)] pr-4 mr-1">
             <Clock size={12} className="opacity-70" />
             <span>{formatTime(time)}</span>
             <span className="text-[9px] opacity-50">{timeZone}</span>

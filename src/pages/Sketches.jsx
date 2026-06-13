@@ -1,18 +1,13 @@
 import React, { useState, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
-import Navbar from "../components/Navbar";
+import PageShell from "../components/PageShell";
 import SEO from "../components/SEO";
-import NavigationMenu from "../components/NavigationMenu";
 import ScrollProgressBar from "../components/ScrollProgressBar";
 import { useLanguage } from "../context/LanguageContext";
 
 const Sketches = () => {
   const { t } = useLanguage();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(false);
-
-  const handleOpenMenu = useCallback(() => setIsMenuOpen(true), []);
-  const handleCloseMenu = useCallback(() => setIsMenuOpen(false), []);
   const handleIframeLoad = useCallback(() => setIframeLoaded(true), []);
 
   const intentText =
@@ -42,13 +37,8 @@ const Sketches = () => {
 
       <ScrollProgressBar />
 
-      {/* --- NAVIGATION SYSTEM --- */}
-      <div className="relative z-50">
-        <Navbar onOpenMenu={handleOpenMenu} title={t("sketches.nav_title") || "SKETCHES"} backPath="/" />
-        <NavigationMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />
-      </div>
-
-      <main className="relative z-10 flex-1 w-full pt-24 pb-20">
+      <PageShell navbarProps={{ title: t("sketches.nav_title") || "SKETCHES", backPath: "/" }}>
+        <main className="relative z-10 flex-1 w-full pt-24 pb-24">
         <section
           className="mx-auto flex min-h-[70dvh] w-full max-w-6xl flex-col justify-center px-4 sm:px-6 lg:px-8"
           aria-labelledby="sketches-archive-title"
@@ -104,8 +94,8 @@ const Sketches = () => {
             />
           </div>
         </section>
-      </main>
-
+        </main>
+      </PageShell>
       {/* Skeleton animation keyframe */}
       <style>{`
         @keyframes sketchesSkeleton {

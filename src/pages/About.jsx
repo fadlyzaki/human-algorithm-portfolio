@@ -41,8 +41,6 @@ import {
   achievements,
 } from "../data/aboutData";
 import { useTheme } from "../context/ThemeContext";
-import BackgroundTexture from "../components/BackgroundTexture";
-import Navbar from "../components/Navbar";
 import PageShell from "../components/PageShell";
 import { useLanguage } from "../context/LanguageContext";
 import SEO from "../components/SEO";
@@ -56,7 +54,6 @@ import RichText from "../components/RichText";
 import ProfileScanner from "../components/ProfileScanner";
 import BackButton from "../components/BackButton";
 import ScrollProgressBar from "../components/ScrollProgressBar";
-import NavigationMenu from "../components/NavigationMenu"; // Assuming this is also a new component
 import { useProgressiveEnhancement } from "../hooks/useProgressiveEnhancement";
 
 import RuntimeLogTimeline from "../components/about/RuntimeLogTimeline";

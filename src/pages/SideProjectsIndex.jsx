@@ -12,8 +12,6 @@ import {
   ScanEye,
   ChevronDown,
 } from "lucide-react";
-import Navbar from "../components/Navbar";
-import NavigationMenu from "../components/NavigationMenu";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { SIDE_PROJECTS, EXPERIMENTS } from "../data/portfolioData";

@@ -3,7 +3,7 @@ import { SystemSectionLoader } from "../components/SystemLoader";
 import { useParams, Link } from "react-router-dom";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
 import { AlertTriangle, ArrowLeft, FileText } from "lucide-react";
-import Navbar from "../components/Navbar";
+import PageShell from "../components/PageShell";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import useProjectData from "../hooks/useProjectData";
@@ -108,7 +108,6 @@ const SideProjectDetail = () => {
   const { project, loading, type } = useProjectData(id);
 
   const [showLivePreview, setShowLivePreview] = useState(false);
-  const [, setIsMenuOpen] = useState(false); // Added for Navbar
   const enhanceExperience = useProgressiveEnhancement({ delay: 4000 });
 
   if (loading) {
@@ -298,14 +297,8 @@ const SideProjectDetail = () => {
       {/* Vignette */}
       <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--bg-void)_120%)]"></div>
 
-      {/* --- NAVIGATION SYSTEM --- */}
-      <Navbar
-        onOpenMenu={() => setIsMenuOpen(true)}
-        title={activeTitle}
-        backPath="/side-projects"
-      />
-
-      <div className="relative z-10">
+      <PageShell navbarProps={{ title: activeTitle, backPath: "/side-projects" }}>
+        <div className="relative z-10 pb-20">
         {/* --- LAYOUT ORCHESTRATOR --- */}
         {(() => {
           const commonProps = {
@@ -350,9 +343,9 @@ const SideProjectDetail = () => {
             </Suspense>
           );
         })()}
-      </div>
-
-      <Footer />
+        </div>
+        <Footer />
+      </PageShell>
     </div>
   );
 };

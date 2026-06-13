@@ -3,8 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { ShieldAlert, ArrowLeft, FileText } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
-import Navbar from "../components/Navbar";
-import NavigationMenu from "../components/NavigationMenu";
+import PageShell from "../components/PageShell";
 import useProjectData from "../hooks/useProjectData";
 import LockScreen from "../components/auth/LockScreen";
 import { isProjectLocked, isProjectBypassed } from "../utils/projectMappers";
@@ -27,7 +26,6 @@ const ProtectedCaseStudy = () => {
   const isId = language === "id";
   const [isLocked, setIsLocked] = useState(true);
   const [isInitialized, setIsInitialized] = useState(false);
-  const [, setIsMenuOpen] = useState(false); // Added for Navbar
   const [authPhase, setAuthPhase] = useState("chaos");
   const [showCaseContent, setShowCaseContent] = useState(false);
 
@@ -141,13 +139,13 @@ const ProtectedCaseStudy = () => {
           }}
         />
       ) : (
-        <>
-          {/* --- NAVIGATION SYSTEM --- */}
-          <Navbar
-            onOpenMenu={() => setIsMenuOpen(true)}
-            title={isId ? "Akses Terbatas" : "Restricted Access"}
-            backPath={`/work/${parentCluster?.id || ""}`}
-          />
+        <PageShell
+          navbarProps={{
+            title: isId ? "Akses Terbatas" : "Restricted Access",
+            backPath: `/work/${parentCluster?.id || ""}`,
+          }}
+          showTexture={false}
+        >
 
           {showCaseContent ? (
             <Suspense
@@ -168,7 +166,7 @@ const ProtectedCaseStudy = () => {
               isId={isId}
             />
           )}
-        </>
+        </PageShell>
       )}
     </>
   );
