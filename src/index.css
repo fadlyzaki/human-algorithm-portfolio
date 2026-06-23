@@ -656,3 +656,9 @@ html {
   -webkit-text-stroke: 1px var(--border-color);
   color: transparent !important;
 }
+
+/* NavigationMenu — exempt from mobile animation kill-switch (uses inline style) */
+@keyframes navMenuFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

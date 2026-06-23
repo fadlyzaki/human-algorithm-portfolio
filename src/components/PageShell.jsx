@@ -50,6 +50,9 @@ const PageShell = ({ children, navbarProps = {}, showTexture = true }) => {
 
             {/* Page Content */}
             {children}
+
+            {/* Mobile bottom nav spacer — prevents content from being hidden behind fixed bottom bar */}
+            <div className="h-16 md:hidden" aria-hidden="true" />
         </>
     );
 };

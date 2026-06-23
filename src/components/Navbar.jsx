@@ -267,62 +267,66 @@ const Navbar = ({
       {/* MOBILE BOTTOM NAV BAR (Full-width docked, z-[90] to avoid overlays, responsive to scroll direction) */}
       <nav
         aria-label="Mobile navigation"
-        className={`fixed bottom-0 left-0 right-0 z-[90] md:hidden border-t border-[var(--border-color)] transition-transform duration-300 ease-out print:hidden bg-[rgba(var(--bg-surface-rgb),0.92)] backdrop-blur-xl pb-[env(safe-area-inset-bottom,0px)] ${
+        className={`fixed bottom-0 left-0 right-0 z-[90] md:hidden border-t border-[var(--border-color)] transition-transform duration-300 ease-out print:hidden bg-[rgba(var(--bg-surface-rgb),0.97)] backdrop-blur-xl pb-[env(safe-area-inset-bottom,0px)] ${
           showNav ? "translate-y-0" : "translate-y-full"
         }`}
       >
         <div className="flex items-center justify-around h-14">
           <Link
             to="/"
-            className={`flex flex-col items-center justify-center flex-1 h-full gap-0.5 font-mono text-[9px] uppercase tracking-wider transition-all ${
+            className={`relative flex flex-col items-center justify-center flex-1 h-full gap-0.5 font-mono text-[9px] uppercase tracking-wider transition-all active:scale-95 ${
               activeTab === "home"
                 ? "text-[var(--accent-blue)] font-bold scale-105"
                 : "text-[var(--text-secondary)] active:text-[var(--text-primary)]"
             }`}
           >
+            {activeTab === "home" && <span className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-[var(--accent-blue)]" />}
             <Home size={16} />
             <span>{t("nav.home") || "Home"}</span>
           </Link>
 
           <Link
             to="/#work"
-            className={`flex flex-col items-center justify-center flex-1 h-full gap-0.5 font-mono text-[9px] uppercase tracking-wider transition-all ${
+            className={`relative flex flex-col items-center justify-center flex-1 h-full gap-0.5 font-mono text-[9px] uppercase tracking-wider transition-all active:scale-95 ${
               activeTab === "work"
                 ? "text-[var(--accent-blue)] font-bold scale-105"
                 : "text-[var(--text-secondary)] active:text-[var(--text-primary)]"
             }`}
           >
+            {activeTab === "work" && <span className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-[var(--accent-blue)]" />}
             <LayoutGrid size={16} />
             <span>{t("nav.work") || "Work"}</span>
           </Link>
 
           <Link
             to="/side-projects"
-            className={`flex flex-col items-center justify-center flex-1 h-full gap-0.5 font-mono text-[9px] uppercase tracking-wider transition-all ${
+            className={`relative flex flex-col items-center justify-center flex-1 h-full gap-0.5 font-mono text-[9px] uppercase tracking-wider transition-all active:scale-95 ${
               activeTab === "projects"
                 ? "text-[var(--accent-blue)] font-bold scale-105"
                 : "text-[var(--text-secondary)] active:text-[var(--text-primary)]"
             }`}
           >
+            {activeTab === "projects" && <span className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-[var(--accent-blue)]" />}
             <FolderGit2 size={16} />
             <span>{t("nav.side_projects") || "Projects"}</span>
           </Link>
 
           <Link
             to="/about"
-            className={`flex flex-col items-center justify-center flex-1 h-full gap-0.5 font-mono text-[9px] uppercase tracking-wider transition-all ${
+            className={`relative flex flex-col items-center justify-center flex-1 h-full gap-0.5 font-mono text-[9px] uppercase tracking-wider transition-all active:scale-95 ${
               activeTab === "about"
                 ? "text-[var(--accent-amber)] font-bold scale-105"
                 : "text-[var(--text-secondary)] active:text-[var(--text-primary)]"
             }`}
           >
+            {activeTab === "about" && <span className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-[var(--accent-amber)]" />}
             <User size={16} />
             <span>{t("nav.about") || "About"}</span>
           </Link>
 
           <button
             onClick={onOpenMenu}
-            className="flex flex-col items-center justify-center flex-1 h-full gap-0.5 font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] active:text-[var(--text-primary)]"
+            className="flex flex-col items-center justify-center flex-1 h-full gap-0.5 font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] active:text-[var(--text-primary)] active:scale-95 transition-all"
             aria-label={t("nav.open_menu") || "Open Menu"}
           >
             <Menu size={16} />

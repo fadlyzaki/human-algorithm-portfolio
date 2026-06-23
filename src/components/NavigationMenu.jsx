@@ -29,7 +29,8 @@ const NavigationMenu = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-[rgba(var(--bg-void-rgb),0.97)] flex flex-col justify-center items-center overflow-y-auto px-6 py-12 animate-in fade-in duration-150"
+      className="fixed inset-0 z-[100] bg-[rgba(var(--bg-void-rgb),0.97)] flex flex-col justify-center items-center overflow-y-auto px-6 py-12"
+      style={{ animation: 'navMenuFadeIn 200ms ease-out both' }}
       role="dialog"
       aria-modal="true"
       aria-label="Main Navigation Menu"
