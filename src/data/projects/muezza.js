@@ -38,6 +38,24 @@ export const muezza = {
   featured: false,
   type: { en: "Responsive PWA", id: "PWA Responsif" },
   date: { en: "April 2026", id: "April 2026" },
+  hiringSignals: [
+    {
+      en: "Full-Stack Design Engineering: React 19, Tailwind CSS v4, and Vercel Edge Serverless functions.",
+      id: "Rekayasa Desain Full-Stack: React 19, Tailwind CSS v4, dan fungsi serverless Vercel Edge.",
+    },
+    {
+      en: "Grounded Behavioral Mechanics: Virtual pet state machine linked to real-world habit completion.",
+      id: "Mekanika Perilaku Terstruktur: State machine hewan peliharaan virtual yang terhubung ke penyelesaian kebiasaan.",
+    },
+    {
+      en: "Context-Aware Geolocation: Real-time prayer calculations via Nominatim reverse geocoding.",
+      id: "Geolokasi Sadar Konteks: Perhitungan waktu shalat real-time melalui geocoding terbalik Nominatim.",
+    },
+    {
+      en: "Emotional Advice Architecture: 8 emotional archetypes delivering targeted scholarly counsel.",
+      id: "Arsitektur Nasihat Emosional: 8 arketipe emosional yang menyajikan panduan ulama tepat sasaran.",
+    },
+  ],
   coverImage: "airy:network",
   ogImage: "/og-image.png",
   snapshot: {

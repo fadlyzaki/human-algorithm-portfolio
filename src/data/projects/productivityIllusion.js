@@ -19,6 +19,24 @@ export const productivityIllusion = {
   featured: true,
   type: { en: "Product Design Research", id: "Riset Desain Produk" },
   date: { en: "2025-2026", id: "2025-2026" },
+  hiringSignals: [
+    {
+      en: "Translates academic rigor & statistical models (Z-scores, ANOVA, SDT) into actionable UX interventions.",
+      id: "Menerjemahkan ketelitian akademis & model statistik ke dalam intervensi UX yang dapat ditindaklanjuti.",
+    },
+    {
+      en: "Identifies and eliminates 'Productivity Theater' and vanity gamification metrics in favor of true retention.",
+      id: "Mengidentifikasi dan mengeliminasi 'Productivity Theater' demi retensi dan penguasaan nyata.",
+    },
+    {
+      en: "End-to-end research methodology: Split-design experiments, Python data parsing, and user telemetry.",
+      id: "Metodologi riset end-to-end: Eksperimen split-design, pengolahan data Python, dan telemetri pengguna.",
+    },
+    {
+      en: "Published peer-reviewed scientific paper on Mobile-Assisted Language Learning & Behavioral Alignment.",
+      id: "Publikasi jurnal ilmiah bereputasi tentang Pembelajaran Bahasa Berbantuan Ponsel & Penyelarasan Perilaku.",
+    },
+  ],
   coverImage: "airy:radar",
   snapshot: {
     tagline: { en: "Behavioral Design Research v1.0", id: "Riset Desain Perilaku v1.0" },

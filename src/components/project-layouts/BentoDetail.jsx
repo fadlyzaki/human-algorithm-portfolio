@@ -1,11 +1,14 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
-import { Calendar, Hash, Music, Layout, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { Calendar, Hash, Music, Layout, ArrowUpRight, CheckCircle2, Github, Sparkles } from "lucide-react";
 import AiryDiagram from "../AiryDiagram";
 import ZoomableImage from "../ZoomableImage";
+import RecruiterQuickBrief from "./shared/RecruiterQuickBrief";
+import { useLanguage } from "../../context/LanguageContext";
 
 const BentoDetail = ({
   project,
+  activeContext,
   activeChallenge,
   activeProcess,
   activeInsights,
@@ -17,6 +20,7 @@ const BentoDetail = ({
   activeSnapshot,
   t,
 }) => {
+  const { isIndonesian } = useLanguage();
   // Aesthetic: Bento Grid, Magazine Editorial, Pastel Gradients, Rounded Corners, Sticker Tags
   const [activeTab, setActiveTab] = useState("challenge");
   const [activePhase, setActivePhase] = useState(0);
@@ -25,7 +29,7 @@ const BentoDetail = ({
     <div className="text-[var(--text-primary)] font-sans min-h-[100dvh] selection:bg-pink-300/50 pb-32">
       <main className="max-w-6xl mx-auto px-4 md:px-8 pt-24">
         {/* 1. HERO BENTO SECTION */}
-        <header className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+        <header className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {/* Main Title Block */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -34,7 +38,7 @@ const BentoDetail = ({
           >
             {/* Decorative Sticker */}
             <div className="absolute top-8 right-8 rotate-12 bg-white dark:bg-[var(--bg-surface)] text-black dark:text-white px-4 py-2 rounded-full shadow-lg font-mono text-xs font-bold uppercase border border-[var(--border-color)] flex items-center gap-2">
-              <Calendar size={14} /> {t("project_layouts.wrapped")}
+              <Calendar size={14} /> {t("project_layouts.wrapped") || "Yearly Wrap"}
             </div>
 
             <h1 className="text-6xl md:text-8xl font-serif italic mb-6 leading-[1.1] text-[var(--text-primary)] relative z-10">
@@ -54,7 +58,7 @@ const BentoDetail = ({
               {project.stack.slice(0, 3).map((tech, i) => (
                 <div key={i} className="flex items-center gap-3 mb-3">
                   <div
-                    className={`w - 3 h - 3 rounded - full ${i === 0 ? "bg-pink-400" : i === 1 ? "bg-orange-400" : "bg-yellow-400"} `}
+                    className={`w-3 h-3 rounded-full ${i === 0 ? "bg-pink-400" : i === 1 ? "bg-orange-400" : "bg-yellow-400"}`}
                   ></div>
                   <span className="font-medium text-sm">{tech}</span>
                 </div>
@@ -63,10 +67,12 @@ const BentoDetail = ({
             {project.links.demo && project.links.demo !== "#" && (
               <a
                 href={project.links.demo}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="h-32 bg-[var(--text-primary)] text-[var(--bg-void)] rounded-2xl p-8 hover:scale-[1.02] transition-transform flex items-center justify-between group"
               >
                 <span className="text-xl font-bold font-serif italic">
-                  {t("project_layouts.open_generator")}
+                  {t("project_layouts.open_generator") || "Launch Wrapped"}
                 </span>
                 <div className="p-3 bg-[var(--bg-void)] opacity-20 rounded-full group-hover:rotate-45 transition-transform">
                   <ArrowUpRight />
@@ -75,6 +81,19 @@ const BentoDetail = ({
             )}
           </div>
         </header>
+
+        {/* RECRUITER & HIRING MANAGER FAST-BRIEF */}
+        <RecruiterQuickBrief
+          title={activeTitle}
+          tldr={activeTldr}
+          context={activeContext}
+          stack={project.stack}
+          hiringSignals={project.hiringSignals}
+          metrics={activeMetrics}
+          links={project.links}
+          brandColor="var(--accent-pink)"
+          isId={isIndonesian}
+        />
 
         {/* THE NARRATIVE BENTO BLOCKS (Tabs) */}
         <section className="mb-24">

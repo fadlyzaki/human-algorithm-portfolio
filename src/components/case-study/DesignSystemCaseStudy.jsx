@@ -35,6 +35,8 @@ import {
   Zap,
 } from "lucide-react";
 import ScrollReveal from "../ScrollReveal";
+import RecruiterQuickBrief from "../project-layouts/shared/RecruiterQuickBrief";
+import { useLanguage } from "../../context/LanguageContext";
 
 const toList = (value) => (Array.isArray(value) ? value : []);
 
@@ -549,6 +551,7 @@ const PrototypeFrame = ({ caseData, t }) => {
 };
 
 const DesignSystemCaseStudy = ({ caseData, t }) => {
+  const { isIndonesian } = useLanguage();
   const [activeTokenTab, setActiveTokenTab] = useState("color");
 
   const metrics = [
@@ -717,6 +720,43 @@ const DesignSystemCaseStudy = ({ caseData, t }) => {
             <SpecimenHero t={t} />
           </div>
         </ScrollReveal>
+
+        {/* RECRUITER & HIRING MANAGER FAST-BRIEF */}
+        <div className="mx-auto max-w-7xl pt-10">
+          <RecruiterQuickBrief
+            tldr={caseData.tldr || caseData.challenge || t("case_study.ds_lab_thesis_body")}
+            context={caseData.context || {
+              role: "Design System Lead & Product Designer",
+              timeline: "Q1 - Q3 2021",
+              team: "Design Ops & Core Engineering",
+              client: "GudangAda",
+            }}
+            stack={caseData.stack || ["Figma", "React", "React Native", "Storybook", "TypeScript", "Design Tokens"]}
+            hiringSignals={caseData.hiringSignals || [
+              {
+                en: "Unified 14 fragmented color palettes and 8 button variations into a single multi-platform design token engine.",
+                id: "Menyatukan 14 palet warna terfragmentasi dan 8 variasi tombol ke dalam satu mesin token desain multi-platform.",
+              },
+              {
+                en: "Built single source of truth across 3 platforms (Buyer Web, Merchant App, Internal Ops), accelerating eng velocity by +35%.",
+                id: "Membangun sumber kebenaran tunggal di 3 platform, mempercepat kecepatan rilis eng sebesar +35%.",
+              },
+              {
+                en: "Scaled design ops culture from scratch, mentoring 4 junior designers and establishing component governance.",
+                id: "Menskalakan budaya design ops dari nol, membimbing 4 desainer junior dan menetapkan tata kelola komponen.",
+              },
+            ]}
+            metrics={caseData.metrics || [
+              { label: { en: "Velocity", id: "Kecepatan" }, value: "+35%" },
+              { label: { en: "Components", id: "Komponen" }, value: "40+" },
+              { label: { en: "Platforms", id: "Platform" }, value: "3" },
+              { label: { en: "Color Parity", id: "Paritas Warna" }, value: "14 → 1" },
+            ]}
+            globalEquivalent="Amazon Business / Shopify Polaris Design System"
+            brandColor="var(--brand)"
+            isId={isIndonesian}
+          />
+        </div>
       </section>
 
       <LabSection

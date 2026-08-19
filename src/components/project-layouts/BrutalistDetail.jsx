@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Target, Square, Slash } from "lucide-react";
+import { ArrowUpRight, Target, Square, Slash, Sparkles, BookOpen, Layers, Activity } from "lucide-react";
 import AiryDiagram from "../AiryDiagram";
 import ZoomableImage from "../ZoomableImage";
+import RecruiterQuickBrief from "./shared/RecruiterQuickBrief";
+import { useLanguage } from "../../context/LanguageContext";
 
 const BrutalistDetail = ({
   project,
@@ -18,6 +20,7 @@ const BrutalistDetail = ({
   activeSnapshot,
   t,
 }) => {
+  const { isIndonesian } = useLanguage();
   // Aesthetic: Neo-Brutalism, High Contrast, Stark Grids, Thick Borders, var(--accent-red) Red Actions
   const [activeTab, setActiveTab] = useState("challenge");
   const [activePhase, setActivePhase] = useState(0);
@@ -26,7 +29,7 @@ const BrutalistDetail = ({
     <div className="text-[var(--text-primary)] font-sans min-h-[100dvh] selection:bg-[var(--accent-red)] selection:text-white pb-32">
       <main className="max-w-7xl mx-auto px-6 pt-24 font-mono overflow-x-hidden">
         {/* 1. HERO BANNER */}
-        <header className="border-4 border-[var(--text-primary)] p-8 md:p-16 relative bg-[var(--bg-card)] shadow-[16px_16px_0px_0px_var(--accent-red)] mb-32">
+        <header className="border-4 border-[var(--text-primary)] p-8 md:p-16 relative bg-[var(--bg-card)] shadow-[16px_16px_0px_0px_var(--accent-red)] mb-12">
           <div className="absolute top-0 right-0 p-4 border-l-4 border-b-4 border-[var(--text-primary)] bg-[var(--accent-red)] text-[var(--bg-void)]">
             <Target size={32} />
           </div>
@@ -56,13 +59,28 @@ const BrutalistDetail = ({
             {project.links.demo && project.links.demo !== "#" && (
               <a
                 href={project.links.demo}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-[var(--accent-red)] text-white px-8 py-4 hover:-translate-y-1 hover:translate-x-1 hover:shadow-[-8px_8px_0_0_black] dark:hover:shadow-[-8px_8px_0_0_white] transition-transform"
               >
-                {t("project_layouts.read_research_paper")} <ArrowUpRight />
+                <BookOpen size={16} /> {t("project_layouts.read_research_paper") || "Peer-Reviewed Paper (DOI)"} <ArrowUpRight size={16} />
               </a>
             )}
           </div>
         </header>
+
+        {/* RECRUITER & HIRING MANAGER FAST-BRIEF */}
+        <RecruiterQuickBrief
+          title={activeTitle}
+          tldr={activeTldr}
+          context={activeContext}
+          stack={project.stack}
+          hiringSignals={project.hiringSignals}
+          metrics={activeMetrics}
+          links={project.links}
+          brandColor="var(--accent-red)"
+          isId={isIndonesian}
+        />
 
         {/* NARRATIVE TABS */}
         <section className="mb-32 max-w-7xl mx-auto space-y-12">

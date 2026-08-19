@@ -38,12 +38,19 @@ const CompanyHero = ({
               )}
             </div>
 
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8 bg-[var(--brand)]"></div>
               <span className="text-[var(--brand)] font-mono text-xs uppercase tracking-[0.12em]">
                 {cluster.company}  -  {cluster.title}
               </span>
             </div>
+            {cluster.globalEquivalent && (
+              <div className="mb-6">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-normal bg-[var(--text-primary)]/10 text-[var(--text-primary)] border border-[var(--border-color)]">
+                  🌐 {isId ? "Ekuivalen Global" : "Global Equivalent"}: {isId ? (cluster.globalEquivalent.id || cluster.globalEquivalent) : (cluster.globalEquivalent.en || cluster.globalEquivalent)}
+                </span>
+              </div>
+            )}
             <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif italic mb-8 leading-[0.9] tracking-tight">
               {isId
                 ? cluster.subtitle_id || cluster.subtitle

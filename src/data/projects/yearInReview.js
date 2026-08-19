@@ -18,9 +18,26 @@ export const yearInReview = {
     demo: "https://year-in-review-jak.vercel.app/",
     repo: "github.com/fadlyzaki/manual-wrapped",
   },
-  iconName: "Calendar",
   type: { en: "Web App", id: "Aplikasi Web" },
   date: { en: "December 2025", id: "Desember 2025" },
+  hiringSignals: [
+    {
+      en: "Zero-Backend Privacy Architecture: 100% client-side data persistence with zero server egress.",
+      id: "Arsitektur Privasi Tanpa Backend: Persistensi data 100% di sisi klien tanpa pengiriman data ke server.",
+    },
+    {
+      en: "Rapid Execution & Time-to-Market: Designed, built, and launched in 2 weeks before New Year 2026.",
+      id: "Eksekusi Cepat & Waktu ke Pasar: Dirancang, dibangun, dan diluncurkan dalam 2 minggu sebelum Tahun Baru 2026.",
+    },
+    {
+      en: "Organic Global Reach: Adopted by 45+ users across 6 countries (ID, SG, US, IE, etc.).",
+      id: "Jangkauan Global Organik: Digunakan oleh 45+ pengguna di 6 negara (ID, SG, US, IE, dll.).",
+    },
+    {
+      en: "Design System Polymorphism: 12 dynamic themes from 8-Bit Retro to Cyberpunk Neon.",
+      id: "Polimorfisme Sistem Desain: 12 tema dinamis dari 8-Bit Retro hingga Cyberpunk Neon.",
+    },
+  ],
   coverImage: "airy:data",
   snapshot: {
     tagline: { en: "Your Year, Your Data", id: "Tahunmu, Datamu" },

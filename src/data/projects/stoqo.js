@@ -5,6 +5,10 @@ export const stoqo = {
   company: "STOQO",
   logo: "/stoqo-logo.png",
   subtitle: "Digitizing Habits",
+  globalEquivalent: {
+    en: "Domino's Logistics / Uber for Merchants (Operational ERP & Supply Chain)",
+    id: "Domino's Logistics / Uber for Merchants (ERP Operasional & Rantai Pasok)",
+  },
   companyFocus: {
     title: "Operational Reality",
     icon: "Truck",
@@ -109,6 +113,24 @@ export const stoqo = {
       },
       title_id: "Transformasi Pengiriman untuk Pegiat F&B Kategori Kecil",
       tag_id: "Logistik",
+      globalEquivalent: {
+        en: "Flexport / Amazon Fulfillment WMS (Supply Chain Tracking & Dispatch)",
+        id: "Flexport / Amazon Fulfillment WMS (Pelacakan Rantai Pasok & Dispatch)",
+      },
+      hiringSignals: [
+        {
+          en: "Redesigned warehouse picker interface reducing picking errors by 45% through spatial UI mapping.",
+          id: "Merancang ulang antarmuka picker gudang mengurangi kesalahan pengambilan barang sebesar 45% melalui pemetaan UI spasial.",
+        },
+        {
+          en: "Designed automated delivery routing system cutting route planning time by 30%.",
+          id: "Merancang sistem rute pengiriman otomatis memangkas waktu perencanaan rute sebesar 30%.",
+        },
+        {
+          en: "Conducted field ethnography in warehouse and delivery fleet environments to validate offline-first assumptions.",
+          id: "Melakukan etnografi lapangan di lingkungan gudang dan armada pengiriman untuk memvalidasi asumsi offline-first.",
+        },
+      ],
       caseStudy: {
         locked: true,
         summaries: {
@@ -450,6 +472,24 @@ export const stoqo = {
       },
       title_id: "Agen Penjualan Insentif",
       tag_id: "Gamifikasi",
+      globalEquivalent: {
+        en: "Uber for Merchants / DoorDash Driver Operations (Field Sales Incentive Engine)",
+        id: "Uber for Merchants / DoorDash Driver Operations (Mesin Insentif Penjualan Lapangan)",
+      },
+      hiringSignals: [
+        {
+          en: "Designed gamified leaderboard and incentive engine that reduced field agent attrition by 40%.",
+          id: "Merancang papan peringkat gamifikasi dan mesin insentif yang mengurangi pergantian agen lapangan sebesar 40%.",
+        },
+        {
+          en: "Conducted field research with offline-first sales agents in low-connectivity environments.",
+          id: "Melakukan riset lapangan dengan agen penjualan offline-first di lingkungan konektivitas rendah.",
+        },
+        {
+          en: "Bridged product design and sales operations to create transparent commission visibility.",
+          id: "Menjembatani desain produk dan operasi penjualan untuk menciptakan visibilitas komisi yang transparan.",
+        },
+      ],
       caseStudy: {
         locked: true,
         summaries: {

@@ -53,7 +53,7 @@ describe('LanguageContext', () => {
         <TestConsumer />
       </LanguageProvider>
     );
-    expect(screen.getByTestId('nav-home').textContent).toBe('fadlyzaki');
+    expect(screen.getByTestId('nav-home').textContent).toBe('Home');
     expect(screen.getByTestId('nav-about').textContent).toBe('About');
   });
 

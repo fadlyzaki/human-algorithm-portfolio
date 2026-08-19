@@ -11,6 +11,8 @@ import ScrollReveal from "../ScrollReveal";
 import ProjectCard from "../ProjectCard";
 import AiryDiagram from "../AiryDiagram";
 import ZoomableImage from "../ZoomableImage";
+import RecruiterQuickBrief from "../project-layouts/shared/RecruiterQuickBrief";
+import { useLanguage } from "../../context/LanguageContext";
 
 /* ═══════════════════════════════════════════════════════
    STOQO SALES — CUSTOM EDITORIAL CASE STUDY
@@ -176,6 +178,7 @@ const RankBadge = ({ rank, tier, level, color, delay = 0 }) => (
 
 
 const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
+  const { isIndonesian } = useLanguage();
   const designProcess = caseData.designProcess || caseData.process || [];
   const insights = caseData.insights || [];
   const solution = caseData.solution || [];
@@ -249,6 +252,38 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
           </div>
         </ScrollReveal>
       </section>
+
+      {/* RECRUITER & HIRING MANAGER FAST-BRIEF */}
+      <div className="max-w-5xl mx-auto px-6">
+        <RecruiterQuickBrief
+          tldr={caseData.tldr || caseData.challenge || "Designed gamified sales incentive system to combat 40% monthly field agent attrition in offline-first B2B food supply chain."}
+          context={caseData.context || {
+            role: "Product Designer",
+            timeline: project.timeline || "3 Months",
+            team: "Sales Ops & Product",
+            client: "Stoqo (B2B F&B Supply Chain)",
+          }}
+          stack={caseData.stack || ["Figma", "React Native", "Offline-First", "Gamification", "Field UX"]}
+          hiringSignals={caseData.hiringSignals || [
+            {
+              en: "Designed gamified leaderboard and incentive engine that reduced field agent attrition by 40%.",
+              id: "Merancang papan peringkat gamifikasi dan mesin insentif yang mengurangi pergantian agen lapangan sebesar 40%.",
+            },
+            {
+              en: "Conducted field research with offline-first sales agents in low-connectivity environments.",
+              id: "Melakukan riset lapangan dengan agen penjualan offline-first di lingkungan konektivitas rendah.",
+            },
+            {
+              en: "Bridged product design and sales operations to create transparent commission visibility.",
+              id: "Menjembatani desain produk dan operasi penjualan untuk menciptakan visibilitas komisi yang transparan.",
+            },
+          ]}
+          metrics={caseData.metrics || []}
+          globalEquivalent="Uber for Merchants / DoorDash Dasher App"
+          brandColor="var(--brand)"
+          isId={isIndonesian}
+        />
+      </div>
 
       <div className="border-t border-[var(--border-color)]" />
 

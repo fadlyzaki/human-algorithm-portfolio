@@ -244,7 +244,7 @@ export const resumeData = {
     {
       title: "Competitor Landing Page Summarizer",
       description:
-        "Autonomous UX extraction and competitor analysis tool powered by Google ADK and MCP. Stack: React, Google ADK, Model Context Protocol.",
+        "Agentic zero-latency competitive intelligence platform extracting 9-dimension UX taxonomy and specs across 100 curated benchmarks with side-by-side comparison. Stack: React 19, TypeScript, Gemini 2.5 Flash, Google ADK, MCP.",
     },
     {
       title: "The Human Algorithm",

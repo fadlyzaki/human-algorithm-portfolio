@@ -5,6 +5,10 @@ export const lumina = {
   company: "Lumina",
   logo: "/logos/lumina-logo.png", // Lumina Logo
   subtitle: "Humanizing Ops",
+  globalEquivalent: {
+    en: "LinkedIn Talent / Jobandtalent (High-Volume Workforce Ecosystem)",
+    id: "LinkedIn Talent / Jobandtalent (Ekosistem Tenaga Kerja Skala Tinggi)",
+  },
   companyFocus: {
     title: "Unique Context",
     icon: "Users",
@@ -106,6 +110,20 @@ export const lumina = {
       },
       title_id: "In-App Chat & Pelacak Kandidat",
       tag_id: "Komunikasi",
+      globalEquivalent: {
+        en: "WhatsApp Business / Intercom (Conversational Candidate Intake)",
+        id: "WhatsApp Business / Intercom (Intake Kandidat Percakapan)",
+      },
+      hiringSignals: [
+        {
+          en: "Replaced intimidating text application forms with conversational WhatsApp-style candidate intake.",
+          id: "Mengganti formulir aplikasi teks kaku dengan alur intake kandidat bergaya WhatsApp yang ramah.",
+        },
+        {
+          en: "Reduced time-to-hire by 3 days and improved candidate response rates across 100K+ job seekers.",
+          id: "Mengurangi waktu rekrutmen sebesar 3 hari dan meningkatkan tingkat respons kandidat di 100rb+ pencari kerja.",
+        },
+      ],
       caseStudy: {
         locked: true,
         summaries: {
@@ -338,6 +356,20 @@ export const lumina = {
       },
       title_id: "Dashboard ATS untuk HR",
       tag_id: "Manajemen",
+      globalEquivalent: {
+        en: "Lever / Greenhouse / Workday (High-Velocity Recruiter ATS)",
+        id: "Lever / Greenhouse / Workday (ATS Recruiter Kecepatan Tinggi)",
+      },
+      hiringSignals: [
+        {
+          en: "Engineered high-density bulk candidate evaluation dashboard for recruiters processing 1,000+ applicants daily.",
+          id: "Merancang dasbor evaluasi kandidat massal berdensitas tinggi untuk recruiter yang memproses 1.000+ pelamar per hari.",
+        },
+        {
+          en: "Replaced chaotic Excel tracking with a Kanban candidate pipeline, achieving 100% internal HR adoption.",
+          id: "Mengganti pelacakan Excel yang kacau dengan pipeline kandidat Kanban, mencapai 100% adopsi tim HR.",
+        },
+      ],
       caseStudy: {
         locked: true,
         summaries: {
@@ -612,6 +644,20 @@ export const lumina = {
       },
       title_id: "Chat Your Employer",
       tag_id: "Akses Langsung",
+      globalEquivalent: {
+        en: "1-Click Apply / Indeed Instant Job Connection",
+        id: "1-Click Apply / Indeed Sambungan Kerja Instan",
+      },
+      hiringSignals: [
+        {
+          en: "Eliminated resume friction for blue-collar workers by introducing voice notes and 1-tap applications.",
+          id: "Menghilangkan hambatan CV bagi pekerja kerah biru dengan memperkenalkan pesan suara dan lamaran kerja 1-tap.",
+        },
+        {
+          en: "Conducted extensive field testing across job fairs and transport hubs with real workers.",
+          id: "Melakukan pengujian lapangan ekstensif di job fair dan terminal transportasi dengan pekerja nyata.",
+        },
+      ],
       caseStudy: {
         locked: true,
         summaries: {
@@ -884,6 +930,20 @@ export const lumina = {
       },
       title_id: "App Utama (Navigasi & Penemuan)",
       tag_id: "UX Inti",
+      globalEquivalent: {
+        en: "TikTok / ByteDance (Low-Cognitive Load Visual Navigation)",
+        id: "TikTok / ByteDance (Navigasi Visual Beban Kognitif Rendah)",
+      },
+      hiringSignals: [
+        {
+          en: "Flattened information hierarchy from 4 levels to 2, drastically cutting time-to-first-application.",
+          id: "Meratakan hierarki informasi dari 4 level menjadi 2, memangkas drastis waktu menuju lamaran pertama.",
+        },
+        {
+          en: "Designed iconographic cues and high-contrast color tokens for low-literacy smartphone users.",
+          id: "Merancang petunjuk ikonografi dan token warna kontras tinggi untuk pengguna ponsel berliterasi rendah.",
+        },
+      ],
       caseStudy: {
         locked: true,
         summaries: {

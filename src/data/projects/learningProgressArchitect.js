@@ -39,6 +39,24 @@ export const learningProgressArchitect = {
   featured: false,
   type: { en: "Full-Stack AI Workspace", id: "Ruang Kerja AI Full-Stack" },
   date: { en: "April 2026", id: "April 2026" },
+  hiringSignals: [
+    {
+      en: "Full-Stack Distributed System: React 19, Express, TypeScript, Python ADK service, and Cloud Run.",
+      id: "Sistem Terdistribusi Full-Stack: React 19, Express, TypeScript, layanan Python ADK, dan Cloud Run.",
+    },
+    {
+      en: "Bounded AI Architecture: Context-aware LLM coaching and spaced repetition inside bounded state machines.",
+      id: "Arsitektur AI Terbatas: Pembinaan LLM sadar konteks dan pengulangan berjarak dalam state machine terbatas.",
+    },
+    {
+      en: "Cognitive Load Optimization: Eliminated choice paralysis by enforcing 'Next Action First' UX hierarchy.",
+      id: "Optimasi Beban Kognitif: Mengeliminasi kebingungan memilih dengan hierarki UX 'Aksi Berikutnya Lebih Dulu'.",
+    },
+    {
+      en: "Team Leadership: Led a 2-person engineering team for Google Cloud Hackathon 2026.",
+      id: "Kepemimpinan Tim: Memimpin tim rekayasa 2 orang untuk Hackathon Google Cloud 2026.",
+    },
+  ],
   coverImage: "airy:network",
   snapshot: {
     tagline: {

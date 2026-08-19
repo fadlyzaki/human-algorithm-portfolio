@@ -13,7 +13,9 @@ import {
 } from "lucide-react";
 import AiryDiagram from "../AiryDiagram";
 import ZoomableImage from "../ZoomableImage";
+import RecruiterQuickBrief from "./shared/RecruiterQuickBrief";
 import { useRecruiterMode } from "../../context/RecruiterModeContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 const SystemCoreDetail = ({
   project,
@@ -41,6 +43,7 @@ const SystemCoreDetail = ({
   }, []);
 
   const { isRecruiterMode } = useRecruiterMode();
+  const { isIndonesian } = useLanguage();
 
   return (
     <div className="text-[var(--text-primary)] font-sans min-h-[100dvh] selection:bg-blue-500/30">
@@ -167,8 +170,23 @@ const SystemCoreDetail = ({
           </div>
         </section>
 
+        {/* RECRUITER & HIRING MANAGER FAST-BRIEF */}
+        <div className="max-w-4xl mx-auto px-6 pt-12">
+          <RecruiterQuickBrief
+            title={activeTitle}
+            tldr={activeTldr}
+            context={activeContext}
+            stack={project.stack}
+            hiringSignals={project.hiringSignals}
+            metrics={activeMetrics}
+            links={project.links}
+            brandColor="var(--accent-blue)"
+            isId={isIndonesian}
+          />
+        </div>
+
         {/* 3. NARRATIVE TABS BLOCK */}
-        <section className="max-w-4xl mx-auto px-6 py-24 space-y-32">
+        <section className="max-w-4xl mx-auto px-6 py-12 space-y-32">
           
           <div className="border border-[var(--border-color)] bg-[var(--bg-card)] shadow-2xl relative overflow-hidden">
             {/* Tab Navigation (CLI Headers) */}

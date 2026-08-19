@@ -20,9 +20,32 @@ export const interactiveWorkbook = {
   },
   prototypeLink: "https://buku-kerja-interaktif.web.app/",
   iconName: "BookOpen",
-  featured: true,
   type: { en: "Education", id: "Edukasi" },
   date: { en: "February 2026", id: "Februari 2026" },
+  hiringSignals: [
+    {
+      en: "Educational Product Architecture: 6-step structured pedagogy (YouTube sing-along → Dialogue → Duolingo XP → Self Reflection).",
+      id: "Arsitektur Produk Edukasi: Pedagogi terstruktur 6 langkah (Bernyanyi → Dialog → XP Duolingo → Refleksi Diri).",
+    },
+    {
+      en: "Dual-Role Architecture: Frictionless anonymous student login paired with a secure teacher evaluation dashboard.",
+      id: "Arsitektur Peran Ganda: Akses siswa anonim tanpa hambatan dipadukan dengan dasbor evaluasi guru yang aman.",
+    },
+    {
+      en: "Real-Time Firestore Telemetry: Live synchronization of pre/post test analytics, motivation surveys, and unit progress.",
+      id: "Telemetri Firestore Real-Time: Sinkronisasi langsung analitik pra/pasca tes, survei motivasi, dan kemajuan unit.",
+    },
+    {
+      en: "Low-Bandwidth Optimization: Lightweight Vanilla JS Single Page App designed for low-connectivity school environments.",
+      id: "Optimasi Bandwidth Rendah: Single Page App Vanilla JS ringan yang dirancang untuk lingkungan sekolah berlatensi tinggi.",
+    },
+  ],
+  metrics: [
+    { label: { en: "Learning Units", id: "Unit Belajar" }, value: "8 Units" },
+    { label: { en: "Architecture", id: "Arsitektur" }, value: "Dual Dash" },
+    { label: { en: "Sync Latency", id: "Latensi Sync" }, value: "<100ms" },
+    { label: { en: "Target Tier", id: "Target Jenjang" }, value: "Secondary" },
+  ],
   coverImage: "airy:flow",
   snapshot: {
     tagline: { en: "Gamified Learning", id: "Pembelajaran Digamifikasi" },
@@ -131,10 +154,6 @@ export const interactiveWorkbook = {
       },
       image: "airy:flow",
     },
-  ],
-  metrics: [
-    { label: { en: "Learning Units", id: "Unit Pembelajaran" }, value: "8" },
-    { label: { en: "Target Audience", id: "Target Audiens" }, value: "7th-11th" },
   ],
   learnings: {
     en: "I learned that in education, the biggest barrier isn't bad content, it's friction. When I removed the password requirement and let students enter with just a dropdown, participation jumped instantly. That taught me: sometimes removing a feature is more powerful than adding ten.",

@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 import ScrollReveal from "../ScrollReveal";
 import ZoomableImage from "../ZoomableImage";
+import RecruiterQuickBrief from "../project-layouts/shared/RecruiterQuickBrief";
+import { useLanguage } from "../../context/LanguageContext";
 
 /* ═══════════════════════════════════════════════════════
    STOQO LOGISTICS — CUSTOM EDITORIAL CASE STUDY
@@ -91,6 +93,7 @@ const WaypointCard = ({ title, desc, delay = 0, warning = false }) => (
 );
 
 const StoqoLogisticsCaseStudy = ({ project, t }) => {
+  const { isIndonesian } = useLanguage();
   const assetPath = "/case-studies/stoqo-logistics";
 
   return (
@@ -143,6 +146,38 @@ const StoqoLogisticsCaseStudy = ({ project, t }) => {
           </div>
         </ScrollReveal>
       </section>
+
+      {/* RECRUITER & HIRING MANAGER FAST-BRIEF */}
+      <div className="max-w-6xl mx-auto px-6">
+        <RecruiterQuickBrief
+          tldr="Redesigned warehouse management and last-mile delivery system for B2B food supply chain, reducing warehouse picking errors by 45% and cutting delivery routing time by 30%."
+          context={{
+            role: "Product Designer",
+            timeline: "2018 - 2019",
+            team: "Logistics & Warehouse Ops",
+            client: "Stoqo (B2B F&B Supply Chain)",
+          }}
+          stack={["Figma", "React Native", "WMS", "Route Optimization", "Offline-First"]}
+          hiringSignals={[
+            {
+              en: "Redesigned warehouse picker interface reducing picking errors by 45% through spatial UI mapping.",
+              id: "Merancang ulang antarmuka picker gudang mengurangi kesalahan pengambilan barang sebesar 45% melalui pemetaan UI spasial.",
+            },
+            {
+              en: "Designed automated delivery routing system cutting route planning time by 30%.",
+              id: "Merancang sistem rute pengiriman otomatis memangkas waktu perencanaan rute sebesar 30%.",
+            },
+            {
+              en: "Conducted field ethnography in warehouse and delivery fleet environments to validate offline-first assumptions.",
+              id: "Melakukan etnografi lapangan di lingkungan gudang dan armada pengiriman untuk memvalidasi asumsi offline-first.",
+            },
+          ]}
+          metrics={project.metrics || []}
+          globalEquivalent="Flexport / Amazon Fulfillment WMS"
+          brandColor="var(--brand)"
+          isId={isIndonesian}
+        />
+      </div>
 
       {/* ═══════ OVERVIEW ═══════ */}
       <DispatchLog>

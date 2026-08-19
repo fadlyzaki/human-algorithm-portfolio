@@ -42,6 +42,31 @@ const SEO = ({
     },
   };
 
+  const pathSegments = pathname.split("/").filter(Boolean);
+  const breadcrumbSchema =
+    pathSegments.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: siteUrl,
+            },
+            ...pathSegments.map((segment, index) => ({
+              "@type": "ListItem",
+              position: index + 2,
+              name: segment
+                .replace(/-/g, " ")
+                .replace(/\b\w/g, (l) => l.toUpperCase()),
+              item: `${siteUrl}/${pathSegments.slice(0, index + 1).join("/")}`,
+            })),
+          ],
+        }
+      : null;
+
   return (
     <Helmet>
       {/* Standard Metadata */}
@@ -80,6 +105,11 @@ const SEO = ({
       <script type="application/ld+json">
         {JSON.stringify(structuredData)}
       </script>
+      {breadcrumbSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      )}
 
       {children}
     </Helmet>

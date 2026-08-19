@@ -146,9 +146,9 @@ const Navbar = ({
               </div>
             )}
 
-            {/* System Status Indicator (Only on desktop and when no title is active) */}
+            {/* System Status Indicator (Only on wide desktop and when no title is active) */}
             {!title && (
-              <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)]">
+              <div className="hidden 2xl:flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)]">
                 <div className="relative flex h-1.5 w-1.5">
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
                 </div>
@@ -159,8 +159,8 @@ const Navbar = ({
             )}
           </div>
 
-          {/* CENTER: DESKTOP NAV LINKS (Visible when no title is active to prevent overlap, z-20 to ensure clickable) */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap hidden md:block z-20">
+          {/* CENTER: DESKTOP NAV LINKS (Visible on desktop xl+ when no title is active to prevent overlap, z-20 to ensure clickable) */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap hidden xl:block z-20">
             {!title && (
               <nav className="flex items-center gap-0.5">
                 <HoverNavLink to="/" label={t("nav.home") || "Home"} active={isRouteActive("/")} accentColor="var(--accent-blue)" />
@@ -203,22 +203,18 @@ const Navbar = ({
               {/* Universal View CV Button */}
               <Link
                 to="/cv"
-                className={`hidden md:flex items-center gap-1.5 p-2 xl:px-3 xl:py-1.5 rounded transition-all duration-300 border ${
-                  isRecruiterMode
-                    ? "bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] border-[var(--accent-blue)]/30 hover:bg-[var(--accent-blue)]/20 shadow-[0_0_10px_var(--accent-blue)] shadow-[var(--accent-blue)]/10"
-                    : "bg-[var(--bg-void)] text-[var(--text-secondary)] border-[var(--border-color)] hover:text-[var(--text-primary)]"
-                }`}
-                title="View Resume / CV"
+                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-md transition-all duration-200 border border-[var(--accent-blue)]/40 bg-[var(--accent-blue)]/10 text-[var(--accent-blue)] hover:bg-[var(--accent-blue)]/20 shadow-sm"
+                title="View Resume / CV System Manifest"
               >
-                <FileText size={14} />
-                <span className="font-mono text-[9px] uppercase tracking-wider hidden xl:inline">
-                  {t("nav.resume") || "Resume"}
+                <FileText size={13} />
+                <span className="font-mono text-[10px] uppercase font-bold tracking-wider">
+                  {t("nav.resume") || "CV / Manifest"}
                 </span>
               </Link>
 
               <button
                 onClick={toggleRecruiterMode}
-                className={`hidden md:flex items-center gap-1.5 p-2 xl:px-3 xl:py-1.5 rounded transition-all duration-300 border ${
+                className={`hidden xl:flex items-center gap-1.5 p-2 xl:px-3 xl:py-1.5 rounded transition-all duration-300 border ${
                   isRecruiterMode
                     ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30"
                     : "bg-[var(--bg-void)] text-[var(--text-secondary)] border-[var(--border-color)] hover:text-[var(--accent-blue)]"
@@ -248,17 +244,17 @@ const Navbar = ({
                 {language}
               </button>
 
-              {/* Show menu button on desktop sub-pages ONLY (title is active) to prevent layout overlap */}
-              {title && (
-                <button
-                  onClick={onOpenMenu}
-                  className="hidden md:flex min-h-[40px] min-w-[40px] items-center justify-center rounded text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 transition-colors border border-[var(--border-color)] ml-1"
-                  title="Open Navigation Menu"
-                  aria-label="Open Navigation Menu"
-                >
-                  <Menu size={16} />
-                </button>
-              )}
+              {/* Show menu button on screens < xl or when title is active to ensure full directory access */}
+              <button
+                onClick={onOpenMenu}
+                className={`min-h-[40px] min-w-[40px] items-center justify-center rounded text-[var(--text-secondary)] hover:text-[var(--accent-blue)] hover:bg-[var(--text-secondary)]/10 transition-colors border border-[var(--border-color)] ml-1 ${
+                  title ? "flex" : "flex xl:hidden"
+                }`}
+                title="Open Navigation Menu"
+                aria-label="Open Navigation Menu"
+              >
+                <Menu size={16} />
+              </button>
             </div>
           </div>
         </div>

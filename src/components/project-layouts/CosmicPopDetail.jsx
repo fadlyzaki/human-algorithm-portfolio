@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { Activity, Shield, Star, Rocket, Target, Play } from "lucide-react";
+import { Activity, Shield, Star, Rocket, Target, Play, ArrowUpRight, Github } from "lucide-react";
 import AiryDiagram from "../AiryDiagram";
 import ZoomableImage from "../ZoomableImage";
+import RecruiterQuickBrief from "./shared/RecruiterQuickBrief";
+import { useLanguage } from "../../context/LanguageContext";
 
 const CosmicPopDetail = ({
   project,
+  activeContext,
   activeChallenge,
   activeProcess,
   activeInsights,
@@ -18,6 +21,7 @@ const CosmicPopDetail = ({
   activeSnapshot,
   t,
 }) => {
+  const { isIndonesian } = useLanguage();
   // Aesthetic: Cosmic Pop, Deep Blues/Purples, Glassmorphism, Floating Particles, Playful Typography
   const [activeTab, setActiveTab] = useState("challenge");
   const [activePhase, setActivePhase] = useState(0);
@@ -33,7 +37,7 @@ const CosmicPopDetail = ({
 
       <main className="relative z-10 pt-24 pb-32 max-w-6xl mx-auto px-6">
         {/* 1. HERO BANNER */}
-        <header className="py-20 flex flex-col items-center text-center space-y-10">
+        <header className="py-20 flex flex-col items-center text-center space-y-8">
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -57,30 +61,45 @@ const CosmicPopDetail = ({
             {activeTldr}
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 pt-8">
+          <div className="flex flex-wrap justify-center gap-4 pt-4">
             {project.links.demo && project.links.demo !== "#" && (
               <a
                 href={project.links.demo}
-                className="flex items-center gap-2 bg-[var(--accent-sky)] text-[#0A0A0C] px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:scale-105 hover:shadow-[0_0_30px_rgba(0,194,255,0.4)] transition-all"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-[var(--accent-sky)] text-[#0A0A0C] px-8 py-3.5 rounded-full font-bold uppercase tracking-wider hover:scale-105 hover:shadow-[0_0_30px_rgba(0,194,255,0.4)] transition-all text-xs"
               >
-                <Play size={16} fill="currentColor" /> {t("project_layouts.play_demo")}
+                <Play size={15} fill="currentColor" /> {t("project_layouts.play_demo") || "Launch PWA"}
               </a>
             )}
-            <div className="flex bg-[var(--bg-surface)] backdrop-blur-xl border border-[var(--border-color)] rounded-full p-1 h-14">
-              {project.stack.slice(0, 3).map((tech) => (
-                <span
-                  key={tech}
-                  className="px-6 py-3 text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)]"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+            {project.links.repo && project.links.repo !== "#" && (
+              <a
+                href={project.links.repo.startsWith("http") ? project.links.repo : `https://${project.links.repo}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)] px-6 py-3.5 rounded-full font-bold uppercase tracking-wider hover:border-[var(--accent-sky)] transition-colors text-xs"
+              >
+                <Github size={15} /> Source
+              </a>
+            )}
           </div>
         </header>
 
+        {/* RECRUITER & HIRING MANAGER FAST-BRIEF */}
+        <RecruiterQuickBrief
+          title={activeTitle}
+          tldr={activeTldr}
+          context={activeContext}
+          stack={project.stack}
+          hiringSignals={project.hiringSignals}
+          metrics={activeMetrics}
+          links={project.links}
+          brandColor="var(--accent-sky)"
+          isId={isIndonesian}
+        />
+
         {/* 3. NARRATIVE TABS BLOCK */}
-        <section className="mt-32 space-y-32">
+        <section className="mt-16 space-y-32">
           
           <div className="flex flex-col items-center">
             {/* Pill Tabs */}

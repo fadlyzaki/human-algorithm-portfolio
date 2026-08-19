@@ -15,6 +15,7 @@ import KeyInsights from "./sections/KeyInsights";
 import SolutionSection from "./sections/SolutionSection";
 import PrototypeViewer from "./sections/PrototypeViewer";
 import ImpactMetrics from "./sections/ImpactMetrics";
+import RecruiterQuickBrief from "../project-layouts/shared/RecruiterQuickBrief";
 
 const DesignSystemCaseStudy = lazyWithRetry(() => import("./DesignSystemCaseStudy"));
 const StoqoSalesCaseStudy = lazyWithRetry(() => import("./StoqoSalesCaseStudy"));
@@ -148,6 +149,26 @@ const CaseStudyContent = ({ project, parentCluster }) => {
             <HeroSection project={project} caseData={caseData} isId={isId} t={t} />
             
             <ContextStrip project={project} caseData={caseData} isId={isId} t={t} />
+
+            {/* RECRUITER & HIRING MANAGER FAST-BRIEF */}
+            <div className="max-w-6xl mx-auto px-6">
+              <RecruiterQuickBrief
+                tldr={caseData.tldr || caseData.challenge || (isId ? project.details_id?.problem : project.details?.problem) || ""}
+                context={caseData.context || {
+                  role: isId ? project.role_id || project.role : project.role,
+                  timeline: isId ? project.timeline_id || project.timeline : project.timeline,
+                  team: caseData.context?.team || project.team,
+                  client: caseData.context?.client || parentCluster?.company,
+                }}
+                stack={project.stack || caseData.stack || []}
+                hiringSignals={project.hiringSignals || caseData.hiringSignals || []}
+                metrics={caseData.metrics || project.metrics || []}
+                links={project.links || {}}
+                globalEquivalent={project.globalEquivalent || caseData.globalEquivalent || null}
+                brandColor={parentCluster?.brandColor || "var(--brand)"}
+                isId={isId}
+              />
+            </div>
 
             <ProcessFramework caseData={caseData} t={t} />
 

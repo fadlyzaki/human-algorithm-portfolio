@@ -7,9 +7,12 @@ import {
   GitMerge,
   FileText,
   ArrowRight,
+  Github,
 } from "lucide-react";
 import AiryDiagram from "../AiryDiagram";
 import ZoomableImage from "../ZoomableImage";
+import RecruiterQuickBrief from "./shared/RecruiterQuickBrief";
+import { useLanguage } from "../../context/LanguageContext";
 
 const BlueprintDetail = ({
   project,
@@ -24,6 +27,7 @@ const BlueprintDetail = ({
   activeTldr,
   t,
 }) => {
+  const { isIndonesian } = useLanguage();
   // Aesthetic: Civil/Architectural Blueprint, Blue Graph Paper, Precise Lines, Technical Fonts
   const [activeTab, setActiveTab] = useState("challenge");
   const [activePhase, setActivePhase] = useState(0);
@@ -39,7 +43,7 @@ const BlueprintDetail = ({
 
       <main className="relative z-10 max-w-7xl mx-auto px-6 lg:px-24 pt-24">
         {/* 1. BLUEPRINT HEADER */}
-        <header className="border-2 border-blue-900/20 dark:border-blue-300/20 bg-[var(--bg-card)] backdrop-blur-sm p-8 md:p-16 mb-24 relative">
+        <header className="border-2 border-blue-900/20 dark:border-blue-300/20 bg-[var(--bg-card)] backdrop-blur-sm p-8 md:p-16 mb-12 relative">
           {/* Corner Marks */}
           <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-blue-600 dark:border-blue-400 -translate-x-1/2 -translate-y-1/2 bg-[var(--bg-surface)]"></div>
           <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-blue-600 dark:border-blue-400 translate-x-1/2 -translate-y-1/2 bg-[var(--bg-surface)]"></div>
@@ -86,6 +90,8 @@ const BlueprintDetail = ({
             {project.links.demo && project.links.demo !== "#" && (
               <a
                 href={project.links.demo}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 border-b-2 border-blue-600 pb-1 hover:text-blue-600 transition-colors"
               >
                 {t("project_layouts.access_demo_site")} <ArrowRight size={14} />
@@ -96,6 +102,19 @@ const BlueprintDetail = ({
             </span>
           </div>
         </header>
+
+        {/* RECRUITER & HIRING MANAGER FAST-BRIEF */}
+        <RecruiterQuickBrief
+          title={activeTitle}
+          tldr={activeTldr}
+          context={activeContext}
+          stack={project.stack}
+          hiringSignals={project.hiringSignals}
+          metrics={activeMetrics}
+          links={project.links}
+          brandColor="var(--accent-blue)"
+          isId={isIndonesian}
+        />
 
         <div className="grid lg:grid-cols-12 gap-16">
           {/* LEFT COLUMN: Narrative & Process */}

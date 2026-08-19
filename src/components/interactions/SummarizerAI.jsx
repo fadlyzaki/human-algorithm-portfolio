@@ -1,117 +1,353 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Code2, Check, Globe, RefreshCw, Box, Layers } from "lucide-react";
+import {
+  Search,
+  Check,
+  Globe,
+  RefreshCw,
+  Sparkles,
+  Columns,
+  Layers,
+  ArrowRight,
+  ShieldCheck,
+  Compass,
+} from "lucide-react";
+
+const BENCHMARKS = {
+  DevTools: {
+    brand: "Linear",
+    url: "https://linear.app",
+    specs: {
+      segment: "Engineering & Product Teams",
+      monetization: "Freemium + Per-Seat ($8-$14/mo)",
+      conversion: "Self-Serve Instant Workspace",
+      signature: "Dark Glassmorphism, 100ms Feel",
+    },
+    takeaway:
+      "Linear masterfully anchors around speed and keyboard-first fluidity. Visual minimalism creates an instant aura of engineering excellence.",
+    dimensions: [
+      { key: "Value Prop", val: "Plan and build products with high velocity" },
+      { key: "CTA Strategy", val: "Primary: 'Start for free' / Secondary: 'Book demo'" },
+      { key: "Trust Signals", val: "Backed by top tech leaders, SOC2 compliant, 99.99% uptime" },
+      { key: "UX Tone", val: "Crisp, active, engineer-centric, zero marketing fluff" },
+    ],
+  },
+  AI: {
+    brand: "Cursor",
+    url: "https://cursor.com",
+    specs: {
+      segment: "Software Engineers & Builders",
+      monetization: "Usage-Based + Pro Subscription",
+      conversion: "1-Click Direct Binary Download",
+      signature: "Split-Canvas Code Terminals & Diff",
+    },
+    takeaway:
+      "Cursor turns the editor itself into the hero. Immediate demonstration of autocomplete in action reduces onboarding cognitive friction to zero.",
+    dimensions: [
+      { key: "Value Prop", val: "The AI Code Editor built for pair-programming speed" },
+      { key: "CTA Strategy", val: "Primary: 'Download for macOS' / Secondary: 'Explore docs'" },
+      { key: "Trust Signals", val: "Trusted by engineers at OpenAI, Scale AI, and Vercel" },
+      { key: "UX Tone", val: "Technical, direct, action-oriented, demo-first" },
+    ],
+  },
+  Productivity: {
+    brand: "Notion",
+    url: "https://notion.so",
+    specs: {
+      segment: "Knowledge Workers & Enterprises",
+      monetization: "Freemium + Tiered Plans",
+      conversion: "Instant Web Workspace Signup",
+      signature: "Modular Block Canvas & Notion AI",
+    },
+    takeaway:
+      "Notion balances consumer simplicity with enterprise scale through modular block animations and clear vertical tab switchers.",
+    dimensions: [
+      { key: "Value Prop", val: "The connected workspace where better work happens" },
+      { key: "CTA Strategy", val: "Primary: 'Get Notion free' / Secondary: 'Request a demo'" },
+      { key: "Trust Signals", val: "Over 30M+ users, Fortune 500 company logos" },
+      { key: "UX Tone", val: "Friendly, empowering, creative, structured" },
+    ],
+  },
+  Fintech: {
+    brand: "Ramp",
+    url: "https://ramp.com",
+    specs: {
+      segment: "Finance Teams & CFOs",
+      monetization: "Interchange Share + Enterprise SaaS",
+      conversion: "Instant Savings Calculator to Demo",
+      signature: "High Trust Density, Dark Teal Accents",
+    },
+    takeaway:
+      "Ramp places quantified cost savings at the center of the hero viewport, converting skepticism into instant ROI comprehension.",
+    dimensions: [
+      { key: "Value Prop", val: "The ultimate finance automation & corporate card platform" },
+      { key: "CTA Strategy", val: "Primary: 'Get Started' / Secondary: 'Calculate Savings'" },
+      { key: "Trust Signals", val: "Visa network partner, SOC1/SOC2, $1B+ saved for clients" },
+      { key: "UX Tone", val: "Authoritative, ROI-driven, institutional, modern" },
+    ],
+  },
+  Consumer: {
+    brand: "Airbnb",
+    url: "https://airbnb.com",
+    specs: {
+      segment: "Global Travelers & Hosts",
+      monetization: "Two-Sided Marketplace Commission",
+      conversion: "Floating Location Search Capsule",
+      signature: "Full-Bleed Photography & Map View",
+    },
+    takeaway:
+      "Airbnb removes all conceptual barriers by making the search capsule the singular focal point of the viewport.",
+    dimensions: [
+      { key: "Value Prop", val: "Find unique places to stay and unforgettable experiences" },
+      { key: "CTA Strategy", val: "Primary: 'Search Destinations' / Secondary: 'Airbnb your home'" },
+      { key: "Trust Signals", val: "AirCover protection, 1B+ guest arrivals, verified reviews" },
+      { key: "UX Tone", val: "Evocative, welcoming, human, aspirational" },
+    ],
+  },
+};
 
 export default function SummarizerAI() {
-  const [step, setStep] = useState(0);
+  const [category, setCategory] = useState("DevTools");
+  const [viewMode, setViewMode] = useState("taxonomy"); // "taxonomy" | "matrix"
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [pipelineStep, setPipelineStep] = useState(3); // 0=DOM, 1=Sanitize, 2=Gemini, 3=Rendered
 
-  const URL = "https://example.com/competitor";
-  const JSON_RESULT = `{
-  "product_brand": "ExampleCorp",
-  "value_prop": "Fastest analytics",
-  "audience": "Growth teams",
-  "cta": ["Start Free", "Demo"],
-  "trust": ["SOC2", "1M+ Users"]
-}`;
+  const current = BENCHMARKS[category] || BENCHMARKS.DevTools;
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setStep((p) => (p >= 5 ? 0 : p + 1));
-    }, 2500);
-    return () => clearInterval(timer);
-  }, []);
+  const handleSelectCategory = (cat) => {
+    if (cat === category && pipelineStep === 3) return;
+    setCategory(cat);
+    setIsProcessing(true);
+    setPipelineStep(0);
+
+    setTimeout(() => setPipelineStep(1), 300);
+    setTimeout(() => setPipelineStep(2), 700);
+    setTimeout(() => {
+      setPipelineStep(3);
+      setIsProcessing(false);
+    }, 1100);
+  };
 
   return (
-    <div className="w-full h-full min-h-[400px] relative overflow-hidden bg-black/5 rounded-xl border border-[var(--border-color)] font-mono select-none text-[10px] sm:text-xs">
-      {/* Background Matrix */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(0deg, var(--border-color) 1px, transparent 1px), linear-gradient(90deg, var(--border-color) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+    <div className="w-full h-full flex flex-col bg-[var(--bg-void)] text-[var(--text-primary)] font-mono text-xs select-none overflow-hidden relative">
+      {/* Background Subtle Grid */}
+      <div
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(0deg, var(--border-color) 1px, transparent 1px), linear-gradient(90deg, var(--border-color) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-        
-        {/* URL Input Simulation */}
-        <div className="w-full max-w-md bg-[var(--bg-card)] border border-[var(--border-color)] rounded-md mb-8 shadow-2xl relative z-10 overflow-hidden">
-          <div className="flex bg-black/10 border-b border-[var(--border-color)] p-2 items-center gap-2">
-            <div className="flex gap-1.5 px-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
-            </div>
-            <div className="flex-1 text-center text-[var(--text-secondary)] opacity-50 tracking-wider text-[9px] uppercase">
-              MCP_CLIENT
-            </div>
-          </div>
-          <div className="p-4 flex items-center gap-4">
-            <Globe className={step === 0 ? "text-blue-400" : "text-[var(--text-secondary)]"} size={16} />
-            <div className="flex-1 border-b border-[var(--border-color)] pb-1 relative">
-              <span className="opacity-80">{URL}</span>
-              {step === 0 && (
-                <motion.div className="w-2 h-4 bg-blue-400 inline-block align-middle ml-1" animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }} />
-              )}
-            </div>
-            <motion.div animate={step === 1 ? { rotate: 360 } : {}} transition={{ repeat: Infinity, duration: 2, ease: "linear" }}>
-              <Search size={16} className={step === 1 ? "text-blue-400" : "text-[var(--text-secondary)] opacity-50"} />
-            </motion.div>
-          </div>
+      {/* Header Bar */}
+      <div className="p-3 border-b border-[var(--border-color)] bg-[var(--bg-surface)] flex items-center justify-between shrink-0 relative z-10">
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+          <span className="text-[10px] font-bold tracking-wider text-[var(--accent-purple)] uppercase">
+            INTEL_ENGINE // v2.0
+          </span>
         </div>
 
-        {/* Processing Node */}
-        <div className="relative w-full max-w-md flex justify-center mb-8 h-16">
-          <AnimatePresence>
-            {step >= 1 && step < 4 && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5, y: -20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                className="absolute flex items-center gap-4 bg-[var(--bg-void)] border border-[var(--border-color)] rounded-full px-6 py-2 shadow-[0_0_15px_rgba(59,130,246,0.2)]"
-              >
-                <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
-                <span className="text-[var(--text-secondary)] tracking-wider text-[10px]">
-                  {step === 1 && "ADK_AGENT_INIT..."}
-                  {step === 2 && "MCP: FETCH_DOM..."}
-                  {step === 3 && "LLM: PARSE_UX..."}
-                </span>
-                <RefreshCw size={12} className="text-blue-400 animate-spin" />
-              </motion.div>
-            )}
-          </AnimatePresence>
+        {/* View Mode Switcher */}
+        <div className="flex bg-[var(--bg-void)] rounded p-0.5 border border-[var(--border-color)]">
+          <button
+            onClick={() => setViewMode("taxonomy")}
+            className={`px-2 py-0.5 rounded text-[9px] uppercase tracking-wider transition-colors flex items-center gap-1 ${
+              viewMode === "taxonomy"
+                ? "bg-[var(--accent-purple)] text-white"
+                : "text-[var(--text-secondary)] hover:text-white"
+            }`}
+          >
+            <Layers size={10} /> 9-Dim
+          </button>
+          <button
+            onClick={() => setViewMode("matrix")}
+            className={`px-2 py-0.5 rounded text-[9px] uppercase tracking-wider transition-colors flex items-center gap-1 ${
+              viewMode === "matrix"
+                ? "bg-[var(--accent-purple)] text-white"
+                : "text-[var(--text-secondary)] hover:text-white"
+            }`}
+          >
+            <Columns size={10} /> Matrix (4x)
+          </button>
         </div>
+      </div>
 
-        {/* JSON Output Simulation */}
-        <div className="w-full max-w-md h-40 bg-[var(--bg-void)] border border-blue-500/30 rounded-md shadow-2xl overflow-hidden relative">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-emerald-500"></div>
-          <div className="p-4 h-full">
-            <AnimatePresence mode="popLayout">
-              {step >= 4 ? (
-                <motion.pre
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="text-emerald-400 whitespace-pre-wrap font-mono text-[9px] leading-relaxed"
-                >
-                  {JSON_RESULT}
-                </motion.pre>
-              ) : (
-                <motion.div
-                  exit={{ opacity: 0 }}
-                  className="h-full flex items-center justify-center text-[var(--text-secondary)] opacity-30 flex-col gap-2"
-                >
-                  <Box size={20} />
-                  <span>AWAITING_INPUT</span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-          {step === 5 && (
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              className="absolute bottom-4 right-4 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center text-black"
+      {/* Category Chips Bar (100 Benchmarks) */}
+      <div className="p-2 border-b border-[var(--border-color)] bg-black/20 flex flex-col gap-1.5 shrink-0 relative z-10">
+        <div className="flex items-center justify-between text-[9px] text-[var(--accent-purple)] font-bold uppercase tracking-wider">
+          <span className="flex items-center gap-1">
+            <Sparkles size={10} className="text-emerald-400" />
+            Live Interactive Simulation (Click to Explore)
+          </span>
+          <span className="text-[8px] text-[var(--text-secondary)]">100 Benchmarks</span>
+        </div>
+        <div className="flex gap-1.5 overflow-x-auto hide-scrollbar">
+          {Object.keys(BENCHMARKS).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => handleSelectCategory(cat)}
+              className={`px-2.5 py-1 rounded text-[10px] uppercase font-bold tracking-wider transition-all whitespace-nowrap ${
+                category === cat
+                  ? "bg-[var(--accent-purple)] text-white shadow-sm"
+                  : "bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-white"
+              }`}
             >
-              <Check size={12} />
-            </motion.div>
-          )}
+              {cat} (20)
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="flex-1 p-3 overflow-y-auto relative z-10 flex flex-col gap-2.5">
+        {/* Active URL Ingestion Simulation Pill */}
+        <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded p-2 flex items-center justify-between gap-2 shadow-sm shrink-0">
+          <div className="flex items-center gap-2 truncate">
+            <Globe size={12} className="text-[var(--accent-purple)] shrink-0" />
+            <span className="text-[10px] text-[var(--text-secondary)] truncate font-mono">
+              {current.url}
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5 shrink-0">
+            {isProcessing ? (
+              <span className="text-[9px] text-yellow-400 flex items-center gap-1">
+                <RefreshCw size={10} className="animate-spin" />
+                {pipelineStep === 0 && "INGEST_DOM"}
+                {pipelineStep === 1 && "STRIP_BLOAT"}
+                {pipelineStep === 2 && "GEMINI_2.5_FLASH"}
+              </span>
+            ) : (
+              <span className="text-[9px] text-emerald-400 flex items-center gap-1">
+                <Check size={10} /> 0ms CACHED
+              </span>
+            )}
+          </div>
         </div>
 
+        {/* View Mode: 9-Dimension Taxonomy */}
+        {viewMode === "taxonomy" && (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={category}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.18 }}
+              className="flex flex-col gap-2.5"
+            >
+              {/* Product Specifications Badges */}
+              <div className="grid grid-cols-2 gap-1.5">
+                <div className="bg-[var(--bg-card)] p-2 rounded border border-[var(--border-color)]">
+                  <div className="text-[8px] uppercase tracking-wider text-[var(--text-secondary)] mb-0.5">
+                    Primary Segment
+                  </div>
+                  <div className="text-[10px] font-bold text-[var(--text-primary)] truncate">
+                    {current.specs.segment}
+                  </div>
+                </div>
+                <div className="bg-[var(--bg-card)] p-2 rounded border border-[var(--border-color)]">
+                  <div className="text-[8px] uppercase tracking-wider text-[var(--text-secondary)] mb-0.5">
+                    Monetization
+                  </div>
+                  <div className="text-[10px] font-bold text-emerald-400 truncate">
+                    {current.specs.monetization}
+                  </div>
+                </div>
+                <div className="bg-[var(--bg-card)] p-2 rounded border border-[var(--border-color)]">
+                  <div className="text-[8px] uppercase tracking-wider text-[var(--text-secondary)] mb-0.5">
+                    Conversion Path
+                  </div>
+                  <div className="text-[10px] font-bold text-sky-400 truncate">
+                    {current.specs.conversion}
+                  </div>
+                </div>
+                <div className="bg-[var(--bg-card)] p-2 rounded border border-[var(--border-color)]">
+                  <div className="text-[8px] uppercase tracking-wider text-[var(--text-secondary)] mb-0.5">
+                    Design Signature
+                  </div>
+                  <div className="text-[10px] font-bold text-[var(--accent-purple)] truncate">
+                    {current.specs.signature}
+                  </div>
+                </div>
+              </div>
+
+              {/* Decoupled Product Designer Takeaway Callout */}
+              <div className="p-2.5 rounded border border-[var(--accent-purple)]/40 bg-[var(--accent-purple)]/10 flex flex-col gap-1 shadow-sm">
+                <div className="flex items-center gap-1.5 text-[9px] uppercase tracking-wider text-[var(--accent-purple)] font-bold">
+                  <Compass size={11} /> Designer Takeaway ({current.brand})
+                </div>
+                <div className="text-[10px] text-[var(--text-primary)] leading-relaxed italic">
+                  "{current.takeaway}"
+                </div>
+              </div>
+
+              {/* 4 Representative Dimensions */}
+              <div className="flex flex-col gap-1.5">
+                {current.dimensions.map((dim, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-[var(--bg-card)] p-2 rounded border border-[var(--border-color)] flex flex-col gap-0.5"
+                  >
+                    <div className="text-[8px] uppercase tracking-wider text-[var(--text-secondary)] flex items-center justify-between">
+                      <span>{dim.key}</span>
+                      <span className="opacity-40">DIM_0{idx + 1}</span>
+                    </div>
+                    <div className="text-[10px] text-[var(--text-primary)] leading-snug">
+                      {dim.val}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        )}
+
+        {/* View Mode: Comparison Matrix (4 Competitors Diff) */}
+        {viewMode === "matrix" && (
+          <div className="flex flex-col gap-2">
+            <div className="text-[9px] uppercase tracking-wider text-[var(--accent-purple)] font-bold flex items-center gap-1 mb-1">
+              <Columns size={10} /> Multi-Competitor Synchronized Diff (4x)
+            </div>
+            <div className="border border-[var(--border-color)] rounded overflow-hidden">
+              <table className="w-full text-left border-collapse text-[9px]">
+                <thead>
+                  <tr className="bg-[var(--bg-card)] border-b border-[var(--border-color)]">
+                    <th className="p-1.5 text-[var(--text-secondary)] font-mono">Product</th>
+                    <th className="p-1.5 text-[var(--text-secondary)] font-mono">Acquisition Hook</th>
+                    <th className="p-1.5 text-[var(--text-secondary)] font-mono">Monetization</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[var(--border-color)]">
+                  {Object.entries(BENCHMARKS).map(([catKey, data]) => (
+                    <tr
+                      key={catKey}
+                      className={category === catKey ? "bg-[var(--accent-purple)]/15 font-bold" : ""}
+                    >
+                      <td className="p-1.5 font-bold text-[var(--text-primary)]">{data.brand}</td>
+                      <td className="p-1.5 text-[var(--text-secondary)] truncate max-w-[100px]">
+                        {data.specs.conversion}
+                      </td>
+                      <td className="p-1.5 text-emerald-400">{data.specs.monetization}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="text-[8px] text-[var(--text-secondary)] opacity-60">
+              * Supports side-by-side export to Markdown, JSON schema, CSV, and printable PDF.
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Footer Status Bar */}
+      <div className="p-2 border-t border-[var(--border-color)] bg-[var(--bg-surface)] flex items-center justify-between text-[8px] text-[var(--text-secondary)] shrink-0">
+        <span className="flex items-center gap-1">
+          <ShieldCheck size={9} className="text-emerald-400" /> BYOK Zero-Tracking
+        </span>
+        <span className="text-[var(--accent-purple)] font-bold">100 BENCHMARKS LOADED</span>
       </div>
     </div>
   );

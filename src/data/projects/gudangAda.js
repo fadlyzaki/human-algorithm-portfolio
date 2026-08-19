@@ -6,6 +6,10 @@ export const gudangAda = {
   logo: "/gudangada-logo.png", // Placeholder for company logo
   subtitle: "Managing Scale",
   subtitle_id: "Mengelola Skala",
+  globalEquivalent: {
+    en: "Amazon Business / Mirakl (B2B Supply Chain Marketplace)",
+    id: "Amazon Business / Mirakl (Marketplace Rantai Pasok B2B)",
+  },
   companyFocus: {
     title: "Unique Context",
     icon: "TrendingUp",
@@ -105,6 +109,24 @@ export const gudangAda = {
       },
       title_id: "Marketplace",
       tag_id: "Transaksi",
+      globalEquivalent: {
+        en: "Amazon Business / Stripe Checkout for Emerging Markets",
+        id: "Amazon Business / Stripe Checkout untuk Pasar Berkembang",
+      },
+      hiringSignals: [
+        {
+          en: "Architected high-trust checkout and escrow safeguard for $100B B2B FMCG supply chain.",
+          id: "Merancang checkout dengan rasa aman tinggi dan pengaman escrow untuk pasar FMCG B2B $100M.",
+        },
+        {
+          en: "Reduced cart abandonment by 18% through transparent order guarantees and seller verification.",
+          id: "Mengurangi pembatalan keranjang sebesar 18% melalui jaminan pesanan transparan dan verifikasi penjual.",
+        },
+        {
+          en: "Designed for low-digital-literacy wholesale buyers purchasing high-ticket inventory ($500+).",
+          id: "Merancang untuk pembeli grosir dengan literasi digital rendah yang membeli stok bernilai tinggi (Rp 5jt+).",
+        },
+      ],
       caseStudy: {
         locked: true,
         summaries: {
@@ -377,6 +399,20 @@ export const gudangAda = {
       },
       title_id: "Official Store",
       tag_id: "Branding",
+      globalEquivalent: {
+        en: "Amazon Brand Store / Mirakl Enterprise Seller Hub",
+        id: "Amazon Brand Store / Mirakl Enterprise Seller Hub",
+      },
+      hiringSignals: [
+        {
+          en: "Designed enterprise B2B brand storefronts for tier-1 principals (Unilever, Danone, Wings).",
+          id: "Merancang etalase merek B2B enterprise untuk prinsipal tier-1 (Unilever, Danone, Wings).",
+        },
+        {
+          en: "Enabled 100% direct-to-retailer distribution transparency and verified supplier badging.",
+          id: "Memungkinkan transparansi distribusi langsung ke peritel 100% dan lencana pemasok terverifikasi.",
+        },
+      ],
       caseStudy: {
         locked: true,
         summaries: {
@@ -651,6 +687,20 @@ export const gudangAda = {
       },
       title_id: "Promo Center",
       tag_id: "Pemasaran",
+      globalEquivalent: {
+        en: "Shopify / Coupa Dynamic B2B Tiered Discount Engine",
+        id: "Shopify / Coupa Mesin Diskon Bertingkat B2B Dinamis",
+      },
+      hiringSignals: [
+        {
+          en: "Engineered complex wholesale volume discounting and multi-tiered rebate rules engine.",
+          id: "Merancang mesin aturan diskon volume grosir kompleks dan potongan harga bertingkat.",
+        },
+        {
+          en: "Built interactive promo simulator preventing margin losses for high-volume distributors.",
+          id: "Membangun simulator promo interaktif yang mencegah kerugian margin bagi distributor volume besar.",
+        },
+      ],
       caseStudy: {
         locked: true,
         summaries: {
@@ -923,6 +973,20 @@ export const gudangAda = {
       },
       title_id: "Design System",
       tag_id: "Arsitektur",
+      globalEquivalent: {
+        en: "Shopify Polaris / Salesforce Lightning Design System",
+        id: "Shopify Polaris / Salesforce Lightning Design System",
+      },
+      hiringSignals: [
+        {
+          en: "Unified 14 fragmented palettes into a single multi-platform token system (+35% dev velocity).",
+          id: "Menyatukan 14 palet terfragmentasi menjadi satu sistem token multi-platform (+35% kecepatan dev).",
+        },
+        {
+          en: "Established Design Ops culture and cross-functional governance across 50+ engineers.",
+          id: "Membangun budaya Design Ops dan tata kelola lintas fungsi di lebih dari 50 engineer.",
+        },
+      ],
       caseStudy: {
         locked: true,
         prototypeUrl: "/prototype-gada/index.html",

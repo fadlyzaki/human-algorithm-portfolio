@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import AiryDiagram from "../AiryDiagram";
 import ZoomableImage from "../ZoomableImage";
+import RecruiterQuickBrief from "./shared/RecruiterQuickBrief";
 
 // ─── DATA CONSTANTS ──────────────────────────────────────────────────────────
 
@@ -326,6 +327,21 @@ const LearningArchitectDetail = ({
             ))}
           </motion.div>
         </div>
+      </section>
+
+      {/* RECRUITER & HIRING MANAGER FAST-BRIEF */}
+      <section className="px-6 md:px-16 pt-10 pb-4 max-w-[1400px] mx-auto w-full">
+        <RecruiterQuickBrief
+          title={activeTitle}
+          tldr={activeTldr}
+          context={activeContext}
+          stack={project.stack}
+          hiringSignals={project.hiringSignals}
+          metrics={activeMetrics}
+          links={project.links}
+          brandColor="var(--accent-emerald, #10b981)"
+          isId={isIndonesian}
+        />
       </section>
 
       {/* ─────────────────────────────────────────────────────────────

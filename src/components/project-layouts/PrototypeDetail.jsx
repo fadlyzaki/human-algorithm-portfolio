@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import AiryDiagram from "../AiryDiagram";
 import ZoomableImage from "../ZoomableImage";
+import RecruiterQuickBrief from "./shared/RecruiterQuickBrief";
+import { useLanguage } from "../../context/LanguageContext";
 
 const PrototypeDetail = ({
   project,
@@ -25,6 +27,7 @@ const PrototypeDetail = ({
   t,
 }) => {
   const containerRef = useRef(null);
+  const { isIndonesian } = useLanguage();
 
   // Default brand color fallback
   const accentColor = project.brandColor || "var(--brand)";
@@ -57,7 +60,7 @@ const PrototypeDetail = ({
 
       <main className="relative z-10 max-w-[1400px] mx-auto pt-24 px-6 md:px-12">
         {/* 1. HERO SECTION */}
-        <header className="mb-24 flex flex-col md:flex-row gap-12 items-end pt-12 border-b border-[var(--border-color)] pb-16">
+        <header className="mb-12 flex flex-col md:flex-row gap-12 items-end pt-12 border-b border-[var(--border-color)] pb-12">
           <div className="flex-1">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] backdrop-blur-md text-[10px] uppercase tracking-wider text-[var(--text-secondary)] mb-8">
               <Sparkles size={12} style={{ color: accentColor }} />
@@ -105,6 +108,19 @@ const PrototypeDetail = ({
             </div>
           </div>
         </header>
+
+        {/* RECRUITER & HIRING MANAGER FAST-BRIEF */}
+        <RecruiterQuickBrief
+          title={activeTitle}
+          tldr={activeTldr}
+          context={activeContext}
+          stack={project.stack}
+          hiringSignals={project.hiringSignals}
+          metrics={activeMetrics}
+          links={project.links}
+          brandColor={accentColor}
+          isId={isIndonesian}
+        />
 
         {/* 2. THE TESTING GROUND (Prototype/Interaction) */}
         {(project.prototypeLink || InteractionComponent) && (

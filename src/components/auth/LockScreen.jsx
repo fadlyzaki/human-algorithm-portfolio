@@ -244,6 +244,27 @@ const LockScreen = ({ project, parentCluster, onSuccess, onDecryptStart }) => {
                   </a>
                 );
               })()}
+
+              {/* Quick Recruiter Preview — reduces bounce for evaluators */}
+              <div className="mt-6 pt-4 border-t border-[var(--border-color)]">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPassword("desainzaki");
+                    setTimeout(() => {
+                      const form = document.getElementById("lock-form");
+                      if (form) form.requestSubmit();
+                    }, 100);
+                  }}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-[10px] sm:text-[11px] font-mono uppercase tracking-wider bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-green)] hover:bg-[var(--accent-green)]/10 transition-all min-h-[44px]"
+                >
+                  <ScanEye size={14} />
+                  <span>{isId ? "⚡ Akses Cepat Recruiter" : "⚡ Quick Recruiter Preview"}</span>
+                </button>
+                <p className="text-[9px] text-[var(--text-secondary)] opacity-40 mt-2">
+                  {isId ? "Untuk HR, hiring manager, dan evaluator portofolio" : "For HR, hiring managers, and portfolio evaluators"}
+                </p>
+              </div>
             </div>
           </div>
         ) : (

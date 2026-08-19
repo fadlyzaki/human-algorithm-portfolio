@@ -21,9 +21,26 @@ export const humanAlgorithm = {
   },
   prototypeLink: "/",
   iconName: "Cpu",
-  featured: true,
   type: { en: "Meta-Project", id: "Proyek Meta" },
   date: { en: "Feb – March 2026", id: "Feb – Mar 2026" },
+  hiringSignals: [
+    {
+      en: "Autonomous AI Conductor: Architected the portfolio through an agentic loop with 4 AI subagents.",
+      id: "Konduktor AI Otonom: Merancang arsitektur portofolio melalui alur agen dengan 4 sub-agen AI.",
+    },
+    {
+      en: "Polymorphic Design System: 6 distinct layout engines (SystemCore, Brutalist, Bento, CosmicPop, Blueprint, Agentic).",
+      id: "Sistem Desain Polimorfik: 6 mesin tata letak berbeda (SystemCore, Brutalist, Bento, CosmicPop, Blueprint, Agentic).",
+    },
+    {
+      en: "Performance & Render Budget: Sub-2s Vite builds, 60fps GPU spring physics, and 100% test pass rate.",
+      id: "Anggaran Render & Performa: Build Vite sub-2 detik, fisika pegas GPU 60fps, dan 100% lulus uji.",
+    },
+    {
+      en: "Zero Fluff Principle: Actively purged deprecated experiments to maintain strict TTI and zero cognitive noise.",
+      id: "Prinsip Zero Fluff: Menghapus eksperimen usang secara tegas demi menjaga TTI cepat dan nol distraksi.",
+    },
+  ],
   coverImage: "airy:architecture",
   snapshot: {
     tagline: { en: "System Architecture v9.0", id: "Arsitektur Sistem v9.0" },
