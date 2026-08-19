@@ -1,12 +1,12 @@
 import React from "react";
 import Container from "./Container";
 
-const StoqoSalesIncentiveCard = ({ expanded, showChrome }) => (
+const StoqoSalesIncentiveCard = ({ expanded, showChrome, isId }) => (
   <Container
     expanded={expanded}
     showChrome={showChrome}
     figIndex="S.1"
-    schematicType="BEHAVIORAL_COMMITMENT_LOCK"
+    schematicType={isId ? "KUNCI_KOMITMEN_PERILAKU" : "BEHAVIORAL_COMMITMENT_LOCK"}
   >
     <div className="w-full h-full flex items-center justify-center p-8">
       <div className="relative w-40 h-40 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(var(--bg-void-rgb), 0.05)_inset]">
@@ -35,7 +35,7 @@ const StoqoSalesIncentiveCard = ({ expanded, showChrome }) => (
 
         {/* Label */}
         <div className="absolute bottom-8 px-3 py-1 bg-white dark:bg-black border border-[var(--brand)]/30 rounded text-[8px] font-mono text-[var(--brand)] uppercase tracking-wider shadow-lg translate-y-8">
-          COMMITMENT_VERIFIED
+          {isId ? "KOMITMEN TERVERIFIKASI" : "COMMITMENT_VERIFIED"}
         </div>
       </div>
     </div>

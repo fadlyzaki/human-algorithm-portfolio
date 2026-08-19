@@ -2,12 +2,12 @@ import React from "react";
 import { MessageCircle } from "lucide-react";
 import Container from "./Container";
 
-const WorkforceChatCard = ({ expanded, showChrome }) => (
+const WorkforceChatCard = ({ expanded, showChrome, isId }) => (
   <Container
     expanded={expanded}
     showChrome={showChrome}
     figIndex="3.2"
-    schematicType="UNIFIED_STREAM_TOPOLOGY"
+    schematicType={isId ? "TOPOLOGI_STREAM_TERPADU" : "UNIFIED_STREAM_TOPOLOGY"}
   >
     <div className="w-full h-full p-8 flex items-center justify-center">
       <div className="relative w-full h-full flex flex-col items-center justify-center">
@@ -23,7 +23,7 @@ const WorkforceChatCard = ({ expanded, showChrome }) => (
           </div>
           <div className="flex flex-col items-center gap-1">
             <div className="w-px h-8 bg-slate-300"></div>
-            <span className="text-[6px] font-mono">IN-APP</span>
+            <span className="text-[6px] font-mono">{isId ? "APLIKASI" : "IN-APP"}</span>
           </div>
         </div>
 
@@ -36,7 +36,7 @@ const WorkforceChatCard = ({ expanded, showChrome }) => (
         {/* Unified Output Stream */}
         <div className="w-px h-16 bg-gradient-to-b from-slate-200 to-[var(--brand)] mt-0 relative">
           <div className="absolute top-1/2 -left-3 px-2 py-1 bg-[var(--brand)] text-white text-[8px] font-mono rounded shadow-lg whitespace-nowrap">
-            UNIFIED_THREAD_ID
+            {isId ? "INBOX TERPADU" : "UNIFIED_THREAD_ID"}
           </div>
         </div>
       </div>

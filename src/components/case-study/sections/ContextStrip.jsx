@@ -11,20 +11,20 @@ const ContextStrip = ({ project, caseData, isId, t }) => {
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
         {[
           {
-            label: t("protected.context_client") || "Client",
-            value: caseData.context?.client || t("protected.classified_arch") || "Confidential",
+            label: t("protected.context_client") || (isId ? "Klien" : "Client"),
+            value: (isId ? caseData.context?.client_id || caseData.context?.client : caseData.context?.client) || (isId ? "Rahasia" : "Confidential"),
           },
           { 
-            label: t("protected.context_role") || "Role", 
+            label: t("protected.context_role") || (isId ? "Peran" : "Role"), 
             value: caseData.context?.role || (isId ? project.role_id || project.role : project.role) 
           },
           {
-            label: t("protected.context_timeline") || "Timeline",
+            label: t("protected.context_timeline") || (isId ? "Periode" : "Timeline"),
             value: caseData.context?.timeline || (isId ? project.timeline_id || project.timeline : project.timeline),
           },
           {
-            label: t("protected.context_team") || "Team",
-            value: caseData.context?.team || t("protected.context_team") || "Product Team",
+            label: t("protected.context_team") || (isId ? "Tim" : "Team"),
+            value: (isId ? caseData.context?.team_id || caseData.context?.team : caseData.context?.team) || (isId ? "Tim Produk" : "Product Team"),
           },
         ].map((item, i) => (
           <div key={i} className="flex flex-col">

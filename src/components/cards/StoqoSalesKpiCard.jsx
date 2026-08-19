@@ -1,12 +1,12 @@
 import React from "react";
 import Container from "./Container";
 
-const StoqoSalesKpiCard = ({ expanded, showChrome }) => (
+const StoqoSalesKpiCard = ({ expanded, showChrome, isId }) => (
   <Container
     expanded={expanded}
     showChrome={showChrome}
     figIndex="S.2"
-    schematicType="SIGNAL_TO_NOISE_FILTER"
+    schematicType={isId ? "FILTER_SINYAL_DAN_DERAU" : "SIGNAL_TO_NOISE_FILTER"}
   >
     <div className="w-full h-full flex flex-col items-center justify-center gap-3 p-8">
       {/* Filter Stream */}
@@ -34,7 +34,7 @@ const StoqoSalesKpiCard = ({ expanded, showChrome }) => (
       {/* The Filter Mechanism */}
       <div className="w-full max-w-[200px] h-px bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-50 my-2"></div>
       <div className="text-[8px] font-mono text-[var(--brand)] uppercase tracking-[0.12em] animate-pulse">
-        ATTENTION_SIEVE_ACTIVE
+        {isId ? "FILTER FOKUS AKTIF" : "ATTENTION_SIEVE_ACTIVE"}
       </div>
     </div>
   </Container>

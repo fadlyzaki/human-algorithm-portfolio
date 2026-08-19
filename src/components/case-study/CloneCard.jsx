@@ -75,6 +75,7 @@ function CloneCard({ study, isId }) {
                     image={sticker.src} 
                     expanded={true} 
                     backgroundOnly={true} 
+                    isId={isId}
                   />
                 </div>
               </div>

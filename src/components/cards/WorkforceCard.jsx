@@ -2,13 +2,13 @@ import React from "react";
 import { Users } from "lucide-react";
 import Container from "./Container";
 
-const WorkforceCard = ({ expanded, showChrome, backgroundOnly }) => (
+const WorkforceCard = ({ expanded, showChrome, backgroundOnly, isId }) => (
   <Container
     expanded={expanded}
     showChrome={showChrome}
     backgroundOnly={backgroundOnly}
     figIndex="C.1"
-    schematicType="WORKFORCE_ECOSYSTEM"
+    schematicType={isId ? "EKOSISTEM_TENAGA_KERJA" : "WORKFORCE_ECOSYSTEM"}
   >
     <div className="w-full h-full relative flex items-center justify-center opacity-100">
       {/* Central Node */}
@@ -50,13 +50,13 @@ const WorkforceCard = ({ expanded, showChrome, backgroundOnly }) => (
       {/* Satellites */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-8">
         <div className="px-3 py-1 bg-white/10 backdrop-blur rounded border border-white/20 text-white text-[10px] font-mono">
-          SEEKERS
+          {isId ? "PELAMAR" : "SEEKERS"}
         </div>
         <div className="w-px h-8 bg-gradient-to-b from-transparent to-white/20 mx-auto"></div>
       </div>
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 translate-x-8">
         <div className="px-3 py-1 bg-white/10 backdrop-blur rounded border border-white/20 text-white text-[10px] font-mono">
-          EMPLOYERS
+          {isId ? "PERUSAHAAN" : "EMPLOYERS"}
         </div>
         <div className="w-px h-8 bg-gradient-to-b from-transparent to-white/20 mx-auto"></div>
       </div>

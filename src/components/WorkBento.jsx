@@ -239,6 +239,7 @@ const WorkBento = ({ cluster, priority = false }) => {
                 expanded={true}
                 showChrome={false}
                 backgroundOnly={false}
+                isId={isId}
               />
             </div>
           )}

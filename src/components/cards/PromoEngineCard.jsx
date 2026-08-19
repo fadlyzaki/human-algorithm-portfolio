@@ -2,17 +2,17 @@ import React from "react";
 import { CheckCircle2 } from "lucide-react";
 import Container from "./Container";
 
-const PromoEngineCard = ({ expanded, showChrome }) => (
+const PromoEngineCard = ({ expanded, showChrome, isId }) => (
   <Container
     expanded={expanded}
     showChrome={showChrome}
     figIndex="10.4"
-    schematicType="DECISION_TREE_LOGIC"
+    schematicType={isId ? "LOGIKA_POHON_KEPUTUSAN" : "DECISION_TREE_LOGIC"}
   >
     <div className="w-full h-full p-8 flex flex-col items-center justify-start pt-12">
       {/* Root Node */}
       <div className="w-24 h-8 border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 rounded flex items-center justify-center text-[8px] font-mono text-slate-400 mb-2">
-        CART_TOTAL &gt; 50k
+        {isId ? "TOTAL > 50rb" : "CART_TOTAL > 50k"}
       </div>
       <div className="h-4 w-px bg-slate-300"></div>
 
@@ -47,14 +47,14 @@ const PromoEngineCard = ({ expanded, showChrome }) => (
         {/* No Path */}
         <div className="flex flex-col items-center pt-6 gap-2 opacity-40">
           <div className="w-12 h-6 border border-slate-200 bg-slate-50 rounded flex items-center justify-center text-[6px]">
-            REJECT
+            {isId ? "TOLAK" : "REJECT"}
           </div>
         </div>
 
         {/* Yes Path */}
         <div className="flex flex-col items-center pt-6 gap-2">
           <div className="px-3 py-1 bg-[var(--brand)] text-white rounded shadow-md text-[8px] font-mono flex items-center gap-1 relative">
-            <CheckCircle2 size={8} /> APPLY_DISC
+            <CheckCircle2 size={8} /> {isId ? "DISKON BERLAKU" : "APPLY_DISC"}
             <div className="absolute inset-0 rounded bg-[var(--brand)] animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite] opacity-20"></div>
           </div>
         </div>

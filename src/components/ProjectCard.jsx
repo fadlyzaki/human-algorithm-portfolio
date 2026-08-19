@@ -1,5 +1,6 @@
 import React, { Suspense, useMemo } from "react";
 import { lazyWithRetry } from "../utils/lazyWithRetry";
+import { useLanguage } from "../context/LanguageContext";
 import DefaultCard from "./cards/DefaultCard";
 
 const CARD_REGISTRY = {
@@ -45,7 +46,17 @@ const ProjectCard = ({
   id = null,
   showChrome = false,
   backgroundOnly = false,
+  isId: isIdProp,
 }) => {
+  let isIdFromContext = false;
+  try {
+    const langContext = useLanguage();
+    isIdFromContext = langContext?.isIndonesian || langContext?.language === "id";
+  } catch {
+    isIdFromContext = false;
+  }
+  const isId = isIdProp !== undefined ? isIdProp : isIdFromContext;
+
   const CardComponent = useMemo(() => {
     if (id && CARD_REGISTRY[id]) {
       return CARD_REGISTRY[id];
@@ -62,6 +73,7 @@ const ProjectCard = ({
         image={image}
         showChrome={showChrome}
         backgroundOnly={backgroundOnly}
+        isId={isId}
       />
     );
   }
@@ -72,6 +84,7 @@ const ProjectCard = ({
         expanded={expanded}
         showChrome={showChrome}
         backgroundOnly={backgroundOnly}
+        isId={isId}
       />
     </Suspense>
   );

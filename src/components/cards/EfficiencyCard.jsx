@@ -2,13 +2,13 @@ import React from "react";
 import { Clock } from "lucide-react";
 import Container from "./Container";
 
-const EfficiencyCard = ({ expanded, showChrome, backgroundOnly }) => (
+const EfficiencyCard = ({ expanded, showChrome, backgroundOnly, isId }) => (
   <Container
     expanded={expanded}
     showChrome={showChrome}
     backgroundOnly={backgroundOnly}
     figIndex="C.3"
-    schematicType="LOGISTICS_OPS"
+    schematicType={isId ? "OPERASIONAL_LOGISTIK" : "LOGISTICS_OPS"}
   >
     <div className="w-full h-full relative" style={{ perspective: "1000px" }}>
       {/* 3D Plane */}
@@ -35,7 +35,7 @@ const EfficiencyCard = ({ expanded, showChrome, backgroundOnly }) => (
 
       <div className="absolute bottom-10 w-full text-center">
         <div className="inline-block px-2 py-1 bg-black/20 backdrop-blur rounded border border-white/10 text-[8px] font-mono text-white/70">
-          JUST-IN-TIME DELIVERY
+          {isId ? "PENGIRIMAN TEPAT WAKTU" : "JUST-IN-TIME DELIVERY"}
         </div>
       </div>
     </div>

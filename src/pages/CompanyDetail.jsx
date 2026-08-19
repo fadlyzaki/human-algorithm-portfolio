@@ -108,7 +108,7 @@ const CompanyDetail = () => {
 
         {/* Stats Bar */}
         <div className="relative z-20 bg-[var(--bg-void)]">
-          <CompanyStats cluster={cluster} t={t} />
+          <CompanyStats cluster={cluster} t={t} isId={isId} />
         </div>
 
         {/* 2. SPLIT SCROLL LAYOUT */}

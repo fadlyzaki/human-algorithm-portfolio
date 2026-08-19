@@ -174,7 +174,7 @@ const CaseStudyContent = ({ project, parentCluster }) => {
 
             <KeyInsights caseData={caseData} t={t} />
 
-            <SolutionSection caseData={caseData} t={t} />
+            <SolutionSection caseData={caseData} t={t} isId={isId} />
 
             <PrototypeViewer caseData={caseData} t={t} />
 

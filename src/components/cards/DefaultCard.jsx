@@ -3,12 +3,12 @@ import Container from "./Container";
 import AiryDiagram from "../AiryDiagram";
 import OptimizedImage from "../OptimizedImage";
 
-const DefaultCard = ({ type, expanded, image, showChrome, backgroundOnly }) => (
+const DefaultCard = ({ type, expanded, image, showChrome, backgroundOnly, isId }) => (
   <Container
     expanded={expanded}
     showChrome={showChrome}
     backgroundOnly={backgroundOnly}
-    schematicType="SYSTEM_DIAGRAM"
+    schematicType={isId ? "DIAGRAM_SISTEM" : "SYSTEM_DIAGRAM"}
   >
     {image && image.startsWith("airy:") ? (
       <div className="w-full h-full p-8 flex items-center justify-center">

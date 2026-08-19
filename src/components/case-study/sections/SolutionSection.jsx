@@ -4,15 +4,15 @@ import ProjectCard from "../../ProjectCard";
 import AiryDiagram from "../../AiryDiagram";
 import ZoomableImage from "../../ZoomableImage";
 
-const SolutionSection = ({ caseData, t }) => {
+const SolutionSection = ({ caseData, t, isId }) => {
   return (
     <section className="max-w-6xl mx-auto px-6 py-32">
       <div className="flex flex-col sm:flex-row items-baseline justify-between mb-12 md:16 gap-4">
         <h2 className="text-3xl md:text-4xl font-serif italic">
-          {t("protected.solution_title") || "The Solution"}
+          {t("protected.solution_title") || (isId ? "Solusi Desain" : "The Solution")}
         </h2>
         <span className="font-mono text-[10px] md:text-xs text-[var(--text-secondary)] uppercase tracking-wider">
-          {t("protected.solution_subtitle") || "Interface Design"}
+          {t("protected.solution_subtitle") || (isId ? "Desain Antarmuka" : "Interface Design")}
         </span>
       </div>
 
@@ -35,13 +35,14 @@ const SolutionSection = ({ caseData, t }) => {
                             id={sol.componentId}
                             expanded={true}
                             showChrome={true}
+                            isId={isId}
                           />
                         </div>
                       </div>
                       <div className="mt-8 text-center px-4 max-w-[320px]">
                         <div className="font-mono text-xs text-[var(--brand)] mb-2 uppercase tracking-wider font-bold">
                           {t("protected.live_prototype") ||
-                            "Interactive Prototype"}
+                            (isId ? "Prototipe Interaktif" : "Interactive Prototype")}
                         </div>
                         <h3 className="text-xl font-bold mb-2">
                           {sol.title}
@@ -68,13 +69,14 @@ const SolutionSection = ({ caseData, t }) => {
                           id={sol.componentId}
                           expanded={true}
                           showChrome={true}
+                          isId={isId}
                         />
                       </div>
                     </div>
                     <div className="mt-10 text-center max-w-2xl mx-auto px-4">
                       <div className="font-mono text-xs text-[var(--brand)] mb-4 uppercase tracking-wider font-bold">
                         {t("protected.live_prototype") ||
-                          "Interactive Prototype"}
+                          (isId ? "Prototipe Interaktif" : "Interactive Prototype")}
                       </div>
                       <h3 className="text-3xl font-bold mb-4">
                         {sol.title}

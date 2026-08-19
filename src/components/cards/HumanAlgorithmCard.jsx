@@ -2,13 +2,13 @@ import React from "react";
 import { Cpu } from "lucide-react";
 import Container from "./Container";
 
-const HumanAlgorithmCard = ({ expanded, showChrome, backgroundOnly }) => (
+const HumanAlgorithmCard = ({ expanded, showChrome, backgroundOnly, isId }) => (
   <Container
     expanded={expanded}
     showChrome={showChrome}
     backgroundOnly={backgroundOnly}
     figIndex="0.0"
-    schematicType="RECURSIVE_AGENT_LOOP"
+    schematicType={isId ? "LOOP_AGEN_REKURSIF" : "RECURSIVE_AGENT_LOOP"}
   >
     <div className="w-full h-full p-8 flex items-center justify-center relative">
       {/* Central Processing Unit */}
@@ -49,7 +49,7 @@ const HumanAlgorithmCard = ({ expanded, showChrome, backgroundOnly }) => (
       {/* Meta Label */}
       {!backgroundOnly && (
         <div className="absolute bottom-6 px-2 py-0.5 border border-slate-100 bg-slate-50 rounded text-[6px] font-mono text-slate-400">
-          SELF_REFERENCE
+          {isId ? "REFERENSI DIRI" : "SELF_REFERENCE"}
         </div>
       )}
     </div>

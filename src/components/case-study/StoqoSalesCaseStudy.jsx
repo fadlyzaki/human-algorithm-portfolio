@@ -656,7 +656,7 @@ const StoqoSalesCaseStudy = ({ caseData, project, t }) => {
                 {/* Phone frame */}
                 <div className="w-full md:w-1/2 aspect-[9/19] max-w-sm mx-auto bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] relative shadow-2xl overflow-hidden group transition-transform duration-500 hover:scale-[1.02]">
                   <div className="absolute inset-0 w-full h-full bg-[var(--bg-surface)]">
-                    <ProjectCard id={sol.componentId} expanded={true} showChrome={true} />
+                    <ProjectCard id={sol.componentId} expanded={true} showChrome={true} isId={isIndonesian} />
                   </div>
                 </div>
 

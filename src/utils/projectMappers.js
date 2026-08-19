@@ -25,10 +25,37 @@ export const isProjectBypassed = (proj) => {
   return !isProjectLocked(proj);
 };
 
+export const CASE_TYPE_ID = {
+  "Service Design": "Desain Layanan",
+  "Mobile App": "Aplikasi Mobile",
+  "Concept": "Konsep",
+  "Web Dashboard": "Dasbor Web",
+  "Mobile Feature": "Fitur Mobile",
+  "App Architecture": "Arsitektur Aplikasi",
+  "Web Platform": "Platform Web",
+  "System Feature": "Fitur Sistem",
+  "Dashboard": "Dasbor",
+  "Design System": "Sistem Desain",
+  "Transactions": "Transaksi",
+  "Branding": "Branding",
+  "Marketing": "Pemasaran",
+  "Architecture": "Arsitektur",
+  "Logistics": "Logistik",
+  "Gamification": "Gamifikasi",
+  "Communication": "Komunikasi",
+  "Management": "Manajemen",
+  "Direct Access": "Akses Langsung",
+  "Core UX": "UX Inti",
+};
+
 export const mapProjectToStudy = (proj, cluster, isId) => {
   const localize = (value) => {
-    if (!value || typeof value !== "object") return value;
-    return isId ? value.id || value.en : value.en;
+    if (!value) return "";
+    if (typeof value === "object") return isId ? value.id || value.en : value.en;
+    if (isId && typeof value === "string" && CASE_TYPE_ID[value]) {
+      return CASE_TYPE_ID[value];
+    }
+    return value;
   };
 
   // Generate an image specifically for the app preview sticker

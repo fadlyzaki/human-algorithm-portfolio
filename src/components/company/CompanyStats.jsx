@@ -1,6 +1,7 @@
 import React from "react";
 
-const CompanyStats = ({ cluster, t }) => {
+const CompanyStats = ({ cluster, t, isId: isIdProp }) => {
+  const isId = isIdProp ?? false;
   return (
     <div className="border-t border-[var(--border-color)] relative">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-30"></div>
@@ -14,12 +15,17 @@ const CompanyStats = ({ cluster, t }) => {
           ]
         ).map((stat, i) => {
           const labelMap = {
-            Role: t("company.role"),
-            Teams: t("company.teams") || "Teams",
-            Timeline: t("company.period"),
-            Impact: t("company.impact"),
-            Platform: t("company.platform"),
+            Role: t("company.role") || (isId ? "Peran" : "Role"),
+            Teams: t("company.teams") || (isId ? "Tim" : "Teams"),
+            Timeline: t("company.period") || (isId ? "Periode" : "Timeline"),
+            Impact: t("company.impact") || (isId ? "Dampak" : "Impact"),
+            Platform: t("company.platform") || (isId ? "Platform" : "Platform"),
           };
+          const displayValue = isId && stat.value_id
+            ? stat.value_id
+            : typeof stat.value === "object"
+              ? (isId ? stat.value.id || stat.value.en : stat.value.en)
+              : stat.value;
           return (
             <div
               key={i}
@@ -32,7 +38,7 @@ const CompanyStats = ({ cluster, t }) => {
                 {labelMap[stat.label] || stat.label}
               </span>
               <span className="font-serif italic text-lg text-[var(--text-primary)] leading-tight">
-                {stat.value}
+                {displayValue}
               </span>
             </div>
           );

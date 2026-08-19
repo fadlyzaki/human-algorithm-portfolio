@@ -1,12 +1,12 @@
 import React from "react";
 import Container from "./Container";
 
-const StoqoSalesCard = ({ expanded, showChrome }) => (
+const StoqoSalesCard = ({ expanded, showChrome, isId }) => (
   <Container
     expanded={expanded}
     showChrome={showChrome}
     figIndex="5.5"
-    schematicType="TARGET_ACQUISITION_HUD"
+    schematicType={isId ? "HUD_AKUISISI_TARGET" : "TARGET_ACQUISITION_HUD"}
   >
     <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
       {/* Background Grid - Wide */}
@@ -64,11 +64,11 @@ const StoqoSalesCard = ({ expanded, showChrome }) => (
 
         {/* Floating Labels */}
         <div className="absolute -top-6 bg-white dark:bg-black px-2 py-0.5 border border-[var(--brand)]/30 rounded text-[8px] font-mono text-[var(--brand)] uppercase tracking-wider">
-          MISSION_LOCK
+          {isId ? "TARGET TERKUNCI" : "MISSION_LOCK"}
         </div>
         <div className="absolute -bottom-6 flex gap-4">
           <div className="px-2 py-0.5 bg-[var(--brand)] text-white rounded text-[6px] font-mono tracking-wider shadow-lg">
-            KPI_DETECTED
+            {isId ? "KPI TERCAPAI" : "KPI_DETECTED"}
           </div>
         </div>
       </div>

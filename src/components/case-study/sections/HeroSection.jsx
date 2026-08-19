@@ -16,6 +16,7 @@ const HeroSection = ({ project, caseData, isId, t }) => {
             expanded={true}
             id={project.id}
             showChrome={true}
+            isId={isId}
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-void)] via-[var(--bg-void)]/80 to-[var(--bg-void)]"></div>
@@ -29,7 +30,7 @@ const HeroSection = ({ project, caseData, isId, t }) => {
             <div className="bg-amber-500/10 border border-amber-500/50 text-amber-600 dark:text-amber-400 px-4 py-2 rounded-full flex items-center gap-2 backdrop-blur-sm">
               <AlertTriangle size={14} />
               <span className="font-mono text-[10px] uppercase tracking-wider">
-                {t("protected.wip_label") || "Work in Progress"}
+                {t("protected.wip_label") || (isId ? "Dalam Pengerjaan" : "Work in Progress")}
               </span>
             </div>
           </div>
@@ -38,7 +39,7 @@ const HeroSection = ({ project, caseData, isId, t }) => {
         {/* Cinematic Title */}
         <div className="mb-4">
           <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.12em] text-[var(--brand)] border-b border-[var(--brand)] pb-1 sm:pb-2 inline-block">
-            {caseData.snapshot?.tagline || t("protected.classified_arch") || "Confidential Project"}
+            {caseData.snapshot?.tagline || t("protected.classified_arch") || (isId ? "Proyek Rahasia" : "Confidential Project")}
           </span>
         </div>
 
@@ -59,9 +60,10 @@ const HeroSection = ({ project, caseData, isId, t }) => {
             showChrome={true}
             image={null}
             priority={true}
+            isId={isId}
           />
           <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase text-white dark:text-black bg-black/80 dark:bg-white/80 border border-[var(--border-color)] px-3 py-2 rounded shadow-xl hidden">
-            Fig. 1.0  -  System Architecture
+            {isId ? "Gbr. 1.0 — Arsitektur Sistem" : "Fig. 1.0 — System Architecture"}
           </div>
         </div>
       </div>

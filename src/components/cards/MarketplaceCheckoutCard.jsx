@@ -2,12 +2,12 @@ import React from "react";
 import { Truck } from "lucide-react";
 import Container from "./Container";
 
-const MarketplaceCheckoutCard = ({ expanded, showChrome }) => (
+const MarketplaceCheckoutCard = ({ expanded, showChrome, isId }) => (
   <Container
     expanded={expanded}
     showChrome={showChrome}
     figIndex="8.0"
-    schematicType="SUPPLY_CHAIN_HUB"
+    schematicType={isId ? "HUB_RANTAI_PASOK" : "SUPPLY_CHAIN_HUB"}
   >
     <div className="w-full h-full p-8 flex items-center justify-center relative">
       {/* Center Hub (Warehouse) */}
@@ -21,7 +21,7 @@ const MarketplaceCheckoutCard = ({ expanded, showChrome }) => (
         <div className="absolute -inset-3 rounded-full border border-dashed border-[var(--brand)]/20 animate-[spin_12s_linear_infinite]"></div>
         <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap">
           <span className="px-2 py-0.5 bg-[var(--brand)]/10 text-[var(--brand)] text-[8px] font-mono rounded border border-[var(--brand)]/20">
-            CENTRAL_HUB
+            {isId ? "GUDANG PUSAT" : "CENTRAL_HUB"}
           </span>
         </div>
       </div>

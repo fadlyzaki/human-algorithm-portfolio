@@ -98,6 +98,7 @@ const ExperimentCard = ({ project, idx, cardsRef, sideProjectsLength, isIndonesi
               id={project.id}
               expanded={true}
               image={project.coverImage}
+              isId={isIndonesian}
             />
           </div>
         </BlindsReveal>

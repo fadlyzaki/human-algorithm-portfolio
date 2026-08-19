@@ -151,6 +151,7 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, isIndonesian
             expanded={true}
             image={project.coverImage}
             backgroundOnly
+            isId={isIndonesian}
           />
         </div>
         {/* Visual Redactions */}
@@ -196,7 +197,7 @@ const SystemCoreCard = ({ project, title, desc, onClick, isHovered, isIndonesian
 );
 
 // 2. THE COSMIC POP (Muezza)
-const CosmicPopCard = ({ project, title, desc, onClick, isHovered, ref, onMouseEnter, onMouseLeave }) => (
+const CosmicPopCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref, onMouseEnter, onMouseLeave }) => (
   <motion.div
     ref={ref}
     id={`venture-card-${project.id}`}
@@ -246,7 +247,7 @@ const CosmicPopCard = ({ project, title, desc, onClick, isHovered, ref, onMouseE
 
         {/* Background Visual */}
         <div className={`absolute top-0 right-0 w-full h-full -z-0 transition-opacity ${isHovered ? 'opacity-60' : 'opacity-40 group-hover:opacity-60'}`}>
-          <ProjectCard id={project.id} backgroundOnly />
+          <ProjectCard id={project.id} backgroundOnly isId={isIndonesian} />
         </div>
       </div>
     </BlindsReveal>
@@ -324,7 +325,7 @@ const BentoCard = ({ project, title, desc, onClick, isHovered, isIndonesian, ref
       {/* Visual Top Half */}
       <div className="h-[55%] bg-gradient-to-tr from-[var(--accent-pink)]/10 to-[var(--accent-amber)]/10 dark:from-[var(--accent-pink)]/20 dark:to-[var(--accent-amber)]/20 relative overflow-hidden">
         <div className={`absolute inset-0 transition-all duration-1000 ${isHovered ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}>
-          <ProjectCard id={project.id} backgroundOnly />
+          <ProjectCard id={project.id} backgroundOnly isId={isIndonesian} />
         </div>
         {/* Sticker Style Tag */}
         <div className={`absolute top-6 left-6 rotate-[-5deg] bg-white dark:bg-black border border-black dark:border-white px-4 py-1 flex items-center gap-2 shadow-lg transition-transform z-10 ${isHovered ? 'scale-100' : 'scale-90 group-hover:scale-100'}`}>

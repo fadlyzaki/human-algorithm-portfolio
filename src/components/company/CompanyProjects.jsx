@@ -237,6 +237,7 @@ const FolderCard = ({ project, isId, t, brandColor, onClick }) => {
                   type={projectType}
                   id={project.id}
                   expanded={true}
+                  isId={isId}
                 />
               </div>
               {/* Subtle vignette */}

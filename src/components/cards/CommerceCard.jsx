@@ -2,13 +2,13 @@ import React from "react";
 import { Truck } from "lucide-react";
 import Container from "./Container";
 
-const CommerceCard = ({ expanded, showChrome, backgroundOnly }) => (
+const CommerceCard = ({ expanded, showChrome, backgroundOnly, isId }) => (
   <Container
     expanded={expanded}
     showChrome={showChrome}
     backgroundOnly={backgroundOnly}
     figIndex="C.2"
-    schematicType="B2B_SUPPLY_CHAIN"
+    schematicType={isId ? "RANTAI_PASOK_B2B" : "B2B_SUPPLY_CHAIN"}
   >
     <div className="w-full h-full relative flex items-center justify-center">
       {/* Grid Background */}
@@ -29,7 +29,7 @@ const CommerceCard = ({ expanded, showChrome, backgroundOnly }) => (
             <div className="w-4 h-4 bg-white/40 rounded-sm"></div>
           </div>
           <span className="text-[8px] font-mono text-white/50 tracking-wider">
-            BRAND
+            {isId ? "PRINSIPAL" : "BRAND"}
           </span>
         </div>
 
@@ -42,7 +42,7 @@ const CommerceCard = ({ expanded, showChrome, backgroundOnly }) => (
             <Truck size={20} className="text-white" />
           </div>
           <span className="text-[8px] font-mono text-white tracking-wider">
-            MARKETPLACE
+            {isId ? "PASAR B2B" : "MARKETPLACE"}
           </span>
         </div>
 
@@ -55,7 +55,7 @@ const CommerceCard = ({ expanded, showChrome, backgroundOnly }) => (
             <div className="w-4 h-4 bg-white/40 rounded-full"></div>
           </div>
           <span className="text-[8px] font-mono text-white/50 tracking-wider">
-            SME
+            {isId ? "WARUNG/UMKM" : "SME"}
           </span>
         </div>
       </div>
