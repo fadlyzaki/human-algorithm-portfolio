@@ -275,6 +275,21 @@ const BentoDetail = ({
           </section>
         )}
 
+        {/* Architect's Debrief / Personal Retrospective */}
+        {activeLearnings && (
+          <section className="mb-24">
+            <div className="bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] p-8 md:p-12 text-center relative overflow-hidden shadow-sm">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
+              <span className="font-mono text-xs uppercase tracking-[0.15em] text-purple-400 mb-6 block font-semibold">
+                {t("project_layouts.lesson_learned") || "// MAKER'S RETROSPECTIVE"}
+              </span>
+              <p className="text-xl md:text-2xl font-serif italic leading-relaxed text-[var(--text-primary)] max-w-3xl mx-auto">
+                "{activeLearnings}"
+              </p>
+            </div>
+          </section>
+        )}
+
         {/* METRICS */}
         {activeMetrics && (
           <section className="pb-12 h-full min-h-[300px]">

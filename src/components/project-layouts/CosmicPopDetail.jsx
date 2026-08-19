@@ -296,6 +296,19 @@ const CosmicPopDetail = ({
             </div>
           )}
 
+          {/* Architect's Debrief / Personal Retrospective */}
+          {activeLearnings && (
+            <div className="my-16 p-10 md:p-14 rounded-2xl border border-[var(--border-color)] bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-card)] text-center relative overflow-hidden shadow-xl">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-[var(--accent-sky)] rounded-full"></div>
+              <span className="font-mono text-xs uppercase tracking-[0.15em] text-[var(--accent-sky)] mb-6 block font-bold">
+                {t("project_layouts.lesson_learned") || "// ARCHITECT'S RETROSPECTIVE"}
+              </span>
+              <p className="text-xl md:text-2xl font-serif italic leading-relaxed text-[var(--text-primary)] max-w-3xl mx-auto">
+                "{activeLearnings}"
+              </p>
+            </div>
+          )}
+
           {/* Metrics Footer */}
           {activeMetrics && (
             <div className="bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-card)] rounded-2xl p-12 md:p-16 border border-[var(--border-color)] text-center shadow-[0_20px_50px_rgba(0,0,0,0.2)]">

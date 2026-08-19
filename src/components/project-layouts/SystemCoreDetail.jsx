@@ -382,6 +382,19 @@ const SystemCoreDetail = ({
             </div>
           )}
 
+          {/* Architect's Debrief / Personal Retrospective */}
+          {activeLearnings && (
+            <div className="border border-blue-500/20 bg-blue-950/20 rounded-xl p-8 md:p-12 text-center relative overflow-hidden my-16">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+              <span className="font-mono text-xs uppercase tracking-[0.15em] text-blue-400 mb-6 block">
+                {t("project_layouts.lesson_learned") || "// ARCHITECT'S DEBRIEF"}
+              </span>
+              <p className="text-xl md:text-2xl font-serif italic leading-relaxed text-[var(--text-primary)] max-w-3xl mx-auto">
+                "{activeLearnings}"
+              </p>
+            </div>
+          )}
+
           {/* Metrics Footer */}
           {activeMetrics && (
             <div className="border-t border-[var(--border-color)] pt-16">

@@ -306,6 +306,17 @@ const BlueprintDetail = ({
                     </div>
                   ))}
                 </div>
+
+                {activeLearnings && (
+                  <div className="pt-8 border-t border-[var(--border-color)]">
+                    <h5 className="text-[10px] text-blue-500 uppercase tracking-[0.12em] mb-4">
+                      {t("project_layouts.lesson_learned") || "// ARCHITECT'S DEBRIEF"}
+                    </h5>
+                    <p className="font-serif italic text-sm leading-relaxed text-[var(--text-secondary)]">
+                      "{activeLearnings}"
+                    </p>
+                  </div>
+                )}
               </div>
             )}
           </aside>

@@ -257,6 +257,18 @@ const BrutalistDetail = ({
           </div>
         )}
 
+        {/* Architect's Debrief / Personal Retrospective */}
+        {activeLearnings && (
+          <div className="mb-32 border-4 border-[var(--text-primary)] p-8 md:p-14 bg-[var(--bg-card)] shadow-[16px_16px_0px_0px_var(--text-primary)]">
+            <div className="font-mono text-sm uppercase font-black bg-[var(--accent-red)] text-white px-4 py-1.5 inline-block mb-6">
+              {t("project_layouts.lesson_learned") || "// RESEARCHER'S RETROSPECTIVE"}
+            </div>
+            <p className="text-2xl md:text-3xl font-serif italic font-bold leading-relaxed text-[var(--text-primary)]">
+              "{activeLearnings}"
+            </p>
+          </div>
+        )}
+
         {/* Footer Stats Only */}
         {activeMetrics && (
           <div className="grid lg:grid-cols-4 gap-8 border-t-8 border-[var(--text-primary)] pt-16">
